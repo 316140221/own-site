@@ -33,24 +33,37 @@ Zero-cost news aggregator: fetch RSS feeds, store normalized JSON, build a stati
 
 **Optional (recommended): set repo variables**
 
-Set GitHub repo **Settings → Secrets and variables → Actions → Variables**:
+Set GitHub repo **Settings → Secrets and variables → Actions → Variables** (click the **Variables** tab, then **New repository variable**):
 
 - `SITE_URL`
   - GitHub Pages default (no custom domain): `https://<owner>.github.io`
-  - Custom domain: `https://news.example.com`
+  - Custom domain: `https://shouyun.top` (or `https://news.example.com`)
 - `PATH_PREFIX`
   - User/Org site (`<owner>.github.io` repo): `/`
   - Project site (`<owner>.github.io/<repo>/`): `/<repo>/`
   - Custom domain: `/`
 
-These are used by `.github/workflows/update-and-deploy.yml` to generate correct canonical URLs, sitemap, and RSS links.
+Notes:
+- This workflow reads `vars.SITE_URL` / `vars.PATH_PREFIX` (see `.github/workflows/update-and-deploy.yml`).
+- If you set `SITE_URL` (custom domain), `PATH_PREFIX` will default to `/` automatically.
+
+These are used to generate correct canonical URLs, sitemap, and RSS links.
 
 ## Custom domain (Cloudflare)
 
 1. In GitHub repo settings → **Pages** → **Custom domain**: enter your domain (e.g. `news.example.com`) and save, then enable **Enforce HTTPS**.
-2. In Cloudflare → **DNS** add records:
-   - Subdomain (recommended): `CNAME` `news` → `<owner>.github.io` (set to **DNS only** until GitHub verifies).
-   - Apex/root domain: follow GitHub Pages instructions (A/AAAA records), or use Cloudflare CNAME-flattening.
+2. In Cloudflare → **DNS** add records (set to **DNS only** / gray cloud until GitHub verifies):
+   - Apex/root domain (e.g. `shouyun.top`): add these records (Name is `@` in Cloudflare):
+     - `A` `@` → `185.199.108.153`
+     - `A` `@` → `185.199.109.153`
+     - `A` `@` → `185.199.110.153`
+     - `A` `@` → `185.199.111.153`
+     - `AAAA` `@` → `2606:50c0:8000::153`
+     - `AAAA` `@` → `2606:50c0:8001::153`
+     - `AAAA` `@` → `2606:50c0:8002::153`
+     - `AAAA` `@` → `2606:50c0:8003::153`
+   - Subdomain (recommended): `CNAME` `news` → `<owner>.github.io`
+   - Optional: `CNAME` `www` → `<owner>.github.io` (or redirect `www` → apex via Cloudflare rules)
 3. Wait for DNS propagation and GitHub verification (usually minutes, sometimes longer).
 
 Cloudflare SSL/TLS: use **Full (strict)** (avoid **Flexible**).
