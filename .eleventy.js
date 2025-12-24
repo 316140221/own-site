@@ -48,6 +48,8 @@ function titleCase(value) {
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  if (fs.existsSync("CNAME")) eleventyConfig.addPassthroughCopy("CNAME");
+  if (fs.existsSync(".nojekyll")) eleventyConfig.addPassthroughCopy(".nojekyll");
 
   eleventyConfig.addFilter("formatDate", (value) => {
     if (!value) return "";
