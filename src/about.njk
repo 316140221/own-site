@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+title: About
+---
+
+<h1>About</h1>
+
+<p>
+  This site is an automated news aggregator. It only republishes metadata (title, short summary) and
+  links to original sources. Copyright belongs to the original publishers.
+</p>
+
+{% if stats %}
+  <h2>Status</h2>
+  <ul>
+    <li><strong>Last run:</strong> {{ stats.finishedAt | formatDateTime }}</li>
+    <li><strong>Sources:</strong> {{ stats.fetch.ok }} OK / {{ stats.fetch.failed }} failed</li>
+    <li><strong>Articles:</strong> {{ stats.indexes.totalArticles }} (90-day retention)</li>
+  </ul>
+{% endif %}
+
+<h2>Sources</h2>
+{% if sources and sources.length %}
+  <ul class="sources">
+    {% for s in sources %}
+      <li>
+        <strong>{{ s.name }}</strong>
+        {% if s.siteUrl %}· <a href="{{ s.siteUrl }}" target="_blank" rel="noopener noreferrer">{{ s.siteUrl }}</a>{% endif %}
+        {% if s.feedUrl %}· <a href="{{ s.feedUrl }}" target="_blank" rel="noopener noreferrer">RSS</a>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p class="muted">No sources configured yet. Create <code>data/sources.json</code> and run <code>npm run update</code>.</p>
+{% endif %}

@@ -1,0 +1,282 @@
+[
+  {
+    "id": "cbs_world",
+    "name": "CBS News - World",
+    "feedUrl": "https://www.cbsnews.com/latest/rss/world",
+    "siteUrl": "https://www.cbsnews.com/world",
+    "defaultCategory": "world",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "npr_news",
+    "name": "NPR - News",
+    "feedUrl": "https://feeds.npr.org/1001/rss.xml",
+    "siteUrl": "https://www.npr.org/sections/news/",
+    "defaultCategory": "world",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "politico_picks",
+    "name": "POLITICO - Picks",
+    "feedUrl": "https://www.politico.com/rss/politicopicks.xml",
+    "siteUrl": "https://www.politico.com/",
+    "defaultCategory": "world",
+    "language": "en",
+    "country": "US",
+    "enabled": false
+  },
+  {
+    "id": "cbs_moneywatch",
+    "name": "CBS News - MoneyWatch",
+    "feedUrl": "https://www.cbsnews.com/latest/rss/moneywatch",
+    "siteUrl": "https://www.cbsnews.com/moneywatch/",
+    "defaultCategory": "business",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "sciencedaily_business",
+    "name": "ScienceDaily - Business & Industry",
+    "feedUrl": "https://www.sciencedaily.com/rss/business_industry.xml",
+    "siteUrl": "https://www.sciencedaily.com/news/business_industry/",
+    "defaultCategory": "business",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "siteUrl": "https://arstechnica.com/",
+    "defaultCategory": "tech",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "theverge",
+    "name": "The Verge",
+    "feedUrl": "https://www.theverge.com/rss/index.xml",
+    "siteUrl": "https://www.theverge.com/",
+    "defaultCategory": "tech",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "wired",
+    "name": "WIRED",
+    "feedUrl": "https://www.wired.com/feed/rss",
+    "siteUrl": "https://www.wired.com/",
+    "defaultCategory": "tech",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "techmeme",
+    "name": "Techmeme",
+    "feedUrl": "https://www.techmeme.com/feed.xml",
+    "siteUrl": "https://www.techmeme.com/",
+    "defaultCategory": "tech",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "sciencedaily_computers",
+    "name": "ScienceDaily - Computers & Math",
+    "feedUrl": "https://www.sciencedaily.com/rss/computers_math.xml",
+    "siteUrl": "https://www.sciencedaily.com/news/computers_math/",
+    "defaultCategory": "tech",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "space_com",
+    "name": "Space.com",
+    "feedUrl": "https://www.space.com/feeds.xml",
+    "siteUrl": "https://www.space.com/",
+    "defaultCategory": "science",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "nasa_release",
+    "name": "NASA - News Releases",
+    "feedUrl": "https://www.nasa.gov/news-release/feed/",
+    "siteUrl": "https://www.nasa.gov/",
+    "defaultCategory": "science",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "sciencedaily_science",
+    "name": "ScienceDaily - Top Science",
+    "feedUrl": "https://www.sciencedaily.com/rss/top/science.xml",
+    "siteUrl": "https://www.sciencedaily.com/news/top/science/",
+    "defaultCategory": "science",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "who_news",
+    "name": "World Health Organization - News (EN)",
+    "feedUrl": "https://www.who.int/rss-feeds/news-english.xml",
+    "siteUrl": "https://www.who.int/news",
+    "defaultCategory": "health",
+    "language": "en",
+    "country": "UN",
+    "enabled": true
+  },
+  {
+    "id": "cbs_health",
+    "name": "CBS News - Health",
+    "feedUrl": "https://www.cbsnews.com/latest/rss/health",
+    "siteUrl": "https://www.cbsnews.com/health/",
+    "defaultCategory": "health",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "sciencedaily_health",
+    "name": "ScienceDaily - Health & Medicine",
+    "feedUrl": "https://www.sciencedaily.com/rss/health_medicine.xml",
+    "siteUrl": "https://www.sciencedaily.com/news/health_medicine/",
+    "defaultCategory": "health",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "espn_news",
+    "name": "ESPN - Top Headlines",
+    "feedUrl": "https://www.espn.com/espn/rss/news",
+    "siteUrl": "https://www.espn.com/",
+    "defaultCategory": "sports",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "cbs_sports",
+    "name": "CBS News - Sports",
+    "feedUrl": "https://www.cbsnews.com/latest/rss/sports",
+    "siteUrl": "https://www.cbsnews.com/sports/",
+    "defaultCategory": "sports",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "variety_ent",
+    "name": "Variety - Entertainment",
+    "feedUrl": "https://variety.com/v/entertainment/feed/",
+    "siteUrl": "https://variety.com/",
+    "defaultCategory": "entertainment",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "hollywood_reporter",
+    "name": "The Hollywood Reporter",
+    "feedUrl": "https://www.hollywoodreporter.com/feed/",
+    "siteUrl": "https://www.hollywoodreporter.com/",
+    "defaultCategory": "entertainment",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "billboard",
+    "name": "Billboard",
+    "feedUrl": "https://www.billboard.com/feed/",
+    "siteUrl": "https://www.billboard.com/",
+    "defaultCategory": "entertainment",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "france24_all",
+    "name": "France 24 - Top Stories",
+    "feedUrl": "https://www.france24.com/en/rss",
+    "siteUrl": "https://www.france24.com/en/",
+    "defaultCategory": "world",
+    "language": "en",
+    "country": "FR",
+    "enabled": true
+  },
+  {
+    "id": "un_news_all",
+    "name": "UN News - All",
+    "feedUrl": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
+    "siteUrl": "https://news.un.org/en/",
+    "defaultCategory": "world",
+    "language": "en",
+    "country": "UN",
+    "enabled": true
+  },
+  {
+    "id": "cbs_us",
+    "name": "CBS News - US",
+    "feedUrl": "https://www.cbsnews.com/latest/rss/us",
+    "siteUrl": "https://www.cbsnews.com/us/",
+    "defaultCategory": "world",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "cbs_politics",
+    "name": "CBS News - Politics",
+    "feedUrl": "https://www.cbsnews.com/latest/rss/politics",
+    "siteUrl": "https://www.cbsnews.com/politics/",
+    "defaultCategory": "world",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "fed_press",
+    "name": "Federal Reserve - Press Releases",
+    "feedUrl": "https://www.federalreserve.gov/feeds/press_all.xml",
+    "siteUrl": "https://www.federalreserve.gov/",
+    "defaultCategory": "business",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "propublica_main",
+    "name": "ProPublica - Main",
+    "feedUrl": "https://www.propublica.org/feeds/propublica/main",
+    "siteUrl": "https://www.propublica.org/",
+    "defaultCategory": "world",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  },
+  {
+    "id": "politifact_all",
+    "name": "PolitiFact - All",
+    "feedUrl": "https://www.politifact.com/rss/all/",
+    "siteUrl": "https://www.politifact.com/",
+    "defaultCategory": "world",
+    "language": "en",
+    "country": "US",
+    "enabled": true
+  }
+]

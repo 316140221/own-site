@@ -1,0 +1,23 @@
+<article class="article">
+  <div class="article-header">
+    <h1 class="article-title">{{ article.title }}</h1>
+    <div class="article-meta">
+      <span class="badge">{{ article.category }}</span>
+      <span class="muted">{{ article.publishedAt | formatDateTime }}</span>
+      <span class="muted">·</span>
+      <span class="muted">{{ article.source.name }}</span>
+      <span class="muted">·</span>
+      <a href="{{ article.canonicalUrl }}" target="_blank" rel="noopener noreferrer">Read original</a>
+    </div>
+  </div>
+
+  {% if article.summary %}
+    <p class="article-summary">{{ article.summary }}</p>
+  {% endif %}
+
+  <div class="article-actions">
+    <a class="button" href="{{ article.canonicalUrl }}" target="_blank" rel="noopener noreferrer">Open original →</a>
+    <a class="button button-secondary" href="{{ ('/category/' + article.category + '/') | url }}">More in {{ article.category }}</a>
+  </div>
+</article>
+

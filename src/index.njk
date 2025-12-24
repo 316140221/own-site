@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+title: Latest
+pagination:
+  data: latestPages
+  size: 1
+  alias: listPage
+permalink: "{% if listPage.pageNumber == 0 %}index.html{% else %}page/{{ listPage.pageNumber + 1 }}/index.html{% endif %}"
+---
+
+<h1>Latest</h1>
+{% set items = listPage.items %}
+{% include "partials/news-list.njk" %}
+{% include "partials/pagination.njk" %}

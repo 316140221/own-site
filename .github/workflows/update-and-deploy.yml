@@ -1,0 +1,79 @@
+name: Update data and deploy
+
+on:
+  schedule:
+    # Every 8 hours (UTC)
+    - cron: "0 */8 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  actions: write
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Update data (fetch → cleanup → indexes)
+        run: npm run update
+        env:
+          ARCHIVE_OLD: "1"
+
+      - name: Upload archives (if any)
+        uses: actions/upload-artifact@v4
+        with:
+          name: news-archives-${{ github.run_id }}
+          path: archives/*
+          if-no-files-found: ignore
+          retention-days: 90
+
+      - name: Commit data changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data
+            git commit -m "chore(data): update news"
+            git push
+          else
+            echo "No changes"
+          fi
+
+      - name: Build site
+        run: npm run build:site
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

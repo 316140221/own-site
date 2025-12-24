@@ -1,0 +1,284 @@
+{
+  "startedAt": "2025-12-24T01:49:22.141Z",
+  "finishedAt": "2025-12-24T01:50:02.251Z",
+  "totals": {
+    "sources": 27,
+    "ok": 27,
+    "failed": 0,
+    "added": 6,
+    "duplicates": 408,
+    "skipped": 0
+  },
+  "sources": {
+    "cbs_world": {
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:22.142Z",
+      "parsedItems": 30,
+      "added": 0,
+      "duplicates": 30,
+      "skipped": 0
+    },
+    "npr_news": {
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:28.138Z",
+      "parsedItems": 10,
+      "added": 0,
+      "duplicates": 10,
+      "skipped": 0
+    },
+    "cbs_moneywatch": {
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:28.628Z",
+      "parsedItems": 30,
+      "added": 0,
+      "duplicates": 30,
+      "skipped": 0
+    },
+    "sciencedaily_business": {
+      "ok": true,
+      "status": 304,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:28.823Z",
+      "parsedItems": 0,
+      "added": 0,
+      "duplicates": 0,
+      "skipped": 0
+    },
+    "arstechnica": {
+      "ok": true,
+      "status": 304,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:29.920Z",
+      "parsedItems": 0,
+      "added": 0,
+      "duplicates": 0,
+      "skipped": 0
+    },
+    "theverge": {
+      "ok": true,
+      "status": 304,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:30.595Z",
+      "parsedItems": 0,
+      "added": 0,
+      "duplicates": 0,
+      "skipped": 0
+    },
+    "wired": {
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:31.419Z",
+      "parsedItems": 50,
+      "added": 0,
+      "duplicates": 50,
+      "skipped": 0
+    },
+    "techmeme": {
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:32.182Z",
+      "parsedItems": 15,
+      "added": 1,
+      "duplicates": 14,
+      "skipped": 0
+    },
+    "sciencedaily_computers": {
+      "ok": true,
+      "status": 304,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:33.285Z",
+      "parsedItems": 0,
+      "added": 0,
+      "duplicates": 0,
+      "skipped": 0
+    },
+    "space_com": {
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:33.827Z",
+      "parsedItems": 50,
+      "added": 0,
+      "duplicates": 50,
+      "skipped": 0
+    },
+    "nasa_release": {
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:35.126Z",
+      "parsedItems": 10,
+      "added": 0,
+      "duplicates": 10,
+      "skipped": 0
+    },
+    "sciencedaily_science": {
+      "ok": true,
+      "status": 304,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:37.753Z",
+      "parsedItems": 0,
+      "added": 0,
+      "duplicates": 0,
+      "skipped": 0
+    },
+    "who_news": {
+      "ok": true,
+      "status": 304,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:38.317Z",
+      "parsedItems": 0,
+      "added": 0,
+      "duplicates": 0,
+      "skipped": 0
+    },
+    "cbs_health": {
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:39.004Z",
+      "parsedItems": 30,
+      "added": 2,
+      "duplicates": 28,
+      "skipped": 0
+    },
+    "sciencedaily_health": {
+      "ok": true,
+      "status": 304,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:39.687Z",
+      "parsedItems": 0,
+      "added": 0,
+      "duplicates": 0,
+      "skipped": 0
+    },
+    "espn_news": {
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:40.683Z",
+      "parsedItems": 45,
+      "added": 1,
+      "duplicates": 44,
+      "skipped": 0
+    },
+    "cbs_sports": {
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:41.374Z",
+      "parsedItems": 30,
+      "added": 0,
+      "duplicates": 30,
+      "skipped": 0
+    },
+    "variety_ent": {
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:41.663Z",
+      "parsedItems": 0,
+      "added": 0,
+      "duplicates": 0,
+      "skipped": 0
+    },
+    "hollywood_reporter": {
+      "ok": true,
+      "status": 304,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:42.379Z",
+      "parsedItems": 0,
+      "added": 0,
+      "duplicates": 0,
+      "skipped": 0
+    },
+    "billboard": {
+      "ok": true,
+      "status": 304,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:44.957Z",
+      "parsedItems": 0,
+      "added": 0,
+      "duplicates": 0,
+      "skipped": 0
+    },
+    "france24_all": {
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:45.903Z",
+      "parsedItems": 24,
+      "added": 1,
+      "duplicates": 23,
+      "skipped": 0
+    },
+    "un_news_all": {
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:51.711Z",
+      "parsedItems": 30,
+      "added": 0,
+      "duplicates": 30,
+      "skipped": 0
+    },
+    "cbs_us": {
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:52.906Z",
+      "parsedItems": 30,
+      "added": 1,
+      "duplicates": 29,
+      "skipped": 0
+    },
+    "cbs_politics": {
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:59.087Z",
+      "parsedItems": 30,
+      "added": 0,
+      "duplicates": 30,
+      "skipped": 0
+    },
+    "fed_press": {
+      "ok": true,
+      "status": 304,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:49:59.287Z",
+      "parsedItems": 0,
+      "added": 0,
+      "duplicates": 0,
+      "skipped": 0
+    },
+    "propublica_main": {
+      "ok": true,
+      "status": 304,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:50:00.304Z",
+      "parsedItems": 0,
+      "added": 0,
+      "duplicates": 0,
+      "skipped": 0
+    },
+    "politifact_all": {
+      "ok": true,
+      "status": 304,
+      "error": null,
+      "fetchedAt": "2025-12-24T01:50:01.373Z",
+      "parsedItems": 0,
+      "added": 0,
+      "duplicates": 0,
+      "skipped": 0
+    }
+  }
+}

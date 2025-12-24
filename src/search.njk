@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+title: Search
+---
+
+<h1>Search</h1>
+
+<p class="muted">
+  Search works on the deployed build (Pagefind index is generated during <code>npm run build:site</code>).
+</p>
+
+<link rel="stylesheet" href="{{ '/pagefind/pagefind-ui.css' | url }}" />
+<script src="{{ '/pagefind/pagefind-ui.js' | url }}" defer></script>
+
+<div id="search"></div>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    if (!window.PagefindUI) return;
+    new window.PagefindUI({
+      element: "#search",
+      showSubResults: true,
+      resetStyles: false,
+    });
+  });
+</script>
+

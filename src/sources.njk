@@ -1,0 +1,69 @@
+---
+layout: layouts/base.njk
+title: Sources
+---
+
+<h1>Sources</h1>
+
+{% if stats %}
+  <p class="muted">
+    Last run: {{ stats.finishedAt | formatDateTime }} ·
+    OK {{ stats.fetch.ok }} / Failed {{ stats.fetch.failed }} ·
+    Articles {{ stats.indexes.totalArticles }}
+  </p>
+{% endif %}
+
+<div class="table-wrap">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Source</th>
+        <th>Category</th>
+        <th>Status</th>
+        <th>Last fetch</th>
+        <th>Last success</th>
+        <th>Added</th>
+        <th>Dup</th>
+        <th>Fail streak</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in sourceHealth %}
+        <tr class="{% if s.isFailing %}row-bad{% endif %}">
+          <td>
+            <div><strong>{{ s.name }}</strong></div>
+            <div class="muted small">
+              {% if s.siteUrl %}
+                <a class="muted" href="{{ s.siteUrl }}" target="_blank" rel="noopener noreferrer">Site</a>
+                ·
+              {% endif %}
+              <a class="muted" href="{{ s.feedUrl }}" target="_blank" rel="noopener noreferrer">RSS</a>
+              ·
+              <span class="muted">{{ s.id }}</span>
+              {% if not s.enabled %}· <span class="badge">disabled</span>{% endif %}
+            </div>
+            {% if s.run.error or s.lastError %}
+              <div class="muted small">
+                Error: {{ s.run.error or s.lastError }}
+              </div>
+            {% endif %}
+          </td>
+          <td><span class="badge">{{ s.category }}</span></td>
+          <td>
+            {% if s.statusCode %}
+              <span class="badge">{{ s.statusCode }}</span>
+            {% else %}
+              <span class="muted">n/a</span>
+            {% endif %}
+          </td>
+          <td class="muted small">{{ s.lastFetchAt | formatDateTime }}</td>
+          <td class="muted small">{{ s.lastSuccessAt | formatDateTime }}</td>
+          <td class="muted">{{ s.run.added or 0 }}</td>
+          <td class="muted">{{ s.run.duplicates or 0 }}</td>
+          <td class="muted">{{ s.consecutiveFailures }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+

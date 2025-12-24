@@ -1,0 +1,20 @@
+{% if pagination and pagination.pages and pagination.pages.length > 1 %}
+  <nav class="pager">
+    {% if pagination.href.previous %}
+      <a class="pager-link" href="{{ pagination.href.previous | url }}">← Prev</a>
+    {% else %}
+      <span class="pager-disabled">← Prev</span>
+    {% endif %}
+
+    <span class="pager-meta">
+      Page {{ pagination.pageNumber + 1 }} / {{ pagination.pages.length }}
+    </span>
+
+    {% if pagination.href.next %}
+      <a class="pager-link" href="{{ pagination.href.next | url }}">Next →</a>
+    {% else %}
+      <span class="pager-disabled">Next →</span>
+    {% endif %}
+  </nav>
+{% endif %}
+

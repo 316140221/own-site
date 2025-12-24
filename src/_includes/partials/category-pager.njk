@@ -1,0 +1,25 @@
+{% set base = '/category/' + catPage.slug + '/' %}
+<nav class="pager">
+  {% if catPage.pageNumber > 0 %}
+    {% set prevPage = catPage.pageNumber - 1 %}
+    {% if prevPage == 0 %}
+      <a class="pager-link" href="{{ base | url }}">← Prev</a>
+    {% else %}
+      <a class="pager-link" href="{{ (base + 'page/' + (prevPage + 1) + '/') | url }}">← Prev</a>
+    {% endif %}
+  {% else %}
+    <span class="pager-disabled">← Prev</span>
+  {% endif %}
+
+  <span class="pager-meta">
+    Page {{ catPage.pageNumber + 1 }} / {{ catPage.totalPages }}
+  </span>
+
+  {% if catPage.pageNumber + 1 < catPage.totalPages %}
+    {% set nextPage = catPage.pageNumber + 1 %}
+    <a class="pager-link" href="{{ (base + 'page/' + (nextPage + 1) + '/') | url }}">Next →</a>
+  {% else %}
+    <span class="pager-disabled">Next →</span>
+  {% endif %}
+</nav>
+

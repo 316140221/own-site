@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: categoryPages
+  size: 1
+  alias: catPage
+permalink: "category/{{ catPage.slug }}/{% if catPage.pageNumber == 0 %}{% else %}page/{{ catPage.pageNumber + 1 }}/{% endif %}index.html"
+eleventyComputed:
+  title: "{{ catPage.label }}"
+---
+
+<h1>{{ catPage.label }}</h1>
+{% set items = catPage.items %}
+{% include "partials/news-list.njk" %}
+{% if catPage.totalPages > 1 %}
+  {% include "partials/category-pager.njk" %}
+{% endif %}
+

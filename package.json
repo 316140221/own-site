@@ -1,0 +1,29 @@
+{
+  "name": "own-site",
+  "version": "1.0.0",
+  "description": "Zero-cost news aggregator: RSS -> JSON -> static site -> GitHub Pages",
+  "private": true,
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "fetch": "node scripts/fetch.mjs",
+    "cleanup": "node scripts/cleanup.mjs",
+    "archive": "node scripts/archive.mjs",
+    "indexes": "node scripts/build-indexes.mjs",
+    "update": "node scripts/update.mjs",
+    "pagefind": "pagefind --site dist",
+    "build:site": "npm run build && npm run pagefind"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "luxon": "^3.7.0",
+    "rss-parser": "^3.13.0"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "pagefind": "^1.4.0"
+  }
+}

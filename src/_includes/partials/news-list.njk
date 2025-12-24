@@ -1,0 +1,12 @@
+{% if items and items.length %}
+  <ul class="news-list">
+    {% for item in items %}
+      {% include "partials/news-item.njk" %}
+    {% endfor %}
+  </ul>
+{% else %}
+  <p class="muted">
+    No data yet. Run <code>npm run update</code> to fetch RSS feeds and build indexes.
+  </p>
+{% endif %}
+
