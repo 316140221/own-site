@@ -1,17 +1,25 @@
 <li class="news-item">
-  <div class="news-title">
-    <a href="{{ ('/p/' + item.id + '/') | url }}">{{ item.title | decodeEntities }}</a>
-  </div>
-  <div class="news-meta">
-    <span class="badge">{{ item.category | titleCase }}</span>
-    {% if item.language %}<span class="badge">{{ item.language | upper }}</span>{% endif %}
-    <span class="muted">{{ item.publishedAt | formatDateTime }}</span>
-    <span class="muted">·</span>
-    <span class="muted">{{ item.source.name }}</span>
-    <span class="muted">·</span>
-    <a class="muted" href="{{ item.canonicalUrl }}" target="_blank" rel="noopener noreferrer">Open original</a>
-  </div>
-  {% if item.summary %}
-    <p class="news-summary">{{ item.summary }}</p>
+  {% if item.image %}
+    <a class="news-thumb" href="{{ ('/p/' + item.id + '/') | url }}" tabindex="-1" aria-hidden="true">
+      <img src="{{ item.image }}" alt="" loading="lazy" decoding="async" />
+    </a>
   {% endif %}
+
+  <div class="news-body">
+    <div class="news-title">
+      <a href="{{ ('/p/' + item.id + '/') | url }}">{{ item.title | decodeEntities }}</a>
+    </div>
+    <div class="news-meta">
+      <span class="badge">{{ item.category | titleCase }}</span>
+      {% if item.language %}<span class="badge">{{ item.language | upper }}</span>{% endif %}
+      <span class="muted">{{ item.publishedAt | formatDateTime }}</span>
+      <span class="muted">·</span>
+      <span class="muted">{{ item.source.name }}</span>
+      <span class="muted">·</span>
+      <a class="muted" href="{{ item.canonicalUrl }}" target="_blank" rel="noopener noreferrer">Open original</a>
+    </div>
+    {% if item.summary %}
+      <p class="news-summary">{{ item.summary }}</p>
+    {% endif %}
+  </div>
 </li>

@@ -31,14 +31,25 @@ jobs:
 
       - name: Compute Pages base URL
         id: pages
+        env:
+          SITE_URL_OVERRIDE: ${{ vars.SITE_URL }}
+          PATH_PREFIX_OVERRIDE: ${{ vars.PATH_PREFIX }}
         run: |
           OWNER="${{ github.repository_owner }}"
           REPO="${{ github.event.repository.name }}"
-          if [ "$REPO" = "${OWNER}.github.io" ]; then
-            echo "site_url=https://${OWNER}.github.io" >> "$GITHUB_OUTPUT"
-            echo "path_prefix=/" >> "$GITHUB_OUTPUT"
+          if [ -n "${SITE_URL_OVERRIDE}" ]; then
+            echo "site_url=${SITE_URL_OVERRIDE}" >> "$GITHUB_OUTPUT"
           else
             echo "site_url=https://${OWNER}.github.io" >> "$GITHUB_OUTPUT"
+          fi
+
+          if [ -n "${PATH_PREFIX_OVERRIDE}" ]; then
+            echo "path_prefix=${PATH_PREFIX_OVERRIDE}" >> "$GITHUB_OUTPUT"
+          elif [ -n "${SITE_URL_OVERRIDE}" ]; then
+            echo "path_prefix=/" >> "$GITHUB_OUTPUT"
+          elif [ "$REPO" = "${OWNER}.github.io" ]; then
+            echo "path_prefix=/" >> "$GITHUB_OUTPUT"
+          else
             echo "path_prefix=/${REPO}/" >> "$GITHUB_OUTPUT"
           fi
 

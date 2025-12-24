@@ -33,9 +33,6 @@
         <nav class="nav">
           <a href="{{ '/' | url }}">Home</a>
           <a href="{{ '/search/' | url }}">Search</a>
-          <a href="{{ '/feed.xml' | url }}">RSS</a>
-          <a href="{{ '/sources/' | url }}">Sources</a>
-          <a href="{{ '/languages/' | url }}">Languages</a>
           {% for cat in categories %}
             <a href="{{ ('/category/' + cat.slug + '/') | url }}">{{ cat.label }}</a>
           {% endfor %}

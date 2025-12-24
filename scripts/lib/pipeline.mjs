@@ -191,14 +191,65 @@ function parsePublishedAt(item) {
   return date.toISOString();
 }
 
-function pickImage(item) {
-  if (item.enclosure && item.enclosure.url) return String(item.enclosure.url);
+function normalizeImageUrl(raw, baseUrl) {
+  const trimmed = String(raw || "").trim();
+  if (!trimmed) return null;
+  if (trimmed.startsWith("data:")) return null;
+
+  const normalized = trimmed.startsWith("//") ? `https:${trimmed}` : trimmed;
+
+  try {
+    const resolved = baseUrl ? new URL(normalized, baseUrl) : new URL(normalized);
+    if (resolved.protocol !== "http:" && resolved.protocol !== "https:") return null;
+    return resolved.toString();
+  } catch {
+    return null;
+  }
+}
+
+function extractFirstImageFromHtml(html) {
+  const input = String(html || "");
+  if (!input) return null;
+
+  const match = input.match(/<img[^>]+src\s*=\s*["']([^"']+)["'][^>]*>/i);
+  if (match && match[1]) return match[1];
+
+  const matchSrcset = input.match(
+    /<img[^>]+srcset\s*=\s*["']([^"']+)["'][^>]*>/i
+  );
+  if (!matchSrcset || !matchSrcset[1]) return null;
+
+  const first = String(matchSrcset[1]).split(",")[0] || "";
+  const candidate = first.trim().split(/\s+/)[0];
+  return candidate || null;
+}
+
+function pickImage(item, source) {
+  const baseUrl = source?.siteUrl || source?.feedUrl || null;
+
+  if (item.enclosure && item.enclosure.url) {
+    return normalizeImageUrl(item.enclosure.url, baseUrl);
+  }
   if (Array.isArray(item.mediaContent) && item.mediaContent[0]?.$?.url) {
-    return String(item.mediaContent[0].$.url);
+    return normalizeImageUrl(item.mediaContent[0].$.url, baseUrl);
   }
   if (Array.isArray(item.mediaThumbnail) && item.mediaThumbnail[0]?.$?.url) {
-    return String(item.mediaThumbnail[0].$.url);
+    return normalizeImageUrl(item.mediaThumbnail[0].$.url, baseUrl);
   }
+
+  const htmlCandidates = [
+    item.content,
+    item["content:encoded"],
+    item.summary,
+    item.contentSnippet,
+  ].filter(Boolean);
+
+  for (const html of htmlCandidates) {
+    const candidate = extractFirstImageFromHtml(html);
+    const normalized = normalizeImageUrl(candidate, baseUrl);
+    if (normalized) return normalized;
+  }
+
   return null;
 }
 
@@ -415,7 +466,7 @@ export async function fetchAllSources({
           fetchedAt: perSource.fetchedAt,
           category,
           tags: Array.isArray(item.categories) ? item.categories : [],
-          image: pickImage(item),
+          image: pickImage(item, source),
           language: source.language || "en",
           storagePath: relPath,
         };

@@ -37,6 +37,7 @@
 - [x] 定义 `data/sources.json`（源清单：名称、feedUrl、默认分类、语言、站点链接等）
 - [x] 实现 RSS 拉取与解析（含超时/失败隔离，不因单个源失败而全失败）
 - [x] 规范化数据模型（Article JSON）
+- [x] 图片字段：采集时提取 `image` URL（enclosure/media/HTML img），仅存 URL；列表/详情有则展示
 - [x] 写入 `data/articles/<category>/<yyyy>/<mm>/<dd>/<id>.json`
 - [x] 生成索引：`data/indexes/latest.json`、`data/indexes/by-category/<category>.json`、`data/indexes/articles.json`
 - [x] 去重：按 `id=sha1(canonicalUrl)` 全局去重（避免静态页 permalink 冲突；构建索引时会清理历史重复文件）

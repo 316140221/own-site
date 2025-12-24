@@ -11,9 +11,6 @@ eleventyComputed:
 ---
 
 <h1>{{ catPage.label }}</h1>
-<p class="muted">
-  <a href="{{ rssPath | url }}">RSS feed</a>
-</p>
 {% set items = catPage.items %}
 {% include "partials/news-list.njk" %}
 {% if catPage.totalPages > 1 %}
