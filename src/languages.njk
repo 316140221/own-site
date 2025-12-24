@@ -1,9 +1,14 @@
 ---
 layout: layouts/base.njk
 title: Languages
+rssPath: /feed.xml
 ---
 
 <h1>Languages</h1>
+
+<p class="muted">
+  <a href="{{ '/feed.xml' | url }}">Site RSS</a>
+</p>
 
 {% if languages and languages.length %}
   <ul class="sources">
@@ -17,4 +22,3 @@ title: Languages
 {% else %}
   <p class="muted">No languages detected.</p>
 {% endif %}
-

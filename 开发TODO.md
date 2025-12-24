@@ -39,7 +39,7 @@
 - [x] 规范化数据模型（Article JSON）
 - [x] 写入 `data/articles/<category>/<yyyy>/<mm>/<dd>/<id>.json`
 - [x] 生成索引：`data/indexes/latest.json`、`data/indexes/by-category/<category>.json`、`data/indexes/articles.json`
-- [x] 去重：按 `id=sha1(canonicalUrl)` 全局去重（避免静态页 permalink 冲突）
+- [x] 去重：按 `id=sha1(canonicalUrl)` 全局去重（避免静态页 permalink 冲突；构建索引时会清理历史重复文件）
 - [x] 在 `方案.md` 增补“sources/state/indexes 说明”
 
 **验收标准**
@@ -70,6 +70,7 @@
 
 **TODO**
 - [x] 生成 `sitemap.xml`、`robots.txt`、基础 meta/OG
+- [x] GitHub Pages Project Pages：`PATH_PREFIX` 下的 sitemap/canonical/robots 仍正确
 - [x] 站内搜索（零成本）：Pagefind（`npm run pagefind`）
 - [x] 列表分页：首页与分类页分页
 
@@ -94,8 +95,51 @@
 - [x] 更细分类映射：`data/category-rules.json`（构建索引时按标题/摘要/标签关键词自动归类）
 - [x] 增加更多“World/Business”来源的冗余（新增 France24/UN/ProPublica/PolitiFact/Fed/CBS feeds；默认禁用持续 403 的源）
 - [x] 归档策略：把 90 天之外的数据打包归档（`ARCHIVE_OLD=1` 时输出到 `archives/`，workflow 会上传 artifact）
-- [ ] 多语言扩展（在保持英文 UI 前提下增加内容语言维度）
+- [x] 多语言扩展：按语言生成索引与页面（保持英文 UI；新增 `/languages/` 与 `/lang/<code>/`）
 
 **验收标准**
 - 源规模扩大后仍稳定构建；失败源可定位
 - 分类更稳定，重复率明显下降
+
+## 迭代 7（Loop 7）：订阅输出 + 分享入口（持续运营）
+
+**目标**
+- 让聚合站内容可被“外部订阅/二次分发”：提供站点级与分类/语言级 RSS 输出，方便读者与搜索引擎发现。
+
+**TODO**
+- [x] 生成站点 RSS：`/feed.xml`（最新 50 条）
+- [x] 生成分类 RSS：`/category/<name>/feed.xml`
+- [x] 生成语言 RSS：`/lang/<code>/feed.xml`
+- [x] 在页头或 About 增加 RSS 入口（英文 UI 文案）
+
+**验收标准**
+- `feed.xml` 可被常见 RSS 阅读器订阅，条目链接与时间正确
+- 分类/语言 feed 的条目与对应页面一致
+
+## 迭代 8（Loop 8）：自愈能力 + 可观测性增强
+
+**目标**
+- 让系统在“源波动/偶发失败”时更稳：自动退避、给出更清晰的运行摘要，减少人工介入。
+
+**TODO**
+- [x] 失败退避：单源连续失败达到阈值后自动暂停一段时间（仅暂停采集，不影响全局）
+- [x] GitHub Actions Summary：输出本次新增/重复/失败源列表到 `GITHUB_STEP_SUMMARY`
+- [x] 保留最近 N 次运行的汇总统计（默认保留 30 天，避免仓库膨胀）
+
+**验收标准**
+- 连续失败的源会被自动退避，健康恢复后自动恢复采集
+- Actions 详情页能一眼看到本次运行关键信息与失败源
+
+## 迭代 9（Loop 9）：多语言内容接入（保持英文 UI）
+
+**目标**
+- 在 UI 文案保持英文前提下，引入非英文内容源，并按语言维度聚合展示。
+
+**TODO**
+- [ ] 扩展非英文 RSS 源（例如 `fr/es/de/ja`），并在 `data/sources.json` 标注 `language`
+- [ ] 分类规则增强：对非英文内容做“最小可用”的分类映射（避免全落到 `world`）
+- [ ] 质量控制：为非英文源增加黑名单/去重优化（避免标题模板化带来的重复）
+
+**验收标准**
+- `/languages/` 至少出现 2 种语言
+- `/lang/<code>/` 可分页且能稳定构建（英文 UI 文案不变）

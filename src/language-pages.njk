@@ -7,12 +7,15 @@ pagination:
 permalink: "lang/{{ langPage.code }}/{% if langPage.pageNumber == 0 %}{% else %}page/{{ langPage.pageNumber + 1 }}/{% endif %}index.html"
 eleventyComputed:
   title: "{{ langPage.label }}"
+  rssPath: "/lang/{{ langPage.code }}/feed.xml"
 ---
 
 <h1>{{ langPage.label }}</h1>
+<p class="muted">
+  <a href="{{ rssPath | url }}">RSS feed</a>
+</p>
 {% set items = langPage.items %}
 {% include "partials/news-list.njk" %}
 {% if langPage.totalPages > 1 %}
   {% include "partials/language-pager.njk" %}
 {% endif %}
-

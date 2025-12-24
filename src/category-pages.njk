@@ -7,12 +7,15 @@ pagination:
 permalink: "category/{{ catPage.slug }}/{% if catPage.pageNumber == 0 %}{% else %}page/{{ catPage.pageNumber + 1 }}/{% endif %}index.html"
 eleventyComputed:
   title: "{{ catPage.label }}"
+  rssPath: "/category/{{ catPage.slug }}/feed.xml"
 ---
 
 <h1>{{ catPage.label }}</h1>
+<p class="muted">
+  <a href="{{ rssPath | url }}">RSS feed</a>
+</p>
 {% set items = catPage.items %}
 {% include "partials/news-list.njk" %}
 {% if catPage.totalPages > 1 %}
   {% include "partials/category-pager.njk" %}
 {% endif %}
-

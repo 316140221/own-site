@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Latest
+rssPath: /feed.xml
 pagination:
   data: latestPages
   size: 1
@@ -9,6 +10,9 @@ permalink: "{% if listPage.pageNumber == 0 %}index.html{% else %}page/{{ listPag
 ---
 
 <h1>Latest</h1>
+<p class="muted">
+  <a href="{{ '/feed.xml' | url }}">RSS feed</a>
+</p>
 {% set items = listPage.items %}
 {% include "partials/news-list.njk" %}
 {% include "partials/pagination.njk" %}

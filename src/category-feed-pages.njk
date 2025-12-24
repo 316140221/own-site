@@ -1,0 +1,34 @@
+---
+layout: null
+eleventyExcludeFromCollections: true
+pagination:
+  data: categories
+  size: 1
+  alias: category
+permalink: "category/{{ category.slug }}/feed.xml"
+---
+{% set items = (('data/indexes/by-category/' + category.slug + '.json') | readJson) or [] %}
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ (site.name + ' - ' + category.label) | xmlEscape | safe }}</title>
+    <link>{{ ('/category/' + category.slug + '/') | url | absoluteUrl(site.url) }}</link>
+    <description>{{ ('Latest items in ' + category.label + '.') | xmlEscape | safe }}</description>
+    <language>{{ site.language | xmlEscape | safe }}</language>
+    <lastBuildDate>{{ buildTime | rfc822 }}</lastBuildDate>
+    <atom:link href="{{ ('/category/' + category.slug + '/feed.xml') | url | absoluteUrl(site.url) }}" rel="self" type="application/rss+xml" />
+
+    {% for item in items %}
+      {% if loop.index0 < 50 %}
+        {% set itemLink = ('/p/' + item.id + '/') | url | absoluteUrl(site.url) %}
+        <item>
+          <title>{{ item.title | decodeEntities | xmlEscape | safe }}</title>
+          <link>{{ itemLink | xmlEscape | safe }}</link>
+          <guid isPermaLink="false">{{ item.id | xmlEscape | safe }}</guid>
+          <pubDate>{{ item.publishedAt | rfc822 }}</pubDate>
+          <description>{{ (item.summary or '') | xmlEscape | safe }}</description>
+        </item>
+      {% endif %}
+    {% endfor %}
+  </channel>
+</rss>

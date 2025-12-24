@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 title: About
+rssPath: /feed.xml
 ---
 
 <h1>About</h1>
@@ -10,11 +11,15 @@ title: About
   links to original sources. Copyright belongs to the original publishers.
 </p>
 
+<p>
+  <strong>RSS:</strong> <a href="{{ '/feed.xml' | url }}">/feed.xml</a>
+</p>
+
 {% if stats %}
   <h2>Status</h2>
   <ul>
     <li><strong>Last run:</strong> {{ stats.finishedAt | formatDateTime }}</li>
-    <li><strong>Sources:</strong> {{ stats.fetch.ok }} OK / {{ stats.fetch.failed }} failed</li>
+    <li><strong>Sources:</strong> {{ stats.fetch.ok }} OK / {{ stats.fetch.failed }} failed / {{ stats.fetch.paused or 0 }} paused</li>
     <li><strong>Articles:</strong> {{ stats.indexes.totalArticles }} (90-day retention)</li>
   </ul>
 {% endif %}

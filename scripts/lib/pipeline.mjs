@@ -120,6 +120,23 @@ function normalizeLanguageCode(input) {
   return base || "en";
 }
 
+function computePausedUntil({
+  failures,
+  fetchedAt,
+  threshold = 3,
+  baseHours = 24,
+  maxHours = 168,
+} = {}) {
+  const count = Number.parseInt(failures || 0, 10) || 0;
+  if (count < threshold) return null;
+
+  const exponent = Math.max(0, count - threshold);
+  const hours = Math.min(baseHours * 2 ** exponent, maxHours);
+  const baseDate = fetchedAt ? new Date(String(fetchedAt)) : new Date();
+  const baseTime = Number.isNaN(baseDate.getTime()) ? Date.now() : baseDate.getTime();
+  return new Date(baseTime + hours * 60 * 60 * 1000).toISOString();
+}
+
 export function normalizeUrl(url) {
   try {
     const parsed = new URL(url);
@@ -225,10 +242,31 @@ export async function fetchAllSources({
       : []
   );
 
+  const failureBackoffThreshold = Number.parseInt(
+    process.env.FAILURE_BACKOFF_THRESHOLD || "3",
+    10
+  );
+  const failureBackoffBaseHours = Number.parseInt(
+    process.env.FAILURE_BACKOFF_BASE_HOURS || "24",
+    10
+  );
+  const failureBackoffMaxHours = Number.parseInt(
+    process.env.FAILURE_BACKOFF_MAX_HOURS || "168",
+    10
+  );
+
   const run = {
     startedAt: nowIso(),
     finishedAt: null,
-    totals: { sources: 0, ok: 0, failed: 0, added: 0, duplicates: 0, skipped: 0 },
+    totals: {
+      sources: 0,
+      ok: 0,
+      failed: 0,
+      paused: 0,
+      added: 0,
+      duplicates: 0,
+      skipped: 0,
+    },
     sources: {},
   };
 
@@ -251,6 +289,7 @@ export async function fetchAllSources({
 
     const perSource = {
       ok: false,
+      paused: false,
       status: null,
       error: null,
       fetchedAt: nowIso(),
@@ -260,6 +299,17 @@ export async function fetchAllSources({
       skipped: 0,
     };
     run.sources[source.id] = perSource;
+
+    const pausedUntil = sourceState.pausedUntil ? String(sourceState.pausedUntil) : null;
+    if (pausedUntil) {
+      const pausedUntilDate = new Date(pausedUntil);
+      if (!Number.isNaN(pausedUntilDate.getTime()) && Date.now() < pausedUntilDate.getTime()) {
+        perSource.paused = true;
+        perSource.error = `Paused until ${pausedUntil}`;
+        run.totals.paused += 1;
+        continue;
+      }
+    }
 
     try {
       const { response, text } = await fetchTextWithTimeout(
@@ -278,6 +328,7 @@ export async function fetchAllSources({
           lastFetchAt: perSource.fetchedAt,
           lastSuccessAt: perSource.fetchedAt,
           consecutiveFailures: 0,
+          pausedUntil: null,
           lastStatus: 304,
           lastError: null,
         };
@@ -386,6 +437,7 @@ export async function fetchAllSources({
         lastFetchAt: perSource.fetchedAt,
         lastSuccessAt: perSource.fetchedAt,
         consecutiveFailures: 0,
+        pausedUntil: null,
         lastStatus: perSource.status,
         lastError: null,
       };
@@ -396,12 +448,22 @@ export async function fetchAllSources({
       perSource.error = error instanceof Error ? error.message : String(error);
       run.totals.failed += 1;
 
-      const prevFailures = Number.parseInt(sourceState.consecutiveFailures || 0, 10) || 0;
+      const prevFailures =
+        Number.parseInt(sourceState.consecutiveFailures || 0, 10) || 0;
+      const failures = prevFailures + 1;
+      const nextPausedUntil = computePausedUntil({
+        failures,
+        fetchedAt: perSource.fetchedAt,
+        threshold: failureBackoffThreshold,
+        baseHours: failureBackoffBaseHours,
+        maxHours: failureBackoffMaxHours,
+      });
       state[source.id] = {
         ...sourceState,
         lastFetchAt: perSource.fetchedAt,
         lastFailureAt: perSource.fetchedAt,
-        consecutiveFailures: prevFailures + 1,
+        consecutiveFailures: failures,
+        pausedUntil: nextPausedUntil,
         lastStatus: perSource.status ?? sourceState.lastStatus ?? null,
         lastError: perSource.error,
       };
@@ -596,31 +658,57 @@ export async function buildIndexes({
     ? await listFilesRecursive(ARTICLES_DIR)
     : [];
 
-  const articles = [];
+  const entries = [];
   for (const filePath of allFiles) {
     const article = await readJsonOrDefault(filePath, null);
     if (!article || !article.id || !article.publishedAt) continue;
 
-    articles.push(article);
+    if (!article.storagePath) {
+      article.storagePath = path
+        .relative(ROOT, filePath)
+        .replaceAll(path.sep, "/");
+    }
+
+    entries.push({ filePath, article });
   }
 
   const byId = new Map();
-  for (const article of articles) {
+  for (const entry of entries) {
+    const article = entry.article;
     const existing = byId.get(article.id);
     if (!existing) {
-      byId.set(article.id, article);
+      byId.set(article.id, entry);
       continue;
     }
 
+    const existingArticle = existing.article;
     const existingScore =
-      (existing.image ? 10 : 0) + Math.min((existing.summary || "").length, 400) / 40;
+      (existingArticle.image ? 10 : 0) +
+      Math.min((existingArticle.summary || "").length, 400) / 40;
     const nextScore =
       (article.image ? 10 : 0) + Math.min((article.summary || "").length, 400) / 40;
 
-    if (nextScore > existingScore) byId.set(article.id, article);
+    if (nextScore > existingScore) byId.set(article.id, entry);
   }
 
-  const uniqueArticles = Array.from(byId.values());
+  const duplicateIds = Math.max(0, entries.length - byId.size);
+  const keptPaths = new Set(Array.from(byId.values()).map((e) => e.filePath));
+  const duplicatePaths = entries
+    .filter((e) => !keptPaths.has(e.filePath))
+    .map((e) => e.filePath);
+
+  await Promise.all(
+    duplicatePaths.map(async (p) => {
+      try {
+        await fs.rm(p, { force: true });
+      } catch {
+        // ignore
+      }
+    })
+  );
+  if (duplicatePaths.length > 0) await removeEmptyDirs(ARTICLES_DIR);
+
+  const uniqueArticles = Array.from(byId.values()).map((e) => e.article);
   for (const article of uniqueArticles) {
     article.category = classifyCategory(article, categoryRules);
   }
@@ -699,6 +787,7 @@ export async function buildIndexes({
 
   return {
     totalArticles: uniqueArticles.length,
-    duplicateIds: articles.length - uniqueArticles.length,
+    duplicateIds,
+    deletedDuplicates: duplicatePaths.length,
   };
 }

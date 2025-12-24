@@ -1,8 +1,8 @@
 <article class="article">
   <div class="article-header">
-    <h1 class="article-title">{{ article.title }}</h1>
+    <h1 class="article-title">{{ article.title | decodeEntities }}</h1>
     <div class="article-meta">
-      <span class="badge">{{ article.category }}</span>
+      <span class="badge">{{ article.category | titleCase }}</span>
       {% if article.language %}<span class="badge">{{ article.language | upper }}</span>{% endif %}
       <span class="muted">{{ article.publishedAt | formatDateTime }}</span>
       <span class="muted">·</span>
@@ -18,6 +18,6 @@
 
   <div class="article-actions">
     <a class="button" href="{{ article.canonicalUrl }}" target="_blank" rel="noopener noreferrer">Open original →</a>
-    <a class="button button-secondary" href="{{ ('/category/' + article.category + '/') | url }}">More in {{ article.category }}</a>
+    <a class="button button-secondary" href="{{ ('/category/' + article.category + '/') | url }}">More in {{ article.category | titleCase }}</a>
   </div>
 </article>

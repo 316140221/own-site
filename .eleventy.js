@@ -19,9 +19,35 @@ function absoluteUrl(url, baseUrl) {
   }
 }
 
+function xmlEscape(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+function decodeHtmlEntities(input) {
+  return String(input ?? "")
+    .replaceAll("&amp;", "&")
+    .replaceAll("&lt;", "<")
+    .replaceAll("&gt;", ">")
+    .replaceAll("&quot;", "\"")
+    .replaceAll("&#39;", "'");
+}
+
+function titleCase(value) {
+  return String(value ?? "")
+    .trim()
+    .split(/[\s_-]+/g)
+    .filter(Boolean)
+    .map((word) => word.slice(0, 1).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
-  eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
 
   eleventyConfig.addFilter("formatDate", (value) => {
     if (!value) return "";
@@ -43,6 +69,17 @@ module.exports = function (eleventyConfig) {
     absoluteUrl(url, baseUrl)
   );
 
+  eleventyConfig.addFilter("xmlEscape", (value) => xmlEscape(value));
+  eleventyConfig.addFilter("decodeEntities", (value) => decodeHtmlEntities(value));
+  eleventyConfig.addFilter("titleCase", (value) => titleCase(value));
+
+  eleventyConfig.addFilter("rfc822", (value) => {
+    if (!value) return "";
+    const date = value instanceof Date ? value : new Date(String(value));
+    if (Number.isNaN(date.getTime())) return "";
+    return date.toUTCString();
+  });
+
   eleventyConfig.addFilter("readJson", (relativePath) => {
     if (!relativePath) return null;
     const filePath = path.resolve(process.cwd(), String(relativePath));
@@ -62,4 +99,3 @@ module.exports = function (eleventyConfig) {
     pathPrefix: process.env.PATH_PREFIX || "/",
   };
 };
-

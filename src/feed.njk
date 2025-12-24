@@ -1,0 +1,31 @@
+---
+permalink: feed.xml
+layout: null
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ (site.name + ' - Latest') | xmlEscape | safe }}</title>
+    <link>{{ '/' | url | absoluteUrl(site.url) }}</link>
+    <description>{{ site.description | xmlEscape | safe }}</description>
+    <language>{{ site.language | xmlEscape | safe }}</language>
+    <lastBuildDate>{{ buildTime | rfc822 }}</lastBuildDate>
+    <atom:link href="{{ '/feed.xml' | url | absoluteUrl(site.url) }}" rel="self" type="application/rss+xml" />
+
+    {% if news and news.latest %}
+      {% for item in news.latest %}
+        {% if loop.index0 < 50 %}
+          {% set itemLink = ('/p/' + item.id + '/') | url | absoluteUrl(site.url) %}
+          <item>
+            <title>{{ item.title | decodeEntities | xmlEscape | safe }}</title>
+            <link>{{ itemLink | xmlEscape | safe }}</link>
+            <guid isPermaLink="false">{{ item.id | xmlEscape | safe }}</guid>
+            <pubDate>{{ item.publishedAt | rfc822 }}</pubDate>
+            <description>{{ (item.summary or '') | xmlEscape | safe }}</description>
+          </item>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </channel>
+</rss>

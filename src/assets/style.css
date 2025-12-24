@@ -323,6 +323,10 @@ h2 {
   background: rgba(239, 68, 68, 0.08);
 }
 
+.row-paused {
+  background: rgba(234, 179, 8, 0.10);
+}
+
 .small {
   font-size: 12px;
 }

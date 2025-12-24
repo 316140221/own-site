@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Sources
+rssPath: /feed.xml
 ---
 
 <h1>Sources</h1>
@@ -8,7 +9,7 @@ title: Sources
 {% if stats %}
   <p class="muted">
     Last run: {{ stats.finishedAt | formatDateTime }} ·
-    OK {{ stats.fetch.ok }} / Failed {{ stats.fetch.failed }} ·
+    OK {{ stats.fetch.ok }} / Failed {{ stats.fetch.failed }} / Paused {{ stats.fetch.paused or 0 }} ·
     Articles {{ stats.indexes.totalArticles }}
   </p>
 {% endif %}
@@ -22,6 +23,7 @@ title: Sources
         <th>Status</th>
         <th>Last fetch</th>
         <th>Last success</th>
+        <th>Paused</th>
         <th>Added</th>
         <th>Dup</th>
         <th>Fail streak</th>
@@ -29,7 +31,7 @@ title: Sources
     </thead>
     <tbody>
       {% for s in sourceHealth %}
-        <tr class="{% if s.isFailing %}row-bad{% endif %}">
+        <tr class="{% if s.isFailing %}row-bad{% elseif s.isPaused %}row-paused{% endif %}">
           <td>
             <div><strong>{{ s.name }}</strong></div>
             <div class="muted small">
@@ -47,8 +49,13 @@ title: Sources
                 Error: {{ s.run.error or s.lastError }}
               </div>
             {% endif %}
+            {% if s.isPaused and s.pausedUntil %}
+              <div class="muted small">
+                Paused until: {{ s.pausedUntil | formatDateTime }}
+              </div>
+            {% endif %}
           </td>
-          <td><span class="badge">{{ s.category }}</span></td>
+          <td><span class="badge">{{ s.category | titleCase }}</span></td>
           <td>
             {% if s.statusCode %}
               <span class="badge">{{ s.statusCode }}</span>
@@ -58,6 +65,13 @@ title: Sources
           </td>
           <td class="muted small">{{ s.lastFetchAt | formatDateTime }}</td>
           <td class="muted small">{{ s.lastSuccessAt | formatDateTime }}</td>
+          <td class="muted small">
+            {% if s.isPaused %}
+              yes
+            {% else %}
+              <span class="muted">—</span>
+            {% endif %}
+          </td>
           <td class="muted">{{ s.run.added or 0 }}</td>
           <td class="muted">{{ s.run.duplicates or 0 }}</td>
           <td class="muted">{{ s.consecutiveFailures }}</td>
@@ -66,4 +80,3 @@ title: Sources
     </tbody>
   </table>
 </div>
-

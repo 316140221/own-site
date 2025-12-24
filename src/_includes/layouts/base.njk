@@ -4,16 +4,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>{% if title %}{{ title }} · {% endif %}{{ site.name }}</title>
+    <title>{% if title %}{{ title | decodeEntities }} · {% endif %}{{ site.name }}</title>
     <meta name="description" content="{{ description or site.description }}" />
 
     {% if site.url %}
-      <link rel="canonical" href="{{ page.url | absoluteUrl(site.url) }}" />
-      <meta property="og:url" content="{{ page.url | absoluteUrl(site.url) }}" />
+      {% set canonical = (page.url | url) | absoluteUrl(site.url) %}
+      <link rel="canonical" href="{{ canonical }}" />
+      <meta property="og:url" content="{{ canonical }}" />
     {% endif %}
     <meta property="og:type" content="{{ ogType or 'website' }}" />
-    <meta property="og:title" content="{% if title %}{{ title }} · {% endif %}{{ site.name }}" />
+    <meta property="og:title" content="{% if title %}{{ title | decodeEntities }} · {% endif %}{{ site.name }}" />
     <meta property="og:description" content="{{ description or site.description }}" />
+
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="{{ site.name }} RSS"
+      href="{{ (rssPath or '/feed.xml') | url }}"
+    />
 
     <link rel="stylesheet" href="{{ '/assets/style.css' | url }}" />
     <script src="{{ '/assets/app.js' | url }}" defer></script>
@@ -25,6 +33,7 @@
         <nav class="nav">
           <a href="{{ '/' | url }}">Home</a>
           <a href="{{ '/search/' | url }}">Search</a>
+          <a href="{{ '/feed.xml' | url }}">RSS</a>
           <a href="{{ '/sources/' | url }}">Sources</a>
           <a href="{{ '/languages/' | url }}">Languages</a>
           {% for cat in categories %}
