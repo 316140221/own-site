@@ -29,6 +29,27 @@ jobs:
           ref: ${{ github.ref_name }}
           fetch-depth: 0
 
+      - name: Switch to data branch (avoid polluting main)
+        run: |
+          set -euo pipefail
+          BASE_REF="${{ github.ref_name }}"
+          DATA_BRANCH="data"
+
+          git fetch origin "${BASE_REF}"
+          git fetch origin "${DATA_BRANCH}" || true
+
+          if git show-ref --verify --quiet "refs/remotes/origin/${DATA_BRANCH}"; then
+            git switch --track -c "${DATA_BRANCH}" "origin/${DATA_BRANCH}" || git switch "${DATA_BRANCH}"
+            git reset --hard "origin/${DATA_BRANCH}"
+          else
+            echo "Creating ${DATA_BRANCH} branch from ${BASE_REF}"
+            git switch -c "${DATA_BRANCH}"
+          fi
+
+          if [ "${BASE_REF}" != "${DATA_BRANCH}" ]; then
+            git merge --no-edit "origin/${BASE_REF}"
+          fi
+
       - name: Compute Pages base URL
         id: pages
         env:
@@ -75,17 +96,20 @@ jobs:
           if-no-files-found: ignore
           retention-days: 90
 
-      - name: Commit data changes
+      - name: Commit data changes (data branch)
         run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if [ -n "$(git status --porcelain -- data)" ]; then
             git add data
             git commit -m "chore(data): update news"
-            git push
           else
-            echo "No changes"
+            echo "No data changes"
           fi
+
+          git push origin HEAD:data
 
       - name: Build site
         run: npm run build:site

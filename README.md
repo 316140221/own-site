@@ -23,6 +23,16 @@ Zero-cost news aggregator: fetch RSS feeds, store normalized JSON, build a stati
 - `RUN_HISTORY_DAYS` (default `30`, set `0` to disable)
 - `SITE_URL` (site origin for canonical/feeds/sitemap, e.g. `https://<owner>.github.io` or a custom domain; do not include `/<repo>/`)
 - `PATH_PREFIX` (for GitHub Pages project sites, e.g. `/<repo>/` or `/`)
+- `ANALYTICS_PROVIDER` (optional: `cloudflare` or `ga4`)
+- `CLOUDFLARE_WEB_ANALYTICS_TOKEN` (optional: Cloudflare Web Analytics token)
+- `GA_MEASUREMENT_ID` (optional: Google Analytics 4 measurement id, e.g. `G-XXXXXXXXXX`)
+
+## Analytics (optional)
+
+This site can inject a lightweight analytics script at build time (disabled by default).
+
+- Cloudflare Web Analytics: set `ANALYTICS_PROVIDER=cloudflare` + `CLOUDFLARE_WEB_ANALYTICS_TOKEN`
+- Google Analytics 4: set `ANALYTICS_PROVIDER=ga4` + `GA_MEASUREMENT_ID`
 
 ## Deploy (GitHub Pages + Actions)
 
@@ -30,6 +40,17 @@ Zero-cost news aggregator: fetch RSS feeds, store normalized JSON, build a stati
 2. In GitHub repo settings → **Pages** → **Build and deployment** → **Source**: select **GitHub Actions**.
 3. Run the workflow once: **Actions** tab → **Update data and deploy** → **Run workflow**.
    - After that, it will run on a schedule (every 8 hours) and redeploy automatically.
+
+## Data history branch (recommended)
+
+The workflow commits generated changes under `data/` to a separate branch `data`, to keep `main` clean for code changes.
+
+If you don't want to fetch `data` locally, clone/fetch only `main`:
+
+- Fresh clone: `git clone --single-branch --branch main <repo-url>`
+- Existing clone:
+  - `git remote set-branches origin main`
+  - `git fetch --prune origin`
 
 **Optional (recommended): set repo variables**
 
