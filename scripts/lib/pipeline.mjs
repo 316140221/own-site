@@ -18,6 +18,7 @@ const DATA_DIR = path.join(ROOT, "data");
 const ARTICLES_DIR = path.join(DATA_DIR, "articles");
 const INDEXES_DIR = path.join(DATA_DIR, "indexes");
 const BY_CATEGORY_DIR = path.join(INDEXES_DIR, "by-category");
+const BY_LANGUAGE_DIR = path.join(INDEXES_DIR, "by-language");
 const ARTICLES_INDEX_PATH = path.join(INDEXES_DIR, "articles.json");
 const STATE_PATH = path.join(DATA_DIR, "state.json");
 const SOURCES_PATH = path.join(DATA_DIR, "sources.json");
@@ -110,6 +111,13 @@ function classifyCategory(article, rulesConfig) {
   }
 
   return fallback;
+}
+
+function normalizeLanguageCode(input) {
+  const raw = String(input || "en").trim().toLowerCase();
+  if (!raw) return "en";
+  const base = raw.split("-")[0];
+  return base || "en";
 }
 
 export function normalizeUrl(url) {
@@ -581,6 +589,7 @@ export async function buildIndexes({
   perCategoryLimit = 500,
 } = {}) {
   await fs.mkdir(BY_CATEGORY_DIR, { recursive: true });
+  await fs.mkdir(BY_LANGUAGE_DIR, { recursive: true });
   const categoryRules = await readJsonOrDefault(CATEGORY_RULES_PATH, null);
 
   const allFiles = (await fileExists(ARTICLES_DIR))
@@ -628,7 +637,7 @@ export async function buildIndexes({
     publishedAt: a.publishedAt,
     category: a.category,
     image: a.image || null,
-    language: a.language || "en",
+    language: normalizeLanguageCode(a.language || "en"),
   }));
 
   const byCategory = new Map();
@@ -646,13 +655,33 @@ export async function buildIndexes({
       publishedAt: article.publishedAt,
       category: article.category,
       image: article.image || null,
-      language: article.language || "en",
+      language: normalizeLanguageCode(article.language || "en"),
+    });
+  }
+
+  const byLanguage = new Map();
+  for (const article of uniqueArticles) {
+    const language = normalizeLanguageCode(article.language || "en");
+    if (!byLanguage.has(language)) byLanguage.set(language, []);
+    const list = byLanguage.get(language);
+    if (list.length >= perCategoryLimit) continue;
+    list.push({
+      id: article.id,
+      title: article.title,
+      summary: article.summary,
+      canonicalUrl: article.canonicalUrl,
+      source: { id: article.source?.id, name: article.source?.name },
+      publishedAt: article.publishedAt,
+      category: article.category,
+      image: article.image || null,
+      language,
     });
   }
 
   const articleIndex = uniqueArticles.map((a) => ({
     id: a.id,
     category: a.category,
+    language: normalizeLanguageCode(a.language || "en"),
     publishedAt: a.publishedAt,
     path: a.storagePath,
   }));
@@ -662,6 +691,10 @@ export async function buildIndexes({
 
   for (const [category, list] of byCategory.entries()) {
     await writeJson(path.join(BY_CATEGORY_DIR, `${category}.json`), list);
+  }
+
+  for (const [language, list] of byLanguage.entries()) {
+    await writeJson(path.join(BY_LANGUAGE_DIR, `${language}.json`), list);
   }
 
   return {

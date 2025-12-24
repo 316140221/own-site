@@ -1,0 +1,25 @@
+{% set base = '/lang/' + langPage.code + '/' %}
+<nav class="pager">
+  {% if langPage.pageNumber > 0 %}
+    {% set prevPage = langPage.pageNumber - 1 %}
+    {% if prevPage == 0 %}
+      <a class="pager-link" href="{{ base | url }}">← Prev</a>
+    {% else %}
+      <a class="pager-link" href="{{ (base + 'page/' + (prevPage + 1) + '/') | url }}">← Prev</a>
+    {% endif %}
+  {% else %}
+    <span class="pager-disabled">← Prev</span>
+  {% endif %}
+
+  <span class="pager-meta">
+    Page {{ langPage.pageNumber + 1 }} / {{ langPage.totalPages }}
+  </span>
+
+  {% if langPage.pageNumber + 1 < langPage.totalPages %}
+    {% set nextPage = langPage.pageNumber + 1 %}
+    <a class="pager-link" href="{{ (base + 'page/' + (nextPage + 1) + '/') | url }}">Next →</a>
+  {% else %}
+    <span class="pager-disabled">Next →</span>
+  {% endif %}
+</nav>
+

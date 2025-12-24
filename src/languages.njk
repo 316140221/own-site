@@ -1,0 +1,20 @@
+---
+layout: layouts/base.njk
+title: Languages
+---
+
+<h1>Languages</h1>
+
+{% if languages and languages.length %}
+  <ul class="sources">
+    {% for lang in languages %}
+      <li>
+        <a href="{{ ('/lang/' + lang.code + '/') | url }}">{{ lang.label }}</a>
+        <span class="muted">({{ lang.code }})</span>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p class="muted">No languages detected.</p>
+{% endif %}
+

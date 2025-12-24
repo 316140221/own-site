@@ -4,6 +4,7 @@
   </div>
   <div class="news-meta">
     <span class="badge">{{ item.category }}</span>
+    {% if item.language %}<span class="badge">{{ item.language | upper }}</span>{% endif %}
     <span class="muted">{{ item.publishedAt | formatDateTime }}</span>
     <span class="muted">·</span>
     <span class="muted">{{ item.source.name }}</span>
@@ -14,4 +15,3 @@
     <p class="news-summary">{{ item.summary }}</p>
   {% endif %}
 </li>
-

@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: languagePages
+  size: 1
+  alias: langPage
+permalink: "lang/{{ langPage.code }}/{% if langPage.pageNumber == 0 %}{% else %}page/{{ langPage.pageNumber + 1 }}/{% endif %}index.html"
+eleventyComputed:
+  title: "{{ langPage.label }}"
+---
+
+<h1>{{ langPage.label }}</h1>
+{% set items = langPage.items %}
+{% include "partials/news-list.njk" %}
+{% if langPage.totalPages > 1 %}
+  {% include "partials/language-pager.njk" %}
+{% endif %}
+

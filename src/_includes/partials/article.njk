@@ -3,6 +3,7 @@
     <h1 class="article-title">{{ article.title }}</h1>
     <div class="article-meta">
       <span class="badge">{{ article.category }}</span>
+      {% if article.language %}<span class="badge">{{ article.language | upper }}</span>{% endif %}
       <span class="muted">{{ article.publishedAt | formatDateTime }}</span>
       <span class="muted">·</span>
       <span class="muted">{{ article.source.name }}</span>
@@ -20,4 +21,3 @@
     <a class="button button-secondary" href="{{ ('/category/' + article.category + '/') | url }}">More in {{ article.category }}</a>
   </div>
 </article>
-
