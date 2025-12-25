@@ -1,6 +1,5 @@
 ---
 layout: layouts/base.njk
-title: Latest
 rssPath: /feed.xml
 pagination:
   data: latestPages
@@ -9,7 +8,14 @@ pagination:
 permalink: "{% if listPage.pageNumber == 0 %}index.html{% else %}page/{{ listPage.pageNumber + 1 }}/index.html{% endif %}"
 ---
 
-<h1>Latest</h1>
+<h1>{{ site.name }}</h1>
+{% if site.tagline or site.description %}
+  <p class="muted">
+    {% if site.tagline %}{{ site.tagline }}{% endif %}{% if site.tagline and site.description %} · {% endif %}{% if site.description %}{{ site.description }}{% endif %}
+  </p>
+{% endif %}
+
+<h2>Latest</h2>
 {% set items = listPage.items %}
 {% include "partials/news-list.njk" %}
 {% include "partials/pagination.njk" %}
