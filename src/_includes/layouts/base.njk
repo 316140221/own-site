@@ -6,6 +6,10 @@
 
     <title>{% if title %}{{ title | decodeEntities }} · {% endif %}{{ site.name }}</title>
     <meta name="description" content="{{ description or site.description }}" />
+    <meta property="og:site_name" content="{{ site.name }}" />
+    {% if site.googleSiteVerification %}
+      <meta name="google-site-verification" content="{{ site.googleSiteVerification }}" />
+    {% endif %}
 
     {% if site.url %}
       {% set canonical = (page.url | url) | absoluteUrl(site.url) %}
@@ -30,7 +34,7 @@
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="{{ '/' | url }}">{{ site.name }}</a>
+        <a class="brand" href="{{ '/' | url }}">{{ site.brand or site.name }}</a>
         <nav class="nav">
           <a href="{{ '/' | url }}">Home</a>
           <a href="{{ '/search/' | url }}">Search</a>
@@ -48,7 +52,7 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <span>Built from RSS feeds · {{ (buildTime or '') | formatDateTime }}</span>
+        <span>Cloud-first utilities · RSS stream · {{ (buildTime or '') | formatDateTime }}</span>
       </div>
     </footer>
   </body>

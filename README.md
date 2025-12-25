@@ -23,6 +23,7 @@ Zero-cost news aggregator: fetch RSS feeds, store normalized JSON, build a stati
 - `RUN_HISTORY_DAYS` (default `30`, set `0` to disable)
 - `SITE_URL` (site origin for canonical/feeds/sitemap, e.g. `https://<owner>.github.io` or a custom domain; do not include `/<repo>/`)
 - `PATH_PREFIX` (for GitHub Pages project sites, e.g. `/<repo>/` or `/`)
+- `GOOGLE_SITE_VERIFICATION` (optional: Google Search Console verification token for `<meta name="google-site-verification">`)
 - `ANALYTICS_PROVIDER` (optional: `cloudflare` or `ga4`)
 - `CLOUDFLARE_WEB_ANALYTICS_TOKEN` (optional: Cloudflare Web Analytics token)
 - `GA_MEASUREMENT_ID` (optional: Google Analytics 4 measurement id, e.g. `G-XXXXXXXXXX`)

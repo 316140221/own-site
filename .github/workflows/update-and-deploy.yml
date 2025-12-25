@@ -119,6 +119,7 @@ jobs:
         env:
           SITE_URL: ${{ steps.pages.outputs.site_url }}
           PATH_PREFIX: ${{ steps.pages.outputs.path_prefix }}
+          GOOGLE_SITE_VERIFICATION: ${{ vars.GOOGLE_SITE_VERIFICATION || secrets.GOOGLE_SITE_VERIFICATION }}
           ANALYTICS_PROVIDER: ${{ vars.ANALYTICS_PROVIDER || secrets.ANALYTICS_PROVIDER }}
           CLOUDFLARE_WEB_ANALYTICS_TOKEN: ${{ vars.CLOUDFLARE_WEB_ANALYTICS_TOKEN || secrets.CLOUDFLARE_WEB_ANALYTICS_TOKEN }}
           GA_MEASUREMENT_ID: ${{ vars.GA_MEASUREMENT_ID || secrets.GA_MEASUREMENT_ID }}
