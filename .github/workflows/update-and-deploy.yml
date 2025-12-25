@@ -1,9 +1,12 @@
 name: Update data and deploy
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     # Every 8 hours (UTC)
-    - cron: "0 */8 * * *"
+    - cron: "0 */4 * * *"
   workflow_dispatch: {}
 
 permissions:
