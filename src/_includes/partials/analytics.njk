@@ -1,0 +1,19 @@
+{% if analytics and analytics.enabled %}
+  {% if analytics.provider == "cloudflare" %}
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token":"{{ analytics.cloudflareToken }}"}'
+    ></script>
+  {% elseif analytics.provider == "ga4" %}
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ analytics.gaMeasurementId }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ analytics.gaMeasurementId }}');
+    </script>
+  {% endif %}
+{% endif %}
+
