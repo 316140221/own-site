@@ -35,6 +35,9 @@ jobs:
           BASE_REF="${{ github.ref_name }}"
           DATA_BRANCH="data"
 
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git fetch origin "${BASE_REF}"
           git fetch origin "${DATA_BRANCH}" || true
 
@@ -116,6 +119,9 @@ jobs:
         env:
           SITE_URL: ${{ steps.pages.outputs.site_url }}
           PATH_PREFIX: ${{ steps.pages.outputs.path_prefix }}
+          ANALYTICS_PROVIDER: ${{ vars.ANALYTICS_PROVIDER || secrets.ANALYTICS_PROVIDER }}
+          CLOUDFLARE_WEB_ANALYTICS_TOKEN: ${{ vars.CLOUDFLARE_WEB_ANALYTICS_TOKEN || secrets.CLOUDFLARE_WEB_ANALYTICS_TOKEN }}
+          GA_MEASUREMENT_ID: ${{ vars.GA_MEASUREMENT_ID || secrets.GA_MEASUREMENT_ID }}
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

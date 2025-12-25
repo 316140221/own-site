@@ -1,0 +1,42 @@
+---
+layout: layouts/base.njk
+title: "404 — Page not found"
+description: "The page you’re looking for doesn’t exist."
+permalink: 404.html
+eleventyExcludeFromCollections: true
+---
+
+<section class="article">
+  <h1 class="article-title">404 — Page not found</h1>
+  <p class="muted">
+    We can’t find <code id="missing-path">this page</code>. It may have been moved, deleted, or never existed.
+  </p>
+
+  <div class="article-actions">
+    <a class="button" href="{{ '/' | url }}">Go to Home</a>
+    <a class="button button-secondary" href="{{ '/search/' | url }}">Search</a>
+    <a class="button button-secondary" href="{{ '/sources/' | url }}">Sources</a>
+    <a class="button button-secondary" href="{{ '/languages/' | url }}">Languages</a>
+  </div>
+
+  <h2>Popular sections</h2>
+  <div class="article-actions">
+    {% for cat in categories %}
+      <a class="button button-secondary" href="{{ ('/category/' + cat.slug + '/') | url }}">{{ cat.label }}</a>
+    {% endfor %}
+  </div>
+
+  <p class="muted small">
+    Tip: If you came from an external link, the original site may have changed the URL.
+  </p>
+</section>
+
+<script>
+  (function () {
+    var el = document.getElementById("missing-path");
+    if (!el) return;
+    var path = window.location.pathname + window.location.search + window.location.hash;
+    if (!path || path.endsWith("/404.html")) return;
+    el.textContent = path;
+  })();
+</script>
