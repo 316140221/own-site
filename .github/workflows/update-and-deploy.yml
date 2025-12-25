@@ -35,6 +35,9 @@ jobs:
           BASE_REF="${{ github.ref_name }}"
           DATA_BRANCH="data"
 
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git fetch origin "${BASE_REF}"
           git fetch origin "${DATA_BRANCH}" || true
 
