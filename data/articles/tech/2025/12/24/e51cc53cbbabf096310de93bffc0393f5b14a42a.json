@@ -34,5 +34,7 @@
   ],
   "image": "https://cdn.arstechnica.net/wp-content/uploads/2025/09/GettyImages-2211086356-1152x648-1766182004.jpg",
   "language": "en",
-  "storagePath": "data/articles/tech/2025/12/24/e51cc53cbbabf096310de93bffc0393f5b14a42a.json"
+  "storagePath": "data/articles/tech/2025/12/24/e51cc53cbbabf096310de93bffc0393f5b14a42a.json",
+  "contentText": "AI coding agents from OpenAI, Anthropic, and Google can now work on software projects for hours at a time, writing complete apps, running tests, and fixing bugs with human supervision. But these tools are not magic and can complicate rather than simplify a software project. Understanding how they work under the hood can help developers know when (and if) to use them, while avoiding common pitfalls.\n\nWe'll start with the basics: At the core of every AI coding agent is a technology called a large language model (LLM), which is a type of neural network trained on vast amounts of text data, including lots of programming code. It's a pattern-matching machine that uses a prompt to \"extract\" compressed statistical representations of data it saw during training and provide a plausible continuation of that pattern as an output. In this extraction, an LLM can interpolate across domains and concepts, resulting in some useful logical inferences when done well and confabulation errors when done poorly.\n\nThese base models are then further refined through techniques like fine-tuning on curated examples and reinforcement learning from human feedback (RLHF), which shape the model to follow instructions, use tools, and produce more useful outputs.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
 }
