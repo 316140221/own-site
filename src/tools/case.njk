@@ -1,0 +1,65 @@
+---
+layout: layouts/base.njk
+title: "Text Case Converter"
+description: "Convert text between common casing styles (camel, snake, kebab, title…). Runs locally."
+pageScript: "/assets/tools/case.js"
+---
+
+<h1 data-i18n="tools.item.case.title">Text Case Converter</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-input" data-i18n="tool.common.input">Input</label>
+      <textarea
+        id="tool-input"
+        class="tool-textarea"
+        rows="10"
+        placeholder="Paste text here…"
+        data-i18n-placeholder="tool.common.placeholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="10"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-convert" data-i18n="tool.case.convert">Convert</button>
+    <button class="button button-secondary" type="button" id="btn-swap" data-i18n="tool.common.swap">Swap</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">Clear</button>
+  </div>
+
+  <div class="tool-options">
+    <label class="tool-option">
+      <span data-i18n="tool.case.mode">Mode:</span>
+      <select id="opt-mode">
+        <option value="camel" data-i18n="tool.case.mode.camel">camelCase</option>
+        <option value="pascal" data-i18n="tool.case.mode.pascal">PascalCase</option>
+        <option value="snake" data-i18n="tool.case.mode.snake">snake_case</option>
+        <option value="kebab" data-i18n="tool.case.mode.kebab">kebab-case</option>
+        <option value="constant" data-i18n="tool.case.mode.constant">CONSTANT_CASE</option>
+        <option value="title" data-i18n="tool.case.mode.title">Title Case</option>
+        <option value="lower" data-i18n="tool.case.mode.lower">lowercase</option>
+        <option value="upper" data-i18n="tool.case.mode.upper">UPPERCASE</option>
+      </select>
+    </label>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

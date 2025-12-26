@@ -1,0 +1,66 @@
+---
+layout: layouts/base.njk
+title: "File Hash"
+description: "Compute file hashes locally (SHA + CRC32). Runs locally."
+pageScript: "/assets/tools/file-hash.js"
+---
+
+<h1 data-i18n="tools.item.file-hash.title">File Hash</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-pane">
+    <label class="tool-label" for="tool-file" data-i18n="tool.fileHash.file">File</label>
+    <input type="file" id="tool-file" class="tool-file" />
+    <p class="muted small" id="tool-file-meta"></p>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-hash" data-i18n="tool.fileHash.compute">Compute</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">Clear</button>
+  </div>
+
+  <div class="tool-options">
+    <label class="tool-option">
+      <span data-i18n="tool.fileHash.algorithm">Algorithm:</span>
+      <select id="opt-alg">
+        <option value="SHA-256">SHA-256</option>
+        <option value="SHA-1">SHA-1</option>
+        <option value="SHA-384">SHA-384</option>
+        <option value="SHA-512">SHA-512</option>
+        <option value="CRC32">CRC32</option>
+      </select>
+    </label>
+    <label class="tool-option">
+      <span data-i18n="tool.fileHash.format">Format:</span>
+      <select id="opt-format">
+        <option value="hex" data-i18n="tool.fileHash.format.hex">HEX</option>
+        <option value="base64" data-i18n="tool.fileHash.format.base64">Base64</option>
+        <option value="both" data-i18n="tool.fileHash.format.both">Both</option>
+      </select>
+    </label>
+    <label class="tool-option">
+      <input type="checkbox" id="opt-uppercase" checked />
+      <span data-i18n="tool.fileHash.uppercase">Uppercase HEX</span>
+    </label>
+  </div>
+
+  <div class="tool-pane tool-pane-block">
+    <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+    <textarea
+      id="tool-output"
+      class="tool-textarea"
+      rows="8"
+      readonly
+      placeholder="Result will appear here…"
+      data-i18n-placeholder="tool.common.resultPlaceholder"
+      spellcheck="false"
+    ></textarea>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+
