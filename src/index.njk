@@ -15,7 +15,21 @@ permalink: "{% if listPage.pageNumber == 0 %}index.html{% else %}page/{{ listPag
   </p>
 {% endif %}
 
-<h2>Latest</h2>
+{% if tools and tools.featured and tools.featured.length %}
+  <h2 data-i18n="home.tools">Tools</h2>
+  <div class="tool-cards">
+    {% for t in tools.featured %}
+      <a class="tool-card" href="{{ t.path | url }}">
+        <div class="tool-card-title" data-i18n="tools.item.{{ t.slug }}.title">{{ t.label }}</div>
+        {% if t.description %}
+          <div class="tool-card-desc" data-i18n="tools.item.{{ t.slug }}.desc">{{ t.description }}</div>
+        {% endif %}
+      </a>
+    {% endfor %}
+  </div>
+{% endif %}
+
+<h2 data-i18n="home.latest">Latest</h2>
 {% set items = listPage.items %}
 {% include "partials/news-list.njk" %}
 {% include "partials/pagination.njk" %}

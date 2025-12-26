@@ -1,5 +1,9 @@
 <!doctype html>
-<html lang="{{ site.language }}">
+<html
+  lang="{{ site.language }}"
+  data-default-lang="{{ site.defaultLanguage }}"
+  data-supported-langs="{{ site.languagesCsv }}"
+>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,19 +33,80 @@
 
     <link rel="stylesheet" href="{{ '/assets/style.css' | url }}" />
     <script src="{{ '/assets/app.js' | url }}" defer></script>
+    {% if pageScript %}
+      <script src="{{ pageScript | url }}" defer></script>
+    {% endif %}
     {% include "partials/analytics.njk" %}
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="{{ '/' | url }}">{{ site.brand or site.name }}</a>
-        <nav class="nav">
-          <a href="{{ '/' | url }}">Home</a>
-          <a href="{{ '/search/' | url }}">Search</a>
-          {% for cat in categories %}
-            <a href="{{ ('/category/' + cat.slug + '/') | url }}">{{ cat.label }}</a>
-          {% endfor %}
-          <a href="{{ '/about/' | url }}">About</a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-controls="site-nav"
+          aria-expanded="false"
+          data-i18n="nav.menu"
+        >
+          Menu
+        </button>
+        <nav class="nav" id="site-nav">
+          <a href="{{ '/' | url }}" data-i18n="nav.news">News</a>
+
+          {% if tools and tools.groups %}
+            <details class="nav-dropdown">
+              <summary data-i18n="nav.tools">Tools</summary>
+              <div class="nav-dropdown-menu">
+                <a class="nav-dropdown-top" href="{{ '/tools/' | url }}" data-i18n="nav.toolsAll"
+                  >All tools</a
+                >
+                {% for group in tools.groups %}
+                  <div class="nav-dropdown-group">
+                    <div class="nav-dropdown-title" data-i18n="tools.group.{{ group.id }}">
+                      {{ group.label }}
+                    </div>
+                    {% for t in group.items %}
+                      <a href="{{ t.path | url }}" data-i18n="tools.item.{{ t.slug }}.title"
+                        >{{ t.label }}</a
+                      >
+                    {% endfor %}
+                  </div>
+                {% endfor %}
+              </div>
+            </details>
+          {% endif %}
+
+          {% if categories %}
+            <details class="nav-dropdown">
+              <summary data-i18n="nav.categories">Categories</summary>
+              <div class="nav-dropdown-menu">
+                {% for cat in categories %}
+                  <a href="{{ ('/category/' + cat.slug + '/') | url }}">{{ cat.label }}</a>
+                {% endfor %}
+              </div>
+            </details>
+          {% endif %}
+
+          {% if site.languages and site.languages.length > 1 %}
+            <details class="nav-dropdown nav-lang">
+              <summary data-i18n="nav.language">Language</summary>
+              <div class="nav-dropdown-menu">
+                {% for langCode in site.languages %}
+                  <button
+                    class="nav-lang-btn"
+                    type="button"
+                    data-set-lang="{{ langCode }}"
+                  >
+                    {{ site.languageLabels[langCode] or langCode }}
+                  </button>
+                {% endfor %}
+              </div>
+            </details>
+          {% endif %}
+
+          <a href="{{ '/search/' | url }}" data-i18n="nav.search">Search</a>
+          <a href="{{ '/about/' | url }}" data-i18n="nav.about">About</a>
         </nav>
       </div>
     </header>

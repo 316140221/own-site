@@ -25,6 +25,19 @@ eleventyExcludeFromCollections: true
     <loc>{{ '/search/' | url | absoluteUrl(site.url) }}</loc>
     <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
+  <url>
+    <loc>{{ '/tools/' | url | absoluteUrl(site.url) }}</loc>
+    <lastmod>{{ buildTime | formatDate }}</lastmod>
+  </url>
+
+  {% if tools and tools.all and tools.all.length %}
+    {% for t in tools.all %}
+      <url>
+        <loc>{{ t.path | url | absoluteUrl(site.url) }}</loc>
+        <lastmod>{{ buildTime | formatDate }}</lastmod>
+      </url>
+    {% endfor %}
+  {% endif %}
 
   {# Paginated list pages #}
   {% if latestPages and latestPages.length %}

@@ -9,6 +9,8 @@
   --button: rgba(255, 255, 255, 0.08);
   --button-hover: rgba(255, 255, 255, 0.12);
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  --popup: rgba(2, 6, 23, 0.92);
+  --input: rgba(0, 0, 0, 0.18);
 }
 
 @media (prefers-color-scheme: light) {
@@ -23,6 +25,8 @@
     --button: rgba(2, 6, 23, 0.06);
     --button-hover: rgba(2, 6, 23, 0.10);
     --shadow: 0 20px 60px rgba(2, 6, 23, 0.10);
+    --popup: rgba(248, 250, 252, 0.96);
+    --input: rgba(2, 6, 23, 0.04);
   }
 }
 
@@ -102,6 +106,127 @@ a:hover {
   background: var(--panel);
   border-color: var(--border);
   text-decoration: none;
+}
+
+.menu-toggle {
+  display: none;
+  padding: 6px 10px;
+  border-radius: 10px;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.menu-toggle:hover {
+  color: var(--text);
+  background: var(--panel);
+  border-color: var(--border);
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown summary {
+  list-style: none;
+  padding: 6px 10px;
+  border-radius: 10px;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-dropdown summary:hover {
+  color: var(--text);
+  background: var(--panel);
+  border-color: var(--border);
+}
+
+.nav-dropdown[open] summary {
+  color: var(--text);
+  background: var(--panel);
+  border-color: var(--border);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 260px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--popup);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+  z-index: 20;
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 12px;
+  color: var(--muted);
+  border: 1px solid transparent;
+}
+
+.nav-dropdown-menu a:hover {
+  color: var(--text);
+  background: var(--panel);
+  border-color: var(--border);
+  text-decoration: none;
+}
+
+.nav-lang-btn {
+  width: 100%;
+  display: block;
+  padding: 8px 10px;
+  border-radius: 12px;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid transparent;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.nav-lang-btn:hover {
+  color: var(--text);
+  background: var(--panel);
+  border-color: var(--border);
+}
+
+.nav-lang-btn[aria-current="true"] {
+  color: var(--text);
+  border-color: rgba(125, 211, 252, 0.35);
+}
+
+.nav-dropdown-top {
+  color: var(--text);
+  font-weight: 650;
+  margin-bottom: 8px;
+}
+
+.nav-dropdown-group + .nav-dropdown-group {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.nav-dropdown-title {
+  margin: 0 10px 6px;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
 }
 
 main {
@@ -213,6 +338,40 @@ h2 {
   color: var(--muted);
 }
 
+.tool-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 14px 0 0;
+}
+
+.tool-card {
+  display: block;
+  padding: 14px 14px 12px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: var(--shadow);
+  color: var(--text);
+}
+
+.tool-card:hover {
+  text-decoration: none;
+  border-color: rgba(125, 211, 252, 0.35);
+  filter: brightness(1.03);
+}
+
+.tool-card-title {
+  font-weight: 650;
+  margin: 0 0 6px;
+}
+
+.tool-card-desc {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
 .pager {
   display: flex;
   justify-content: space-between;
@@ -317,7 +476,123 @@ h2 {
   margin-bottom: 0;
 }
 
+.tool-shell {
+  padding: 18px 16px 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: var(--shadow);
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.tool-label {
+  display: block;
+  margin: 0 0 10px;
+  font-weight: 650;
+  color: var(--text);
+}
+
+.tool-textarea {
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--input);
+  color: var(--text);
+  font: 14px/1.55 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  resize: vertical;
+  outline: none;
+}
+
+.tool-textarea:focus {
+  border-color: rgba(125, 211, 252, 0.45);
+}
+
+.tool-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.tool-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.tool-option {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.tool-option select {
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--input);
+  color: var(--text);
+  font: inherit;
+}
+
+.tool-status-error {
+  color: rgba(239, 68, 68, 0.95);
+}
+
 @media (max-width: 680px) {
+  .header-inner {
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .nav {
+    display: none;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 10px 0 2px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .site-header.nav-open .nav {
+    display: flex;
+  }
+
+  .nav a,
+  .nav-dropdown summary {
+    width: 100%;
+  }
+
+  .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    margin-top: 8px;
+    min-width: auto;
+    padding: 10px;
+  }
+
+  .tool-grid {
+    grid-template-columns: 1fr;
+  }
+
   .news-item {
     flex-direction: column;
   }
@@ -346,6 +621,8 @@ h2 {
   color: var(--text);
   text-decoration: none;
   font-weight: 600;
+  font: inherit;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -355,6 +632,11 @@ h2 {
 
 .button-secondary {
   color: var(--muted);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .site-footer {
