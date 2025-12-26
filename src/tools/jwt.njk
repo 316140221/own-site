@@ -1,0 +1,61 @@
+---
+layout: layouts/base.njk
+title: "JWT Decode"
+description: "Decode JWT header and payload locally (no signature verification)."
+pageScript: "/assets/tools/jwt.js"
+---
+
+<h1 data-i18n="tools.item.jwt.title">JWT Decode</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-pane">
+    <label class="tool-label" for="tool-input" data-i18n="tool.jwt.inputLabel">JWT</label>
+    <textarea
+      id="tool-input"
+      class="tool-textarea"
+      rows="4"
+      placeholder="Paste JWT here…"
+      data-i18n-placeholder="tool.jwt.placeholder"
+      spellcheck="false"
+    ></textarea>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-decode" data-i18n="tool.jwt.decode">Decode</button>
+    <button class="button button-secondary" type="button" id="btn-copy-payload" data-i18n="tool.jwt.copyPayload">
+      Copy payload
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">Clear</button>
+  </div>
+
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-header" data-i18n="tool.jwt.header">Header</label>
+      <textarea
+        id="tool-header"
+        class="tool-textarea"
+        rows="10"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-payload" data-i18n="tool.jwt.payload">Payload</label>
+      <textarea
+        id="tool-payload"
+        class="tool-textarea"
+        rows="10"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

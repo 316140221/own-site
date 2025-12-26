@@ -1,0 +1,67 @@
+---
+layout: layouts/base.njk
+title: "Unicode Escape/Unescape"
+description: "Escape and unescape Unicode sequences (\\uXXXX, \\u{...}, \\xNN). Runs locally."
+pageScript: "/assets/tools/unicode.js"
+---
+
+<h1 data-i18n="tools.item.unicode.title">Unicode Escape/Unescape</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-input" data-i18n="tool.common.input">Input</label>
+      <textarea
+        id="tool-input"
+        class="tool-textarea"
+        rows="10"
+        placeholder="Paste text here…"
+        data-i18n-placeholder="tool.common.placeholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="10"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-escape" data-i18n="tool.unicode.escape">Escape →</button>
+    <button class="button button-secondary" type="button" id="btn-unescape" data-i18n="tool.unicode.unescape">
+      ← Unescape
+    </button>
+    <button class="button button-secondary" type="button" id="btn-swap" data-i18n="tool.common.swap">Swap</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">Clear</button>
+  </div>
+
+  <div class="tool-options">
+    <label class="tool-option">
+      <input type="checkbox" id="opt-upper" checked />
+      <span data-i18n="tool.unicode.upperHex">Uppercase hex</span>
+    </label>
+    <label class="tool-option">
+      <input type="checkbox" id="opt-braces" />
+      <span data-i18n="tool.unicode.useBraces">Use \\u{...} for non-BMP</span>
+    </label>
+    <label class="tool-option">
+      <input type="checkbox" id="opt-escape-ascii" />
+      <span data-i18n="tool.unicode.escapeAscii">Escape ASCII too</span>
+    </label>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+
