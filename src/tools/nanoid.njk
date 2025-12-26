@@ -1,0 +1,66 @@
+---
+layout: layouts/base.njk
+title: "Nano ID Generator"
+description: "Generate short, URL-safe IDs locally in your browser."
+pageScript: "/assets/tools/nanoid.js"
+---
+
+<h1 data-i18n="tools.item.nanoid.title">Nano ID Generator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-pane">
+    <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+    <textarea
+      id="tool-output"
+      class="tool-textarea"
+      rows="10"
+      readonly
+      placeholder="Result will appear here…"
+      data-i18n-placeholder="tool.common.resultPlaceholder"
+      spellcheck="false"
+    ></textarea>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-generate" data-i18n="tool.nanoid.generate">Generate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">Clear</button>
+  </div>
+
+  <div class="tool-options">
+    <label class="tool-option">
+      <span data-i18n="tool.nanoid.length">Length:</span>
+      <input type="number" id="opt-length" min="4" max="128" value="21" />
+    </label>
+    <label class="tool-option">
+      <span data-i18n="tool.nanoid.count">Count:</span>
+      <input type="number" id="opt-count" min="1" max="50" value="5" />
+    </label>
+    <label class="tool-option">
+      <span data-i18n="tool.nanoid.preset">Alphabet:</span>
+      <select id="opt-preset">
+        <option value="url" data-i18n="tool.nanoid.preset.url">URL-safe</option>
+        <option value="alnum" data-i18n="tool.nanoid.preset.alnum">Alphanumeric</option>
+        <option value="hex" data-i18n="tool.nanoid.preset.hex">HEX</option>
+        <option value="numeric" data-i18n="tool.nanoid.preset.numeric">Numeric</option>
+        <option value="custom" data-i18n="tool.nanoid.preset.custom">Custom</option>
+      </select>
+    </label>
+    <label class="tool-option">
+      <span data-i18n="tool.nanoid.custom">Custom:</span>
+      <input
+        class="tool-input-wide"
+        type="text"
+        id="opt-custom"
+        placeholder="_-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        data-i18n-placeholder="tool.nanoid.customPlaceholder"
+      />
+    </label>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

@@ -1,0 +1,90 @@
+---
+layout: layouts/base.njk
+title: "RSA Hybrid Encrypt/Decrypt"
+description: "Hybrid RSA-OAEP + AES-GCM for encrypt/decrypt locally in your browser."
+pageScript: "/assets/tools/rsa.js"
+---
+
+<h1 data-i18n="tools.item.rsa.title">RSA Hybrid Encrypt/Decrypt</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <label class="tool-label" for="key-public" data-i18n="tool.rsa.publicKey">Public key (PEM)</label>
+      <textarea
+        id="key-public"
+        class="tool-textarea"
+        rows="8"
+        placeholder="-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----"
+        data-i18n-placeholder="tool.rsa.publicKeyPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+    <div class="tool-pane">
+      <label class="tool-label" for="key-private" data-i18n="tool.rsa.privateKey">Private key (PEM)</label>
+      <textarea
+        id="key-private"
+        class="tool-textarea"
+        rows="8"
+        placeholder="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----"
+        data-i18n-placeholder="tool.rsa.privateKeyPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-generate" data-i18n="tool.rsa.generate">Generate keypair</button>
+    <button class="button button-secondary" type="button" id="btn-encrypt" data-i18n="tool.rsa.encrypt">
+      Encrypt → (public)
+    </button>
+    <button class="button button-secondary" type="button" id="btn-decrypt" data-i18n="tool.rsa.decrypt">
+      ← Decrypt (private)
+    </button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">Clear</button>
+  </div>
+
+  <div class="tool-options">
+    <label class="tool-option">
+      <span data-i18n="tool.rsa.keySize">Key size:</span>
+      <select id="opt-size">
+        <option value="2048">2048</option>
+        <option value="3072">3072</option>
+        <option value="4096">4096</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-input" data-i18n="tool.common.input">Input</label>
+      <textarea
+        id="tool-input"
+        class="tool-textarea"
+        rows="8"
+        placeholder="Paste text here…"
+        data-i18n-placeholder="tool.rsa.inputPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="8"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+
