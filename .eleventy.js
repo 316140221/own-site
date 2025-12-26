@@ -28,6 +28,16 @@ function xmlEscape(value) {
     .replace(/'/g, "&apos;");
 }
 
+function textToHtml(value) {
+  const input = String(value ?? "").trim();
+  if (!input) return "";
+
+  const paragraphs = input.split(/\n{2,}/g).map((p) => p.trim()).filter(Boolean);
+  return paragraphs
+    .map((p) => `<p>${xmlEscape(p).replace(/\n/g, "<br />")}</p>`)
+    .join("\n");
+}
+
 function decodeHtmlEntities(input) {
   return String(input ?? "")
     .replaceAll("&amp;", "&")
@@ -47,6 +57,8 @@ function titleCase(value) {
 }
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.setNunjucksEnvironmentOptions({ autoescape: true });
+
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   if (fs.existsSync("CNAME")) eleventyConfig.addPassthroughCopy("CNAME");
   if (fs.existsSync(".nojekyll")) eleventyConfig.addPassthroughCopy(".nojekyll");
@@ -72,6 +84,7 @@ module.exports = function (eleventyConfig) {
   );
 
   eleventyConfig.addFilter("xmlEscape", (value) => xmlEscape(value));
+  eleventyConfig.addFilter("textToHtml", (value) => textToHtml(value));
   eleventyConfig.addFilter("decodeEntities", (value) => decodeHtmlEntities(value));
   eleventyConfig.addFilter("titleCase", (value) => titleCase(value));
 

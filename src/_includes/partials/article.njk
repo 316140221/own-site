@@ -22,6 +22,16 @@
     <p class="article-summary">{{ article.summary }}</p>
   {% endif %}
 
+  {% if article.contentText %}
+    <section class="article-content">
+      <h2 class="article-content-title">From RSS</h2>
+      <div class="muted small">
+        Long content extracted from the source’s RSS feed. For the official version, use “Open original”.
+      </div>
+      <div class="article-content-body">{{ article.contentText | textToHtml | safe }}</div>
+    </section>
+  {% endif %}
+
   <div class="article-actions">
     <a class="button" href="{{ article.canonicalUrl }}" target="_blank" rel="noopener noreferrer">Open original →</a>
     <a class="button button-secondary" href="{{ ('/category/' + article.category + '/') | url }}">More in {{ article.category | titleCase }}</a>

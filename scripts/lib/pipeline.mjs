@@ -75,8 +75,32 @@ function stripHtml(input) {
     .replace(/<[^>]+>/g, " ");
 }
 
+function stripHtmlPreserveNewlines(input) {
+  return input
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/(p|div|section|article|h\d|li|ul|ol|blockquote|pre|table|tr)>/gi, "\n\n")
+    .replace(/<li[^>]*>/gi, "- ")
+    .replace(/<[^>]+>/g, " ");
+}
+
 function normalizeWhitespace(input) {
   return input.replace(/\s+/g, " ").trim();
+}
+
+function normalizeWhitespacePreserveNewlines(input) {
+  return String(input || "")
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n")
+    .replace(/[ \t\f\v]+/g, " ")
+    .replace(/\n[ \t]+/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .split("\n")
+    .map((line) => line.trim())
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
 }
 
 function truncate(input, maxLen) {
@@ -259,6 +283,46 @@ function cleanSummary(item) {
   return truncate(text, 360);
 }
 
+function pickRawContent(item) {
+  const candidates = [
+    ["content:encoded", item && item["content:encoded"]],
+    ["content", item && item.content],
+    ["summary", item && item.summary],
+    ["contentSnippet", item && item.contentSnippet],
+  ];
+
+  for (const [source, value] of candidates) {
+    if (typeof value !== "string") continue;
+    const trimmed = value.trim();
+    if (!trimmed) continue;
+    return { source, value: trimmed };
+  }
+
+  return null;
+}
+
+function cleanContentText(item, { maxLen = 8000, minLen = 200, summary = "" } = {}) {
+  const picked = pickRawContent(item);
+  if (!picked) return { text: null, source: null };
+
+  const rawText = decodeHtmlEntities(stripHtmlPreserveNewlines(picked.value));
+  const text = normalizeWhitespacePreserveNewlines(rawText);
+  if (!text) return { text: null, source: null };
+
+  const maxChars = Number.isFinite(maxLen) && maxLen > 0 ? maxLen : 8000;
+  const truncated = truncate(text, maxChars);
+  if (Number.isFinite(minLen) && minLen > 0 && truncated.length < minLen) {
+    return { text: null, source: null };
+  }
+
+  const normalizedSummary = normalizeWhitespace(String(summary || ""));
+  if (normalizedSummary && truncated.length <= normalizedSummary.length + 40) {
+    return { text: null, source: null };
+  }
+
+  return { text: truncated, source: picked.source };
+}
+
 async function fetchTextWithTimeout(url, { headers }, timeoutMs) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -280,6 +344,9 @@ export async function fetchAllSources({
   maxItemsPerFeed = 80,
   timeoutMs = 15000,
 } = {}) {
+  const contentMaxChars = Number.parseInt(process.env.RSS_CONTENT_MAX_CHARS || "8000", 10);
+  const contentMinChars = Number.parseInt(process.env.RSS_CONTENT_MIN_CHARS || "200", 10);
+
   const sources = await readJsonOrDefault(SOURCES_PATH, []);
   const state = await readJsonOrDefault(STATE_PATH, {});
   const blocklist = await readJsonOrDefault(BLOCKLIST_PATH, {
@@ -287,6 +354,13 @@ export async function fetchAllSources({
     titleContains: [],
   });
   const existingArticleIndex = await readJsonOrDefault(ARTICLES_INDEX_PATH, []);
+  const existingIndexById = new Map(
+    Array.isArray(existingArticleIndex)
+      ? existingArticleIndex
+          .filter((e) => e && e.id && e.path)
+          .map((e) => [String(e.id), String(e.path)])
+      : []
+  );
   const knownIds = new Set(
     Array.isArray(existingArticleIndex)
       ? existingArticleIndex.map((e) => e && e.id).filter(Boolean)
@@ -315,6 +389,7 @@ export async function fetchAllSources({
       failed: 0,
       paused: 0,
       added: 0,
+      backfilled: 0,
       duplicates: 0,
       skipped: 0,
     },
@@ -338,18 +413,19 @@ export async function fetchAllSources({
     if (sourceState.lastModified)
       headers["if-modified-since"] = sourceState.lastModified;
 
-    const perSource = {
-      ok: false,
-      paused: false,
-      status: null,
-      error: null,
-      fetchedAt: nowIso(),
-      parsedItems: 0,
-      added: 0,
-      duplicates: 0,
-      skipped: 0,
-    };
-    run.sources[source.id] = perSource;
+      const perSource = {
+        ok: false,
+        paused: false,
+        status: null,
+        error: null,
+        fetchedAt: nowIso(),
+        parsedItems: 0,
+        added: 0,
+        backfilled: 0,
+        duplicates: 0,
+        skipped: 0,
+      };
+      run.sources[source.id] = perSource;
 
     const pausedUntil = sourceState.pausedUntil ? String(sourceState.pausedUntil) : null;
     if (pausedUntil) {
@@ -425,6 +501,34 @@ export async function fetchAllSources({
         }
 
         if (knownIds.has(id)) {
+          const existingRelPath = existingIndexById.get(id);
+          if (existingRelPath) {
+            const existingAbsPath = path.resolve(ROOT, existingRelPath);
+            const existingArticle = await readJsonOrDefault(existingAbsPath, null);
+            if (existingArticle && !existingArticle.contentText) {
+              const content = cleanContentText(item, {
+                maxLen: contentMaxChars,
+                minLen: contentMinChars,
+                summary: existingArticle.summary || cleanSummary(item),
+              });
+              if (content.text) {
+                existingArticle.contentText = content.text;
+                existingArticle.contentSource = content.source;
+                try {
+                  await fs.writeFile(
+                    existingAbsPath,
+                    JSON.stringify(existingArticle, null, 2) + "\n",
+                    "utf8"
+                  );
+                  perSource.backfilled += 1;
+                  run.totals.backfilled += 1;
+                } catch {
+                  // ignore write errors
+                }
+              }
+            }
+          }
+
           perSource.duplicates += 1;
           run.totals.duplicates += 1;
           continue;
@@ -470,6 +574,16 @@ export async function fetchAllSources({
           language: source.language || "en",
           storagePath: relPath,
         };
+
+        const content = cleanContentText(item, {
+          maxLen: contentMaxChars,
+          minLen: contentMinChars,
+          summary: article.summary,
+        });
+        if (content.text) {
+          article.contentText = content.text;
+          article.contentSource = content.source;
+        }
 
         await fs.mkdir(dir, { recursive: true });
         await fs.writeFile(filePath, JSON.stringify(article, null, 2) + "\n");

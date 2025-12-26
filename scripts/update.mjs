@@ -17,9 +17,9 @@ function formatMarkdownSummary(summary) {
     } paused**`
   );
   lines.push(
-    `- Items: **${fetch.added || 0} added**, **${fetch.duplicates || 0} duplicates**, **${
-      fetch.skipped || 0
-    } skipped**`
+    `- Items: **${fetch.added || 0} added**, **${fetch.backfilled || 0} backfilled**, **${
+      fetch.duplicates || 0
+    } duplicates**, **${fetch.skipped || 0} skipped**`
   );
   if (typeof cleanup.deletedFiles === "number") {
     lines.push(`- Cleanup: deleted **${cleanup.deletedFiles}** files`);
@@ -78,6 +78,7 @@ const summary = {
     failed: fetchStats.totals.failed,
     paused: fetchStats.totals.paused || 0,
     added: fetchStats.totals.added,
+    backfilled: fetchStats.totals.backfilled || 0,
     duplicates: fetchStats.totals.duplicates,
     skipped: fetchStats.totals.skipped,
   },
