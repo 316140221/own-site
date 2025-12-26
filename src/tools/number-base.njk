@@ -1,0 +1,81 @@
+---
+layout: layouts/base.njk
+title: "Number Base Converter"
+description: "Convert numbers between bases (2-36) locally in your browser."
+pageScript: "/assets/tools/number-base.js"
+---
+
+<h1 data-i18n="tools.item.number-base.title">Number Base Converter</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-input" data-i18n="tool.numberBase.inputLabel">Number</label>
+      <textarea
+        id="tool-input"
+        class="tool-textarea"
+        rows="6"
+        placeholder="e.g. 0xff or 101010 or -42"
+        data-i18n-placeholder="tool.numberBase.placeholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="6"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-convert" data-i18n="tool.numberBase.convert">Convert</button>
+    <button class="button button-secondary" type="button" id="btn-swap" data-i18n="tool.common.swap">Swap</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">Clear</button>
+  </div>
+
+  <div class="tool-options">
+    <label class="tool-option">
+      <span data-i18n="tool.numberBase.fromBase">From:</span>
+      <select id="opt-from">
+        <option value="auto" data-i18n="tool.numberBase.base.auto">Auto</option>
+        <option value="2">2</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="16">16</option>
+        <option value="36">36</option>
+      </select>
+    </label>
+    <label class="tool-option">
+      <span data-i18n="tool.numberBase.toBase">To:</span>
+      <select id="opt-to">
+        <option value="2">2</option>
+        <option value="8">8</option>
+        <option value="10" selected>10</option>
+        <option value="16">16</option>
+        <option value="36">36</option>
+      </select>
+    </label>
+    <label class="tool-option">
+      <input type="checkbox" id="opt-upper" checked />
+      <span data-i18n="tool.numberBase.uppercase">Uppercase output</span>
+    </label>
+    <label class="tool-option">
+      <input type="checkbox" id="opt-prefix" />
+      <span data-i18n="tool.numberBase.prefix">Add prefix (0x/0b/0o)</span>
+    </label>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

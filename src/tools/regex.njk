@@ -1,0 +1,103 @@
+---
+layout: layouts/base.njk
+title: "Regex Tester"
+description: "Test regex matches or do replacements locally in your browser."
+pageScript: "/assets/tools/regex.js"
+---
+
+<h1 data-i18n="tools.item.regex.title">Regex Tester</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-pane">
+    <label class="tool-label" for="tool-input" data-i18n="tool.regex.text">Text</label>
+    <textarea
+      id="tool-input"
+      class="tool-textarea"
+      rows="8"
+      placeholder="Paste text here…"
+      data-i18n-placeholder="tool.common.placeholder"
+      spellcheck="false"
+    ></textarea>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-find" data-i18n="tool.regex.find">Find matches</button>
+    <button class="button button-secondary" type="button" id="btn-replace" data-i18n="tool.regex.replace">
+      Replace
+    </button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">Clear</button>
+  </div>
+
+  <div class="tool-options">
+    <label class="tool-option">
+      <span data-i18n="tool.regex.pattern">Pattern:</span>
+      <input
+        class="tool-input-wide"
+        type="text"
+        id="opt-pattern"
+        placeholder="(\\w+)=(\\w+)"
+        data-i18n-placeholder="tool.regex.patternPlaceholder"
+      />
+    </label>
+    <div class="tool-option">
+      <span data-i18n="tool.regex.flags">Flags:</span>
+      <label class="tool-check">
+        <input type="checkbox" id="flag-g" checked />
+        <span>g</span>
+      </label>
+      <label class="tool-check">
+        <input type="checkbox" id="flag-i" />
+        <span>i</span>
+      </label>
+      <label class="tool-check">
+        <input type="checkbox" id="flag-m" />
+        <span>m</span>
+      </label>
+      <label class="tool-check">
+        <input type="checkbox" id="flag-s" />
+        <span>s</span>
+      </label>
+      <label class="tool-check">
+        <input type="checkbox" id="flag-u" />
+        <span>u</span>
+      </label>
+      <label class="tool-check">
+        <input type="checkbox" id="flag-y" />
+        <span>y</span>
+      </label>
+    </div>
+    <label class="tool-option">
+      <span data-i18n="tool.regex.replacement">Replacement:</span>
+      <input
+        class="tool-input-wide"
+        type="text"
+        id="opt-replacement"
+        placeholder="$2=$1"
+        data-i18n-placeholder="tool.regex.replacementPlaceholder"
+      />
+    </label>
+    <label class="tool-option">
+      <input type="checkbox" id="opt-pretty" checked />
+      <span data-i18n="tool.regex.prettyJson">Pretty JSON output</span>
+    </label>
+  </div>
+
+  <div class="tool-pane tool-pane-block">
+    <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+    <textarea
+      id="tool-output"
+      class="tool-textarea"
+      rows="10"
+      readonly
+      placeholder="Result will appear here…"
+      data-i18n-placeholder="tool.common.resultPlaceholder"
+      spellcheck="false"
+    ></textarea>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>

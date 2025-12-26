@@ -49,6 +49,21 @@ const rawGroups = [
         label: "Base58 Encode/Decode",
         description: "Bitcoin alphabet Base58 for UTF-8 text.",
       },
+      {
+        slug: "base85",
+        label: "Base85 (Ascii85) Encode/Decode",
+        description: "Ascii85/Base85 for UTF-8 text, optional “z” compression.",
+      },
+      {
+        slug: "rot13",
+        label: "ROT13",
+        description: "ROT13 transform for A-Z / a-z text.",
+      },
+      {
+        slug: "escape",
+        label: "Escape/Unescape (JS)",
+        description: "Legacy JavaScript escape()/unescape() encoder/decoder.",
+      },
     ],
   },
   {
@@ -75,6 +90,11 @@ const rawGroups = [
         label: "Text Case Converter",
         description: "Convert between common casing styles (camel, snake, kebab, title…).",
       },
+      {
+        slug: "lines",
+        label: "Text Lines Tool",
+        description: "Sort, dedupe, and clean up text lines.",
+      },
     ],
   },
   {
@@ -90,6 +110,16 @@ const rawGroups = [
         slug: "md5",
         label: "MD5 Hash",
         description: "MD5 hash for UTF-8 text (hex or base64).",
+      },
+      {
+        slug: "md4",
+        label: "MD4 Hash",
+        description: "MD4 hash for UTF-8 text (hex or base64).",
+      },
+      {
+        slug: "md2",
+        label: "MD2 Hash",
+        description: "MD2 hash for UTF-8 text (hex or base64).",
       },
       {
         slug: "crc32",
@@ -122,6 +152,16 @@ const rawGroups = [
         label: "Password Generator",
         description: "Generate strong random passwords locally.",
       },
+      {
+        slug: "nanoid",
+        label: "Nano ID Generator",
+        description: "Generate short URL-safe IDs locally.",
+      },
+      {
+        slug: "lorem",
+        label: "Lorem Ipsum Generator",
+        description: "Generate lorem ipsum text locally.",
+      },
     ],
   },
   {
@@ -138,6 +178,11 @@ const rawGroups = [
         label: "Query String Parse/Build",
         description: "Parse a URL/querystring into JSON, or build a querystring from JSON.",
       },
+      {
+        slug: "regex",
+        label: "Regex Tester",
+        description: "Test matches or do replacements with JavaScript RegExp.",
+      },
     ],
   },
   {
@@ -149,6 +194,11 @@ const rawGroups = [
         label: "AES-GCM Encrypt/Decrypt",
         description: "AES-GCM + PBKDF2 (passphrase) in your browser.",
       },
+      {
+        slug: "rsa",
+        label: "RSA Hybrid Encrypt/Decrypt",
+        description: "Hybrid RSA-OAEP + AES-GCM for practical encrypt/decrypt.",
+      },
     ],
   },
   {
@@ -159,6 +209,11 @@ const rawGroups = [
         slug: "timestamp",
         label: "Timestamp Converter",
         description: "Convert between Unix timestamps and dates.",
+      },
+      {
+        slug: "number-base",
+        label: "Number Base Converter",
+        description: "Convert numbers between bases (2-36).",
       },
       {
         slug: "ip",
