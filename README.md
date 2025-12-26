@@ -21,6 +21,8 @@ Zero-cost news aggregator: fetch RSS feeds, store normalized JSON, build a stati
 - `FAILURE_BACKOFF_BASE_HOURS` (default `24`)
 - `FAILURE_BACKOFF_MAX_HOURS` (default `168`)
 - `RUN_HISTORY_DAYS` (default `30`, set `0` to disable)
+- `RSS_CONTENT_MAX_CHARS` (default `8000`, max chars kept from RSS long content)
+- `RSS_CONTENT_MIN_CHARS` (default `200`, minimum chars to store RSS long content)
 - `SITE_URL` (site origin for canonical/feeds/sitemap, e.g. `https://<owner>.github.io` or a custom domain; do not include `/<repo>/`)
 - `PATH_PREFIX` (for GitHub Pages project sites, e.g. `/<repo>/` or `/`)
 - `GOOGLE_SITE_VERIFICATION` (optional: Google Search Console verification token for `<meta name="google-site-verification">`)

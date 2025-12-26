@@ -294,6 +294,29 @@ h2 {
   font-size: 16px;
 }
 
+.article-content {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.article-content-title {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.article-content-body {
+  margin-top: 12px;
+}
+
+.article-content-body p {
+  margin: 0 0 12px;
+}
+
+.article-content-body p:last-child {
+  margin-bottom: 0;
+}
+
 @media (max-width: 680px) {
   .news-item {
     flex-direction: column;
