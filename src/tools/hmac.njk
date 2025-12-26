@@ -1,0 +1,83 @@
+---
+layout: layouts/base.njk
+title: "HMAC"
+description: "Compute HMAC using WebCrypto (SHA-256 / SHA-1 / SHA-384 / SHA-512). Runs locally."
+pageScript: "/assets/tools/hmac.js"
+---
+
+<h1 data-i18n="tools.item.hmac.title">HMAC</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-input" data-i18n="tool.hmac.message">Message</label>
+      <textarea
+        id="tool-input"
+        class="tool-textarea"
+        rows="10"
+        placeholder="Paste text here…"
+        data-i18n-placeholder="tool.common.placeholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.hmac.outputLabel">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="10"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-pane tool-pane-block">
+    <label class="tool-label" for="tool-secret" data-i18n="tool.hmac.secret">Secret key</label>
+    <textarea
+      id="tool-secret"
+      class="tool-textarea"
+      rows="2"
+      placeholder="Secret key…"
+      data-i18n-placeholder="tool.hmac.secretPlaceholder"
+      spellcheck="false"
+    ></textarea>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-hmac" data-i18n="tool.hmac.compute">Compute</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">Clear</button>
+  </div>
+
+  <div class="tool-options">
+    <label class="tool-option">
+      <span data-i18n="tool.hmac.algorithm">Algorithm:</span>
+      <select id="opt-alg">
+        <option value="SHA-256">SHA-256</option>
+        <option value="SHA-1">SHA-1</option>
+        <option value="SHA-384">SHA-384</option>
+        <option value="SHA-512">SHA-512</option>
+      </select>
+    </label>
+    <label class="tool-option">
+      <span data-i18n="tool.hmac.format">Format:</span>
+      <select id="opt-format">
+        <option value="hex" data-i18n="tool.hmac.format.hex">HEX</option>
+        <option value="base64" data-i18n="tool.hmac.format.base64">Base64</option>
+      </select>
+    </label>
+    <label class="tool-option">
+      <input type="checkbox" id="opt-uppercase" checked />
+      <span data-i18n="tool.hmac.uppercase">Uppercase HEX</span>
+    </label>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

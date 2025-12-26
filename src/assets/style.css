@@ -161,6 +161,10 @@ a:hover {
   top: calc(100% + 10px);
   right: 0;
   min-width: 260px;
+  max-height: min(70vh, 520px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   padding: 12px;
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -484,6 +488,10 @@ h2 {
   box-shadow: var(--shadow);
 }
 
+.tool-pane-block {
+  margin-top: 14px;
+}
+
 .tool-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -539,6 +547,17 @@ h2 {
 }
 
 .tool-option select {
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--input);
+  color: var(--text);
+  font: inherit;
+}
+
+.tool-option input[type="number"],
+.tool-option input[type="text"] {
+  width: 110px;
   padding: 6px 10px;
   border-radius: 10px;
   border: 1px solid var(--border);

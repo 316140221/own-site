@@ -1,0 +1,53 @@
+---
+layout: layouts/base.njk
+title: "UUID Generator"
+description: "Generate UUID v4 locally in your browser."
+pageScript: "/assets/tools/uuid.js"
+---
+
+<h1 data-i18n="tools.item.uuid.title">UUID Generator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-pane">
+    <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+    <textarea
+      id="tool-output"
+      class="tool-textarea"
+      rows="10"
+      readonly
+      placeholder="Result will appear here…"
+      data-i18n-placeholder="tool.common.resultPlaceholder"
+      spellcheck="false"
+    ></textarea>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-generate" data-i18n="tool.uuid.generate">Generate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">Clear</button>
+  </div>
+
+  <div class="tool-options">
+    <label class="tool-option">
+      <span data-i18n="tool.uuid.count">Count:</span>
+      <input type="number" id="opt-count" min="1" max="100" value="5" />
+    </label>
+    <label class="tool-option">
+      <input type="checkbox" id="opt-uppercase" />
+      <span data-i18n="tool.uuid.uppercase">Uppercase</span>
+    </label>
+    <label class="tool-option">
+      <input type="checkbox" id="opt-no-hyphens" />
+      <span data-i18n="tool.uuid.noHyphens">Remove hyphens</span>
+    </label>
+    <label class="tool-option">
+      <input type="checkbox" id="opt-braces" />
+      <span data-i18n="tool.uuid.braces">Wrap with braces {}</span>
+    </label>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
