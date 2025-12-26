@@ -6,7 +6,7 @@ on:
       - main
   schedule:
     # Every 8 hours (UTC)
-    - cron: "0 */4 * * *"
+    - cron: "0 */1 * * *"
   workflow_dispatch: {}
 
 permissions:

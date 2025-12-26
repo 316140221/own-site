@@ -1,0 +1,24 @@
+---
+layout: layouts/base.njk
+title: Tools
+description: "Frontend-only utilities: encoding, JSON, hashing. Everything runs locally in your browser."
+---
+
+<h1 data-i18n="tools.title">Tools</h1>
+<p class="muted" data-i18n="tools.subtitle">All tools run locally in your browser. Nothing is uploaded.</p>
+
+{% if tools and tools.groups %}
+  {% for group in tools.groups %}
+    <h2 data-i18n="tools.group.{{ group.id }}">{{ group.label }}</h2>
+    <div class="tool-cards">
+      {% for t in group.items %}
+        <a class="tool-card" href="{{ t.path | url }}">
+          <div class="tool-card-title" data-i18n="tools.item.{{ t.slug }}.title">{{ t.label }}</div>
+          {% if t.description %}
+            <div class="tool-card-desc" data-i18n="tools.item.{{ t.slug }}.desc">{{ t.description }}</div>
+          {% endif %}
+        </a>
+      {% endfor %}
+    </div>
+  {% endfor %}
+{% endif %}
