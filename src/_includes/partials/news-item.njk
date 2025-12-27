@@ -1,7 +1,14 @@
 <li class="news-item">
   {% if item.image %}
     <a class="news-thumb" href="{{ ('/p/' + item.id + '/') | url }}" tabindex="-1" aria-hidden="true">
-      <img src="{{ item.image }}" alt="" loading="lazy" decoding="async" />
+      <img
+        src="{{ item.image }}"
+        alt="{{ item.title | decodeEntities }}"
+        width="140"
+        height="92"
+        loading="lazy"
+        decoding="async"
+      />
     </a>
   {% endif %}
 

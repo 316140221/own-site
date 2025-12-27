@@ -426,6 +426,29 @@ h2 {
   font-size: 28px;
 }
 
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.breadcrumbs a {
+  color: var(--muted);
+}
+
+.breadcrumbs a:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.breadcrumbs-current {
+  color: var(--text);
+}
+
 .article-meta {
   display: flex;
   flex-wrap: wrap;
@@ -600,6 +623,26 @@ h2 {
   background: var(--input);
   color: var(--text);
   font: inherit;
+}
+
+.tool-option input[type="text"].tool-input-wide {
+  width: min(360px, 60vw);
+}
+
+.tool-check {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--input);
+  color: var(--text);
+  font-size: 13px;
+}
+
+.tool-check input {
+  margin: 0;
 }
 
 .tool-status-error {

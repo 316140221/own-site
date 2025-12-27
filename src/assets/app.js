@@ -203,7 +203,7 @@ const I18N = {
     "tool.csv.error.noRows": "No rows found",
     "tool.csv.error.json": "Invalid JSON input (expected an array of objects/arrays)",
 
-    "tool.xml.placeholder": "<root><item id=\\"1\\">hello</item></root>",
+    "tool.xml.placeholder": "<root><item id='1'>hello</item></root>",
     "tool.xml.format": "Format",
     "tool.xml.minify": "Minify",
     "tool.xml.indent": "Indent:",
@@ -704,7 +704,7 @@ const I18N = {
     "tool.csv.error.noRows": "没有可用的行",
     "tool.csv.error.json": "JSON 不合法（期望：对象数组或二维数组）",
 
-    "tool.xml.placeholder": "<root><item id=\\"1\\">hello</item></root>",
+    "tool.xml.placeholder": "<root><item id='1'>hello</item></root>",
     "tool.xml.format": "格式化",
     "tool.xml.minify": "压缩",
     "tool.xml.indent": "缩进：",
