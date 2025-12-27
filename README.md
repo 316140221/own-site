@@ -12,7 +12,7 @@
 
 - RSS → normalized JSON (`data/`) → static site (`dist/`)
 - Search powered by Pagefind (no external service)
-- A small tools section (Base64 / Base32 / Base58 / Hex / URL / Unicode / HTML / Morse / QueryString / JSON / CSV / XML / Case / SHA / MD5 / CRC32 / HMAC / AES / File Hash / UUID / Password / JWT / Timestamp / IPv4 CIDR / Color) running locally in the browser
+- A small tools section (Base64 / Base32 / Base58 / Base85 / ROT13 / Escape / Hex / URL / Unicode / HTML / Morse / QueryString / Regex / JSON / CSV / XML / Case / Lines / SHA / MD5 / MD4 / MD2 / CRC32 / HMAC / AES / RSA / File Hash / UUID / NanoID / Password / Lorem / JWT / Timestamp / Number Base / IPv4 CIDR / Color) running locally in the browser
 - Fully automated deploy via GitHub Actions + GitHub Pages
 
 ## Commands

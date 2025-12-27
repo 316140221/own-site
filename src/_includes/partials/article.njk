@@ -1,5 +1,14 @@
 <article class="article">
   <div class="article-header">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="{{ '/' | url }}">Home</a>
+      {% if article.category %}
+        <span class="breadcrumbs-sep" aria-hidden="true">›</span>
+        <a href="{{ ('/category/' + article.category + '/') | url }}">{{ article.category | titleCase }}</a>
+      {% endif %}
+      <span class="breadcrumbs-sep" aria-hidden="true">›</span>
+      <span class="breadcrumbs-current">{{ article.title | decodeEntities }}</span>
+    </nav>
     <h1 class="article-title">{{ article.title | decodeEntities }}</h1>
     <div class="article-meta">
       <span class="badge">{{ article.category | titleCase }}</span>
@@ -14,7 +23,14 @@
 
   {% if article.image %}
     <div class="article-image">
-      <img src="{{ article.image }}" alt="" loading="lazy" decoding="async" />
+      <img
+        src="{{ article.image }}"
+        alt="{{ article.title | decodeEntities }}"
+        width="1200"
+        height="675"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
   {% endif %}
 

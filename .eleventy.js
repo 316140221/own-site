@@ -56,6 +56,15 @@ function titleCase(value) {
     .join(" ");
 }
 
+function jsonLd(value) {
+  return JSON.stringify(value)
+    .replace(/</g, "\\u003c")
+    .replace(/>/g, "\\u003e")
+    .replace(/&/g, "\\u0026")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
+}
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.setNunjucksEnvironmentOptions({ autoescape: true });
 
@@ -87,6 +96,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("textToHtml", (value) => textToHtml(value));
   eleventyConfig.addFilter("decodeEntities", (value) => decodeHtmlEntities(value));
   eleventyConfig.addFilter("titleCase", (value) => titleCase(value));
+  eleventyConfig.addFilter("jsonLd", (value) => jsonLd(value));
 
   eleventyConfig.addFilter("rfc822", (value) => {
     if (!value) return "";

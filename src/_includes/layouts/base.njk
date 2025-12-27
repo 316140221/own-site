@@ -8,21 +8,135 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>{% if title %}{{ title | decodeEntities }} · {% endif %}{{ site.name }}</title>
-    <meta name="description" content="{{ description or site.description }}" />
+    {% set metaTitle = site.name %}
+    {% if title %}
+      {% set metaTitle = (title | decodeEntities) + ' · ' + site.name %}
+    {% endif %}
+    {% set metaDescription = description or site.description %}
+    {% set canonical = (page.url | url) | absoluteUrl(site.url) %}
+
+    {% set contentLang = site.language %}
+    {% if article and article.language %}
+      {% set contentLang = article.language %}
+    {% endif %}
+
+    {% set ogImage = "" %}
+    {% if article and article.image %}
+      {% set ogImage = article.image %}
+    {% endif %}
+
+    <title>{{ metaTitle }}</title>
+    <meta name="description" content="{{ metaDescription }}" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
     <meta property="og:site_name" content="{{ site.name }}" />
     {% if site.googleSiteVerification %}
       <meta name="google-site-verification" content="{{ site.googleSiteVerification }}" />
     {% endif %}
 
-    {% if site.url %}
-      {% set canonical = (page.url | url) | absoluteUrl(site.url) %}
-      <link rel="canonical" href="{{ canonical }}" />
-      <meta property="og:url" content="{{ canonical }}" />
-    {% endif %}
+    <link rel="canonical" href="{{ canonical }}" />
+    <meta property="og:url" content="{{ canonical }}" />
     <meta property="og:type" content="{{ ogType or 'website' }}" />
-    <meta property="og:title" content="{% if title %}{{ title | decodeEntities }} · {% endif %}{{ site.name }}" />
-    <meta property="og:description" content="{{ description or site.description }}" />
+    <meta property="og:title" content="{{ metaTitle }}" />
+    <meta property="og:description" content="{{ metaDescription }}" />
+
+    {% if ogImage %}
+      {% set ogImageAbs = ogImage | absoluteUrl(site.url) %}
+      <meta property="og:image" content="{{ ogImageAbs }}" />
+      <meta property="og:image:alt" content="{{ title | decodeEntities if title else site.name }}" />
+    {% endif %}
+
+    {% if ogType == 'article' and article %}
+      {% if article.publishedAt %}
+        <meta property="article:published_time" content="{{ article.publishedAt }}" />
+        <meta property="article:modified_time" content="{{ article.publishedAt }}" />
+      {% endif %}
+      {% if article.category %}
+        <meta property="article:section" content="{{ article.category | titleCase }}" />
+      {% endif %}
+    {% endif %}
+
+    <meta name="twitter:card" content="{% if ogImage %}summary_large_image{% else %}summary{% endif %}" />
+    <meta name="twitter:title" content="{{ metaTitle }}" />
+    <meta name="twitter:description" content="{{ metaDescription }}" />
+    <meta name="twitter:url" content="{{ canonical }}" />
+    {% if ogImage %}
+      <meta name="twitter:image" content="{{ ogImageAbs }}" />
+    {% endif %}
+
+    {% set schemaOrgId = site.url + '#organization' %}
+    {% set schemaWebsiteId = site.url + '#website' %}
+    {% set schemaWebpageId = canonical + '#webpage' %}
+    {% set schemaGraph = [
+      {
+        '@type': 'Organization',
+        '@id': schemaOrgId,
+        'name': site.name,
+        'url': site.url
+      },
+      {
+        '@type': 'WebSite',
+        '@id': schemaWebsiteId,
+        'url': site.url,
+        'name': site.name,
+        'description': site.description,
+        'publisher': { '@id': schemaOrgId },
+        'potentialAction': {
+          '@type': 'SearchAction',
+          'target': {
+            '@type': 'EntryPoint',
+            'urlTemplate': site.url + '/search/?q={search_term_string}'
+          },
+          'query-input': 'required name=search_term_string'
+        }
+      },
+      {
+        '@type': 'WebPage',
+        '@id': schemaWebpageId,
+        'url': canonical,
+        'name': metaTitle,
+        'description': metaDescription,
+        'isPartOf': { '@id': schemaWebsiteId },
+        'inLanguage': contentLang
+      }
+    ] %}
+
+    {% if ogType == 'article' and article %}
+      {% set categoryUrl = ('/category/' + article.category + '/') | url | absoluteUrl(site.url) %}
+      {% set breadcrumbId = canonical + '#breadcrumb' %}
+      {% set homeUrl = ('/' | url | absoluteUrl(site.url)) %}
+      {% set categoryLabel = article.category | titleCase %}
+      {% set articleTitle = article.title | decodeEntities %}
+      {% set schemaImage = undefined %}
+      {% if ogImage %}
+        {% set schemaImage = ogImageAbs %}
+      {% endif %}
+      {% set schemaGraph = schemaGraph.concat([
+        {
+          '@type': 'BreadcrumbList',
+          '@id': breadcrumbId,
+          'itemListElement': [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': homeUrl },
+            { '@type': 'ListItem', 'position': 2, 'name': categoryLabel, 'item': categoryUrl },
+            { '@type': 'ListItem', 'position': 3, 'name': articleTitle, 'item': canonical }
+          ]
+        },
+        {
+          '@type': 'Article',
+          '@id': canonical + '#article',
+          'headline': articleTitle,
+          'description': (article.summary or metaDescription),
+          'datePublished': article.publishedAt,
+          'dateModified': article.publishedAt,
+          'inLanguage': contentLang,
+          'isBasedOn': article.canonicalUrl,
+          'mainEntityOfPage': { '@id': schemaWebpageId },
+          'publisher': { '@id': schemaOrgId },
+          'articleSection': categoryLabel,
+          'image': schemaImage
+        }
+      ]) %}
+    {% endif %}
+    <script type="application/ld+json">{{ { '@context': 'https://schema.org', '@graph': schemaGraph } | jsonLd | safe }}</script>
 
     <link
       rel="alternate"
