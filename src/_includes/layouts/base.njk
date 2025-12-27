@@ -168,6 +168,10 @@
         <nav class="nav" id="site-nav">
           <a href="{{ '/' | url }}" data-i18n="nav.home">Home</a>
 
+          {% if amazon and amazon.enabled %}
+            <a href="{{ '/shop/' | url }}" data-i18n="nav.shop">Shop</a>
+          {% endif %}
+
           {% if tools and tools.groups %}
             <details class="nav-dropdown">
               <summary data-i18n="nav.tools">Tools</summary>

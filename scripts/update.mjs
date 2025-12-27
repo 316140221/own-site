@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { buildIndexes, cleanupOldArticles, fetchAllSources } from "./lib/pipeline.mjs";
+import { updateAmazonData } from "./lib/amazon.mjs";
 
 function formatMarkdownSummary(summary) {
   const finishedAt = summary?.finishedAt || "";
@@ -68,6 +69,15 @@ const cleanupStats = await cleanupOldArticles({
   archiveDir,
 });
 const indexStats = await buildIndexes({});
+let amazonStats = null;
+try {
+  amazonStats = await updateAmazonData();
+} catch (error) {
+  amazonStats = {
+    ok: false,
+    error: error?.message || String(error),
+  };
+}
 
 const summary = {
   startedAt: fetchStats.startedAt,
@@ -84,6 +94,7 @@ const summary = {
   },
   cleanup: cleanupStats,
   indexes: indexStats,
+  amazon: amazonStats,
   sources: fetchStats.sources,
 };
 

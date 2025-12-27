@@ -93,6 +93,14 @@ jobs:
         run: npm run update
         env:
           ARCHIVE_OLD: "1"
+          AMAZON_ASSOCIATE_TAG: ${{ vars.AMAZON_ASSOCIATE_TAG || secrets.AMAZON_ASSOCIATE_TAG }}
+          AMAZON_MARKETPLACE_DOMAIN: ${{ vars.AMAZON_MARKETPLACE_DOMAIN }}
+          AMAZON_PAAPI_ACCESS_KEY: ${{ secrets.AMAZON_PAAPI_ACCESS_KEY }}
+          AMAZON_PAAPI_SECRET_KEY: ${{ secrets.AMAZON_PAAPI_SECRET_KEY }}
+          AMAZON_PAAPI_PARTNER_TAG: ${{ vars.AMAZON_PAAPI_PARTNER_TAG || secrets.AMAZON_PAAPI_PARTNER_TAG }}
+          AMAZON_PAAPI_HOST: ${{ vars.AMAZON_PAAPI_HOST }}
+          AMAZON_PAAPI_REGION: ${{ vars.AMAZON_PAAPI_REGION }}
+          AMAZON_PAAPI_MARKETPLACE: ${{ vars.AMAZON_PAAPI_MARKETPLACE }}
 
       - name: Upload archives (if any)
         uses: actions/upload-artifact@v4
@@ -126,6 +134,8 @@ jobs:
           ANALYTICS_PROVIDER: ${{ vars.ANALYTICS_PROVIDER || secrets.ANALYTICS_PROVIDER }}
           CLOUDFLARE_WEB_ANALYTICS_TOKEN: ${{ vars.CLOUDFLARE_WEB_ANALYTICS_TOKEN || secrets.CLOUDFLARE_WEB_ANALYTICS_TOKEN }}
           GA_MEASUREMENT_ID: ${{ vars.GA_MEASUREMENT_ID || secrets.GA_MEASUREMENT_ID }}
+          AMAZON_ASSOCIATE_TAG: ${{ vars.AMAZON_ASSOCIATE_TAG || secrets.AMAZON_ASSOCIATE_TAG }}
+          AMAZON_MARKETPLACE_DOMAIN: ${{ vars.AMAZON_MARKETPLACE_DOMAIN }}
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
