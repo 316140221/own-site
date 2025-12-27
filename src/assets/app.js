@@ -2,6 +2,7 @@ const I18N = {
   en: {
     "nav.menu": "Menu",
     "nav.home": "Home",
+    "nav.shop": "Shop",
     "nav.news": "News",
     "nav.tools": "Tools",
     "nav.toolsAll": "All tools",
@@ -12,6 +13,15 @@ const I18N = {
 
     "home.tools": "Tools",
     "home.latest": "Latest",
+
+    "shop.title": "Shop",
+    "shop.subtitle": "Curated Amazon items. Purchases via links may earn us a commission.",
+    "shop.cta": "View on Amazon",
+    "shop.updatedAt": "Updated",
+    "shop.disclaimer": "As an Amazon Associate I earn from qualifying purchases.",
+    "shop.empty": "No items yet.",
+    "shop.disabled": "Not enabled. Configure",
+    "shop.disabled2": "and run",
 
     "tools.title": "Tools",
     "tools.subtitle": "All tools run locally in your browser. Nothing is uploaded.",
@@ -503,6 +513,7 @@ const I18N = {
   zh: {
     "nav.menu": "菜单",
     "nav.home": "首页",
+    "nav.shop": "购物",
     "nav.news": "新闻",
     "nav.tools": "工具",
     "nav.toolsAll": "全部工具",
@@ -513,6 +524,15 @@ const I18N = {
 
     "home.tools": "工具",
     "home.latest": "最新",
+
+    "shop.title": "购物",
+    "shop.subtitle": "亚马逊精选商品。通过我们的链接购买，我们可能会获得佣金。",
+    "shop.cta": "去亚马逊查看",
+    "shop.updatedAt": "更新时间",
+    "shop.disclaimer": "作为亚马逊联盟会员，我们可能会从符合条件的购买中获得佣金。",
+    "shop.empty": "暂无商品。",
+    "shop.disabled": "未启用。请配置",
+    "shop.disabled2": "然后运行",
 
     "tools.title": "工具",
     "tools.subtitle": "所有工具均在浏览器本地运行，不会上传内容。",

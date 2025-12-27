@@ -1,0 +1,97 @@
+---
+layout: layouts/base.njk
+title: Shop
+description: Amazon picks and affiliate links
+---
+
+<h1 data-i18n="shop.title">Shop</h1>
+<p class="muted" data-i18n="shop.subtitle">
+  Curated Amazon items. Purchases via links may earn us a commission.
+</p>
+
+{% if amazon and amazon.enabled %}
+  {% if amazon.items and amazon.items.length %}
+    <div class="shop-grid">
+      {% for item in amazon.items %}
+        <article class="shop-card">
+          <a
+            class="shop-thumb"
+            href="{{ item.url }}"
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+          >
+            {% if item.image %}
+              <img
+                src="{{ item.image }}"
+                alt="{{ item.title or ('ASIN ' + item.asin) }}"
+                width="160"
+                height="160"
+                loading="lazy"
+                decoding="async"
+              />
+            {% else %}
+              <div class="shop-thumb-placeholder">ASIN {{ item.asin }}</div>
+            {% endif %}
+          </a>
+
+          <div class="shop-body">
+            <div class="shop-title">
+              <a
+                href="{{ item.url }}"
+                target="_blank"
+                rel="nofollow sponsored noopener noreferrer"
+              >
+                {{ item.title or item.asin }}
+              </a>
+            </div>
+
+            {% if item.note %}
+              <div class="shop-note muted">{{ item.note }}</div>
+            {% endif %}
+
+            <div class="shop-meta">
+              {% if item.price and item.price.display %}
+                <span class="badge">{{ item.price.display }}</span>
+              {% endif %}
+              {% if item.rating %}
+                <span class="badge">
+                  ★ {{ item.rating }}{% if item.reviewCount %} ({{ item.reviewCount }}){% endif %}
+                </span>
+              {% endif %}
+            </div>
+
+            <a
+              class="shop-cta"
+              href="{{ item.url }}"
+              target="_blank"
+              rel="nofollow sponsored noopener noreferrer"
+              data-i18n="shop.cta"
+            >
+              View on Amazon
+            </a>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    {% if amazon.updatedAt %}
+      <p class="muted shop-updated">
+        <span data-i18n="shop.updatedAt">Updated</span>:
+        {{ amazon.updatedAt | formatDateTime }}
+      </p>
+    {% endif %}
+
+    <p class="muted shop-disclaimer" data-i18n="shop.disclaimer">
+      As an Amazon Associate I earn from qualifying purchases.
+    </p>
+  {% else %}
+    <p class="muted" data-i18n="shop.empty">No items yet.</p>
+  {% endif %}
+{% else %}
+  <p class="muted">
+    <span data-i18n="shop.disabled">Not enabled. Configure</span>
+    <code>amazon.config.json</code>
+    <span data-i18n="shop.disabled2">and run</span>
+    <code>npm run update</code>.
+  </p>
+{% endif %}

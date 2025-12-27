@@ -71,6 +71,27 @@ For local development, you can use a `.env` file (already gitignored). For GitHu
 - `CLOUDFLARE_WEB_ANALYTICS_TOKEN` (optional)
 - `GA_MEASUREMENT_ID` (optional)
 
+## Amazon shop module (optional)
+
+This repo can optionally render a small `/shop/` page (Amazon affiliate links), while keeping the existing RSS → `data/` → Eleventy build flow unchanged.
+
+**Config**
+
+- Edit `amazon.config.json`
+  - Set `"enabled": true`
+  - Add items via `"items": [{ "asin": "B0..." }]`
+  - Set `"associateTag"` (your Amazon Associates tracking ID), or use `AMAZON_ASSOCIATE_TAG`
+  - For other locales/marketplaces: update `"marketplace"` (`domain`/`host`/`region`) or set `AMAZON_PAAPI_MARKETPLACE` / `AMAZON_PAAPI_HOST` / `AMAZON_PAAPI_REGION`
+
+**Data modes**
+
+- Link-only (no API): if PA-API creds are missing, `npm run update` will still generate `data/amazon/items.json` with affiliate links.
+- PA-API (recommended): set GitHub Secrets `AMAZON_PAAPI_ACCESS_KEY` / `AMAZON_PAAPI_SECRET_KEY` and `AMAZON_PAAPI_PARTNER_TAG` (or reuse `AMAZON_ASSOCIATE_TAG`), then scheduled updates will enrich title/image/price.
+
+Notes:
+- Amazon PA-API access requires an Amazon Associates account and may have eligibility requirements.
+- Avoid scraping Amazon pages; it often violates Amazon ToS and is brittle.
+
 ## Analytics (optional)
 
 - Cloudflare Web Analytics: `ANALYTICS_PROVIDER=cloudflare` + `CLOUDFLARE_WEB_ANALYTICS_TOKEN`
