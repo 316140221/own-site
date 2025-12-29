@@ -1,6 +1,8 @@
 const I18N = {
   en: {
     "nav.menu": "Menu",
+    "nav.skip": "Skip to content",
+    "nav.top": "Back to top",
     "nav.home": "Home",
     "nav.shop": "Shop",
     "nav.news": "News",
@@ -10,12 +12,33 @@ const I18N = {
     "nav.language": "Language",
     "nav.search": "Search",
     "nav.about": "About",
+    "nav.privacy": "Privacy",
+    "nav.disclosure": "Affiliate Disclosure",
+    "nav.contact": "Contact",
+    "nav.terms": "Terms",
+
+    "search.label": "Search",
+    "search.placeholder": "Search… (/)",
+    "search.go": "Go",
 
     "home.tools": "Tools",
     "home.latest": "Latest",
+    "home.shopFeatured": "Featured",
+    "home.shopAll": "View all",
+
+    "article.copy": "Copy link",
+    "article.share": "Share",
+    "article.related": "Recommended",
+
+    "common.copied": "Copied",
+    "common.copyFailed": "Copy failed",
 
     "shop.title": "Shop",
     "shop.subtitle": "Curated Amazon items. Purchases via links may earn us a commission.",
+    "shop.filter": "Filter:",
+    "shop.tag.all": "All",
+    "shop.filterStatus": "Filtered by: {tag} · {count} items",
+    "shop.noResults": "No items match this filter.",
     "shop.cta": "View on Amazon",
     "shop.updatedAt": "Updated",
     "shop.disclaimer": "As an Amazon Associate I earn from qualifying purchases.",
@@ -26,6 +49,7 @@ const I18N = {
     "tools.title": "Tools",
     "tools.subtitle": "All tools run locally in your browser. Nothing is uploaded.",
     "tools.localNotice": "Runs locally in your browser. Nothing is uploaded.",
+    "tools.nav.jump": "Jump to tool",
 
     "tools.group.encoding": "Encoding",
     "tools.group.formatting": "Formatting",
@@ -512,6 +536,8 @@ const I18N = {
   },
   zh: {
     "nav.menu": "菜单",
+    "nav.skip": "跳到正文",
+    "nav.top": "返回顶部",
     "nav.home": "首页",
     "nav.shop": "购物",
     "nav.news": "新闻",
@@ -521,12 +547,33 @@ const I18N = {
     "nav.language": "语言",
     "nav.search": "搜索",
     "nav.about": "关于",
+    "nav.privacy": "隐私政策",
+    "nav.disclosure": "返利声明",
+    "nav.contact": "联系",
+    "nav.terms": "使用条款",
+
+    "search.label": "搜索",
+    "search.placeholder": "搜索…（/）",
+    "search.go": "搜索",
 
     "home.tools": "工具",
     "home.latest": "最新",
+    "home.shopFeatured": "精选",
+    "home.shopAll": "查看全部",
+
+    "article.copy": "复制链接",
+    "article.share": "分享",
+    "article.related": "同类推荐",
+
+    "common.copied": "已复制",
+    "common.copyFailed": "复制失败",
 
     "shop.title": "购物",
     "shop.subtitle": "亚马逊精选商品。通过我们的链接购买，我们可能会获得佣金。",
+    "shop.filter": "筛选：",
+    "shop.tag.all": "全部",
+    "shop.filterStatus": "已筛选：{tag} · {count} 个商品",
+    "shop.noResults": "没有匹配的商品。",
     "shop.cta": "去亚马逊查看",
     "shop.updatedAt": "更新时间",
     "shop.disclaimer": "作为亚马逊联盟会员，我们可能会从符合条件的购买中获得佣金。",
@@ -537,6 +584,7 @@ const I18N = {
     "tools.title": "工具",
     "tools.subtitle": "所有工具均在浏览器本地运行，不会上传内容。",
     "tools.localNotice": "纯前端运行，内容不会上传。",
+    "tools.nav.jump": "快速跳转",
 
     "tools.group.encoding": "编码 / 解析",
     "tools.group.formatting": "格式化",
@@ -1161,8 +1209,244 @@ function setupNav() {
   });
 }
 
+function normalizePathname(pathname) {
+  const raw = String(pathname || "/");
+  let value = raw.replace(/index\.html$/i, "");
+  if (value !== "/" && value.endsWith("/")) value = value.slice(0, -1);
+  return value || "/";
+}
+
+function setupActiveLinks() {
+  const current = normalizePathname(window.location.pathname);
+
+  const links = Array.from(
+    document.querySelectorAll(".nav a[href], .footer-links a[href]")
+  );
+
+  const entries = links
+    .map((el) => {
+      const href = el.getAttribute("href");
+      if (!href) return null;
+      let url;
+      try {
+        url = new URL(href, window.location.origin);
+      } catch {
+        return null;
+      }
+      if (url.origin !== window.location.origin) return null;
+      return { el, path: normalizePathname(url.pathname) };
+    })
+    .filter(Boolean);
+
+  let best = null;
+  for (const entry of entries) {
+    const target = entry.path;
+    if (!target) continue;
+    if (target === "/") {
+      if (current === "/") best = best && best.length > 1 ? best : { path: target, length: 1 };
+      continue;
+    }
+    if (current === target || current.startsWith(target + "/")) {
+      const length = target.length;
+      if (!best || length > best.length) best = { path: target, length };
+    }
+  }
+
+  const bestPath = best ? best.path : null;
+  for (const entry of entries) {
+    if (bestPath && entry.path === bestPath) entry.el.setAttribute("aria-current", "page");
+    else entry.el.removeAttribute("aria-current");
+  }
+
+  const activeSections = new Set();
+  if (/(^|\/)tools(\/|$)/.test(current)) activeSections.add("tools");
+  if (/(^|\/)(category|lang)(\/|$)/.test(current)) activeSections.add("news");
+
+  document.querySelectorAll(".nav-dropdown[data-nav-section]").forEach((details) => {
+    const section = details.getAttribute("data-nav-section");
+    if (section && activeSections.has(section)) details.setAttribute("data-active", "true");
+    else details.removeAttribute("data-active");
+  });
+}
+
+function isTypingInField(target) {
+  if (!(target instanceof Element)) return false;
+  if (target.isContentEditable) return true;
+  const tag = target.tagName.toLowerCase();
+  if (tag === "input" || tag === "textarea" || tag === "select") return true;
+  return Boolean(target.closest("input, textarea, select, [contenteditable='true']"));
+}
+
+function getHeaderSearchForm() {
+  const form = document.querySelector("[data-header-search]");
+  return form instanceof HTMLFormElement ? form : null;
+}
+
+function getHeaderSearchInput() {
+  const input = document.querySelector("[data-header-search-input]");
+  return input instanceof HTMLInputElement ? input : null;
+}
+
+function focusHeaderSearch() {
+  const input = getHeaderSearchInput();
+  if (!input) return false;
+  input.focus({ preventScroll: true });
+  try {
+    input.select();
+  } catch {
+    // ignore
+  }
+  return true;
+}
+
+function setupSearchShortcuts() {
+  document.addEventListener("keydown", (event) => {
+    if (event.defaultPrevented) return;
+    if (isTypingInField(event.target)) return;
+
+    const key = event.key || "";
+    const lower = key.toLowerCase();
+
+    const isSlash =
+      key === "/" && !event.metaKey && !event.ctrlKey && !event.altKey;
+    const isCmdK =
+      lower === "k" && (event.metaKey || event.ctrlKey) && !event.altKey;
+
+    if (!isSlash && !isCmdK) return;
+    event.preventDefault();
+
+    if (focusHeaderSearch()) return;
+
+    const form = getHeaderSearchForm();
+    if (form && form.action) window.location.href = form.action;
+  });
+}
+
+function setupHeaderSearchPrefill() {
+  const input = getHeaderSearchInput();
+  if (!input) return;
+  const q = new URLSearchParams(window.location.search).get("q");
+  if (q && !input.value) input.value = q;
+}
+
+function setupToolJump() {
+  document.querySelectorAll("[data-tool-jump]").forEach((el) => {
+    if (!(el instanceof HTMLSelectElement)) return;
+    el.addEventListener("change", () => {
+      const target = el.value;
+      if (target) window.location.href = target;
+    });
+  });
+}
+
+async function copyToClipboard(text) {
+  const value = String(text || "");
+  if (!value) return false;
+
+  if (navigator.clipboard && window.isSecureContext) {
+    try {
+      await navigator.clipboard.writeText(value);
+      return true;
+    } catch {
+      // fallthrough
+    }
+  }
+
+  try {
+    const el = document.createElement("textarea");
+    el.value = value;
+    el.setAttribute("readonly", "");
+    el.style.position = "fixed";
+    el.style.left = "-9999px";
+    el.style.top = "-9999px";
+    document.body.appendChild(el);
+    el.select();
+    el.setSelectionRange(0, el.value.length);
+    const ok = document.execCommand("copy");
+    document.body.removeChild(el);
+    return ok;
+  } catch {
+    return false;
+  }
+}
+
+function flashButtonLabel(button, messageKey, timeoutMs = 1400) {
+  if (!(button instanceof HTMLButtonElement)) return;
+  const key = button.getAttribute("data-i18n");
+  const original = key ? t(key, null, getLang()) : button.textContent;
+
+  button.disabled = true;
+  button.textContent = t(messageKey, null, getLang());
+
+  window.setTimeout(() => {
+    button.disabled = false;
+    button.textContent = key ? t(key, null, getLang()) : original;
+  }, timeoutMs);
+}
+
+function setupCopyShareButtons() {
+  document.querySelectorAll("[data-copy-link]").forEach((el) => {
+    if (!(el instanceof HTMLButtonElement)) return;
+    el.addEventListener("click", async () => {
+      const ok = await copyToClipboard(window.location.href);
+      flashButtonLabel(el, ok ? "common.copied" : "common.copyFailed");
+    });
+  });
+
+  const canShare = typeof navigator.share === "function";
+  document.querySelectorAll("[data-share-link]").forEach((el) => {
+    if (!(el instanceof HTMLButtonElement)) return;
+    if (!canShare) {
+      el.hidden = true;
+      return;
+    }
+    el.addEventListener("click", async () => {
+      try {
+        await navigator.share({ title: document.title, url: window.location.href });
+      } catch {
+        // ignore (cancelled / not allowed)
+      }
+    });
+  });
+}
+
+function setupToTopButton() {
+  const btn = document.querySelector("[data-to-top]");
+  if (!(btn instanceof HTMLButtonElement)) return;
+
+  const threshold = 600;
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    btn.hidden = window.scrollY < threshold;
+  }
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(update);
+  }
+
+  btn.addEventListener("click", () => {
+    const reduce =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  });
+
+  update();
+  window.addEventListener("scroll", onScroll, { passive: true });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   setupNav();
   setupLangSwitch();
   applyI18n(getLang());
+  setupHeaderSearchPrefill();
+  setupSearchShortcuts();
+  setupToolJump();
+  setupActiveLinks();
+  setupCopyShareButtons();
+  setupToTopButton();
 });

@@ -9,7 +9,7 @@ description: "Frontend-only utilities: encoding, formatting, hashing, generators
 
 {% if tools and tools.groups %}
   {% for group in tools.groups %}
-    <h2 data-i18n="tools.group.{{ group.id }}">{{ group.label }}</h2>
+    <h2 id="{{ group.id }}" data-i18n="tools.group.{{ group.id }}">{{ group.label }}</h2>
     <div class="tool-cards">
       {% for t in group.items %}
         <a class="tool-card" href="{{ t.path | url }}">

@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+title: Contact
+description: How to reach us
+---
+
+<h1>Contact</h1>
+
+<p>
+  If you need to reach {{ site.brand or site.name }}, please use the contact information below.
+</p>
+
+{% if site.contactEmail %}
+  <p>
+    <strong>Email:</strong>
+    <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>
+  </p>
+{% else %}
+  <p class="muted">
+    Contact email is not configured yet. Set <code>contactEmail</code> in <code>site.config.json</code>
+    (or <code>CONTACT_EMAIL</code> during build).
+  </p>
+{% endif %}
+
+<h2>Content removal</h2>
+<p>
+  If you believe any content on this site infringes your rights or should be removed, please see
+  <a href="{{ '/takedown/' | url }}">Takedown Requests</a>.
+</p>
+

@@ -153,6 +153,7 @@
     {% include "partials/analytics.njk" %}
   </head>
   <body>
+    <a class="skip-link" href="#main-content" data-i18n="nav.skip">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="{{ '/' | url }}">{{ site.brand or site.name }}</a>
@@ -165,6 +166,26 @@
         >
           Menu
         </button>
+        <form
+          class="header-search"
+          action="{{ '/search/' | url }}"
+          method="get"
+          role="search"
+          data-header-search
+        >
+          <label class="sr-only" for="site-search-q" data-i18n="search.label">Search</label>
+          <input
+            id="site-search-q"
+            class="header-search-input"
+            type="search"
+            name="q"
+            autocomplete="off"
+            data-header-search-input
+            data-i18n-placeholder="search.placeholder"
+            placeholder="Search…"
+          />
+          <button class="header-search-btn" type="submit" data-i18n="search.go">Go</button>
+        </form>
         <nav class="nav" id="site-nav">
           <a href="{{ '/' | url }}" data-i18n="nav.home">Home</a>
 
@@ -173,7 +194,7 @@
           {% endif %}
 
           {% if tools and tools.groups %}
-            <details class="nav-dropdown">
+            <details class="nav-dropdown" data-nav-section="tools">
               <summary data-i18n="nav.tools">Tools</summary>
               <div class="nav-dropdown-menu">
                 <a class="nav-dropdown-top" href="{{ '/tools/' | url }}" data-i18n="nav.toolsAll"
@@ -196,7 +217,7 @@
           {% endif %}
 
           {% if categories %}
-            <details class="nav-dropdown">
+            <details class="nav-dropdown" data-nav-section="news">
               <summary data-i18n="nav.news">News</summary>
               <div class="nav-dropdown-menu">
                 {% for cat in categories %}
@@ -228,15 +249,32 @@
       </div>
     </header>
 
-    <main class="container" data-pagefind-body>
+    <main class="container" data-pagefind-body id="main-content">
+      {% include "partials/tool-nav.njk" %}
       {{ content | safe }}
     </main>
 
+    <button class="to-top button" type="button" data-to-top hidden data-i18n="nav.top">
+      Back to top
+    </button>
+
     <footer class="site-footer">
       <div class="container footer-inner">
-        <span>Cloud-first utilities · RSS stream · {{ (buildTime or '') | formatDateTime }}</span>
+        <span>
+          {{ site.brand or site.name }} · {{ site.tagline or 'RSS stream' }} ·
+          {{ (buildTime or '') | formatDateTime }}
+        </span>
         <div class="footer-links">
           <a class="footer-link" href="{{ '/about/' | url }}" data-i18n="nav.about">About</a>
+          <a class="footer-link" href="{{ '/privacy/' | url }}" data-i18n="nav.privacy">Privacy</a>
+          <a
+            class="footer-link"
+            href="{{ '/affiliate-disclosure/' | url }}"
+            data-i18n="nav.disclosure"
+            >Affiliate Disclosure</a
+          >
+          <a class="footer-link" href="{{ '/contact/' | url }}" data-i18n="nav.contact">Contact</a>
+          <a class="footer-link" href="{{ '/terms/' | url }}" data-i18n="nav.terms">Terms</a>
         </div>
       </div>
     </footer>

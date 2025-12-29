@@ -1,0 +1,48 @@
+{% set toolNav = null %}
+{% if tools and tools.byPath and page and page.url %}
+  {% set toolNav = tools.byPath[page.url] %}
+{% endif %}
+
+{% if toolNav %}
+  <nav class="tool-nav" aria-label="Tool navigation">
+    <div class="tool-nav-left">
+      <a class="tool-nav-link" href="{{ '/tools/' | url }}" data-i18n="nav.toolsAll">All tools</a>
+      <span class="tool-nav-sep" aria-hidden="true">›</span>
+      <a class="tool-nav-link" href="{{ ('/tools/#' + toolNav.group) | url }}">
+        <span data-i18n="tools.group.{{ toolNav.group }}">{{ toolNav.groupLabel }}</span>
+      </a>
+    </div>
+
+    <div class="tool-nav-right">
+      {% if toolNav.prevInGroup %}
+        <a class="tool-nav-pill" href="{{ toolNav.prevInGroup.path | url }}" rel="prev">
+          ← <span data-i18n="tools.item.{{ toolNav.prevInGroup.slug }}.title">{{ toolNav.prevInGroup.label }}</span>
+        </a>
+      {% endif %}
+      {% if toolNav.nextInGroup %}
+        <a class="tool-nav-pill" href="{{ toolNav.nextInGroup.path | url }}" rel="next">
+          <span data-i18n="tools.item.{{ toolNav.nextInGroup.slug }}.title">{{ toolNav.nextInGroup.label }}</span> →
+        </a>
+      {% endif %}
+
+      <div class="tool-nav-jump">
+        <label class="sr-only" for="tool-nav-jump" data-i18n="tools.nav.jump">Jump to tool</label>
+        <select class="tool-nav-select" id="tool-nav-jump" data-tool-jump>
+          {% for group in tools.groups %}
+            <option value="" disabled data-i18n="tools.group.{{ group.id }}">{{ group.label }}</option>
+            {% for t in group.items %}
+              <option
+                value="{{ t.path | url }}"
+                {% if t.path == page.url %}selected{% endif %}
+                data-i18n="tools.item.{{ t.slug }}.title"
+              >
+                {{ t.label }}
+              </option>
+            {% endfor %}
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+  </nav>
+{% endif %}
+

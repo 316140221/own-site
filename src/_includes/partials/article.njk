@@ -50,6 +50,31 @@
 
   <div class="article-actions">
     <a class="button" href="{{ article.canonicalUrl }}" target="_blank" rel="noopener noreferrer">Open original →</a>
+    <button class="button button-secondary" type="button" data-share-link data-i18n="article.share">
+      Share
+    </button>
+    <button class="button button-secondary" type="button" data-copy-link data-i18n="article.copy">
+      Copy link
+    </button>
     <a class="button button-secondary" href="{{ ('/category/' + article.category + '/') | url }}">More in {{ article.category | titleCase }}</a>
   </div>
+
+  {% if relatedArticles and relatedArticles.length %}
+    <section class="article-related">
+      <h2 class="article-related-title" data-i18n="article.related">Recommended</h2>
+      <ul class="article-related-list">
+        {% for rec in relatedArticles %}
+          <li class="article-related-item">
+            <a href="{{ ('/p/' + rec.id + '/') | url }}">{{ rec.title | decodeEntities }}</a>
+            {% if rec.publishedAt %}
+              <span class="muted small">· {{ rec.publishedAt | formatDate }}</span>
+            {% endif %}
+            {% if rec.sourceName %}
+              <span class="muted small">· {{ rec.sourceName }}</span>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
 </article>

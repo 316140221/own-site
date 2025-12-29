@@ -29,6 +29,53 @@ permalink: "{% if listPage.pageNumber == 0 %}index.html{% else %}page/{{ listPag
   </div>
 {% endif %}
 
+{% if amazon and amazon.enabled and amazon.featuredItems and amazon.featuredItems.length %}
+  <h2 data-i18n="home.shopFeatured">Featured</h2>
+  <div class="shop-featured-grid">
+    {% for item in amazon.featuredItems %}
+      <a
+        class="shop-featured-card"
+        href="{{ item.goPath | url }}"
+        target="_blank"
+        rel="nofollow sponsored noopener noreferrer"
+      >
+        <div class="shop-featured-thumb">
+          {% if item.image %}
+            <img
+              src="{{ item.image }}"
+              alt="{{ item.title or ('ASIN ' + item.asin) }}"
+              width="96"
+              height="96"
+              loading="lazy"
+              decoding="async"
+            />
+          {% else %}
+            <div class="shop-thumb-placeholder">ASIN {{ item.asin }}</div>
+          {% endif %}
+        </div>
+        <div class="shop-featured-body">
+          <div class="shop-featured-title">{{ item.title or item.asin }}</div>
+          <div class="shop-featured-meta">
+            {% if item.price and item.price.display %}
+              <span class="badge">{{ item.price.display }}</span>
+            {% endif %}
+            {% if item.rating %}
+              <span class="badge">
+                ★ {{ item.rating }}{% if item.reviewCount %} ({{ item.reviewCount }}){% endif %}
+              </span>
+            {% endif %}
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+  <p>
+    <a class="button button-secondary" href="{{ '/shop/' | url }}" data-i18n="home.shopAll"
+      >View all</a
+    >
+  </p>
+{% endif %}
+
 <h2 data-i18n="home.latest">Latest</h2>
 {% set items = listPage.items %}
 {% include "partials/news-list.njk" %}

@@ -70,6 +70,7 @@ For local development, you can use a `.env` file (already gitignored). For GitHu
 - `ANALYTICS_PROVIDER` (optional: `cloudflare` or `ga4`)
 - `CLOUDFLARE_WEB_ANALYTICS_TOKEN` (optional)
 - `GA_MEASUREMENT_ID` (optional)
+- `CONTACT_EMAIL` (optional: shown on `/contact/`)
 
 ## Amazon shop module (optional)
 
@@ -80,6 +81,7 @@ This repo can optionally render a small `/shop/` page (Amazon affiliate links), 
 - Edit `amazon.config.json`
   - Set `"enabled": true`
   - Add items via `"items": [{ "asin": "B0..." }]`
+  - Optional: organize items with `"groups"` + `"group"` / `"tags"`, and mark `"featured": true` for homepage picks
   - Set `"associateTag"` (your Amazon Associates tracking ID), or use `AMAZON_ASSOCIATE_TAG`
   - For other locales/marketplaces: update `"marketplace"` (`domain`/`host`/`region`) or set `AMAZON_PAAPI_MARKETPLACE` / `AMAZON_PAAPI_HOST` / `AMAZON_PAAPI_REGION`
 
@@ -87,6 +89,10 @@ This repo can optionally render a small `/shop/` page (Amazon affiliate links), 
 
 - Link-only (no API): if PA-API creds are missing, `npm run update` will still generate `data/amazon/items.json` with affiliate links.
 - PA-API (recommended): set GitHub Secrets `AMAZON_PAAPI_ACCESS_KEY` / `AMAZON_PAAPI_SECRET_KEY` and `AMAZON_PAAPI_PARTNER_TAG` (or reuse `AMAZON_ASSOCIATE_TAG`), then scheduled updates will enrich title/image/price.
+
+**Link routing**
+
+- Product links on `/shop/` use `/go/<asin>/` first, which adds your `tag` consistently and can be used for click analytics (pageviews on `/go/...` and optional GA4 event `affiliate_click`).
 
 Notes:
 - Amazon PA-API access requires an Amazon Associates account and may have eligibility requirements.

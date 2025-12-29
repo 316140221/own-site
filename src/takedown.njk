@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+title: Takedown Requests
+description: Request content removal or report infringement
+---
+
+<h1>Takedown Requests</h1>
+
+<p>
+  {{ site.brand or site.name }} links to third-party sources and may display limited metadata (title
+  and short summary). If you believe any content on this site should be removed, please contact us
+  with the information below.
+</p>
+
+<h2>What to include</h2>
+<ul>
+  <li>The URL(s) on our site you want removed</li>
+  <li>The original source URL(s)</li>
+  <li>Your name and role (e.g. rights holder, authorized agent)</li>
+  <li>A brief explanation of the issue</li>
+  <li>Any supporting documentation (if applicable)</li>
+</ul>
+
+{% if site.contactEmail %}
+  <p>
+    <strong>Email:</strong>
+    <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>
+  </p>
+{% else %}
+  <p class="muted">
+    Contact email is not configured yet. See <a href="{{ '/contact/' | url }}">Contact</a>.
+  </p>
+{% endif %}
+
