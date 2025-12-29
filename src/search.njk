@@ -3,10 +3,11 @@ layout: layouts/base.njk
 title: Search
 ---
 
-<h1>Search</h1>
+<h1 data-i18n="search.title">Search</h1>
 
 <p class="muted">
-  Search works on the deployed build (Pagefind index is generated during <code>npm run build:site</code>).
+  <span data-i18n="search.notice1">Search works on the deployed build (Pagefind index is generated during</span>
+  <span data-i18n="search.notice2">).</span>
 </p>
 
 <link rel="stylesheet" href="{{ '/pagefind/pagefind-ui.css' | url }}" />

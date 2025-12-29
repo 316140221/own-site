@@ -44,6 +44,13 @@ pageScript: /assets/shop.js
             <article
               class="shop-card"
               data-shop-item
+              data-shop-asin="{{ item.asin }}"
+              data-shop-title="{{ item.title or item.asin }}"
+              data-shop-path="{{ item.goPath | url }}"
+              {% if item.image %}data-shop-image="{{ item.image }}"{% endif %}
+              {% if item.price and item.price.display %}data-shop-price="{{ item.price.display }}"{% endif %}
+              {% if item.rating %}data-shop-rating="{{ item.rating }}"{% endif %}
+              {% if item.reviewCount %}data-shop-review-count="{{ item.reviewCount }}"{% endif %}
               data-shop-tags='{{ (item.tagIds or []) | jsonLd | safe }}'
             >
               <a
@@ -117,6 +124,16 @@ pageScript: /assets/shop.js
                 >
                   View on Amazon
                 </a>
+
+                <button
+                  class="button button-secondary shop-save"
+                  type="button"
+                  data-favorite-shop
+                  aria-pressed="false"
+                  data-i18n="article.save"
+                >
+                  Save
+                </button>
               </div>
             </article>
           {% endfor %}

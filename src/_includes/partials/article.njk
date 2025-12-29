@@ -1,7 +1,21 @@
 <article class="article">
+  <script type="application/json" data-article-meta>
+    {{
+      {
+        id: entry.id,
+        title: article.title,
+        category: article.category,
+        publishedAt: article.publishedAt,
+        sourceName: article.source.name,
+        path: page.url | url
+      }
+        | jsonLd
+        | safe
+    }}
+  </script>
   <div class="article-header">
     <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <a href="{{ '/' | url }}">Home</a>
+      <a href="{{ '/' | url }}" data-i18n="breadcrumbs.home">Home</a>
       {% if article.category %}
         <span class="breadcrumbs-sep" aria-hidden="true">›</span>
         <a href="{{ ('/category/' + article.category + '/') | url }}">{{ article.category | titleCase }}</a>
@@ -17,7 +31,14 @@
       <span class="muted">·</span>
       <span class="muted">{{ article.source.name }}</span>
       <span class="muted">·</span>
-      <a href="{{ article.canonicalUrl }}" target="_blank" rel="noopener noreferrer">Read original</a>
+      <a
+        href="{{ article.canonicalUrl }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="article.readOriginal"
+      >
+        Read original
+      </a>
     </div>
   </div>
 
@@ -40,23 +61,42 @@
 
   {% if article.contentText %}
     <section class="article-content">
-      <h2 class="article-content-title">From RSS</h2>
-      <div class="muted small">
-        Long content extracted from the source’s RSS feed. For the official version, use “Open original”.
+      <h2 class="article-content-title" data-i18n="article.fromRss">From RSS</h2>
+      <div class="muted small" data-i18n="article.fromRssNote">
+        Long content extracted from the source RSS feed. For the official version, use “Open original”.
       </div>
       <div class="article-content-body">{{ article.contentText | textToHtml | safe }}</div>
     </section>
   {% endif %}
 
   <div class="article-actions">
-    <a class="button" href="{{ article.canonicalUrl }}" target="_blank" rel="noopener noreferrer">Open original →</a>
+    <a
+      class="button"
+      href="{{ article.canonicalUrl }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      data-i18n="article.openOriginal"
+    >
+      Open original →
+    </a>
     <button class="button button-secondary" type="button" data-share-link data-i18n="article.share">
       Share
     </button>
     <button class="button button-secondary" type="button" data-copy-link data-i18n="article.copy">
       Copy link
     </button>
-    <a class="button button-secondary" href="{{ ('/category/' + article.category + '/') | url }}">More in {{ article.category | titleCase }}</a>
+    <button
+      class="button button-secondary"
+      type="button"
+      data-favorite-article
+      data-i18n="article.save"
+      aria-pressed="false"
+    >
+      Save
+    </button>
+    <a class="button button-secondary" href="{{ ('/category/' + article.category + '/') | url }}">
+      <span data-i18n="article.moreIn">More in</span> {{ article.category | titleCase }}
+    </a>
   </div>
 
   {% if relatedArticles and relatedArticles.length %}

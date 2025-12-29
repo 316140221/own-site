@@ -1,4 +1,12 @@
-<li class="news-item">
+<li
+  class="news-item"
+  data-article-id="{{ item.id }}"
+  data-article-title="{{ item.title | decodeEntities }}"
+  data-article-category="{{ item.category }}"
+  data-article-published-at="{{ item.publishedAt }}"
+  data-article-source-name="{{ item.source.name }}"
+  data-article-path="{{ ('/p/' + item.id + '/') | url }}"
+>
   {% if item.image %}
     <a class="news-thumb" href="{{ ('/p/' + item.id + '/') | url }}" tabindex="-1" aria-hidden="true">
       <img
@@ -23,7 +31,24 @@
       <span class="muted">·</span>
       <span class="muted">{{ item.source.name }}</span>
       <span class="muted">·</span>
-      <a class="muted" href="{{ item.canonicalUrl }}" target="_blank" rel="noopener noreferrer">Open original</a>
+      <a
+        class="muted"
+        href="{{ item.canonicalUrl }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="article.readOriginal"
+      >
+        Read original
+      </a>
+      <button
+        class="tag-pill"
+        type="button"
+        data-favorite-article-card
+        aria-pressed="false"
+        data-i18n="article.save"
+      >
+        Save
+      </button>
     </div>
     {% if item.summary %}
       <p class="news-summary">{{ item.summary }}</p>
