@@ -1,0 +1,84 @@
+---
+layout: layouts/base.njk
+title: "Percentage Calculator"
+description: "Quick percent calculations: X% of Y, change, increase/decrease. Runs locally."
+pageScript: "/assets/tools/percentage.js"
+---
+
+<h1 data-i18n="tools.item.percentage.title">Percentage Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-input" data-i18n="tool.percentage.base">Base value (Y)</label>
+      <input
+        id="tool-input"
+        class="tool-textarea"
+        type="text"
+        inputmode="decimal"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="e.g. 100"
+        data-i18n-placeholder="tool.percentage.basePlaceholder"
+      />
+
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.percentage.percent">Percent (X)</span>
+          <input
+            type="text"
+            id="opt-percent"
+            inputmode="decimal"
+            placeholder="e.g. 15"
+            data-i18n-placeholder="tool.percentage.percentPlaceholder"
+          />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.percentage.compare">Compare value (Z)</span>
+          <input
+            type="text"
+            id="opt-compare"
+            inputmode="decimal"
+            placeholder="e.g. 120"
+            data-i18n-placeholder="tool.percentage.comparePlaceholder"
+          />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.percentage.precision">Precision:</span>
+          <input type="number" id="opt-precision" min="0" max="12" value="4" />
+        </label>
+        <label class="tool-option">
+          <input type="checkbox" id="opt-trim" checked />
+          <span data-i18n="tool.percentage.trim">Trim zeros</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="10"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.percentage.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

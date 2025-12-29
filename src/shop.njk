@@ -10,38 +10,81 @@ pageScript: /assets/shop.js
   Curated Amazon items. Purchases via links may earn us a commission.
 </p>
 
-{% if amazon and amazon.enabled %}
-  {% if amazon.activeItems and amazon.activeItems.length %}
-    {% if amazon.tags and amazon.tags.length %}
-      <div class="shop-filters" data-shop-filters>
-        <span class="muted shop-filter-label" data-i18n="shop.filter">Filter:</span>
-        <button class="tag-pill" type="button" data-shop-tag="" data-i18n="shop.tag.all">
-          All
-        </button>
-        {% for tag in amazon.tags %}
-          <button
-            class="tag-pill"
-            type="button"
-            data-shop-tag="{{ tag.id }}"
-            data-shop-tag-label="{{ tag.label }}"
-          >
-            {{ tag.label }}
-            <span class="muted">({{ tag.count }})</span>
-          </button>
-        {% endfor %}
-      </div>
-      <p class="muted shop-filter-status" data-shop-filter-status hidden></p>
-      <p class="muted shop-empty" data-shop-empty hidden data-i18n="shop.noResults">
-        No items match this filter.
-      </p>
-    {% endif %}
+	{% if amazon and amazon.enabled %}
+	  {% if amazon.activeItems and amazon.activeItems.length %}
+	    {% if amazon.tags and amazon.tags.length %}
+	      <div class="shop-filters" data-shop-filters>
+	        <span class="muted shop-filter-label" data-i18n="shop.filter">Filter:</span>
+	        <button class="tag-pill" type="button" data-shop-tag="" data-i18n="shop.tag.all">
+	          All
+	        </button>
+	        {% for tag in amazon.tags %}
+	          <button
+	            class="tag-pill"
+	            type="button"
+	            data-shop-tag="{{ tag.id }}"
+	            data-shop-tag-label="{{ tag.label }}"
+	          >
+	            {{ tag.label }}
+	            <span class="muted">({{ tag.count }})</span>
+	          </button>
+	        {% endfor %}
+	      </div>
+	    {% endif %}
+	
+	    <div class="shop-controls" role="search" aria-label="Shop search">
+	      <label class="sr-only" for="shop-search" data-i18n="shop.search.label">Search products</label>
+	      <input
+	        id="shop-search"
+	        class="tools-filter-input"
+	        type="search"
+	        autocomplete="off"
+	        spellcheck="false"
+	        data-shop-search-input
+	        data-i18n-placeholder="shop.search.placeholder"
+	        placeholder="Search products…"
+	      />
+	      <button
+	        class="button button-secondary tools-filter-clear"
+	        type="button"
+	        data-shop-search-clear
+	        data-i18n="shop.search.clear"
+	      >
+	        Clear
+	      </button>
+	      <label class="tool-option shop-sort">
+	        <span data-i18n="shop.sort.label">Sort:</span>
+	        <select data-shop-sort>
+	          <option value="" data-i18n="shop.sort.default">Default</option>
+	          <option value="rating" data-i18n="shop.sort.rating">Rating</option>
+	          <option value="reviews" data-i18n="shop.sort.reviews">Reviews</option>
+	          <option value="priceAsc" data-i18n="shop.sort.priceAsc">Price ↑</option>
+	          <option value="priceDesc" data-i18n="shop.sort.priceDesc">Price ↓</option>
+	          <option value="titleAsc" data-i18n="shop.sort.titleAsc">Title A→Z</option>
+	          <option value="titleDesc" data-i18n="shop.sort.titleDesc">Title Z→A</option>
+	        </select>
+	      </label>
+	    </div>
+	
+	    <p class="muted shop-filter-status" data-shop-filter-status hidden></p>
+	    <p class="muted shop-empty" data-shop-empty hidden data-i18n="shop.noResults">
+	      No items match this filter.
+	    </p>
+	
+	    {% if amazon.groups and amazon.groups.length > 1 %}
+	      <div class="shop-group-jumps" aria-label="Shop groups">
+	        {% for group in amazon.groups %}
+	          <a class="tag-pill" href="#shop-group-{{ group.id }}">{{ group.label }}</a>
+	        {% endfor %}
+	      </div>
+	    {% endif %}
 
-    {% for group in amazon.groups %}
-      <section class="shop-group" data-shop-group="{{ group.id }}">
-        <h2 class="shop-group-title">{{ group.label }}</h2>
-        <div class="shop-grid">
-          {% for item in group.items %}
-            <article
+	    {% for group in amazon.groups %}
+	      <section class="shop-group" data-shop-group="{{ group.id }}">
+	        <h2 class="shop-group-title" id="shop-group-{{ group.id }}">{{ group.label }}</h2>
+	        <div class="shop-grid">
+	          {% for item in group.items %}
+	            <article
               class="shop-card"
               data-shop-item
               data-shop-asin="{{ item.asin }}"
