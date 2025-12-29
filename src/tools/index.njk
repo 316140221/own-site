@@ -8,17 +8,75 @@ description: "Frontend-only utilities: encoding, formatting, hashing, generators
 <p class="muted" data-i18n="tools.subtitle">All tools run locally in your browser. Nothing is uploaded.</p>
 
 {% if tools and tools.groups %}
-  {% for group in tools.groups %}
-    <h2 id="{{ group.id }}" data-i18n="tools.group.{{ group.id }}">{{ group.label }}</h2>
-    <div class="tool-cards">
-      {% for t in group.items %}
-        <a class="tool-card" href="{{ t.path | url }}">
-          <div class="tool-card-title" data-i18n="tools.item.{{ t.slug }}.title">{{ t.label }}</div>
-          {% if t.description %}
-            <div class="tool-card-desc" data-i18n="tools.item.{{ t.slug }}.desc">{{ t.description }}</div>
-          {% endif %}
+  <section class="tools-index-controls">
+    <div class="tools-index-jumps">
+      {% for group in tools.groups %}
+        <a class="tag-pill" href="{{ ('/tools/#' + group.id) | url }}">
+          <span data-i18n="tools.group.{{ group.id }}">{{ group.label }}</span>
         </a>
       {% endfor %}
     </div>
+
+    <div class="tools-index-filter" role="search" aria-label="Tools filter">
+      <label class="sr-only" for="tools-filter-input" data-i18n="tools.filter.label">Filter tools</label>
+      <input
+        id="tools-filter-input"
+        class="tools-filter-input"
+        type="search"
+        autocomplete="off"
+        spellcheck="false"
+        data-tools-filter-input
+        data-i18n-placeholder="tools.filter.placeholder"
+        placeholder="Filter tools…"
+      />
+      <button
+        class="button button-secondary tools-filter-clear"
+        type="button"
+        data-tools-filter-clear
+        data-i18n="tools.filter.clear"
+      >
+        Clear
+      </button>
+    </div>
+
+    <p class="muted small tools-filter-status" data-tools-filter-status hidden></p>
+    <p class="muted tools-filter-empty" data-tools-filter-empty hidden data-i18n="tools.filter.empty">
+      No tools match this filter.
+    </p>
+  </section>
+
+    {% for group in tools.groups %}
+      <section class="tools-group" data-tools-group="{{ group.id }}">
+        <h2 id="{{ group.id }}" data-i18n="tools.group.{{ group.id }}">{{ group.label }}</h2>
+        <div class="tool-cards">
+          {% for t in group.items %}
+            <div
+              class="tool-card-wrap"
+              data-tools-card
+              data-tool-slug="{{ t.slug }}"
+              data-tool-group="{{ group.id }}"
+              data-tool-path="{{ t.path | url }}"
+            >
+              <a class="tool-card" href="{{ t.path | url }}">
+                <div class="tool-card-title" data-i18n="tools.item.{{ t.slug }}.title">{{ t.label }}</div>
+                {% if t.description %}
+                  <div class="tool-card-desc" data-i18n="tools.item.{{ t.slug }}.desc">
+                    {{ t.description }}
+                  </div>
+                {% endif %}
+              </a>
+              <button
+                class="tag-pill tool-card-save"
+                type="button"
+                data-favorite-tool-card
+                aria-pressed="false"
+                data-i18n="article.save"
+              >
+                Save
+              </button>
+            </div>
+          {% endfor %}
+      </div>
+    </section>
   {% endfor %}
 {% endif %}

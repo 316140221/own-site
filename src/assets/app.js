@@ -16,10 +16,51 @@ const I18N = {
     "nav.disclosure": "Affiliate Disclosure",
     "nav.contact": "Contact",
     "nav.terms": "Terms",
+    "nav.rss": "RSS",
+    "nav.theme": "Theme",
+    "nav.library": "Library",
+
+    "theme.auto": "Auto",
+    "theme.light": "Light",
+    "theme.dark": "Dark",
+
+    "library.title": "Library",
+    "library.subtitle": "Saved and recently viewed items are stored locally in your browser.",
+    "library.favorites": "Favorites",
+    "library.recent": "Recently viewed",
+    "library.clear": "Clear",
+    "library.emptyFavorites": "No favorites yet.",
+    "library.emptyRecent": "No recently viewed items yet.",
+    "library.remove": "Remove",
+    "library.toolsFavorites": "Favorite tools",
+    "library.toolsRecent": "Recently used tools",
+    "library.emptyToolsFavorites": "No saved tools yet.",
+    "library.emptyToolsRecent": "No recently used tools yet.",
+    "library.shopFavorites": "Saved products",
+    "library.emptyShopFavorites": "No saved products yet.",
+    "library.search.label": "Filter",
+    "library.search.placeholder": "Filter…",
+    "library.sort.label": "Sort",
+    "library.sort.recent": "Recent",
+    "library.sort.titleAsc": "Title A→Z",
+    "library.sort.titleDesc": "Title Z→A",
+    "library.export": "Export",
+    "library.import": "Import",
+    "library.backupNote":
+      "Import/export only affects your local saved items (JSON). Nothing is uploaded.",
+    "library.status.filtered": "Showing {count} items for “{q}”",
+    "library.status.noResults": "No items match “{q}”.",
+    "library.status.exported": "Exported.",
+    "library.importSuccess":
+      "Imported: {articles} articles, {tools} tools, {shop} products.",
+    "library.importFailed": "Import failed. Please check the JSON file.",
 
     "search.label": "Search",
+    "search.title": "Search",
     "search.placeholder": "Search… (/)",
     "search.go": "Go",
+    "search.notice1": "Search works on the deployed build (Pagefind index is generated during",
+    "search.notice2": ").",
 
     "home.tools": "Tools",
     "home.latest": "Latest",
@@ -29,9 +70,26 @@ const I18N = {
     "article.copy": "Copy link",
     "article.share": "Share",
     "article.related": "Recommended",
+    "article.openOriginal": "Open original →",
+    "article.readOriginal": "Read original",
+    "article.fromRss": "From RSS",
+    "article.fromRssNote": "Long content extracted from the source RSS feed. For the official version, use “Open original”.",
+    "article.moreIn": "More in",
+    "article.save": "Save",
+    "article.unsave": "Unsave",
 
     "common.copied": "Copied",
     "common.copyFailed": "Copy failed",
+
+    "breadcrumbs.home": "Home",
+    "pager.prev": "← Prev",
+    "pager.next": "Next →",
+    "pager.meta": "Page {current} / {total}",
+
+    "languages.title": "Languages",
+    "languages.empty": "No languages detected.",
+
+    "sources.title": "Sources",
 
     "shop.title": "Shop",
     "shop.subtitle": "Curated Amazon items. Purchases via links may earn us a commission.",
@@ -50,6 +108,12 @@ const I18N = {
     "tools.subtitle": "All tools run locally in your browser. Nothing is uploaded.",
     "tools.localNotice": "Runs locally in your browser. Nothing is uploaded.",
     "tools.nav.jump": "Jump to tool",
+    "tools.filter.label": "Filter tools",
+    "tools.filter.placeholder": "Filter tools…",
+    "tools.filter.clear": "Clear",
+    "tools.filter.status": "Showing {count} tools for “{q}”",
+    "tools.filter.empty": "No tools match this filter.",
+    "tools.quick.options": "Options",
 
     "tools.group.encoding": "Encoding",
     "tools.group.formatting": "Formatting",
@@ -551,10 +615,49 @@ const I18N = {
     "nav.disclosure": "返利声明",
     "nav.contact": "联系",
     "nav.terms": "使用条款",
+    "nav.rss": "RSS",
+    "nav.theme": "主题",
+    "nav.library": "收藏",
+
+    "theme.auto": "跟随系统",
+    "theme.light": "浅色",
+    "theme.dark": "深色",
+
+    "library.title": "收藏",
+    "library.subtitle": "收藏与最近浏览仅保存在你的浏览器本地，不会上传。",
+    "library.favorites": "我的收藏",
+    "library.recent": "最近浏览",
+    "library.clear": "清空",
+    "library.emptyFavorites": "暂无收藏。",
+    "library.emptyRecent": "暂无最近浏览。",
+    "library.remove": "移除",
+    "library.toolsFavorites": "收藏的工具",
+    "library.toolsRecent": "最近使用的工具",
+    "library.emptyToolsFavorites": "暂无收藏工具。",
+    "library.emptyToolsRecent": "暂无最近使用的工具。",
+    "library.shopFavorites": "收藏的商品",
+    "library.emptyShopFavorites": "暂无收藏商品。",
+    "library.search.label": "筛选",
+    "library.search.placeholder": "筛选…",
+    "library.sort.label": "排序",
+    "library.sort.recent": "最近",
+    "library.sort.titleAsc": "标题 A→Z",
+    "library.sort.titleDesc": "标题 Z→A",
+    "library.export": "导出",
+    "library.import": "导入",
+    "library.backupNote": "导入/导出仅影响本地收藏（JSON），不会上传。",
+    "library.status.filtered": "“{q}” 共匹配 {count} 条",
+    "library.status.noResults": "没有匹配 “{q}” 的内容。",
+    "library.status.exported": "已导出。",
+    "library.importSuccess": "导入完成：{articles} 篇文章、{tools} 个工具、{shop} 个商品。",
+    "library.importFailed": "导入失败，请检查 JSON 文件。",
 
     "search.label": "搜索",
+    "search.title": "搜索",
     "search.placeholder": "搜索…（/）",
     "search.go": "搜索",
+    "search.notice1": "搜索仅在部署后可用（Pagefind 索引会在运行",
+    "search.notice2": "时生成）。",
 
     "home.tools": "工具",
     "home.latest": "最新",
@@ -564,9 +667,26 @@ const I18N = {
     "article.copy": "复制链接",
     "article.share": "分享",
     "article.related": "同类推荐",
+    "article.openOriginal": "打开原文 →",
+    "article.readOriginal": "查看原文",
+    "article.fromRss": "来自 RSS",
+    "article.fromRssNote": "内容来自 RSS 源提取的长文本。官方版本请点击「打开原文」。",
+    "article.moreIn": "更多",
+    "article.save": "收藏",
+    "article.unsave": "取消收藏",
 
     "common.copied": "已复制",
     "common.copyFailed": "复制失败",
+
+    "breadcrumbs.home": "首页",
+    "pager.prev": "← 上一页",
+    "pager.next": "下一页 →",
+    "pager.meta": "第 {current} / {total} 页",
+
+    "languages.title": "语言",
+    "languages.empty": "暂无语言。",
+
+    "sources.title": "来源",
 
     "shop.title": "购物",
     "shop.subtitle": "亚马逊精选商品。通过我们的链接购买，我们可能会获得佣金。",
@@ -585,6 +705,12 @@ const I18N = {
     "tools.subtitle": "所有工具均在浏览器本地运行，不会上传内容。",
     "tools.localNotice": "纯前端运行，内容不会上传。",
     "tools.nav.jump": "快速跳转",
+    "tools.filter.label": "筛选工具",
+    "tools.filter.placeholder": "筛选工具…",
+    "tools.filter.clear": "清除",
+    "tools.filter.status": "“{q}” 共 {count} 个工具",
+    "tools.filter.empty": "没有匹配的工具。",
+    "tools.quick.options": "选项",
 
     "tools.group.encoding": "编码 / 解析",
     "tools.group.formatting": "格式化",
@@ -1071,7 +1197,65 @@ const I18N = {
   },
 };
 
+const THEME_STORAGE_KEY = "site_theme";
 const LANG_STORAGE_KEY = "site_lang";
+const FAVORITES_ARTICLES_KEY = "site_favorite_articles";
+const RECENT_ARTICLES_KEY = "site_recent_articles";
+const READ_ARTICLES_KEY = "site_read_articles";
+const MAX_RECENT_ARTICLES = 60;
+const MAX_READ_ARTICLES = 800;
+const FAVORITES_TOOLS_KEY = "site_favorite_tools";
+const RECENT_TOOLS_KEY = "site_recent_tools";
+const MAX_RECENT_TOOLS = 60;
+const FAVORITES_SHOP_KEY = "site_favorite_shop";
+
+function storageGet(key) {
+  try {
+    return localStorage.getItem(key);
+  } catch (_error) {
+    return null;
+  }
+}
+
+function storageSet(key, value) {
+  try {
+    localStorage.setItem(key, value);
+  } catch (_error) {
+    // ignore
+  }
+}
+
+function storageRemove(key) {
+  try {
+    localStorage.removeItem(key);
+  } catch (_error) {
+    // ignore
+  }
+}
+
+function storageGetJson(key, fallback) {
+  const raw = storageGet(key);
+  if (!raw) return fallback;
+  try {
+    return JSON.parse(raw);
+  } catch (_error) {
+    return fallback;
+  }
+}
+
+function storageSetJson(key, value) {
+  try {
+    storageSet(key, JSON.stringify(value));
+  } catch (_error) {
+    // ignore
+  }
+}
+
+function normalizeTheme(input) {
+  const raw = String(input || "").trim().toLowerCase();
+  if (raw === "auto" || raw === "light" || raw === "dark") return raw;
+  return "";
+}
 
 function normalizeLang(input) {
   const raw = String(input || "").trim().toLowerCase();
@@ -1111,11 +1295,29 @@ function t(key, vars, lang) {
 
 function getLang() {
   const supported = getSupportedLangs();
-  const stored = normalizeLang(localStorage.getItem(LANG_STORAGE_KEY));
+  const stored = normalizeLang(storageGet(LANG_STORAGE_KEY));
   if (stored && supported.includes(stored)) return stored;
   const def = getDefaultLang();
   if (def && supported.includes(def)) return def;
   return supported[0] || "en";
+}
+
+function getTheme() {
+  return normalizeTheme(storageGet(THEME_STORAGE_KEY)) || "auto";
+}
+
+function applyTheme(theme) {
+  const resolved = normalizeTheme(theme) || "auto";
+  if (resolved === "light" || resolved === "dark") {
+    document.documentElement.setAttribute("data-theme", resolved);
+  } else {
+    document.documentElement.removeAttribute("data-theme");
+  }
+
+  document.querySelectorAll("[data-set-theme]").forEach((el) => {
+    const target = normalizeTheme(el.getAttribute("data-set-theme"));
+    el.setAttribute("aria-current", target === resolved ? "true" : "false");
+  });
 }
 
 function applyI18n(lang) {
@@ -1126,6 +1328,23 @@ function applyI18n(lang) {
     const key = el.getAttribute("data-i18n");
     if (!key) return;
     el.textContent = t(key, null, activeLang);
+  });
+
+  function parseJsonObject(value) {
+    try {
+      const parsed = JSON.parse(String(value || "{}"));
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return {};
+      return parsed;
+    } catch (_error) {
+      return {};
+    }
+  }
+
+  document.querySelectorAll("[data-i18n-template]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-template");
+    if (!key) return;
+    const vars = parseJsonObject(el.getAttribute("data-i18n-vars"));
+    el.textContent = t(key, vars, activeLang);
   });
 
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
@@ -1144,9 +1363,16 @@ function setLang(next) {
   const normalized = normalizeLang(next);
   const supported = getSupportedLangs();
   const resolved = supported.includes(normalized) ? normalized : getLang();
-  localStorage.setItem(LANG_STORAGE_KEY, resolved);
+  storageSet(LANG_STORAGE_KEY, resolved);
   applyI18n(resolved);
   window.dispatchEvent(new CustomEvent("site:lang", { detail: { lang: resolved } }));
+}
+
+function setTheme(next) {
+  const resolved = normalizeTheme(next) || "auto";
+  storageSet(THEME_STORAGE_KEY, resolved);
+  applyTheme(resolved);
+  window.dispatchEvent(new CustomEvent("site:theme", { detail: { theme: resolved } }));
 }
 
 function setupLangSwitch() {
@@ -1154,6 +1380,15 @@ function setupLangSwitch() {
     btn.addEventListener("click", () => {
       const lang = btn.getAttribute("data-set-lang");
       setLang(lang);
+    });
+  });
+}
+
+function setupThemeSwitch() {
+  document.querySelectorAll("[data-set-theme]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const theme = btn.getAttribute("data-set-theme");
+      setTheme(theme);
     });
   });
 }
@@ -1193,6 +1428,7 @@ function setupNav() {
     if (!(target instanceof Element)) return;
     if (target.closest("a")) setNavOpen(false);
     if (target.closest("[data-set-lang]")) setNavOpen(false);
+    if (target.closest("[data-set-theme]")) setNavOpen(false);
   });
 
   document.addEventListener("click", (event) => {
@@ -1339,6 +1575,1430 @@ function setupToolJump() {
   });
 }
 
+function setupToolQuickJumps() {
+  const nav = document.querySelector(".tool-nav");
+  if (!nav) return;
+
+  const buttons = Array.from(nav.querySelectorAll("[data-tool-focus]"));
+  if (!buttons.length) return;
+
+  const reduce =
+    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function focusEl(el) {
+    if (!(el instanceof HTMLElement)) return;
+    try {
+      el.focus({ preventScroll: true });
+    } catch (_error) {
+      try {
+        el.focus();
+      } catch (_error2) {
+        // ignore
+      }
+    }
+  }
+
+  function scrollEl(el) {
+    if (!(el instanceof HTMLElement)) return;
+    el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  }
+
+  function resolveTarget(kind) {
+    const type = String(kind || "").trim();
+    if (type === "input") {
+      const input =
+        document.getElementById("tool-input") ||
+        document.getElementById("tool-file") ||
+        document.querySelector(".tool-shell textarea:not([readonly])");
+      return input ? { scroll: input, focus: input } : null;
+    }
+
+    if (type === "output") {
+      const output =
+        document.getElementById("tool-output") ||
+        document.querySelector(".tool-shell textarea[readonly]");
+      return output ? { scroll: output, focus: output } : null;
+    }
+
+    if (type === "options") {
+      const options = document.querySelector(".tool-options");
+      if (!options) return null;
+      const focus =
+        options.querySelector("input, select, textarea, button") || options;
+      return { scroll: options, focus };
+    }
+
+    return null;
+  }
+
+  for (const btn of buttons) {
+    if (!(btn instanceof HTMLButtonElement)) continue;
+    const kind = btn.getAttribute("data-tool-focus") || "";
+    const target = resolveTarget(kind);
+    if (!target) {
+      btn.hidden = true;
+      continue;
+    }
+
+    btn.addEventListener("click", () => {
+      scrollEl(target.scroll);
+      window.setTimeout(() => focusEl(target.focus), 0);
+    });
+  }
+}
+
+function normalizeText(value) {
+  return String(value || "").toLowerCase().trim();
+}
+
+function getToolsFilterValue() {
+  const input = document.querySelector("[data-tools-filter-input]");
+  if (!(input instanceof HTMLInputElement)) return "";
+  return input.value || "";
+}
+
+function setToolsFilterValue(next) {
+  const input = document.querySelector("[data-tools-filter-input]");
+  if (!(input instanceof HTMLInputElement)) return;
+  input.value = String(next || "");
+}
+
+function setToolsFilterQueryParam(next) {
+  const url = new URL(window.location.href);
+  const normalized = String(next || "").trim();
+  if (normalized) url.searchParams.set("q", normalized);
+  else url.searchParams.delete("q");
+  window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+}
+
+function setupToolsIndexFilter() {
+  const input = document.querySelector("[data-tools-filter-input]");
+  if (!(input instanceof HTMLInputElement)) return;
+
+  const clear = document.querySelector("[data-tools-filter-clear]");
+  const status = document.querySelector("[data-tools-filter-status]");
+  const empty = document.querySelector("[data-tools-filter-empty]");
+  const cards = Array.from(document.querySelectorAll("[data-tools-card]"));
+  const groups = Array.from(document.querySelectorAll("[data-tools-group]"));
+
+  function applyFilter(raw) {
+    const q = normalizeText(raw);
+    let visibleCount = 0;
+
+    for (const el of cards) {
+      if (!(el instanceof HTMLElement)) continue;
+      const text = normalizeText(el.textContent);
+      const show = !q || text.includes(q);
+      el.hidden = !show;
+      if (show) visibleCount += 1;
+    }
+
+    for (const group of groups) {
+      if (!(group instanceof HTMLElement)) continue;
+      const anyVisible = group.querySelector("[data-tools-card]:not([hidden])");
+      group.hidden = !anyVisible;
+    }
+
+    if (empty) empty.hidden = visibleCount > 0;
+
+    if (status) {
+      if (!q) {
+        status.hidden = true;
+        status.textContent = "";
+      } else {
+        status.hidden = false;
+        status.textContent = window.SiteI18n
+          ? window.SiteI18n.t("tools.filter.status", { q: raw, count: visibleCount })
+          : `Showing ${visibleCount}`;
+      }
+    }
+  }
+
+  const initial = new URLSearchParams(window.location.search).get("q") || "";
+  if (initial) {
+    setToolsFilterValue(initial);
+    applyFilter(initial);
+  } else {
+    applyFilter("");
+  }
+
+  input.addEventListener("input", () => {
+    const value = getToolsFilterValue();
+    setToolsFilterQueryParam(value);
+    applyFilter(value);
+  });
+
+  if (clear instanceof HTMLButtonElement) {
+    clear.addEventListener("click", () => {
+      setToolsFilterValue("");
+      setToolsFilterQueryParam("");
+      applyFilter("");
+      input.focus({ preventScroll: true });
+    });
+  }
+
+  window.addEventListener("popstate", () => {
+    const q = new URLSearchParams(window.location.search).get("q") || "";
+    setToolsFilterValue(q);
+    applyFilter(q);
+  });
+
+  window.addEventListener("site:lang", () => {
+    const value = getToolsFilterValue();
+    if (!normalizeText(value)) return;
+    applyFilter(value);
+  });
+}
+
+const SCHEME_RE = /^[a-zA-Z][a-zA-Z0-9+.-]*:/;
+let SITE_BASE_PATH = null;
+
+function getSiteBasePath() {
+  if (SITE_BASE_PATH) return SITE_BASE_PATH;
+  const brand = document.querySelector("a.brand[href]");
+  if (brand) {
+    const href = brand.getAttribute("href");
+    if (href) {
+      try {
+        const url = new URL(href, window.location.origin);
+        let pathname = url.pathname || "/";
+        if (!pathname.endsWith("/")) pathname += "/";
+        SITE_BASE_PATH = pathname;
+        return pathname;
+      } catch (_error) {
+        // ignore
+      }
+    }
+  }
+  SITE_BASE_PATH = "/";
+  return SITE_BASE_PATH;
+}
+
+function resolveSitePath(pathname) {
+  const value = String(pathname || "").trim();
+  if (!value) return "";
+  if (SCHEME_RE.test(value)) return value;
+  if (!value.startsWith("/")) return value;
+
+  const base = getSiteBasePath();
+  if (value === "/") return base;
+  if (base === "/" || value.startsWith(base)) return value;
+
+  const baseTrimmed = base.replace(/\/$/, "");
+  const knownRoots = [
+    "/p/",
+    "/tools/",
+    "/go/",
+    "/shop/",
+    "/category/",
+    "/language/",
+    "/search/",
+    "/library/",
+    "/about/",
+    "/privacy/",
+    "/terms/",
+    "/contact/",
+    "/affiliate-disclosure/",
+    "/takedown/",
+    "/assets/",
+    "/feed.xml",
+    "/sitemap.xml",
+  ];
+
+  for (const root of knownRoots) {
+    if (value.startsWith(root)) return baseTrimmed + value;
+  }
+
+  for (const root of knownRoots) {
+    const idx = value.indexOf(root, 1);
+    if (idx > 0) return baseTrimmed + value.slice(idx);
+  }
+
+  return baseTrimmed + value;
+}
+
+function normalizeArticleMeta(input) {
+  if (!input || typeof input !== "object") return null;
+  const id = String(input.id || "").trim();
+  const title = String(input.title || "").trim();
+  const path = resolveSitePath(String(input.path || "").trim() || (id ? `/p/${id}/` : ""));
+  if (!id || !title || !path) return null;
+
+  const category = String(input.category || "").trim();
+  const publishedAt = String(input.publishedAt || "").trim();
+  const sourceName = String(input.sourceName || "").trim();
+  return { id, title, path, category, publishedAt, sourceName };
+}
+
+function readFavoriteArticles() {
+  const raw = storageGetJson(FAVORITES_ARTICLES_KEY, []);
+  if (!Array.isArray(raw)) return [];
+  const seen = new Set();
+  const list = [];
+  for (const item of raw) {
+    const meta = normalizeArticleMeta(item);
+    if (!meta || seen.has(meta.id)) continue;
+    seen.add(meta.id);
+    list.push({ ...meta, savedAt: Number(item.savedAt) || 0 });
+  }
+  return list;
+}
+
+function writeFavoriteArticles(list) {
+  storageSetJson(FAVORITES_ARTICLES_KEY, Array.isArray(list) ? list : []);
+}
+
+function isFavoriteArticle(id, favorites) {
+  const target = String(id || "").trim();
+  if (!target) return false;
+  const list = Array.isArray(favorites) ? favorites : readFavoriteArticles();
+  return list.some((item) => item && item.id === target);
+}
+
+function toggleFavoriteArticle(meta) {
+  const normalized = normalizeArticleMeta(meta);
+  if (!normalized) return false;
+
+  const favorites = readFavoriteArticles();
+  const exists = favorites.some((item) => item && item.id === normalized.id);
+  const next = exists
+    ? favorites.filter((item) => item && item.id !== normalized.id)
+    : [{ ...normalized, savedAt: Date.now() }, ...favorites];
+
+  writeFavoriteArticles(next);
+  return !exists;
+}
+
+function readRecentArticles() {
+  const raw = storageGetJson(RECENT_ARTICLES_KEY, []);
+  if (!Array.isArray(raw)) return [];
+  const seen = new Set();
+  const list = [];
+  for (const item of raw) {
+    const meta = normalizeArticleMeta(item);
+    if (!meta || seen.has(meta.id)) continue;
+    seen.add(meta.id);
+    list.push({ ...meta, viewedAt: Number(item.viewedAt) || 0 });
+  }
+  return list;
+}
+
+function writeRecentArticles(list) {
+  storageSetJson(RECENT_ARTICLES_KEY, Array.isArray(list) ? list : []);
+}
+
+function addRecentArticle(meta) {
+  const normalized = normalizeArticleMeta(meta);
+  if (!normalized) return;
+
+  const recents = readRecentArticles();
+  const next = [
+    { ...normalized, viewedAt: Date.now() },
+    ...recents.filter((item) => item && item.id !== normalized.id),
+  ];
+
+  writeRecentArticles(next.slice(0, MAX_RECENT_ARTICLES));
+}
+
+function readReadArticles() {
+  const raw = storageGetJson(READ_ARTICLES_KEY, {});
+  if (!raw || typeof raw !== "object" || Array.isArray(raw)) return {};
+  const list = {};
+  for (const [key, value] of Object.entries(raw)) {
+    const id = String(key || "").trim();
+    if (!id) continue;
+    list[id] = Number(value) || 0;
+  }
+  return list;
+}
+
+function writeReadArticles(map) {
+  const value = map && typeof map === "object" && !Array.isArray(map) ? map : {};
+  storageSetJson(READ_ARTICLES_KEY, value);
+}
+
+function isArticleRead(id, readMap) {
+  const target = String(id || "").trim();
+  if (!target) return false;
+  const map = readMap && typeof readMap === "object" ? readMap : readReadArticles();
+  return Boolean(map && Object.prototype.hasOwnProperty.call(map, target));
+}
+
+function markArticleRead(id) {
+  const target = String(id || "").trim();
+  if (!target) return;
+
+  const map = readReadArticles();
+  if (Object.prototype.hasOwnProperty.call(map, target)) return;
+
+  map[target] = Date.now();
+
+  const ids = Object.keys(map);
+  if (ids.length > MAX_READ_ARTICLES) {
+    ids.sort((a, b) => (Number(map[a]) || 0) - (Number(map[b]) || 0));
+    for (let i = 0; i < ids.length - MAX_READ_ARTICLES; i += 1) {
+      delete map[ids[i]];
+    }
+  }
+
+  writeReadArticles(map);
+}
+
+function applyReadMarkers() {
+  const map = readReadArticles();
+  document.querySelectorAll("[data-article-id]").forEach((el) => {
+    if (!(el instanceof HTMLElement)) return;
+    const id = el.getAttribute("data-article-id") || "";
+    if (isArticleRead(id, map)) el.setAttribute("data-read", "true");
+    else el.removeAttribute("data-read");
+  });
+}
+
+function setupArticleReadMarkers() {
+  const any = document.querySelector("[data-article-id]");
+  if (!any) return;
+  applyReadMarkers();
+  window.addEventListener("pageshow", applyReadMarkers);
+}
+
+function getArticleMetaFromPage() {
+  const el = document.querySelector("[data-article-meta]");
+  if (!el) return null;
+  try {
+    const parsed = JSON.parse(el.textContent || "");
+    return normalizeArticleMeta(parsed);
+  } catch (_error) {
+    return null;
+  }
+}
+
+function updateFavoriteButton(btn, isFavorite) {
+  if (!(btn instanceof HTMLButtonElement)) return;
+  const on = Boolean(isFavorite);
+  btn.setAttribute("aria-pressed", on ? "true" : "false");
+  btn.textContent = t(on ? "article.unsave" : "article.save", null, getLang());
+}
+
+function setupArticleLibrary() {
+  const meta = getArticleMetaFromPage();
+  if (!meta) return;
+
+  addRecentArticle(meta);
+  markArticleRead(meta.id);
+
+  const btn = document.querySelector("[data-favorite-article]");
+  if (!(btn instanceof HTMLButtonElement)) return;
+
+  const refresh = () => updateFavoriteButton(btn, isFavoriteArticle(meta.id));
+
+  refresh();
+  btn.addEventListener("click", (event) => {
+    event.preventDefault();
+    const nextState = toggleFavoriteArticle(meta);
+    updateFavoriteButton(btn, nextState);
+  });
+
+  window.addEventListener("site:lang", refresh);
+}
+
+function getArticleMetaFromCard(button) {
+  const wrap = button instanceof Element ? button.closest("[data-article-id]") : null;
+  if (!wrap) return null;
+  return normalizeArticleMeta({
+    id: wrap.getAttribute("data-article-id"),
+    title: wrap.getAttribute("data-article-title"),
+    category: wrap.getAttribute("data-article-category"),
+    publishedAt: wrap.getAttribute("data-article-published-at"),
+    sourceName: wrap.getAttribute("data-article-source-name"),
+    path: wrap.getAttribute("data-article-path"),
+  });
+}
+
+function setupArticleCardFavorites() {
+  const buttons = Array.from(document.querySelectorAll("[data-favorite-article-card]"));
+  if (!buttons.length) return;
+
+  for (const el of buttons) {
+    if (!(el instanceof HTMLButtonElement)) continue;
+    const meta = getArticleMetaFromCard(el);
+    if (!meta) continue;
+
+    const refresh = () => updateFavoriteButton(el, isFavoriteArticle(meta.id));
+    refresh();
+
+    el.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const nextState = toggleFavoriteArticle(meta);
+      updateFavoriteButton(el, nextState);
+    });
+
+    window.addEventListener("site:lang", refresh);
+  }
+}
+
+function normalizeToolMeta(input) {
+  if (!input || typeof input !== "object") return null;
+  const slug = String(input.slug || "").trim();
+  const title = String(input.title || input.label || "").trim();
+  const path = resolveSitePath(String(input.path || "").trim() || (slug ? `/tools/${slug}/` : ""));
+  if (!slug || !title || !path) return null;
+
+  const group = String(input.group || "").trim();
+  const groupLabel = String(input.groupLabel || "").trim();
+  return { slug, title, path, group, groupLabel };
+}
+
+function readFavoriteTools() {
+  const raw = storageGetJson(FAVORITES_TOOLS_KEY, []);
+  if (!Array.isArray(raw)) return [];
+  const seen = new Set();
+  const list = [];
+  for (const item of raw) {
+    const meta = normalizeToolMeta(item);
+    if (!meta || seen.has(meta.slug)) continue;
+    seen.add(meta.slug);
+    list.push({ ...meta, savedAt: Number(item.savedAt) || 0 });
+  }
+  return list;
+}
+
+function writeFavoriteTools(list) {
+  storageSetJson(FAVORITES_TOOLS_KEY, Array.isArray(list) ? list : []);
+}
+
+function isFavoriteTool(slug, favorites) {
+  const target = String(slug || "").trim();
+  if (!target) return false;
+  const list = Array.isArray(favorites) ? favorites : readFavoriteTools();
+  return list.some((item) => item && item.slug === target);
+}
+
+function toggleFavoriteTool(meta) {
+  const normalized = normalizeToolMeta(meta);
+  if (!normalized) return false;
+
+  const favorites = readFavoriteTools();
+  const exists = favorites.some((item) => item && item.slug === normalized.slug);
+  const next = exists
+    ? favorites.filter((item) => item && item.slug !== normalized.slug)
+    : [{ ...normalized, savedAt: Date.now() }, ...favorites];
+
+  writeFavoriteTools(next);
+  return !exists;
+}
+
+function readRecentTools() {
+  const raw = storageGetJson(RECENT_TOOLS_KEY, []);
+  if (!Array.isArray(raw)) return [];
+  const seen = new Set();
+  const list = [];
+  for (const item of raw) {
+    const meta = normalizeToolMeta(item);
+    if (!meta || seen.has(meta.slug)) continue;
+    seen.add(meta.slug);
+    list.push({ ...meta, viewedAt: Number(item.viewedAt) || 0 });
+  }
+  return list;
+}
+
+function writeRecentTools(list) {
+  storageSetJson(RECENT_TOOLS_KEY, Array.isArray(list) ? list : []);
+}
+
+function addRecentTool(meta) {
+  const normalized = normalizeToolMeta(meta);
+  if (!normalized) return;
+
+  const recents = readRecentTools();
+  const next = [
+    { ...normalized, viewedAt: Date.now() },
+    ...recents.filter((item) => item && item.slug !== normalized.slug),
+  ];
+
+  writeRecentTools(next.slice(0, MAX_RECENT_TOOLS));
+}
+
+function getToolMetaFromPage() {
+  const el = document.querySelector("[data-tool-meta]");
+  if (!el) return null;
+  try {
+    const parsed = JSON.parse(el.textContent || "");
+    return normalizeToolMeta(parsed);
+  } catch (_error) {
+    return null;
+  }
+}
+
+function setupToolLibrary() {
+  const meta = getToolMetaFromPage();
+  if (!meta) return;
+
+  addRecentTool(meta);
+
+  const btn = document.querySelector("[data-favorite-tool]");
+  if (!(btn instanceof HTMLButtonElement)) return;
+
+  const refresh = () => updateFavoriteButton(btn, isFavoriteTool(meta.slug));
+
+  refresh();
+  btn.addEventListener("click", (event) => {
+    event.preventDefault();
+    const nextState = toggleFavoriteTool(meta);
+    updateFavoriteButton(btn, nextState);
+  });
+
+  window.addEventListener("site:lang", refresh);
+}
+
+function getToolMetaFromCard(button) {
+  const wrap = button instanceof Element ? button.closest("[data-tool-slug]") : null;
+  if (!wrap) return null;
+  const slug = wrap.getAttribute("data-tool-slug");
+  const group = wrap.getAttribute("data-tool-group");
+  const path = wrap.getAttribute("data-tool-path");
+  const titleEl = wrap.querySelector(".tool-card-title");
+  const title = titleEl ? String(titleEl.textContent || "").trim() : "";
+  return normalizeToolMeta({ slug, title, group, path });
+}
+
+function setupToolCardFavorites() {
+  const buttons = Array.from(document.querySelectorAll("[data-favorite-tool-card]"));
+  if (!buttons.length) return;
+
+  for (const el of buttons) {
+    if (!(el instanceof HTMLButtonElement)) continue;
+    const meta = getToolMetaFromCard(el);
+    if (!meta) continue;
+
+    const refresh = () => updateFavoriteButton(el, isFavoriteTool(meta.slug));
+    refresh();
+
+    el.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const nextState = toggleFavoriteTool(meta);
+      updateFavoriteButton(el, nextState);
+    });
+
+    window.addEventListener("site:lang", refresh);
+  }
+}
+
+function normalizeShopMeta(input) {
+  if (!input || typeof input !== "object") return null;
+  const asin = String(input.asin || input.id || "").trim();
+  const title = String(input.title || "").trim();
+  const path = resolveSitePath(
+    String(input.path || input.url || "").trim() || (asin ? `/go/${asin}/` : "")
+  );
+  if (!asin || !title || !path) return null;
+
+  const image = String(input.image || "").trim();
+  const price = String(input.price || "").trim();
+  const rating = String(input.rating || "").trim();
+  const reviewCount = String(input.reviewCount || "").trim();
+  return { asin, title, path, image, price, rating, reviewCount };
+}
+
+function readFavoriteShopItems() {
+  const raw = storageGetJson(FAVORITES_SHOP_KEY, []);
+  if (!Array.isArray(raw)) return [];
+  const seen = new Set();
+  const list = [];
+  for (const item of raw) {
+    const meta = normalizeShopMeta(item);
+    if (!meta || seen.has(meta.asin)) continue;
+    seen.add(meta.asin);
+    list.push({ ...meta, savedAt: Number(item.savedAt) || 0 });
+  }
+  return list;
+}
+
+function writeFavoriteShopItems(list) {
+  storageSetJson(FAVORITES_SHOP_KEY, Array.isArray(list) ? list : []);
+}
+
+function isFavoriteShopItem(asin, favorites) {
+  const target = String(asin || "").trim();
+  if (!target) return false;
+  const list = Array.isArray(favorites) ? favorites : readFavoriteShopItems();
+  return list.some((item) => item && item.asin === target);
+}
+
+function toggleFavoriteShopItem(meta) {
+  const normalized = normalizeShopMeta(meta);
+  if (!normalized) return false;
+
+  const favorites = readFavoriteShopItems();
+  const exists = favorites.some((item) => item && item.asin === normalized.asin);
+  const next = exists
+    ? favorites.filter((item) => item && item.asin !== normalized.asin)
+    : [{ ...normalized, savedAt: Date.now() }, ...favorites];
+
+  writeFavoriteShopItems(next);
+  return !exists;
+}
+
+function getShopMetaFromCard(card) {
+  if (!(card instanceof Element)) return null;
+  return normalizeShopMeta({
+    asin: card.getAttribute("data-shop-asin"),
+    title: card.getAttribute("data-shop-title"),
+    path: card.getAttribute("data-shop-path"),
+    image: card.getAttribute("data-shop-image"),
+    price: card.getAttribute("data-shop-price"),
+    rating: card.getAttribute("data-shop-rating"),
+    reviewCount: card.getAttribute("data-shop-review-count"),
+  });
+}
+
+function setupShopFavorites() {
+  const buttons = Array.from(document.querySelectorAll("[data-favorite-shop]"));
+  if (!buttons.length) return;
+
+  for (const el of buttons) {
+    if (!(el instanceof HTMLButtonElement)) continue;
+    const card = el.closest("[data-shop-item]");
+    const meta = getShopMetaFromCard(card);
+    if (!meta) continue;
+
+    const refresh = () => updateFavoriteButton(el, isFavoriteShopItem(meta.asin));
+    refresh();
+
+    el.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const nextState = toggleFavoriteShopItem(meta);
+      updateFavoriteButton(el, nextState);
+    });
+
+    window.addEventListener("site:lang", refresh);
+  }
+}
+
+function titleCaseText(value) {
+  return String(value || "")
+    .trim()
+    .split(/[\s_-]+/g)
+    .filter(Boolean)
+    .map((part) => part.slice(0, 1).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
+function formatYmd(value) {
+  const date = new Date(String(value || ""));
+  if (Number.isNaN(date.getTime())) return "";
+  return date.toISOString().slice(0, 10);
+}
+
+function setupLibraryPage() {
+  const articleFavList = document.querySelector('[data-library-list="favorites"]');
+  const articleRecentList = document.querySelector('[data-library-list="recent"]');
+  const toolFavList = document.querySelector('[data-library-list="tools-favorites"]');
+  const toolRecentList = document.querySelector('[data-library-list="tools-recent"]');
+  const shopFavList = document.querySelector('[data-library-list="shop-favorites"]');
+
+  const hasAny =
+    articleFavList instanceof HTMLUListElement ||
+    articleRecentList instanceof HTMLUListElement ||
+    toolFavList instanceof HTMLUListElement ||
+    toolRecentList instanceof HTMLUListElement ||
+    shopFavList instanceof HTMLUListElement;
+  if (!hasAny) return;
+
+  const filterInput = document.querySelector("[data-library-filter-input]");
+  const sortSelect = document.querySelector("[data-library-sort]");
+  const exportBtn = document.querySelector("[data-library-export]");
+  const importInput = document.querySelector("[data-library-import-input]");
+  const importBtn = document.querySelector("[data-library-import]");
+  const status = document.querySelector("[data-library-status]");
+
+  let statusOverride = null;
+  let lastStatusQuery = "";
+  let lastStatusCount = 0;
+
+  function normalizeLibrarySort(input) {
+    const raw = String(input || "").trim();
+    if (raw === "recent" || raw === "title-asc" || raw === "title-desc") return raw;
+    return "recent";
+  }
+
+  function getLibraryFilterValue() {
+    if (!(filterInput instanceof HTMLInputElement)) return "";
+    return filterInput.value || "";
+  }
+
+  function getLibrarySortValue() {
+    if (!(sortSelect instanceof HTMLSelectElement)) return "recent";
+    return normalizeLibrarySort(sortSelect.value);
+  }
+
+  function setLibraryFilterValue(next) {
+    if (!(filterInput instanceof HTMLInputElement)) return;
+    filterInput.value = String(next || "");
+  }
+
+  function setLibrarySortValue(next) {
+    if (!(sortSelect instanceof HTMLSelectElement)) return;
+    sortSelect.value = normalizeLibrarySort(next);
+  }
+
+  function getLibraryStateFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+      q: params.get("q") || "",
+      sort: normalizeLibrarySort(params.get("sort") || "recent"),
+    };
+  }
+
+  function setLibraryQueryParams({ q, sort }) {
+    const url = new URL(window.location.href);
+    const rawQ = String(q || "").trim();
+    const normalizedSort = normalizeLibrarySort(sort);
+
+    if (rawQ) url.searchParams.set("q", rawQ);
+    else url.searchParams.delete("q");
+
+    if (normalizedSort && normalizedSort !== "recent") url.searchParams.set("sort", normalizedSort);
+    else url.searchParams.delete("sort");
+
+    window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+  }
+
+  function syncControlsFromUrl() {
+    const state = getLibraryStateFromUrl();
+    setLibraryFilterValue(state.q);
+    setLibrarySortValue(state.sort);
+    return state;
+  }
+
+  function setSectionHidden(type, hidden) {
+    const el = document.querySelector(`[data-library-section="${type}"]`);
+    if (el) el.hidden = Boolean(hidden);
+  }
+
+  function setStatusOverrideMessage(key, vars, timeoutMs = 2600) {
+    statusOverride = { key, vars: vars || null, expiresAt: Date.now() + timeoutMs };
+    updateStatus(lastStatusQuery, lastStatusCount);
+  }
+
+  function updateStatus(rawQuery, visibleCount) {
+    lastStatusQuery = String(rawQuery || "");
+    lastStatusCount = Number(visibleCount) || 0;
+
+    if (!status) return;
+
+    const now = Date.now();
+    if (statusOverride && now < statusOverride.expiresAt) {
+      status.hidden = false;
+      status.textContent = t(statusOverride.key, statusOverride.vars, getLang());
+      return;
+    }
+
+    statusOverride = null;
+    const q = normalizeText(rawQuery);
+    if (!q) {
+      status.hidden = true;
+      status.textContent = "";
+      return;
+    }
+
+    status.hidden = false;
+    status.textContent =
+      visibleCount > 0
+        ? t("library.status.filtered", { q: rawQuery, count: visibleCount }, getLang())
+        : t("library.status.noResults", { q: rawQuery }, getLang());
+  }
+
+  function stripSiteBasePath(pathname) {
+    const value = String(pathname || "").trim();
+    if (!value.startsWith("/")) return value;
+    const base = getSiteBasePath();
+    if (base === "/") return value;
+
+    const baseTrimmed = base.replace(/\/$/, "");
+    if (!baseTrimmed) return value;
+    if (!value.startsWith(baseTrimmed + "/") && value !== baseTrimmed) return value;
+
+    const rest = value.slice(baseTrimmed.length);
+    return rest ? rest : "/";
+  }
+
+  function downloadJson(payload, filename) {
+    const name = String(filename || "export.json").trim() || "export.json";
+    const json = JSON.stringify(payload, null, 2);
+    const blob = new Blob([json], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  function exportFavorites() {
+    const articles = readFavoriteArticles().map((item) => ({
+      ...item,
+      path: stripSiteBasePath(item.path),
+    }));
+    const tools = readFavoriteTools().map((item) => ({
+      ...item,
+      path: stripSiteBasePath(item.path),
+    }));
+    const shop = readFavoriteShopItems().map((item) => ({
+      ...item,
+      path: stripSiteBasePath(item.path),
+    }));
+
+    const payload = {
+      version: 1,
+      exportedAt: new Date().toISOString(),
+      favorites: { articles, tools, shop },
+    };
+
+    const date = new Date().toISOString().slice(0, 10);
+    downloadJson(payload, `library-favorites-${date}.json`);
+    setStatusOverrideMessage("library.status.exported");
+  }
+
+  async function importFavoritesFromFile(file) {
+    const input = file instanceof File ? file : null;
+    if (!input) throw new Error("Invalid file");
+    const text = await input.text();
+    const parsed = JSON.parse(text);
+    if (!parsed || typeof parsed !== "object") throw new Error("Invalid JSON");
+
+    const container =
+      parsed.favorites && typeof parsed.favorites === "object" ? parsed.favorites : parsed;
+
+    const incomingArticles = Array.isArray(container.articles) ? container.articles : [];
+    const incomingTools = Array.isArray(container.tools) ? container.tools : [];
+    const incomingShop = Array.isArray(container.shop) ? container.shop : [];
+
+    const mergedArticles = new Map(readFavoriteArticles().map((item) => [item.id, item]));
+    for (const raw of incomingArticles) {
+      const meta = normalizeArticleMeta(raw);
+      if (!meta) continue;
+      const savedAt = Number(raw && raw.savedAt) || 0;
+      const existing = mergedArticles.get(meta.id);
+      mergedArticles.set(meta.id, {
+        ...meta,
+        savedAt: Math.max(existing?.savedAt || 0, savedAt),
+      });
+    }
+
+    const mergedTools = new Map(readFavoriteTools().map((item) => [item.slug, item]));
+    for (const raw of incomingTools) {
+      const meta = normalizeToolMeta(raw);
+      if (!meta) continue;
+      const savedAt = Number(raw && raw.savedAt) || 0;
+      const existing = mergedTools.get(meta.slug);
+      mergedTools.set(meta.slug, {
+        ...meta,
+        savedAt: Math.max(existing?.savedAt || 0, savedAt),
+      });
+    }
+
+    const mergedShop = new Map(readFavoriteShopItems().map((item) => [item.asin, item]));
+    for (const raw of incomingShop) {
+      const meta = normalizeShopMeta(raw);
+      if (!meta) continue;
+      const savedAt = Number(raw && raw.savedAt) || 0;
+      const existing = mergedShop.get(meta.asin);
+      mergedShop.set(meta.asin, {
+        ...meta,
+        savedAt: Math.max(existing?.savedAt || 0, savedAt),
+      });
+    }
+
+    const nextArticles = Array.from(mergedArticles.values()).sort((a, b) => b.savedAt - a.savedAt);
+    const nextTools = Array.from(mergedTools.values()).sort((a, b) => b.savedAt - a.savedAt);
+    const nextShop = Array.from(mergedShop.values()).sort((a, b) => b.savedAt - a.savedAt);
+
+    writeFavoriteArticles(nextArticles);
+    writeFavoriteTools(nextTools);
+    writeFavoriteShopItems(nextShop);
+
+    setStatusOverrideMessage("library.importSuccess", {
+      articles: nextArticles.length,
+      tools: nextTools.length,
+      shop: nextShop.length,
+    });
+  }
+
+  function setEmpty(type, show) {
+    const el = document.querySelector(`[data-library-empty="${type}"]`);
+    if (el) el.hidden = !show;
+  }
+
+  function clearList(type) {
+    if (type === "favorites") storageRemove(FAVORITES_ARTICLES_KEY);
+    if (type === "recent") storageRemove(RECENT_ARTICLES_KEY);
+    if (type === "tools-favorites") storageRemove(FAVORITES_TOOLS_KEY);
+    if (type === "tools-recent") storageRemove(RECENT_TOOLS_KEY);
+    if (type === "shop-favorites") storageRemove(FAVORITES_SHOP_KEY);
+  }
+
+  function renderList(
+    listEl,
+    items,
+    normalizeMeta,
+    metaPartsFn,
+    actions,
+    linkOptions,
+    renderThumb
+  ) {
+    if (!(listEl instanceof HTMLUListElement)) return;
+    listEl.innerHTML = "";
+
+    for (const item of items) {
+      const meta = normalizeMeta(item);
+      if (!meta) continue;
+
+      const li = document.createElement("li");
+      const card = document.createElement("div");
+      card.className = "library-card";
+
+      const left = document.createElement("div");
+      left.className = "library-card-left";
+
+      const main = document.createElement("div");
+      main.className = "library-main";
+
+      const title = document.createElement("div");
+      title.className = "library-card-title";
+      const link = document.createElement("a");
+      link.href = meta.path;
+      link.textContent = meta.title;
+      if (linkOptions && linkOptions.target) link.target = linkOptions.target;
+      if (linkOptions && linkOptions.rel) link.rel = linkOptions.rel;
+      title.appendChild(link);
+
+      const metaLine = document.createElement("div");
+      metaLine.className = "library-meta";
+      const parts = metaPartsFn(meta, item).filter(Boolean);
+      metaLine.textContent = parts.join(" · ");
+
+      main.appendChild(title);
+      if (metaLine.textContent) main.appendChild(metaLine);
+
+      if (typeof renderThumb === "function") {
+        const thumb = renderThumb(meta, item, linkOptions);
+        if (thumb) left.appendChild(thumb);
+      }
+
+      left.appendChild(main);
+
+      const right = document.createElement("div");
+      right.className = "library-actions";
+      for (const action of actions) {
+        const btn = action(meta, item);
+        if (btn) right.appendChild(btn);
+      }
+
+      card.appendChild(left);
+      if (right.childNodes.length) card.appendChild(right);
+      li.appendChild(card);
+      listEl.appendChild(li);
+    }
+  }
+
+  function render() {
+    const state = {
+      q: getLibraryFilterValue(),
+      sort: getLibrarySortValue(),
+    };
+    const q = normalizeText(state.q);
+
+    function matches(parts) {
+      if (!q) return true;
+      const text = normalizeText(parts.filter(Boolean).join(" "));
+      return text.includes(q);
+    }
+
+    const locale = getLang();
+    const sortMode = normalizeLibrarySort(state.sort);
+
+    function sortItems(items, titleFn, timeFn) {
+      const decorated = items.map((item, idx) => ({
+        item,
+        idx,
+        title: String(titleFn(item) || ""),
+        time: Number(timeFn(item)) || 0,
+      }));
+
+      decorated.sort((a, b) => {
+        if (sortMode === "title-asc" || sortMode === "title-desc") {
+          const cmp = a.title.localeCompare(b.title, locale, {
+            numeric: true,
+            sensitivity: "base",
+          });
+          if (cmp) return sortMode === "title-desc" ? -cmp : cmp;
+          if (b.time !== a.time) return b.time - a.time;
+        } else if (b.time !== a.time) {
+          return b.time - a.time;
+        }
+        return a.idx - b.idx;
+      });
+
+      return decorated.map((d) => d.item);
+    }
+
+    const articleFavorites = readFavoriteArticles();
+    const articleRecents = readRecentArticles();
+    const articleFavoritesSet = new Set(articleFavorites.map((item) => item.id));
+
+    const articleFavoritesView = sortItems(
+      q
+        ? articleFavorites.filter((item) =>
+            matches([item.title, item.category, item.sourceName, item.id])
+          )
+        : articleFavorites,
+      (item) => item.title,
+      (item) => item.savedAt
+    );
+
+    renderList(
+      articleFavList,
+      articleFavoritesView,
+      normalizeArticleMeta,
+      (meta) => {
+        const parts = [];
+        if (meta.category) parts.push(titleCaseText(meta.category));
+        const dateText = formatYmd(meta.publishedAt);
+        if (dateText) parts.push(dateText);
+        if (meta.sourceName) parts.push(meta.sourceName);
+        return parts;
+      },
+      [
+        (meta) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "button button-secondary";
+          btn.textContent = t("library.remove", null, getLang());
+          btn.addEventListener("click", () => {
+            writeFavoriteArticles(articleFavorites.filter((item) => item && item.id !== meta.id));
+            render();
+          });
+          return btn;
+        },
+      ],
+      null,
+      null
+    );
+
+    const articleRecentsView = sortItems(
+      q
+        ? articleRecents.filter((item) =>
+            matches([item.title, item.category, item.sourceName, item.id])
+          )
+        : articleRecents,
+      (item) => item.title,
+      (item) => item.viewedAt
+    );
+
+    renderList(
+      articleRecentList,
+      articleRecentsView,
+      normalizeArticleMeta,
+      (meta) => {
+        const parts = [];
+        if (meta.category) parts.push(titleCaseText(meta.category));
+        const dateText = formatYmd(meta.publishedAt);
+        if (dateText) parts.push(dateText);
+        if (meta.sourceName) parts.push(meta.sourceName);
+        return parts;
+      },
+      [
+        (meta) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "button button-secondary";
+          btn.textContent = t(
+            articleFavoritesSet.has(meta.id) ? "article.unsave" : "article.save",
+            null,
+            getLang()
+          );
+          btn.addEventListener("click", () => {
+            toggleFavoriteArticle(meta);
+            render();
+          });
+          return btn;
+        },
+      ],
+      null,
+      null
+    );
+
+    const hasFilter = Boolean(q);
+    setSectionHidden("favorites", hasFilter && articleFavoritesView.length === 0);
+    setSectionHidden("recent", hasFilter && articleRecentsView.length === 0);
+    setEmpty("favorites", !hasFilter && articleFavorites.length === 0);
+    setEmpty("recent", !hasFilter && articleRecents.length === 0);
+
+    const toolFavorites = readFavoriteTools();
+    const toolRecents = readRecentTools();
+    const toolFavoritesSet = new Set(toolFavorites.map((item) => item.slug));
+    const toolMetaCache = new Map();
+
+    function normalizeToolMetaForDisplay(input) {
+      const meta = normalizeToolMeta(input);
+      if (!meta) return null;
+
+      const titleKey = `tools.item.${meta.slug}.title`;
+      const titleValue = t(titleKey, null, getLang());
+      if (titleValue && titleValue !== titleKey) meta.title = titleValue;
+
+      if (meta.group) {
+        const groupKey = `tools.group.${meta.group}`;
+        const groupValue = t(groupKey, null, getLang());
+        if (groupValue && groupValue !== groupKey) meta.groupLabel = groupValue;
+      }
+
+      if (!meta.groupLabel) meta.groupLabel = meta.group;
+      return meta;
+    }
+
+    function getToolMetaForFilter(item) {
+      const slug = item && item.slug ? String(item.slug) : "";
+      if (slug && toolMetaCache.has(slug)) return toolMetaCache.get(slug);
+      const meta = normalizeToolMetaForDisplay(item);
+      if (slug) toolMetaCache.set(slug, meta);
+      return meta;
+    }
+
+    const toolFavoritesView = sortItems(
+      q
+        ? toolFavorites.filter((item) => {
+            const meta = getToolMetaForFilter(item);
+            if (!meta) return false;
+            return matches([meta.title, meta.groupLabel, meta.slug]);
+          })
+        : toolFavorites,
+      (item) => getToolMetaForFilter(item)?.title || "",
+      (item) => item.savedAt
+    );
+
+    renderList(
+      toolFavList,
+      toolFavoritesView,
+      normalizeToolMetaForDisplay,
+      (meta) => (meta.groupLabel ? [meta.groupLabel] : []),
+      [
+        (meta) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "button button-secondary";
+          btn.textContent = t("library.remove", null, getLang());
+          btn.addEventListener("click", () => {
+            writeFavoriteTools(toolFavorites.filter((item) => item && item.slug !== meta.slug));
+            render();
+          });
+          return btn;
+        },
+      ],
+      null,
+      null
+    );
+
+    const toolRecentsView = sortItems(
+      q
+        ? toolRecents.filter((item) => {
+            const meta = getToolMetaForFilter(item);
+            if (!meta) return false;
+            return matches([meta.title, meta.groupLabel, meta.slug]);
+          })
+        : toolRecents,
+      (item) => getToolMetaForFilter(item)?.title || "",
+      (item) => item.viewedAt
+    );
+
+    renderList(
+      toolRecentList,
+      toolRecentsView,
+      normalizeToolMetaForDisplay,
+      (meta) => (meta.groupLabel ? [meta.groupLabel] : []),
+      [
+        (meta) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "button button-secondary";
+          btn.textContent = t(
+            toolFavoritesSet.has(meta.slug) ? "article.unsave" : "article.save",
+            null,
+            getLang()
+          );
+          btn.addEventListener("click", () => {
+            toggleFavoriteTool(meta);
+            render();
+          });
+          return btn;
+        },
+      ],
+      null,
+      null
+    );
+
+    setSectionHidden("tools-favorites", hasFilter && toolFavoritesView.length === 0);
+    setSectionHidden("tools-recent", hasFilter && toolRecentsView.length === 0);
+    setEmpty("tools-favorites", !hasFilter && toolFavorites.length === 0);
+    setEmpty("tools-recent", !hasFilter && toolRecents.length === 0);
+
+    const shopFavorites = readFavoriteShopItems();
+
+    const shopFavoritesView = sortItems(
+      q
+        ? shopFavorites.filter((item) =>
+            matches([
+              item.title,
+              item.asin,
+              item.price,
+              item.rating,
+              item.reviewCount,
+            ])
+          )
+        : shopFavorites,
+      (item) => item.title,
+      (item) => item.savedAt
+    );
+
+    renderList(
+      shopFavList,
+      shopFavoritesView,
+      normalizeShopMeta,
+      (meta) => {
+        const parts = [];
+        if (meta.price) parts.push(meta.price);
+        if (meta.rating) {
+          const count = meta.reviewCount ? ` (${meta.reviewCount})` : "";
+          parts.push(`★ ${meta.rating}${count}`);
+        }
+        parts.push(`ASIN ${meta.asin}`);
+        return parts;
+      },
+      [
+        (meta) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "button button-secondary";
+          btn.textContent = t("library.remove", null, getLang());
+          btn.addEventListener("click", () => {
+            writeFavoriteShopItems(
+              shopFavorites.filter((item) => item && item.asin !== meta.asin)
+            );
+            render();
+          });
+          return btn;
+        },
+      ],
+      { target: "_blank", rel: "nofollow sponsored noopener noreferrer" },
+      (meta, _item, linkOptions) => {
+        if (!meta.image) return null;
+        const a = document.createElement("a");
+        a.className = "library-thumb";
+        a.href = meta.path;
+        if (linkOptions && linkOptions.target) a.target = linkOptions.target;
+        if (linkOptions && linkOptions.rel) a.rel = linkOptions.rel;
+
+        const img = document.createElement("img");
+        img.loading = "lazy";
+        img.decoding = "async";
+        img.alt = meta.title;
+        img.src = meta.image;
+        a.appendChild(img);
+        return a;
+      }
+    );
+
+    setSectionHidden("shop-favorites", hasFilter && shopFavoritesView.length === 0);
+    setEmpty("shop-favorites", !hasFilter && shopFavorites.length === 0);
+
+    updateStatus(
+      state.q,
+      articleFavoritesView.length +
+        articleRecentsView.length +
+        toolFavoritesView.length +
+        toolRecentsView.length +
+        shopFavoritesView.length
+    );
+  }
+
+  document.querySelectorAll("[data-library-clear]").forEach((btn) => {
+    if (!(btn instanceof HTMLButtonElement)) return;
+    btn.addEventListener("click", () => {
+      const type = btn.getAttribute("data-library-clear") || "";
+      if (
+        type !== "favorites" &&
+        type !== "recent" &&
+        type !== "tools-favorites" &&
+        type !== "tools-recent" &&
+        type !== "shop-favorites"
+      )
+        return;
+      clearList(type);
+      render();
+    });
+  });
+
+  if (filterInput instanceof HTMLInputElement) {
+    filterInput.addEventListener("input", () => {
+      const state = { q: getLibraryFilterValue(), sort: getLibrarySortValue() };
+      setLibraryQueryParams(state);
+      render();
+    });
+  }
+
+  if (sortSelect instanceof HTMLSelectElement) {
+    sortSelect.addEventListener("change", () => {
+      const state = { q: getLibraryFilterValue(), sort: getLibrarySortValue() };
+      setLibraryQueryParams(state);
+      render();
+    });
+  }
+
+  if (exportBtn instanceof HTMLButtonElement) {
+    exportBtn.addEventListener("click", () => {
+      exportFavorites();
+    });
+  }
+
+  if (importBtn instanceof HTMLButtonElement && importInput instanceof HTMLInputElement) {
+    importBtn.addEventListener("click", () => {
+      importInput.click();
+    });
+
+    importInput.addEventListener("change", async () => {
+      const file = importInput.files && importInput.files[0];
+      importInput.value = "";
+      if (!file) return;
+
+      try {
+        await importFavoritesFromFile(file);
+        render();
+      } catch (_error) {
+        setStatusOverrideMessage("library.importFailed", null, 3200);
+      }
+    });
+  }
+
+  window.addEventListener("popstate", () => {
+    const state = syncControlsFromUrl();
+    setLibraryQueryParams(state);
+    render();
+  });
+
+  window.addEventListener("site:lang", render);
+
+  const initialState = syncControlsFromUrl();
+  setLibraryQueryParams(initialState);
+  render();
+}
+
 async function copyToClipboard(text) {
   const value = String(text || "");
   if (!value) return false;
@@ -1441,12 +3101,23 @@ function setupToTopButton() {
 
 document.addEventListener("DOMContentLoaded", () => {
   setupNav();
+  applyTheme(getTheme());
+  setupThemeSwitch();
   setupLangSwitch();
   applyI18n(getLang());
   setupHeaderSearchPrefill();
   setupSearchShortcuts();
   setupToolJump();
+  setupToolQuickJumps();
+  setupToolsIndexFilter();
   setupActiveLinks();
   setupCopyShareButtons();
+  setupArticleLibrary();
+  setupArticleCardFavorites();
+  setupArticleReadMarkers();
+  setupToolLibrary();
+  setupToolCardFavorites();
+  setupShopFavorites();
+  setupLibraryPage();
   setupToTopButton();
 });

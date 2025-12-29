@@ -3,23 +3,38 @@
   {% if catPage.pageNumber > 0 %}
     {% set prevPage = catPage.pageNumber - 1 %}
     {% if prevPage == 0 %}
-      <a class="pager-link" href="{{ base | url }}">← Prev</a>
+      <a class="pager-link" href="{{ base | url }}" data-i18n="pager.prev">← Prev</a>
     {% else %}
-      <a class="pager-link" href="{{ (base + 'page/' + (prevPage + 1) + '/') | url }}">← Prev</a>
+      <a
+        class="pager-link"
+        href="{{ (base + 'page/' + (prevPage + 1) + '/') | url }}"
+        data-i18n="pager.prev"
+      >
+        ← Prev
+      </a>
     {% endif %}
   {% else %}
-    <span class="pager-disabled">← Prev</span>
+    <span class="pager-disabled" data-i18n="pager.prev">← Prev</span>
   {% endif %}
 
-  <span class="pager-meta">
+  <span
+    class="pager-meta"
+    data-i18n-template="pager.meta"
+    data-i18n-vars='{{ { current: catPage.pageNumber + 1, total: catPage.totalPages } | jsonLd | safe }}'
+  >
     Page {{ catPage.pageNumber + 1 }} / {{ catPage.totalPages }}
   </span>
 
   {% if catPage.pageNumber + 1 < catPage.totalPages %}
     {% set nextPage = catPage.pageNumber + 1 %}
-    <a class="pager-link" href="{{ (base + 'page/' + (nextPage + 1) + '/') | url }}">Next →</a>
+    <a
+      class="pager-link"
+      href="{{ (base + 'page/' + (nextPage + 1) + '/') | url }}"
+      data-i18n="pager.next"
+    >
+      Next →
+    </a>
   {% else %}
-    <span class="pager-disabled">Next →</span>
+    <span class="pager-disabled" data-i18n="pager.next">Next →</span>
   {% endif %}
 </nav>
-

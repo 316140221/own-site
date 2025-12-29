@@ -4,7 +4,7 @@ title: Languages
 rssPath: /feed.xml
 ---
 
-<h1>Languages</h1>
+<h1 data-i18n="languages.title">Languages</h1>
 
 {% if languages and languages.length %}
   <ul class="sources">
@@ -16,5 +16,5 @@ rssPath: /feed.xml
     {% endfor %}
   </ul>
 {% else %}
-  <p class="muted">No languages detected.</p>
+  <p class="muted" data-i18n="languages.empty">No languages detected.</p>
 {% endif %}

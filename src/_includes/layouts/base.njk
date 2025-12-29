@@ -145,6 +145,17 @@
       href="{{ (rssPath or '/feed.xml') | url }}"
     />
 
+    <script>
+      (function () {
+        try {
+          var value = localStorage.getItem("site_theme");
+          if (value === "light" || value === "dark") {
+            document.documentElement.setAttribute("data-theme", value);
+          }
+        } catch (_e) {}
+      })();
+    </script>
+
     <link rel="stylesheet" href="{{ '/assets/style.css' | url }}" />
     <script src="{{ '/assets/app.js' | url }}" defer></script>
     {% if pageScript %}
@@ -244,6 +255,27 @@
             </details>
           {% endif %}
 
+          <details class="nav-dropdown nav-theme">
+            <summary data-i18n="nav.theme">Theme</summary>
+            <div class="nav-dropdown-menu">
+              <button class="nav-lang-btn" type="button" data-set-theme="auto" data-i18n="theme.auto">
+                Auto
+              </button>
+              <button
+                class="nav-lang-btn"
+                type="button"
+                data-set-theme="light"
+                data-i18n="theme.light"
+              >
+                Light
+              </button>
+              <button class="nav-lang-btn" type="button" data-set-theme="dark" data-i18n="theme.dark">
+                Dark
+              </button>
+            </div>
+          </details>
+
+          <a href="{{ '/library/' | url }}" data-i18n="nav.library">Library</a>
           <a href="{{ '/search/' | url }}" data-i18n="nav.search">Search</a>
         </nav>
       </div>
@@ -275,6 +307,8 @@
           >
           <a class="footer-link" href="{{ '/contact/' | url }}" data-i18n="nav.contact">Contact</a>
           <a class="footer-link" href="{{ '/terms/' | url }}" data-i18n="nav.terms">Terms</a>
+          <a class="footer-link" href="{{ '/feed.xml' | url }}" data-i18n="nav.rss">RSS</a>
+          <a class="footer-link" href="{{ '/library/' | url }}" data-i18n="nav.library">Library</a>
         </div>
       </div>
     </footer>

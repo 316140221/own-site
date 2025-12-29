@@ -1,0 +1,158 @@
+---
+layout: layouts/base.njk
+title: Library
+description: Saved and recently viewed items
+---
+
+<h1 data-i18n="library.title">Library</h1>
+<p class="muted" data-i18n="library.subtitle">
+  Saved and recently viewed items are stored locally in your browser.
+</p>
+
+<section class="library-controls">
+  <div class="library-controls-left" role="search" aria-label="Library filter">
+    <label class="sr-only" for="library-filter-input" data-i18n="library.search.label">Filter</label>
+    <input
+      id="library-filter-input"
+      class="library-filter-input"
+      type="search"
+      autocomplete="off"
+      spellcheck="false"
+      data-library-filter-input
+      data-i18n-placeholder="library.search.placeholder"
+      placeholder="Filter…"
+    />
+  </div>
+
+  <div class="library-controls-right">
+    <label class="sr-only" for="library-sort" data-i18n="library.sort.label">Sort</label>
+    <select class="library-select" id="library-sort" data-library-sort>
+      <option value="recent" data-i18n="library.sort.recent">Recent</option>
+      <option value="title-asc" data-i18n="library.sort.titleAsc">Title A→Z</option>
+      <option value="title-desc" data-i18n="library.sort.titleDesc">Title Z→A</option>
+    </select>
+
+    <button class="button button-secondary" type="button" data-library-export data-i18n="library.export">
+      Export
+    </button>
+    <input
+      class="sr-only"
+      type="file"
+      accept="application/json"
+      data-library-import-input
+    />
+    <button class="button button-secondary" type="button" data-library-import data-i18n="library.import">
+      Import
+    </button>
+  </div>
+
+  <p class="muted small library-status" data-library-status hidden></p>
+  <p class="muted small" data-i18n="library.backupNote">
+    Import/export only affects your local saved items (JSON). Nothing is uploaded.
+  </p>
+</section>
+
+<section class="library-section" data-library-section="favorites">
+  <div class="library-header">
+    <h2 class="library-heading" data-i18n="library.favorites">Favorites</h2>
+    <button
+      class="button button-secondary"
+      type="button"
+      data-library-clear="favorites"
+      data-i18n="library.clear"
+    >
+      Clear
+    </button>
+  </div>
+  <ul class="library-list" data-library-list="favorites"></ul>
+  <p class="muted" data-library-empty="favorites" hidden data-i18n="library.emptyFavorites">
+    No favorites yet.
+  </p>
+</section>
+
+<section class="library-section" data-library-section="recent">
+  <div class="library-header">
+    <h2 class="library-heading" data-i18n="library.recent">Recently viewed</h2>
+    <button
+      class="button button-secondary"
+      type="button"
+      data-library-clear="recent"
+      data-i18n="library.clear"
+    >
+      Clear
+    </button>
+  </div>
+  <ul class="library-list" data-library-list="recent"></ul>
+  <p class="muted" data-library-empty="recent" hidden data-i18n="library.emptyRecent">
+    No recently viewed items yet.
+  </p>
+</section>
+
+<section class="library-section" data-library-section="tools-favorites">
+  <div class="library-header">
+    <h2 class="library-heading" data-i18n="library.toolsFavorites">Favorite tools</h2>
+    <button
+      class="button button-secondary"
+      type="button"
+      data-library-clear="tools-favorites"
+      data-i18n="library.clear"
+    >
+      Clear
+    </button>
+  </div>
+  <ul class="library-list" data-library-list="tools-favorites"></ul>
+  <p
+    class="muted"
+    data-library-empty="tools-favorites"
+    hidden
+    data-i18n="library.emptyToolsFavorites"
+  >
+    No saved tools yet.
+  </p>
+</section>
+
+<section class="library-section" data-library-section="tools-recent">
+  <div class="library-header">
+    <h2 class="library-heading" data-i18n="library.toolsRecent">Recently used tools</h2>
+    <button
+      class="button button-secondary"
+      type="button"
+      data-library-clear="tools-recent"
+      data-i18n="library.clear"
+    >
+      Clear
+    </button>
+  </div>
+  <ul class="library-list" data-library-list="tools-recent"></ul>
+  <p
+    class="muted"
+    data-library-empty="tools-recent"
+    hidden
+    data-i18n="library.emptyToolsRecent"
+  >
+    No recently used tools yet.
+  </p>
+</section>
+
+<section class="library-section" data-library-section="shop-favorites">
+  <div class="library-header">
+    <h2 class="library-heading" data-i18n="library.shopFavorites">Saved products</h2>
+    <button
+      class="button button-secondary"
+      type="button"
+      data-library-clear="shop-favorites"
+      data-i18n="library.clear"
+    >
+      Clear
+    </button>
+  </div>
+  <ul class="library-list" data-library-list="shop-favorites"></ul>
+  <p
+    class="muted"
+    data-library-empty="shop-favorites"
+    hidden
+    data-i18n="library.emptyShopFavorites"
+  >
+    No saved products yet.
+  </p>
+</section>

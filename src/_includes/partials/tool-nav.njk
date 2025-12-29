@@ -5,6 +5,20 @@
 
 {% if toolNav %}
   <nav class="tool-nav" aria-label="Tool navigation">
+    <script type="application/json" data-tool-meta>
+      {{
+        {
+          slug: toolNav.slug,
+          title: toolNav.label,
+          group: toolNav.group,
+          groupLabel: toolNav.groupLabel,
+          path: toolNav.path | url
+        }
+          | jsonLd
+          | safe
+      }}
+    </script>
+
     <div class="tool-nav-left">
       <a class="tool-nav-link" href="{{ '/tools/' | url }}" data-i18n="nav.toolsAll">All tools</a>
       <span class="tool-nav-sep" aria-hidden="true">›</span>
@@ -24,6 +38,26 @@
           <span data-i18n="tools.item.{{ toolNav.nextInGroup.slug }}.title">{{ toolNav.nextInGroup.label }}</span> →
         </a>
       {% endif %}
+
+      <button class="tool-nav-pill" type="button" data-tool-focus="input" data-i18n="tool.common.input">
+        Input
+      </button>
+      <button class="tool-nav-pill" type="button" data-tool-focus="output" data-i18n="tool.common.output">
+        Output
+      </button>
+      <button class="tool-nav-pill" type="button" data-tool-focus="options" data-i18n="tools.quick.options">
+        Options
+      </button>
+
+      <button
+        class="tool-nav-pill"
+        type="button"
+        data-favorite-tool
+        aria-pressed="false"
+        data-i18n="article.save"
+      >
+        Save
+      </button>
 
       <div class="tool-nav-jump">
         <label class="sr-only" for="tool-nav-jump" data-i18n="tools.nav.jump">Jump to tool</label>
@@ -45,4 +79,3 @@
     </div>
   </nav>
 {% endif %}
-
