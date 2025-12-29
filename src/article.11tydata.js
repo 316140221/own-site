@@ -28,8 +28,14 @@ function getSortedIndex(articles, category, language) {
   const key = getIndexKey(category, language);
   if (relatedIndexCache.has(key)) return relatedIndexCache.get(key);
 
+  const lang = String(language || "").trim();
   const list = (Array.isArray(articles) ? articles : [])
-    .filter((entry) => entry && entry.category === category && entry.language === language)
+    .filter(
+      (entry) =>
+        entry &&
+        entry.category === category &&
+        (!lang || String(entry.language || "").trim() === lang)
+    )
     .slice()
     .sort((a, b) => toTime(b.publishedAt) - toTime(a.publishedAt));
 
@@ -66,22 +72,33 @@ module.exports = {
     relatedArticles: (data) => {
       const current = data.entry;
       if (!current || !current.id) return [];
-      if (!current.category || !current.language) return [];
+      if (!current.category) return [];
 
-      const candidates = getSortedIndex(data.articles, current.category, current.language);
       const result = [];
-      for (const entry of candidates) {
-        if (!entry || entry.id === current.id) continue;
-        const meta = getArticleMeta(entry);
-        if (!meta || !meta.title) continue;
-        result.push({
-          id: entry.id,
-          title: meta.title,
-          publishedAt: entry.publishedAt,
-          sourceName: meta.sourceName,
-        });
-        if (result.length >= RELATED_LIMIT) break;
+      const seen = new Set([current.id]);
+
+      const sameLang =
+        current.language ? getSortedIndex(data.articles, current.category, current.language) : [];
+      const sameCategory = getSortedIndex(data.articles, current.category, "");
+
+      function addFrom(list) {
+        for (const entry of list) {
+          if (!entry || !entry.id || seen.has(entry.id)) continue;
+          seen.add(entry.id);
+          const meta = getArticleMeta(entry);
+          if (!meta || !meta.title) continue;
+          result.push({
+            id: entry.id,
+            title: meta.title,
+            publishedAt: entry.publishedAt,
+            sourceName: meta.sourceName,
+          });
+          if (result.length >= RELATED_LIMIT) break;
+        }
       }
+
+      addFrom(sameLang);
+      if (result.length < RELATED_LIMIT) addFrom(sameCategory);
       return result;
     },
     title: (data) => data.article?.title || "Article",

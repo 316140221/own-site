@@ -1,0 +1,37 @@
+{% set toolNav = null %}
+{% if tools and tools.byPath and page and page.url %}
+  {% set toolNav = tools.byPath[page.url] %}
+{% endif %}
+
+{% if toolNav and tools and tools.groups %}
+  {% set group = null %}
+  {% for g in tools.groups %}
+    {% if g.id == toolNav.group %}
+      {% set group = g %}
+    {% endif %}
+  {% endfor %}
+
+  {% if group and group.items and group.items.length > 1 %}
+    <section class="tool-related" aria-label="Related tools">
+      <h2 class="tool-related-title">
+        <span data-i18n="tools.related">Related tools</span>
+        <span class="muted small">
+          · <span data-i18n="tools.group.{{ toolNav.group }}">{{ group.label }}</span>
+        </span>
+      </h2>
+
+      <div class="tool-related-list">
+        {% set shown = 0 %}
+        {% for t in group.items %}
+          {% if t.slug != toolNav.slug and shown < 10 %}
+            <a class="tag-pill" href="{{ t.path | url }}" data-i18n="tools.item.{{ t.slug }}.title"
+              >{{ t.label }}</a
+            >
+            {% set shown = shown + 1 %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+{% endif %}
+

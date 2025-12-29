@@ -281,10 +281,11 @@
       </div>
     </header>
 
-    <main class="container" data-pagefind-body id="main-content">
-      {% include "partials/tool-nav.njk" %}
-      {{ content | safe }}
-    </main>
+	    <main class="container" data-pagefind-body id="main-content">
+	      {% include "partials/tool-nav.njk" %}
+	      {{ content | safe }}
+	      {% include "partials/tool-related.njk" %}
+	    </main>
 
     <button class="to-top button" type="button" data-to-top hidden data-i18n="nav.top">
       Back to top

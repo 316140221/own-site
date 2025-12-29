@@ -1,0 +1,87 @@
+---
+layout: layouts/base.njk
+title: "Unit Converter"
+description: "Convert between common units (length, mass, temperature, data size…). Runs locally."
+pageScript: "/assets/tools/unit-converter.js"
+---
+
+<h1 data-i18n="tools.item.unit-converter.title">Unit Converter</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-input" data-i18n="tool.unit.value">Value</label>
+      <input
+        id="tool-input"
+        class="tool-textarea"
+        type="text"
+        inputmode="decimal"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="e.g. 123.45"
+        data-i18n-placeholder="tool.unit.valuePlaceholder"
+      />
+
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.unit.category">Category:</span>
+          <select id="opt-category">
+            <option value="length" data-i18n="tool.unit.category.length">Length</option>
+            <option value="mass" data-i18n="tool.unit.category.mass">Mass</option>
+            <option value="temperature" data-i18n="tool.unit.category.temperature">Temperature</option>
+            <option value="area" data-i18n="tool.unit.category.area">Area</option>
+            <option value="volume" data-i18n="tool.unit.category.volume">Volume</option>
+            <option value="speed" data-i18n="tool.unit.category.speed">Speed</option>
+            <option value="data" data-i18n="tool.unit.category.data">Data size</option>
+          </select>
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.unit.from">From:</span>
+          <select id="opt-from"></select>
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.unit.to">To:</span>
+          <select id="opt-to"></select>
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.unit.precision">Precision:</span>
+          <input type="number" id="opt-precision" min="0" max="12" value="6" />
+        </label>
+        <label class="tool-option">
+          <input type="checkbox" id="opt-trim" checked />
+          <span data-i18n="tool.unit.trim">Trim zeros</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="10"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-convert" data-i18n="tool.unit.convert">Convert</button>
+    <button class="button button-secondary" type="button" id="btn-swap" data-i18n="tool.common.swap">
+      Swap
+    </button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

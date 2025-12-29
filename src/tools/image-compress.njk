@@ -1,0 +1,104 @@
+---
+layout: layouts/base.njk
+title: "Image Compress/Resize"
+description: "Compress, resize, and convert images locally in your browser. Runs locally."
+pageScript: "/assets/tools/image-compress.js"
+---
+
+<h1 data-i18n="tools.item.image-compress.title">Image Compress/Resize</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-pane">
+    <label class="tool-label" for="tool-file" data-i18n="tool.imageCompress.file">Image file</label>
+    <input type="file" id="tool-file" class="tool-file" accept="image/*" />
+    <p class="muted small" id="tool-file-meta"></p>
+  </div>
+
+  <div class="tool-options">
+    <label class="tool-option">
+      <span data-i18n="tool.imageCompress.format">Format:</span>
+      <select id="opt-format">
+        <option value="keep" data-i18n="tool.imageCompress.format.keep">Keep</option>
+        <option value="jpeg" data-i18n="tool.imageCompress.format.jpeg">JPEG</option>
+        <option value="webp" data-i18n="tool.imageCompress.format.webp">WebP</option>
+        <option value="png" data-i18n="tool.imageCompress.format.png">PNG</option>
+      </select>
+    </label>
+    <label class="tool-option">
+      <span data-i18n="tool.imageCompress.maxWidth">Max width:</span>
+      <input
+        type="number"
+        id="opt-max-width"
+        min="1"
+        step="1"
+        placeholder="Auto"
+        data-i18n-placeholder="tool.imageCompress.autoPlaceholder"
+      />
+    </label>
+    <label class="tool-option">
+      <span data-i18n="tool.imageCompress.maxHeight">Max height:</span>
+      <input
+        type="number"
+        id="opt-max-height"
+        min="1"
+        step="1"
+        placeholder="Auto"
+        data-i18n-placeholder="tool.imageCompress.autoPlaceholder"
+      />
+    </label>
+    <label class="tool-option">
+      <span data-i18n="tool.imageCompress.quality">Quality:</span>
+      <input type="number" id="opt-quality" min="0.05" max="1" step="0.05" value="0.85" />
+    </label>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-run" data-i18n="tool.imageCompress.run">Convert</button>
+    <a
+      class="button button-secondary"
+      id="btn-download"
+      href="#"
+      download
+      hidden
+      data-i18n="tool.imageCompress.download"
+      >Download</a
+    >
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">Clear</button>
+  </div>
+
+  <div class="tool-grid tool-preview-grid" aria-label="Preview">
+    <div class="tool-pane">
+      <div class="tool-label" data-i18n="tool.imageCompress.original">Original</div>
+      <div class="tool-preview-box">
+        <img id="preview-original" class="tool-preview-img" alt="" loading="lazy" decoding="async" />
+      </div>
+      <p class="muted small" id="meta-original"></p>
+    </div>
+    <div class="tool-pane">
+      <div class="tool-label" data-i18n="tool.imageCompress.output">Output</div>
+      <div class="tool-preview-box">
+        <img id="preview-output" class="tool-preview-img" alt="" loading="lazy" decoding="async" />
+      </div>
+      <p class="muted small" id="meta-output"></p>
+    </div>
+  </div>
+
+  <div class="tool-pane tool-pane-block">
+    <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+    <textarea
+      id="tool-output"
+      class="tool-textarea"
+      rows="7"
+      readonly
+      placeholder="Result will appear here…"
+      data-i18n-placeholder="tool.common.resultPlaceholder"
+      spellcheck="false"
+    ></textarea>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
