@@ -17,11 +17,14 @@ title: Search
 <script>
   window.addEventListener("DOMContentLoaded", () => {
     if (!window.PagefindUI) return;
-    new window.PagefindUI({
+    const ui = new window.PagefindUI({
       element: "#search",
       showSubResults: true,
       resetStyles: false,
+      autofocus: true,
     });
+
+    const q = new URLSearchParams(window.location.search).get("q");
+    if (q) ui.triggerSearch(q);
   });
 </script>
-

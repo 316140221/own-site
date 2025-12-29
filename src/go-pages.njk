@@ -1,0 +1,77 @@
+---
+layout: null
+pagination:
+  data: amazon.activeItems
+  size: 1
+  alias: item
+permalink: "go/{{ item.asin | lower }}/index.html"
+eleventyExcludeFromCollections: true
+---
+<!doctype html>
+<html lang="{{ site.language }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Redirecting…</title>
+    {% include "partials/analytics.njk" %}
+    {% if item and item.affiliateUrl %}
+      <noscript>
+        <meta http-equiv="refresh" content="0;url={{ item.affiliateUrl | xmlEscape }}" />
+      </noscript>
+    {% endif %}
+  </head>
+  <body data-pagefind-ignore>
+    {% if item and item.affiliateUrl %}
+      <p>Redirecting to Amazon…</p>
+      <p>
+        <a href="{{ item.affiliateUrl }}" rel="nofollow sponsored noopener noreferrer"
+          >Continue</a
+        >
+      </p>
+
+      {% set delayMs = 0 %}
+      {% if analytics and analytics.enabled %}
+        {% if analytics.provider == "cloudflare" %}
+          {% set delayMs = 500 %}
+        {% else %}
+          {% set delayMs = 120 %}
+        {% endif %}
+      {% endif %}
+
+      <script>
+        (function () {
+          var target = {{ item.affiliateUrl | jsonLd | safe }};
+          var asin = {{ item.asin | jsonLd | safe }};
+          var title = {{ (item.title or "") | jsonLd | safe }};
+          var delay = {{ delayMs }};
+          var redirected = false;
+
+          function doRedirect() {
+            if (redirected) return;
+            redirected = true;
+            window.location.replace(target);
+          }
+
+          try {
+            if (typeof window.gtag === "function") {
+              window.gtag("event", "affiliate_click", {
+                item_id: asin,
+                item_name: title,
+                destination: target,
+                transport_type: "beacon",
+                event_callback: doRedirect,
+              });
+            }
+          } catch (_error) {
+            // ignore
+          }
+
+          window.setTimeout(doRedirect, delay);
+        })();
+      </script>
+    {% else %}
+      <p>Missing destination URL.</p>
+    {% endif %}
+  </body>
+</html>

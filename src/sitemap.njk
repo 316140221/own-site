@@ -14,6 +14,26 @@ eleventyExcludeFromCollections: true
     <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
   <url>
+    <loc>{{ '/contact/' | url | absoluteUrl(site.url) }}</loc>
+    <lastmod>{{ buildTime | formatDate }}</lastmod>
+  </url>
+  <url>
+    <loc>{{ '/terms/' | url | absoluteUrl(site.url) }}</loc>
+    <lastmod>{{ buildTime | formatDate }}</lastmod>
+  </url>
+  <url>
+    <loc>{{ '/privacy/' | url | absoluteUrl(site.url) }}</loc>
+    <lastmod>{{ buildTime | formatDate }}</lastmod>
+  </url>
+  <url>
+    <loc>{{ '/affiliate-disclosure/' | url | absoluteUrl(site.url) }}</loc>
+    <lastmod>{{ buildTime | formatDate }}</lastmod>
+  </url>
+  <url>
+    <loc>{{ '/takedown/' | url | absoluteUrl(site.url) }}</loc>
+    <lastmod>{{ buildTime | formatDate }}</lastmod>
+  </url>
+  <url>
     <loc>{{ '/sources/' | url | absoluteUrl(site.url) }}</loc>
     <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
@@ -29,6 +49,12 @@ eleventyExcludeFromCollections: true
     <loc>{{ '/tools/' | url | absoluteUrl(site.url) }}</loc>
     <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
+  {% if amazon and amazon.enabled %}
+    <url>
+      <loc>{{ '/shop/' | url | absoluteUrl(site.url) }}</loc>
+      <lastmod>{{ buildTime | formatDate }}</lastmod>
+    </url>
+  {% endif %}
 
   {% if tools and tools.all and tools.all.length %}
     {% for t in tools.all %}

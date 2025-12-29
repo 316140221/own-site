@@ -234,11 +234,29 @@ const groups = rawGroups.map((group) => ({
   items: group.items.map((tool) => ({
     ...tool,
     group: group.id,
+    groupLabel: group.label,
     path: normalizePath(`/tools/${tool.slug}/`),
   })),
 }));
 
 const all = groups.flatMap((group) => group.items);
+
+for (const group of groups) {
+  for (let i = 0; i < group.items.length; i += 1) {
+    const tool = group.items[i];
+    const prev = group.items[i - 1];
+    const next = group.items[i + 1];
+    tool.prevInGroup = prev
+      ? { slug: prev.slug, label: prev.label, path: prev.path }
+      : null;
+    tool.nextInGroup = next
+      ? { slug: next.slug, label: next.label, path: next.path }
+      : null;
+  }
+}
+
+const byPath = Object.fromEntries(all.map((tool) => [tool.path, tool]));
+const bySlug = Object.fromEntries(all.map((tool) => [tool.slug, tool]));
 
 const featuredSlugs = new Set(["base64", "url", "json", "hash", "uuid", "password"]);
 const featured = all.filter((tool) => featuredSlugs.has(tool.slug));
@@ -246,5 +264,7 @@ const featured = all.filter((tool) => featuredSlugs.has(tool.slug));
 module.exports = {
   groups,
   all,
+  byPath,
+  bySlug,
   featured,
 };

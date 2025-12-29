@@ -2,6 +2,7 @@
 layout: layouts/base.njk
 title: Shop
 description: Amazon picks and affiliate links
+pageScript: /assets/shop.js
 ---
 
 <h1 data-i18n="shop.title">Shop</h1>
@@ -10,69 +11,118 @@ description: Amazon picks and affiliate links
 </p>
 
 {% if amazon and amazon.enabled %}
-  {% if amazon.items and amazon.items.length %}
-    <div class="shop-grid">
-      {% for item in amazon.items %}
-        <article class="shop-card">
-          <a
-            class="shop-thumb"
-            href="{{ item.url }}"
-            target="_blank"
-            rel="nofollow sponsored noopener noreferrer"
+  {% if amazon.activeItems and amazon.activeItems.length %}
+    {% if amazon.tags and amazon.tags.length %}
+      <div class="shop-filters" data-shop-filters>
+        <span class="muted shop-filter-label" data-i18n="shop.filter">Filter:</span>
+        <button class="tag-pill" type="button" data-shop-tag="" data-i18n="shop.tag.all">
+          All
+        </button>
+        {% for tag in amazon.tags %}
+          <button
+            class="tag-pill"
+            type="button"
+            data-shop-tag="{{ tag.id }}"
+            data-shop-tag-label="{{ tag.label }}"
           >
-            {% if item.image %}
-              <img
-                src="{{ item.image }}"
-                alt="{{ item.title or ('ASIN ' + item.asin) }}"
-                width="160"
-                height="160"
-                loading="lazy"
-                decoding="async"
-              />
-            {% else %}
-              <div class="shop-thumb-placeholder">ASIN {{ item.asin }}</div>
-            {% endif %}
-          </a>
+            {{ tag.label }}
+            <span class="muted">({{ tag.count }})</span>
+          </button>
+        {% endfor %}
+      </div>
+      <p class="muted shop-filter-status" data-shop-filter-status hidden></p>
+      <p class="muted shop-empty" data-shop-empty hidden data-i18n="shop.noResults">
+        No items match this filter.
+      </p>
+    {% endif %}
 
-          <div class="shop-body">
-            <div class="shop-title">
+    {% for group in amazon.groups %}
+      <section class="shop-group" data-shop-group="{{ group.id }}">
+        <h2 class="shop-group-title">{{ group.label }}</h2>
+        <div class="shop-grid">
+          {% for item in group.items %}
+            <article
+              class="shop-card"
+              data-shop-item
+              data-shop-tags='{{ (item.tagIds or []) | jsonLd | safe }}'
+            >
               <a
-                href="{{ item.url }}"
+                class="shop-thumb"
+                href="{{ item.goPath | url }}"
                 target="_blank"
                 rel="nofollow sponsored noopener noreferrer"
               >
-                {{ item.title or item.asin }}
+                {% if item.image %}
+                  <img
+                    src="{{ item.image }}"
+                    alt="{{ item.title or ('ASIN ' + item.asin) }}"
+                    width="160"
+                    height="160"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                {% else %}
+                  <div class="shop-thumb-placeholder">ASIN {{ item.asin }}</div>
+                {% endif %}
               </a>
-            </div>
 
-            {% if item.note %}
-              <div class="shop-note muted">{{ item.note }}</div>
-            {% endif %}
+              <div class="shop-body">
+                <div class="shop-title">
+                  <a
+                    href="{{ item.goPath | url }}"
+                    target="_blank"
+                    rel="nofollow sponsored noopener noreferrer"
+                  >
+                    {{ item.title or item.asin }}
+                  </a>
+                </div>
 
-            <div class="shop-meta">
-              {% if item.price and item.price.display %}
-                <span class="badge">{{ item.price.display }}</span>
-              {% endif %}
-              {% if item.rating %}
-                <span class="badge">
-                  ★ {{ item.rating }}{% if item.reviewCount %} ({{ item.reviewCount }}){% endif %}
-                </span>
-              {% endif %}
-            </div>
+                {% if item.note %}
+                  <div class="shop-note muted">{{ item.note }}</div>
+                {% endif %}
 
-            <a
-              class="shop-cta"
-              href="{{ item.url }}"
-              target="_blank"
-              rel="nofollow sponsored noopener noreferrer"
-              data-i18n="shop.cta"
-            >
-              View on Amazon
-            </a>
-          </div>
-        </article>
-      {% endfor %}
-    </div>
+                {% if item.tags and item.tags.length %}
+                  <div class="shop-tags">
+                    {% for tagLabel in item.tags %}
+                      {% set tagId = (tagLabel | trim | lower) %}
+                      <button
+                        class="tag-pill"
+                        type="button"
+                        data-shop-tag="{{ tagId }}"
+                        data-shop-tag-label="{{ tagLabel }}"
+                      >
+                        {{ tagLabel }}
+                      </button>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
+                <div class="shop-meta">
+                  {% if item.price and item.price.display %}
+                    <span class="badge">{{ item.price.display }}</span>
+                  {% endif %}
+                  {% if item.rating %}
+                    <span class="badge">
+                      ★ {{ item.rating }}{% if item.reviewCount %} ({{ item.reviewCount }}){% endif %}
+                    </span>
+                  {% endif %}
+                </div>
+
+                <a
+                  class="shop-cta"
+                  href="{{ item.goPath | url }}"
+                  target="_blank"
+                  rel="nofollow sponsored noopener noreferrer"
+                  data-i18n="shop.cta"
+                >
+                  View on Amazon
+                </a>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+    {% endfor %}
 
     {% if amazon.updatedAt %}
       <p class="muted shop-updated">
@@ -81,9 +131,14 @@ description: Amazon picks and affiliate links
       </p>
     {% endif %}
 
-    <p class="muted shop-disclaimer" data-i18n="shop.disclaimer">
-      As an Amazon Associate I earn from qualifying purchases.
-    </p>
+    {% if amazon.associateTag %}
+      <p class="muted shop-disclaimer" data-i18n="shop.disclaimer">
+        As an Amazon Associate I earn from qualifying purchases.
+      </p>
+      <p class="muted">
+        <a href="{{ '/affiliate-disclosure/' | url }}">Affiliate Disclosure</a>
+      </p>
+    {% endif %}
   {% else %}
     <p class="muted" data-i18n="shop.empty">No items yet.</p>
   {% endif %}

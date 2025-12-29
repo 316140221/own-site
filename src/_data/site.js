@@ -50,5 +50,6 @@ module.exports = {
   languagesCsv: languages.join(","),
   languageLabels,
   url: process.env.SITE_URL || "http://localhost:8080",
+  contactEmail: String(process.env.CONTACT_EMAIL || config.contactEmail || "").trim(),
   googleSiteVerification: String(process.env.GOOGLE_SITE_VERIFICATION || "").trim(),
 };

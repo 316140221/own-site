@@ -1,14 +1,21 @@
 {
   "enabled": false,
+  "featuredLimit": 4,
   "marketplace": {
     "domain": "www.amazon.com",
     "host": "webservices.amazon.com",
     "region": "us-east-1"
   },
   "associateTag": "",
+  "groups": [
+    { "id": "picks", "label": "Picks" }
+  ],
   "items": [
     {
       "asin": "",
+      "group": "picks",
+      "tags": ["example"],
+      "featured": false,
       "note": "Optional: why you recommend this"
     }
   ]

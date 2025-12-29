@@ -7,8 +7,8 @@ rssPath: /feed.xml
 <h1>About</h1>
 
 <p>
-  Cloud Utility Desk is a cloud-first collection of handy utilities plus a lightweight info stream.
-  It’s designed to be usable anywhere — open and use, with minimal friction.
+  {{ site.brand or site.name }} is a cloud-ready collection of handy utilities plus a lightweight
+  info stream. It’s designed to be usable anywhere — open and use, with minimal friction.
 </p>
 
 <p>
@@ -21,6 +21,16 @@ rssPath: /feed.xml
   <a href="{{ '/feed.xml' | url }}">RSS</a>
   · <a href="{{ '/sources/' | url }}">Sources</a>
   · <a href="{{ '/languages/' | url }}">Languages</a>
+  · <a href="{{ '/contact/' | url }}">Contact</a>
+  · <a href="{{ '/terms/' | url }}">Terms</a>
+  · <a href="{{ '/privacy/' | url }}">Privacy</a>
+  · <a href="{{ '/affiliate-disclosure/' | url }}">Affiliate Disclosure</a>
+  · <a href="{{ '/takedown/' | url }}">Takedown</a>
+  {% if amazon and amazon.enabled %}· <a href="{{ '/shop/' | url }}">Shop</a>{% endif %}
+</p>
+
+<p class="muted">
+  This site may contain affiliate links. See <a href="{{ '/affiliate-disclosure/' | url }}">Affiliate Disclosure</a>.
 </p>
 
 {% if stats %}
