@@ -164,6 +164,11 @@
     {% include "partials/analytics.njk" %}
   </head>
   <body>
+    {% set headerSearchEnabled = true %}
+    {% if showHeaderSearch is defined %}
+      {% set headerSearchEnabled = showHeaderSearch %}
+    {% endif %}
+
     <a class="skip-link" href="#main-content" data-i18n="nav.skip">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
@@ -177,26 +182,28 @@
         >
           Menu
         </button>
-        <form
-          class="header-search"
-          action="{{ '/search/' | url }}"
-          method="get"
-          role="search"
-          data-header-search
-        >
-          <label class="sr-only" for="site-search-q" data-i18n="search.label">Search</label>
-          <input
-            id="site-search-q"
-            class="header-search-input"
-            type="search"
-            name="q"
-            autocomplete="off"
-            data-header-search-input
-            data-i18n-placeholder="search.placeholder"
-            placeholder="Search…"
-          />
-          <button class="header-search-btn" type="submit" data-i18n="search.go">Go</button>
-        </form>
+        {% if headerSearchEnabled %}
+          <form
+            class="header-search"
+            action="{{ '/search/' | url }}"
+            method="get"
+            role="search"
+            data-header-search
+          >
+            <label class="sr-only" for="site-search-q" data-i18n="search.label">Search</label>
+            <input
+              id="site-search-q"
+              class="header-search-input"
+              type="search"
+              name="q"
+              autocomplete="off"
+              data-header-search-input
+              data-i18n-placeholder="search.placeholder"
+              placeholder="Search…"
+            />
+            <button class="header-search-btn" type="submit" data-i18n="search.go">Go</button>
+          </form>
+        {% endif %}
         <nav class="nav" id="site-nav">
           <a href="{{ '/' | url }}" data-i18n="nav.home">Home</a>
 
@@ -276,7 +283,9 @@
           </details>
 
           <a href="{{ '/library/' | url }}" data-i18n="nav.library">Library</a>
-          <a href="{{ '/search/' | url }}" data-i18n="nav.search">Search</a>
+          {% if not headerSearchEnabled %}
+            <a href="{{ '/search/' | url }}" data-i18n="nav.search">Search</a>
+          {% endif %}
         </nav>
       </div>
     </header>

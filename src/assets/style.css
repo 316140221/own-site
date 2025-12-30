@@ -732,12 +732,13 @@ h2 {
 
 .shop-group {
   margin-top: 22px;
-  scroll-margin-top: 90px;
+  scroll-margin-top: calc(var(--shop-sticky-top, 84px) + var(--shop-controls-height, 74px) + 24px);
 }
 
 .shop-group-title {
   margin: 0 0 10px;
   font-size: 18px;
+  scroll-margin-top: calc(var(--shop-sticky-top, 84px) + var(--shop-controls-height, 74px) + 24px);
 }
 
 .shop-group-jumps {
@@ -757,12 +758,43 @@ h2 {
   scroll-margin-top: 90px;
 }
 
+.shop-saved-banner {
+  margin: 12px 0 0;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: var(--shadow);
+}
+
+.shop-saved-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 650;
+}
+
+.shop-saved-link:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
 .shop-controls {
+  position: sticky;
+  top: var(--shop-sticky-top, 84px);
+  z-index: 6;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   align-items: center;
   margin: 12px 0 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--panel);
+  backdrop-filter: blur(10px);
 }
 
 .shop-sort {
@@ -776,6 +808,14 @@ h2 {
 .shop-filter-status {
   margin: 10px 0 0;
   font-size: 13px;
+}
+
+.shop-empty {
+  margin: 10px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
 }
 
 .tag-pill {
@@ -816,10 +856,8 @@ h2 {
   margin: 14px 0 0;
 }
 
-.shop-featured-card {
-  display: flex;
-  gap: 12px;
-  align-items: center;
+.shop-featured-card,
+.shop-featured-item {
   padding: 14px 14px 12px;
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -829,10 +867,23 @@ h2 {
   text-decoration: none;
 }
 
+.shop-featured-item:hover,
 .shop-featured-card:hover {
   text-decoration: none;
   border-color: rgba(125, 211, 252, 0.35);
   filter: brightness(1.03);
+}
+
+.shop-featured-link {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.shop-featured-link:hover {
+  text-decoration: none;
 }
 
 .shop-featured-thumb {
@@ -867,11 +918,73 @@ h2 {
   color: var(--text);
 }
 
+.shop-featured-note {
+  font-size: 13px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
 .shop-featured-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
+}
+
+.shop-featured-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.shop-featured-cta {
+  flex: 1 1 180px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: var(--text);
+  background: var(--button);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.shop-featured-cta:hover {
+  background: var(--button-hover);
+  border-color: rgba(125, 211, 252, 0.35);
+  text-decoration: none;
+}
+
+.shop-featured-save {
+  flex: 0 0 auto;
+}
+
+.shop-home-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin: 12px 0 0;
+}
+
+.shop-home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin: 12px 0 0;
+}
+
+.shop-home-tags a.tag-pill {
+  text-decoration: none;
 }
 
 .shop-card {
@@ -948,6 +1061,15 @@ h2 {
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
+}
+
+.badge-featured {
+  color: var(--text);
+  border-color: rgba(125, 211, 252, 0.35);
+}
+
+.shop-card[data-shop-featured="true"] {
+  border-color: rgba(125, 211, 252, 0.35);
 }
 
 .shop-cta {
@@ -1423,6 +1545,21 @@ h2 {
 
   .tool-grid {
     grid-template-columns: 1fr;
+  }
+
+  .shop-filters,
+  .shop-group-jumps,
+  .shop-home-tags {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .shop-filters > *,
+  .shop-group-jumps > *,
+  .shop-home-tags > * {
+    flex: 0 0 auto;
   }
 
   .news-item {

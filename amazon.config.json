@@ -1,12 +1,12 @@
 {
-  "enabled": false,
+  "enabled": true,
   "featuredLimit": 4,
   "marketplace": {
-    "domain": "www.amazon.com",
-    "host": "webservices.amazon.com",
-    "region": "us-east-1"
+    "domain": "www.amazon.co.uk",
+    "host": "webservices.amazon.co.uk",
+    "region": "eu-west-1"
   },
-  "associateTag": "",
+  "associateTag": "100010aa-20",
   "groups": [
     { "id": "picks", "label": "Picks" }
   ],
