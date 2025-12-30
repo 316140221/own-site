@@ -10,6 +10,12 @@ pageScript: /assets/shop.js
   Curated Amazon items. Purchases via links may earn us a commission.
 </p>
 
+<div class="shop-saved-banner" data-shop-saved hidden>
+  <a class="shop-saved-link" href="{{ '/library/#shop-favorites' | url }}">
+    <span data-shop-saved-text></span>
+  </a>
+</div>
+
 	{% if amazon and amazon.enabled %}
 	  {% if amazon.activeItems and amazon.activeItems.length %}
 	    {% if amazon.tags and amazon.tags.length %}
@@ -52,6 +58,18 @@ pageScript: /assets/shop.js
 	      >
 	        Clear
 	      </button>
+	      <button
+	        class="button button-secondary"
+	        type="button"
+	        data-shop-saved-only
+	        aria-pressed="false"
+	        data-i18n="shop.savedOnly"
+	      >
+	        Saved only
+	      </button>
+	      <button class="button button-secondary" type="button" data-shop-reset data-i18n="shop.reset">
+	        Reset filters
+	      </button>
 	      <label class="tool-option shop-sort">
 	        <span data-i18n="shop.sort.label">Sort:</span>
 	        <select data-shop-sort>
@@ -67,9 +85,12 @@ pageScript: /assets/shop.js
 	    </div>
 	
 	    <p class="muted shop-filter-status" data-shop-filter-status hidden></p>
-	    <p class="muted shop-empty" data-shop-empty hidden data-i18n="shop.noResults">
-	      No items match this filter.
-	    </p>
+	    <div class="shop-empty" data-shop-empty hidden>
+	      <p class="muted" data-i18n="shop.noResults">No items match this filter.</p>
+	      <button class="button button-secondary" type="button" data-shop-reset data-i18n="shop.reset">
+	        Reset filters
+	      </button>
+	    </div>
 	
 	    {% if amazon.groups and amazon.groups.length > 1 %}
 	      <div class="shop-group-jumps" aria-label="Shop groups">
@@ -90,6 +111,7 @@ pageScript: /assets/shop.js
               data-shop-asin="{{ item.asin }}"
               data-shop-title="{{ item.title or item.asin }}"
               data-shop-path="{{ item.goPath | url }}"
+              {% if item.featured %}data-shop-featured="true"{% endif %}
               {% if item.image %}data-shop-image="{{ item.image }}"{% endif %}
               {% if item.price and item.price.display %}data-shop-price="{{ item.price.display }}"{% endif %}
               {% if item.rating %}data-shop-rating="{{ item.rating }}"{% endif %}
@@ -148,6 +170,9 @@ pageScript: /assets/shop.js
                 {% endif %}
 
                 <div class="shop-meta">
+                  {% if item.featured %}
+                    <span class="badge badge-featured" data-i18n="shop.featured">Featured</span>
+                  {% endif %}
                   {% if item.price and item.price.display %}
                     <span class="badge">{{ item.price.display }}</span>
                   {% endif %}

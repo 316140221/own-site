@@ -31,6 +31,24 @@ function prefersReducedMotion() {
   );
 }
 
+const FAVORITES_SHOP_KEY = "site_favorite_shop";
+
+function readSavedAsins() {
+  try {
+    const raw = localStorage.getItem(FAVORITES_SHOP_KEY);
+    if (!raw) return new Set();
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return new Set();
+    return new Set(
+      parsed
+        .map((item) => String(item && (item.asin || item.id || "")).trim())
+        .filter(Boolean)
+    );
+  } catch (_error) {
+    return new Set();
+  }
+}
+
 function getActiveTagFromUrl() {
   const params = new URLSearchParams(window.location.search);
   return normalizeTag(params.get("tag"));
@@ -68,6 +86,21 @@ function setSortInUrl(sort) {
   const normalized = String(sort || "").trim();
   if (normalized) url.searchParams.set("sort", normalized);
   else url.searchParams.delete("sort");
+  window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+}
+
+function getSavedOnlyFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const raw = String(params.get("saved") || "")
+    .trim()
+    .toLowerCase();
+  return raw === "1" || raw === "true" || raw === "yes";
+}
+
+function setSavedOnlyInUrl(on) {
+  const url = new URL(window.location.href);
+  if (on) url.searchParams.set("saved", "1");
+  else url.searchParams.delete("saved");
   window.history.replaceState(null, "", url.pathname + url.search + url.hash);
 }
 
@@ -189,9 +222,11 @@ function applySort(groupData, sortKey) {
   }
 }
 
-function applyShopFilters(tag, query, sortKey, groupData) {
+function applyShopFilters(tag, query, sortKey, savedOnly, savedSet, groupData) {
   const active = normalizeTag(tag);
   const q = String(query || "").trim();
+  const saved = Boolean(savedOnly);
+  const savedAsins = savedSet instanceof Set ? savedSet : new Set();
   const buttons = Array.from(document.querySelectorAll("[data-shop-tag]"));
   const status = document.querySelector("[data-shop-filter-status]");
   const empty = document.querySelector("[data-shop-empty]");
@@ -203,7 +238,10 @@ function applyShopFilters(tag, query, sortKey, groupData) {
       const tags = parseJsonArray(raw).map((t) => normalizeTag(t)).filter(Boolean);
       const title = el.getAttribute("data-shop-title") || "";
       const asin = el.getAttribute("data-shop-asin") || "";
-      const show = (!active || tags.includes(active)) && matchesQuery(`${title} ${asin}`, q);
+      const show =
+        (!active || tags.includes(active)) &&
+        matchesQuery(`${title} ${asin}`, q) &&
+        (!saved || savedAsins.has(asin));
       el.hidden = !show;
       if (show) visibleCount += 1;
     }
@@ -225,9 +263,26 @@ function applyShopFilters(tag, query, sortKey, groupData) {
   }
 
   if (status) {
-    if (active || q) {
+    if (active || q || saved) {
       status.hidden = false;
-      if (active && q) {
+      if (saved) {
+        if (active && q) {
+          status.textContent = t("shop.savedFilterStatusBoth", {
+            tag: getTagLabel(active, buttons),
+            q,
+            count: visibleCount,
+          });
+        } else if (active) {
+          status.textContent = t("shop.savedFilterStatus", {
+            tag: getTagLabel(active, buttons),
+            count: visibleCount,
+          });
+        } else if (q) {
+          status.textContent = t("shop.savedSearchStatus", { q, count: visibleCount });
+        } else {
+          status.textContent = t("shop.savedStatus", { count: visibleCount });
+        }
+      } else if (active && q) {
         status.textContent = t("shop.filterStatusBoth", {
           tag: getTagLabel(active, buttons),
           q,
@@ -253,10 +308,62 @@ function setupShopFilters() {
   if (!items.length) return;
 
   const groupData = buildGroupData();
+  let savedSet = readSavedAsins();
+  const savedOnlyBtn = document.querySelector("[data-shop-saved-only]");
+
+  function refreshSavedState() {
+    savedSet = readSavedAsins();
+    let savedOnly = getSavedOnlyFromUrl();
+
+    if (savedOnly && savedSet.size === 0) savedOnly = false;
+    setSavedOnlyInUrl(savedOnly);
+
+    if (savedOnlyBtn instanceof HTMLButtonElement) {
+      savedOnlyBtn.hidden = savedSet.size === 0;
+      savedOnlyBtn.setAttribute("aria-pressed", savedOnly ? "true" : "false");
+    }
+
+    return savedOnly;
+  }
+
+  function updateStickyTop() {
+    const header = document.querySelector(".site-header");
+    const rect = header ? header.getBoundingClientRect() : null;
+    const headerHeight = rect ? rect.height : 74;
+    const top = Math.round(Math.max(48, Math.min(180, headerHeight + 10)));
+    document.documentElement.style.setProperty("--shop-sticky-top", `${top}px`);
+
+    const controls = document.querySelector(".shop-controls");
+    const controlsRect = controls ? controls.getBoundingClientRect() : null;
+    const controlsHeight = controlsRect ? controlsRect.height : 0;
+    if (controlsHeight) {
+      document.documentElement.style.setProperty(
+        "--shop-controls-height",
+        `${Math.round(controlsHeight)}px`
+      );
+    }
+  }
+
+  let stickyTicking = false;
+  function scheduleStickyTop() {
+    if (stickyTicking) return;
+    stickyTicking = true;
+    window.requestAnimationFrame(() => {
+      stickyTicking = false;
+      updateStickyTop();
+    });
+  }
+
+  updateStickyTop();
+  window.addEventListener("resize", scheduleStickyTop, { passive: true });
+  window.addEventListener("site:lang", scheduleStickyTop);
+  const menuToggle = document.querySelector(".menu-toggle");
+  if (menuToggle) menuToggle.addEventListener("click", scheduleStickyTop);
 
   const initialTag = getActiveTagFromUrl();
   const initialQ = getSearchQueryFromUrl();
   const initialSort = getSortFromUrl();
+  const initialSavedOnly = refreshSavedState();
 
   const searchInput = document.querySelector("[data-shop-search-input]");
   if (searchInput instanceof HTMLInputElement) searchInput.value = initialQ;
@@ -264,7 +371,7 @@ function setupShopFilters() {
   const sortSelect = document.querySelector("[data-shop-sort]");
   if (sortSelect instanceof HTMLSelectElement) sortSelect.value = initialSort;
 
-  applyShopFilters(initialTag, initialQ, initialSort, groupData);
+  applyShopFilters(initialTag, initialQ, initialSort, initialSavedOnly, savedSet, groupData);
   if (initialTag) setActiveTagInUrl(initialTag);
   if (initialQ) setSearchQueryInUrl(initialQ);
   if (initialSort) setSortInUrl(initialSort);
@@ -280,7 +387,7 @@ function setupShopFilters() {
       const normalized = normalizeTag(tag);
       const next = normalized && normalized === current ? "" : tag;
       setActiveTagInUrl(next);
-      applyShopFilters(next, q, sort, groupData);
+      applyShopFilters(next, q, sort, getSavedOnlyFromUrl(), savedSet, groupData);
 
       const fromItem = btn.closest(".shop-tags");
       if (fromItem) {
@@ -303,7 +410,7 @@ function setupShopFilters() {
       const sort = getSortFromUrl();
       const q = searchInput instanceof HTMLInputElement ? searchInput.value : getSearchQueryFromUrl();
       setSearchQueryInUrl(q);
-      applyShopFilters(tag, q, sort, groupData);
+      applyShopFilters(tag, q, sort, getSavedOnlyFromUrl(), savedSet, groupData);
     }, 120);
   }
 
@@ -317,7 +424,14 @@ function setupShopFilters() {
       event.preventDefault();
       searchInput.value = "";
       setSearchQueryInUrl("");
-      applyShopFilters(getActiveTagFromUrl(), "", getSortFromUrl(), groupData);
+      applyShopFilters(
+        getActiveTagFromUrl(),
+        "",
+        getSortFromUrl(),
+        getSavedOnlyFromUrl(),
+        savedSet,
+        groupData
+      );
       try {
         searchInput.focus({ preventScroll: true });
       } catch (_error) {
@@ -330,17 +444,81 @@ function setupShopFilters() {
     sortSelect.addEventListener("change", () => {
       const sort = sortSelect.value || "";
       setSortInUrl(sort);
-      applyShopFilters(getActiveTagFromUrl(), getSearchQueryFromUrl(), sort, groupData);
+      applyShopFilters(
+        getActiveTagFromUrl(),
+        getSearchQueryFromUrl(),
+        sort,
+        getSavedOnlyFromUrl(),
+        savedSet,
+        groupData
+      );
     });
   }
+
+  if (savedOnlyBtn instanceof HTMLButtonElement) {
+    savedOnlyBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      setSavedOnlyInUrl(!getSavedOnlyFromUrl());
+      const savedOnly = refreshSavedState();
+      applyShopFilters(
+        getActiveTagFromUrl(),
+        getSearchQueryFromUrl(),
+        getSortFromUrl(),
+        savedOnly,
+        savedSet,
+        groupData
+      );
+    });
+  }
+
+  function resetAll() {
+    if (searchInput instanceof HTMLInputElement) searchInput.value = "";
+    if (sortSelect instanceof HTMLSelectElement) sortSelect.value = "";
+    setActiveTagInUrl("");
+    setSearchQueryInUrl("");
+    setSortInUrl("");
+    setSavedOnlyInUrl(false);
+    const savedOnly = refreshSavedState();
+    applyShopFilters("", "", "", savedOnly, savedSet, groupData);
+
+    const anchor = document.querySelector("[data-shop-filters]") || document.querySelector("h1");
+    if (anchor) {
+      anchor.scrollIntoView({
+        behavior: prefersReducedMotion() ? "auto" : "smooth",
+        block: "start",
+      });
+    }
+  }
+
+  document.querySelectorAll("[data-shop-reset]").forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      resetAll();
+    });
+  });
+
+  window.addEventListener("site:shop-favorites", () => {
+    const savedOnly = refreshSavedState();
+    applyShopFilters(
+      getActiveTagFromUrl(),
+      getSearchQueryFromUrl(),
+      getSortFromUrl(),
+      savedOnly,
+      savedSet,
+      groupData
+    );
+  });
 
   window.addEventListener("popstate", () => {
     const tag = getActiveTagFromUrl();
     const q = getSearchQueryFromUrl();
     const sort = getSortFromUrl();
+    const savedOnly = refreshSavedState();
     if (searchInput instanceof HTMLInputElement) searchInput.value = q;
     if (sortSelect instanceof HTMLSelectElement) sortSelect.value = sort;
-    applyShopFilters(tag, q, sort, groupData);
+    applyShopFilters(tag, q, sort, savedOnly, savedSet, groupData);
   });
 }
 

@@ -66,6 +66,7 @@ const I18N = {
     "home.latest": "Latest",
     "home.shopFeatured": "Featured",
     "home.shopAll": "View all",
+    "home.shopBrowse": "Browse:",
 
     "article.copy": "Copy link",
     "article.share": "Share",
@@ -101,6 +102,8 @@ const I18N = {
     "shop.search.placeholder": "Search products…",
     "shop.search.clear": "Clear",
     "shop.searchStatus": "Search: “{q}” · {count} items",
+    "shop.reset": "Reset filters",
+    "shop.featured": "Featured",
     "shop.sort.label": "Sort:",
     "shop.sort.default": "Default",
     "shop.sort.rating": "Rating",
@@ -111,6 +114,12 @@ const I18N = {
     "shop.sort.titleDesc": "Title Z→A",
     "shop.noResults": "No items match this filter.",
     "shop.cta": "View on Amazon",
+    "shop.savedOnly": "Saved only",
+    "shop.savedStatus": "Saved only · {count} items",
+    "shop.savedFilterStatus": "Saved only: {tag} · {count} items",
+    "shop.savedFilterStatusBoth": "Saved only: {tag} · “{q}” · {count} items",
+    "shop.savedSearchStatus": "Saved only: “{q}” · {count} items",
+    "shop.savedBanner": "Saved {count} products →",
     "shop.updatedAt": "Updated",
     "shop.disclaimer": "As an Amazon Associate I earn from qualifying purchases.",
     "shop.empty": "No items yet.",
@@ -228,6 +237,8 @@ const I18N = {
     "tool.common.swap": "Swap",
     "tool.common.copyOutput": "Copy output",
     "tool.common.clear": "Clear",
+    "tool.state.clearSaved": "Reset settings",
+    "tool.state.cleared": "Reset saved settings",
 
     "tool.common.status.swapped": "Swapped input/output",
     "tool.common.status.copied": "Copied output",
@@ -710,6 +721,7 @@ const I18N = {
     "tool.qrScan.scan": "Scan",
     "tool.qrScan.startCamera": "Start camera",
     "tool.qrScan.stopCamera": "Stop camera",
+    "tool.qrScan.open": "Open link",
     "tool.qrScan.multi": "Detect multiple codes",
     "tool.qrScan.note": "Tip: scanning from camera may require HTTPS and permission.",
     "tool.qrScan.status.working": "Working…",
@@ -1042,6 +1054,7 @@ const I18N = {
     "home.latest": "最新",
     "home.shopFeatured": "精选",
     "home.shopAll": "查看全部",
+    "home.shopBrowse": "快速浏览：",
 
     "article.copy": "复制链接",
     "article.share": "分享",
@@ -1077,6 +1090,8 @@ const I18N = {
     "shop.search.placeholder": "搜索商品…",
     "shop.search.clear": "清除",
     "shop.searchStatus": "搜索：{q} · {count} 个商品",
+    "shop.reset": "重置筛选",
+    "shop.featured": "精选",
     "shop.sort.label": "排序：",
     "shop.sort.default": "默认",
     "shop.sort.rating": "评分",
@@ -1087,6 +1102,12 @@ const I18N = {
     "shop.sort.titleDesc": "标题 Z→A",
     "shop.noResults": "没有匹配的商品。",
     "shop.cta": "去亚马逊查看",
+    "shop.savedOnly": "仅收藏",
+    "shop.savedStatus": "仅收藏 · {count} 个商品",
+    "shop.savedFilterStatus": "仅收藏：{tag} · {count} 个商品",
+    "shop.savedFilterStatusBoth": "仅收藏：{tag} · {q} · {count} 个商品",
+    "shop.savedSearchStatus": "仅收藏：{q} · {count} 个商品",
+    "shop.savedBanner": "已收藏 {count} 个商品 →",
     "shop.updatedAt": "更新时间",
     "shop.disclaimer": "作为亚马逊联盟会员，我们可能会从符合条件的购买中获得佣金。",
     "shop.empty": "暂无商品。",
@@ -1204,6 +1225,8 @@ const I18N = {
     "tool.common.swap": "交换",
     "tool.common.copyOutput": "复制输出",
     "tool.common.clear": "清空",
+    "tool.state.clearSaved": "重置设置",
+    "tool.state.cleared": "已重置已保存的设置",
 
     "tool.common.status.swapped": "已交换输入/输出",
     "tool.common.status.copied": "已复制输出",
@@ -1680,6 +1703,7 @@ const I18N = {
     "tool.qrScan.scan": "识别",
     "tool.qrScan.startCamera": "打开摄像头",
     "tool.qrScan.stopCamera": "停止",
+    "tool.qrScan.open": "打开链接",
     "tool.qrScan.multi": "识别多个二维码",
     "tool.qrScan.note": "提示：摄像头识别可能需要 HTTPS 与授权。",
     "tool.qrScan.status.working": "处理中…",
@@ -1956,6 +1980,9 @@ const FAVORITES_TOOLS_KEY = "site_favorite_tools";
 const RECENT_TOOLS_KEY = "site_recent_tools";
 const MAX_RECENT_TOOLS = 60;
 const FAVORITES_SHOP_KEY = "site_favorite_shop";
+const SHOP_FAVORITES_EVENT = "site:shop-favorites";
+const TOOL_STATE_PREFIX = "site_tool_state:";
+const MAX_TOOL_STATE_CHARS = 200000;
 
 function storageGet(key) {
   try {
@@ -2271,8 +2298,25 @@ function getHeaderSearchInput() {
   return input instanceof HTMLInputElement ? input : null;
 }
 
+function getPagefindSearchInput() {
+  const input = document.querySelector(".pagefind-ui__search-input");
+  return input instanceof HTMLInputElement ? input : null;
+}
+
 function focusHeaderSearch() {
   const input = getHeaderSearchInput();
+  if (!input) return false;
+  input.focus({ preventScroll: true });
+  try {
+    input.select();
+  } catch {
+    // ignore
+  }
+  return true;
+}
+
+function focusPagefindSearch() {
+  const input = getPagefindSearchInput();
   if (!input) return false;
   input.focus({ preventScroll: true });
   try {
@@ -2300,6 +2344,7 @@ function setupSearchShortcuts() {
     event.preventDefault();
 
     if (focusHeaderSearch()) return;
+    if (focusPagefindSearch()) return;
 
     const form = getHeaderSearchForm();
     if (form && form.action) window.location.href = form.action;
@@ -2391,6 +2436,170 @@ function setupToolQuickJumps() {
     btn.addEventListener("click", () => {
       scrollEl(target.scroll);
       window.setTimeout(() => focusEl(target.focus), 0);
+    });
+  }
+}
+
+function toolStateKey(slug) {
+  const normalized = String(slug || "").trim();
+  if (!normalized) return "";
+  return `${TOOL_STATE_PREFIX}${normalized}`;
+}
+
+function isPersistableToolControl(el) {
+  if (
+    !(
+      el instanceof HTMLInputElement ||
+      el instanceof HTMLTextAreaElement ||
+      el instanceof HTMLSelectElement
+    )
+  ) {
+    return false;
+  }
+  if (!el.id) return false;
+  if (!el.id.startsWith("opt-")) return false;
+  if (el.hasAttribute("readonly")) return false;
+  if (el.getAttribute("data-no-persist") !== null) return false;
+
+  if (el instanceof HTMLInputElement) {
+    const type = String(el.type || "").toLowerCase();
+    if (type === "file" || type === "password") return false;
+  }
+
+  return true;
+}
+
+function snapshotToolControls(controls) {
+  const snapshot = {};
+  for (const el of controls) {
+    if (el instanceof HTMLInputElement) {
+      const type = String(el.type || "").toLowerCase();
+      if (type === "checkbox" || type === "radio") snapshot[el.id] = el.checked;
+      else snapshot[el.id] = el.value;
+      continue;
+    }
+    snapshot[el.id] = el.value;
+  }
+  return snapshot;
+}
+
+function applyToolControlsSnapshot(controls, snapshot, fireEvents) {
+  if (!snapshot || typeof snapshot !== "object" || Array.isArray(snapshot)) return;
+
+  for (const el of controls) {
+    if (!Object.prototype.hasOwnProperty.call(snapshot, el.id)) continue;
+    const value = snapshot[el.id];
+
+    if (el instanceof HTMLInputElement) {
+      const type = String(el.type || "").toLowerCase();
+      if (type === "checkbox" || type === "radio") el.checked = Boolean(value);
+      else el.value = String(value ?? "");
+    } else if (el instanceof HTMLSelectElement) {
+      const next = String(value ?? "");
+      if (Array.from(el.options).some((opt) => opt.value === next)) el.value = next;
+    } else {
+      el.value = String(value ?? "");
+    }
+
+    if (fireEvents) {
+      try {
+        el.dispatchEvent(new Event("input", { bubbles: true }));
+      } catch (_error) {
+        // ignore
+      }
+      try {
+        el.dispatchEvent(new Event("change", { bubbles: true }));
+      } catch (_error) {
+        // ignore
+      }
+    }
+  }
+}
+
+function setToolStatusMessage(message, isError) {
+  const el = document.getElementById("tool-status");
+  if (!(el instanceof HTMLElement)) return;
+  el.textContent = String(message || "");
+  el.classList.toggle("tool-status-error", Boolean(isError));
+}
+
+function clearToolCommonOutputs() {
+  const output = document.getElementById("tool-output");
+  if (output instanceof HTMLTextAreaElement || output instanceof HTMLInputElement) {
+    try {
+      output.value = "";
+    } catch (_error) {
+      // ignore
+    }
+  }
+
+  const fileInput = document.getElementById("tool-file");
+  if (fileInput instanceof HTMLInputElement && fileInput.type === "file") {
+    fileInput.value = "";
+  }
+}
+
+function setupToolStatePersistence() {
+  const meta = getToolMetaFromPage();
+  if (!meta || !meta.slug) return;
+
+  const shell = document.querySelector(".tool-shell");
+  if (!shell) return;
+
+  const controls = Array.from(shell.querySelectorAll("input, textarea, select")).filter(
+    isPersistableToolControl
+  );
+  if (!controls.length) return;
+
+  const key = toolStateKey(meta.slug);
+  if (!key) return;
+
+  const defaults = snapshotToolControls(controls);
+  const saved = storageGetJson(key, null);
+  if (saved && typeof saved === "object" && !Array.isArray(saved)) {
+    applyToolControlsSnapshot(controls, saved, false);
+  }
+
+  let scheduled = 0;
+  let suspend = false;
+
+  function saveNow() {
+    if (suspend) return;
+    const snapshot = snapshotToolControls(controls);
+    const json = JSON.stringify(snapshot);
+    if (json.length > MAX_TOOL_STATE_CHARS) return;
+    storageSet(key, json);
+  }
+
+  function scheduleSave() {
+    if (suspend) return;
+    if (scheduled) window.clearTimeout(scheduled);
+    scheduled = window.setTimeout(() => {
+      scheduled = 0;
+      saveNow();
+    }, 250);
+  }
+
+  for (const el of controls) {
+    el.addEventListener("input", scheduleSave);
+    el.addEventListener("change", scheduleSave);
+  }
+
+  const clearBtn = document.querySelector("[data-tool-clear-state]");
+  if (clearBtn instanceof HTMLButtonElement) {
+    clearBtn.addEventListener("click", () => {
+      suspend = true;
+      if (scheduled) window.clearTimeout(scheduled);
+      scheduled = 0;
+
+      storageRemove(key);
+      applyToolControlsSnapshot(controls, defaults, true);
+      clearToolCommonOutputs();
+
+      setToolStatusMessage(t("tool.state.cleared", null, getLang()), false);
+      window.setTimeout(() => {
+        suspend = false;
+      }, 0);
     });
   }
 }
@@ -2949,6 +3158,17 @@ function normalizeShopMeta(input) {
   return { asin, title, path, image, price, rating, reviewCount };
 }
 
+function emitShopFavoritesChanged(count) {
+  const normalizedCount = Number.isFinite(count) ? count : readFavoriteShopItems().length;
+  try {
+    window.dispatchEvent(
+      new CustomEvent(SHOP_FAVORITES_EVENT, { detail: { count: normalizedCount } })
+    );
+  } catch (_error) {
+    window.dispatchEvent(new Event(SHOP_FAVORITES_EVENT));
+  }
+}
+
 function readFavoriteShopItems() {
   const raw = storageGetJson(FAVORITES_SHOP_KEY, []);
   if (!Array.isArray(raw)) return [];
@@ -2964,7 +3184,9 @@ function readFavoriteShopItems() {
 }
 
 function writeFavoriteShopItems(list) {
-  storageSetJson(FAVORITES_SHOP_KEY, Array.isArray(list) ? list : []);
+  const items = Array.isArray(list) ? list : [];
+  storageSetJson(FAVORITES_SHOP_KEY, items);
+  emitShopFavoritesChanged(items.length);
 }
 
 function isFavoriteShopItem(asin, favorites) {
@@ -3023,6 +3245,31 @@ function setupShopFavorites() {
 
     window.addEventListener("site:lang", refresh);
   }
+}
+
+function setupShopSavedCtas() {
+  const wrappers = Array.from(document.querySelectorAll("[data-shop-saved]")).filter((el) =>
+    el instanceof HTMLElement
+  );
+  if (!wrappers.length) return;
+
+  function update() {
+    const count = readFavoriteShopItems().length;
+    const label = t("shop.savedBanner", { count }, getLang());
+
+    for (const wrapper of wrappers) {
+      wrapper.hidden = count <= 0;
+      const text =
+        wrapper.querySelector("[data-shop-saved-text]") ||
+        (wrapper.hasAttribute("data-shop-saved-text") ? wrapper : null);
+      if (text instanceof HTMLElement) text.textContent = label;
+    }
+  }
+
+  update();
+  window.addEventListener(SHOP_FAVORITES_EVENT, update);
+  window.addEventListener("pageshow", update);
+  window.addEventListener("site:lang", update);
 }
 
 function titleCaseText(value) {
@@ -3289,7 +3536,10 @@ function setupLibraryPage() {
     if (type === "recent") storageRemove(RECENT_ARTICLES_KEY);
     if (type === "tools-favorites") storageRemove(FAVORITES_TOOLS_KEY);
     if (type === "tools-recent") storageRemove(RECENT_TOOLS_KEY);
-    if (type === "shop-favorites") storageRemove(FAVORITES_SHOP_KEY);
+    if (type === "shop-favorites") {
+      storageRemove(FAVORITES_SHOP_KEY);
+      emitShopFavoritesChanged(0);
+    }
   }
 
   function renderList(
@@ -3634,6 +3884,23 @@ function setupLibraryPage() {
           const btn = document.createElement("button");
           btn.type = "button";
           btn.className = "button button-secondary";
+          btn.setAttribute("data-i18n", "article.copy");
+          btn.textContent = t("article.copy", null, getLang());
+          btn.addEventListener("click", async () => {
+            try {
+              const url = new URL(meta.path, window.location.origin).toString();
+              const ok = await copyToClipboard(url);
+              flashButtonLabel(btn, ok ? "common.copied" : "common.copyFailed");
+            } catch (_error) {
+              flashButtonLabel(btn, "common.copyFailed");
+            }
+          });
+          return btn;
+        },
+        (meta) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "button button-secondary";
           btn.textContent = t("library.remove", null, getLang());
           btn.addEventListener("click", () => {
             writeFavoriteShopItems(
@@ -3857,6 +4124,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupSearchShortcuts();
   setupToolJump();
   setupToolQuickJumps();
+  setupToolStatePersistence();
   setupToolsIndexFilter();
   setupActiveLinks();
   setupCopyShareButtons();
@@ -3866,6 +4134,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupToolLibrary();
   setupToolCardFavorites();
   setupShopFavorites();
+  setupShopSavedCtas();
   setupLibraryPage();
   setupToTopButton();
 });

@@ -252,11 +252,38 @@
     return out;
   }
 
+  function resolveOpenUrl(value) {
+    const raw = String(value || "").trim();
+    if (!raw) return "";
+    try {
+      const url = new URL(raw);
+      const protocol = String(url.protocol || "").toLowerCase();
+      if (protocol === "http:" || protocol === "https:") return url.toString();
+    } catch (_error) {
+      // ignore
+    }
+    return "";
+  }
+
+  function setOpenLink(url) {
+    const btn = document.getElementById("btn-open");
+    if (!(btn instanceof HTMLAnchorElement)) return;
+    const resolved = resolveOpenUrl(url);
+    if (!resolved) {
+      btn.hidden = true;
+      btn.removeAttribute("href");
+      return;
+    }
+    btn.href = resolved;
+    btn.hidden = false;
+  }
+
   function setOutput(values) {
     const out = uniqueStrings(values);
     const text = out.join("\n");
     $("tool-output").value = text;
     state.lastOutput = text;
+    setOpenLink(out[0] || "");
     return out.length;
   }
 
@@ -312,7 +339,7 @@
     }
 
     const supported = await supportsBarcodeDetector();
-    if (!supported) throw new Error(t("tool.qrScan.error.cameraUnsupported"));
+    if (!supported) await loadJsQr();
 
     await stopCamera();
 
@@ -395,6 +422,7 @@
     state.imageUrl = null;
     $("tool-file").value = "";
     $("tool-output").value = "";
+    setOpenLink("");
     setFileMeta(null);
     setPreviewMode(null);
     setStatus("", false);
@@ -450,4 +478,3 @@
 
   window.addEventListener("DOMContentLoaded", main);
 })();
-

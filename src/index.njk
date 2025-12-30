@@ -33,47 +33,104 @@ permalink: "{% if listPage.pageNumber == 0 %}index.html{% else %}page/{{ listPag
   <h2 data-i18n="home.shopFeatured">Featured</h2>
   <div class="shop-featured-grid">
     {% for item in amazon.featuredItems %}
-      <a
-        class="shop-featured-card"
-        href="{{ item.goPath | url }}"
-        target="_blank"
-        rel="nofollow sponsored noopener noreferrer"
+      <article
+        class="shop-featured-item"
+        data-shop-item
+        data-shop-asin="{{ item.asin }}"
+        data-shop-title="{{ item.title or item.asin }}"
+        data-shop-path="{{ item.goPath | url }}"
+        {% if item.image %}data-shop-image="{{ item.image }}"{% endif %}
+        {% if item.price and item.price.display %}data-shop-price="{{ item.price.display }}"{% endif %}
+        {% if item.rating %}data-shop-rating="{{ item.rating }}"{% endif %}
+        {% if item.reviewCount %}data-shop-review-count="{{ item.reviewCount }}"{% endif %}
       >
-        <div class="shop-featured-thumb">
-          {% if item.image %}
-            <img
-              src="{{ item.image }}"
-              alt="{{ item.title or ('ASIN ' + item.asin) }}"
-              width="96"
-              height="96"
-              loading="lazy"
-              decoding="async"
-            />
-          {% else %}
-            <div class="shop-thumb-placeholder">ASIN {{ item.asin }}</div>
-          {% endif %}
-        </div>
-        <div class="shop-featured-body">
-          <div class="shop-featured-title">{{ item.title or item.asin }}</div>
-          <div class="shop-featured-meta">
-            {% if item.price and item.price.display %}
-              <span class="badge">{{ item.price.display }}</span>
-            {% endif %}
-            {% if item.rating %}
-              <span class="badge">
-                ★ {{ item.rating }}{% if item.reviewCount %} ({{ item.reviewCount }}){% endif %}
-              </span>
+        <a
+          class="shop-featured-link"
+          href="{{ item.goPath | url }}"
+          target="_blank"
+          rel="nofollow sponsored noopener noreferrer"
+        >
+          <div class="shop-featured-thumb">
+            {% if item.image %}
+              <img
+                src="{{ item.image }}"
+                alt="{{ item.title or ('ASIN ' + item.asin) }}"
+                width="96"
+                height="96"
+                loading="lazy"
+                decoding="async"
+              />
+            {% else %}
+              <div class="shop-thumb-placeholder">ASIN {{ item.asin }}</div>
             {% endif %}
           </div>
+          <div class="shop-featured-body">
+            <div class="shop-featured-title">{{ item.title or item.asin }}</div>
+            {% if item.note %}
+              <div class="shop-featured-note muted">{{ item.note }}</div>
+            {% endif %}
+            <div class="shop-featured-meta">
+              {% if item.price and item.price.display %}
+                <span class="badge">{{ item.price.display }}</span>
+              {% endif %}
+              {% if item.rating %}
+                <span class="badge">
+                  ★ {{ item.rating }}{% if item.reviewCount %} ({{ item.reviewCount }}){% endif %}
+                </span>
+              {% endif %}
+            </div>
+          </div>
+        </a>
+
+        <div class="shop-featured-actions">
+          <a
+            class="shop-featured-cta"
+            href="{{ item.goPath | url }}"
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+            data-i18n="shop.cta"
+            >View on Amazon</a
+          >
+          <button
+            class="tag-pill shop-featured-save"
+            type="button"
+            data-favorite-shop
+            aria-pressed="false"
+            data-i18n="article.save"
+          >
+            Save
+          </button>
         </div>
-      </a>
+      </article>
     {% endfor %}
   </div>
-  <p>
+  {% if amazon.tags and amazon.tags.length %}
+    <div class="shop-home-tags" aria-label="Shop tags">
+      <span class="muted" data-i18n="home.shopBrowse">Browse:</span>
+      {% for tag in amazon.tags | slice(0, 10) %}
+        <a class="tag-pill" href="{{ ('/shop/?tag=' + tag.id) | url }}">{{ tag.label }}</a>
+      {% endfor %}
+    </div>
+  {% endif %}
+  <p class="shop-home-actions">
     <a class="button button-secondary" href="{{ '/shop/' | url }}" data-i18n="home.shopAll"
       >View all</a
     >
+    <a
+      class="button button-secondary"
+      href="{{ '/library/#shop-favorites' | url }}"
+      data-shop-saved
+      hidden
+    >
+      <span data-shop-saved-text></span>
+    </a>
   </p>
+  {% if amazon.associateTag %}
+    <p class="muted small">
+      <span data-i18n="shop.disclaimer">As an Amazon Associate I earn from qualifying purchases.</span>
+      <a href="{{ '/affiliate-disclosure/' | url }}" data-i18n="nav.disclosure">Affiliate Disclosure</a>
+    </p>
+  {% endif %}
 {% endif %}
 
 <h2 data-i18n="home.latest">Latest</h2>
