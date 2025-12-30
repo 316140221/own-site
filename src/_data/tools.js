@@ -25,6 +25,11 @@ const rawGroups = [
         description: "Convert between CSV and JSON (headers, delimiter options).",
       },
       {
+        slug: "diff",
+        label: "Text/JSON Diff",
+        description: "Compare two texts (or JSON) and generate a unified diff locally.",
+      },
+      {
         slug: "regex",
         label: "Regex Tester",
         description: "Test matches or do replacements with JavaScript RegExp.",
@@ -157,6 +162,11 @@ const rawGroups = [
         description: "Add a text watermark to images locally in your browser.",
       },
       {
+        slug: "image-crop",
+        label: "Image Crop/Round",
+        description: "Center-crop images (aspect ratios) and export with rounded corners locally.",
+      },
+      {
         slug: "color",
         label: "Color Converter",
         description: "Convert between HEX/RGB/HSL color formats.",
@@ -176,6 +186,16 @@ const rawGroups = [
         slug: "amazon-link",
         label: "Amazon Affiliate Link Builder",
         description: "Generate Amazon /go links and affiliate URLs locally.",
+      },
+      {
+        slug: "qr-code",
+        label: "QR Code Generator",
+        description: "Generate QR codes locally (PNG/SVG) with colors and error correction.",
+      },
+      {
+        slug: "qr-scan",
+        label: "QR Code Scanner",
+        description: "Scan QR codes from an image or camera locally in your browser.",
       },
       {
         slug: "password",
@@ -242,6 +262,11 @@ const rawGroups = [
         slug: "percentage",
         label: "Percentage Calculator",
         description: "Quick percent calculations: X% of Y, change, increase/decrease.",
+      },
+      {
+        slug: "bmi",
+        label: "BMI Calculator",
+        description: "Calculate BMI (Body Mass Index) locally and show the healthy range.",
       },
       {
         slug: "unit-converter",

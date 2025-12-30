@@ -1,0 +1,163 @@
+---
+layout: layouts/base.njk
+title: "Image Crop/Round"
+description: "Center-crop images (aspect ratios) and export with rounded corners locally. Runs locally."
+pageScript: "/assets/tools/image-crop.js"
+---
+
+<h1 data-i18n="tools.item.image-crop.title">Image Crop/Round</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-pane">
+    <label class="tool-label" for="tool-file" data-i18n="tool.imageCrop.file">Image file</label>
+    <input type="file" id="tool-file" class="tool-file" accept="image/*" />
+    <p class="muted small" id="tool-file-meta"></p>
+  </div>
+
+  <div class="tool-options">
+    <label class="tool-option">
+      <span data-i18n="tool.imageCrop.mode">Mode:</span>
+      <select id="opt-mode">
+        <option value="full" data-i18n="tool.imageCrop.mode.full">Full image</option>
+        <option value="center" selected data-i18n="tool.imageCrop.mode.center">Center crop</option>
+        <option value="manual" data-i18n="tool.imageCrop.mode.manual">Manual crop</option>
+      </select>
+    </label>
+
+    <label class="tool-option" id="opt-ratio-wrap">
+      <span data-i18n="tool.imageCrop.ratio">Aspect:</span>
+      <select id="opt-ratio">
+        <option value="free" selected data-i18n="tool.imageCrop.ratio.free">Free</option>
+        <option value="1:1" data-i18n="tool.imageCrop.ratio.1x1">1:1</option>
+        <option value="4:3" data-i18n="tool.imageCrop.ratio.4x3">4:3</option>
+        <option value="16:9" data-i18n="tool.imageCrop.ratio.16x9">16:9</option>
+        <option value="3:4" data-i18n="tool.imageCrop.ratio.3x4">3:4</option>
+        <option value="9:16" data-i18n="tool.imageCrop.ratio.9x16">9:16</option>
+        <option value="custom" data-i18n="tool.imageCrop.ratio.custom">Custom</option>
+      </select>
+    </label>
+
+    <label class="tool-option" id="opt-ratio-w-wrap" hidden>
+      <span data-i18n="tool.imageCrop.ratioW">W:</span>
+      <input type="number" id="opt-ratio-w" min="1" step="1" value="1" />
+    </label>
+    <label class="tool-option" id="opt-ratio-h-wrap" hidden>
+      <span data-i18n="tool.imageCrop.ratioH">H:</span>
+      <input type="number" id="opt-ratio-h" min="1" step="1" value="1" />
+    </label>
+
+    <label class="tool-option" id="opt-x-wrap" hidden>
+      <span data-i18n="tool.imageCrop.x">X:</span>
+      <input type="number" id="opt-x" min="0" step="1" value="0" />
+    </label>
+    <label class="tool-option" id="opt-y-wrap" hidden>
+      <span data-i18n="tool.imageCrop.y">Y:</span>
+      <input type="number" id="opt-y" min="0" step="1" value="0" />
+    </label>
+    <label class="tool-option" id="opt-w-wrap" hidden>
+      <span data-i18n="tool.imageCrop.w">W:</span>
+      <input type="number" id="opt-w" min="1" step="1" value="1" />
+    </label>
+    <label class="tool-option" id="opt-h-wrap" hidden>
+      <span data-i18n="tool.imageCrop.h">H:</span>
+      <input type="number" id="opt-h" min="1" step="1" value="1" />
+    </label>
+
+    <label class="tool-option">
+      <span data-i18n="tool.imageCrop.radius">Radius:</span>
+      <input type="number" id="opt-radius" min="0" step="1" value="0" />
+    </label>
+
+    <label class="tool-option">
+      <span data-i18n="tool.imageCrop.format">Format:</span>
+      <select id="opt-format">
+        <option value="keep" data-i18n="tool.imageCrop.format.keep">Keep</option>
+        <option value="jpeg" data-i18n="tool.imageCrop.format.jpeg">JPEG</option>
+        <option value="webp" data-i18n="tool.imageCrop.format.webp">WebP</option>
+        <option value="png" selected data-i18n="tool.imageCrop.format.png">PNG</option>
+      </select>
+    </label>
+
+    <label class="tool-option">
+      <span data-i18n="tool.imageCrop.maxWidth">Max width:</span>
+      <input
+        type="number"
+        id="opt-max-width"
+        min="1"
+        step="1"
+        placeholder="Auto"
+        data-i18n-placeholder="tool.imageCrop.autoPlaceholder"
+      />
+    </label>
+    <label class="tool-option">
+      <span data-i18n="tool.imageCrop.maxHeight">Max height:</span>
+      <input
+        type="number"
+        id="opt-max-height"
+        min="1"
+        step="1"
+        placeholder="Auto"
+        data-i18n-placeholder="tool.imageCrop.autoPlaceholder"
+      />
+    </label>
+    <label class="tool-option">
+      <span data-i18n="tool.imageCrop.quality">Quality:</span>
+      <input type="number" id="opt-quality" min="0.05" max="1" step="0.05" value="0.85" />
+    </label>
+    <label class="tool-option">
+      <span data-i18n="tool.imageCrop.bg">Background:</span>
+      <input type="text" id="opt-bg" value="#ffffff" placeholder="#RRGGBB" />
+    </label>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-run" data-i18n="tool.imageCrop.run">Apply</button>
+    <a
+      class="button button-secondary"
+      id="btn-download"
+      href="#"
+      download
+      hidden
+      data-i18n="tool.imageCrop.download"
+      >Download</a
+    >
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">Clear</button>
+  </div>
+
+  <div class="tool-grid tool-preview-grid" aria-label="Preview">
+    <div class="tool-pane">
+      <div class="tool-label" data-i18n="tool.imageCrop.original">Original</div>
+      <div class="tool-preview-box">
+        <img id="preview-original" class="tool-preview-img" alt="" loading="lazy" decoding="async" />
+      </div>
+      <p class="muted small" id="meta-original"></p>
+    </div>
+    <div class="tool-pane">
+      <div class="tool-label" data-i18n="tool.imageCrop.output">Output</div>
+      <div class="tool-preview-box">
+        <img id="preview-output" class="tool-preview-img" alt="" loading="lazy" decoding="async" />
+      </div>
+      <p class="muted small" id="meta-output"></p>
+    </div>
+  </div>
+
+  <div class="tool-pane tool-pane-block">
+    <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+    <textarea
+      id="tool-output"
+      class="tool-textarea"
+      rows="7"
+      readonly
+      placeholder="Result will appear here…"
+      data-i18n-placeholder="tool.common.resultPlaceholder"
+      spellcheck="false"
+    ></textarea>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

@@ -1,0 +1,68 @@
+---
+layout: layouts/base.njk
+title: "QR Code Scanner"
+description: "Scan QR codes from an image or camera locally in your browser. Runs locally."
+pageScript: "/assets/tools/qr-scan.js"
+---
+
+<h1 data-i18n="tools.item.qr-scan.title">QR Code Scanner</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-pane">
+    <label class="tool-label" for="tool-file" data-i18n="tool.qrScan.file">Image file</label>
+    <input type="file" id="tool-file" class="tool-file" accept="image/*" />
+    <p class="muted small" id="tool-file-meta"></p>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-scan" data-i18n="tool.qrScan.scan">Scan</button>
+    <button class="button button-secondary" type="button" id="btn-start" data-i18n="tool.qrScan.startCamera">
+      Start camera
+    </button>
+    <button class="button button-secondary" type="button" id="btn-stop" data-i18n="tool.qrScan.stopCamera" disabled>
+      Stop camera
+    </button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">Clear</button>
+  </div>
+
+  <div class="tool-options">
+    <label class="tool-option">
+      <input type="checkbox" id="opt-multi" checked />
+      <span data-i18n="tool.qrScan.multi">Detect multiple codes</span>
+    </label>
+  </div>
+
+  <div class="tool-grid tool-preview-grid">
+    <div class="tool-pane">
+      <div class="tool-label" data-i18n="tool.qrScan.preview">Preview</div>
+      <div class="tool-preview-box">
+        <img id="preview-image" class="tool-preview-img" alt="" loading="lazy" decoding="async" hidden />
+        <video id="preview-video" class="tool-preview-video" playsinline muted hidden></video>
+      </div>
+      <canvas id="scan-canvas" hidden></canvas>
+      <p class="muted small" data-i18n="tool.qrScan.note">
+        Tip: scanning from camera may require HTTPS and permission.
+      </p>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="10"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+
