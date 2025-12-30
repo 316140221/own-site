@@ -1,0 +1,100 @@
+---
+layout: layouts/base.njk
+title: "QR Code Generator"
+description: "Generate QR codes locally (PNG/SVG) with colors and error correction. Runs locally."
+pageScript: "/assets/tools/qr-code.js"
+---
+
+<h1 data-i18n="tools.item.qr-code.title">QR Code Generator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-input" data-i18n="tool.qrCode.text">Text</label>
+      <textarea
+        id="tool-input"
+        class="tool-textarea"
+        rows="10"
+        placeholder="Type text or URL…"
+        data-i18n-placeholder="tool.qrCode.textPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+    <div class="tool-pane">
+      <div class="tool-label" data-i18n="tool.qrCode.preview">Preview</div>
+      <div class="tool-preview-box">
+        <img id="qr-preview" class="tool-preview-img" alt="" loading="lazy" decoding="async" />
+      </div>
+      <p class="muted small" id="qr-meta"></p>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-generate" data-i18n="tool.qrCode.generate">Generate</button>
+    <a
+      class="button button-secondary"
+      id="btn-download"
+      href="#"
+      download
+      hidden
+      data-i18n="tool.qrCode.download"
+      >Download</a
+    >
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">Clear</button>
+  </div>
+
+  <div class="tool-options">
+    <label class="tool-option">
+      <span data-i18n="tool.qrCode.ecc">Error correction:</span>
+      <select id="opt-ecc">
+        <option value="L" data-i18n="tool.qrCode.ecc.l">L (7%)</option>
+        <option value="M" selected data-i18n="tool.qrCode.ecc.m">M (15%)</option>
+        <option value="Q" data-i18n="tool.qrCode.ecc.q">Q (25%)</option>
+        <option value="H" data-i18n="tool.qrCode.ecc.h">H (30%)</option>
+      </select>
+    </label>
+    <label class="tool-option">
+      <span data-i18n="tool.qrCode.format">Format:</span>
+      <select id="opt-format">
+        <option value="png" selected data-i18n="tool.qrCode.format.png">PNG</option>
+        <option value="svg" data-i18n="tool.qrCode.format.svg">SVG</option>
+      </select>
+    </label>
+    <label class="tool-option">
+      <span data-i18n="tool.qrCode.size">Size (px):</span>
+      <input type="number" id="opt-size" min="64" max="2048" step="8" value="320" />
+    </label>
+    <label class="tool-option">
+      <span data-i18n="tool.qrCode.margin">Margin:</span>
+      <input type="number" id="opt-margin" min="0" max="16" step="1" value="2" />
+    </label>
+    <label class="tool-option">
+      <span data-i18n="tool.qrCode.fg">Foreground:</span>
+      <input type="text" id="opt-fg" value="#000000" placeholder="#RRGGBB" />
+    </label>
+    <label class="tool-option">
+      <span data-i18n="tool.qrCode.bg">Background:</span>
+      <input type="text" id="opt-bg" value="#ffffff" placeholder="#RRGGBB" />
+    </label>
+  </div>
+
+  <div class="tool-pane tool-pane-block">
+    <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+    <textarea
+      id="tool-output"
+      class="tool-textarea"
+      rows="6"
+      readonly
+      placeholder="Result will appear here…"
+      data-i18n-placeholder="tool.common.resultPlaceholder"
+      spellcheck="false"
+    ></textarea>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

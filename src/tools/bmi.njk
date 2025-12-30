@@ -1,0 +1,108 @@
+---
+layout: layouts/base.njk
+title: "BMI Calculator"
+description: "Calculate BMI (Body Mass Index) and health range locally. Runs locally."
+pageScript: "/assets/tools/bmi.js"
+---
+
+<h1 data-i18n="tools.item.bmi.title">BMI Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <label class="tool-label" for="opt-unit" data-i18n="tool.bmi.unit">Units</label>
+      <select id="opt-unit" class="tool-input-wide">
+        <option value="metric" selected data-i18n="tool.bmi.unit.metric">Metric (cm/kg)</option>
+        <option value="imperial" data-i18n="tool.bmi.unit.imperial">Imperial (ft/in/lb)</option>
+      </select>
+
+      <div class="tool-options" data-bmi-metric>
+        <label class="tool-option">
+          <span data-i18n="tool.bmi.heightCm">Height (cm)</span>
+          <input
+            type="text"
+            id="input-height-cm"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="e.g. 175"
+            data-i18n-placeholder="tool.bmi.heightCmPlaceholder"
+          />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.bmi.weightKg">Weight (kg)</span>
+          <input
+            type="text"
+            id="input-weight-kg"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="e.g. 70"
+            data-i18n-placeholder="tool.bmi.weightKgPlaceholder"
+          />
+        </label>
+      </div>
+
+      <div class="tool-options" data-bmi-imperial hidden>
+        <label class="tool-option">
+          <span data-i18n="tool.bmi.heightFt">Height (ft)</span>
+          <input
+            type="text"
+            id="input-height-ft"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="e.g. 5"
+            data-i18n-placeholder="tool.bmi.heightFtPlaceholder"
+          />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.bmi.heightIn">Height (in)</span>
+          <input
+            type="text"
+            id="input-height-in"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="e.g. 9"
+            data-i18n-placeholder="tool.bmi.heightInPlaceholder"
+          />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.bmi.weightLb">Weight (lb)</span>
+          <input
+            type="text"
+            id="input-weight-lb"
+            inputmode="decimal"
+            autocomplete="off"
+            placeholder="e.g. 154"
+            data-i18n-placeholder="tool.bmi.weightLbPlaceholder"
+          />
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="10"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.bmi.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+
