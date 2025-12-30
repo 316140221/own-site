@@ -228,6 +228,8 @@ const I18N = {
     "tool.common.swap": "Swap",
     "tool.common.copyOutput": "Copy output",
     "tool.common.clear": "Clear",
+    "tool.state.clearSaved": "Reset settings",
+    "tool.state.cleared": "Reset saved settings",
 
     "tool.common.status.swapped": "Swapped input/output",
     "tool.common.status.copied": "Copied output",
@@ -710,6 +712,7 @@ const I18N = {
     "tool.qrScan.scan": "Scan",
     "tool.qrScan.startCamera": "Start camera",
     "tool.qrScan.stopCamera": "Stop camera",
+    "tool.qrScan.open": "Open link",
     "tool.qrScan.multi": "Detect multiple codes",
     "tool.qrScan.note": "Tip: scanning from camera may require HTTPS and permission.",
     "tool.qrScan.status.working": "Working…",
@@ -1204,6 +1207,8 @@ const I18N = {
     "tool.common.swap": "交换",
     "tool.common.copyOutput": "复制输出",
     "tool.common.clear": "清空",
+    "tool.state.clearSaved": "重置设置",
+    "tool.state.cleared": "已重置已保存的设置",
 
     "tool.common.status.swapped": "已交换输入/输出",
     "tool.common.status.copied": "已复制输出",
@@ -1680,6 +1685,7 @@ const I18N = {
     "tool.qrScan.scan": "识别",
     "tool.qrScan.startCamera": "打开摄像头",
     "tool.qrScan.stopCamera": "停止",
+    "tool.qrScan.open": "打开链接",
     "tool.qrScan.multi": "识别多个二维码",
     "tool.qrScan.note": "提示：摄像头识别可能需要 HTTPS 与授权。",
     "tool.qrScan.status.working": "处理中…",
@@ -1956,6 +1962,8 @@ const FAVORITES_TOOLS_KEY = "site_favorite_tools";
 const RECENT_TOOLS_KEY = "site_recent_tools";
 const MAX_RECENT_TOOLS = 60;
 const FAVORITES_SHOP_KEY = "site_favorite_shop";
+const TOOL_STATE_PREFIX = "site_tool_state:";
+const MAX_TOOL_STATE_CHARS = 200000;
 
 function storageGet(key) {
   try {
@@ -2391,6 +2399,170 @@ function setupToolQuickJumps() {
     btn.addEventListener("click", () => {
       scrollEl(target.scroll);
       window.setTimeout(() => focusEl(target.focus), 0);
+    });
+  }
+}
+
+function toolStateKey(slug) {
+  const normalized = String(slug || "").trim();
+  if (!normalized) return "";
+  return `${TOOL_STATE_PREFIX}${normalized}`;
+}
+
+function isPersistableToolControl(el) {
+  if (
+    !(
+      el instanceof HTMLInputElement ||
+      el instanceof HTMLTextAreaElement ||
+      el instanceof HTMLSelectElement
+    )
+  ) {
+    return false;
+  }
+  if (!el.id) return false;
+  if (!el.id.startsWith("opt-")) return false;
+  if (el.hasAttribute("readonly")) return false;
+  if (el.getAttribute("data-no-persist") !== null) return false;
+
+  if (el instanceof HTMLInputElement) {
+    const type = String(el.type || "").toLowerCase();
+    if (type === "file" || type === "password") return false;
+  }
+
+  return true;
+}
+
+function snapshotToolControls(controls) {
+  const snapshot = {};
+  for (const el of controls) {
+    if (el instanceof HTMLInputElement) {
+      const type = String(el.type || "").toLowerCase();
+      if (type === "checkbox" || type === "radio") snapshot[el.id] = el.checked;
+      else snapshot[el.id] = el.value;
+      continue;
+    }
+    snapshot[el.id] = el.value;
+  }
+  return snapshot;
+}
+
+function applyToolControlsSnapshot(controls, snapshot, fireEvents) {
+  if (!snapshot || typeof snapshot !== "object" || Array.isArray(snapshot)) return;
+
+  for (const el of controls) {
+    if (!Object.prototype.hasOwnProperty.call(snapshot, el.id)) continue;
+    const value = snapshot[el.id];
+
+    if (el instanceof HTMLInputElement) {
+      const type = String(el.type || "").toLowerCase();
+      if (type === "checkbox" || type === "radio") el.checked = Boolean(value);
+      else el.value = String(value ?? "");
+    } else if (el instanceof HTMLSelectElement) {
+      const next = String(value ?? "");
+      if (Array.from(el.options).some((opt) => opt.value === next)) el.value = next;
+    } else {
+      el.value = String(value ?? "");
+    }
+
+    if (fireEvents) {
+      try {
+        el.dispatchEvent(new Event("input", { bubbles: true }));
+      } catch (_error) {
+        // ignore
+      }
+      try {
+        el.dispatchEvent(new Event("change", { bubbles: true }));
+      } catch (_error) {
+        // ignore
+      }
+    }
+  }
+}
+
+function setToolStatusMessage(message, isError) {
+  const el = document.getElementById("tool-status");
+  if (!(el instanceof HTMLElement)) return;
+  el.textContent = String(message || "");
+  el.classList.toggle("tool-status-error", Boolean(isError));
+}
+
+function clearToolCommonOutputs() {
+  const output = document.getElementById("tool-output");
+  if (output instanceof HTMLTextAreaElement || output instanceof HTMLInputElement) {
+    try {
+      output.value = "";
+    } catch (_error) {
+      // ignore
+    }
+  }
+
+  const fileInput = document.getElementById("tool-file");
+  if (fileInput instanceof HTMLInputElement && fileInput.type === "file") {
+    fileInput.value = "";
+  }
+}
+
+function setupToolStatePersistence() {
+  const meta = getToolMetaFromPage();
+  if (!meta || !meta.slug) return;
+
+  const shell = document.querySelector(".tool-shell");
+  if (!shell) return;
+
+  const controls = Array.from(shell.querySelectorAll("input, textarea, select")).filter(
+    isPersistableToolControl
+  );
+  if (!controls.length) return;
+
+  const key = toolStateKey(meta.slug);
+  if (!key) return;
+
+  const defaults = snapshotToolControls(controls);
+  const saved = storageGetJson(key, null);
+  if (saved && typeof saved === "object" && !Array.isArray(saved)) {
+    applyToolControlsSnapshot(controls, saved, false);
+  }
+
+  let scheduled = 0;
+  let suspend = false;
+
+  function saveNow() {
+    if (suspend) return;
+    const snapshot = snapshotToolControls(controls);
+    const json = JSON.stringify(snapshot);
+    if (json.length > MAX_TOOL_STATE_CHARS) return;
+    storageSet(key, json);
+  }
+
+  function scheduleSave() {
+    if (suspend) return;
+    if (scheduled) window.clearTimeout(scheduled);
+    scheduled = window.setTimeout(() => {
+      scheduled = 0;
+      saveNow();
+    }, 250);
+  }
+
+  for (const el of controls) {
+    el.addEventListener("input", scheduleSave);
+    el.addEventListener("change", scheduleSave);
+  }
+
+  const clearBtn = document.querySelector("[data-tool-clear-state]");
+  if (clearBtn instanceof HTMLButtonElement) {
+    clearBtn.addEventListener("click", () => {
+      suspend = true;
+      if (scheduled) window.clearTimeout(scheduled);
+      scheduled = 0;
+
+      storageRemove(key);
+      applyToolControlsSnapshot(controls, defaults, true);
+      clearToolCommonOutputs();
+
+      setToolStatusMessage(t("tool.state.cleared", null, getLang()), false);
+      window.setTimeout(() => {
+        suspend = false;
+      }, 0);
     });
   }
 }
@@ -3857,6 +4029,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupSearchShortcuts();
   setupToolJump();
   setupToolQuickJumps();
+  setupToolStatePersistence();
   setupToolsIndexFilter();
   setupActiveLinks();
   setupCopyShareButtons();
