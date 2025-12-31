@@ -1,14 +1,7 @@
 ---
 layout: layouts/base.njk
 rssPath: /feed.xml
-pagination:
-  data: latestPages
-  size: 1
-  alias: listPage
-permalink: "{% if listPage.pageNumber == 0 %}index.html{% else %}page/{{ listPage.pageNumber + 1 }}/index.html{% endif %}"
-eleventyComputed:
-  title: "{% if listPage.pageNumber > 0 %}Latest · Page {{ listPage.pageNumber + 1 }}{% endif %}"
-  description: "{% if listPage.pageNumber > 0 %}Latest updates · Page {{ listPage.pageNumber + 1 }}. {% endif %}{{ site.description }}"
+headerNavMode: minimal
 ---
 
 <h1>{{ site.name }}</h1>
@@ -18,125 +11,27 @@ eleventyComputed:
   </p>
 {% endif %}
 
-{% if tools and tools.featured and tools.featured.length %}
-  <h2 data-i18n="home.tools">Tools</h2>
-  <div class="tool-cards">
-    {% for t in tools.featured %}
-      <a class="tool-card" href="{{ t.path | url }}">
-        <div class="tool-card-title" data-i18n="tools.item.{{ t.slug }}.title">{{ t.label }}</div>
-        {% if t.description %}
-          <div class="tool-card-desc" data-i18n="tools.item.{{ t.slug }}.desc">{{ t.description }}</div>
-        {% endif %}
-      </a>
-    {% endfor %}
-  </div>
-{% endif %}
-
-{% if amazon and amazon.enabled and amazon.featuredItems and amazon.featuredItems.length %}
-  <h2 data-i18n="home.shopFeatured">Featured</h2>
-  <div class="shop-featured-grid">
-    {% for item in amazon.featuredItems %}
-      <article
-        class="shop-featured-item"
-        data-shop-item
-        data-shop-asin="{{ item.asin }}"
-        data-shop-title="{{ item.title or item.asin }}"
-        data-shop-path="{{ item.goPath | url }}"
-        {% if item.image %}data-shop-image="{{ item.image }}"{% endif %}
-        {% if item.price and item.price.display %}data-shop-price="{{ item.price.display }}"{% endif %}
-        {% if item.rating %}data-shop-rating="{{ item.rating }}"{% endif %}
-        {% if item.reviewCount %}data-shop-review-count="{{ item.reviewCount }}"{% endif %}
-      >
-        <a
-          class="shop-featured-link"
-          href="{{ item.goPath | url }}"
-          target="_blank"
-          rel="nofollow sponsored noopener noreferrer"
-        >
-          <div class="shop-featured-thumb">
-            {% if item.image %}
-              <img
-                src="{{ item.image }}"
-                alt="{{ item.title or ('ASIN ' + item.asin) }}"
-                width="96"
-                height="96"
-                loading="lazy"
-                decoding="async"
-              />
-            {% else %}
-              <div class="shop-thumb-placeholder">ASIN {{ item.asin }}</div>
-            {% endif %}
-          </div>
-          <div class="shop-featured-body">
-            <div class="shop-featured-title">{{ item.title or item.asin }}</div>
-            {% if item.note %}
-              <div class="shop-featured-note muted">{{ item.note }}</div>
-            {% endif %}
-            <div class="shop-featured-meta">
-              {% if item.price and item.price.display %}
-                <span class="badge">{{ item.price.display }}</span>
-              {% endif %}
-              {% if item.rating %}
-                <span class="badge">
-                  ★ {{ item.rating }}{% if item.reviewCount %} ({{ item.reviewCount }}){% endif %}
-                </span>
-              {% endif %}
-            </div>
-          </div>
-        </a>
-
-        <div class="shop-featured-actions">
-          <a
-            class="shop-featured-cta"
-            href="{{ item.goPath | url }}"
-            target="_blank"
-            rel="nofollow sponsored noopener noreferrer"
-            data-i18n="shop.cta"
-            >View on Amazon</a
-          >
-          <button
-            class="tag-pill shop-featured-save"
-            type="button"
-            data-favorite-shop
-            aria-pressed="false"
-            data-i18n="article.save"
-          >
-            Save
-          </button>
-        </div>
-      </article>
-    {% endfor %}
-  </div>
-  {% if amazon.tags and amazon.tags.length %}
-    <div class="shop-home-tags" aria-label="Shop tags">
-      <span class="muted" data-i18n="home.shopBrowse">Browse:</span>
-      {% for tag in amazon.tags | slice(0, 10) %}
-        <a class="tag-pill" href="{{ ('/shop/?tag=' + tag.id) | url }}">{{ tag.label }}</a>
-      {% endfor %}
-    </div>
-  {% endif %}
-  <p class="shop-home-actions">
-    <a class="button button-secondary" href="{{ '/shop/' | url }}" data-i18n="home.shopAll"
-      >View all</a
-    >
-    <a
-      class="button button-secondary"
-      href="{{ '/library/#shop-favorites' | url }}"
-      data-shop-saved
-      hidden
-    >
-      <span data-shop-saved-text></span>
-    </a>
-  </p>
-  {% if amazon.associateTag %}
-    <p class="muted small">
-      <span data-i18n="shop.disclaimer">As an Amazon Associate I earn from qualifying purchases.</span>
-      <a href="{{ '/affiliate-disclosure/' | url }}" data-i18n="nav.disclosure">Affiliate Disclosure</a>
-    </p>
-  {% endif %}
-{% endif %}
-
-<h2 data-i18n="home.latest">Latest</h2>
-{% set items = listPage.items %}
-{% include "partials/news-list.njk" %}
-{% include "partials/pagination.njk" %}
+<h2 data-i18n="home.start">Start</h2>
+<nav class="tool-cards" aria-label="Quick links">
+  <a class="tool-card" href="{{ '/search/' | url }}">
+    <div class="tool-card-title" data-i18n="nav.search">Search</div>
+  </a>
+  <a class="tool-card" href="{{ '/page/1/' | url }}">
+    <div class="tool-card-title" data-i18n="home.latest">Latest</div>
+  </a>
+  <a class="tool-card" href="{{ '/sources/' | url }}">
+    <div class="tool-card-title" data-i18n="sources.title">Sources</div>
+  </a>
+  <a class="tool-card" href="{{ '/languages/' | url }}">
+    <div class="tool-card-title" data-i18n="languages.title">Languages</div>
+  </a>
+  <a class="tool-card" href="{{ '/feed.xml' | url }}">
+    <div class="tool-card-title" data-i18n="nav.rss">RSS</div>
+  </a>
+  <a class="tool-card" href="{{ '/library/' | url }}">
+    <div class="tool-card-title" data-i18n="nav.library">Library</div>
+  </a>
+  <a class="tool-card" href="{{ '/about/' | url }}">
+    <div class="tool-card-title" data-i18n="nav.about">About</div>
+  </a>
+</nav>

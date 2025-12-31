@@ -63,6 +63,7 @@ const I18N = {
     "search.notice2": ").",
 
     "home.tools": "Tools",
+    "home.start": "Start",
     "home.latest": "Latest",
     "home.shopFeatured": "Featured",
     "home.shopAll": "View all",
@@ -1054,6 +1055,7 @@ const I18N = {
     "search.notice2": "时生成）。",
 
     "home.tools": "工具",
+    "home.start": "开始",
     "home.latest": "最新",
     "home.shopFeatured": "精选",
     "home.shopAll": "查看全部",
