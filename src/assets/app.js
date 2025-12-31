@@ -75,7 +75,10 @@ const I18N = {
     "article.readOriginal": "Read original",
     "article.fromRss": "From RSS",
     "article.fromRssNote": "Excerpt extracted from the source RSS feed (may be truncated). For the official version, use “Open original”.",
+    "article.keyPoints": "Key points",
     "article.moreIn": "More in",
+    "article.moreFromSource": "More from {source}",
+    "article.moreFromSourceAll": "View all from this source",
     "article.save": "Save",
     "article.unsave": "Unsave",
 
@@ -1063,7 +1066,10 @@ const I18N = {
     "article.readOriginal": "查看原文",
     "article.fromRss": "来自 RSS",
     "article.fromRssNote": "内容来自 RSS 源提取的节选（可能被截断）。官方版本请点击「打开原文」。",
+    "article.keyPoints": "要点",
     "article.moreIn": "更多",
+    "article.moreFromSource": "更多来自 {source}",
+    "article.moreFromSourceAll": "查看该来源全部",
     "article.save": "收藏",
     "article.unsave": "取消收藏",
 

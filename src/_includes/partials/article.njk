@@ -33,12 +33,10 @@
       {% endif %}
       <span class="muted">{{ article.publishedAt | formatDateTime }}</span>
       <span class="muted">·</span>
-      {% if article.source and article.source.url %}
-        <a
-          class="muted"
-          href="{{ article.source.url }}"
-          target="_blank"
-          rel="noopener noreferrer"
+      {% if article.source and article.source.id %}
+        <a class="muted" href="{{ ('/source/' + article.source.id + '/') | url }}">{{ article.source.name }}</a>
+      {% elif article.source and article.source.url %}
+        <a class="muted" href="{{ article.source.url }}" target="_blank" rel="noopener noreferrer"
           >{{ article.source.name }}</a
         >
       {% else %}
@@ -71,6 +69,17 @@
 
   {% if article.summary %}
     <p class="article-summary">{{ article.summary }}</p>
+  {% endif %}
+
+  {% if keyPoints and keyPoints.length %}
+    <section class="article-key-points">
+      <h2 class="article-key-points-title" data-i18n="article.keyPoints">Key points</h2>
+      <ul class="article-key-points-list">
+        {% for point in keyPoints %}
+          <li class="article-key-points-item">{{ point }}</li>
+        {% endfor %}
+      </ul>
+    </section>
   {% endif %}
 
   {% if article.contentText %}
@@ -131,6 +140,33 @@
           </li>
         {% endfor %}
       </ul>
+    </section>
+  {% endif %}
+
+  {% if moreFromSource and moreFromSource.length and article and article.source and article.source.id %}
+    <section class="article-related">
+      <h2
+        class="article-related-title"
+        data-i18n-template="article.moreFromSource"
+        data-i18n-vars='{{ { source: article.source.name } | jsonLd | safe }}'
+      >
+        More from {{ article.source.name }}
+      </h2>
+      <ul class="article-related-list">
+        {% for rec in moreFromSource %}
+          <li class="article-related-item">
+            <a href="{{ ('/p/' + rec.id + '/') | url }}">{{ rec.title | decodeEntities }}</a>
+            {% if rec.publishedAt %}
+              <span class="muted small">· {{ rec.publishedAt | formatDate }}</span>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+      <p class="muted small">
+        <a href="{{ ('/source/' + article.source.id + '/') | url }}" data-i18n="article.moreFromSourceAll"
+          >View all from this source</a
+        >
+      </p>
     </section>
   {% endif %}
 </article>

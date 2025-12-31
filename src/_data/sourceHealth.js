@@ -1,7 +1,11 @@
-module.exports = function (data) {
-  const sources = Array.isArray(data.sources) ? data.sources : [];
-  const state = data.state || {};
-  const stats = data.stats || null;
+const sourcesData = require("./sources.js");
+const stateData = require("./state.js");
+const statsData = require("./stats.js");
+
+module.exports = function () {
+  const sources = Array.isArray(sourcesData()) ? sourcesData() : [];
+  const state = stateData() || {};
+  const stats = statsData() || null;
 
   const statSources = stats?.sources || {};
   const now = Date.now();

@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: sourcePages
+  size: 1
+  alias: sourcePage
+permalink: "source/{{ sourcePage.id }}/{% if sourcePage.pageNumber == 0 %}{% else %}page/{{ sourcePage.pageNumber + 1 }}/{% endif %}index.html"
+eleventyComputed:
+  title: "{{ sourcePage.name }}{% if sourcePage.pageNumber > 0 %} · Page {{ sourcePage.pageNumber + 1 }}{% endif %}"
+  description: "Latest items from {{ sourcePage.name }}.{% if sourcePage.pageNumber > 0 %} Page {{ sourcePage.pageNumber + 1 }}.{% endif %}"
+  rssPath: "/source/{{ sourcePage.id }}/feed.xml"
+  metaRobots: "{% if sourcePage.items and sourcePage.items.length %}{% else %}noindex,follow{% endif %}"
+---
+
+<h1>{{ sourcePage.name }}</h1>
+
+<p class="muted">
+  {% if sourcePage.siteUrl %}
+    <a class="muted" href="{{ sourcePage.siteUrl }}" target="_blank" rel="noopener noreferrer">Site</a>
+    ·
+  {% endif %}
+  {% if sourcePage.feedUrl %}
+    <a class="muted" href="{{ sourcePage.feedUrl }}" target="_blank" rel="noopener noreferrer">RSS</a>
+    ·
+  {% endif %}
+  <a class="muted" href="{{ ('/source/' + sourcePage.id + '/feed.xml') | url }}">Feed</a>
+</p>
+
+{% set items = sourcePage.items %}
+{% include "partials/news-list.njk" %}
+{% if sourcePage.totalPages > 1 %}
+  {% include "partials/source-pager.njk" %}
+{% endif %}

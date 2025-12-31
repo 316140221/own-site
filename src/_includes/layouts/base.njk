@@ -43,13 +43,72 @@
     {% endif %}
 
     <link rel="canonical" href="{{ canonical }}" />
-    {% if headPaginationLinks and pagination and pagination.href %}
-      {% if pagination.href.previous %}
-        <link rel="prev" href="{{ (pagination.href.previous | url) | absoluteUrl(site.url) }}" />
+    {% set headPrevPath = null %}
+    {% set headNextPath = null %}
+
+    {% if listPage and (listPage.pageNumber is defined) and (listPage.totalPages is defined) %}
+      {% if listPage.pageNumber > 0 %}
+        {% set prevPage = listPage.pageNumber - 1 %}
+        {% if prevPage == 0 %}
+          {% set headPrevPath = '/' %}
+        {% else %}
+          {% set headPrevPath = '/page/' + (prevPage + 1) + '/' %}
+        {% endif %}
       {% endif %}
-      {% if pagination.href.next %}
-        <link rel="next" href="{{ (pagination.href.next | url) | absoluteUrl(site.url) }}" />
+
+      {% if listPage.pageNumber + 1 < listPage.totalPages %}
+        {% set nextPage = listPage.pageNumber + 1 %}
+        {% set headNextPath = '/page/' + (nextPage + 1) + '/' %}
       {% endif %}
+    {% elif catPage and catPage.slug and (catPage.pageNumber is defined) and (catPage.totalPages is defined) %}
+      {% set base = '/category/' + catPage.slug + '/' %}
+      {% if catPage.pageNumber > 0 %}
+        {% set prevPage = catPage.pageNumber - 1 %}
+        {% if prevPage == 0 %}
+          {% set headPrevPath = base %}
+        {% else %}
+          {% set headPrevPath = base + 'page/' + (prevPage + 1) + '/' %}
+        {% endif %}
+      {% endif %}
+      {% if catPage.pageNumber + 1 < catPage.totalPages %}
+        {% set nextPage = catPage.pageNumber + 1 %}
+        {% set headNextPath = base + 'page/' + (nextPage + 1) + '/' %}
+      {% endif %}
+    {% elif langPage and langPage.code and (langPage.pageNumber is defined) and (langPage.totalPages is defined) %}
+      {% set base = '/lang/' + langPage.code + '/' %}
+      {% if langPage.pageNumber > 0 %}
+        {% set prevPage = langPage.pageNumber - 1 %}
+        {% if prevPage == 0 %}
+          {% set headPrevPath = base %}
+        {% else %}
+          {% set headPrevPath = base + 'page/' + (prevPage + 1) + '/' %}
+        {% endif %}
+      {% endif %}
+      {% if langPage.pageNumber + 1 < langPage.totalPages %}
+        {% set nextPage = langPage.pageNumber + 1 %}
+        {% set headNextPath = base + 'page/' + (nextPage + 1) + '/' %}
+      {% endif %}
+    {% elif sourcePage and sourcePage.id and (sourcePage.pageNumber is defined) and (sourcePage.totalPages is defined) %}
+      {% set base = '/source/' + sourcePage.id + '/' %}
+      {% if sourcePage.pageNumber > 0 %}
+        {% set prevPage = sourcePage.pageNumber - 1 %}
+        {% if prevPage == 0 %}
+          {% set headPrevPath = base %}
+        {% else %}
+          {% set headPrevPath = base + 'page/' + (prevPage + 1) + '/' %}
+        {% endif %}
+      {% endif %}
+      {% if sourcePage.pageNumber + 1 < sourcePage.totalPages %}
+        {% set nextPage = sourcePage.pageNumber + 1 %}
+        {% set headNextPath = base + 'page/' + (nextPage + 1) + '/' %}
+      {% endif %}
+    {% endif %}
+
+    {% if headPrevPath %}
+      <link rel="prev" href="{{ headPrevPath | url | absoluteUrl(site.url) }}" />
+    {% endif %}
+    {% if headNextPath %}
+      <link rel="next" href="{{ headNextPath | url | absoluteUrl(site.url) }}" />
     {% endif %}
     <meta property="og:url" content="{{ canonical }}" />
     <meta property="og:type" content="{{ ogType or 'website' }}" />
@@ -72,7 +131,7 @@
         <meta property="article:section" content="{{ article.category | titleCase }}" />
       {% endif %}
       {% if article.tags and article.tags.length %}
-        {% for tag in article.tags | slice(0, 10) %}
+        {% for tag in article.tags | cleanTags(10) %}
           <meta property="article:tag" content="{{ tag | decodeEntities }}" />
         {% endfor %}
       {% endif %}
@@ -134,6 +193,13 @@
         {% set schemaImage = ogImageAbs %}
       {% endif %}
       {% set articleModifiedAt = article.fetchedAt or article.publishedAt %}
+      {% set schemaKeywords = undefined %}
+      {% if article.tags and article.tags.length %}
+        {% set cleanedTags = (article.tags | cleanTags(20)) %}
+        {% if cleanedTags and cleanedTags.length %}
+          {% set schemaKeywords = (cleanedTags | join(', ')) %}
+        {% endif %}
+      {% endif %}
       {% set publisherName = '' %}
       {% set publisherUrl = undefined %}
       {% if article.source and article.source.name %}
@@ -178,7 +244,42 @@
           'mainEntityOfPage': { '@id': schemaWebpageId },
           'publisher': { '@id': publisherId },
           'articleSection': categoryLabel,
+          'keywords': schemaKeywords,
           'image': schemaImage
+        }
+      ]) %}
+    {% endif %}
+
+    {% set schemaItemListElements = [] %}
+    {% set schemaItemListItems = null %}
+    {% set schemaItemListName = null %}
+    {% if listPage and listPage.items and listPage.items.length %}
+      {% set schemaItemListItems = listPage.items %}
+      {% set schemaItemListName = 'Latest' %}
+    {% elif catPage and catPage.items and catPage.items.length %}
+      {% set schemaItemListItems = catPage.items %}
+      {% set schemaItemListName = catPage.label %}
+    {% elif langPage and langPage.items and langPage.items.length %}
+      {% set schemaItemListItems = langPage.items %}
+      {% set schemaItemListName = langPage.label %}
+    {% elif sourcePage and sourcePage.items and sourcePage.items.length %}
+      {% set schemaItemListItems = sourcePage.items %}
+      {% set schemaItemListName = sourcePage.name %}
+    {% endif %}
+
+    {% if schemaItemListItems and schemaItemListItems.length %}
+      {% set schemaItemListId = canonical + '#itemlist' %}
+      {% set schemaItemListElements = schemaItemListItems | toItemListElements(site.url, 10) %}
+      {% set schemaGraph = schemaGraph.concat([
+        {
+          '@type': 'ItemList',
+          '@id': schemaItemListId,
+          'name': schemaItemListName or metaTitle,
+          'url': canonical,
+          'mainEntityOfPage': { '@id': schemaWebpageId },
+          'itemListOrder': 'https://schema.org/ItemListOrderDescending',
+          'numberOfItems': schemaItemListItems.length,
+          'itemListElement': schemaItemListElements
         }
       ]) %}
     {% endif %}
