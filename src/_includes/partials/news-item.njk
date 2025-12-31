@@ -25,11 +25,19 @@
       <a href="{{ ('/p/' + item.id + '/') | url }}">{{ item.title | decodeEntities }}</a>
     </div>
     <div class="news-meta">
-      <span class="badge">{{ item.category | titleCase }}</span>
-      {% if item.language %}<span class="badge">{{ item.language | upper }}</span>{% endif %}
+      {% if item.category %}
+        <a class="badge" href="{{ ('/category/' + item.category + '/') | url }}">{{ item.category | titleCase }}</a>
+      {% endif %}
+      {% if item.language %}
+        <a class="badge" href="{{ ('/lang/' + item.language + '/') | url }}">{{ item.language | upper }}</a>
+      {% endif %}
       <span class="muted">{{ item.publishedAt | formatDateTime }}</span>
       <span class="muted">·</span>
-      <span class="muted">{{ item.source.name }}</span>
+      {% if item.source and item.source.id %}
+        <a class="muted" href="{{ ('/source/' + item.source.id + '/') | url }}">{{ item.source.name }}</a>
+      {% else %}
+        <span class="muted">{{ item.source.name }}</span>
+      {% endif %}
       <span class="muted">·</span>
       <a
         class="muted"

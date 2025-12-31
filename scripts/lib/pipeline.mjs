@@ -19,6 +19,7 @@ const ARTICLES_DIR = path.join(DATA_DIR, "articles");
 const INDEXES_DIR = path.join(DATA_DIR, "indexes");
 const BY_CATEGORY_DIR = path.join(INDEXES_DIR, "by-category");
 const BY_LANGUAGE_DIR = path.join(INDEXES_DIR, "by-language");
+const BY_SOURCE_DIR = path.join(INDEXES_DIR, "by-source");
 const ARTICLES_INDEX_PATH = path.join(INDEXES_DIR, "articles.json");
 const STATE_PATH = path.join(DATA_DIR, "state.json");
 const SOURCES_PATH = path.join(DATA_DIR, "sources.json");
@@ -817,6 +818,7 @@ export async function buildIndexes({
 } = {}) {
   await fs.mkdir(BY_CATEGORY_DIR, { recursive: true });
   await fs.mkdir(BY_LANGUAGE_DIR, { recursive: true });
+  await fs.mkdir(BY_SOURCE_DIR, { recursive: true });
   const categoryRules = await readJsonOrDefault(CATEGORY_RULES_PATH, null);
 
   const allFiles = (await fileExists(ARTICLES_DIR))
@@ -928,6 +930,28 @@ export async function buildIndexes({
       category: article.category,
       image: article.image || null,
       language,
+      });
+  }
+
+  const bySource = new Map();
+  for (const article of uniqueArticles) {
+    const sourceId = String(article.source?.id || "").trim();
+    const sourceName = String(article.source?.name || "").trim();
+    if (!sourceId) continue;
+
+    if (!bySource.has(sourceId)) bySource.set(sourceId, []);
+    const list = bySource.get(sourceId);
+    if (list.length >= perCategoryLimit) continue;
+    list.push({
+      id: article.id,
+      title: article.title,
+      summary: article.summary,
+      canonicalUrl: article.canonicalUrl,
+      source: { id: sourceId, name: sourceName || sourceId },
+      publishedAt: article.publishedAt,
+      category: article.category,
+      image: article.image || null,
+      language: normalizeLanguageCode(article.language || "en"),
     });
   }
 
@@ -948,6 +972,10 @@ export async function buildIndexes({
 
   for (const [language, list] of byLanguage.entries()) {
     await writeJson(path.join(BY_LANGUAGE_DIR, `${language}.json`), list);
+  }
+
+  for (const [sourceId, list] of bySource.entries()) {
+    await writeJson(path.join(BY_SOURCE_DIR, `${sourceId}.json`), list);
   }
 
   return {

@@ -12,6 +12,38 @@ function safeReadJson(filePath) {
 const RELATED_LIMIT = 6;
 const relatedIndexCache = new Map();
 const articleMetaCache = new Map();
+const sourceIndexCache = new Map();
+
+const MORE_FROM_SOURCE_LIMIT = 6;
+const KEY_POINTS_LIMIT = 5;
+
+const TITLE_STOPWORDS = new Set([
+  "a",
+  "an",
+  "and",
+  "are",
+  "as",
+  "at",
+  "be",
+  "by",
+  "for",
+  "from",
+  "in",
+  "into",
+  "is",
+  "it",
+  "of",
+  "on",
+  "or",
+  "that",
+  "the",
+  "their",
+  "this",
+  "to",
+  "with",
+  "will",
+  "who",
+]);
 
 function toTime(value) {
   const parsed = Date.parse(String(value || ""));
@@ -43,6 +75,18 @@ function getSortedIndex(articles, category, language) {
   return list;
 }
 
+function getSourceIndex(sourceId) {
+  const key = String(sourceId || "").trim();
+  if (!key) return [];
+  if (sourceIndexCache.has(key)) return sourceIndexCache.get(key);
+
+  const indexPath = path.resolve(process.cwd(), `data/indexes/by-source/${key}.json`);
+  const list = safeReadJson(indexPath);
+  const normalized = Array.isArray(list) ? list : [];
+  sourceIndexCache.set(key, normalized);
+  return normalized;
+}
+
 function getArticleMeta(entry) {
   if (!entry || !entry.id || !entry.path) return null;
   if (articleMetaCache.has(entry.id)) return articleMetaCache.get(entry.id);
@@ -67,6 +111,149 @@ function truncateText(value, maxLen = 200) {
   return input.slice(0, length - 1).trimEnd() + "…";
 }
 
+function containsCjk(value) {
+  return /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/.test(String(value || ""));
+}
+
+function normalizeSentenceForCompare(value) {
+  const input = String(value || "").toLowerCase();
+  return input
+    .replace(/https?:\/\/\S+/g, " ")
+    .replace(/www\.\S+/g, " ")
+    .replace(/[\u2018\u2019\u201c\u201d"'`]/g, "")
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .trim();
+}
+
+function splitIntoSentences(value) {
+  const input = String(value || "")
+    .replace(/\r\n?/g, "\n")
+    .replace(/\t/g, " ")
+    .trim();
+  if (!input) return [];
+
+  const lines = input.split(/\n+/g).map((line) => line.trim()).filter(Boolean);
+  const sentences = [];
+
+  for (const line of lines) {
+    let text = line.replace(/^[-–—*•●·]+\s+/, "").trim();
+    if (!text) continue;
+
+    text = text.replace(/([。！？!?]+)/g, "$1\n");
+    text = text.replace(/\.(\s+)(?=[A-Z0-9\"'“”([{])/g, ".\n");
+    text = text.replace(/;(\s+)(?=[A-Z0-9])/g, ";\n");
+    text = text.replace(/:(\s+)(?=[A-Z0-9])/g, ":\n");
+
+    for (const part of text.split(/\n+/g)) {
+      const sentence = part.trim();
+      if (sentence) sentences.push(sentence);
+    }
+  }
+
+  return sentences;
+}
+
+function extractTitleKeywords(title) {
+  if (containsCjk(title)) return [];
+  const words = String(title || "")
+    .toLowerCase()
+    .split(/[^a-z0-9]+/g)
+    .map((w) => w.trim())
+    .filter((w) => w.length >= 4 && !TITLE_STOPWORDS.has(w));
+  return Array.from(new Set(words));
+}
+
+function scoreSentence(sentence, { titleKeywords = [], sourceBonus = 0 } = {}) {
+  const len = sentence.length;
+  const cjk = containsCjk(sentence);
+  const target = cjk ? 45 : 110;
+  const base = Math.max(0, 80 - Math.abs(len - target));
+
+  let score = base + sourceBonus;
+  if (/\d/.test(sentence)) score += 12;
+  if (/%/.test(sentence)) score += 6;
+  if (/[A-Z][a-z]/.test(sentence)) score += 6;
+
+  const lower = sentence.toLowerCase();
+  for (const kw of titleKeywords) {
+    if (kw && lower.includes(kw)) score += 8;
+  }
+
+  return score;
+}
+
+function isUsefulSentence(sentence, normalizedTitle) {
+  const text = String(sentence || "").trim();
+  if (!text) return false;
+  if (/https?:\/\/|www\./i.test(text)) return false;
+  if (/cookie|privacy|subscribe|newsletter|sign up|advertisement/i.test(text)) return false;
+  if (/^(read more|continue reading|watch now)\b/i.test(text)) return false;
+
+  const len = text.length;
+  const cjk = containsCjk(text);
+  const minLen = cjk ? 12 : 25;
+  const maxLen = cjk ? 140 : 240;
+  if (len < minLen || len > maxLen) return false;
+
+  const normalized = normalizeSentenceForCompare(text);
+  if (!normalized) return false;
+  if (normalizedTitle && normalized === normalizedTitle) return false;
+
+  return true;
+}
+
+function extractKeyPoints({ title = "", summary = "", contentText = "" } = {}) {
+  const normalizedTitle = normalizeSentenceForCompare(title);
+  const titleKeywords = extractTitleKeywords(title);
+
+  const candidates = [];
+  const summarySentences = splitIntoSentences(summary);
+  for (const sentence of summarySentences) {
+    if (!isUsefulSentence(sentence, normalizedTitle)) continue;
+    candidates.push({
+      sentence,
+      normalized: normalizeSentenceForCompare(sentence),
+      score: scoreSentence(sentence, { titleKeywords, sourceBonus: 30 }),
+    });
+  }
+
+  const contentSentences = splitIntoSentences(contentText);
+  for (const sentence of contentSentences) {
+    if (!isUsefulSentence(sentence, normalizedTitle)) continue;
+    candidates.push({
+      sentence,
+      normalized: normalizeSentenceForCompare(sentence),
+      score: scoreSentence(sentence, { titleKeywords, sourceBonus: 0 }),
+    });
+  }
+
+  candidates.sort((a, b) => b.score - a.score);
+
+  const picked = [];
+  const seen = new Set();
+  for (const candidate of candidates) {
+    if (!candidate.normalized || seen.has(candidate.normalized)) continue;
+    let tooSimilar = false;
+    for (const existing of picked) {
+      if (
+        existing.normalized.includes(candidate.normalized) ||
+        candidate.normalized.includes(existing.normalized)
+      ) {
+        tooSimilar = true;
+        break;
+      }
+    }
+    if (tooSimilar) continue;
+
+    seen.add(candidate.normalized);
+    picked.push(candidate);
+    if (picked.length >= KEY_POINTS_LIMIT) break;
+  }
+
+  const points = picked.map((p) => p.sentence.trim()).filter(Boolean);
+  return points.length >= 2 ? points : [];
+}
+
 module.exports = {
   eleventyComputed: {
     ogType: () => "article",
@@ -77,6 +264,15 @@ module.exports = {
       if (!article) return null;
       if (data.entry.category) article.category = data.entry.category;
       return article;
+    },
+    keyPoints: (data) => {
+      const article = data.article;
+      if (!article) return [];
+      return extractKeyPoints({
+        title: article.title,
+        summary: article.summary,
+        contentText: article.contentText,
+      });
     },
     relatedArticles: (data) => {
       const current = data.entry;
@@ -108,6 +304,30 @@ module.exports = {
 
       addFrom(sameLang);
       if (result.length < RELATED_LIMIT) addFrom(sameCategory);
+      return result;
+    },
+    moreFromSource: (data) => {
+      const current = data.entry;
+      if (!current || !current.id) return [];
+
+      const sourceId = data.article?.source?.id;
+      if (!sourceId) return [];
+
+      const list = getSourceIndex(sourceId);
+      if (!list.length) return [];
+
+      const result = [];
+      for (const item of list) {
+        if (!item || !item.id || item.id === current.id) continue;
+        if (!item.title) continue;
+        result.push({
+          id: item.id,
+          title: item.title,
+          publishedAt: item.publishedAt,
+        });
+        if (result.length >= MORE_FROM_SOURCE_LIMIT) break;
+      }
+
       return result;
     },
     title: (data) => data.article?.title || "Article",

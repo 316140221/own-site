@@ -386,6 +386,11 @@ h2 {
   line-height: 18px;
 }
 
+.badge:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
 .news-list {
   list-style: none;
   padding: 0;
@@ -1210,6 +1215,32 @@ h2 {
   margin: 16px 0 0;
   color: var(--text);
   font-size: 16px;
+}
+
+.article-key-points {
+  margin-top: 16px;
+  padding: 14px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.article-key-points-title {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.article-key-points-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.article-key-points-item {
+  margin: 0 0 8px;
+}
+
+.article-key-points-item:last-child {
+  margin-bottom: 0;
 }
 
 .article-content {

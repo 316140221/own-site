@@ -99,6 +99,21 @@ eleventyExcludeFromCollections: true
     {% endfor %}
   {% endif %}
 
+  {% if sourcePages and sourcePages.length %}
+    {% for p in sourcePages %}
+      {% if p.items and p.items.length %}
+        <url>
+          {% if p.pageNumber == 0 %}
+            <loc>{{ ('/source/' + p.id + '/') | url | absoluteUrl(site.url) }}</loc>
+          {% else %}
+            <loc>{{ ('/source/' + p.id + '/page/' + (p.pageNumber + 1) + '/') | url | absoluteUrl(site.url) }}</loc>
+          {% endif %}
+          <lastmod>{{ buildTime | formatDate }}</lastmod>
+        </url>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
   {# Article pages #}
   {% if articles and articles.length %}
     {% for entry in articles %}

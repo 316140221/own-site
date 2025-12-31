@@ -74,6 +74,59 @@ function truncateText(value, maxLen = 160) {
   return input.slice(0, length - 1).trimEnd() + "…";
 }
 
+function withPathPrefix(urlPath) {
+  const rawPrefix = process.env.PATH_PREFIX || "/";
+  const prefix = String(rawPrefix || "/");
+  const normalizedPrefix = prefix === "/" ? "/" : `/${prefix.replace(/^\/+|\/+$/g, "")}/`;
+
+  const path = String(urlPath || "/");
+  if (!path.startsWith("/")) return normalizedPrefix === "/" ? `/${path}` : `${normalizedPrefix}${path}`;
+  if (normalizedPrefix === "/") return path;
+  return `${normalizedPrefix}${path.replace(/^\/+/, "")}`;
+}
+
+function toItemListElements(items, siteUrl, limit = 10) {
+  const list = Array.isArray(items) ? items : [];
+  const cap = Number.isFinite(Number(limit)) ? Math.max(1, Math.min(50, Number(limit))) : 10;
+
+  const elements = [];
+  for (let i = 0; i < Math.min(list.length, cap); i += 1) {
+    const item = list[i];
+    const id = item && item.id ? String(item.id) : "";
+    if (!id) continue;
+
+    const title = decodeHtmlEntities(item && item.title ? String(item.title) : "").trim();
+    const url = absoluteUrl(withPathPrefix(`/p/${id}/`), siteUrl);
+    elements.push({
+      "@type": "ListItem",
+      position: i + 1,
+      url,
+      name: title || url,
+    });
+  }
+
+  return elements;
+}
+
+function cleanTags(tags, limit = 20) {
+  const list = Array.isArray(tags) ? tags : [];
+  const cap = Number.isFinite(Number(limit)) ? Math.max(1, Math.min(50, Number(limit))) : 20;
+
+  const seen = new Set();
+  const out = [];
+  for (const tag of list) {
+    const text = decodeHtmlEntities(String(tag ?? "")).trim();
+    if (!text) continue;
+    const key = text.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(text);
+    if (out.length >= cap) break;
+  }
+
+  return out;
+}
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.setNunjucksEnvironmentOptions({ autoescape: true });
 
@@ -107,6 +160,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("titleCase", (value) => titleCase(value));
   eleventyConfig.addFilter("jsonLd", (value) => jsonLd(value));
   eleventyConfig.addFilter("truncateText", (value, maxLen) => truncateText(value, maxLen));
+  eleventyConfig.addFilter("toItemListElements", (items, siteUrl, limit) =>
+    toItemListElements(items, siteUrl, limit)
+  );
+  eleventyConfig.addFilter("cleanTags", (tags, limit) => cleanTags(tags, limit));
 
   eleventyConfig.addFilter("rfc822", (value) => {
     if (!value) return "";
