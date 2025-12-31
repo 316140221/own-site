@@ -65,6 +65,15 @@ function jsonLd(value) {
     .replace(/\u2029/g, "\\u2029");
 }
 
+function truncateText(value, maxLen = 160) {
+  const input = String(value ?? "");
+  const limit = Number.parseInt(String(maxLen ?? "160"), 10);
+  const length = Number.isFinite(limit) && limit > 0 ? limit : 160;
+  if (input.length <= length) return input;
+  if (length <= 1) return "…";
+  return input.slice(0, length - 1).trimEnd() + "…";
+}
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.setNunjucksEnvironmentOptions({ autoescape: true });
 
@@ -97,6 +106,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("decodeEntities", (value) => decodeHtmlEntities(value));
   eleventyConfig.addFilter("titleCase", (value) => titleCase(value));
   eleventyConfig.addFilter("jsonLd", (value) => jsonLd(value));
+  eleventyConfig.addFilter("truncateText", (value, maxLen) => truncateText(value, maxLen));
 
   eleventyConfig.addFilter("rfc822", (value) => {
     if (!value) return "";

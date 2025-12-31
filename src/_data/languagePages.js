@@ -1,6 +1,8 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
+const languages = require("./languages.js");
+
 const PAGE_SIZE = 50;
 
 function readJsonOrDefault(filePath, fallback) {
@@ -11,11 +13,12 @@ function readJsonOrDefault(filePath, fallback) {
   }
 }
 
-module.exports = function (data) {
-  const languages = (data && data.languages) || [];
+module.exports = function () {
+  const list = languages();
+  const languageList = Array.isArray(list) ? list : [];
   const pages = [];
 
-  for (const lang of languages) {
+  for (const lang of languageList) {
     const indexPath = path.resolve(
       process.cwd(),
       `data/indexes/by-language/${lang.code}.json`
@@ -37,4 +40,3 @@ module.exports = function (data) {
 
   return pages;
 };
-

@@ -1,11 +1,15 @@
 ---
 layout: layouts/base.njk
 rssPath: /feed.xml
+headPaginationLinks: true
 pagination:
   data: latestPages
   size: 1
   alias: listPage
 permalink: "{% if listPage.pageNumber == 0 %}index.html{% else %}page/{{ listPage.pageNumber + 1 }}/index.html{% endif %}"
+eleventyComputed:
+  title: "{% if listPage.pageNumber > 0 %}Latest · Page {{ listPage.pageNumber + 1 }}{% endif %}"
+  description: "{% if listPage.pageNumber > 0 %}Latest updates · Page {{ listPage.pageNumber + 1 }}. {% endif %}{{ site.description }}"
 ---
 
 <h1>{{ site.name }}</h1>

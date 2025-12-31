@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "eleventy",
+    "build": "node scripts/clean-dist.mjs && eleventy",
     "fetch": "node scripts/fetch.mjs",
     "cleanup": "node scripts/cleanup.mjs",
     "archive": "node scripts/archive.mjs",

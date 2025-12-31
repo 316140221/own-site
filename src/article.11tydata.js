@@ -58,6 +58,15 @@ function getArticleMeta(entry) {
   return meta;
 }
 
+function truncateText(value, maxLen = 200) {
+  const input = String(value || "");
+  const limit = Number.parseInt(String(maxLen || "200"), 10);
+  const length = Number.isFinite(limit) && limit > 0 ? limit : 200;
+  if (input.length <= length) return input;
+  if (length <= 1) return "…";
+  return input.slice(0, length - 1).trimEnd() + "…";
+}
+
 module.exports = {
   eleventyComputed: {
     ogType: () => "article",
@@ -102,6 +111,21 @@ module.exports = {
       return result;
     },
     title: (data) => data.article?.title || "Article",
-    description: (data) => data.article?.summary || data.site.description,
+    description: (data) => {
+      const summary = String(data.article?.summary || "").trim();
+      if (summary) return summary;
+
+      const title = String(data.article?.title || "").trim();
+      const source = String(data.article?.source?.name || "").trim();
+      const category = String(data.article?.category || "").trim();
+
+      const parts = [];
+      if (title) parts.push(title);
+      if (source) parts.push(`Source: ${source}`);
+      if (category) parts.push(`Category: ${category}`);
+      const fallback = parts.length ? parts.join(" · ") : String(data.site?.description || "");
+
+      return truncateText(fallback, 200) || String(data.site?.description || "");
+    },
   },
 };
