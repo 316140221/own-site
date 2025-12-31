@@ -1,13 +1,14 @@
 ---
 layout: layouts/base.njk
+headPaginationLinks: true
 pagination:
   data: categoryPages
   size: 1
   alias: catPage
 permalink: "category/{{ catPage.slug }}/{% if catPage.pageNumber == 0 %}{% else %}page/{{ catPage.pageNumber + 1 }}/{% endif %}index.html"
 eleventyComputed:
-  title: "{{ catPage.label }}"
-  description: "Latest {{ catPage.label }} stories and links from our RSS sources."
+  title: "{{ catPage.label }}{% if catPage.pageNumber > 0 %} · Page {{ catPage.pageNumber + 1 }}{% endif %}"
+  description: "Latest {{ catPage.label }} stories and links from our RSS sources.{% if catPage.pageNumber > 0 %} Page {{ catPage.pageNumber + 1 }}.{% endif %}"
   rssPath: "/category/{{ catPage.slug }}/feed.xml"
 ---
 

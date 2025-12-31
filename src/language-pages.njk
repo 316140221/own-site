@@ -1,13 +1,14 @@
 ---
 layout: layouts/base.njk
+headPaginationLinks: true
 pagination:
   data: languagePages
   size: 1
   alias: langPage
 permalink: "lang/{{ langPage.code }}/{% if langPage.pageNumber == 0 %}{% else %}page/{{ langPage.pageNumber + 1 }}/{% endif %}index.html"
 eleventyComputed:
-  title: "{{ langPage.label }}"
-  description: "Latest {{ langPage.label }} stories and links from our RSS sources."
+  title: "{{ langPage.label }}{% if langPage.pageNumber > 0 %} · Page {{ langPage.pageNumber + 1 }}{% endif %}"
+  description: "Latest {{ langPage.label }} stories and links from our RSS sources.{% if langPage.pageNumber > 0 %} Page {{ langPage.pageNumber + 1 }}.{% endif %}"
   rssPath: "/lang/{{ langPage.code }}/feed.xml"
 ---
 

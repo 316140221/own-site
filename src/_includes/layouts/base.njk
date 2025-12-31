@@ -1,6 +1,13 @@
 <!doctype html>
+{% set pageLang = site.language %}
+{% if langPage and langPage.code %}
+  {% set pageLang = langPage.code %}
+{% endif %}
+{% if article and article.language %}
+  {% set pageLang = article.language %}
+{% endif %}
 <html
-  lang="{{ site.language }}"
+  lang="{{ pageLang }}"
   data-default-lang="{{ site.defaultLanguage }}"
   data-supported-langs="{{ site.languagesCsv }}"
 >
@@ -15,25 +22,35 @@
     {% set metaDescription = description or site.description %}
     {% set canonical = (page.url | url) | absoluteUrl(site.url) %}
 
-    {% set contentLang = site.language %}
-    {% if article and article.language %}
-      {% set contentLang = article.language %}
-    {% endif %}
+    {% set contentLang = pageLang %}
 
     {% set ogImage = "" %}
     {% if article and article.image %}
       {% set ogImage = article.image %}
     {% endif %}
 
+    {% set robotsContent = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1' %}
+    {% if metaRobots is defined and metaRobots %}
+      {% set robotsContent = metaRobots %}
+    {% endif %}
+
     <title>{{ metaTitle }}</title>
     <meta name="description" content="{{ metaDescription }}" />
-    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="robots" content="{{ robotsContent }}" />
     <meta property="og:site_name" content="{{ site.name }}" />
     {% if site.googleSiteVerification %}
       <meta name="google-site-verification" content="{{ site.googleSiteVerification }}" />
     {% endif %}
 
     <link rel="canonical" href="{{ canonical }}" />
+    {% if headPaginationLinks and pagination and pagination.href %}
+      {% if pagination.href.previous %}
+        <link rel="prev" href="{{ (pagination.href.previous | url) | absoluteUrl(site.url) }}" />
+      {% endif %}
+      {% if pagination.href.next %}
+        <link rel="next" href="{{ (pagination.href.next | url) | absoluteUrl(site.url) }}" />
+      {% endif %}
+    {% endif %}
     <meta property="og:url" content="{{ canonical }}" />
     <meta property="og:type" content="{{ ogType or 'website' }}" />
     <meta property="og:title" content="{{ metaTitle }}" />
@@ -46,12 +63,18 @@
     {% endif %}
 
     {% if ogType == 'article' and article %}
+      {% set articleModifiedAt = article.fetchedAt or article.publishedAt %}
       {% if article.publishedAt %}
         <meta property="article:published_time" content="{{ article.publishedAt }}" />
-        <meta property="article:modified_time" content="{{ article.publishedAt }}" />
+        <meta property="article:modified_time" content="{{ articleModifiedAt }}" />
       {% endif %}
       {% if article.category %}
         <meta property="article:section" content="{{ article.category | titleCase }}" />
+      {% endif %}
+      {% if article.tags and article.tags.length %}
+        {% for tag in article.tags | slice(0, 10) %}
+          <meta property="article:tag" content="{{ tag | decodeEntities }}" />
+        {% endfor %}
       {% endif %}
     {% endif %}
 
@@ -110,7 +133,29 @@
       {% if ogImage %}
         {% set schemaImage = ogImageAbs %}
       {% endif %}
-      {% set schemaGraph = schemaGraph.concat([
+      {% set articleModifiedAt = article.fetchedAt or article.publishedAt %}
+      {% set publisherName = '' %}
+      {% set publisherUrl = undefined %}
+      {% if article.source and article.source.name %}
+        {% set publisherName = article.source.name %}
+      {% endif %}
+      {% if article.source and article.source.url %}
+        {% set publisherUrl = article.source.url %}
+      {% endif %}
+      {% set publisherId = schemaOrgId %}
+      {% set extraSchemaNodes = [] %}
+      {% if publisherName %}
+        {% set publisherId = canonical + '#publisher' %}
+        {% set extraSchemaNodes = extraSchemaNodes.concat([
+          {
+            '@type': 'Organization',
+            '@id': publisherId,
+            'name': publisherName,
+            'url': publisherUrl
+          }
+        ]) %}
+      {% endif %}
+      {% set schemaGraph = schemaGraph.concat(extraSchemaNodes).concat([
         {
           '@type': 'BreadcrumbList',
           '@id': breadcrumbId,
@@ -126,11 +171,12 @@
           'headline': articleTitle,
           'description': (article.summary or metaDescription),
           'datePublished': article.publishedAt,
-          'dateModified': article.publishedAt,
+          'dateModified': articleModifiedAt,
           'inLanguage': contentLang,
           'isBasedOn': article.canonicalUrl,
+          'url': canonical,
           'mainEntityOfPage': { '@id': schemaWebpageId },
-          'publisher': { '@id': schemaOrgId },
+          'publisher': { '@id': publisherId },
           'articleSection': categoryLabel,
           'image': schemaImage
         }

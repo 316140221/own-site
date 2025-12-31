@@ -25,11 +25,25 @@
     </nav>
     <h1 class="article-title">{{ article.title | decodeEntities }}</h1>
     <div class="article-meta">
-      <span class="badge">{{ article.category | titleCase }}</span>
-      {% if article.language %}<span class="badge">{{ article.language | upper }}</span>{% endif %}
+      {% if article.category %}
+        <a class="badge" href="{{ ('/category/' + article.category + '/') | url }}">{{ article.category | titleCase }}</a>
+      {% endif %}
+      {% if article.language %}
+        <a class="badge" href="{{ ('/lang/' + article.language + '/') | url }}">{{ article.language | upper }}</a>
+      {% endif %}
       <span class="muted">{{ article.publishedAt | formatDateTime }}</span>
       <span class="muted">·</span>
-      <span class="muted">{{ article.source.name }}</span>
+      {% if article.source and article.source.url %}
+        <a
+          class="muted"
+          href="{{ article.source.url }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          >{{ article.source.name }}</a
+        >
+      {% else %}
+        <span class="muted">{{ article.source.name }}</span>
+      {% endif %}
       <span class="muted">·</span>
       <a
         href="{{ article.canonicalUrl }}"
@@ -60,12 +74,14 @@
   {% endif %}
 
   {% if article.contentText %}
+    {% set excerptLimit = 1600 %}
+    {% set contentExcerpt = article.contentText | truncateText(excerptLimit) %}
     <section class="article-content">
       <h2 class="article-content-title" data-i18n="article.fromRss">From RSS</h2>
       <div class="muted small" data-i18n="article.fromRssNote">
         Long content extracted from the source RSS feed. For the official version, use “Open original”.
       </div>
-      <div class="article-content-body">{{ article.contentText | textToHtml | safe }}</div>
+      <div class="article-content-body">{{ contentExcerpt | textToHtml | safe }}</div>
     </section>
   {% endif %}
 
