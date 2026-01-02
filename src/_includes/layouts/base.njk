@@ -49,11 +49,7 @@
     {% if listPage and (listPage.pageNumber is defined) and (listPage.totalPages is defined) %}
       {% if listPage.pageNumber > 0 %}
         {% set prevPage = listPage.pageNumber - 1 %}
-        {% if prevPage == 0 %}
-          {% set headPrevPath = '/' %}
-        {% else %}
-          {% set headPrevPath = '/page/' + (prevPage + 1) + '/' %}
-        {% endif %}
+        {% set headPrevPath = '/page/' + (prevPage + 1) + '/' %}
       {% endif %}
 
       {% if listPage.pageNumber + 1 < listPage.totalPages %}
@@ -316,6 +312,11 @@
       {% set headerSearchEnabled = showHeaderSearch %}
     {% endif %}
 
+    {% set headerNavModeResolved = 'full' %}
+    {% if headerNavMode is defined and headerNavMode %}
+      {% set headerNavModeResolved = headerNavMode %}
+    {% endif %}
+
     <a class="skip-link" href="#main-content" data-i18n="nav.skip">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
@@ -359,37 +360,45 @@
           {% endif %}
 
           {% if tools and tools.groups %}
-            <details class="nav-dropdown" data-nav-section="tools">
-              <summary data-i18n="nav.tools">Tools</summary>
-              <div class="nav-dropdown-menu">
-                <a class="nav-dropdown-top" href="{{ '/tools/' | url }}" data-i18n="nav.toolsAll"
-                  >All tools</a
-                >
-                {% for group in tools.groups %}
-                  <div class="nav-dropdown-group">
-                    <div class="nav-dropdown-title" data-i18n="tools.group.{{ group.id }}">
-                      {{ group.label }}
+            {% if headerNavModeResolved == 'minimal' %}
+              <a href="{{ '/tools/' | url }}" data-i18n="nav.tools">Tools</a>
+            {% else %}
+              <details class="nav-dropdown" data-nav-section="tools">
+                <summary data-i18n="nav.tools">Tools</summary>
+                <div class="nav-dropdown-menu">
+                  <a class="nav-dropdown-top" href="{{ '/tools/' | url }}" data-i18n="nav.toolsAll"
+                    >All tools</a
+                  >
+                  {% for group in tools.groups %}
+                    <div class="nav-dropdown-group">
+                      <div class="nav-dropdown-title" data-i18n="tools.group.{{ group.id }}">
+                        {{ group.label }}
+                      </div>
+                      {% for t in group.items %}
+                        <a href="{{ t.path | url }}" data-i18n="tools.item.{{ t.slug }}.title"
+                          >{{ t.label }}</a
+                        >
+                      {% endfor %}
                     </div>
-                    {% for t in group.items %}
-                      <a href="{{ t.path | url }}" data-i18n="tools.item.{{ t.slug }}.title"
-                        >{{ t.label }}</a
-                      >
-                    {% endfor %}
-                  </div>
-                {% endfor %}
-              </div>
-            </details>
+                  {% endfor %}
+                </div>
+              </details>
+            {% endif %}
           {% endif %}
 
           {% if categories %}
-            <details class="nav-dropdown" data-nav-section="news">
-              <summary data-i18n="nav.news">News</summary>
-              <div class="nav-dropdown-menu">
-                {% for cat in categories %}
-                  <a href="{{ ('/category/' + cat.slug + '/') | url }}">{{ cat.label }}</a>
-                {% endfor %}
-              </div>
-            </details>
+            {% if headerNavModeResolved == 'minimal' %}
+              <a href="{{ '/page/1/' | url }}" data-i18n="home.latest">Latest</a>
+            {% else %}
+              <details class="nav-dropdown" data-nav-section="news">
+                <summary data-i18n="nav.news">News</summary>
+                <div class="nav-dropdown-menu">
+                  {% for cat in categories %}
+                    <a href="{{ ('/category/' + cat.slug + '/') | url }}">{{ cat.label }}</a>
+                  {% endfor %}
+                </div>
+              </details>
+            {% endif %}
           {% endif %}
 
           {% if site.languages and site.languages.length > 1 %}

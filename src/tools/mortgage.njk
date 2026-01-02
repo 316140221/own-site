@@ -1,0 +1,159 @@
+---
+layout: layouts/base.njk
+title: "Mortgage Calculator"
+description: "Estimate mortgage payment, totals, and payoff with extra payments. Runs locally."
+pageScript: "/assets/tools/mortgage.js"
+---
+
+<h1 data-i18n="tools.item.mortgage.title">Mortgage Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.mortgage.disclaimer">
+  Estimates only. Not financial advice.
+</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.mortgage.homePrice">Home price</span>
+          <input
+            type="text"
+            id="opt-home-price"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 450000"
+            data-i18n-placeholder="tool.mortgage.homePricePlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.mortgage.downMode">Down payment</span>
+          <select id="opt-down-mode">
+            <option value="percent" data-i18n="tool.mortgage.downMode.percent">Percent</option>
+            <option value="amount" data-i18n="tool.mortgage.downMode.amount">Amount</option>
+          </select>
+          <input
+            type="text"
+            id="opt-down"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 20"
+            data-i18n-placeholder="tool.mortgage.downPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.mortgage.apr">APR %</span>
+          <input type="number" id="opt-apr" min="0" max="25" step="0.01" value="6.50" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.mortgage.termYears">Term</span>
+          <select id="opt-term">
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="30" selected>30</option>
+          </select>
+          <span class="muted small" data-i18n="tool.mortgage.years">years</span>
+        </label>
+      </div>
+
+      <div class="tool-options" aria-label="Optional monthly costs">
+        <label class="tool-option">
+          <span data-i18n="tool.mortgage.propertyTax">Property tax / year</span>
+          <input
+            type="text"
+            id="opt-tax"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 6000"
+            data-i18n-placeholder="tool.mortgage.taxPlaceholder"
+          />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.mortgage.insurance">Insurance / year</span>
+          <input
+            type="text"
+            id="opt-insurance"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 1200"
+            data-i18n-placeholder="tool.mortgage.insurancePlaceholder"
+          />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.mortgage.hoa">HOA / month</span>
+          <input
+            type="text"
+            id="opt-hoa"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 0"
+            data-i18n-placeholder="tool.mortgage.hoaPlaceholder"
+          />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.mortgage.pmi">PMI / month</span>
+          <input
+            type="text"
+            id="opt-pmi"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 0"
+            data-i18n-placeholder="tool.mortgage.pmiPlaceholder"
+          />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.mortgage.extra">Extra payment / month</span>
+          <input
+            type="text"
+            id="opt-extra"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 200"
+            data-i18n-placeholder="tool.mortgage.extraPlaceholder"
+          />
+        </label>
+        <label class="tool-option">
+          <input type="checkbox" id="opt-show-schedule" />
+          <span data-i18n="tool.mortgage.showSchedule">Show first 12 payments</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="14"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.mortgage.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

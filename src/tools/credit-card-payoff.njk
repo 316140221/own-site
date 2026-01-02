@@ -1,0 +1,96 @@
+---
+layout: layouts/base.njk
+title: "Credit Card Payoff Calculator"
+description: "Estimate credit card payoff time, interest, and payoff date. Runs locally."
+pageScript: "/assets/tools/credit-card-payoff.js"
+---
+
+<h1 data-i18n="tools.item.credit-card-payoff.title">Credit Card Payoff Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.creditCardPayoff.disclaimer">Estimates only. Not financial advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.creditCardPayoff.balance">Balance</span>
+          <input
+            type="text"
+            id="opt-balance"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 3500"
+            data-i18n-placeholder="tool.creditCardPayoff.balancePlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.creditCardPayoff.apr">APR %</span>
+          <input type="number" id="opt-apr" min="0" max="100" step="0.01" value="24.99" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.creditCardPayoff.payment">Monthly payment</span>
+          <input
+            type="text"
+            id="opt-payment"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 150"
+            data-i18n-placeholder="tool.creditCardPayoff.paymentPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.creditCardPayoff.extra">Extra payment / month</span>
+          <input
+            type="text"
+            id="opt-extra"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 25"
+            data-i18n-placeholder="tool.creditCardPayoff.extraPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <input type="checkbox" id="opt-show-schedule" />
+          <span data-i18n="tool.creditCardPayoff.showSchedule">Show first 12 payments</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="14"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.creditCardPayoff.calculate">
+      Calculate
+    </button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+
