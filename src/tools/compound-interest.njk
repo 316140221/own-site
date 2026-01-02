@@ -1,0 +1,96 @@
+---
+layout: layouts/base.njk
+title: "Compound Interest Calculator"
+description: "Estimate future value with monthly contributions and compounding. Runs locally."
+pageScript: "/assets/tools/compound-interest.js"
+---
+
+<h1 data-i18n="tools.item.compound-interest.title">Compound Interest Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.compoundInterest.disclaimer">Estimates only. Not financial advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.compoundInterest.principal">Initial amount</span>
+          <input
+            type="text"
+            id="opt-principal"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 10000"
+            data-i18n-placeholder="tool.compoundInterest.principalPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.compoundInterest.contribution">Contribution / month</span>
+          <input
+            type="text"
+            id="opt-contrib"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 200"
+            data-i18n-placeholder="tool.compoundInterest.contributionPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.compoundInterest.rate">Annual rate %</span>
+          <input type="number" id="opt-rate" min="-100" max="100" step="0.01" value="7.00" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.compoundInterest.yearsInput">Years</span>
+          <input type="number" id="opt-years" min="0" max="100" step="0.1" value="10" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.compoundInterest.timing">Contribution timing</span>
+          <select id="opt-timing">
+            <option value="end" data-i18n="tool.compoundInterest.timing.end">End of month</option>
+            <option value="start" data-i18n="tool.compoundInterest.timing.start">Start of month</option>
+          </select>
+        </label>
+
+        <label class="tool-option">
+          <input type="checkbox" id="opt-show-breakdown" />
+          <span data-i18n="tool.compoundInterest.showBreakdown">Show yearly breakdown</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="14"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.compoundInterest.calculate">
+      Calculate
+    </button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

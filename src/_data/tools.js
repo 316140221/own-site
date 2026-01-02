@@ -249,6 +249,11 @@ const rawGroups = [
     label: "Calculators",
     items: [
       {
+        slug: "time-zone",
+        label: "Time Zone Converter",
+        description: "Convert date/time between time zones (DST-aware).",
+      },
+      {
         slug: "timestamp",
         label: "Timestamp Converter",
         description: "Convert between Unix timestamps and dates.",
@@ -262,6 +267,46 @@ const rawGroups = [
         slug: "percentage",
         label: "Percentage Calculator",
         description: "Quick percent calculations: X% of Y, change, increase/decrease.",
+      },
+      {
+        slug: "tip",
+        label: "Tip Calculator",
+        description: "Calculate tip, total, and split per person.",
+      },
+      {
+        slug: "sales-tax",
+        label: "Sales Tax Calculator",
+        description: "Compute sales tax and totals (add tax or tax-included).",
+      },
+      {
+        slug: "mortgage",
+        label: "Mortgage Calculator",
+        description: "Estimate payment, totals, and payoff with extra payments.",
+      },
+      {
+        slug: "loan",
+        label: "Loan Calculator",
+        description: "Calculate loan payments, totals, and payoff with extra payments.",
+      },
+      {
+        slug: "salary",
+        label: "Salary Calculator",
+        description: "Convert between annual salary and hourly pay (monthly/biweekly/weekly).",
+      },
+      {
+        slug: "gas-cost",
+        label: "Gas Cost Calculator",
+        description: "Estimate fuel needed and total gas cost for a trip (miles, MPG, $/gal).",
+      },
+      {
+        slug: "credit-card-payoff",
+        label: "Credit Card Payoff",
+        description: "Estimate payoff time and interest for a credit card balance.",
+      },
+      {
+        slug: "compound-interest",
+        label: "Compound Interest",
+        description: "Estimate future value with monthly contributions and compounding.",
       },
       {
         slug: "bmi",
@@ -299,6 +344,11 @@ const rawGroups = [
         label: "Morse Encode/Decode",
         description: "Encode and decode International Morse code.",
       },
+      {
+        slug: "horoscope",
+        label: "Daily Horoscope",
+        description: "Daily horoscope by zodiac sign (for entertainment only).",
+      },
     ],
   },
 ];
@@ -332,7 +382,20 @@ for (const group of groups) {
 const byPath = Object.fromEntries(all.map((tool) => [tool.path, tool]));
 const bySlug = Object.fromEntries(all.map((tool) => [tool.slug, tool]));
 
-const featuredSlugs = new Set(["base64", "url", "json", "hash", "uuid", "password"]);
+const featuredSlugs = new Set([
+  "base64",
+  "url",
+  "json",
+  "hash",
+  "uuid",
+  "password",
+  "time-zone",
+  "tip",
+  "horoscope",
+  "sales-tax",
+  "mortgage",
+  "loan",
+]);
 const featured = all.filter((tool) => featuredSlugs.has(tool.slug));
 
 module.exports = {

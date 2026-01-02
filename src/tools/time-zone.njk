@@ -1,0 +1,58 @@
+---
+layout: layouts/base.njk
+title: "Time Zone Converter"
+description: "Convert date/time between time zones (DST-aware). Runs locally."
+pageScript: "/assets/tools/time-zone.js"
+---
+
+<h1 data-i18n="tools.item.time-zone.title">Time Zone Converter</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <label class="tool-label" for="opt-datetime" data-i18n="tool.timeZone.datetime">Date & time</label>
+      <input id="opt-datetime" class="tool-file" type="datetime-local" />
+
+      <div class="tool-pane-block">
+        <label class="tool-label" for="opt-from-tz" data-i18n="tool.timeZone.from">From time zone</label>
+        <select id="opt-from-tz" class="tool-file"></select>
+      </div>
+
+      <div class="tool-pane-block">
+        <label class="tool-label" for="opt-to-tz" data-i18n="tool.timeZone.to">To time zone</label>
+        <select id="opt-to-tz" class="tool-file"></select>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="10"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-convert" data-i18n="tool.timeZone.convert">Convert</button>
+    <button class="button button-secondary" type="button" id="btn-now" data-i18n="tool.timeZone.now">Now</button>
+    <button class="button button-secondary" type="button" id="btn-swap" data-i18n="tool.common.swap">
+      Swap
+    </button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

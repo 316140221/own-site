@@ -1,0 +1,80 @@
+---
+layout: layouts/base.njk
+title: "Sales Tax Calculator"
+description: "Compute sales tax and totals (add tax or tax-included). Runs locally."
+pageScript: "/assets/tools/sales-tax.js"
+---
+
+<h1 data-i18n="tools.item.sales-tax.title">Sales Tax Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-input" data-i18n="tool.salesTax.amount">Amount</label>
+      <input
+        id="tool-input"
+        class="tool-textarea"
+        type="text"
+        inputmode="decimal"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="e.g. 19.99"
+        data-i18n-placeholder="tool.salesTax.amountPlaceholder"
+      />
+
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.salesTax.mode">Mode</span>
+          <select id="opt-mode">
+            <option value="add" data-i18n="tool.salesTax.mode.add">Add tax</option>
+            <option value="included" data-i18n="tool.salesTax.mode.included">Tax included</option>
+          </select>
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.salesTax.rate">Tax rate %</span>
+          <input type="number" id="opt-rate" min="0" max="25" step="0.01" value="8.25" />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.salesTax.qty">Qty</span>
+          <input type="number" id="opt-qty" min="1" max="1000" step="1" value="1" />
+        </label>
+        <div class="tool-option" aria-label="Tax rate presets">
+          <span data-i18n="tool.salesTax.presets">Presets:</span>
+          <button class="tag-pill" type="button" data-tax-preset="0">0%</button>
+          <button class="tag-pill" type="button" data-tax-preset="5">5%</button>
+          <button class="tag-pill" type="button" data-tax-preset="7.25">7.25%</button>
+          <button class="tag-pill" type="button" data-tax-preset="8">8%</button>
+          <button class="tag-pill" type="button" data-tax-preset="8.25">8.25%</button>
+          <button class="tag-pill" type="button" data-tax-preset="8.875">8.875%</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="10"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.salesTax.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

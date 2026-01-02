@@ -1,0 +1,75 @@
+---
+layout: layouts/base.njk
+title: "Tip Calculator"
+description: "Calculate tip, total, and split per person. Runs locally."
+pageScript: "/assets/tools/tip.js"
+---
+
+<h1 data-i18n="tools.item.tip.title">Tip Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-input" data-i18n="tool.tip.bill">Bill amount</label>
+      <input
+        id="tool-input"
+        class="tool-textarea"
+        type="text"
+        inputmode="decimal"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="e.g. 48.50"
+        data-i18n-placeholder="tool.tip.billPlaceholder"
+      />
+
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.tip.tipPercent">Tip %</span>
+          <input type="number" id="opt-tip-percent" min="0" max="100" value="18" />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.tip.people">People</span>
+          <input type="number" id="opt-people" min="1" max="100" value="1" />
+        </label>
+        <label class="tool-option">
+          <input type="checkbox" id="opt-round" />
+          <span data-i18n="tool.tip.round">Round up per-person total</span>
+        </label>
+        <div class="tool-option" aria-label="Tip presets">
+          <span data-i18n="tool.tip.presets">Presets:</span>
+          <button class="tag-pill" type="button" data-tip-preset="15">15%</button>
+          <button class="tag-pill" type="button" data-tip-preset="18">18%</button>
+          <button class="tag-pill" type="button" data-tip-preset="20">20%</button>
+          <button class="tag-pill" type="button" data-tip-preset="25">25%</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="10"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.tip.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+
