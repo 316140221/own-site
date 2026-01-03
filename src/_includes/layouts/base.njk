@@ -246,6 +246,39 @@
       ]) %}
     {% endif %}
 
+    {% set isToolPage = page.url and page.url.startsWith('/tools/') and page.url != '/tools/' %}
+    {% if isToolPage %}
+      {% set toolTitle = title | decodeEntities if title else metaTitle %}
+      {% set toolBreadcrumbId = canonical + '#breadcrumb' %}
+      {% set homeUrl = ('/' | url | absoluteUrl(site.url)) %}
+      {% set toolsUrl = ('/tools/' | url | absoluteUrl(site.url)) %}
+
+      {% set schemaGraph = schemaGraph.concat([
+        {
+          '@type': 'BreadcrumbList',
+          '@id': toolBreadcrumbId,
+          'itemListElement': [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': homeUrl },
+            { '@type': 'ListItem', 'position': 2, 'name': 'Tools', 'item': toolsUrl },
+            { '@type': 'ListItem', 'position': 3, 'name': toolTitle, 'item': canonical }
+          ]
+        },
+        {
+          '@type': 'WebApplication',
+          '@id': canonical + '#app',
+          'name': toolTitle,
+          'url': canonical,
+          'description': metaDescription,
+          'applicationCategory': 'UtilitiesApplication',
+          'operatingSystem': 'All',
+          'isAccessibleForFree': true,
+          'inLanguage': contentLang,
+          'publisher': { '@id': schemaOrgId },
+          'mainEntityOfPage': { '@id': schemaWebpageId }
+        }
+      ]) %}
+    {% endif %}
+
     {% set schemaItemListElements = [] %}
     {% set schemaItemListItems = null %}
     {% set schemaItemListName = null %}
@@ -317,6 +350,11 @@
       {% set headerNavModeResolved = headerNavMode %}
     {% endif %}
 
+    {% set showNewsNavResolved = true %}
+    {% if showNewsNav is defined %}
+      {% set showNewsNavResolved = showNewsNav %}
+    {% endif %}
+
     <a class="skip-link" href="#main-content" data-i18n="nav.skip">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
@@ -386,7 +424,7 @@
             {% endif %}
           {% endif %}
 
-          {% if categories %}
+          {% if showNewsNavResolved and categories %}
             {% if headerNavModeResolved == 'minimal' %}
               <a href="{{ '/page/1/' | url }}" data-i18n="home.latest">Latest</a>
             {% else %}

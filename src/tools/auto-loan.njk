@@ -1,0 +1,145 @@
+---
+layout: layouts/base.njk
+title: "Auto Loan Calculator"
+description: "Estimate car payment and amount financed (price, trade-in, down payment, taxes, fees). Runs locally."
+pageScript: "/assets/tools/auto-loan.js"
+---
+
+<h1 data-i18n="tools.item.auto-loan.title">Auto Loan Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.autoLoan.disclaimer">Estimates only. Not financial advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.autoLoan.price">Vehicle price</span>
+          <input
+            type="text"
+            id="opt-price"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 30000"
+            data-i18n-placeholder="tool.autoLoan.pricePlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.autoLoan.tradeIn">Trade-in value</span>
+          <input
+            type="text"
+            id="opt-tradein"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 5000"
+            data-i18n-placeholder="tool.autoLoan.tradeInPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.autoLoan.down">Down payment</span>
+          <input
+            type="text"
+            id="opt-down"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 3000"
+            data-i18n-placeholder="tool.autoLoan.downPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.autoLoan.taxRate">Sales tax %</span>
+          <input type="number" id="opt-tax" min="0" max="30" step="0.01" value="8.25" />
+        </label>
+
+        <label class="tool-option">
+          <input type="checkbox" id="opt-tax-after-tradein" checked />
+          <span data-i18n="tool.autoLoan.taxAfterTradeIn">Apply tax after trade-in</span>
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.autoLoan.fees">Fees (title/doc/registration)</span>
+          <input
+            type="text"
+            id="opt-fees"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 500"
+            data-i18n-placeholder="tool.autoLoan.feesPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.autoLoan.apr">APR %</span>
+          <input type="number" id="opt-apr" min="0" max="100" step="0.01" value="6.50" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.autoLoan.termMonths">Term</span>
+          <input type="number" id="opt-term" min="1" max="600" step="1" value="60" />
+          <span class="muted small" data-i18n="tool.autoLoan.months">months</span>
+        </label>
+
+        <div class="tool-option" aria-label="Term presets">
+          <span data-i18n="tool.autoLoan.termPresets">Presets:</span>
+          <button class="tag-pill" type="button" data-term-preset="36">36</button>
+          <button class="tag-pill" type="button" data-term-preset="48">48</button>
+          <button class="tag-pill" type="button" data-term-preset="60">60</button>
+          <button class="tag-pill" type="button" data-term-preset="72">72</button>
+          <button class="tag-pill" type="button" data-term-preset="84">84</button>
+        </div>
+
+        <label class="tool-option">
+          <span data-i18n="tool.autoLoan.extra">Extra payment / month</span>
+          <input
+            type="text"
+            id="opt-extra"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 50"
+            data-i18n-placeholder="tool.autoLoan.extraPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <input type="checkbox" id="opt-show-schedule" />
+          <span data-i18n="tool.autoLoan.showSchedule">Show first 12 payments</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="16"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.autoLoan.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

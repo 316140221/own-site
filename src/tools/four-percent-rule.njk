@@ -1,0 +1,81 @@
+---
+layout: layouts/base.njk
+title: "4% Rule Calculator"
+description: "Estimate retirement savings needed using a safe withdrawal rate (e.g., 4%). Runs locally."
+pageScript: "/assets/tools/four-percent-rule.js"
+---
+
+<h1 data-i18n="tools.item.four-percent-rule.title">4% Rule Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.fourPercentRule.disclaimer">Estimates only. Not financial advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.fourPercentRule.spending">Annual spending</span>
+          <input
+            type="text"
+            id="opt-spending"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 60000"
+            data-i18n-placeholder="tool.fourPercentRule.spendingPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.fourPercentRule.rate">Withdrawal rate %</span>
+          <input type="number" id="opt-rate" min="0.1" max="20" step="0.1" value="4" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.fourPercentRule.current">Current savings (optional)</span>
+          <input
+            type="text"
+            id="opt-current"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 250000"
+            data-i18n-placeholder="tool.fourPercentRule.currentPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <input type="checkbox" id="opt-show-table" checked />
+          <span data-i18n="tool.fourPercentRule.showTable">Show common rate table</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="16"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.fourPercentRule.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

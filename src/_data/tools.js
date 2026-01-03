@@ -274,6 +274,11 @@ const rawGroups = [
         description: "Calculate tip, total, and split per person.",
       },
       {
+        slug: "discount",
+        label: "Discount Calculator",
+        description: "Calculate discount amount, final price, and totals (with optional sales tax).",
+      },
+      {
         slug: "sales-tax",
         label: "Sales Tax Calculator",
         description: "Compute sales tax and totals (add tax or tax-included).",
@@ -284,9 +289,24 @@ const rawGroups = [
         description: "Estimate payment, totals, and payoff with extra payments.",
       },
       {
+        slug: "home-affordability",
+        label: "Home Affordability Calculator",
+        description: "Estimate how much house you can afford using income, debts, and loan assumptions.",
+      },
+      {
         slug: "loan",
         label: "Loan Calculator",
         description: "Calculate loan payments, totals, and payoff with extra payments.",
+      },
+      {
+        slug: "budget-50-30-20",
+        label: "50/30/20 Budget",
+        description: "Split your monthly income into needs, wants, and savings using the 50/30/20 rule.",
+      },
+      {
+        slug: "apr-apy",
+        label: "APR ↔ APY Converter",
+        description: "Convert between APR and APY with compounding frequency.",
       },
       {
         slug: "salary",
@@ -294,9 +314,64 @@ const rawGroups = [
         description: "Convert between annual salary and hourly pay (monthly/biweekly/weekly).",
       },
       {
+        slug: "take-home-pay",
+        label: "Take-Home Pay Calculator",
+        description: "Estimate paycheck take-home pay using custom tax rates and deductions.",
+      },
+      {
+        slug: "auto-loan",
+        label: "Auto Loan Calculator",
+        description: "Estimate car payment (price, trade-in, down payment, taxes, fees).",
+      },
+      {
+        slug: "net-worth",
+        label: "Net Worth Calculator",
+        description: "Calculate net worth from assets and liabilities.",
+      },
+      {
+        slug: "credit-utilization",
+        label: "Credit Utilization Calculator",
+        description: "Calculate credit utilization per card and overall (balance ÷ limit).",
+      },
+      {
+        slug: "emergency-fund",
+        label: "Emergency Fund Calculator",
+        description: "Estimate emergency fund target and time to reach it.",
+      },
+      {
+        slug: "inflation",
+        label: "Inflation Calculator",
+        description: "Estimate future value or today’s value using an inflation rate.",
+      },
+      {
+        slug: "four-percent-rule",
+        label: "4% Rule Calculator",
+        description: "Estimate retirement savings needed using a withdrawal rate (e.g., 4%).",
+      },
+      {
+        slug: "fire",
+        label: "FIRE Number Calculator",
+        description: "Calculate your FIRE number and estimate years to financial independence.",
+      },
+      {
         slug: "gas-cost",
         label: "Gas Cost Calculator",
         description: "Estimate fuel needed and total gas cost for a trip (miles, MPG, $/gal).",
+      },
+      {
+        slug: "rent-affordability",
+        label: "Rent Affordability",
+        description: "Estimate max affordable rent (or required income) using the rent-to-income rule.",
+      },
+      {
+        slug: "rent-vs-buy",
+        label: "Rent vs Buy Calculator",
+        description: "Compare renting vs buying over time and estimate break-even.",
+      },
+      {
+        slug: "debt-to-income",
+        label: "Debt-to-Income (DTI)",
+        description: "Calculate debt-to-income ratio (DTI) from monthly income and debts.",
       },
       {
         slug: "credit-card-payoff",
@@ -304,9 +379,34 @@ const rawGroups = [
         description: "Estimate payoff time and interest for a credit card balance.",
       },
       {
+        slug: "debt-payoff-plan",
+        label: "Debt Payoff Planner",
+        description: "Plan debt payoff with snowball or avalanche strategy across multiple debts.",
+      },
+      {
         slug: "compound-interest",
         label: "Compound Interest",
         description: "Estimate future value with monthly contributions and compounding.",
+      },
+      {
+        slug: "investment-fees",
+        label: "Investment Fees Calculator",
+        description: "Estimate how investment fees (expense ratio) affect long-term growth.",
+      },
+      {
+        slug: "savings-goal",
+        label: "Savings Goal Calculator",
+        description: "Estimate time to reach a savings goal or required monthly savings.",
+      },
+      {
+        slug: "retirement",
+        label: "401(k) & Retirement Calculator",
+        description: "Estimate retirement savings growth with contributions and employer match.",
+      },
+      {
+        slug: "cagr",
+        label: "CAGR Calculator",
+        description: "Calculate compound annual growth rate (CAGR) and total return.",
       },
       {
         slug: "bmi",
@@ -348,6 +448,11 @@ const rawGroups = [
         slug: "horoscope",
         label: "Daily Horoscope",
         description: "Daily horoscope by zodiac sign (for entertainment only).",
+      },
+      {
+        slug: "zodiac-compatibility",
+        label: "Zodiac Compatibility",
+        description: "Fun compatibility score and tips by zodiac sign (entertainment only).",
       },
     ],
   },

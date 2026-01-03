@@ -1,0 +1,91 @@
+---
+layout: layouts/base.njk
+title: "Debt Payoff Planner"
+description: "Plan debt payoff with snowball or avalanche strategy across multiple debts. Runs locally."
+pageScript: "/assets/tools/debt-payoff-plan.js"
+---
+
+<h1 data-i18n="tools.item.debt-payoff-plan.title">Debt Payoff Planner</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.debtPayoffPlan.disclaimer">Estimates only. Not financial advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <label class="tool-label" for="opt-debts" data-i18n="tool.debtPayoffPlan.debts">Debts (one per line)</label>
+      <textarea
+        id="opt-debts"
+        class="tool-textarea"
+        rows="10"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="e.g.&#10;Visa: 3500 24.99 120&#10;Car loan: 9000 6.50 200"
+        data-i18n-placeholder="tool.debtPayoffPlan.debtsPlaceholder"
+      ></textarea>
+
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.debtPayoffPlan.method">Method</span>
+          <select id="opt-method">
+            <option value="snowball" data-i18n="tool.debtPayoffPlan.method.snowball">
+              Snowball (smallest balance first)
+            </option>
+            <option value="avalanche" data-i18n="tool.debtPayoffPlan.method.avalanche">
+              Avalanche (highest APR first)
+            </option>
+          </select>
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.debtPayoffPlan.extra">Extra payment / month</span>
+          <input
+            type="text"
+            id="opt-extra"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 200"
+            data-i18n-placeholder="tool.debtPayoffPlan.extraPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <input type="checkbox" id="opt-rollover" checked />
+          <span data-i18n="tool.debtPayoffPlan.rollover">Rollover paid-off minimum payments</span>
+        </label>
+
+        <label class="tool-option">
+          <input type="checkbox" id="opt-show-schedule" />
+          <span data-i18n="tool.debtPayoffPlan.showSchedule">Show first 12 months</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="18"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.debtPayoffPlan.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

@@ -1,0 +1,177 @@
+---
+layout: layouts/base.njk
+title: "Rent vs Buy Calculator"
+description: "Compare renting vs buying over time and estimate break-even. Runs locally."
+pageScript: "/assets/tools/rent-vs-buy.js"
+---
+
+<h1 data-i18n="tools.item.rent-vs-buy.title">Rent vs Buy Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.rentVsBuy.disclaimer">Estimates only. Not financial advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.rentVsBuy.rent">Monthly rent</span>
+          <input
+            type="text"
+            id="opt-rent"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 2400"
+            data-i18n-placeholder="tool.rentVsBuy.rentPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rentVsBuy.rentGrowth">Rent increase % / year</span>
+          <input type="number" id="opt-rent-growth" min="0" max="50" step="0.1" value="3.0" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rentVsBuy.price">Home price</span>
+          <input
+            type="text"
+            id="opt-price"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 450000"
+            data-i18n-placeholder="tool.rentVsBuy.pricePlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rentVsBuy.downMode">Down payment</span>
+          <select id="opt-down-mode">
+            <option value="percent" data-i18n="tool.rentVsBuy.downMode.percent">Percent</option>
+            <option value="amount" data-i18n="tool.rentVsBuy.downMode.amount">Amount</option>
+          </select>
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rentVsBuy.down">Down payment value</span>
+          <input
+            type="text"
+            id="opt-down"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 20"
+            data-i18n-placeholder="tool.rentVsBuy.downPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rentVsBuy.apr">APR %</span>
+          <input type="number" id="opt-apr" min="0" max="100" step="0.01" value="6.50" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rentVsBuy.termYears">Term</span>
+          <input type="number" id="opt-term" min="1" max="50" step="1" value="30" />
+          <span class="muted small" data-i18n="tool.rentVsBuy.years">years</span>
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rentVsBuy.closingPct">Closing costs % (buy)</span>
+          <input type="number" id="opt-closing" min="0" max="20" step="0.1" value="3.0" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rentVsBuy.sellingPct">Selling costs % (sell)</span>
+          <input type="number" id="opt-selling" min="0" max="20" step="0.1" value="6.0" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rentVsBuy.tax">Property tax / year</span>
+          <input
+            type="text"
+            id="opt-tax"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 6000"
+            data-i18n-placeholder="tool.rentVsBuy.taxPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rentVsBuy.insurance">Insurance / year</span>
+          <input
+            type="text"
+            id="opt-insurance"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 1200"
+            data-i18n-placeholder="tool.rentVsBuy.insurancePlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rentVsBuy.hoa">HOA / month</span>
+          <input
+            type="text"
+            id="opt-hoa"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 0"
+            data-i18n-placeholder="tool.rentVsBuy.hoaPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rentVsBuy.maintenancePct">Maintenance % / year</span>
+          <input type="number" id="opt-maintenance" min="0" max="10" step="0.1" value="1.0" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rentVsBuy.appreciation">Home appreciation % / year</span>
+          <input type="number" id="opt-appreciation" min="-50" max="50" step="0.1" value="3.0" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rentVsBuy.horizon">Time horizon (years)</span>
+          <input type="number" id="opt-horizon" min="1" max="50" step="1" value="10" />
+        </label>
+
+        <label class="tool-option">
+          <input type="checkbox" id="opt-show-table" />
+          <span data-i18n="tool.rentVsBuy.showTable">Show yearly table</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="18"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.rentVsBuy.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

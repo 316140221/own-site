@@ -1,0 +1,102 @@
+---
+layout: layouts/base.njk
+title: "Emergency Fund Calculator"
+description: "Estimate your emergency fund target and how long it takes to reach it. Runs locally."
+pageScript: "/assets/tools/emergency-fund.js"
+---
+
+<h1 data-i18n="tools.item.emergency-fund.title">Emergency Fund Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.emergencyFund.disclaimer">Estimates only. Not financial advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.emergencyFund.expenses">Monthly expenses</span>
+          <input
+            type="text"
+            id="opt-expenses"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 3200"
+            data-i18n-placeholder="tool.emergencyFund.expensesPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.emergencyFund.months">Target months</span>
+          <input type="number" id="opt-months" min="1" max="36" step="1" value="6" />
+        </label>
+
+        <div class="tool-option" aria-label="Months presets">
+          <span data-i18n="tool.emergencyFund.presets">Presets:</span>
+          <button class="tag-pill" type="button" data-months-preset="3">3</button>
+          <button class="tag-pill" type="button" data-months-preset="6">6</button>
+          <button class="tag-pill" type="button" data-months-preset="9">9</button>
+          <button class="tag-pill" type="button" data-months-preset="12">12</button>
+        </div>
+
+        <label class="tool-option">
+          <span data-i18n="tool.emergencyFund.current">Current emergency savings</span>
+          <input
+            type="text"
+            id="opt-current"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 5000"
+            data-i18n-placeholder="tool.emergencyFund.currentPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.emergencyFund.monthlySave">Monthly savings (optional)</span>
+          <input
+            type="text"
+            id="opt-monthly-save"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 300"
+            data-i18n-placeholder="tool.emergencyFund.monthlySavePlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <input type="checkbox" id="opt-show-schedule" />
+          <span data-i18n="tool.emergencyFund.showSchedule">Show first 12 months</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="16"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.emergencyFund.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

@@ -1,0 +1,121 @@
+---
+layout: layouts/base.njk
+title: "Debt-to-Income (DTI) Calculator"
+description: "Calculate your debt-to-income ratio (DTI) from monthly income and debts. Runs locally."
+pageScript: "/assets/tools/debt-to-income.js"
+---
+
+<h1 data-i18n="tools.item.debt-to-income.title">Debt-to-Income (DTI) Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.dti.disclaimer">Estimates only. Not financial advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.dti.income">Gross monthly income</span>
+          <input
+            type="text"
+            id="opt-income"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 6500"
+            data-i18n-placeholder="tool.dti.incomePlaceholder"
+          />
+        </label>
+      </div>
+
+      <div class="tool-options" aria-label="Monthly debts">
+        <label class="tool-option">
+          <span data-i18n="tool.dti.housing">Housing (rent/mortgage)</span>
+          <input
+            type="text"
+            id="opt-housing"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 1800"
+            data-i18n-placeholder="tool.dti.housingPlaceholder"
+          />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.dti.car">Car payment</span>
+          <input
+            type="text"
+            id="opt-car"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 350"
+            data-i18n-placeholder="tool.dti.carPlaceholder"
+          />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.dti.student">Student loans</span>
+          <input
+            type="text"
+            id="opt-student"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 0"
+            data-i18n-placeholder="tool.dti.studentPlaceholder"
+          />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.dti.credit">Credit cards (minimums)</span>
+          <input
+            type="text"
+            id="opt-credit"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 120"
+            data-i18n-placeholder="tool.dti.creditPlaceholder"
+          />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.dti.other">Other debts</span>
+          <input
+            type="text"
+            id="opt-other"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 0"
+            data-i18n-placeholder="tool.dti.otherPlaceholder"
+          />
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="14"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.dti.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

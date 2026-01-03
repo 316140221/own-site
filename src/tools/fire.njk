@@ -1,0 +1,99 @@
+---
+layout: layouts/base.njk
+title: "FIRE Number Calculator"
+description: "Calculate your FIRE number and estimate years to financial independence. Runs locally."
+pageScript: "/assets/tools/fire.js"
+---
+
+<h1 data-i18n="tools.item.fire.title">FIRE Number Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.fire.disclaimer">Estimates only. Not financial advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.fire.expenses">Annual expenses</span>
+          <input
+            type="text"
+            id="opt-expenses"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 60000"
+            data-i18n-placeholder="tool.fire.expensesPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.fire.portfolio">Current portfolio</span>
+          <input
+            type="text"
+            id="opt-portfolio"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 150000"
+            data-i18n-placeholder="tool.fire.portfolioPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.fire.savings">Annual savings (invested)</span>
+          <input
+            type="text"
+            id="opt-savings"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 25000"
+            data-i18n-placeholder="tool.fire.savingsPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.fire.return">Annual return %</span>
+          <input type="number" id="opt-return" min="0" max="50" step="0.1" value="7" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.fire.withdrawal">Withdrawal rate %</span>
+          <input type="number" id="opt-withdrawal" min="0.1" max="10" step="0.1" value="4" />
+        </label>
+
+        <label class="tool-option">
+          <input type="checkbox" id="opt-show-table" />
+          <span data-i18n="tool.fire.showTable">Show yearly projection</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="18"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.fire.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

@@ -1,0 +1,165 @@
+---
+layout: layouts/base.njk
+title: "Home Affordability Calculator"
+description: "Estimate how much house you can afford using income, debts, and loan assumptions. Runs locally."
+pageScript: "/assets/tools/home-affordability.js"
+---
+
+<h1 data-i18n="tools.item.home-affordability.title">Home Affordability Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.homeAfford.disclaimer">Estimates only. Not financial advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.homeAfford.income">Gross monthly income</span>
+          <input
+            type="text"
+            id="opt-income"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 8000"
+            data-i18n-placeholder="tool.homeAfford.incomePlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.homeAfford.debts">Other monthly debts</span>
+          <input
+            type="text"
+            id="opt-debts"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 400"
+            data-i18n-placeholder="tool.homeAfford.debtsPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.homeAfford.housingPct">Housing % of income</span>
+          <input type="number" id="opt-housing-pct" min="0" max="60" step="0.1" value="28" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.homeAfford.dtiPct">Max DTI %</span>
+          <input type="number" id="opt-dti" min="0" max="80" step="0.1" value="36" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.homeAfford.downMode">Down payment</span>
+          <select id="opt-down-mode">
+            <option value="percent" data-i18n="tool.homeAfford.downMode.percent">Percent</option>
+            <option value="amount" data-i18n="tool.homeAfford.downMode.amount">Amount</option>
+          </select>
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.homeAfford.down">Down payment value</span>
+          <input
+            type="text"
+            id="opt-down"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 20"
+            data-i18n-placeholder="tool.homeAfford.downPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.homeAfford.apr">APR %</span>
+          <input type="number" id="opt-apr" min="0" max="100" step="0.01" value="6.50" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.homeAfford.termYears">Term</span>
+          <input type="number" id="opt-term" min="1" max="50" step="1" value="30" />
+          <span class="muted small" data-i18n="tool.homeAfford.years">years</span>
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.homeAfford.tax">Property tax / year</span>
+          <input
+            type="text"
+            id="opt-tax"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 6000"
+            data-i18n-placeholder="tool.homeAfford.taxPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.homeAfford.insurance">Insurance / year</span>
+          <input
+            type="text"
+            id="opt-insurance"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 1200"
+            data-i18n-placeholder="tool.homeAfford.insurancePlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.homeAfford.hoa">HOA / month</span>
+          <input
+            type="text"
+            id="opt-hoa"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 0"
+            data-i18n-placeholder="tool.homeAfford.hoaPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.homeAfford.pmi">PMI / month (optional)</span>
+          <input
+            type="text"
+            id="opt-pmi"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 0"
+            data-i18n-placeholder="tool.homeAfford.pmiPlaceholder"
+          />
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="18"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.homeAfford.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+
