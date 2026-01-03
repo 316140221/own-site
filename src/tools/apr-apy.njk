@@ -1,0 +1,73 @@
+---
+layout: layouts/base.njk
+title: "APR ↔ APY Converter"
+description: "Convert between APR and APY with compounding frequency (daily/monthly/quarterly/annual). Runs locally."
+pageScript: "/assets/tools/apr-apy.js"
+---
+
+<h1 data-i18n="tools.item.apr-apy.title">APR ↔ APY Converter</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-input" data-i18n="tool.aprApy.rate">Rate %</label>
+      <input
+        id="tool-input"
+        class="tool-textarea"
+        type="text"
+        inputmode="decimal"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="e.g. 5.00"
+        data-i18n-placeholder="tool.aprApy.ratePlaceholder"
+      />
+
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.aprApy.mode">Mode</span>
+          <select id="opt-mode">
+            <option value="aprToApy" data-i18n="tool.aprApy.mode.aprToApy">APR → APY</option>
+            <option value="apyToApr" data-i18n="tool.aprApy.mode.apyToApr">APY → APR</option>
+          </select>
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.aprApy.compounding">Compounding</span>
+          <select id="opt-compound">
+            <option value="365" data-i18n="tool.aprApy.compound.daily">Daily (365)</option>
+            <option value="12" data-i18n="tool.aprApy.compound.monthly">Monthly (12)</option>
+            <option value="4" data-i18n="tool.aprApy.compound.quarterly">Quarterly (4)</option>
+            <option value="1" data-i18n="tool.aprApy.compound.annual">Annual (1)</option>
+            <option value="continuous" data-i18n="tool.aprApy.compound.continuous">Continuous</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="10"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.aprApy.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

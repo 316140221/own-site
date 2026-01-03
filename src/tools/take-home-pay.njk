@@ -1,0 +1,123 @@
+---
+layout: layouts/base.njk
+title: "Take-Home Pay Calculator"
+description: "Estimate paycheck take-home pay using custom tax rates and deductions. Runs locally."
+pageScript: "/assets/tools/take-home-pay.js"
+---
+
+<h1 data-i18n="tools.item.take-home-pay.title">Take-Home Pay Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.takeHomePay.disclaimer">Estimates only. Not tax advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.takeHomePay.gross">Gross pay</span>
+          <input
+            type="text"
+            id="opt-gross"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 2500"
+            data-i18n-placeholder="tool.takeHomePay.grossPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.takeHomePay.frequency">Pay frequency</span>
+          <select id="opt-frequency">
+            <option value="weekly" data-i18n="tool.takeHomePay.frequency.weekly">Weekly (52)</option>
+            <option value="biweekly" data-i18n="tool.takeHomePay.frequency.biweekly">Biweekly (26)</option>
+            <option value="semimonthly" data-i18n="tool.takeHomePay.frequency.semimonthly"
+              >Semi-monthly (24)</option
+            >
+            <option value="monthly" data-i18n="tool.takeHomePay.frequency.monthly">Monthly (12)</option>
+          </select>
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.takeHomePay.pretax">Pre-tax deductions (per pay period)</span>
+          <input
+            type="text"
+            id="opt-pretax"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 150"
+            data-i18n-placeholder="tool.takeHomePay.pretaxPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.takeHomePay.federal">Federal tax %</span>
+          <input type="number" id="opt-federal" min="0" max="60" step="0.01" value="10" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.takeHomePay.state">State tax %</span>
+          <input type="number" id="opt-state" min="0" max="25" step="0.01" value="5" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.takeHomePay.local">Local tax %</span>
+          <input type="number" id="opt-local" min="0" max="10" step="0.01" value="0" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.takeHomePay.fica">FICA %</span>
+          <input type="number" id="opt-fica" min="0" max="20" step="0.01" value="7.65" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.takeHomePay.posttax">Post-tax deductions (per pay period)</span>
+          <input
+            type="text"
+            id="opt-posttax"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 0"
+            data-i18n-placeholder="tool.takeHomePay.posttaxPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <input type="checkbox" id="opt-show-annual" checked />
+          <span data-i18n="tool.takeHomePay.showAnnual">Show annual totals</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="16"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.takeHomePay.calculate">
+      Calculate
+    </button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

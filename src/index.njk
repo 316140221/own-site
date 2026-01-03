@@ -2,6 +2,7 @@
 layout: layouts/base.njk
 rssPath: /feed.xml
 headerNavMode: minimal
+showNewsNav: false
 ---
 
 <h1>{{ site.name }}</h1>
@@ -13,20 +14,11 @@ headerNavMode: minimal
 
 <h2 data-i18n="home.start">Start</h2>
 <nav class="tool-cards" aria-label="Quick links">
+  <a class="tool-card" href="{{ '/tools/' | url }}">
+    <div class="tool-card-title" data-i18n="nav.tools">Tools</div>
+  </a>
   <a class="tool-card" href="{{ '/search/' | url }}">
     <div class="tool-card-title" data-i18n="nav.search">Search</div>
-  </a>
-  <a class="tool-card" href="{{ '/page/1/' | url }}">
-    <div class="tool-card-title" data-i18n="home.latest">Latest</div>
-  </a>
-  <a class="tool-card" href="{{ '/sources/' | url }}">
-    <div class="tool-card-title" data-i18n="sources.title">Sources</div>
-  </a>
-  <a class="tool-card" href="{{ '/languages/' | url }}">
-    <div class="tool-card-title" data-i18n="languages.title">Languages</div>
-  </a>
-  <a class="tool-card" href="{{ '/feed.xml' | url }}">
-    <div class="tool-card-title" data-i18n="nav.rss">RSS</div>
   </a>
   <a class="tool-card" href="{{ '/library/' | url }}">
     <div class="tool-card-title" data-i18n="nav.library">Library</div>

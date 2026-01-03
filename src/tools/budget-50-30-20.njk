@@ -1,0 +1,74 @@
+---
+layout: layouts/base.njk
+title: "50/30/20 Budget Calculator"
+description: "Split your monthly income using the 50/30/20 rule: needs, wants, and savings. Runs locally."
+pageScript: "/assets/tools/budget-50-30-20.js"
+---
+
+<h1 data-i18n="tools.item.budget-50-30-20.title">50/30/20 Budget Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-input" data-i18n="tool.budget503020.income">Monthly income</label>
+      <input
+        id="tool-input"
+        class="tool-textarea"
+        type="text"
+        inputmode="decimal"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="e.g. 4500"
+        data-i18n-placeholder="tool.budget503020.incomePlaceholder"
+      />
+
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.budget503020.needsPct">Needs %</span>
+          <input type="number" id="opt-needs" min="0" max="100" step="0.1" value="50" />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.budget503020.wantsPct">Wants %</span>
+          <input type="number" id="opt-wants" min="0" max="100" step="0.1" value="30" />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.budget503020.savingsPct">Savings/Debt %</span>
+          <input type="number" id="opt-savings" min="0" max="100" step="0.1" value="20" />
+        </label>
+      </div>
+
+      <div class="tool-actions">
+        <button class="button button-secondary" type="button" id="btn-reset" data-i18n="tool.budget503020.reset">
+          Reset 50/30/20
+        </button>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="12"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.budget503020.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+

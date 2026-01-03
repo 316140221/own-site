@@ -1,0 +1,81 @@
+---
+layout: layouts/base.njk
+title: "CAGR Calculator"
+description: "Calculate compound annual growth rate (CAGR) and total return. Runs locally."
+pageScript: "/assets/tools/cagr.js"
+---
+
+<h1 data-i18n="tools.item.cagr.title">CAGR Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.cagr.start">Start value</span>
+          <input
+            type="text"
+            id="opt-start"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 10000"
+            data-i18n-placeholder="tool.cagr.startPlaceholder"
+          />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.cagr.end">End value</span>
+          <input
+            type="text"
+            id="opt-end"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 16000"
+            data-i18n-placeholder="tool.cagr.endPlaceholder"
+          />
+        </label>
+        <label class="tool-option">
+          <span data-i18n="tool.cagr.years">Years</span>
+          <input type="number" id="opt-years" min="0.1" max="100" step="0.1" value="5" />
+        </label>
+        <div class="tool-option" aria-label="Years presets">
+          <span data-i18n="tool.cagr.presets">Presets:</span>
+          <button class="tag-pill" type="button" data-years-preset="1">1</button>
+          <button class="tag-pill" type="button" data-years-preset="3">3</button>
+          <button class="tag-pill" type="button" data-years-preset="5">5</button>
+          <button class="tag-pill" type="button" data-years-preset="10">10</button>
+          <button class="tag-pill" type="button" data-years-preset="20">20</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="12"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.cagr.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
+
