@@ -13,6 +13,11 @@
         | safe
     }}
   </script>
+  <div hidden>
+    {% if article.category %}<span data-pagefind-filter="Category">{{ article.category }}</span>{% endif %}
+    {% if article.language %}<span data-pagefind-filter="Language">{{ article.language | lower }}</span>{% endif %}
+    {% if article.source and article.source.name %}<span data-pagefind-filter="Source">{{ article.source.name }}</span>{% endif %}
+  </div>
   <div class="article-header">
     <nav class="breadcrumbs" aria-label="Breadcrumb">
       <a href="{{ '/' | url }}" data-i18n="breadcrumbs.home">Home</a>

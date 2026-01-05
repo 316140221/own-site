@@ -1,7 +1,7 @@
-# 开发TODO（5轮迭代循环）
+# 开发TODO（30轮迭代循环）
 
 > 使用方式：每一轮都按「计划 → 实现 → 验收 → 更新文档」走一遍；完成一轮后立刻开始下一轮。  
-> 说明：本文档先规划 **5 轮**；第 5 轮完成后继续按同样节奏做第 6 轮、第 7 轮……（不要因为“5 轮”而停止迭代）。
+> 说明：本文档先规划 **30 轮**；第 30 轮完成后继续按同样节奏做第 31 轮、第 32 轮……（不要因为“30 轮”而停止迭代）。
 
 ## 已确认范围/约束（来自 `方案.md`）
 
@@ -144,3 +144,42 @@
 **验收标准**
 - `/languages/` 至少出现 2 种语言
 - `/lang/<code>/` 可分页且能稳定构建（英文 UI 文案不变）
+
+## 迭代 10（Loop 10）：采集/索引性能与多语言分类优化
+
+**目标**
+- 在不改变现有数据结构前提下，降低单次 update 的耗时与 I/O；同时让分类规则对非英文内容更友好。
+
+**TODO**
+- [x] 构建索引时并发读取文章 JSON（`INDEX_READ_CONCURRENCY` 可调）
+- [x] 写入 article JSON 使用原子写入（`wx`），避免多余 `stat` 并降低并发冲突风险
+- [x] HTTP 304 或非 2xx 时不读取响应 body，减少无效网络 I/O
+- [x] 分类规则支持 Unicode（非 ASCII 关键词用子串匹配，适配多语言内容）
+- [x] 提供 30 次循环运行脚本：`npm run loop:update`（可用 `LOOP_TIMES/LOOP_DELAY_MS` 调参）
+
+**验收标准**
+- `npm run indexes` 可稳定运行，索引输出与站点构建正常
+- 多语言内容接入后（语言字段非 `en`），分类不会因分词规则过窄而失效
+
+## 迭代 11-30（Loop 11-30）：可继续优化的方向（Backlog）
+
+- [x] Loop 11：接入 2+ 种非英文 RSS 源（已加入 `fr/es/ja/zh`），验证 `/languages/` 与 `/lang/<code>/`
+- [x] Loop 12：分类规则分语言（`data/category-rules.json` 支持 `languages.<code>`），并允许对特定语言禁用重分类
+- [x] Loop 13：增强长内容抽取（清洗“read more/subscribe/cookie”等样板行；`RSS_CONTENT_STRIP_BOILERPLATE=0` 可关闭）
+- [ ] Loop 14：URL 规范化增强（统一 `http/https`、`www`、移除更多跟踪参数/重定向规范）
+- [ ] Loop 15：故事聚类（同主题多源合并展示：标题相似度/指纹哈希）
+- [x] Loop 16：更强去重策略（索引阶段按 canonical URL 变体去重 + 生成旧 ID 跳转页：`INDEX_DEDUPE_URL_ALIASES=0` 可关闭）
+- [x] Loop 17：采集并发与限流（`FETCH_CONCURRENCY/FETCH_HOST_CONCURRENCY` + `FETCH_MIN_INTERVAL_MINUTES`，并支持源级 `minFetchIntervalMinutes`）
+- [ ] Loop 18：Sources 配置分组与标签（运营视角管理来源：主题/地区/语言）
+- [x] Loop 19：搜索体验增强（Pagefind 过滤：分类/语言/来源；Search 页默认展开过滤器）
+- [ ] Loop 20：可视化运行看板（趋势：新增/重复/失败、各分类/语言占比）
+- [ ] Loop 21：站点性能优化（首屏 CSS/JS 精简、图片占位减少 CLS、字体策略）
+- [ ] Loop 22：内容质量评分（摘要长度、来源权重、重复率、失败率），用于排序/推荐
+- [ ] Loop 23：Sitemap/Feeds 分页与限制策略（防止索引膨胀，确保抓取稳定）
+- [ ] Loop 24：数据归档策略增强（按月归档、可选仅保留索引 + 冷存储）
+- [ ] Loop 25：新增 “Trending/Top” 聚合页（按时间窗口与多源覆盖度排序）
+- [ ] Loop 26：增加 OPML 导出与导入（已提供导出 `/sources.opml`；导入待做）
+- [ ] Loop 27：可配置的分类列表（从 `site.config.json`/`data/categories.json` 驱动）
+- [ ] Loop 28：可访问性完善（键盘导航、对比度、aria 标签与焦点样式）
+- [ ] Loop 29：隐私与安全加固（referrer 策略、CSP meta、外链安全策略统一）
+- [ ] Loop 30：构建与部署优化（Actions cache、失败重试、分步产物与排障信息）

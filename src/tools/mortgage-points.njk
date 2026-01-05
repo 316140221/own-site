@@ -1,0 +1,82 @@
+---
+layout: layouts/base.njk
+title: "Mortgage Points Break-Even Calculator"
+description: "Compare buying points vs not and estimate break-even months. Runs locally."
+pageScript: "/assets/tools/mortgage-points.js"
+---
+
+<h1 data-i18n="tools.item.mortgage-points.title">Mortgage Points Break-Even Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.points.disclaimer">Estimates only. Not financial advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.points.loan">Loan amount</span>
+          <input
+            type="text"
+            id="opt-loan"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 400000"
+            data-i18n-placeholder="tool.points.loanPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.points.rateNo">Rate without points (APR %)</span>
+          <input type="number" id="opt-rate-no" min="0" max="50" step="0.01" value="6.50" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.points.rateWith">Rate with points (APR %)</span>
+          <input type="number" id="opt-rate-with" min="0" max="50" step="0.01" value="6.00" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.points.points">Points cost %</span>
+          <input type="number" id="opt-points" min="0" max="10" step="0.01" value="1.0" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.points.term">Term (years)</span>
+          <input type="number" id="opt-term" min="1" max="50" step="1" value="30" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.points.horizon">Years you expect to keep the loan</span>
+          <input type="number" id="opt-horizon" min="1" max="50" step="1" value="7" />
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="18"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.points.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>

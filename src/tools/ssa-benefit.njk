@@ -1,0 +1,77 @@
+---
+layout: layouts/base.njk
+title: "Social Security Benefit Estimator"
+description: "Roughly estimate Social Security retirement benefits (PIA) and claiming age adjustments. Runs locally."
+pageScript: "/assets/tools/ssa-benefit.js"
+---
+
+<h1 data-i18n="tools.item.ssa-benefit.title">Social Security Benefit Estimator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.ssa.disclaimer">Very rough estimate. Not official. Check SSA for your record.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.ssa.aime">Average indexed monthly earnings (AIME)</span>
+          <input
+            type="text"
+            id="opt-aime"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 6500"
+            data-i18n-placeholder="tool.ssa.aimePlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.ssa.fra">Full retirement age (FRA)</span>
+          <input type="number" id="opt-fra" min="66" max="67" step="0.01" value="67" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.ssa.claimAge">Claim age</span>
+          <input type="number" id="opt-claim" min="62" max="70" step="0.01" value="67" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.ssa.cola">Annual COLA % (assumption)</span>
+          <input type="number" id="opt-cola" min="0" max="10" step="0.1" value="2.0" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.ssa.yearsUntil">Years until claim</span>
+          <input type="number" id="opt-years" min="0" max="40" step="1" value="0" />
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="18"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.ssa.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>

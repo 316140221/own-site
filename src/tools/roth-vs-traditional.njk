@@ -1,0 +1,82 @@
+---
+layout: layouts/base.njk
+title: "Roth vs Traditional IRA Calculator"
+description: "Compare Roth vs Traditional after-tax value given tax rates now vs retirement. Runs locally."
+pageScript: "/assets/tools/roth-vs-traditional.js"
+---
+
+<h1 data-i18n="tools.item.roth-vs-traditional.title">Roth vs Traditional IRA Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.rothTrad.disclaimer">Estimates only. Not tax or investment advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.rothTrad.contribution">Annual contribution</span>
+          <input
+            type="text"
+            id="opt-contribution"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 6500"
+            data-i18n-placeholder="tool.rothTrad.contributionPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rothTrad.years">Years to invest</span>
+          <input type="number" id="opt-years" min="0" max="60" step="1" value="25" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rothTrad.return">Annual return %</span>
+          <input type="number" id="opt-return" min="0" max="20" step="0.1" value="7.0" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rothTrad.taxNow">Current marginal tax %</span>
+          <input type="number" id="opt-tax-now" min="0" max="70" step="0.1" value="24" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.rothTrad.taxFuture">Retirement tax %</span>
+          <input type="number" id="opt-tax-future" min="0" max="70" step="0.1" value="22" />
+        </label>
+
+        <label class="tool-option">
+          <input type="checkbox" id="opt-show-table" />
+          <span data-i18n="tool.rothTrad.showTable">Show yearly balances</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="18"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.rothTrad.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>

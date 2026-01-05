@@ -1,0 +1,99 @@
+---
+layout: layouts/base.njk
+title: "US Tax Bracket Calculator"
+description: "Estimate US federal income tax with 2024 brackets or custom brackets. Runs locally."
+pageScript: "/assets/tools/tax-bracket.js"
+---
+
+<h1 data-i18n="tools.item.tax-bracket.title">US Tax Bracket Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.taxBracket.disclaimer">Rough estimate only. Not tax advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.taxBracket.income">Annual income</span>
+          <input
+            type="text"
+            id="opt-income"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 120000"
+            data-i18n-placeholder="tool.taxBracket.incomePlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.taxBracket.status">Filing status</span>
+          <select id="opt-status">
+            <option value="single" data-i18n="tool.taxBracket.status.single">Single</option>
+            <option value="mfj" data-i18n="tool.taxBracket.status.mfj">Married filing jointly</option>
+          </select>
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.taxBracket.stdDeduction">Standard deduction (optional override)</span>
+          <input
+            type="text"
+            id="opt-deduction"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Leave blank to use 2024 default"
+            data-i18n-placeholder="tool.taxBracket.deductionPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <input type="checkbox" id="opt-custom" />
+          <span data-i18n="tool.taxBracket.useCustom">Use custom brackets</span>
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.taxBracket.customBrackets">Custom brackets (cap rate%)</span>
+          <textarea
+            id="opt-brackets"
+            class="tool-textarea"
+            rows="6"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g.&#10;11600 10&#10;47150 12&#10;100525 22&#10;191950 24&#10;243725 32&#10;609350 35&#10;∞ 37"
+            data-i18n-placeholder="tool.taxBracket.bracketsPlaceholder"
+          ></textarea>
+          <span class="muted small" data-i18n="tool.taxBracket.customNote">
+            Format: upper bound then rate %. Last line applies above the final bound. Use “inf” for no cap.
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="18"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.taxBracket.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>

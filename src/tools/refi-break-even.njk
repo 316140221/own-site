@@ -1,0 +1,90 @@
+---
+layout: layouts/base.njk
+title: "Refi Break-Even Calculator"
+description: "Estimate refinance break-even time from payment savings vs closing costs. Runs locally."
+pageScript: "/assets/tools/refi-break-even.js"
+---
+
+<h1 data-i18n="tools.item.refi-break-even.title">Refi Break-Even Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.refi.disclaimer">Estimates only. Not financial advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.refi.balance">Current balance</span>
+          <input
+            type="text"
+            id="opt-balance"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 320000"
+            data-i18n-placeholder="tool.refi.balancePlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.refi.currentRate">Current rate (APR %)</span>
+          <input type="number" id="opt-rate-current" min="0" max="100" step="0.01" value="6.50" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.refi.termRemaining">Remaining term (years)</span>
+          <input type="number" id="opt-term-current" min="1" max="50" step="1" value="27" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.refi.newRate">New rate (APR %)</span>
+          <input type="number" id="opt-rate-new" min="0" max="100" step="0.01" value="5.25" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.refi.termNew">New term (years)</span>
+          <input type="number" id="opt-term-new" min="1" max="50" step="1" value="30" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.refi.closing">Closing costs</span>
+          <input
+            type="text"
+            id="opt-closing"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 5000"
+            data-i18n-placeholder="tool.refi.closingPlaceholder"
+          />
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="18"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.refi.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>

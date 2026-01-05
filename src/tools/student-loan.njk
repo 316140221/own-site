@@ -1,0 +1,93 @@
+---
+layout: layouts/base.njk
+title: "Student Loan Payoff Calculator"
+description: "Estimate student loan payoff time and interest with extra payments. Runs locally."
+pageScript: "/assets/tools/student-loan.js"
+---
+
+<h1 data-i18n="tools.item.student-loan.title">Student Loan Payoff Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.studentLoan.disclaimer">Estimates only. Not financial advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.studentLoan.balance">Balance</span>
+          <input
+            type="text"
+            id="opt-balance"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 42000"
+            data-i18n-placeholder="tool.studentLoan.balancePlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.studentLoan.rate">APR %</span>
+          <input type="number" id="opt-rate" min="0" max="100" step="0.01" value="5.50" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.studentLoan.payment">Monthly payment</span>
+          <input
+            type="text"
+            id="opt-payment"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 350"
+            data-i18n-placeholder="tool.studentLoan.paymentPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.studentLoan.extra">Extra payment / month</span>
+          <input
+            type="text"
+            id="opt-extra"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 50"
+            data-i18n-placeholder="tool.studentLoan.extraPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <input type="checkbox" id="opt-show-schedule" />
+          <span data-i18n="tool.studentLoan.showSchedule">Show first 12 months</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="18"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.studentLoan.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>

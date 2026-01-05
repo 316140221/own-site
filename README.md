@@ -12,6 +12,7 @@
 
 - RSS → normalized JSON (`data/`) → static site (`dist/`)
 - Search powered by Pagefind (no external service)
+- OPML export for sources (`/sources.opml`)
 - A small tools section (Base64 / Base32 / Base58 / Base85 / ROT13 / Escape / Hex / URL / Unicode / HTML / Morse / QueryString / Regex / JSON / CSV / XML / Case / Lines / SHA / MD5 / MD4 / MD2 / CRC32 / HMAC / AES / RSA / File Hash / UUID / NanoID / Password / Lorem / JWT / Timestamp / Number Base / IPv4 CIDR / Color) running locally in the browser
 - Fully automated deploy via GitHub Actions + GitHub Pages
 
@@ -20,6 +21,7 @@
 - Install: `npm ci`
 - Local preview: `npm run dev`
 - Update data: `npm run update` (fetch RSS → cleanup old data → build indexes)
+- Loop update (default 30 runs): `npm run loop:update` (tune via `LOOP_TIMES`, `LOOP_DELAY_MS`, `LOOP_CONTINUE_ON_FAIL`)
 - Build site: `npm run build` (outputs to `dist/`)
 - Build + search index: `npm run build:site` (build + Pagefind)
 - Archive old data only: `npm run archive`
@@ -38,7 +40,7 @@ Edit `site.config.json` to customize site metadata and UI language options:
 
 This repo includes `.github/workflows/update-and-deploy.yml`:
 
-- Triggers on push to `main` and on a schedule (every 4 hours UTC)
+- Triggers on push to `main` and on a schedule (every 8 hours UTC)
 - Fetches RSS and updates `data/` on a separate `data` branch (keeps `main` clean)
 - Builds `dist/` and deploys to GitHub Pages
 
@@ -64,6 +66,12 @@ For local development, you can use a `.env` file (already gitignored). For GitHu
 - `RUN_HISTORY_DAYS` (default `30`, set `0` to disable)
 - `RSS_CONTENT_MAX_CHARS` (default `8000`, max chars kept from RSS long content)
 - `RSS_CONTENT_MIN_CHARS` (default `200`, minimum chars to store RSS long content)
+- `RSS_CONTENT_STRIP_BOILERPLATE` (default `1`, remove common “read more / subscribe / cookie” boilerplate lines from RSS long content)
+- `FETCH_CONCURRENCY` (default `4`, max concurrent RSS fetches)
+- `FETCH_HOST_CONCURRENCY` (default `2`, per-host fetch concurrency)
+- `FETCH_MIN_INTERVAL_MINUTES` (default `0`, skip refetching a source too soon)
+- `INDEX_READ_CONCURRENCY` (default `32`, max concurrent article reads during indexing)
+- `INDEX_DEDUPE_URL_ALIASES` (default `1`, dedupe articles by canonical URL variants such as `http/https`, `www`, and extra tracking params)
 - `SITE_URL` (site origin for canonical/feeds/sitemap, e.g. `https://shouyun.top`; do not include `/<repo>/`)
 - `PATH_PREFIX` (for GitHub Pages project sites, e.g. `/<repo>/` or `/`)
 - `GOOGLE_SITE_VERIFICATION` (optional: Google Search Console verification token)

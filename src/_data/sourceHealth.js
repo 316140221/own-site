@@ -17,10 +17,12 @@ module.exports = function () {
 
     const pausedUntil = st.pausedUntil || null;
     const pausedUntilDate = pausedUntil ? new Date(String(pausedUntil)) : null;
-    const isPaused =
+    const isPausedFromState =
       !!pausedUntilDate &&
       !Number.isNaN(pausedUntilDate.getTime()) &&
       now < pausedUntilDate.getTime();
+    const isPausedFromRun = ss.paused === true;
+    const isPaused = isPausedFromState || isPausedFromRun;
 
     const isFailing = ss.ok === false && !ss.paused;
     const statusCode = ss.status ?? st.lastStatus ?? null;

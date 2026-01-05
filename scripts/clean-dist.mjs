@@ -3,4 +3,4 @@ import path from "node:path";
 
 const distPath = path.resolve(process.cwd(), "dist");
 
-await fs.rm(distPath, { recursive: true, force: true });
+await fs.rm(distPath, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });

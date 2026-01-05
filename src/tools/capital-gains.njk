@@ -1,0 +1,104 @@
+---
+layout: layouts/base.njk
+title: "US Capital Gains Tax Calculator"
+description: "Estimate US capital gains tax (short/long term) with simple state add-on. Runs locally."
+pageScript: "/assets/tools/capital-gains.js"
+---
+
+<h1 data-i18n="tools.item.capital-gains.title">US Capital Gains Tax Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.capGains.disclaimer">Estimates only. Not tax advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.capGains.type">Holding period</span>
+          <select id="opt-type">
+            <option value="long" data-i18n="tool.capGains.type.long">Long term (≥ 1 year)</option>
+            <option value="short" data-i18n="tool.capGains.type.short">Short term (&lt; 1 year)</option>
+          </select>
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.capGains.proceeds">Proceeds</span>
+          <input
+            type="text"
+            id="opt-proceeds"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 120000"
+            data-i18n-placeholder="tool.capGains.proceedsPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.capGains.cost">Cost basis</span>
+          <input
+            type="text"
+            id="opt-cost"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="e.g. 70000"
+            data-i18n-placeholder="tool.capGains.costPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.capGains.taxableIncome">Taxable income (optional)</span>
+          <input
+            type="text"
+            id="opt-income"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="For long-term brackets"
+            data-i18n-placeholder="tool.capGains.incomePlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.capGains.filing">Filing status</span>
+          <select id="opt-filing">
+            <option value="single" data-i18n="tool.capGains.filing.single">Single</option>
+            <option value="mfj" data-i18n="tool.capGains.filing.mfj">Married filing jointly</option>
+          </select>
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.capGains.state">State tax % (optional)</span>
+          <input type="number" id="opt-state" min="0" max="20" step="0.1" value="0" />
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="18"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.capGains.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>

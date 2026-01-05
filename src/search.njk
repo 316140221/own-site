@@ -9,6 +9,7 @@ metaRobots: "noindex,follow"
 
 <p class="muted">
   <span data-i18n="search.notice1">Search works on the deployed build (Pagefind index is generated during</span>
+  <code>npm run build:site</code>
   <span data-i18n="search.notice2">).</span>
 </p>
 
@@ -25,6 +26,9 @@ metaRobots: "noindex,follow"
       showSubResults: true,
       resetStyles: false,
       autofocus: true,
+      showEmptyFilters: false,
+      openFilters: ["Category", "Language"],
+      excerptLength: 15,
     });
 
     const q = new URLSearchParams(window.location.search).get("q");

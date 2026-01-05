@@ -1,0 +1,88 @@
+---
+layout: layouts/base.njk
+title: "FICA / Payroll Tax Calculator"
+description: "Estimate Social Security and Medicare taxes (employee, employer, or self-employed) with wage base and Additional Medicare tax. Runs locally."
+pageScript: "/assets/tools/fica-tax.js"
+---
+
+<h1 data-i18n="tools.item.fica-tax.title">FICA / Payroll Tax Calculator</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.fica.disclaimer">Estimates only. Not tax advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.fica.income">Earned income (annual)</span>
+          <input
+            type="text"
+            id="opt-income"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 120000"
+            data-i18n-placeholder="tool.fica.incomePlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.fica.type">Mode</span>
+          <select id="opt-type">
+            <option value="employee" data-i18n="tool.fica.type.employee">Employee (W-2)</option>
+            <option value="employer" data-i18n="tool.fica.type.employer">Employer share</option>
+            <option value="both" data-i18n="tool.fica.type.both">Employee + employer</option>
+            <option value="self" data-i18n="tool.fica.type.self">Self-employed (SE tax)</option>
+          </select>
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.fica.status">Filing status (Additional Medicare)</span>
+          <select id="opt-status">
+            <option value="single" data-i18n="tool.fica.status.single">Single</option>
+            <option value="mfj" data-i18n="tool.fica.status.mfj">Married filing jointly</option>
+            <option value="mfs" data-i18n="tool.fica.status.mfs">Married filing separately</option>
+          </select>
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.fica.year">Year</span>
+          <select id="opt-year">
+            <option value="2024">2024</option>
+          </select>
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.fica.seFactor">Apply 92.35% net earnings factor (SE)</span>
+          <input type="checkbox" id="opt-se-factor" checked />
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="18"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.fica.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>
