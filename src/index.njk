@@ -2,7 +2,7 @@
 layout: layouts/base.njk
 rssPath: /feed.xml
 headerNavMode: minimal
-showNewsNav: false
+showNewsNav: true
 ---
 
 <h1>{{ site.name }}</h1>
@@ -14,6 +14,12 @@ showNewsNav: false
 
 <h2 data-i18n="home.start">Start</h2>
 <nav class="tool-cards" aria-label="Quick links">
+  <a class="tool-card" href="{{ '/page/1/' | url }}">
+    <div class="tool-card-title" data-i18n="home.latest">Latest</div>
+  </a>
+  <a class="tool-card" href="{{ '/trending/' | url }}">
+    <div class="tool-card-title" data-i18n="nav.trending">Trending</div>
+  </a>
   <a class="tool-card" href="{{ '/tools/' | url }}">
     <div class="tool-card-title" data-i18n="nav.tools">Tools</div>
   </a>
@@ -23,7 +29,42 @@ showNewsNav: false
   <a class="tool-card" href="{{ '/library/' | url }}">
     <div class="tool-card-title" data-i18n="nav.library">Library</div>
   </a>
+  <a class="tool-card" href="{{ '/sources/' | url }}">
+    <div class="tool-card-title" data-i18n="sources.title">Sources</div>
+  </a>
   <a class="tool-card" href="{{ '/about/' | url }}">
     <div class="tool-card-title" data-i18n="nav.about">About</div>
   </a>
 </nav>
+
+<h2 data-i18n="home.latest">Latest</h2>
+{% set items = (news.latest | slice(0, 8)) %}
+{% include "partials/news-list.njk" %}
+<p class="home-actions">
+  <a class="button button-secondary" href="{{ '/page/1/' | url }}" data-i18n="home.latestMore"
+    >View all</a
+  >
+  <a class="button button-secondary" href="{{ '/trending/' | url }}" data-i18n="nav.trending"
+    >Trending</a
+  >
+</p>
+
+<h2 data-i18n="home.tools">Tools</h2>
+<p class="muted" data-i18n="home.randomToolsNote">Random picks refreshed each build.</p>
+{% if home and home.randomTools and home.randomTools.length %}
+  <div class="tool-cards">
+    {% for t in home.randomTools %}
+      <a class="tool-card" href="{{ t.path | url }}">
+        <div class="tool-card-title" data-i18n="tools.item.{{ t.slug }}.title">{{ t.label }}</div>
+        {% if t.description %}
+          <div class="tool-card-desc" data-i18n="tools.item.{{ t.slug }}.desc">{{ t.description }}</div>
+        {% endif %}
+      </a>
+    {% endfor %}
+  </div>
+{% else %}
+  <p class="muted">No tools yet.</p>
+{% endif %}
+<p class="home-actions">
+  <a class="button button-secondary" href="{{ '/tools/' | url }}" data-i18n="home.toolsAll">All tools</a>
+</p>
