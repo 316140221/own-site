@@ -7,10 +7,8 @@ metaRobots: "noindex,follow"
 
 <h1 data-i18n="search.title">Search</h1>
 
-<p class="muted">
-  <span data-i18n="search.notice1">Search works on the deployed build (Pagefind index is generated during</span>
-  <code>npm run build:site</code>
-  <span data-i18n="search.notice2">).</span>
+<p class="muted" data-search-notice hidden role="status" aria-live="polite" data-i18n="search.notice">
+  Search is temporarily unavailable.
 </p>
 
 <link rel="stylesheet" href="{{ '/pagefind/pagefind-ui.css' | url }}" />
@@ -20,7 +18,12 @@ metaRobots: "noindex,follow"
 
 <script>
   window.addEventListener("DOMContentLoaded", () => {
-    if (!window.PagefindUI) return;
+    const notice = document.querySelector("[data-search-notice]");
+    if (!window.PagefindUI) {
+      if (notice) notice.hidden = false;
+      return;
+    }
+    if (notice) notice.hidden = true;
     const ui = new window.PagefindUI({
       element: "#search",
       showSubResults: true,

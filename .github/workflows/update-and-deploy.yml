@@ -22,6 +22,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -101,6 +102,17 @@ jobs:
           AMAZON_PAAPI_HOST: ${{ vars.AMAZON_PAAPI_HOST }}
           AMAZON_PAAPI_REGION: ${{ vars.AMAZON_PAAPI_REGION }}
           AMAZON_PAAPI_MARKETPLACE: ${{ vars.AMAZON_PAAPI_MARKETPLACE }}
+
+      - name: Upload run stats (debug)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: run-stats-${{ github.run_id }}
+          path: |
+            data/indexes/stats.json
+            data/indexes/fetch-stats.json
+          if-no-files-found: ignore
+          retention-days: 14
 
       - name: Upload archives (if any)
         uses: actions/upload-artifact@v4

@@ -25,6 +25,7 @@ pageScript: /assets/sources.js
     placeholder="Filter sources…"
     autocomplete="off"
     data-source-filter
+    aria-describedby="source-filter-status"
   />
   {% if sourceTags and sourceTags.length %}
     <div class="source-tag-filters" aria-label="Source tags">
@@ -34,11 +35,18 @@ pageScript: /assets/sources.js
       {% endfor %}
     </div>
   {% endif %}
-  <p class="muted small source-filter-status" data-source-filter-status></p>
+  <p
+    class="muted small source-filter-status"
+    id="source-filter-status"
+    data-source-filter-status
+    role="status"
+    aria-live="polite"
+  ></p>
 </div>
 
 <div class="table-wrap">
-  <table class="table">
+  <table class="table" id="sources-table">
+    <caption class="sr-only">Sources</caption>
     <thead>
       <tr>
         <th scope="col">Source</th>

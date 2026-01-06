@@ -1,134 +1,21 @@
 ---
 permalink: /sitemap.xml
+layout: null
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  {# Core pages #}
-  <url>
-    <loc>{{ '/' | url | absoluteUrl(site.url) }}</loc>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>{{ sitemaps.coreSitemap | url | absoluteUrl(site.url) }}</loc>
     <lastmod>{{ buildTime | formatDate }}</lastmod>
-  </url>
-  <url>
-    <loc>{{ '/about/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
-  </url>
-  <url>
-    <loc>{{ '/contact/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
-  </url>
-  <url>
-    <loc>{{ '/terms/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
-  </url>
-  <url>
-    <loc>{{ '/privacy/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
-  </url>
-  <url>
-    <loc>{{ '/affiliate-disclosure/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
-  </url>
-  <url>
-    <loc>{{ '/takedown/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
-  </url>
-  <url>
-    <loc>{{ '/sources/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
-  </url>
-  <url>
-    <loc>{{ '/runs/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
-  </url>
-  <url>
-    <loc>{{ '/trending/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
-  </url>
-  <url>
-    <loc>{{ '/languages/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
-  </url>
-  <url>
-    <loc>{{ '/tools/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
-  </url>
-  {% if amazon and amazon.enabled %}
-    <url>
-      <loc>{{ '/shop/' | url | absoluteUrl(site.url) }}</loc>
-      <lastmod>{{ buildTime | formatDate }}</lastmod>
-    </url>
-  {% endif %}
-
-  {% if tools and tools.all and tools.all.length %}
-    {% for t in tools.all %}
-      <url>
-        <loc>{{ t.path | url | absoluteUrl(site.url) }}</loc>
+  </sitemap>
+  {% if sitemaps and sitemaps.articleSitemaps and sitemaps.articleSitemaps.length %}
+    {% for p in sitemaps.articleSitemaps %}
+      <sitemap>
+        <loc>{{ p | url | absoluteUrl(site.url) }}</loc>
         <lastmod>{{ buildTime | formatDate }}</lastmod>
-      </url>
+      </sitemap>
     {% endfor %}
   {% endif %}
+</sitemapindex>
 
-  {# Paginated list pages #}
-  {% if latestPages and latestPages.length %}
-    {% for p in latestPages %}
-      <url>
-        <loc>{{ ('/page/' + (p.pageNumber + 1) + '/') | url | absoluteUrl(site.url) }}</loc>
-        <lastmod>{{ buildTime | formatDate }}</lastmod>
-      </url>
-    {% endfor %}
-  {% endif %}
-
-  {% if categoryPages and categoryPages.length %}
-    {% for p in categoryPages %}
-      <url>
-        {% if p.pageNumber == 0 %}
-          <loc>{{ ('/category/' + p.slug + '/') | url | absoluteUrl(site.url) }}</loc>
-        {% else %}
-          <loc>{{ ('/category/' + p.slug + '/page/' + (p.pageNumber + 1) + '/') | url | absoluteUrl(site.url) }}</loc>
-        {% endif %}
-        <lastmod>{{ buildTime | formatDate }}</lastmod>
-      </url>
-    {% endfor %}
-  {% endif %}
-
-  {% if languagePages and languagePages.length %}
-    {% for p in languagePages %}
-      <url>
-        {% if p.pageNumber == 0 %}
-          <loc>{{ ('/lang/' + p.code + '/') | url | absoluteUrl(site.url) }}</loc>
-        {% else %}
-          <loc>{{ ('/lang/' + p.code + '/page/' + (p.pageNumber + 1) + '/') | url | absoluteUrl(site.url) }}</loc>
-        {% endif %}
-        <lastmod>{{ buildTime | formatDate }}</lastmod>
-      </url>
-    {% endfor %}
-  {% endif %}
-
-  {% if sourcePages and sourcePages.length %}
-    {% for p in sourcePages %}
-      {% if p.items and p.items.length %}
-        <url>
-          {% if p.pageNumber == 0 %}
-            <loc>{{ ('/source/' + p.id + '/') | url | absoluteUrl(site.url) }}</loc>
-          {% else %}
-            <loc>{{ ('/source/' + p.id + '/page/' + (p.pageNumber + 1) + '/') | url | absoluteUrl(site.url) }}</loc>
-          {% endif %}
-          <lastmod>{{ buildTime | formatDate }}</lastmod>
-        </url>
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-
-  {# Article pages #}
-  {% if articles and articles.length %}
-    {% for entry in articles %}
-      <url>
-        <loc>{{ ('/p/' + entry.id + '/') | url | absoluteUrl(site.url) }}</loc>
-        {% if entry.publishedAt %}
-          <lastmod>{{ entry.publishedAt | formatDate }}</lastmod>
-        {% endif %}
-      </url>
-    {% endfor %}
-  {% endif %}
-</urlset>

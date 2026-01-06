@@ -60,8 +60,7 @@ const I18N = {
     "search.title": "Search",
     "search.placeholder": "Search… (/)",
     "search.go": "Go",
-    "search.notice1": "Search works on the deployed build (Pagefind index is generated during",
-    "search.notice2": ").",
+    "search.notice": "Search is temporarily unavailable.",
 
     "home.tools": "Tools",
     "home.start": "Start",
@@ -72,6 +71,7 @@ const I18N = {
     "home.shopBrowse": "Browse:",
     "home.toolsAll": "All tools",
     "home.randomToolsNote": "Random picks refreshed each build.",
+    "news.empty": "No updates yet.",
 
     "article.copy": "Copy link",
     "article.share": "Share",
@@ -133,8 +133,7 @@ const I18N = {
     "shop.updatedAt": "Updated",
     "shop.disclaimer": "As an Amazon Associate I earn from qualifying purchases.",
     "shop.empty": "No items yet.",
-    "shop.disabled": "Not enabled. Configure",
-    "shop.disabled2": "and run",
+    "shop.disabled": "Shop is not available right now.",
 
     "tools.title": "Tools",
     "tools.subtitle": "All tools run locally in your browser. Nothing is uploaded.",
@@ -2047,8 +2046,7 @@ const I18N = {
     "search.title": "搜索",
     "search.placeholder": "搜索…（/）",
     "search.go": "搜索",
-    "search.notice1": "搜索仅在部署后可用（Pagefind 索引会在运行",
-    "search.notice2": "时生成）。",
+    "search.notice": "搜索暂不可用，请稍后再试。",
 
     "home.tools": "工具",
     "home.start": "开始",
@@ -2059,6 +2057,7 @@ const I18N = {
     "home.shopBrowse": "快速浏览：",
     "home.toolsAll": "全部工具",
     "home.randomToolsNote": "随机推荐（每次构建会更新）。",
+    "news.empty": "暂无内容。",
 
     "article.copy": "复制链接",
     "article.share": "分享",
@@ -2120,8 +2119,7 @@ const I18N = {
     "shop.updatedAt": "更新时间",
     "shop.disclaimer": "作为亚马逊联盟会员，我们可能会从符合条件的购买中获得佣金。",
     "shop.empty": "暂无商品。",
-    "shop.disabled": "未启用。请配置",
-    "shop.disabled2": "然后运行",
+    "shop.disabled": "购物功能暂不可用。",
 
     "tools.title": "工具",
     "tools.subtitle": "所有工具均在浏览器本地运行，不会上传内容。",

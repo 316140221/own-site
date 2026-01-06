@@ -8,11 +8,12 @@ rssPath: /feed.xml
 
 {% if runHistory and runHistory.runs and runHistory.runs.length %}
   <p class="muted">
-    Recent {{ runHistory.runs.length }} runs (kept by <code>RUN_HISTORY_DAYS</code>).
+    Recent {{ runHistory.runs.length }} runs.
   </p>
 
   <div class="table-wrap">
     <table class="table">
+      <caption class="sr-only">Run history</caption>
       <thead>
         <tr>
           <th scope="col">Finished</th>
@@ -61,6 +62,6 @@ rssPath: /feed.xml
   </div>
 {% else %}
   <p class="muted">
-    No run history yet. Run <code>npm run update</code> with <code>RUN_HISTORY_DAYS</code> &gt; 0.
+    No run history yet. Check back after the next update.
   </p>
 {% endif %}
