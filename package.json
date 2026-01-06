@@ -12,6 +12,7 @@
     "indexes": "node scripts/build-indexes.mjs",
     "update": "node scripts/update.mjs",
     "loop:update": "node scripts/loop.mjs -- node scripts/update.mjs",
+    "import:opml": "node scripts/import-opml.mjs",
     "pagefind": "pagefind --site dist",
     "build:site": "npm run build && npm run pagefind"
   },

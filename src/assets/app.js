@@ -6,6 +6,7 @@ const I18N = {
     "nav.home": "Home",
     "nav.shop": "Shop",
     "nav.news": "News",
+    "nav.trending": "Trending",
     "nav.tools": "Tools",
     "nav.toolsAll": "All tools",
     "nav.categories": "Categories",
@@ -95,6 +96,8 @@ const I18N = {
     "languages.empty": "No languages detected.",
 
     "sources.title": "Sources",
+    "sources.filterLabel": "Filter sources",
+    "sources.filterPlaceholder": "Filter sources…",
 
     "shop.title": "Shop",
     "shop.subtitle": "Curated Amazon items. Purchases via links may earn us a commission.",
@@ -1989,6 +1992,7 @@ const I18N = {
     "nav.home": "首页",
     "nav.shop": "购物",
     "nav.news": "新闻",
+    "nav.trending": "热点",
     "nav.tools": "工具",
     "nav.toolsAll": "全部工具",
     "nav.categories": "分类",
@@ -2076,6 +2080,8 @@ const I18N = {
     "languages.empty": "暂无语言。",
 
     "sources.title": "来源",
+    "sources.filterLabel": "筛选来源",
+    "sources.filterPlaceholder": "筛选来源…",
 
     "shop.title": "购物",
     "shop.subtitle": "亚马逊精选商品。通过我们的链接购买，我们可能会获得佣金。",

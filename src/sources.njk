@@ -2,6 +2,7 @@
 layout: layouts/base.njk
 title: Sources
 rssPath: /feed.xml
+pageScript: /assets/sources.js
 ---
 
 <h1 data-i18n="sources.title">Sources</h1>
@@ -14,24 +15,54 @@ rssPath: /feed.xml
   </p>
 {% endif %}
 
+<div class="source-filters">
+  <label class="sr-only" for="source-filter-q" data-i18n="sources.filterLabel">Filter sources</label>
+  <input
+    class="source-filter-input"
+    type="search"
+    id="source-filter-q"
+    data-i18n-placeholder="sources.filterPlaceholder"
+    placeholder="Filter sources…"
+    autocomplete="off"
+    data-source-filter
+  />
+  {% if sourceTags and sourceTags.length %}
+    <div class="source-tag-filters" aria-label="Source tags">
+      <a class="tag-pill" href="{{ '/sources/' | url }}">All</a>
+      {% for tag in sourceTags %}
+        <a class="tag-pill" href="{{ ('/sources/?tag=' + tag.param) | url }}">{{ tag.label }}</a>
+      {% endfor %}
+    </div>
+  {% endif %}
+  <p class="muted small source-filter-status" data-source-filter-status></p>
+</div>
+
 <div class="table-wrap">
   <table class="table">
     <thead>
       <tr>
-        <th>Source</th>
-        <th>Category</th>
-        <th>Status</th>
-        <th>Last fetch</th>
-        <th>Last success</th>
-        <th>Paused</th>
-        <th>Added</th>
-        <th>Dup</th>
-        <th>Fail streak</th>
+        <th scope="col">Source</th>
+        <th scope="col">Category</th>
+        <th scope="col">Status</th>
+        <th scope="col">Last fetch</th>
+        <th scope="col">Last success</th>
+        <th scope="col">Paused</th>
+        <th scope="col">Added</th>
+        <th scope="col">Dup</th>
+        <th scope="col">Fail streak</th>
       </tr>
     </thead>
     <tbody>
       {% for s in sourceHealth %}
-        <tr class="{% if s.isFailing %}row-bad{% elseif s.isPaused %}row-paused{% endif %}">
+        <tr
+          class="{% if s.isFailing %}row-bad{% elseif s.isPaused %}row-paused{% endif %}"
+          data-source-id="{{ s.id }}"
+          data-source-name="{{ s.name }}"
+          data-source-category="{{ s.category }}"
+          data-source-language="{{ s.language }}"
+          data-source-country="{{ s.country or '' }}"
+          data-source-tags="{{ (s.tags or []) | join(',') }}"
+        >
           <td>
             <div>
               <strong><a href="{{ ('/source/' + s.id + '/') | url }}">{{ s.name }}</a></strong>
@@ -45,6 +76,12 @@ rssPath: /feed.xml
               ·
               <span class="muted">{{ s.id }}</span>
               {% if not s.enabled %}· <span class="badge">disabled</span>{% endif %}
+              {% if s.tags and s.tags.length %}
+                ·
+                {% for tag in s.tags %}
+                  <span class="badge">{{ tag }}</span>
+                {% endfor %}
+              {% endif %}
             </div>
             {% if s.run.error or s.lastError %}
               <div class="muted small">

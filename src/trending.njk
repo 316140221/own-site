@@ -1,0 +1,70 @@
+---
+layout: layouts/base.njk
+title: Trending
+rssPath: /feed.xml
+---
+
+<h1>Trending</h1>
+
+<p class="muted">
+  Stories are clustered by similar titles from the last {{ stories.windowHours }} hours.
+</p>
+
+{% if stories and stories.items and stories.items.length %}
+  <ol class="story-list">
+    {% for story in stories.items %}
+      <li class="story">
+        <div class="story-head">
+          {% set primaryId = "" %}
+          {% if story.items and story.items.length %}
+            {% set primaryId = story.items[0].id %}
+          {% endif %}
+          <h2 class="story-title">
+            {% if primaryId %}
+              <a href="{{ ('/p/' + primaryId + '/') | url }}">{{ story.title | decodeEntities }}</a>
+            {% else %}
+              {{ story.title | decodeEntities }}
+            {% endif %}
+          </h2>
+          <div class="story-meta muted small">
+            {{ story.publishedAt | formatDateTime }} · Coverage {{ story.coverage }}
+          </div>
+          {% if story.sources and story.sources.length %}
+            <div class="story-sources">
+              {% for s in story.sources %}
+                <span class="badge">{{ s }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+
+        {% if story.items and story.items.length > 1 %}
+          <details class="story-details">
+            <summary>See {{ story.items.length }} articles</summary>
+            <ul class="story-items">
+              {% for item in story.items %}
+                <li class="story-item">
+                  <a href="{{ ('/p/' + item.id + '/') | url }}">{{ item.source.name }}:</a>
+                  <a href="{{ ('/p/' + item.id + '/') | url }}">{{ item.title | decodeEntities }}</a>
+                  <span class="muted small">· {{ item.publishedAt | formatDateTime }}</span>
+                </li>
+              {% endfor %}
+            </ul>
+          </details>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ol>
+{% else %}
+  <p class="muted">
+    No stories yet. Run <code>npm run update</code> or <code>npm run indexes</code>.
+  </p>
+{% endif %}
+
+<h2>Top</h2>
+<p class="muted">
+  Highest-quality items from the last {{ top.windowHours }} hours (heuristic scoring).
+</p>
+
+{% set items = top.items %}
+{% include "partials/news-list.njk" %}

@@ -166,20 +166,20 @@
 - [x] Loop 11：接入 2+ 种非英文 RSS 源（已加入 `fr/es/ja/zh`），验证 `/languages/` 与 `/lang/<code>/`
 - [x] Loop 12：分类规则分语言（`data/category-rules.json` 支持 `languages.<code>`），并允许对特定语言禁用重分类
 - [x] Loop 13：增强长内容抽取（清洗“read more/subscribe/cookie”等样板行；`RSS_CONTENT_STRIP_BOILERPLATE=0` 可关闭）
-- [ ] Loop 14：URL 规范化增强（统一 `http/https`、`www`、移除更多跟踪参数/重定向规范）
-- [ ] Loop 15：故事聚类（同主题多源合并展示：标题相似度/指纹哈希）
+- [x] Loop 14：URL 规范化增强（统一 `http/https`、`www`、移除更多跟踪参数；提升去重与 ID 稳定性）
+- [x] Loop 15：故事聚类（生成 `data/indexes/stories.json`，并提供 `/trending/` 聚合展示）
 - [x] Loop 16：更强去重策略（索引阶段按 canonical URL 变体去重 + 生成旧 ID 跳转页：`INDEX_DEDUPE_URL_ALIASES=0` 可关闭）
 - [x] Loop 17：采集并发与限流（`FETCH_CONCURRENCY/FETCH_HOST_CONCURRENCY` + `FETCH_MIN_INTERVAL_MINUTES`，并支持源级 `minFetchIntervalMinutes`）
-- [ ] Loop 18：Sources 配置分组与标签（运营视角管理来源：主题/地区/语言）
+- [x] Loop 18：Sources 配置分组与标签（支持 `sources.json` 的 `tags`，并在 `/sources/` 提供按 tag 与关键字筛选）
 - [x] Loop 19：搜索体验增强（Pagefind 过滤：分类/语言/来源；Search 页默认展开过滤器）
-- [ ] Loop 20：可视化运行看板（趋势：新增/重复/失败、各分类/语言占比）
+- [x] Loop 20：可视化运行看板（新增 `/runs/`：最近运行列表 + 简单趋势条）
 - [ ] Loop 21：站点性能优化（首屏 CSS/JS 精简、图片占位减少 CLS、字体策略）
 - [ ] Loop 22：内容质量评分（摘要长度、来源权重、重复率、失败率），用于排序/推荐
 - [ ] Loop 23：Sitemap/Feeds 分页与限制策略（防止索引膨胀，确保抓取稳定）
 - [ ] Loop 24：数据归档策略增强（按月归档、可选仅保留索引 + 冷存储）
-- [ ] Loop 25：新增 “Trending/Top” 聚合页（按时间窗口与多源覆盖度排序）
-- [ ] Loop 26：增加 OPML 导出与导入（已提供导出 `/sources.opml`；导入待做）
-- [ ] Loop 27：可配置的分类列表（从 `site.config.json`/`data/categories.json` 驱动）
+- [x] Loop 25：新增 “Trending/Top” 聚合页（`/trending/` + `data/indexes/top.json`，按时间窗口与评分排序）
+- [x] Loop 26：增加 OPML 导出与导入（导出 `/sources.opml`；导入 `npm run import:opml <file.opml>`）
+- [x] Loop 27：可配置的分类列表（新增 `data/categories.json` 驱动分类导航与分页）
 - [ ] Loop 28：可访问性完善（键盘导航、对比度、aria 标签与焦点样式）
 - [ ] Loop 29：隐私与安全加固（referrer 策略、CSP meta、外链安全策略统一）
 - [ ] Loop 30：构建与部署优化（Actions cache、失败重试、分步产物与排障信息）

@@ -14,6 +14,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
 
     {% set metaTitle = site.name %}
     {% if title %}
@@ -314,10 +315,19 @@
     {% endif %}
     <script type="application/ld+json">{{ { '@context': 'https://schema.org', '@graph': schemaGraph } | jsonLd | safe }}</script>
 
+    {% set rssTitle = site.name + ' RSS' %}
+    {% if catPage and catPage.label %}
+      {% set rssTitle = site.name + ' - ' + catPage.label %}
+    {% elif langPage and langPage.label %}
+      {% set rssTitle = site.name + ' - ' + langPage.label %}
+    {% elif sourcePage and sourcePage.name %}
+      {% set rssTitle = site.name + ' - ' + sourcePage.name %}
+    {% endif %}
+
     <link
       rel="alternate"
       type="application/rss+xml"
-      title="{{ site.name }} RSS"
+      title="{{ rssTitle }}"
       href="{{ (rssPath or '/feed.xml') | url }}"
     />
 
@@ -427,10 +437,13 @@
           {% if showNewsNavResolved and categories %}
             {% if headerNavModeResolved == 'minimal' %}
               <a href="{{ '/page/1/' | url }}" data-i18n="home.latest">Latest</a>
+              <a href="{{ '/trending/' | url }}" data-i18n="nav.trending">Trending</a>
             {% else %}
               <details class="nav-dropdown" data-nav-section="news">
                 <summary data-i18n="nav.news">News</summary>
                 <div class="nav-dropdown-menu">
+                  <a class="nav-dropdown-top" href="{{ '/page/1/' | url }}" data-i18n="home.latest">Latest</a>
+                  <a class="nav-dropdown-top" href="{{ '/trending/' | url }}" data-i18n="nav.trending">Trending</a>
                   {% for cat in categories %}
                     <a href="{{ ('/category/' + cat.slug + '/') | url }}">{{ cat.label }}</a>
                   {% endfor %}

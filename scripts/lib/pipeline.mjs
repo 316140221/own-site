@@ -227,22 +227,60 @@ function computePausedUntil({
   return new Date(baseTime + hours * 60 * 60 * 1000).toISOString();
 }
 
+const TRACKING_QUERY_PARAMS = new Set([
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_term",
+  "utm_content",
+  "utm_id",
+  "utm_reader",
+  "utm_name",
+  "utm_referrer",
+  "utm_social",
+  "utm_social-type",
+  "gclid",
+  "fbclid",
+  "igshid",
+  "mc_cid",
+  "mc_eid",
+  "ref",
+  "ref_src",
+  "ref_url",
+  "cmp",
+  "cmpid",
+  "ocid",
+  "icid",
+  "ncid",
+  "mkt_tok",
+  "spm",
+  "scid",
+  "_hsenc",
+  "_hsmi",
+  "amp",
+]);
+
 export function normalizeUrl(url) {
   try {
     const parsed = new URL(url);
     parsed.hash = "";
     parsed.hostname = parsed.hostname.toLowerCase();
+    if (parsed.hostname.startsWith("www.")) parsed.hostname = parsed.hostname.slice(4);
+
+    if (
+      (parsed.protocol === "http:" && parsed.port === "80") ||
+      (parsed.protocol === "https:" && parsed.port === "443")
+    ) {
+      parsed.port = "";
+    }
+    if (parsed.protocol === "http:") parsed.protocol = "https:";
 
     const toDelete = [];
     for (const [key] of parsed.searchParams) {
       const lower = key.toLowerCase();
       if (
         lower.startsWith("utm_") ||
-        lower === "gclid" ||
-        lower === "fbclid" ||
-        lower === "igshid" ||
-        lower === "mc_cid" ||
-        lower === "mc_eid"
+        TRACKING_QUERY_PARAMS.has(lower)
       ) {
         toDelete.push(key);
       }
@@ -272,31 +310,12 @@ function normalizeUrlForDedupeKey(url) {
     const parsed = new URL(normalized);
     parsed.hash = "";
     parsed.hostname = parsed.hostname.toLowerCase();
-    if (parsed.hostname.startsWith("www.")) parsed.hostname = parsed.hostname.slice(4);
-
-    if (
-      (parsed.protocol === "http:" && parsed.port === "80") ||
-      (parsed.protocol === "https:" && parsed.port === "443")
-    ) {
-      parsed.port = "";
-    }
-    if (parsed.protocol === "http:") parsed.protocol = "https:";
 
     const toDelete = [];
     for (const [key] of parsed.searchParams) {
       const lower = key.toLowerCase();
       if (
-        lower === "ref" ||
-        lower === "ref_src" ||
-        lower === "ref_url" ||
-        lower === "cmp" ||
-        lower === "cmpid" ||
-        lower === "ocid" ||
-        lower === "icid" ||
-        lower === "ncid" ||
-        lower === "mkt_tok" ||
-        lower === "spm" ||
-        lower === "scid"
+        TRACKING_QUERY_PARAMS.has(lower)
       ) {
         toDelete.push(key);
       }
@@ -324,7 +343,41 @@ function scoreArticleQuality(article) {
   const imageScore = article?.image ? 10 : 0;
   const summaryScore = Math.min(summaryLen, 400) / 40;
   const contentScore = Math.min(contentLen, 2000) / 200;
-  return imageScore + summaryScore + contentScore;
+  const weightRaw = article?.source?.weight;
+  const weight = Number(weightRaw);
+  const sourceWeight = Number.isFinite(weight)
+    ? Math.max(0.5, Math.min(2, weight))
+    : 1;
+  return (imageScore + summaryScore + contentScore) * sourceWeight;
+}
+
+function normalizeTitleForStoryKey(title, sourceName) {
+  const rawTitle = normalizeWhitespace(decodeHtmlEntities(String(title || "")));
+  if (!rawTitle) return "";
+
+  let text = rawTitle.toLowerCase();
+  const source = normalizeWhitespace(String(sourceName || "")).toLowerCase();
+
+  if (source) {
+    const suffixes = [` - ${source}`, ` – ${source}`, ` — ${source}`, ` | ${source}`, ` · ${source}`];
+    for (const suffix of suffixes) {
+      if (text.endsWith(suffix)) {
+        text = text.slice(0, -suffix.length).trim();
+        break;
+      }
+    }
+  }
+
+  text = text.replace(/https?:\/\/\S+/g, " ");
+  text = text.replace(/[^\p{L}\p{N}]+/gu, " ");
+  text = normalizeWhitespace(text);
+  if (!text) return "";
+  return text.length > 220 ? text.slice(0, 220) : text;
+}
+
+function safeMs(value) {
+  const ms = Date.parse(String(value || ""));
+  return Number.isFinite(ms) ? ms : 0;
 }
 
 function computeId(canonicalUrl) {
@@ -476,6 +529,113 @@ async function fetchResponseWithTimeout(url, { headers }, timeoutMs) {
   }
 }
 
+function sleep(ms) {
+  const delay = Number(ms);
+  if (!Number.isFinite(delay) || delay <= 0) return Promise.resolve();
+  return new Promise((resolve) => setTimeout(resolve, delay));
+}
+
+function parseRetryAfterMs(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return null;
+
+  const seconds = Number.parseInt(raw, 10);
+  if (Number.isFinite(seconds) && seconds >= 0) return seconds * 1000;
+
+  const when = Date.parse(raw);
+  if (!Number.isFinite(when)) return null;
+  const diff = when - Date.now();
+  return diff > 0 ? diff : 0;
+}
+
+function computeBackoffMs({ attempt, baseDelayMs, maxDelayMs }) {
+  const base = Number(baseDelayMs);
+  const max = Number(maxDelayMs);
+  const baseOk = Number.isFinite(base) && base > 0 ? base : 500;
+  const maxOk = Number.isFinite(max) && max > 0 ? max : 8000;
+
+  const exp = Math.min(10, Math.max(0, Number(attempt) || 0));
+  const raw = Math.min(maxOk, baseOk * 2 ** exp);
+  const jitter = raw * (0.15 * (Math.random() * 2 - 1));
+  return Math.max(0, Math.round(raw + jitter));
+}
+
+function isRetryableStatus(status) {
+  return (
+    status === 408 ||
+    status === 425 ||
+    status === 429 ||
+    status === 500 ||
+    status === 502 ||
+    status === 503 ||
+    status === 504
+  );
+}
+
+async function fetchResponseWithRetry(
+  url,
+  { headers },
+  timeoutMs,
+  { retries = 2, baseDelayMs = 500, maxDelayMs = 8000 } = {}
+) {
+  const maxRetries = Number.parseInt(retries || 0, 10);
+  const allowedRetries = Number.isFinite(maxRetries) ? Math.max(0, Math.min(10, maxRetries)) : 0;
+
+  let attempt = 0;
+  let retriesUsed = 0;
+  let lastError = null;
+
+  while (attempt <= allowedRetries) {
+    try {
+      const response = await fetchResponseWithTimeout(url, { headers }, timeoutMs);
+      if (response.ok || response.status === 304) {
+        return { response, retriesUsed };
+      }
+
+      if (attempt < allowedRetries && isRetryableStatus(response.status)) {
+        retriesUsed += 1;
+        const retryAfter = parseRetryAfterMs(response.headers.get("retry-after"));
+        try {
+          await response.body?.cancel();
+        } catch {
+          // ignore
+        }
+        const delayMs =
+          retryAfter !== null
+            ? Math.min(Math.max(0, retryAfter), Number(maxDelayMs) || 8000)
+            : computeBackoffMs({ attempt, baseDelayMs, maxDelayMs });
+        await sleep(delayMs);
+        attempt += 1;
+        continue;
+      }
+
+      return { response, retriesUsed };
+    } catch (error) {
+      lastError = error;
+
+      const name = error && typeof error === "object" ? error.name : "";
+      const retryable =
+        name === "AbortError" ||
+        (error instanceof TypeError && String(error.message || "").includes("fetch"));
+      if (attempt < allowedRetries && retryable) {
+        retriesUsed += 1;
+        const delayMs = computeBackoffMs({ attempt, baseDelayMs, maxDelayMs });
+        await sleep(delayMs);
+        attempt += 1;
+        continue;
+      }
+
+      throw error;
+    }
+  }
+
+  if (lastError) throw lastError;
+  return fetchResponseWithTimeout(url, { headers }, timeoutMs).then((response) => ({
+    response,
+    retriesUsed,
+  }));
+}
+
 async function mapLimit(items, limit, mapper) {
   const list = Array.isArray(items) ? items : [];
   const max = Number.parseInt(limit || 0, 10) || 1;
@@ -538,6 +698,9 @@ export async function fetchAllSources({
   const contentMaxChars = Number.parseInt(process.env.RSS_CONTENT_MAX_CHARS || "8000", 10);
   const contentMinChars = Number.parseInt(process.env.RSS_CONTENT_MIN_CHARS || "200", 10);
   const minIntervalMinutes = Number.parseInt(process.env.FETCH_MIN_INTERVAL_MINUTES || "0", 10);
+  const fetchRetries = Number.parseInt(process.env.FETCH_RETRIES || "2", 10);
+  const fetchRetryDelayMs = Number.parseInt(process.env.FETCH_RETRY_DELAY_MS || "500", 10);
+  const fetchRetryMaxDelayMs = Number.parseInt(process.env.FETCH_RETRY_MAX_DELAY_MS || "8000", 10);
   const stripBoilerplate =
     String(process.env.RSS_CONTENT_STRIP_BOILERPLATE || "1").toLowerCase() === "1" ||
     String(process.env.RSS_CONTENT_STRIP_BOILERPLATE || "").toLowerCase() === "true";
@@ -628,6 +791,7 @@ export async function fetchAllSources({
       paused: false,
       status: null,
       error: null,
+      retries: 0,
       fetchedAt: nowIso(),
       parsedItems: 0,
       added: 0,
@@ -678,11 +842,18 @@ export async function fetchAllSources({
       }
 
       try {
-        const response = await fetchResponseWithTimeout(
+        const { response, retriesUsed } = await fetchResponseWithRetry(
           source.feedUrl,
           { headers },
-          timeoutMs
+          timeoutMs,
+          {
+            retries: fetchRetries,
+            baseDelayMs: fetchRetryDelayMs,
+            maxDelayMs: fetchRetryMaxDelayMs,
+          }
         );
+
+        perSource.retries = retriesUsed;
 
         perSource.status = response.status;
 
@@ -814,6 +985,7 @@ export async function fetchAllSources({
               feedUrl: source.feedUrl,
               country: source.country || null,
               language: source.language || null,
+              weight: source.weight ?? null,
             },
             publishedAt,
             fetchedAt: perSource.fetchedAt,
@@ -1027,11 +1199,31 @@ export async function cleanupOldArticles({
 
   let archivePath = null;
   if (archive) {
-    const resolvedArchiveDir = path.resolve(ROOT, String(archiveDir || "archives"));
-    const baseName = `articles-before-${cutoffDateStr}.tgz`;
+    const oldest = oldDayDirs[0]?.dateStr || null;
+    const newest = oldDayDirs[oldDayDirs.length - 1]?.dateStr || null;
+
+    const resolvedArchiveDirBase = path.resolve(
+      ROOT,
+      String(archiveDir || "archives")
+    );
+    const archiveLayout = String(process.env.ARCHIVE_LAYOUT || "")
+      .trim()
+      .toLowerCase();
+    const resolvedArchiveDir =
+      (archiveLayout === "monthly" || archiveLayout === "month") && oldest
+        ? path.join(resolvedArchiveDirBase, String(oldest).slice(0, 7))
+        : resolvedArchiveDirBase;
+
+    const baseName =
+      oldest && newest
+        ? `articles-${oldest}-to-${newest}.tgz`
+        : `articles-before-${cutoffDateStr}.tgz`;
     const desired = path.join(resolvedArchiveDir, baseName);
     archivePath = (await fileExists(desired))
-      ? path.join(resolvedArchiveDir, `articles-before-${cutoffDateStr}-${Date.now()}.tgz`)
+      ? path.join(
+          resolvedArchiveDir,
+          baseName.replace(/\.tgz$/, `-${Date.now()}.tgz`)
+        )
       : desired;
 
     await fs.mkdir(TMP_DIR, { recursive: true });
@@ -1046,8 +1238,6 @@ export async function cleanupOldArticles({
     await fs.rm(listPath, { force: true });
 
     const manifestPath = archivePath.replace(/\.tgz$/, ".json");
-    const oldest = oldDayDirs[0]?.dateStr || null;
-    const newest = oldDayDirs[oldDayDirs.length - 1]?.dateStr || null;
     await writeJson(manifestPath, {
       createdAt: nowIso(),
       retentionDays,
@@ -1208,6 +1398,28 @@ export async function buildIndexes({
     String(b.publishedAt).localeCompare(String(a.publishedAt))
   );
 
+  const fetchStats = await readJsonOrDefault(
+    path.join(INDEXES_DIR, "fetch-stats.json"),
+    null
+  );
+  const runSources = fetchStats && typeof fetchStats === "object" ? fetchStats.sources || {} : {};
+  const sourceMultipliers = new Map();
+  for (const [sourceId, src] of Object.entries(runSources)) {
+    const ok = src && src.ok === true;
+    const paused = src && src.paused === true;
+    const failed = src && src.ok === false && !paused;
+    const added = Number(src?.added) || 0;
+    const duplicates = Number(src?.duplicates) || 0;
+    const denom = Math.max(1, added + duplicates);
+    const dupRate = duplicates / denom;
+
+    let multiplier = 1;
+    multiplier *= 1 - Math.min(0.35, dupRate * 0.35);
+    if (failed) multiplier *= 0.8;
+    if (ok) multiplier *= 1.03;
+    sourceMultipliers.set(sourceId, Math.max(0.5, Math.min(1.15, multiplier)));
+  }
+
   const latest = uniqueArticles.slice(0, latestLimit).map((a) => ({
     id: a.id,
     title: a.title,
@@ -1219,6 +1431,140 @@ export async function buildIndexes({
     image: a.image || null,
     language: normalizeLanguageCode(a.language || "en"),
   }));
+
+  const storiesWindowHours = Number.parseInt(process.env.STORIES_WINDOW_HOURS || "48", 10);
+  const storiesMaxArticles = Number.parseInt(process.env.STORIES_MAX_ARTICLES || "800", 10);
+  const storiesMinSources = Number.parseInt(process.env.STORIES_MIN_SOURCES || "2", 10);
+  const storiesLimit = Number.parseInt(process.env.STORIES_LIMIT || "200", 10);
+  const topWindowHours = Number.parseInt(process.env.TOP_WINDOW_HOURS || "48", 10);
+  const topLimit = Number.parseInt(process.env.TOP_LIMIT || "200", 10);
+
+  const cutoffStoriesMs =
+    Number.isFinite(storiesWindowHours) && storiesWindowHours > 0
+      ? Date.now() - storiesWindowHours * 60 * 60 * 1000
+      : 0;
+  const cutoffTopMs =
+    Number.isFinite(topWindowHours) && topWindowHours > 0
+      ? Date.now() - topWindowHours * 60 * 60 * 1000
+      : 0;
+
+  const windowArticles = [];
+  for (const article of uniqueArticles) {
+    if (
+      Number.isFinite(storiesMaxArticles) &&
+      storiesMaxArticles > 0 &&
+      windowArticles.length >= storiesMaxArticles
+    ) {
+      break;
+    }
+    const publishedMs = safeMs(article.publishedAt);
+    if (cutoffStoriesMs && publishedMs && publishedMs < cutoffStoriesMs) break;
+    windowArticles.push(article);
+  }
+
+  const storyGroups = new Map();
+  for (const article of windowArticles) {
+    const key = normalizeTitleForStoryKey(article.title, article.source?.name);
+    if (!key) continue;
+    if (!storyGroups.has(key)) storyGroups.set(key, []);
+    storyGroups.get(key).push(article);
+  }
+
+  const stories = [];
+  for (const [key, group] of storyGroups.entries()) {
+    if (!Array.isArray(group) || group.length < 2) continue;
+
+    const sourceSet = new Set(
+      group
+        .map((a) => String(a?.source?.id || a?.source?.name || "").trim())
+        .filter(Boolean)
+    );
+    if (Number.isFinite(storiesMinSources) && storiesMinSources > 1) {
+      if (sourceSet.size < storiesMinSources) continue;
+    }
+
+    let best = group[0];
+    let bestScore = scoreArticleQuality(best);
+    for (const a of group.slice(1)) {
+      const score = scoreArticleQuality(a);
+      if (score > bestScore) {
+        best = a;
+        bestScore = score;
+      }
+    }
+
+    const items = group
+      .slice()
+      .sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)))
+      .map((a) => ({
+        id: a.id,
+        title: a.title,
+        canonicalUrl: a.canonicalUrl,
+        publishedAt: a.publishedAt,
+        category: a.category,
+        language: normalizeLanguageCode(a.language || "en"),
+        source: { id: a.source?.id, name: a.source?.name },
+      }));
+
+    const publishedAt = items[0]?.publishedAt || best.publishedAt;
+    stories.push({
+      id: crypto.createHash("sha1").update(key).digest("hex").slice(0, 12),
+      title: best.title,
+      publishedAt,
+      category: best.category,
+      language: normalizeLanguageCode(best.language || "en"),
+      sources: Array.from(sourceSet).sort((a, b) => a.localeCompare(b)),
+      coverage: sourceSet.size,
+      items,
+    });
+  }
+
+  stories.sort((a, b) => {
+    if (b.coverage !== a.coverage) return b.coverage - a.coverage;
+    return String(b.publishedAt).localeCompare(String(a.publishedAt));
+  });
+
+  const cappedStories =
+    Number.isFinite(storiesLimit) && storiesLimit > 0
+      ? stories.slice(0, Math.min(1000, storiesLimit))
+      : stories.slice(0, 200);
+  await writeJson(path.join(INDEXES_DIR, "stories.json"), cappedStories);
+
+  const topCandidates = uniqueArticles
+    .filter((a) => {
+      const ms = safeMs(a.publishedAt);
+      if (!cutoffTopMs) return true;
+      return ms && ms >= cutoffTopMs;
+    })
+    .map((a) => {
+      const base = scoreArticleQuality(a);
+      const sourceId = String(a?.source?.id || "").trim();
+      const multiplier = sourceMultipliers.get(sourceId) || 1;
+      const score = Math.round(base * multiplier * 100) / 100;
+      return {
+        id: a.id,
+        title: a.title,
+        summary: a.summary,
+        canonicalUrl: a.canonicalUrl,
+        source: { id: a.source?.id, name: a.source?.name },
+        publishedAt: a.publishedAt,
+        category: a.category,
+        image: a.image || null,
+        language: normalizeLanguageCode(a.language || "en"),
+        score,
+      };
+    });
+
+  topCandidates.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return String(b.publishedAt).localeCompare(String(a.publishedAt));
+  });
+
+  const cappedTop =
+    Number.isFinite(topLimit) && topLimit > 0
+      ? topCandidates.slice(0, Math.min(2000, topLimit))
+      : topCandidates.slice(0, 200);
+  await writeJson(path.join(INDEXES_DIR, "top.json"), cappedTop);
 
   const byCategory = new Map();
   for (const article of uniqueArticles) {
@@ -1308,5 +1654,7 @@ export async function buildIndexes({
     duplicateIds,
     duplicateUrls,
     deletedDuplicates: duplicatePaths.length + urlDuplicatePaths.length,
+    storyClusters: cappedStories.length,
+    topItems: cappedTop.length,
   };
 }

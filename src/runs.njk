@@ -1,0 +1,66 @@
+---
+layout: layouts/base.njk
+title: Runs
+rssPath: /feed.xml
+---
+
+<h1>Runs</h1>
+
+{% if runHistory and runHistory.runs and runHistory.runs.length %}
+  <p class="muted">
+    Recent {{ runHistory.runs.length }} runs (kept by <code>RUN_HISTORY_DAYS</code>).
+  </p>
+
+  <div class="table-wrap">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Finished</th>
+          <th scope="col">Sources</th>
+          <th scope="col">Items</th>
+          <th scope="col">Trend</th>
+          <th scope="col">Cleanup</th>
+          <th scope="col">Articles</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in runHistory.runs %}
+          <tr class="{% if r.failed > 0 %}row-bad{% elseif r.paused > 0 %}row-paused{% endif %}">
+            <td class="muted small">{{ r.finishedAt | formatDateTime }}</td>
+            <td class="muted small">
+              {{ r.ok or 0 }} OK / {{ r.failed or 0 }} failed / {{ r.paused or 0 }} paused
+            </td>
+            <td class="muted small">
+              {{ r.added or 0 }} added · {{ r.backfilled or 0 }} backfilled · {{ r.duplicates or 0 }} dup · {{ r.skipped or 0 }} skipped
+              {% if r.retries and r.retries > 0 %}· {{ r.retries }} retries{% endif %}
+            </td>
+            <td>
+              <div class="run-spark" title="Added: {{ r.added }}">
+                <div class="run-spark-bar" style="width: {{ (r.addedPct * 100) }}%"></div>
+              </div>
+            </td>
+            <td class="muted small">
+              {% if r.cleanupRemoved %}
+                deleted {{ r.cleanupRemoved }}
+              {% else %}
+                <span class="muted">—</span>
+              {% endif %}
+            </td>
+            <td class="muted small">
+              {% if r.totalArticles %}
+                {{ r.totalArticles }}
+                {% if r.storyClusters and r.storyClusters > 0 %}· {{ r.storyClusters }} stories{% endif %}
+              {% else %}
+                <span class="muted">—</span>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% else %}
+  <p class="muted">
+    No run history yet. Run <code>npm run update</code> with <code>RUN_HISTORY_DAYS</code> &gt; 0.
+  </p>
+{% endif %}

@@ -38,6 +38,14 @@ eleventyExcludeFromCollections: true
     <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
   <url>
+    <loc>{{ '/runs/' | url | absoluteUrl(site.url) }}</loc>
+    <lastmod>{{ buildTime | formatDate }}</lastmod>
+  </url>
+  <url>
+    <loc>{{ '/trending/' | url | absoluteUrl(site.url) }}</loc>
+    <lastmod>{{ buildTime | formatDate }}</lastmod>
+  </url>
+  <url>
     <loc>{{ '/languages/' | url | absoluteUrl(site.url) }}</loc>
     <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
