@@ -1,12 +1,17 @@
 ---
 layout: layouts/base.njk
 title: Trending
+description: Trending clusters and top picks from recent stories
 rssPath: /feed.xml
 ---
 
-<h1>Trending</h1>
+<h1 data-i18n="nav.trending">Trending</h1>
 
-<p class="muted">
+<p
+  class="muted"
+  data-i18n-template="trending.subtitle"
+  data-i18n-vars='{{ { hours: stories.windowHours } | jsonLd | safe }}'
+>
   Stories are clustered by similar titles from the last {{ stories.windowHours }} hours.
 </p>
 
@@ -27,7 +32,14 @@ rssPath: /feed.xml
             {% endif %}
           </h2>
           <div class="story-meta muted small">
-            {{ story.publishedAt | formatDateTime }} · Coverage {{ story.coverage }}
+            <span>{{ story.publishedAt | formatDateTime }}</span>
+            <span aria-hidden="true"> · </span>
+            <span
+              data-i18n-template="trending.coverage"
+              data-i18n-vars='{{ { coverage: story.coverage } | jsonLd | safe }}'
+            >
+              Coverage {{ story.coverage }}
+            </span>
           </div>
           {% if story.sources and story.sources.length %}
             <div class="story-sources">
@@ -40,7 +52,12 @@ rssPath: /feed.xml
 
         {% if story.items and story.items.length > 1 %}
           <details class="story-details">
-            <summary>See {{ story.items.length }} articles</summary>
+            <summary
+              data-i18n-template="trending.seeArticles"
+              data-i18n-vars='{{ { count: story.items.length } | jsonLd | safe }}'
+            >
+              See {{ story.items.length }} articles
+            </summary>
             <ul class="story-items">
               {% for item in story.items %}
                 <li class="story-item">
@@ -56,14 +73,16 @@ rssPath: /feed.xml
     {% endfor %}
   </ol>
 {% else %}
-  <p class="muted">
-    No stories yet. Check back after the next update.
-  </p>
+  <p class="muted" data-i18n="trending.empty">No stories yet. Check back later.</p>
 {% endif %}
 
-<h2>Top</h2>
-<p class="muted">
-  Highest-quality items from the last {{ top.windowHours }} hours (heuristic scoring).
+<h2 data-i18n="trending.topTitle">Top</h2>
+<p
+  class="muted"
+  data-i18n-template="trending.topSubtitle"
+  data-i18n-vars='{{ { hours: top.windowHours } | jsonLd | safe }}'
+>
+  Highest-quality items from the last {{ top.windowHours }} hours.
 </p>
 
 {% set items = top.items %}

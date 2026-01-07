@@ -50,7 +50,7 @@ showNewsNav: true
 </p>
 
 <h2 data-i18n="home.tools">Tools</h2>
-<p class="muted" data-i18n="home.randomToolsNote">Random picks refreshed each build.</p>
+<p class="muted" data-i18n="home.randomToolsNote">Random picks refreshed regularly.</p>
 {% if home and home.randomTools and home.randomTools.length %}
   <div class="tool-cards">
     {% for t in home.randomTools %}
@@ -63,7 +63,7 @@ showNewsNav: true
     {% endfor %}
   </div>
 {% else %}
-  <p class="muted">No tools yet.</p>
+  <p class="muted" data-i18n="home.noTools">No tools yet.</p>
 {% endif %}
 <p class="home-actions">
   <a class="button button-secondary" href="{{ '/tools/' | url }}" data-i18n="home.toolsAll">All tools</a>

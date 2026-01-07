@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Sources
+description: Sources list and health stats
 rssPath: /feed.xml
 pageScript: /assets/sources.js
 ---
@@ -8,10 +9,13 @@ pageScript: /assets/sources.js
 <h1 data-i18n="sources.title">Sources</h1>
 
 {% if stats %}
-  <p class="muted">
-    Last run: {{ stats.finishedAt | formatDateTime }} ·
-    OK {{ stats.fetch.ok }} / Failed {{ stats.fetch.failed }} / Paused {{ stats.fetch.paused or 0 }} ·
-    Articles {{ stats.indexes.totalArticles }}
+  <p
+    class="muted"
+    data-i18n-template="sources.summary"
+    data-i18n-vars='{{ { time: (stats.finishedAt | formatDateTime), ok: stats.fetch.ok, failed: stats.fetch.failed, paused: stats.fetch.paused or 0, articles: stats.indexes.totalArticles } | jsonLd | safe }}'
+  >
+    Last run: {{ stats.finishedAt | formatDateTime }} · OK {{ stats.fetch.ok }} / Failed {{ stats.fetch.failed }} /
+    Paused {{ stats.fetch.paused or 0 }} · Articles {{ stats.indexes.totalArticles }}
   </p>
 {% endif %}
 
@@ -29,7 +33,7 @@ pageScript: /assets/sources.js
   />
   {% if sourceTags and sourceTags.length %}
     <div class="source-tag-filters" aria-label="Source tags">
-      <a class="tag-pill" href="{{ '/sources/' | url }}">All</a>
+      <a class="tag-pill" href="{{ '/sources/' | url }}" data-i18n="common.all">All</a>
       {% for tag in sourceTags %}
         <a class="tag-pill" href="{{ ('/sources/?tag=' + tag.param) | url }}">{{ tag.label }}</a>
       {% endfor %}
@@ -46,18 +50,18 @@ pageScript: /assets/sources.js
 
 <div class="table-wrap">
   <table class="table" id="sources-table">
-    <caption class="sr-only">Sources</caption>
+    <caption class="sr-only" data-i18n="sources.title">Sources</caption>
     <thead>
       <tr>
-        <th scope="col">Source</th>
-        <th scope="col">Category</th>
-        <th scope="col">Status</th>
-        <th scope="col">Last fetch</th>
-        <th scope="col">Last success</th>
-        <th scope="col">Paused</th>
-        <th scope="col">Added</th>
-        <th scope="col">Dup</th>
-        <th scope="col">Fail streak</th>
+        <th scope="col" data-i18n="sources.table.source">Source</th>
+        <th scope="col" data-i18n="sources.table.category">Category</th>
+        <th scope="col" data-i18n="sources.table.status">Status</th>
+        <th scope="col" data-i18n="sources.table.lastFetch">Last fetch</th>
+        <th scope="col" data-i18n="sources.table.lastSuccess">Last success</th>
+        <th scope="col" data-i18n="sources.table.paused">Paused</th>
+        <th scope="col" data-i18n="sources.table.added">Added</th>
+        <th scope="col" data-i18n="sources.table.dup">Dup</th>
+        <th scope="col" data-i18n="sources.table.failStreak">Fail streak</th>
       </tr>
     </thead>
     <tbody>
@@ -77,13 +81,13 @@ pageScript: /assets/sources.js
             </div>
             <div class="muted small">
               {% if s.siteUrl %}
-                <a class="muted" href="{{ s.siteUrl }}" target="_blank" rel="noopener noreferrer">Site</a>
+                <a class="muted" href="{{ s.siteUrl }}" target="_blank" rel="noopener noreferrer" data-i18n="sources.link.site">Site</a>
                 ·
               {% endif %}
               <a class="muted" href="{{ s.feedUrl }}" target="_blank" rel="noopener noreferrer">RSS</a>
               ·
               <span class="muted">{{ s.id }}</span>
-              {% if not s.enabled %}· <span class="badge">disabled</span>{% endif %}
+              {% if not s.enabled %}· <span class="badge" data-i18n="sources.disabled">disabled</span>{% endif %}
               {% if s.tags and s.tags.length %}
                 ·
                 {% for tag in s.tags %}
@@ -93,12 +97,12 @@ pageScript: /assets/sources.js
             </div>
             {% if s.run.error or s.lastError %}
               <div class="muted small">
-                Error: {{ s.run.error or s.lastError }}
+                <span data-i18n="sources.error">Error</span>: {{ s.run.error or s.lastError }}
               </div>
             {% endif %}
             {% if s.isPaused and s.pausedUntil %}
               <div class="muted small">
-                Paused until: {{ s.pausedUntil | formatDateTime }}
+                <span data-i18n="sources.pausedUntil">Paused until</span>: {{ s.pausedUntil | formatDateTime }}
               </div>
             {% endif %}
           </td>
@@ -107,14 +111,14 @@ pageScript: /assets/sources.js
             {% if s.statusCode %}
               <span class="badge">{{ s.statusCode }}</span>
             {% else %}
-              <span class="muted">n/a</span>
+              <span class="muted" data-i18n="common.na">n/a</span>
             {% endif %}
           </td>
           <td class="muted small">{{ s.lastFetchAt | formatDateTime }}</td>
           <td class="muted small">{{ s.lastSuccessAt | formatDateTime }}</td>
           <td class="muted small">
             {% if s.isPaused %}
-              yes
+              <span data-i18n="common.yes">yes</span>
             {% else %}
               <span class="muted">—</span>
             {% endif %}
