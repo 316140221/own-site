@@ -3,6 +3,8 @@ layout: layouts/base.njk
 title: Trending
 description: Trending clusters and top picks from recent stories
 rssPath: /feed.xml
+eleventyComputed:
+  metaRobots: "{% if (stories and stories.items and stories.items.length) or (top and top.items and top.items.length) %}{% else %}noindex,follow{% endif %}"
 ---
 
 <h1 data-i18n="nav.trending">Trending</h1>

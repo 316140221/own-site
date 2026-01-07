@@ -14,7 +14,8 @@
     "loop:update": "node scripts/loop.mjs -- node scripts/update.mjs",
     "import:opml": "node scripts/import-opml.mjs",
     "pagefind": "pagefind --site dist",
-    "build:site": "npm run build && npm run pagefind"
+    "audit:dist": "node scripts/audit-dist.mjs",
+    "build:site": "npm run build && npm run pagefind && npm run audit:dist"
   },
   "keywords": [],
   "author": "",

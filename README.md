@@ -13,6 +13,7 @@
 - RSS → normalized JSON (`data/`) → static site (`dist/`)
 - Search powered by Pagefind (no external service)
 - OPML export for sources (`/sources.opml`)
+- JSON Feed (`/feed.json`)
 - Trending/Top aggregation (`/trending/`)
 - A small tools section (Base64 / Base32 / Base58 / Base85 / ROT13 / Escape / Hex / URL / Unicode / HTML / Morse / QueryString / Regex / JSON / CSV / XML / Case / Lines / SHA / MD5 / MD4 / MD2 / CRC32 / HMAC / AES / RSA / File Hash / UUID / NanoID / Password / Lorem / JWT / Timestamp / Number Base / IPv4 CIDR / Color) running locally in the browser
 - Fully automated deploy via GitHub Actions + GitHub Pages
@@ -25,7 +26,7 @@
 - Loop update (default 30 runs): `npm run loop:update` (tune via `LOOP_TIMES`, `LOOP_DELAY_MS`, `LOOP_CONTINUE_ON_FAIL`)
 - Import sources from OPML: `npm run import:opml -- ./sources.opml --dry-run` (then remove `--dry-run`)
 - Build site: `npm run build` (outputs to `dist/`)
-- Build + search index: `npm run build:site` (build + Pagefind)
+- Build + search index: `npm run build:site` (build + Pagefind + public-content audit)
 - Archive old data only: `npm run archive`
 
 ## Site config (JSON)
@@ -43,6 +44,7 @@ Edit `site.config.json` to customize site metadata and UI language options:
 This repo includes `.github/workflows/update-and-deploy.yml`:
 
 - Triggers on push to `main` and on a schedule (every 8 hours UTC)
+- Triggers on push to `main` and on a schedule (every 2 hours UTC)
 - Fetches RSS and updates `data/` on a separate `data` branch (keeps `main` clean)
 - Builds `dist/` and deploys to GitHub Pages
 

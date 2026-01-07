@@ -1,0 +1,59 @@
+---
+permalink: feed.json
+layout: null
+eleventyExcludeFromCollections: true
+---
+{% set outItems = [] %}
+{% if news and news.latest %}
+  {% for item in news.latest %}
+    {% if loop.index0 < 50 %}
+      {% set itemUrl = ('/p/' + item.id + '/') | url | absoluteUrl(site.url) %}
+      {% set authorUrl = undefined %}
+      {% if item.source and item.source.url %}
+        {% set authorUrl = item.source.url %}
+      {% endif %}
+      {% set itemAuthors = undefined %}
+      {% if item.source and item.source.name %}
+        {% set itemAuthors = [{ name: item.source.name, url: authorUrl }] %}
+      {% endif %}
+      {% set tags = [] %}
+      {% if item.category %}
+        {% set tags = tags.concat([item.category]) %}
+      {% endif %}
+      {% if item.tags and item.tags.length %}
+        {% set tags = tags.concat(item.tags) %}
+      {% endif %}
+      {% if tags and tags.length %}
+      {% else %}
+        {% set tags = undefined %}
+      {% endif %}
+      {% set contentText = (item.summary or item.title or '') | decodeEntities %}
+      {% set outItems = outItems.concat([
+        {
+          id: item.id,
+          url: itemUrl,
+          external_url: item.canonicalUrl,
+          title: (item.title or '') | decodeEntities,
+          summary: (item.summary or '') | decodeEntities,
+          content_text: contentText,
+          date_published: item.publishedAt,
+          authors: itemAuthors,
+          tags: tags,
+          image: item.image
+        }
+      ]) %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% set feed = {
+  version: "https://jsonfeed.org/version/1.1",
+  title: site.name + " - Latest",
+  home_page_url: ('/' | url) | absoluteUrl(site.url),
+  feed_url: ('/feed.json' | url) | absoluteUrl(site.url),
+  description: site.description,
+  icon: ('/assets/favicon.svg' | url) | absoluteUrl(site.url),
+  language: site.language,
+  items: outItems
+} %}
+{{ feed | jsonLd | safe }}

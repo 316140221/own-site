@@ -9,7 +9,12 @@ permalink: "source/{{ source.id }}/feed.xml"
 ---
 {% set items = (('data/indexes/by-source/' + source.id + '.json') | readJson) or [] %}
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss
+  version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:media="http://search.yahoo.com/mrss/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+>
   <channel>
     <title>{{ (site.name + ' - ' + source.name) | xmlEscape | safe }}</title>
     <link>{{ ('/source/' + source.id + '/') | url | absoluteUrl(site.url) }}</link>
@@ -26,10 +31,19 @@ permalink: "source/{{ source.id }}/feed.xml"
           <link>{{ itemLink | xmlEscape | safe }}</link>
           <guid isPermaLink="false">{{ item.id | xmlEscape | safe }}</guid>
           <pubDate>{{ item.publishedAt | rfc822 }}</pubDate>
+          <dc:creator>{{ source.name | xmlEscape | safe }}</dc:creator>
+          {% if item.language %}
+            <dc:language>{{ item.language | xmlEscape | safe }}</dc:language>
+          {% endif %}
+          {% if item.category %}
+            <category>{{ item.category | xmlEscape | safe }}</category>
+          {% endif %}
           <description>{{ (item.summary or '') | xmlEscape | safe }}</description>
+          {% if item.image %}
+            <media:thumbnail url="{{ item.image | xmlEscape | safe }}" />
+          {% endif %}
         </item>
       {% endif %}
     {% endfor %}
   </channel>
 </rss>
-

@@ -9,6 +9,7 @@ eleventyComputed:
   title: "{{ catPage.label }}{% if catPage.pageNumber > 0 %} · Page {{ catPage.pageNumber + 1 }}{% endif %}"
   description: "Latest {{ catPage.label }} stories and links from our RSS sources.{% if catPage.pageNumber > 0 %} Page {{ catPage.pageNumber + 1 }}.{% endif %}"
   rssPath: "/category/{{ catPage.slug }}/feed.xml"
+  metaRobots: "{% if catPage.items and catPage.items.length %}{% else %}noindex,follow{% endif %}"
 ---
 
 <h1>{{ catPage.label }}</h1>

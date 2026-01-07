@@ -4165,6 +4165,18 @@ function getLang() {
   const supported = getSupportedLangs();
   const stored = normalizeLang(storageGet(LANG_STORAGE_KEY));
   if (stored && supported.includes(stored)) return stored;
+  try {
+    if (typeof navigator !== "undefined" && Array.isArray(navigator.languages)) {
+      for (const candidate of navigator.languages) {
+        const normalized = normalizeLang(candidate);
+        if (normalized && supported.includes(normalized)) return normalized;
+      }
+    }
+    if (typeof navigator !== "undefined") {
+      const fallback = normalizeLang(navigator.language);
+      if (fallback && supported.includes(fallback)) return fallback;
+    }
+  } catch (_e) {}
   const def = getDefaultLang();
   if (def && supported.includes(def)) return def;
   return supported[0] || "en";

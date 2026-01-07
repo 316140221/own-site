@@ -9,6 +9,7 @@ permalink: "page/{{ listPage.pageNumber + 1 }}/index.html"
 eleventyComputed:
   title: "Latest{% if listPage.pageNumber > 0 %} · Page {{ listPage.pageNumber + 1 }}{% endif %}"
   description: "{% if listPage.pageNumber > 0 %}Latest updates · Page {{ listPage.pageNumber + 1 }}. {% else %}Latest updates. {% endif %}{{ site.description }}"
+  metaRobots: "{% if listPage.items and listPage.items.length %}{% else %}noindex,follow{% endif %}"
 ---
 
 <h1>{{ site.name }}</h1>

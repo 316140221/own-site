@@ -299,6 +299,9 @@
     {% elif sourcePage and sourcePage.items and sourcePage.items.length %}
       {% set schemaItemListItems = sourcePage.items %}
       {% set schemaItemListName = sourcePage.name %}
+    {% elif page.url == '/' and news and news.latest and news.latest.length %}
+      {% set schemaItemListItems = news.latest %}
+      {% set schemaItemListName = 'Latest' %}
     {% endif %}
 
     {% if schemaItemListItems and schemaItemListItems.length %}
@@ -312,7 +315,7 @@
           'url': canonical,
           'mainEntityOfPage': { '@id': schemaWebpageId },
           'itemListOrder': 'https://schema.org/ItemListOrderDescending',
-          'numberOfItems': schemaItemListItems.length,
+          'numberOfItems': schemaItemListElements.length,
           'itemListElement': schemaItemListElements
         }
       ]) %}
@@ -333,6 +336,18 @@
       type="application/rss+xml"
       title="{{ rssTitle }}"
       href="{{ (rssPath or '/feed.xml') | url }}"
+    />
+    <link
+      rel="alternate"
+      type="application/feed+json"
+      title="{{ site.name }} JSON Feed"
+      href="{{ '/feed.json' | url }}"
+    />
+    <link
+      rel="search"
+      type="application/opensearchdescription+xml"
+      title="{{ site.name }} Search"
+      href="{{ '/opensearch.xml' | url }}"
     />
 
     <script>

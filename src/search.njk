@@ -25,17 +25,100 @@ pagefindBody: false
       return;
     }
     if (notice) notice.hidden = true;
-    const ui = new window.PagefindUI({
-      element: "#search",
-      showSubResults: true,
-      resetStyles: false,
-      autofocus: true,
-      showEmptyFilters: false,
-      openFilters: ["Category", "Language"],
-      excerptLength: 15,
-    });
+
+    const LANG_STORAGE_KEY = "site_lang";
+
+    function normalizeLang(input) {
+      const raw = String(input || "").trim().toLowerCase();
+      if (!raw) return "";
+      return raw.split("-")[0] || "";
+    }
+
+    function getSupportedLangs() {
+      const raw = document.documentElement.getAttribute("data-supported-langs") || "";
+      const list = raw
+        .split(",")
+        .map((l) => normalizeLang(l))
+        .filter(Boolean);
+      const unique = Array.from(new Set(list));
+      return unique.length ? unique : ["en"];
+    }
+
+    function getDefaultLang() {
+      return normalizeLang(document.documentElement.getAttribute("data-default-lang")) || "en";
+    }
+
+    function getLang() {
+      const supported = getSupportedLangs();
+      let stored = "";
+      try {
+        stored = normalizeLang(window.localStorage.getItem(LANG_STORAGE_KEY));
+      } catch (_e) {}
+      if (stored && supported.includes(stored)) return stored;
+      try {
+        if (typeof navigator !== "undefined" && Array.isArray(navigator.languages)) {
+          for (const candidate of navigator.languages) {
+            const normalized = normalizeLang(candidate);
+            if (normalized && supported.includes(normalized)) return normalized;
+          }
+        }
+        if (typeof navigator !== "undefined") {
+          const fallback = normalizeLang(navigator.language);
+          if (fallback && supported.includes(fallback)) return fallback;
+        }
+      } catch (_e) {}
+      const def = getDefaultLang();
+      if (def && supported.includes(def)) return def;
+      return supported[0] || "en";
+    }
+
+    const TRANSLATIONS = {
+      en: {
+        placeholder: "Search…",
+        search_label: "Search this site",
+        clear_search: "Clear",
+        load_more: "Load more",
+        searching: "Searching for [SEARCH_TERM]…",
+        zero_results: "No results for [SEARCH_TERM]",
+        one_result: "1 result for [SEARCH_TERM]",
+        many_results: "[COUNT] results for [SEARCH_TERM]",
+      },
+      zh: {
+        placeholder: "搜索…",
+        search_label: "站内搜索",
+        clear_search: "清除",
+        load_more: "加载更多",
+        searching: "正在搜索“[SEARCH_TERM]”…",
+        zero_results: "未找到“[SEARCH_TERM]”的结果",
+        one_result: "“[SEARCH_TERM]” 共有 1 条结果",
+        many_results: "“[SEARCH_TERM]” 共有 [COUNT] 条结果",
+      },
+    };
+
+    function getTranslations(lang) {
+      const key = normalizeLang(lang) || "en";
+      return TRANSLATIONS[key] || TRANSLATIONS.en;
+    }
 
     const q = new URLSearchParams(window.location.search).get("q");
-    if (q) ui.triggerSearch(q);
+    let ui = null;
+
+    function mount() {
+      if (ui && typeof ui.destroy === "function") ui.destroy();
+      ui = new window.PagefindUI({
+        element: "#search",
+        showSubResults: true,
+        resetStyles: false,
+        autofocus: true,
+        showEmptyFilters: false,
+        openFilters: ["Category", "Language"],
+        excerptLength: 15,
+        translations: getTranslations(getLang()),
+      });
+      if (q) ui.triggerSearch(q);
+    }
+
+    mount();
+    window.addEventListener("site:lang", mount);
   });
 </script>

@@ -10,14 +10,12 @@ eleventyExcludeFromCollections: true
     <loc>{{ '/' | url | absoluteUrl(site.url) }}</loc>
     <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
-  <url>
-    <loc>{{ '/page/1/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
-  </url>
-  <url>
-    <loc>{{ '/trending/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
-  </url>
+  {% if (stories and stories.items and stories.items.length) or (top and top.items and top.items.length) %}
+    <url>
+      <loc>{{ '/trending/' | url | absoluteUrl(site.url) }}</loc>
+      <lastmod>{{ buildTime | formatDate }}</lastmod>
+    </url>
+  {% endif %}
   <url>
     <loc>{{ '/about/' | url | absoluteUrl(site.url) }}</loc>
     <lastmod>{{ buildTime | formatDate }}</lastmod>
@@ -47,10 +45,6 @@ eleventyExcludeFromCollections: true
     <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
   <url>
-    <loc>{{ '/runs/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
-  </url>
-  <url>
     <loc>{{ '/languages/' | url | absoluteUrl(site.url) }}</loc>
     <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
@@ -77,49 +71,71 @@ eleventyExcludeFromCollections: true
   {# Paginated list pages #}
   {% if latestPages and latestPages.length %}
     {% for p in latestPages %}
-      <url>
-        <loc>{{ ('/page/' + (p.pageNumber + 1) + '/') | url | absoluteUrl(site.url) }}</loc>
-        <lastmod>{{ buildTime | formatDate }}</lastmod>
-      </url>
+      {% if p.items and p.items.length %}
+        {% set lastmod = buildTime %}
+        {% if p.items[0] and p.items[0].publishedAt %}
+          {% set lastmod = p.items[0].publishedAt %}
+        {% endif %}
+        <url>
+          <loc>{{ ('/page/' + (p.pageNumber + 1) + '/') | url | absoluteUrl(site.url) }}</loc>
+          <lastmod>{{ lastmod | formatDate }}</lastmod>
+        </url>
+      {% endif %}
     {% endfor %}
   {% endif %}
 
   {% if categoryPages and categoryPages.length %}
     {% for p in categoryPages %}
-      <url>
-        {% if p.pageNumber == 0 %}
-          <loc>{{ ('/category/' + p.slug + '/') | url | absoluteUrl(site.url) }}</loc>
-        {% else %}
-          <loc>{{ ('/category/' + p.slug + '/page/' + (p.pageNumber + 1) + '/') | url | absoluteUrl(site.url) }}</loc>
+      {% if p.items and p.items.length %}
+        {% set lastmod = buildTime %}
+        {% if p.items[0] and p.items[0].publishedAt %}
+          {% set lastmod = p.items[0].publishedAt %}
         {% endif %}
-        <lastmod>{{ buildTime | formatDate }}</lastmod>
-      </url>
+        <url>
+          {% if p.pageNumber == 0 %}
+            <loc>{{ ('/category/' + p.slug + '/') | url | absoluteUrl(site.url) }}</loc>
+          {% else %}
+            <loc>{{ ('/category/' + p.slug + '/page/' + (p.pageNumber + 1) + '/') | url | absoluteUrl(site.url) }}</loc>
+          {% endif %}
+          <lastmod>{{ lastmod | formatDate }}</lastmod>
+        </url>
+      {% endif %}
     {% endfor %}
   {% endif %}
 
   {% if languagePages and languagePages.length %}
     {% for p in languagePages %}
-      <url>
-        {% if p.pageNumber == 0 %}
-          <loc>{{ ('/lang/' + p.code + '/') | url | absoluteUrl(site.url) }}</loc>
-        {% else %}
-          <loc>{{ ('/lang/' + p.code + '/page/' + (p.pageNumber + 1) + '/') | url | absoluteUrl(site.url) }}</loc>
+      {% if p.items and p.items.length %}
+        {% set lastmod = buildTime %}
+        {% if p.items[0] and p.items[0].publishedAt %}
+          {% set lastmod = p.items[0].publishedAt %}
         {% endif %}
-        <lastmod>{{ buildTime | formatDate }}</lastmod>
-      </url>
+        <url>
+          {% if p.pageNumber == 0 %}
+            <loc>{{ ('/lang/' + p.code + '/') | url | absoluteUrl(site.url) }}</loc>
+          {% else %}
+            <loc>{{ ('/lang/' + p.code + '/page/' + (p.pageNumber + 1) + '/') | url | absoluteUrl(site.url) }}</loc>
+          {% endif %}
+          <lastmod>{{ lastmod | formatDate }}</lastmod>
+        </url>
+      {% endif %}
     {% endfor %}
   {% endif %}
 
   {% if sourcePages and sourcePages.length %}
     {% for p in sourcePages %}
       {% if p.items and p.items.length %}
+        {% set lastmod = buildTime %}
+        {% if p.items[0] and p.items[0].publishedAt %}
+          {% set lastmod = p.items[0].publishedAt %}
+        {% endif %}
         <url>
           {% if p.pageNumber == 0 %}
             <loc>{{ ('/source/' + p.id + '/') | url | absoluteUrl(site.url) }}</loc>
           {% else %}
             <loc>{{ ('/source/' + p.id + '/page/' + (p.pageNumber + 1) + '/') | url | absoluteUrl(site.url) }}</loc>
           {% endif %}
-          <lastmod>{{ buildTime | formatDate }}</lastmod>
+          <lastmod>{{ lastmod | formatDate }}</lastmod>
         </url>
       {% endif %}
     {% endfor %}
