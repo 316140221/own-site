@@ -54,7 +54,40 @@ jobs:
           fi
 
           if [ "${BASE_REF}" != "${DATA_BRANCH}" ]; then
-            git merge --no-edit "origin/${BASE_REF}"
+            echo "Merging origin/${BASE_REF} into ${DATA_BRANCH}"
+            if ! git merge --no-edit -X theirs "origin/${BASE_REF}"; then
+              conflicted="$(git diff --name-only --diff-filter=U)"
+              if [ -z "${conflicted}" ]; then
+                echo "Merge failed but no conflicted paths detected."
+                exit 1
+              fi
+
+              echo "Merge conflicts detected. Resolving generated data paths by keeping ${DATA_BRANCH} versions:"
+              echo "${conflicted}"
+
+              while IFS= read -r file; do
+                [ -z "${file}" ] && continue
+                case "${file}" in
+                  data/articles/*|data/indexes/*|data/amazon/*|data/state.json)
+                    git checkout --ours -- "${file}"
+                    ;;
+                  *)
+                    git checkout --theirs -- "${file}"
+                    ;;
+                esac
+                git add -- "${file}"
+              done <<< "${conflicted}"
+
+              unresolved="$(git diff --name-only --diff-filter=U)"
+              if [ -n "${unresolved}" ]; then
+                echo "Unresolved merge conflicts remain:"
+                echo "${unresolved}"
+                exit 1
+              fi
+
+              git commit -m "chore(data): merge ${BASE_REF} into ${DATA_BRANCH}" || \
+                git commit --allow-empty -m "chore(data): merge ${BASE_REF} into ${DATA_BRANCH}"
+            fi
           fi
 
       - name: Compute Pages base URL
