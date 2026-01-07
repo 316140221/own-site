@@ -100,7 +100,19 @@ jobs:
         run: npm ci
 
       - name: Update data (fetch → cleanup → indexes)
-        run: npm run update
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            echo "Update attempt ${attempt}/3"
+            if npm run update; then
+              exit 0
+            fi
+            if [ "${attempt}" -lt 3 ]; then
+              echo "Update failed; retrying in 30s..."
+              sleep 30
+            fi
+          done
+          exit 1
         env:
           ARCHIVE_OLD: "1"
           AMAZON_ASSOCIATE_TAG: ${{ vars.AMAZON_ASSOCIATE_TAG || secrets.AMAZON_ASSOCIATE_TAG }}

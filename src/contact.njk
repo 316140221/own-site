@@ -4,7 +4,7 @@ title: Contact
 description: How to reach us
 ---
 
-<h1>Contact</h1>
+<h1 data-i18n="nav.contact">Contact</h1>
 
 <p>
   If you need to reach {{ site.brand or site.name }}, please use the contact information below.
@@ -12,12 +12,12 @@ description: How to reach us
 
 {% if site.contactEmail %}
   <p>
-    <strong>Email:</strong>
+    <strong data-i18n="contact.emailLabel">Email:</strong>
     <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>
   </p>
 {% else %}
   <p class="muted">
-    Contact information is not available right now.
+    <span data-i18n="contact.unavailable">Contact information is not available right now.</span>
   </p>
 {% endif %}
 

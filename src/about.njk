@@ -1,10 +1,11 @@
 ---
 layout: layouts/base.njk
 title: About
+description: About this site and its sources
 rssPath: /feed.xml
 ---
 
-<h1>About</h1>
+<h1 data-i18n="nav.about">About</h1>
 
 <p>
   {{ site.brand or site.name }} is a cloud-ready collection of handy utilities plus a lightweight
@@ -17,7 +18,7 @@ rssPath: /feed.xml
 </p>
 
 <p>
-  <strong>Links:</strong>
+  <strong data-i18n="about.links">Links:</strong>
   <a href="{{ '/feed.xml' | url }}">RSS</a>
   · <a href="{{ '/sources/' | url }}">Sources</a>
   · <a href="{{ '/sources.opml' | url }}">OPML</a>
@@ -37,15 +38,23 @@ rssPath: /feed.xml
 </p>
 
 {% if stats %}
-  <h2>Status</h2>
+  <h2 data-i18n="about.status">Status</h2>
   <ul>
-    <li><strong>Last run:</strong> {{ stats.finishedAt | formatDateTime }}</li>
-    <li><strong>Sources:</strong> {{ stats.fetch.ok }} OK / {{ stats.fetch.failed }} failed / {{ stats.fetch.paused or 0 }} paused</li>
-    <li><strong>Articles:</strong> {{ stats.indexes.totalArticles }} (90-day retention)</li>
+    <li><strong data-i18n="about.lastRun">Last run:</strong> {{ stats.finishedAt | formatDateTime }}</li>
+    <li>
+      <strong data-i18n="about.sourcesStat">Sources:</strong>
+      <span
+        data-i18n-template="about.sourcesStatValue"
+        data-i18n-vars='{{ { ok: stats.fetch.ok, failed: stats.fetch.failed, paused: stats.fetch.paused or 0 } | jsonLd | safe }}'
+      >
+        {{ stats.fetch.ok }} OK / {{ stats.fetch.failed }} failed / {{ stats.fetch.paused or 0 }} paused
+      </span>
+    </li>
+    <li><strong data-i18n="about.articlesStat">Articles:</strong> {{ stats.indexes.totalArticles }} (90-day retention)</li>
   </ul>
 {% endif %}
 
-<h2>Sources</h2>
+<h2 data-i18n="sources.title">Sources</h2>
 {% if sources and sources.length %}
   <ul class="sources">
     {% for s in sources %}
@@ -57,5 +66,5 @@ rssPath: /feed.xml
     {% endfor %}
   </ul>
 {% else %}
-  <p class="muted">No sources configured yet.</p>
+  <p class="muted" data-i18n="about.noSources">No sources configured yet.</p>
 {% endif %}

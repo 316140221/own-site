@@ -62,6 +62,27 @@ const I18N = {
     "search.go": "Go",
     "search.notice": "Search is temporarily unavailable.",
 
+    "about.links": "Links:",
+    "about.status": "Status",
+    "about.lastRun": "Last run:",
+    "about.sourcesStat": "Sources:",
+    "about.sourcesStatValue": "{ok} OK / {failed} failed / {paused} paused",
+    "about.articlesStat": "Articles:",
+    "about.noSources": "No sources configured yet.",
+
+    "contact.emailLabel": "Email:",
+    "contact.unavailable": "Contact information is not available right now.",
+
+    "notFound.title": "404 — Page not found",
+    "notFound.prefix": "We can’t find ",
+    "notFound.unknown": "this page",
+    "notFound.punct": ".",
+    "notFound.suffix": " It may have been moved, deleted, or never existed.",
+    "notFound.homeCta": "Go to Home",
+    "notFound.popular": "Popular sections",
+    "notFound.tip":
+      "Tip: If you came from an external link, the original site may have changed the URL.",
+
     "home.tools": "Tools",
     "home.start": "Start",
     "home.latest": "Latest",
@@ -2087,6 +2108,26 @@ const I18N = {
     "search.placeholder": "搜索…（/）",
     "search.go": "搜索",
     "search.notice": "搜索暂不可用，请稍后再试。",
+
+    "about.links": "链接：",
+    "about.status": "状态",
+    "about.lastRun": "上次运行：",
+    "about.sourcesStat": "来源：",
+    "about.sourcesStatValue": "{ok} 成功 / {failed} 失败 / {paused} 暂停",
+    "about.articlesStat": "文章：",
+    "about.noSources": "暂无来源配置。",
+
+    "contact.emailLabel": "邮箱：",
+    "contact.unavailable": "暂时无法提供联系方式。",
+
+    "notFound.title": "404 — 页面未找到",
+    "notFound.prefix": "无法找到",
+    "notFound.unknown": "该页面",
+    "notFound.punct": "。",
+    "notFound.suffix": "它可能已被移动、删除，或从未存在。",
+    "notFound.homeCta": "返回首页",
+    "notFound.popular": "热门入口",
+    "notFound.tip": "提示：如果你是从外部链接进入，原网站可能已经修改了 URL。",
 
     "home.tools": "工具",
     "home.start": "开始",
@@ -4149,7 +4190,7 @@ function applyTheme(theme) {
 
 function applyI18n(lang) {
   const activeLang = normalizeLang(lang) || "en";
-  document.documentElement.lang = activeLang;
+  document.documentElement.setAttribute("data-ui-lang", activeLang);
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");

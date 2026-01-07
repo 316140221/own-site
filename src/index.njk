@@ -44,6 +44,57 @@ showNewsNav: true
   <a class="button button-secondary" href="{{ '/page/1/' | url }}" data-i18n="home.latestMore"
     >View all</a
   >
+</p>
+
+<h2 data-i18n="nav.trending">Trending</h2>
+<p
+  class="muted"
+  data-i18n-template="trending.subtitle"
+  data-i18n-vars='{{ { hours: stories.windowHours } | jsonLd | safe }}'
+>
+  Stories are clustered by similar titles from the last {{ stories.windowHours }} hours.
+</p>
+{% if stories and stories.items and stories.items.length %}
+  <ol class="story-list">
+    {% for story in stories.items | slice(0, 3) %}
+      <li class="story">
+        <div class="story-head">
+          {% set primaryId = "" %}
+          {% if story.items and story.items.length %}
+            {% set primaryId = story.items[0].id %}
+          {% endif %}
+          <h3 class="story-title">
+            {% if primaryId %}
+              <a href="{{ ('/p/' + primaryId + '/') | url }}">{{ story.title | decodeEntities }}</a>
+            {% else %}
+              {{ story.title | decodeEntities }}
+            {% endif %}
+          </h3>
+          <div class="story-meta muted small">
+            <span>{{ story.publishedAt | formatDateTime }}</span>
+            <span aria-hidden="true"> · </span>
+            <span
+              data-i18n-template="trending.coverage"
+              data-i18n-vars='{{ { coverage: story.coverage } | jsonLd | safe }}'
+            >
+              Coverage {{ story.coverage }}
+            </span>
+          </div>
+          {% if story.sources and story.sources.length %}
+            <div class="story-sources">
+              {% for s in story.sources | slice(0, 6) %}
+                <span class="badge">{{ s }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      </li>
+    {% endfor %}
+  </ol>
+{% else %}
+  <p class="muted" data-i18n="trending.empty">No stories yet. Check back later.</p>
+{% endif %}
+<p class="home-actions">
   <a class="button button-secondary" href="{{ '/trending/' | url }}" data-i18n="nav.trending"
     >Trending</a
   >

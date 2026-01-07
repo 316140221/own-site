@@ -341,8 +341,8 @@ module.exports = {
 
       const parts = [];
       if (title) parts.push(title);
-      if (source) parts.push(`Source: ${source}`);
-      if (category) parts.push(`Category: ${category}`);
+      if (source) parts.push(source);
+      if (category) parts.push(category);
       const fallback = parts.length ? parts.join(" · ") : String(data.site?.description || "");
 
       return truncateText(fallback, 200) || String(data.site?.description || "");

@@ -4,30 +4,31 @@ title: "404 — Page not found"
 description: "The page you’re looking for doesn’t exist."
 permalink: 404.html
 eleventyExcludeFromCollections: true
+metaRobots: "noindex,follow"
 pagefindBody: false
 ---
 
 <section class="article">
-  <h1 class="article-title">404 — Page not found</h1>
+  <h1 class="article-title" data-i18n="notFound.title">404 — Page not found</h1>
   <p class="muted">
-    We can’t find <span id="missing-path">this page</span>. It may have been moved, deleted, or never existed.
+    <span data-i18n="notFound.prefix">We can’t find </span><span id="missing-path" data-i18n="notFound.unknown">this page</span><span data-i18n="notFound.punct">.</span><span data-i18n="notFound.suffix"> It may have been moved, deleted, or never existed.</span>
   </p>
 
   <div class="article-actions">
-    <a class="button" href="{{ '/' | url }}">Go to Home</a>
-    <a class="button button-secondary" href="{{ '/search/' | url }}">Search</a>
-    <a class="button button-secondary" href="{{ '/sources/' | url }}">Sources</a>
-    <a class="button button-secondary" href="{{ '/languages/' | url }}">Languages</a>
+    <a class="button" href="{{ '/' | url }}" data-i18n="notFound.homeCta">Go to Home</a>
+    <a class="button button-secondary" href="{{ '/search/' | url }}" data-i18n="nav.search">Search</a>
+    <a class="button button-secondary" href="{{ '/sources/' | url }}" data-i18n="sources.title">Sources</a>
+    <a class="button button-secondary" href="{{ '/languages/' | url }}" data-i18n="languages.title">Languages</a>
   </div>
 
-  <h2>Popular sections</h2>
+  <h2 data-i18n="notFound.popular">Popular sections</h2>
   <div class="article-actions">
     {% for cat in categories %}
       <a class="button button-secondary" href="{{ ('/category/' + cat.slug + '/') | url }}">{{ cat.label }}</a>
     {% endfor %}
   </div>
 
-  <p class="muted small">
+  <p class="muted small" data-i18n="notFound.tip">
     Tip: If you came from an external link, the original site may have changed the URL.
   </p>
 </section>
@@ -36,8 +37,23 @@ pagefindBody: false
   (function () {
     var el = document.getElementById("missing-path");
     if (!el) return;
-    var path = window.location.pathname + window.location.search + window.location.hash;
-    if (!path || path.endsWith("/404.html")) return;
-    el.textContent = path;
+
+    function update() {
+      var path = window.location.pathname + window.location.search + window.location.hash;
+      if (!path || path.endsWith("/404.html")) return;
+      el.textContent = path;
+    }
+
+    function updateSoon() {
+      window.setTimeout(update, 0);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", updateSoon, { once: true });
+    } else {
+      updateSoon();
+    }
+
+    window.addEventListener("site:lang", updateSoon);
   })();
 </script>

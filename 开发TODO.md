@@ -7,7 +7,7 @@
 
 - 内容范围：仅做「聚合 + 摘要 + 外链」，不抓取与发布全文
 - 语言：首期只做英文源（后续可扩展多语言）
-- 更新频率：每 8 小时
+- 更新频率：每 2 小时（UTC）
 - 历史保留：90 天
 - 成本：零成本（不使用付费 API / AI 摘要翻译）
 
@@ -56,7 +56,7 @@
 - [x] 增量抓取：保存 `etag/lastModified/lastFetchAt`（`data/state.json`）
 - [x] URL 规范化（去 `utm_*` 等参数）提高去重效果
 - [x] 保留策略：自动清理 90 天之前数据（`RETENTION_DAYS=90`）
-- [x] GitHub Actions：每 8 小时采集→构建→部署 Pages（`.github/workflows/update-and-deploy.yml`）
+- [x] GitHub Actions：每 2 小时采集→构建→部署 Pages（`.github/workflows/update-and-deploy.yml`）
 - [x] 部署策略：数据提交回仓库（只提交 `data/`，不提交 `dist/`）
 
 **验收标准**
@@ -175,11 +175,11 @@
 - [x] Loop 20：可视化运行看板（新增 `/runs/`：最近运行列表 + 简单趋势条）
 - [ ] Loop 21：站点性能优化（首屏 CSS/JS 精简、图片占位减少 CLS、字体策略）
 - [ ] Loop 22：内容质量评分（摘要长度、来源权重、重复率、失败率），用于排序/推荐
-- [ ] Loop 23：Sitemap/Feeds 分页与限制策略（防止索引膨胀，确保抓取稳定）
+- [x] Loop 23：Sitemap/Feeds 分页与限制策略（防止索引膨胀，确保抓取稳定）
 - [ ] Loop 24：数据归档策略增强（按月归档、可选仅保留索引 + 冷存储）
 - [x] Loop 25：新增 “Trending/Top” 聚合页（`/trending/` + `data/indexes/top.json`，按时间窗口与评分排序）
 - [x] Loop 26：增加 OPML 导出与导入（导出 `/sources.opml`；导入 `npm run import:opml <file.opml>`）
 - [x] Loop 27：可配置的分类列表（新增 `data/categories.json` 驱动分类导航与分页）
 - [ ] Loop 28：可访问性完善（键盘导航、对比度、aria 标签与焦点样式）
 - [ ] Loop 29：隐私与安全加固（referrer 策略、CSP meta、外链安全策略统一）
-- [ ] Loop 30：构建与部署优化（Actions cache、失败重试、分步产物与排障信息）
+- [x] Loop 30：构建与部署优化（Actions cache、失败重试、分步产物与排障信息）

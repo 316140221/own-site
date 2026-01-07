@@ -168,6 +168,12 @@ a:hover {
   transform: translateY(0);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .skip-link {
+    transition: none;
+  }
+}
+
 .header-search {
   display: flex;
   align-items: center;
