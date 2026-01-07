@@ -17,13 +17,31 @@ module.exports = function () {
 
     const pausedUntil = st.pausedUntil || null;
     const pausedUntilDate = pausedUntil ? new Date(String(pausedUntil)) : null;
-    const isPaused =
+    const isPausedFromState =
       !!pausedUntilDate &&
       !Number.isNaN(pausedUntilDate.getTime()) &&
       now < pausedUntilDate.getTime();
+    const isPausedFromRun = ss.paused === true;
+    const isPaused = isPausedFromState || isPausedFromRun;
 
     const isFailing = ss.ok === false && !ss.paused;
     const statusCode = ss.status ?? st.lastStatus ?? null;
+    const tags = [];
+    const seenTagKeys = new Set();
+    const derivedTags = [
+      s.defaultCategory || null,
+      s.language || null,
+      s.country || null,
+    ];
+    const allTags = (Array.isArray(s.tags) ? s.tags : []).concat(derivedTags);
+    for (const tag of allTags) {
+      const text = String(tag || "").trim();
+      if (!text) continue;
+      const key = text.toLowerCase();
+      if (seenTagKeys.has(key)) continue;
+      seenTagKeys.add(key);
+      tags.push(text);
+    }
 
     return {
       id,
@@ -34,6 +52,7 @@ module.exports = function () {
       category: s.defaultCategory || "world",
       language: s.language || "en",
       country: s.country || null,
+      tags,
       lastFetchAt: st.lastFetchAt || null,
       lastSuccessAt: st.lastSuccessAt || null,
       lastFailureAt: st.lastFailureAt || null,

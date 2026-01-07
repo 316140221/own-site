@@ -1,0 +1,90 @@
+---
+layout: layouts/base.njk
+title: Runs
+description: Recent runs and health stats
+rssPath: /feed.xml
+---
+
+<h1 data-i18n="runs.title">Runs</h1>
+
+{% if runHistory and runHistory.runs and runHistory.runs.length %}
+  <p
+    class="muted"
+    data-i18n-template="runs.recent"
+    data-i18n-vars='{{ { count: runHistory.runs.length } | jsonLd | safe }}'
+  >
+    Recent {{ runHistory.runs.length }} runs.
+  </p>
+
+  <div class="table-wrap">
+    <table class="table">
+      <caption class="sr-only" data-i18n="runs.caption">Run history</caption>
+      <thead>
+        <tr>
+          <th scope="col" data-i18n="runs.table.finished">Finished</th>
+          <th scope="col" data-i18n="runs.table.sources">Sources</th>
+          <th scope="col" data-i18n="runs.table.items">Items</th>
+          <th scope="col" data-i18n="runs.table.trend">Trend</th>
+          <th scope="col" data-i18n="runs.table.cleanup">Cleanup</th>
+          <th scope="col" data-i18n="runs.table.articles">Articles</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in runHistory.runs %}
+          <tr class="{% if r.failed > 0 %}row-bad{% elseif r.paused > 0 %}row-paused{% endif %}">
+            <td class="muted small">{{ r.finishedAt | formatDateTime }}</td>
+            <td class="muted small">
+              <span
+                data-i18n-template="runs.sourcesCell"
+                data-i18n-vars='{{ { ok: r.ok or 0, failed: r.failed or 0, paused: r.paused or 0 } | jsonLd | safe }}'
+              >
+                {{ r.ok or 0 }} OK / {{ r.failed or 0 }} failed / {{ r.paused or 0 }} paused
+              </span>
+            </td>
+            <td class="muted small">
+              <span
+                data-i18n-template="runs.itemsCell"
+                data-i18n-vars='{{ { added: r.added or 0, backfilled: r.backfilled or 0, duplicates: r.duplicates or 0, skipped: r.skipped or 0 } | jsonLd | safe }}'
+              >
+                {{ r.added or 0 }} added · {{ r.backfilled or 0 }} backfilled · {{ r.duplicates or 0 }} dup ·
+                {{ r.skipped or 0 }} skipped
+              </span>
+              {% if r.retries and r.retries > 0 %}
+                <span data-i18n-template="runs.retries" data-i18n-vars='{{ { count: r.retries } | jsonLd | safe }}'>
+                  · {{ r.retries }} retries
+                </span>
+              {% endif %}
+            </td>
+            <td>
+              <div class="run-spark" title="Added: {{ r.added }}">
+                <div class="run-spark-bar" style="width: {{ (r.addedPct * 100) }}%"></div>
+              </div>
+            </td>
+            <td class="muted small">
+              {% if r.cleanupRemoved %}
+                <span
+                  data-i18n-template="runs.cleanupDeleted"
+                  data-i18n-vars='{{ { count: r.cleanupRemoved } | jsonLd | safe }}'
+                >
+                  deleted {{ r.cleanupRemoved }}
+                </span>
+              {% else %}
+                <span class="muted">—</span>
+              {% endif %}
+            </td>
+            <td class="muted small">
+              {% if r.totalArticles %}
+                {{ r.totalArticles }}
+                {% if r.storyClusters and r.storyClusters > 0 %}· {{ r.storyClusters }} stories{% endif %}
+              {% else %}
+                <span class="muted">—</span>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% else %}
+  <p class="muted" data-i18n="runs.empty">No run history yet. Check back later.</p>
+{% endif %}

@@ -1,0 +1,29 @@
+---
+layout: null
+eleventyExcludeFromCollections: true
+pagination:
+  data: redirects
+  size: 1
+  alias: redirect
+permalink: "p/{{ redirect.from }}/index.html"
+---
+{% set target = ('/p/' + redirect.to + '/') | url %}
+<!doctype html>
+<html lang="{{ site.defaultLanguage or 'en' }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0; url={{ target | xmlEscape | safe }}" />
+    <link rel="canonical" href="{{ target | xmlEscape | safe }}" />
+    <meta name="robots" content="noindex,follow" />
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <p>
+      Redirecting to <a href="{{ target | xmlEscape | safe }}">{{ target | xmlEscape | safe }}</a>
+    </p>
+    <script>
+      location.replace("{{ target | escape }}");
+    </script>
+  </body>
+</html>
+

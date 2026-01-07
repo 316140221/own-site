@@ -1,0 +1,89 @@
+---
+layout: layouts/base.njk
+title: Trending
+description: Trending clusters and top picks from recent stories
+rssPath: /feed.xml
+---
+
+<h1 data-i18n="nav.trending">Trending</h1>
+
+<p
+  class="muted"
+  data-i18n-template="trending.subtitle"
+  data-i18n-vars='{{ { hours: stories.windowHours } | jsonLd | safe }}'
+>
+  Stories are clustered by similar titles from the last {{ stories.windowHours }} hours.
+</p>
+
+{% if stories and stories.items and stories.items.length %}
+  <ol class="story-list">
+    {% for story in stories.items %}
+      <li class="story">
+        <div class="story-head">
+          {% set primaryId = "" %}
+          {% if story.items and story.items.length %}
+            {% set primaryId = story.items[0].id %}
+          {% endif %}
+          <h2 class="story-title">
+            {% if primaryId %}
+              <a href="{{ ('/p/' + primaryId + '/') | url }}">{{ story.title | decodeEntities }}</a>
+            {% else %}
+              {{ story.title | decodeEntities }}
+            {% endif %}
+          </h2>
+          <div class="story-meta muted small">
+            <span>{{ story.publishedAt | formatDateTime }}</span>
+            <span aria-hidden="true"> · </span>
+            <span
+              data-i18n-template="trending.coverage"
+              data-i18n-vars='{{ { coverage: story.coverage } | jsonLd | safe }}'
+            >
+              Coverage {{ story.coverage }}
+            </span>
+          </div>
+          {% if story.sources and story.sources.length %}
+            <div class="story-sources">
+              {% for s in story.sources %}
+                <span class="badge">{{ s }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+
+        {% if story.items and story.items.length > 1 %}
+          <details class="story-details">
+            <summary
+              data-i18n-template="trending.seeArticles"
+              data-i18n-vars='{{ { count: story.items.length } | jsonLd | safe }}'
+            >
+              See {{ story.items.length }} articles
+            </summary>
+            <ul class="story-items">
+              {% for item in story.items %}
+                <li class="story-item">
+                  <a href="{{ ('/p/' + item.id + '/') | url }}">{{ item.source.name }}:</a>
+                  <a href="{{ ('/p/' + item.id + '/') | url }}">{{ item.title | decodeEntities }}</a>
+                  <span class="muted small">· {{ item.publishedAt | formatDateTime }}</span>
+                </li>
+              {% endfor %}
+            </ul>
+          </details>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ol>
+{% else %}
+  <p class="muted" data-i18n="trending.empty">No stories yet. Check back later.</p>
+{% endif %}
+
+<h2 data-i18n="trending.topTitle">Top</h2>
+<p
+  class="muted"
+  data-i18n-template="trending.topSubtitle"
+  data-i18n-vars='{{ { hours: top.windowHours } | jsonLd | safe }}'
+>
+  Highest-quality items from the last {{ top.windowHours }} hours.
+</p>
+
+{% set items = top.items %}
+{% include "partials/news-list.njk" %}

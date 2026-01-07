@@ -1,59 +1,108 @@
 ---
 layout: layouts/base.njk
 title: Sources
+description: Sources list and health stats
 rssPath: /feed.xml
+pageScript: /assets/sources.js
 ---
 
 <h1 data-i18n="sources.title">Sources</h1>
 
 {% if stats %}
-  <p class="muted">
-    Last run: {{ stats.finishedAt | formatDateTime }} ·
-    OK {{ stats.fetch.ok }} / Failed {{ stats.fetch.failed }} / Paused {{ stats.fetch.paused or 0 }} ·
-    Articles {{ stats.indexes.totalArticles }}
+  <p
+    class="muted"
+    data-i18n-template="sources.summary"
+    data-i18n-vars='{{ { time: (stats.finishedAt | formatDateTime), ok: stats.fetch.ok, failed: stats.fetch.failed, paused: stats.fetch.paused or 0, articles: stats.indexes.totalArticles } | jsonLd | safe }}'
+  >
+    Last run: {{ stats.finishedAt | formatDateTime }} · OK {{ stats.fetch.ok }} / Failed {{ stats.fetch.failed }} /
+    Paused {{ stats.fetch.paused or 0 }} · Articles {{ stats.indexes.totalArticles }}
   </p>
 {% endif %}
 
+<div class="source-filters">
+  <label class="sr-only" for="source-filter-q" data-i18n="sources.filterLabel">Filter sources</label>
+  <input
+    class="source-filter-input"
+    type="search"
+    id="source-filter-q"
+    data-i18n-placeholder="sources.filterPlaceholder"
+    placeholder="Filter sources…"
+    autocomplete="off"
+    data-source-filter
+    aria-describedby="source-filter-status"
+  />
+  {% if sourceTags and sourceTags.length %}
+    <div class="source-tag-filters" aria-label="Source tags">
+      <a class="tag-pill" href="{{ '/sources/' | url }}" data-i18n="common.all">All</a>
+      {% for tag in sourceTags %}
+        <a class="tag-pill" href="{{ ('/sources/?tag=' + tag.param) | url }}">{{ tag.label }}</a>
+      {% endfor %}
+    </div>
+  {% endif %}
+  <p
+    class="muted small source-filter-status"
+    id="source-filter-status"
+    data-source-filter-status
+    role="status"
+    aria-live="polite"
+  ></p>
+</div>
+
 <div class="table-wrap">
-  <table class="table">
+  <table class="table" id="sources-table">
+    <caption class="sr-only" data-i18n="sources.title">Sources</caption>
     <thead>
       <tr>
-        <th>Source</th>
-        <th>Category</th>
-        <th>Status</th>
-        <th>Last fetch</th>
-        <th>Last success</th>
-        <th>Paused</th>
-        <th>Added</th>
-        <th>Dup</th>
-        <th>Fail streak</th>
+        <th scope="col" data-i18n="sources.table.source">Source</th>
+        <th scope="col" data-i18n="sources.table.category">Category</th>
+        <th scope="col" data-i18n="sources.table.status">Status</th>
+        <th scope="col" data-i18n="sources.table.lastFetch">Last fetch</th>
+        <th scope="col" data-i18n="sources.table.lastSuccess">Last success</th>
+        <th scope="col" data-i18n="sources.table.paused">Paused</th>
+        <th scope="col" data-i18n="sources.table.added">Added</th>
+        <th scope="col" data-i18n="sources.table.dup">Dup</th>
+        <th scope="col" data-i18n="sources.table.failStreak">Fail streak</th>
       </tr>
     </thead>
     <tbody>
       {% for s in sourceHealth %}
-        <tr class="{% if s.isFailing %}row-bad{% elseif s.isPaused %}row-paused{% endif %}">
+        <tr
+          class="{% if s.isFailing %}row-bad{% elseif s.isPaused %}row-paused{% endif %}"
+          data-source-id="{{ s.id }}"
+          data-source-name="{{ s.name }}"
+          data-source-category="{{ s.category }}"
+          data-source-language="{{ s.language }}"
+          data-source-country="{{ s.country or '' }}"
+          data-source-tags="{{ (s.tags or []) | join(',') }}"
+        >
           <td>
             <div>
               <strong><a href="{{ ('/source/' + s.id + '/') | url }}">{{ s.name }}</a></strong>
             </div>
             <div class="muted small">
               {% if s.siteUrl %}
-                <a class="muted" href="{{ s.siteUrl }}" target="_blank" rel="noopener noreferrer">Site</a>
+                <a class="muted" href="{{ s.siteUrl }}" target="_blank" rel="noopener noreferrer" data-i18n="sources.link.site">Site</a>
                 ·
               {% endif %}
               <a class="muted" href="{{ s.feedUrl }}" target="_blank" rel="noopener noreferrer">RSS</a>
               ·
               <span class="muted">{{ s.id }}</span>
-              {% if not s.enabled %}· <span class="badge">disabled</span>{% endif %}
+              {% if not s.enabled %}· <span class="badge" data-i18n="sources.disabled">disabled</span>{% endif %}
+              {% if s.tags and s.tags.length %}
+                ·
+                {% for tag in s.tags %}
+                  <span class="badge">{{ tag }}</span>
+                {% endfor %}
+              {% endif %}
             </div>
             {% if s.run.error or s.lastError %}
               <div class="muted small">
-                Error: {{ s.run.error or s.lastError }}
+                <span data-i18n="sources.error">Error</span>: {{ s.run.error or s.lastError }}
               </div>
             {% endif %}
             {% if s.isPaused and s.pausedUntil %}
               <div class="muted small">
-                Paused until: {{ s.pausedUntil | formatDateTime }}
+                <span data-i18n="sources.pausedUntil">Paused until</span>: {{ s.pausedUntil | formatDateTime }}
               </div>
             {% endif %}
           </td>
@@ -62,14 +111,14 @@ rssPath: /feed.xml
             {% if s.statusCode %}
               <span class="badge">{{ s.statusCode }}</span>
             {% else %}
-              <span class="muted">n/a</span>
+              <span class="muted" data-i18n="common.na">n/a</span>
             {% endif %}
           </td>
           <td class="muted small">{{ s.lastFetchAt | formatDateTime }}</td>
           <td class="muted small">{{ s.lastSuccessAt | formatDateTime }}</td>
           <td class="muted small">
             {% if s.isPaused %}
-              yes
+              <span data-i18n="common.yes">yes</span>
             {% else %}
               <span class="muted">—</span>
             {% endif %}

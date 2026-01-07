@@ -1,0 +1,97 @@
+---
+layout: layouts/base.njk
+title: "401(k) / IRA Contribution Limits Checker"
+description: "Check 2024 401(k) and IRA contribution limits (with catch-up) and spot excess or unused room. Runs locally."
+pageScript: "/assets/tools/contribution-limits.js"
+---
+
+<h1 data-i18n="tools.item.contribution-limits.title">401(k) / IRA Contribution Limits Checker</h1>
+<p class="muted" data-i18n="tools.localNotice">Runs locally in your browser. Nothing is uploaded.</p>
+<p class="muted small" data-i18n="tool.contrib.disclaimer">Estimates only. Not tax advice.</p>
+
+<section class="tool-shell">
+  <div class="tool-grid">
+    <div class="tool-pane">
+      <div class="tool-options">
+        <label class="tool-option">
+          <span data-i18n="tool.contrib.age">Age</span>
+          <input type="number" id="opt-age" min="16" max="80" step="1" value="35" />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.contrib.year">Year</span>
+          <select id="opt-year">
+            <option value="2024">2024</option>
+          </select>
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.contrib.kEmployee">401(k) employee contribution</span>
+          <input
+            type="text"
+            id="opt-k-employee"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 20000"
+            data-i18n-placeholder="tool.contrib.kEmployeePlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.contrib.kEmployer">401(k) employer contribution (match/profit share)</span>
+          <input
+            type="text"
+            id="opt-k-employer"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 8000"
+            data-i18n-placeholder="tool.contrib.kEmployerPlaceholder"
+          />
+        </label>
+
+        <label class="tool-option">
+          <span data-i18n="tool.contrib.ira">IRA contribution</span>
+          <input
+            type="text"
+            id="opt-ira"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            class="tool-input-wide"
+            placeholder="e.g. 6000"
+            data-i18n-placeholder="tool.contrib.iraPlaceholder"
+          />
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-pane">
+      <label class="tool-label" for="tool-output" data-i18n="tool.common.output">Output</label>
+      <textarea
+        id="tool-output"
+        class="tool-textarea"
+        rows="18"
+        readonly
+        placeholder="Result will appear here…"
+        data-i18n-placeholder="tool.common.resultPlaceholder"
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button class="button" type="button" id="btn-calc" data-i18n="tool.contrib.calculate">Calculate</button>
+    <button class="button button-secondary" type="button" id="btn-copy" data-i18n="tool.common.copyOutput">
+      Copy output
+    </button>
+    <button class="button button-secondary" type="button" id="btn-clear" data-i18n="tool.common.clear">
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small" id="tool-status" role="status"></p>
+</section>

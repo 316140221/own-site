@@ -1,0 +1,24 @@
+---
+layout: null
+eleventyExcludeFromCollections: true
+permalink: "sources.opml"
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>{{ (site.name + ' sources') | xmlEscape | safe }}</title>
+  </head>
+  <body>
+    {% for s in sources %}
+      {% if s and s.feedUrl and (s.enabled is not defined or s.enabled != false) %}
+        <outline
+          type="rss"
+          text="{{ s.name | xmlEscape | safe }}"
+          title="{{ s.name | xmlEscape | safe }}"
+          xmlUrl="{{ s.feedUrl | xmlEscape | safe }}"
+          {% if s.siteUrl %}htmlUrl="{{ s.siteUrl | xmlEscape | safe }}"{% endif %}
+        />
+      {% endif %}
+    {% endfor %}
+  </body>
+</opml>

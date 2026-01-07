@@ -31,6 +31,9 @@
       {% if item.language %}
         <a class="badge" href="{{ ('/lang/' + item.language + '/') | url }}">{{ item.language | upper }}</a>
       {% endif %}
+      {% if item.score %}
+        <span class="badge badge-score" title="Quality score">{{ item.score }}</span>
+      {% endif %}
       <span class="muted">{{ item.publishedAt | formatDateTime }}</span>
       <span class="muted">·</span>
       {% if item.source and item.source.id %}

@@ -12,6 +12,8 @@
 
 - RSS → normalized JSON (`data/`) → static site (`dist/`)
 - Search powered by Pagefind (no external service)
+- OPML export for sources (`/sources.opml`)
+- Trending/Top aggregation (`/trending/`)
 - A small tools section (Base64 / Base32 / Base58 / Base85 / ROT13 / Escape / Hex / URL / Unicode / HTML / Morse / QueryString / Regex / JSON / CSV / XML / Case / Lines / SHA / MD5 / MD4 / MD2 / CRC32 / HMAC / AES / RSA / File Hash / UUID / NanoID / Password / Lorem / JWT / Timestamp / Number Base / IPv4 CIDR / Color) running locally in the browser
 - Fully automated deploy via GitHub Actions + GitHub Pages
 
@@ -20,6 +22,8 @@
 - Install: `npm ci`
 - Local preview: `npm run dev`
 - Update data: `npm run update` (fetch RSS → cleanup old data → build indexes)
+- Loop update (default 30 runs): `npm run loop:update` (tune via `LOOP_TIMES`, `LOOP_DELAY_MS`, `LOOP_CONTINUE_ON_FAIL`)
+- Import sources from OPML: `npm run import:opml -- ./sources.opml --dry-run` (then remove `--dry-run`)
 - Build site: `npm run build` (outputs to `dist/`)
 - Build + search index: `npm run build:site` (build + Pagefind)
 - Archive old data only: `npm run archive`
@@ -38,7 +42,7 @@ Edit `site.config.json` to customize site metadata and UI language options:
 
 This repo includes `.github/workflows/update-and-deploy.yml`:
 
-- Triggers on push to `main` and on a schedule (every 4 hours UTC)
+- Triggers on push to `main` and on a schedule (every 8 hours UTC)
 - Fetches RSS and updates `data/` on a separate `data` branch (keeps `main` clean)
 - Builds `dist/` and deploys to GitHub Pages
 
@@ -58,12 +62,28 @@ For local development, you can use a `.env` file (already gitignored). For GitHu
 - `RETENTION_DAYS` (default `90`)
 - `MAX_ITEMS_PER_FEED` (default `80`)
 - `ARCHIVE_OLD` (default `false`) and `ARCHIVE_DIR` (default `archives`)
+- `ARCHIVE_LAYOUT` (optional: `monthly` to store archives under `archives/YYYY-MM/`)
 - `FAILURE_BACKOFF_THRESHOLD` (default `3`)
 - `FAILURE_BACKOFF_BASE_HOURS` (default `24`)
 - `FAILURE_BACKOFF_MAX_HOURS` (default `168`)
 - `RUN_HISTORY_DAYS` (default `30`, set `0` to disable)
 - `RSS_CONTENT_MAX_CHARS` (default `8000`, max chars kept from RSS long content)
 - `RSS_CONTENT_MIN_CHARS` (default `200`, minimum chars to store RSS long content)
+- `RSS_CONTENT_STRIP_BOILERPLATE` (default `1`, remove common “read more / subscribe / cookie” boilerplate lines from RSS long content)
+- `FETCH_CONCURRENCY` (default `4`, max concurrent RSS fetches)
+- `FETCH_HOST_CONCURRENCY` (default `2`, per-host fetch concurrency)
+- `FETCH_MIN_INTERVAL_MINUTES` (default `0`, skip refetching a source too soon)
+- `FETCH_RETRIES` (default `2`, retry transient failures like 429/5xx)
+- `FETCH_RETRY_DELAY_MS` (default `500`)
+- `FETCH_RETRY_MAX_DELAY_MS` (default `8000`, also caps `Retry-After`)
+- `INDEX_READ_CONCURRENCY` (default `32`, max concurrent article reads during indexing)
+- `INDEX_DEDUPE_URL_ALIASES` (default `1`, dedupe articles by canonical URL variants such as `http/https`, `www`, and extra tracking params)
+- `STORIES_WINDOW_HOURS` (default `48`, clustering window for `/trending/`)
+- `STORIES_MAX_ARTICLES` (default `800`, max articles considered for clustering)
+- `STORIES_MIN_SOURCES` (default `2`, minimum distinct sources per story)
+- `STORIES_LIMIT` (default `200`, max story clusters)
+- `TOP_WINDOW_HOURS` (default `48`, ranking window for `/trending/`)
+- `TOP_LIMIT` (default `200`, max items)
 - `SITE_URL` (site origin for canonical/feeds/sitemap, e.g. `https://shouyun.top`; do not include `/<repo>/`)
 - `PATH_PREFIX` (for GitHub Pages project sites, e.g. `/<repo>/` or `/`)
 - `GOOGLE_SITE_VERIFICATION` (optional: Google Search Console verification token)
@@ -113,6 +133,14 @@ Notes:
 - `data/`: generated/normalized RSS data (committed on `data` branch by the workflow)
 - `dist/`: build output (not committed)
 - `archives/`: optional data archives uploaded as workflow artifacts
+
+## Config notes
+
+- Categories can be configured via `data/categories.json` (falls back to `src/_data/categories.js` defaults).
+- `data/sources.json` supports extra optional fields:
+  - `tags`: array of strings used for filtering on `/sources/`
+  - `minFetchIntervalMinutes`: per-source cooldown override
+  - `weight`: source weight in ranking/quality score (range `0.5`–`2`)
 
 ## Custom domain (Cloudflare)
 

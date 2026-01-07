@@ -1,6 +1,282 @@
 {
-  "version": 1,
+  "version": 2,
   "enabled": true,
+  "languages": {
+    "fr": {
+      "enabled": true,
+      "rules": [
+        {
+          "category": "sports",
+          "keywords": [
+            "sport",
+            "sports",
+            "football",
+            "ligue 1",
+            "olympiques",
+            "fifa",
+            "uefa",
+            "tennis",
+            "nba",
+            "nfl",
+            "mlb",
+            "nhl",
+            "f1"
+          ]
+        },
+        {
+          "category": "entertainment",
+          "keywords": [
+            "culture",
+            "arts",
+            "cinéma",
+            "cinema",
+            "film",
+            "musique",
+            "série",
+            "serie"
+          ]
+        },
+        {
+          "category": "health",
+          "keywords": [
+            "santé",
+            "sante",
+            "médecine",
+            "medecine",
+            "vaccin",
+            "covid",
+            "hôpital",
+            "hopital"
+          ]
+        },
+        {
+          "category": "science",
+          "keywords": [
+            "science",
+            "espace",
+            "climat",
+            "recherche",
+            "étude",
+            "etude"
+          ]
+        },
+        {
+          "category": "tech",
+          "keywords": [
+            "technologie",
+            "intelligence artificielle",
+            "ia",
+            "cybersécurité",
+            "cybersecurite"
+          ]
+        },
+        {
+          "category": "business",
+          "keywords": [
+            "économie",
+            "economie",
+            "marché",
+            "marche",
+            "bourse",
+            "inflation",
+            "banque"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "enabled": true,
+      "rules": [
+        {
+          "category": "sports",
+          "keywords": [
+            "fútbol",
+            "futbol",
+            "baloncesto",
+            "béisbol",
+            "beisbol",
+            "olímpicos",
+            "olimpicos",
+            "tenis",
+            "f1"
+          ]
+        },
+        {
+          "category": "entertainment",
+          "keywords": [
+            "entretenimiento",
+            "cultura",
+            "cine",
+            "música",
+            "musica",
+            "película",
+            "pelicula",
+            "películas",
+            "peliculas"
+          ]
+        },
+        {
+          "category": "health",
+          "keywords": [
+            "salud",
+            "medicina",
+            "vacuna",
+            "vacunas",
+            "covid",
+            "hospital"
+          ]
+        },
+        {
+          "category": "science",
+          "keywords": [
+            "ciencia",
+            "espacio",
+            "clima",
+            "investigación",
+            "investigacion",
+            "estudio"
+          ]
+        },
+        {
+          "category": "tech",
+          "keywords": [
+            "tecnología",
+            "tecnologia",
+            "inteligencia artificial",
+            "ciberseguridad"
+          ]
+        },
+        {
+          "category": "business",
+          "keywords": [
+            "economía",
+            "economia",
+            "mercado",
+            "bolsa",
+            "inflación",
+            "inflacion",
+            "banco"
+          ]
+        }
+      ]
+    },
+    "ja": {
+      "enabled": true,
+      "rules": [
+        {
+          "category": "sports",
+          "keywords": [
+            "サッカー",
+            "野球",
+            "オリンピック",
+            "テニス",
+            "バスケットボール"
+          ]
+        },
+        {
+          "category": "entertainment",
+          "keywords": [
+            "映画",
+            "音楽",
+            "ドラマ",
+            "芸能"
+          ]
+        },
+        {
+          "category": "health",
+          "keywords": [
+            "健康",
+            "医療",
+            "ワクチン"
+          ]
+        },
+        {
+          "category": "science",
+          "keywords": [
+            "科学",
+            "宇宙",
+            "気候",
+            "研究"
+          ]
+        },
+        {
+          "category": "tech",
+          "keywords": [
+            "テクノロジー",
+            "人工知能",
+            "サイバー"
+          ]
+        },
+        {
+          "category": "business",
+          "keywords": [
+            "経済",
+            "市場",
+            "株",
+            "インフレ"
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "enabled": true,
+      "rules": [
+        {
+          "category": "sports",
+          "keywords": [
+            "足球",
+            "篮球",
+            "棒球",
+            "网球",
+            "奥运"
+          ]
+        },
+        {
+          "category": "entertainment",
+          "keywords": [
+            "电影",
+            "音乐",
+            "电视剧",
+            "娱乐"
+          ]
+        },
+        {
+          "category": "health",
+          "keywords": [
+            "医疗",
+            "疫苗",
+            "健康"
+          ]
+        },
+        {
+          "category": "science",
+          "keywords": [
+            "科学",
+            "太空",
+            "气候",
+            "研究"
+          ]
+        },
+        {
+          "category": "tech",
+          "keywords": [
+            "科技",
+            "人工智能",
+            "网络安全"
+          ]
+        },
+        {
+          "category": "business",
+          "keywords": [
+            "经济",
+            "市场",
+            "股市",
+            "通胀"
+          ]
+        }
+      ]
+    }
+  },
   "rules": [
     {
       "category": "sports",
@@ -13,6 +289,7 @@
         "nhl",
         "fifa",
         "uefa",
+        "football",
         "premier league",
         "champions league",
         "la liga",
@@ -23,7 +300,11 @@
         "formula 1",
         "f1",
         "ufc",
-        "mma"
+        "mma",
+        "baseball",
+        "basketball",
+        "soccer",
+        "tennis"
       ]
     },
     {

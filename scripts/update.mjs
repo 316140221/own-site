@@ -22,14 +22,23 @@ function formatMarkdownSummary(summary) {
       fetch.duplicates || 0
     } duplicates**, **${fetch.skipped || 0} skipped**`
   );
-  if (typeof cleanup.deletedFiles === "number") {
-    lines.push(`- Cleanup: deleted **${cleanup.deletedFiles}** files`);
+  if (typeof fetch.retries === "number") {
+    lines.push(`- Retries: **${fetch.retries}**`);
+  }
+  if (typeof cleanup.removedCount === "number") {
+    lines.push(`- Cleanup: deleted **${cleanup.removedCount}** files`);
   }
   if (typeof indexes.totalArticles === "number") {
     lines.push(`- Indexed articles: **${indexes.totalArticles}**`);
   }
   if (typeof indexes.deletedDuplicates === "number" && indexes.deletedDuplicates > 0) {
     lines.push(`- Dedup: deleted **${indexes.deletedDuplicates}** duplicate files`);
+  }
+  if (typeof indexes.storyClusters === "number") {
+    lines.push(`- Stories: **${indexes.storyClusters}**`);
+  }
+  if (typeof indexes.topItems === "number") {
+    lines.push(`- Top index: **${indexes.topItems}**`);
   }
 
   const sources = summary?.sources || {};
@@ -63,6 +72,10 @@ const archiveOld =
 const archiveDir = process.env.ARCHIVE_DIR || "archives";
 
 const fetchStats = await fetchAllSources({ maxItemsPerFeed });
+const totalRetries = Object.values(fetchStats.sources || {}).reduce(
+  (sum, s) => sum + (Number(s?.retries) || 0),
+  0
+);
 const cleanupStats = await cleanupOldArticles({
   retentionDays,
   archive: archiveOld,
@@ -91,6 +104,7 @@ const summary = {
     backfilled: fetchStats.totals.backfilled || 0,
     duplicates: fetchStats.totals.duplicates,
     skipped: fetchStats.totals.skipped,
+    retries: totalRetries,
   },
   cleanup: cleanupStats,
   indexes: indexStats,

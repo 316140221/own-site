@@ -14,7 +14,7 @@ permalink: "lang/{{ lang.code }}/feed.xml"
     <title>{{ (site.name + ' - ' + lang.label) | xmlEscape | safe }}</title>
     <link>{{ ('/lang/' + lang.code + '/') | url | absoluteUrl(site.url) }}</link>
     <description>{{ ('Latest items in ' + lang.label + '.') | xmlEscape | safe }}</description>
-    <language>{{ site.language | xmlEscape | safe }}</language>
+    <language>{{ lang.code | xmlEscape | safe }}</language>
     <lastBuildDate>{{ buildTime | rfc822 }}</lastBuildDate>
     <atom:link href="{{ ('/lang/' + lang.code + '/feed.xml') | url | absoluteUrl(site.url) }}" rel="self" type="application/rss+xml" />
 
