@@ -55,10 +55,6 @@ eleventyExcludeFromCollections: true
     <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
   <url>
-    <loc>{{ '/library/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
-  </url>
-  <url>
     <loc>{{ '/tools/' | url | absoluteUrl(site.url) }}</loc>
     <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
@@ -129,4 +125,3 @@ eleventyExcludeFromCollections: true
     {% endfor %}
   {% endif %}
 </urlset>
-

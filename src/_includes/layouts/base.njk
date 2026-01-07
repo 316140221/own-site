@@ -497,17 +497,22 @@
           {% endif %}
         </nav>
       </div>
-    </header>
+	    </header>
 
-	    <main class="container" data-pagefind-body id="main-content">
+	    {% set pagefindBodyEnabled = true %}
+	    {% if pagefindBody is defined %}
+	      {% set pagefindBodyEnabled = pagefindBody %}
+	    {% endif %}
+
+	    <main class="container" {% if pagefindBodyEnabled %}data-pagefind-body{% endif %} id="main-content">
 	      {% include "partials/tool-nav.njk" %}
 	      {{ content | safe }}
 	      {% include "partials/tool-related.njk" %}
 	    </main>
 
-    <button class="to-top button" type="button" data-to-top hidden data-i18n="nav.top">
-      Back to top
-    </button>
+	    <button class="to-top button" type="button" data-to-top hidden data-i18n="nav.top">
+	      Back to top
+	    </button>
 
     <footer class="site-footer">
       <div class="container footer-inner">
