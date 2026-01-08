@@ -1,0 +1,31 @@
+{
+  "id": "d2655b5eafd85760505a851c3621b0724d7b7990",
+  "title": "ChatGPT falls to new data-pilfering attack as a vicious cycle in AI continues",
+  "summary": "Will LLMs ever be able to stamp out the root cause of these attacks? Possibly not.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/01/chatgpt-falls-to-new-data-pilfering-attack-as-a-vicious-cycle-in-ai-continues",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-01-08T14:00:07.000Z",
+  "fetchedAt": "2026-01-08T16:26:15.632Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "chatbots",
+    "data exfiltration",
+    "prompt injections"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/01/AI-chatbot-threat-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/01/08/d2655b5eafd85760505a851c3621b0724d7b7990.json",
+  "contentText": "There’s a well-worn pattern in the development of AI chatbots. Researchers discover a vulnerability and exploit it to do something bad. The platform introduces a guardrail that stops the attack from working. Then, researchers devise a simple tweak that once again imperils chatbot users.\n\nThe reason more often than not is that AI is so inherently designed to comply with user requests that the guardrails are reactive and ad hoc, meaning they are built to foreclose a specific attack technique rather than the broader class of vulnerabilities that make it possible. It’s tantamount to putting a new highway guardrail in place in response to a recent crash of a compact car but failing to safeguard larger types of vehicles.\n\nEnter ZombieAgent, son of ShadowLeak\n\nOne of the latest examples is a vulnerability recently discovered in ChatGPT. It allowed researchers at Radware to surreptitiously exfiltrate a user's private information. Their attack also allowed for the data to be sent directly from ChatGPT servers, a capability that gave it additional stealth, since there were no signs of breach on user machines, many of which are inside protected enterprises. Further, the exploit planted entries in the long-term memory that the AI assistant stores for the targeted user, giving it persistence.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
