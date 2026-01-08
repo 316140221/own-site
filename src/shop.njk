@@ -3,6 +3,8 @@ layout: layouts/base.njk
 title: Shop
 description: Amazon picks and affiliate links
 pageScript: /assets/shop.js
+metaRobots: "noindex,follow"
+pagefindBody: false
 ---
 
 <h1 data-i18n="shop.title">Shop</h1>
@@ -123,6 +125,7 @@ pageScript: /assets/shop.js
                 href="{{ item.goPath | url }}"
                 target="_blank"
                 rel="nofollow sponsored noopener noreferrer"
+                referrerpolicy="strict-origin-when-cross-origin"
               >
                 {% if item.image %}
                   <img
@@ -144,6 +147,7 @@ pageScript: /assets/shop.js
                     href="{{ item.goPath | url }}"
                     target="_blank"
                     rel="nofollow sponsored noopener noreferrer"
+                    referrerpolicy="strict-origin-when-cross-origin"
                   >
                     {{ item.title or item.asin }}
                   </a>
@@ -188,6 +192,7 @@ pageScript: /assets/shop.js
                   href="{{ item.goPath | url }}"
                   target="_blank"
                   rel="nofollow sponsored noopener noreferrer"
+                  referrerpolicy="strict-origin-when-cross-origin"
                   data-i18n="shop.cta"
                 >
                   View on Amazon

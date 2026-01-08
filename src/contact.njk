@@ -2,11 +2,15 @@
 layout: layouts/base.njk
 title: Contact
 description: How to reach us
+pagefindBody: false
 ---
 
 <h1 data-i18n="nav.contact">Contact</h1>
 
-<p>
+<p
+  data-i18n-template="contact.intro"
+  data-i18n-vars='{{ { site: site.brand or site.name } | jsonLd | safe }}'
+>
   If you need to reach {{ site.brand or site.name }}, please use the contact information below.
 </p>
 
@@ -21,8 +25,10 @@ description: How to reach us
   </p>
 {% endif %}
 
-<h2>Content removal</h2>
+<h2 data-i18n="contact.removalTitle">Content removal</h2>
 <p>
-  If you believe any content on this site infringes your rights or should be removed, please see
-  <a href="{{ '/takedown/' | url }}">Takedown Requests</a>.
+  <span data-i18n="contact.removalIntro">
+    If you believe any content on this site infringes your rights or should be removed, please see:
+  </span>
+  <a href="{{ '/takedown/' | url }}" data-i18n="takedown.title">Takedown Requests</a>
 </p>

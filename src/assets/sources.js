@@ -88,16 +88,47 @@
       });
 
       if (status) {
-        var suffix = "";
-        if (tagFilter) suffix += " · tag=" + tagFilter;
-        if (q) suffix += " · q=" + q;
-        status.textContent = "Showing " + shown + " / " + total + suffix;
+        var tagLabel = "";
+        if (tagFilter) {
+          for (var i = 0; i < tagLinks.length; i++) {
+            if (tagLinks[i].getAttribute("aria-current") === "page") {
+              tagLabel = String(tagLinks[i].textContent || "").trim();
+              break;
+            }
+          }
+          if (!tagLabel) tagLabel = tagFilterRaw || tagFilter;
+        }
+
+        var key = "sources.filterStatus";
+        var vars = { shown: shown, total: total };
+        if (tagFilter && q) {
+          key = "sources.filterStatusBoth";
+          vars.tag = tagLabel;
+          vars.q = q;
+        } else if (tagFilter) {
+          key = "sources.filterStatusTag";
+          vars.tag = tagLabel;
+        } else if (q) {
+          key = "sources.filterStatusQuery";
+          vars.q = q;
+        }
+
+        if (window.SiteI18n && typeof window.SiteI18n.t === "function") {
+          status.textContent = window.SiteI18n.t(key, vars);
+        } else {
+          var fallback = "Showing " + shown + " / " + total;
+          if (tagFilter && q) fallback += " · Tag: " + tagLabel + " · Search: \"" + q + "\"";
+          else if (tagFilter) fallback += " · Tag: " + tagLabel;
+          else if (q) fallback += " · Search: \"" + q + "\"";
+          status.textContent = fallback;
+        }
       }
     }
 
     if (filterInput) {
       filterInput.addEventListener("input", apply);
     }
+    window.addEventListener("site:lang", apply);
     apply();
   }
 

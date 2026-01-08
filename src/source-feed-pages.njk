@@ -16,12 +16,22 @@ permalink: "source/{{ source.id }}/feed.xml"
   xmlns:dc="http://purl.org/dc/elements/1.1/"
 >
   <channel>
+    {% set channelLink = (('/source/' + source.id + '/') | url) | absoluteUrl(site.url) %}
+    {% set iconUrl = ('/assets/favicon.svg' | url) | absoluteUrl(site.url) %}
     <title>{{ (site.name + ' - ' + source.name) | xmlEscape | safe }}</title>
-    <link>{{ ('/source/' + source.id + '/') | url | absoluteUrl(site.url) }}</link>
+    <link>{{ channelLink | xmlEscape | safe }}</link>
     <description>{{ ('Latest items from ' + source.name + '.') | xmlEscape | safe }}</description>
     <language>{{ (source.language or site.language) | xmlEscape | safe }}</language>
     <lastBuildDate>{{ buildTime | rfc822 }}</lastBuildDate>
+    <generator>{{ (site.name + ' (Eleventy)') | xmlEscape | safe }}</generator>
+    <ttl>120</ttl>
+    <copyright>{{ ('© ' + buildTime.getUTCFullYear() + ' ' + site.name) | xmlEscape | safe }}</copyright>
     <atom:link href="{{ ('/source/' + source.id + '/feed.xml') | url | absoluteUrl(site.url) }}" rel="self" type="application/rss+xml" />
+    <image>
+      <url>{{ iconUrl | xmlEscape | safe }}</url>
+      <title>{{ (site.name + ' - ' + source.name) | xmlEscape | safe }}</title>
+      <link>{{ channelLink | xmlEscape | safe }}</link>
+    </image>
 
     {% for item in items %}
       {% if loop.index0 < 50 %}

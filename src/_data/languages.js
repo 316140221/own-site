@@ -1,3 +1,6 @@
+const fs = require("node:fs");
+const path = require("node:path");
+
 const sources = require("./sources.js");
 
 function normalizeLanguageCode(input) {
@@ -17,6 +20,14 @@ const LABELS = {
   ru: "Russian",
 };
 
+function readJsonOrDefault(filePath, fallback) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+  } catch (_error) {
+    return fallback;
+  }
+}
+
 module.exports = function () {
   const list = sources();
   const enabled = Array.isArray(list) ? list.filter((s) => s && s.enabled !== false) : [];
@@ -27,10 +38,18 @@ module.exports = function () {
   }
 
   return Array.from(codes)
-    .sort()
-    .map((code) => ({
-      code,
-      label: LABELS[code] || code.toUpperCase(),
-    }));
+    .map((code) => {
+      const indexPath = path.resolve(process.cwd(), `data/indexes/by-language/${code}.json`);
+      const items = readJsonOrDefault(indexPath, []);
+      return {
+        code,
+        label: LABELS[code] || code.toUpperCase(),
+        count: Array.isArray(items) ? items.length : 0,
+      };
+    })
+    .sort((a, b) => {
+      const diff = (b.count || 0) - (a.count || 0);
+      if (diff) return diff;
+      return String(a.code || "").localeCompare(String(b.code || ""));
+    });
 };
-

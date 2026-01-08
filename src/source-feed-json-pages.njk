@@ -1,0 +1,59 @@
+---
+layout: null
+eleventyExcludeFromCollections: true
+pagination:
+  data: sourceFeedSources
+  size: 1
+  alias: source
+permalink: "source/{{ source.id }}/feed.json"
+---
+{% set items = (('data/indexes/by-source/' + source.id + '.json') | readJson) or [] %}
+{% set outItems = [] %}
+{% for item in items %}
+  {% if loop.index0 < 50 %}
+    {% set itemUrl = ('/p/' + item.id + '/') | url | absoluteUrl(site.url) %}
+    {% set authorUrl = source.siteUrl %}
+    {% if not authorUrl %}
+      {% set authorUrl = ('/source/' + source.id + '/') | url | absoluteUrl(site.url) %}
+    {% endif %}
+    {% set tags = [] %}
+    {% if item.category %}
+      {% set tags = tags.concat([item.category]) %}
+    {% endif %}
+    {% if item.tags and item.tags.length %}
+      {% set tags = tags.concat(item.tags) %}
+    {% endif %}
+    {% if tags and tags.length %}
+    {% else %}
+      {% set tags = undefined %}
+    {% endif %}
+    {% set contentText = (item.summary or item.title or '') | decodeEntities %}
+    {% set outItems = outItems.concat([
+      {
+        id: item.id,
+        url: itemUrl,
+        external_url: item.canonicalUrl,
+        title: (item.title or '') | decodeEntities,
+        summary: (item.summary or '') | decodeEntities,
+        content_text: contentText,
+        date_published: item.publishedAt,
+        authors: [{ name: source.name, url: authorUrl }],
+        tags: tags,
+        image: item.image
+      }
+    ]) %}
+  {% endif %}
+{% endfor %}
+
+{% set feed = {
+  version: "https://jsonfeed.org/version/1.1",
+  title: site.name + " - " + source.name,
+  home_page_url: (('/source/' + source.id + '/') | url) | absoluteUrl(site.url),
+  feed_url: (('/source/' + source.id + '/feed.json') | url) | absoluteUrl(site.url),
+  description: "Latest items from " + source.name + ".",
+  favicon: ('/assets/favicon.svg' | url) | absoluteUrl(site.url),
+  icon: ('/assets/favicon.svg' | url) | absoluteUrl(site.url),
+  language: source.language or site.language,
+  items: outItems
+} %}
+{{ feed | jsonLd | safe }}

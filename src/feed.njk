@@ -11,12 +11,22 @@ eleventyExcludeFromCollections: true
   xmlns:dc="http://purl.org/dc/elements/1.1/"
 >
   <channel>
+    {% set channelLink = ('/' | url) | absoluteUrl(site.url) %}
+    {% set iconUrl = ('/assets/favicon.svg' | url) | absoluteUrl(site.url) %}
     <title>{{ (site.name + ' - Latest') | xmlEscape | safe }}</title>
-    <link>{{ '/' | url | absoluteUrl(site.url) }}</link>
+    <link>{{ channelLink | xmlEscape | safe }}</link>
     <description>{{ site.description | xmlEscape | safe }}</description>
     <language>{{ site.language | xmlEscape | safe }}</language>
     <lastBuildDate>{{ buildTime | rfc822 }}</lastBuildDate>
+    <generator>{{ (site.name + ' (Eleventy)') | xmlEscape | safe }}</generator>
+    <ttl>120</ttl>
+    <copyright>{{ ('© ' + buildTime.getUTCFullYear() + ' ' + site.name) | xmlEscape | safe }}</copyright>
     <atom:link href="{{ '/feed.xml' | url | absoluteUrl(site.url) }}" rel="self" type="application/rss+xml" />
+    <image>
+      <url>{{ iconUrl | xmlEscape | safe }}</url>
+      <title>{{ site.name | xmlEscape | safe }}</title>
+      <link>{{ channelLink | xmlEscape | safe }}</link>
+    </image>
 
     {% if news and news.latest %}
       {% for item in news.latest %}

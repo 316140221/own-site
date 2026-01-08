@@ -3,16 +3,20 @@ layout: layouts/base.njk
 title: About
 description: About this site and its sources
 rssPath: /feed.xml
+pagefindBody: false
 ---
 
 <h1 data-i18n="nav.about">About</h1>
 
-<p>
+<p
+  data-i18n-template="about.intro"
+  data-i18n-vars='{{ { site: site.brand or site.name } | jsonLd | safe }}'
+>
   {{ site.brand or site.name }} is a cloud-ready collection of handy utilities plus a lightweight
   info stream. It’s designed to be usable anywhere — open and use, with minimal friction.
 </p>
 
-<p>
+<p data-i18n="about.feedNote">
   The feed section republishes metadata (title, short summary) and links to original sources. Copyright
   belongs to the original publishers.
 </p>
@@ -34,7 +38,8 @@ rssPath: /feed.xml
 </p>
 
 <p class="muted">
-  This site may contain affiliate links. See <a href="{{ '/affiliate-disclosure/' | url }}">Affiliate Disclosure</a>.
+  <span data-i18n="about.affiliateNote">This site may contain affiliate links. See:</span>
+  <a href="{{ '/affiliate-disclosure/' | url }}" data-i18n="nav.disclosure">Affiliate Disclosure</a>
 </p>
 
 {% if stats %}
@@ -60,8 +65,8 @@ rssPath: /feed.xml
     {% for s in sources %}
       <li>
         <strong>{{ s.name }}</strong>
-        {% if s.siteUrl %}· <a href="{{ s.siteUrl }}" target="_blank" rel="noopener noreferrer">{{ s.siteUrl }}</a>{% endif %}
-        {% if s.feedUrl %}· <a href="{{ s.feedUrl }}" target="_blank" rel="noopener noreferrer">RSS</a>{% endif %}
+        {% if s.siteUrl %}· <a href="{{ s.siteUrl }}" target="_blank" rel="nofollow noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin">{{ s.siteUrl }}</a>{% endif %}
+        {% if s.feedUrl %}· <a href="{{ s.feedUrl }}" target="_blank" rel="nofollow noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin" data-i18n="sources.link.rss">RSS</a>{% endif %}
       </li>
     {% endfor %}
   </ul>

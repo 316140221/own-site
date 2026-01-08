@@ -331,6 +331,20 @@
       {% set rssTitle = site.name + ' - ' + sourcePage.name %}
     {% endif %}
 
+    {% set jsonFeedTitle = site.name + ' JSON Feed' %}
+    {% if catPage and catPage.label %}
+      {% set jsonFeedTitle = site.name + ' - ' + catPage.label + ' JSON Feed' %}
+    {% elif langPage and langPage.label %}
+      {% set jsonFeedTitle = site.name + ' - ' + langPage.label + ' JSON Feed' %}
+    {% elif sourcePage and sourcePage.name %}
+      {% set jsonFeedTitle = site.name + ' - ' + sourcePage.name + ' JSON Feed' %}
+    {% endif %}
+
+    {% set jsonFeedHref = '/feed.json' %}
+    {% if jsonFeedPath is defined and jsonFeedPath %}
+      {% set jsonFeedHref = jsonFeedPath %}
+    {% endif %}
+
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -340,8 +354,8 @@
     <link
       rel="alternate"
       type="application/feed+json"
-      title="{{ site.name }} JSON Feed"
-      href="{{ '/feed.json' | url }}"
+      title="{{ jsonFeedTitle }}"
+      href="{{ jsonFeedHref | url }}"
     />
     <link
       rel="search"
@@ -416,24 +430,49 @@
               data-i18n-placeholder="search.placeholder"
               placeholder="Search…"
             />
+            <button
+              class="header-search-clear"
+              type="button"
+              data-header-search-clear
+              hidden
+              data-i18n="search.clear"
+            >
+              Clear
+            </button>
             <button class="header-search-btn" type="submit" data-i18n="search.go">Go</button>
           </form>
         {% endif %}
         <nav class="nav" id="site-nav" aria-label="Primary">
-          <a href="{{ '/' | url }}" data-i18n="nav.home">Home</a>
+          <a
+            href="{{ '/' | url }}"
+            {% if page.url == '/' %}aria-current="page"{% endif %}
+            data-i18n="nav.home"
+          >Home</a>
 
           {% if amazon and amazon.enabled %}
-            <a href="{{ '/shop/' | url }}" data-i18n="nav.shop">Shop</a>
+            <a
+              href="{{ '/shop/' | url }}"
+              {% if page.url and page.url.indexOf('/shop/') == 0 %}aria-current="page"{% endif %}
+              data-i18n="nav.shop"
+            >Shop</a>
           {% endif %}
 
           {% if tools and tools.groups %}
             {% if headerNavModeResolved == 'minimal' %}
-              <a href="{{ '/tools/' | url }}" data-i18n="nav.tools">Tools</a>
+              <a
+                href="{{ '/tools/' | url }}"
+                {% if page.url and page.url.indexOf('/tools/') == 0 %}aria-current="page"{% endif %}
+                data-i18n="nav.tools"
+              >Tools</a>
             {% else %}
               <details class="nav-dropdown" data-nav-section="tools">
                 <summary data-i18n="nav.tools">Tools</summary>
                 <div class="nav-dropdown-menu">
-                  <a class="nav-dropdown-top" href="{{ '/tools/' | url }}" data-i18n="nav.toolsAll"
+                  <a
+                    class="nav-dropdown-top"
+                    href="{{ '/tools/' | url }}"
+                    {% if page.url and page.url.indexOf('/tools/') == 0 %}aria-current="page"{% endif %}
+                    data-i18n="nav.toolsAll"
                     >All tools</a
                   >
                   {% for group in tools.groups %}
@@ -442,7 +481,10 @@
                         {{ group.label }}
                       </div>
                       {% for t in group.items %}
-                        <a href="{{ t.path | url }}" data-i18n="tools.item.{{ t.slug }}.title"
+                        <a
+                          href="{{ t.path | url }}"
+                          {% if page.url and page.url == t.path %}aria-current="page"{% endif %}
+                          data-i18n="tools.item.{{ t.slug }}.title"
                           >{{ t.label }}</a
                         >
                       {% endfor %}
@@ -455,16 +497,43 @@
 
           {% if showNewsNavResolved and categories %}
             {% if headerNavModeResolved == 'minimal' %}
-              <a href="{{ '/page/1/' | url }}" data-i18n="home.latest">Latest</a>
-              <a href="{{ '/trending/' | url }}" data-i18n="nav.trending">Trending</a>
+              <a
+                href="{{ '/page/1/' | url }}"
+                {% if page.url and page.url.indexOf('/page/') == 0 %}aria-current="page"{% endif %}
+                data-i18n="home.latest"
+              >Latest</a>
+              <a
+                href="{{ '/trending/' | url }}"
+                {% if page.url and page.url.indexOf('/trending/') == 0 %}aria-current="page"{% endif %}
+                data-i18n="nav.trending"
+              >Trending</a>
             {% else %}
               <details class="nav-dropdown" data-nav-section="news">
                 <summary data-i18n="nav.news">News</summary>
-                <div class="nav-dropdown-menu">
-                  <a class="nav-dropdown-top" href="{{ '/page/1/' | url }}" data-i18n="home.latest">Latest</a>
-                  <a class="nav-dropdown-top" href="{{ '/trending/' | url }}" data-i18n="nav.trending">Trending</a>
-                  {% for cat in categories %}
-                    <a href="{{ ('/category/' + cat.slug + '/') | url }}">{{ cat.label }}</a>
+	                <div class="nav-dropdown-menu">
+	                  <a
+	                    class="nav-dropdown-top"
+	                    href="{{ '/page/1/' | url }}"
+	                    {% if page.url and page.url.indexOf('/page/') == 0 %}aria-current="page"{% endif %}
+	                    data-i18n="home.latest"
+	                  >Latest</a>
+	                  <a
+	                    class="nav-dropdown-top"
+	                    href="{{ '/trending/' | url }}"
+	                    {% if page.url and page.url.indexOf('/trending/') == 0 %}aria-current="page"{% endif %}
+	                    data-i18n="nav.trending"
+	                  >Trending</a>
+	                  <a
+	                    class="nav-dropdown-top"
+	                    href="{{ '/categories/' | url }}"
+	                    {% if page.url and page.url.indexOf('/categories/') == 0 %}aria-current="page"{% endif %}
+	                    data-i18n="nav.categories"
+	                  >Categories</a>
+	                  {% for cat in categories %}
+	                    <a
+	                      href="{{ ('/category/' + cat.slug + '/') | url }}"
+	                      {% if page.url and page.url.indexOf('/category/' + cat.slug + '/') == 0 %}aria-current="page"{% endif %}
+	                    >{{ cat.label }}</a>
                   {% endfor %}
                 </div>
               </details>
@@ -508,9 +577,17 @@
             </div>
           </details>
 
-          <a href="{{ '/library/' | url }}" data-i18n="nav.library">Library</a>
+          <a
+            href="{{ '/library/' | url }}"
+            {% if page.url and page.url.indexOf('/library/') == 0 %}aria-current="page"{% endif %}
+            data-i18n="nav.library"
+          >Library</a>
           {% if not headerSearchEnabled %}
-            <a href="{{ '/search/' | url }}" data-i18n="nav.search">Search</a>
+            <a
+              href="{{ '/search/' | url }}"
+              {% if page.url and page.url.indexOf('/search/') == 0 %}aria-current="page"{% endif %}
+              data-i18n="nav.search"
+            >Search</a>
           {% endif %}
         </nav>
       </div>
@@ -538,18 +615,44 @@
           {{ (buildTime or '') | formatDateTime }}
         </span>
         <nav class="footer-links" aria-label="Footer">
-          <a class="footer-link" href="{{ '/about/' | url }}" data-i18n="nav.about">About</a>
-          <a class="footer-link" href="{{ '/privacy/' | url }}" data-i18n="nav.privacy">Privacy</a>
+          <a
+            class="footer-link"
+            href="{{ '/about/' | url }}"
+            {% if page.url == '/about/' %}aria-current="page"{% endif %}
+            data-i18n="nav.about"
+          >About</a>
+          <a
+            class="footer-link"
+            href="{{ '/privacy/' | url }}"
+            {% if page.url == '/privacy/' %}aria-current="page"{% endif %}
+            data-i18n="nav.privacy"
+          >Privacy</a>
           <a
             class="footer-link"
             href="{{ '/affiliate-disclosure/' | url }}"
+            {% if page.url == '/affiliate-disclosure/' %}aria-current="page"{% endif %}
             data-i18n="nav.disclosure"
             >Affiliate Disclosure</a
           >
-          <a class="footer-link" href="{{ '/contact/' | url }}" data-i18n="nav.contact">Contact</a>
-          <a class="footer-link" href="{{ '/terms/' | url }}" data-i18n="nav.terms">Terms</a>
+          <a
+            class="footer-link"
+            href="{{ '/contact/' | url }}"
+            {% if page.url == '/contact/' %}aria-current="page"{% endif %}
+            data-i18n="nav.contact"
+          >Contact</a>
+          <a
+            class="footer-link"
+            href="{{ '/terms/' | url }}"
+            {% if page.url == '/terms/' %}aria-current="page"{% endif %}
+            data-i18n="nav.terms"
+          >Terms</a>
           <a class="footer-link" href="{{ '/feed.xml' | url }}" data-i18n="nav.rss">RSS</a>
-          <a class="footer-link" href="{{ '/library/' | url }}" data-i18n="nav.library">Library</a>
+          <a
+            class="footer-link"
+            href="{{ '/library/' | url }}"
+            {% if page.url and page.url.indexOf('/library/') == 0 %}aria-current="page"{% endif %}
+            data-i18n="nav.library"
+          >Library</a>
         </nav>
       </div>
     </footer>

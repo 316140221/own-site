@@ -2,33 +2,37 @@
 layout: layouts/base.njk
 title: Takedown Requests
 description: Request content removal or report infringement
+pagefindBody: false
 ---
 
-<h1>Takedown Requests</h1>
+<h1 data-i18n="takedown.title">Takedown Requests</h1>
 
-<p>
+<p
+  data-i18n-template="takedown.intro"
+  data-i18n-vars='{{ { site: site.brand or site.name } | jsonLd | safe }}'
+>
   {{ site.brand or site.name }} links to third-party sources and may display limited metadata (title
   and short summary). If you believe any content on this site should be removed, please contact us
   with the information below.
 </p>
 
-<h2>What to include</h2>
+<h2 data-i18n="takedown.include.title">What to include</h2>
 <ul>
-  <li>The URL(s) on our site you want removed</li>
-  <li>The original source URL(s)</li>
-  <li>Your name and role (e.g. rights holder, authorized agent)</li>
-  <li>A brief explanation of the issue</li>
-  <li>Any supporting documentation (if applicable)</li>
+  <li data-i18n="takedown.include.url">The URL(s) on our site you want removed</li>
+  <li data-i18n="takedown.include.source">The original source URL(s)</li>
+  <li data-i18n="takedown.include.identity">Your name and role (e.g. rights holder, authorized agent)</li>
+  <li data-i18n="takedown.include.explanation">A brief explanation of the issue</li>
+  <li data-i18n="takedown.include.proof">Any supporting documentation (if applicable)</li>
 </ul>
 
 {% if site.contactEmail %}
   <p>
-    <strong>Email:</strong>
+    <strong data-i18n="contact.emailLabel">Email:</strong>
     <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>
   </p>
 {% else %}
   <p class="muted">
-    Contact email is not configured yet. See <a href="{{ '/contact/' | url }}">Contact</a>.
+    <span data-i18n="takedown.noEmail">Contact email is not configured yet. See:</span>
+    <a href="{{ '/contact/' | url }}" data-i18n="nav.contact">Contact</a>
   </p>
 {% endif %}
-

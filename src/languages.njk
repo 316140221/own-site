@@ -13,6 +13,19 @@ rssPath: /feed.xml
       <li>
         <a href="{{ ('/lang/' + lang.code + '/') | url }}">{{ lang.label }}</a>
         <span class="muted">({{ lang.code }})</span>
+        {% if lang.count is defined %}
+          <span
+            class="muted"
+            data-i18n-template="languages.count"
+            data-i18n-vars='{{ { count: lang.count } | jsonLd | safe }}'
+          >
+            {{ lang.count }} articles
+          </span>
+        {% endif %}
+        <span class="muted">
+          · <a class="muted" href="{{ ('/lang/' + lang.code + '/feed.xml') | url }}">RSS</a>
+          · <a class="muted" href="{{ ('/lang/' + lang.code + '/feed.json') | url }}">JSON</a>
+        </span>
       </li>
     {% endfor %}
   </ul>

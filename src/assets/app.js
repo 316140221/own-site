@@ -60,7 +60,12 @@ const I18N = {
     "search.title": "Search",
     "search.placeholder": "Search… (/)",
     "search.go": "Go",
+    "search.clear": "Clear",
     "search.notice": "Search is temporarily unavailable.",
+    "search.filters.reset": "Reset filters",
+    "search.filters.category": "Category",
+    "search.filters.language": "Language",
+    "search.filters.source": "Source",
 
     "about.links": "Links:",
     "about.status": "Status",
@@ -69,9 +74,92 @@ const I18N = {
     "about.sourcesStatValue": "{ok} OK / {failed} failed / {paused} paused",
     "about.articlesStat": "Articles:",
     "about.noSources": "No sources configured yet.",
+    "about.intro":
+      "{site} is a cloud-ready collection of handy utilities plus a lightweight info stream. It’s designed to be usable anywhere — open and use, with minimal friction.",
+    "about.feedNote":
+      "The feed section republishes metadata (title, short summary) and links to original sources. Copyright belongs to the original publishers.",
+    "about.affiliateNote": "This site may contain affiliate links. See:",
 
     "contact.emailLabel": "Email:",
     "contact.unavailable": "Contact information is not available right now.",
+    "contact.intro": "If you need to reach {site}, please use the contact information below.",
+    "contact.removalTitle": "Content removal",
+    "contact.removalIntro":
+      "If you believe any content on this site infringes your rights or should be removed, please see:",
+
+    "privacy.title": "Privacy Policy",
+    "privacy.intro":
+      "This is a static website. We do not offer user accounts and we do not ask you to submit personal information to use the site.",
+    "privacy.collect.title": "Information we collect",
+    "privacy.collect.tech.label": "Basic technical data:",
+    "privacy.collect.tech.desc":
+      "like most websites, our hosting provider may log standard request data (e.g. IP address, user agent, referrer, timestamps) for security and performance.",
+    "privacy.collect.analytics.label": "Optional analytics:",
+    "privacy.collect.analytics.desc":
+      "if enabled, a third-party analytics provider may collect usage data to help us understand site traffic.",
+    "privacy.collect.local.label": "Local preferences and lists:",
+    "privacy.collect.local.desc":
+      "we may store small preferences (e.g. language and theme) and optional local lists (e.g. saved items, recently viewed, and read markers) in your browser using localStorage.",
+    "privacy.notCollect.title": "What we do not collect",
+    "privacy.notCollect.accounts": "We do not collect passwords or create accounts.",
+    "privacy.notCollect.sensitive": "We do not intentionally collect sensitive personal data.",
+    "privacy.notCollect.sell": "We do not sell personal information.",
+    "privacy.notCollect.search":
+      "Site search runs locally in your browser; we do not receive your search queries.",
+    "privacy.external.title": "External links",
+    "privacy.external.note":
+      "This site links to third-party websites. Their privacy practices are governed by their own policies.",
+    "privacy.affiliate.title": "Affiliate links",
+    "privacy.affiliate.note":
+      "Some links may be affiliate links. If you buy through those links, we may earn a commission at no additional cost to you.",
+    "privacy.changes.title": "Changes",
+    "privacy.changes.note":
+      "We may update this policy from time to time by publishing a new version on this page.",
+
+    "terms.title": "Terms of Use",
+    "terms.intro":
+      "By accessing and using {site}, you agree to these terms. If you do not agree, please do not use the site.",
+    "terms.content.title": "Content and links",
+    "terms.content.metadata":
+      "This site may republish limited metadata (e.g. title and short summary) and link to original sources. Copyright belongs to the original publishers.",
+    "terms.content.external": "External websites are governed by their own terms and policies.",
+    "terms.content.accuracy":
+      "We do not guarantee the accuracy, completeness, or timeliness of any third-party content.",
+    "terms.affiliate.title": "Affiliate links",
+    "terms.affiliate.note":
+      "Some links may be affiliate links. If you buy through those links, we may earn a commission at no additional cost to you. See:",
+    "terms.warranty.title": "No warranties",
+    "terms.warranty.note":
+      "The site is provided “as is” without warranties of any kind. Use it at your own risk.",
+    "terms.liability.title": "Limitation of liability",
+    "terms.liability.note":
+      "To the fullest extent permitted by law, we are not liable for any damages arising from your use of the site.",
+    "terms.changes.title": "Changes",
+    "terms.changes.note":
+      "We may update these terms from time to time by publishing a new version on this page.",
+
+    "takedown.title": "Takedown Requests",
+    "takedown.intro":
+      "{site} links to third-party sources and may display limited metadata (title and short summary). If you believe any content on this site should be removed, please contact us with the information below.",
+    "takedown.include.title": "What to include",
+    "takedown.include.url": "The URL(s) on our site you want removed",
+    "takedown.include.source": "The original source URL(s)",
+    "takedown.include.identity": "Your name and role (e.g. rights holder, authorized agent)",
+    "takedown.include.explanation": "A brief explanation of the issue",
+    "takedown.include.proof": "Any supporting documentation (if applicable)",
+    "takedown.noEmail": "Contact email is not configured yet. See:",
+
+    "disclosure.title": "Affiliate Disclosure",
+    "disclosure.intro":
+      "Some links on this site are affiliate links. This means we may earn a commission if you click a link and make a purchase, at no additional cost to you.",
+    "disclosure.amazon.title": "Amazon Associates",
+    "disclosure.amazon.program":
+      "This site may participate in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.",
+    "disclosure.amazon.prices":
+      "Product availability and prices are subject to change. Any price and availability information displayed on Amazon at the time of purchase will apply to your purchase.",
+    "disclosure.editorial.title": "Editorial independence",
+    "disclosure.editorial.note":
+      "We aim to recommend items we believe are useful. Compensation does not affect the topics we cover or the items we include.",
 
     "notFound.title": "404 — Page not found",
     "notFound.prefix": "We can’t find ",
@@ -115,6 +203,8 @@ const I18N = {
     "runs.itemsCell": "{added} added · {backfilled} backfilled · {duplicates} dup · {skipped} skipped",
     "runs.retries": "· {count} retries",
     "runs.cleanupDeleted": "deleted {count}",
+    "runs.addedLabel": "Added: {count}",
+    "runs.stories": "· {count} stories",
     "runs.empty": "No run history yet. Check back later.",
 
     "article.copy": "Copy link",
@@ -143,13 +233,24 @@ const I18N = {
     "pager.meta": "Page {current} / {total}",
 
     "languages.title": "Languages",
+    "languages.count": "{count} articles",
     "languages.empty": "No languages detected.",
+
+    "categories.count": "{count} articles",
+    "categories.empty": "No categories available.",
 
     "sources.title": "Sources",
     "sources.filterLabel": "Filter sources",
     "sources.filterPlaceholder": "Filter sources…",
+    "sources.tagsLabel": "Source tags",
+    "sources.filterStatus": "Showing {shown} / {total}",
+    "sources.filterStatusTag": "Showing {shown} / {total} · Tag: {tag}",
+    "sources.filterStatusQuery": "Showing {shown} / {total} · Search: “{q}”",
+    "sources.filterStatusBoth": "Showing {shown} / {total} · Tag: {tag} · Search: “{q}”",
     "sources.summary": "Last run: {time} · OK {ok} / Failed {failed} / Paused {paused} · Articles {articles}",
     "sources.link.site": "Site",
+    "sources.link.rss": "RSS",
+    "sources.link.feed": "Feed",
     "sources.disabled": "disabled",
     "sources.error": "Error",
     "sources.pausedUntil": "Paused until",
@@ -2107,7 +2208,12 @@ const I18N = {
     "search.title": "搜索",
     "search.placeholder": "搜索…（/）",
     "search.go": "搜索",
+    "search.clear": "清除",
     "search.notice": "搜索暂不可用，请稍后再试。",
+    "search.filters.reset": "重置筛选",
+    "search.filters.category": "分类",
+    "search.filters.language": "语言",
+    "search.filters.source": "来源",
 
     "about.links": "链接：",
     "about.status": "状态",
@@ -2116,9 +2222,83 @@ const I18N = {
     "about.sourcesStatValue": "{ok} 成功 / {failed} 失败 / {paused} 暂停",
     "about.articlesStat": "文章：",
     "about.noSources": "暂无来源配置。",
+    "about.intro":
+      "{site} 是一组可随处使用的实用工具，同时也提供轻量的信息流。打开即用，尽量减少使用阻力。",
+    "about.feedNote":
+      "信息流部分仅汇总元信息（标题、简短摘要）并链接到原始来源。版权归原发布者所有。",
+    "about.affiliateNote": "本站可能包含返利链接，详见：",
 
     "contact.emailLabel": "邮箱：",
     "contact.unavailable": "暂时无法提供联系方式。",
+    "contact.intro": "如需联系 {site}，请使用以下方式。",
+    "contact.removalTitle": "内容移除",
+    "contact.removalIntro": "如果你认为本站内容侵犯你的权利或需要移除，请查看：",
+
+    "privacy.title": "隐私政策",
+    "privacy.intro":
+      "这是一个静态网站。我们不提供用户账号，也不会要求你提交个人信息才能使用本站。",
+    "privacy.collect.title": "我们收集的信息",
+    "privacy.collect.tech.label": "基础技术数据：",
+    "privacy.collect.tech.desc":
+      "与大多数网站类似，托管服务提供商可能会出于安全与性能目的记录标准请求信息（例如 IP 地址、User-Agent、Referrer、时间戳等）。",
+    "privacy.collect.analytics.label": "可选分析：",
+    "privacy.collect.analytics.desc":
+      "若启用第三方统计服务，相关服务商可能会收集使用数据，以帮助我们了解站点访问情况。",
+    "privacy.collect.local.label": "本地偏好与列表：",
+    "privacy.collect.local.desc":
+      "我们可能会使用 localStorage 在你的浏览器本地保存少量偏好设置（如语言、主题）以及可选的本地列表（如收藏、最近浏览、已读标记等）。",
+    "privacy.notCollect.title": "我们不会收集的信息",
+    "privacy.notCollect.accounts": "我们不收集密码，也不提供账号体系。",
+    "privacy.notCollect.sensitive": "我们不会主动收集敏感个人信息。",
+    "privacy.notCollect.sell": "我们不会出售个人信息。",
+    "privacy.notCollect.search": "站内搜索在你的浏览器本地运行；我们不会收到你的搜索内容。",
+    "privacy.external.title": "外部链接",
+    "privacy.external.note": "本站会链接到第三方网站。其隐私做法由对方的政策决定。",
+    "privacy.affiliate.title": "返利链接",
+    "privacy.affiliate.note":
+      "部分链接可能为返利链接。当你通过这些链接购买商品时，我们可能会获得佣金，但不会增加你的额外成本。",
+    "privacy.changes.title": "变更",
+    "privacy.changes.note": "我们可能会不定期更新本隐私政策，并在本页面发布新版内容。",
+
+    "terms.title": "使用条款",
+    "terms.intro": "访问并使用 {site} 即表示你同意本条款。如不同意，请不要使用本站。",
+    "terms.content.title": "内容与链接",
+    "terms.content.metadata":
+      "本站可能会转载有限的元信息（例如标题、简短摘要）并链接到原始来源。版权归原发布者所有。",
+    "terms.content.external": "外部网站适用其各自的条款与政策。",
+    "terms.content.accuracy": "我们不保证任何第三方内容的准确性、完整性或时效性。",
+    "terms.affiliate.title": "返利链接",
+    "terms.affiliate.note":
+      "部分链接可能为返利链接。当你通过这些链接购买商品时，我们可能会获得佣金，但不会增加你的额外成本。详见：",
+    "terms.warranty.title": "无担保",
+    "terms.warranty.note": "本站按“现状”提供，不作任何形式的担保。使用风险由你自行承担。",
+    "terms.liability.title": "责任限制",
+    "terms.liability.note": "在法律允许的最大范围内，我们不对因你使用本站而产生的任何损失承担责任。",
+    "terms.changes.title": "变更",
+    "terms.changes.note": "我们可能会不定期更新本条款，并在本页面发布新版内容。",
+
+    "takedown.title": "下架申请",
+    "takedown.intro":
+      "{site} 链接到第三方来源，并可能展示有限的元信息（标题与简短摘要）。如果你认为本站某些内容应被移除，请按下述信息联系我们。",
+    "takedown.include.title": "请提供的信息",
+    "takedown.include.url": "你希望移除的本站页面 URL（可多个）",
+    "takedown.include.source": "对应的原始来源 URL（可多个）",
+    "takedown.include.identity": "你的姓名与身份/角色（如权利人、授权代理人等）",
+    "takedown.include.explanation": "问题的简要说明",
+    "takedown.include.proof": "相关证明材料（如适用）",
+    "takedown.noEmail": "当前未配置联系邮箱，请查看：",
+
+    "disclosure.title": "返利声明",
+    "disclosure.intro":
+      "本站部分链接为返利链接。这意味着当你点击链接并完成购买时，我们可能会获得佣金，但不会增加你的额外成本。",
+    "disclosure.amazon.title": "Amazon 联盟（Amazon Associates）",
+    "disclosure.amazon.program":
+      "本站可能参与 Amazon Services LLC Associates Program（亚马逊联盟）等返利计划，该计划旨在通过展示与链接到 Amazon 来为网站提供获取广告费用的方式。",
+    "disclosure.amazon.prices":
+      "商品库存与价格可能随时变化。以你在 Amazon 下单时页面显示的价格与库存信息为准。",
+    "disclosure.editorial.title": "编辑独立性",
+    "disclosure.editorial.note":
+      "我们会尽量推荐我们认为有用的内容/商品。获得的返利不会影响我们覆盖的话题或收录的商品。",
 
     "notFound.title": "404 — 页面未找到",
     "notFound.prefix": "无法找到",
@@ -2161,6 +2341,8 @@ const I18N = {
     "runs.itemsCell": "新增 {added} · 回补 {backfilled} · 去重 {duplicates} · 跳过 {skipped}",
     "runs.retries": "· 重试 {count} 次",
     "runs.cleanupDeleted": "删除 {count}",
+    "runs.addedLabel": "新增：{count}",
+    "runs.stories": "· {count} 个故事",
     "runs.empty": "暂无运行记录，稍后再来。",
 
     "article.copy": "复制链接",
@@ -2189,13 +2371,24 @@ const I18N = {
     "pager.meta": "第 {current} / {total} 页",
 
     "languages.title": "语言",
+    "languages.count": "{count} 篇",
     "languages.empty": "暂无语言。",
+
+    "categories.count": "{count} 篇",
+    "categories.empty": "暂无分类。",
 
     "sources.title": "来源",
     "sources.filterLabel": "筛选来源",
     "sources.filterPlaceholder": "筛选来源…",
+    "sources.tagsLabel": "来源标签",
+    "sources.filterStatus": "显示 {shown} / {total}",
+    "sources.filterStatusTag": "显示 {shown} / {total} · 标签：{tag}",
+    "sources.filterStatusQuery": "显示 {shown} / {total} · 搜索：“{q}”",
+    "sources.filterStatusBoth": "显示 {shown} / {total} · 标签：{tag} · 搜索：“{q}”",
     "sources.summary": "上次运行：{time} · 成功 {ok} / 失败 {failed} / 暂停 {paused} · 文章 {articles}",
     "sources.link.site": "网站",
+    "sources.link.rss": "RSS",
+    "sources.link.feed": "订阅",
     "sources.disabled": "已禁用",
     "sources.error": "错误",
     "sources.pausedUntil": "暂停至",
@@ -4281,8 +4474,15 @@ window.SiteI18n = {
 };
 
 function closeNavDropdowns(except) {
+  const active = document.activeElement;
   document.querySelectorAll(".nav-dropdown[open]").forEach((details) => {
-    if (details !== except) details.removeAttribute("open");
+    if (details === except) return;
+    const shouldRestoreFocus = active instanceof Element && details.contains(active);
+    details.removeAttribute("open");
+    if (shouldRestoreFocus) {
+      const summary = details.querySelector("summary");
+      if (summary instanceof HTMLElement) summary.focus();
+    }
   });
 }
 
@@ -4292,15 +4492,25 @@ function setupNav() {
   const toggle = document.querySelector(".menu-toggle");
   if (!header || !nav || !toggle) return;
 
-  function setNavOpen(open) {
+  function setNavOpen(open, opts) {
+    const { focusToggle } = opts || {};
+    const wasOpen = header.classList.contains("nav-open");
     header.classList.toggle("nav-open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
     if (!open) closeNavDropdowns(null);
+    if (!open && focusToggle && wasOpen) toggle.focus();
   }
 
   toggle.addEventListener("click", () => {
     const open = !header.classList.contains("nav-open");
     setNavOpen(open);
+  });
+
+  nav.querySelectorAll(".nav-dropdown").forEach((details) => {
+    details.addEventListener("toggle", () => {
+      if (!(details instanceof HTMLDetailsElement)) return;
+      if (details.open) closeNavDropdowns(details);
+    });
   });
 
   nav.addEventListener("click", (event) => {
@@ -4317,11 +4527,54 @@ function setupNav() {
     const dropdown = target.closest(".nav-dropdown");
     if (dropdown) closeNavDropdowns(dropdown);
     else closeNavDropdowns(null);
+
+    if (header.classList.contains("nav-open") && !header.contains(target)) {
+      setNavOpen(false, { focusToggle: true });
+    }
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key !== "Escape") return;
-    setNavOpen(false);
+    if (event.key === "Escape") {
+      const openDropdowns = Array.from(document.querySelectorAll(".nav-dropdown[open]"));
+      if (openDropdowns.length) {
+        openDropdowns.forEach((details) => details.removeAttribute("open"));
+        const summary = openDropdowns[0].querySelector("summary");
+        if (summary instanceof HTMLElement) summary.focus();
+        return;
+      }
+
+      if (header.classList.contains("nav-open")) {
+        setNavOpen(false, { focusToggle: true });
+      }
+      return;
+    }
+
+    if (event.key !== "Tab") return;
+    if (!header.classList.contains("nav-open")) return;
+
+    const focusable = Array.from(
+      header.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), summary, [tabindex]:not([tabindex="-1"])'
+      )
+    ).filter((el) => el instanceof HTMLElement && !el.hasAttribute("hidden") && el.getClientRects().length);
+
+    if (focusable.length < 2) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const active = document.activeElement;
+    if (!(active instanceof HTMLElement)) return;
+
+    if (event.shiftKey) {
+      if (active === first) {
+        last.focus();
+        event.preventDefault();
+      }
+    } else {
+      if (active === last) {
+        first.focus();
+        event.preventDefault();
+      }
+    }
   });
 }
 
@@ -4403,6 +4656,11 @@ function getHeaderSearchInput() {
   return input instanceof HTMLInputElement ? input : null;
 }
 
+function getHeaderSearchClearButton() {
+  const btn = document.querySelector("[data-header-search-clear]");
+  return btn instanceof HTMLButtonElement ? btn : null;
+}
+
 function getPagefindSearchInput() {
   const input = document.querySelector(".pagefind-ui__search-input");
   return input instanceof HTMLInputElement ? input : null;
@@ -4461,6 +4719,29 @@ function setupHeaderSearchPrefill() {
   if (!input) return;
   const q = new URLSearchParams(window.location.search).get("q");
   if (q && !input.value) input.value = q;
+}
+
+function setupHeaderSearchClear() {
+  const input = getHeaderSearchInput();
+  const btn = getHeaderSearchClearButton();
+  if (!input || !btn) return;
+
+  function update() {
+    btn.hidden = !input.value;
+  }
+
+  btn.addEventListener("click", () => {
+    input.value = "";
+    try {
+      input.focus({ preventScroll: true });
+    } catch (_e) {
+      input.focus();
+    }
+    update();
+  });
+
+  input.addEventListener("input", update, { passive: true });
+  update();
 }
 
 function setupToolJump() {
@@ -6221,11 +6502,10 @@ function setupToTopButton() {
 
 document.addEventListener("DOMContentLoaded", () => {
   setupNav();
-  applyTheme(getTheme());
   setupThemeSwitch();
   setupLangSwitch();
-  applyI18n(getLang());
   setupHeaderSearchPrefill();
+  setupHeaderSearchClear();
   setupSearchShortcuts();
   setupToolJump();
   setupToolQuickJumps();
@@ -6243,3 +6523,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupLibraryPage();
   setupToTopButton();
 });
+
+applyTheme(getTheme());
+applyI18n(getLang());

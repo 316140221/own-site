@@ -9,6 +9,7 @@ eleventyComputed:
   title: "{{ sourcePage.name }}{% if sourcePage.pageNumber > 0 %} · Page {{ sourcePage.pageNumber + 1 }}{% endif %}"
   description: "Latest items from {{ sourcePage.name }}.{% if sourcePage.pageNumber > 0 %} Page {{ sourcePage.pageNumber + 1 }}.{% endif %}"
   rssPath: "/source/{{ sourcePage.id }}/feed.xml"
+  jsonFeedPath: "/source/{{ sourcePage.id }}/feed.json"
   metaRobots: "{% if sourcePage.items and sourcePage.items.length %}{% else %}noindex,follow{% endif %}"
 ---
 
@@ -16,14 +17,14 @@ eleventyComputed:
 
 <p class="muted">
   {% if sourcePage.siteUrl %}
-    <a class="muted" href="{{ sourcePage.siteUrl }}" target="_blank" rel="noopener noreferrer">Site</a>
+    <a class="muted" href="{{ sourcePage.siteUrl }}" target="_blank" rel="nofollow noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin" data-i18n="sources.link.site">Site</a>
     ·
   {% endif %}
   {% if sourcePage.feedUrl %}
-    <a class="muted" href="{{ sourcePage.feedUrl }}" target="_blank" rel="noopener noreferrer">RSS</a>
+    <a class="muted" href="{{ sourcePage.feedUrl }}" target="_blank" rel="nofollow noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin" data-i18n="sources.link.rss">RSS</a>
     ·
   {% endif %}
-  <a class="muted" href="{{ ('/source/' + sourcePage.id + '/feed.xml') | url }}">Feed</a>
+  <a class="muted" href="{{ ('/source/' + sourcePage.id + '/feed.xml') | url }}" data-i18n="sources.link.feed">Feed</a>
 </p>
 
 {% set items = sourcePage.items %}

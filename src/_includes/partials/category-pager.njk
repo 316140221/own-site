@@ -1,5 +1,5 @@
 {% set base = '/category/' + catPage.slug + '/' %}
-<nav class="pager">
+<nav class="pager" aria-label="Pagination">
   {% if catPage.pageNumber > 0 %}
     {% set prevPage = catPage.pageNumber - 1 %}
     {% if prevPage == 0 %}
@@ -15,7 +15,7 @@
       </a>
     {% endif %}
   {% else %}
-    <span class="pager-disabled" data-i18n="pager.prev">← Prev</span>
+    <span class="pager-disabled" aria-disabled="true" data-i18n="pager.prev">← Prev</span>
   {% endif %}
 
   <span
@@ -37,6 +37,6 @@
       Next →
     </a>
   {% else %}
-    <span class="pager-disabled" data-i18n="pager.next">Next →</span>
+    <span class="pager-disabled" aria-disabled="true" data-i18n="pager.next">Next →</span>
   {% endif %}
 </nav>

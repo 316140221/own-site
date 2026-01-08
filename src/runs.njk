@@ -58,7 +58,15 @@ pagefindBody: false
               {% endif %}
             </td>
             <td>
-              <div class="run-spark" title="Added: {{ r.added }}">
+              <span
+                class="sr-only"
+                id="run-{{ loop.index }}-added"
+                data-i18n-template="runs.addedLabel"
+                data-i18n-vars='{{ { count: r.added or 0 } | jsonLd | safe }}'
+              >
+                Added: {{ r.added or 0 }}
+              </span>
+              <div class="run-spark" aria-labelledby="run-{{ loop.index }}-added">
                 <div class="run-spark-bar" style="width: {{ (r.addedPct * 100) }}%"></div>
               </div>
             </td>
@@ -77,7 +85,14 @@ pagefindBody: false
             <td class="muted small">
               {% if r.totalArticles %}
                 {{ r.totalArticles }}
-                {% if r.storyClusters and r.storyClusters > 0 %}· {{ r.storyClusters }} stories{% endif %}
+                {% if r.storyClusters and r.storyClusters > 0 %}
+                  <span
+                    data-i18n-template="runs.stories"
+                    data-i18n-vars='{{ { count: r.storyClusters } | jsonLd | safe }}'
+                  >
+                    · {{ r.storyClusters }} stories
+                  </span>
+                {% endif %}
               {% else %}
                 <span class="muted">—</span>
               {% endif %}

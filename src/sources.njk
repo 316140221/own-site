@@ -32,7 +32,8 @@ pageScript: /assets/sources.js
     aria-describedby="source-filter-status"
   />
   {% if sourceTags and sourceTags.length %}
-    <div class="source-tag-filters" aria-label="Source tags">
+    <div class="source-tag-filters" aria-labelledby="source-tags-label">
+      <span class="sr-only" id="source-tags-label" data-i18n="sources.tagsLabel">Source tags</span>
       <a class="tag-pill" href="{{ '/sources/' | url }}" data-i18n="common.all">All</a>
       {% for tag in sourceTags %}
         <a class="tag-pill" href="{{ ('/sources/?tag=' + tag.param) | url }}">{{ tag.label }}</a>
@@ -81,10 +82,10 @@ pageScript: /assets/sources.js
             </div>
             <div class="muted small">
               {% if s.siteUrl %}
-                <a class="muted" href="{{ s.siteUrl }}" target="_blank" rel="noopener noreferrer" data-i18n="sources.link.site">Site</a>
+                <a class="muted" href="{{ s.siteUrl }}" target="_blank" rel="nofollow noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin" data-i18n="sources.link.site">Site</a>
                 ·
               {% endif %}
-              <a class="muted" href="{{ s.feedUrl }}" target="_blank" rel="noopener noreferrer">RSS</a>
+              <a class="muted" href="{{ s.feedUrl }}" target="_blank" rel="nofollow noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin" data-i18n="sources.link.rss">RSS</a>
               ·
               <span class="muted">{{ s.id }}</span>
               {% if not s.enabled %}· <span class="badge" data-i18n="sources.disabled">disabled</span>{% endif %}

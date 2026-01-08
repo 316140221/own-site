@@ -6,51 +6,57 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   {# Core pages #}
+  {% set homeLastmod = (sitemaps and sitemaps.coreLastmod) or buildTime %}
   <url>
     <loc>{{ '/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
+    <lastmod>{{ homeLastmod | formatDate }}</lastmod>
   </url>
   {% if (stories and stories.items and stories.items.length) or (top and top.items and top.items.length) %}
+    {% set trendingLastmod = "" %}
+    {% if stories and stories.items and stories.items.length and stories.items[0] and stories.items[0].publishedAt %}
+      {% set trendingLastmod = stories.items[0].publishedAt %}
+    {% endif %}
+    {% if top and top.items and top.items.length and top.items[0] and top.items[0].publishedAt %}
+      {% if (not trendingLastmod) or (top.items[0].publishedAt > trendingLastmod) %}
+        {% set trendingLastmod = top.items[0].publishedAt %}
+      {% endif %}
+    {% endif %}
+    {% if not trendingLastmod %}
+      {% set trendingLastmod = homeLastmod %}
+    {% endif %}
     <url>
       <loc>{{ '/trending/' | url | absoluteUrl(site.url) }}</loc>
-      <lastmod>{{ buildTime | formatDate }}</lastmod>
+      <lastmod>{{ trendingLastmod | formatDate }}</lastmod>
     </url>
   {% endif %}
   <url>
     <loc>{{ '/about/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
   <url>
     <loc>{{ '/contact/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
   <url>
     <loc>{{ '/terms/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
   <url>
     <loc>{{ '/privacy/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
   <url>
     <loc>{{ '/affiliate-disclosure/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
   <url>
     <loc>{{ '/takedown/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
   <url>
     <loc>{{ '/sources/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
+    <lastmod>{{ homeLastmod | formatDate }}</lastmod>
   </url>
   <url>
     <loc>{{ '/languages/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
+    <lastmod>{{ homeLastmod | formatDate }}</lastmod>
   </url>
   <url>
     <loc>{{ '/tools/' | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
   </url>
   {% if amazon and amazon.enabled %}
     <url>
@@ -63,7 +69,6 @@ eleventyExcludeFromCollections: true
     {% for t in tools.all %}
       <url>
         <loc>{{ t.path | url | absoluteUrl(site.url) }}</loc>
-        <lastmod>{{ buildTime | formatDate }}</lastmod>
       </url>
     {% endfor %}
   {% endif %}

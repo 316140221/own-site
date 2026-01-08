@@ -15,6 +15,18 @@ pagefindBody: false
 <link rel="stylesheet" href="{{ '/pagefind/pagefind-ui.css' | url }}" />
 <script src="{{ '/pagefind/pagefind-ui.js' | url }}" defer></script>
 
+<p class="home-actions">
+  <button
+    class="button button-secondary"
+    type="button"
+    data-search-reset-filters
+    hidden
+    data-i18n="search.filters.reset"
+  >
+    Reset filters
+  </button>
+</p>
+
 <div id="search"></div>
 
 <script>
@@ -79,7 +91,7 @@ pagefindBody: false
         clear_search: "Clear",
         load_more: "Load more",
         searching: "Searching for [SEARCH_TERM]…",
-        zero_results: "No results for [SEARCH_TERM]",
+        zero_results: "No results for [SEARCH_TERM]. Try different keywords or reset filters.",
         one_result: "1 result for [SEARCH_TERM]",
         many_results: "[COUNT] results for [SEARCH_TERM]",
       },
@@ -89,7 +101,7 @@ pagefindBody: false
         clear_search: "清除",
         load_more: "加载更多",
         searching: "正在搜索“[SEARCH_TERM]”…",
-        zero_results: "未找到“[SEARCH_TERM]”的结果",
+        zero_results: "未找到“[SEARCH_TERM]”的结果。可尝试更换关键词或重置筛选。",
         one_result: "“[SEARCH_TERM]” 共有 1 条结果",
         many_results: "“[SEARCH_TERM]” 共有 [COUNT] 条结果",
       },
@@ -100,8 +112,114 @@ pagefindBody: false
       return TRANSLATIONS[key] || TRANSLATIONS.en;
     }
 
+    function t(key, vars) {
+      if (window.SiteI18n && typeof window.SiteI18n.t === "function") {
+        return window.SiteI18n.t(key, vars);
+      }
+      return String(key || "");
+    }
+
+    const FILTERS_STORAGE_KEY = "search_filters_v1";
+    const resetBtn = document.querySelector("[data-search-reset-filters]");
+    const searchRoot = document.getElementById("search");
+
+    function storageGet(key) {
+      try {
+        return window.localStorage.getItem(key);
+      } catch (_e) {
+        return null;
+      }
+    }
+
+    function storageSet(key, value) {
+      try {
+        window.localStorage.setItem(key, value);
+      } catch (_e) {}
+    }
+
+    function storageRemove(key) {
+      try {
+        window.localStorage.removeItem(key);
+      } catch (_e) {}
+    }
+
+    function readSavedFilters() {
+      const raw = storageGet(FILTERS_STORAGE_KEY);
+      if (!raw) return null;
+      try {
+        const parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return null;
+        return parsed;
+      } catch (_e) {
+        return null;
+      }
+    }
+
+    function writeSavedFilters(filters) {
+      if (!filters || typeof filters !== "object") {
+        storageRemove(FILTERS_STORAGE_KEY);
+        return;
+      }
+      if (!Object.keys(filters).length) {
+        storageRemove(FILTERS_STORAGE_KEY);
+        return;
+      }
+      storageSet(FILTERS_STORAGE_KEY, JSON.stringify(filters));
+    }
+
+    function setResetVisible(visible) {
+      if (!resetBtn) return;
+      resetBtn.hidden = !visible;
+    }
+
+    function getSelectedFiltersFromDom() {
+      const out = {};
+      if (!searchRoot) return out;
+
+      searchRoot
+        .querySelectorAll('input.pagefind-ui__filter-checkbox[type="checkbox"]')
+        .forEach((el) => {
+          if (!(el instanceof HTMLInputElement)) return;
+          if (!el.checked) return;
+          const group = String(el.name || "").trim();
+          const value = String(el.value || "").trim();
+          if (!group || !value) return;
+          out[group] = out[group] || [];
+          out[group].push(value);
+        });
+
+      return out;
+    }
+
+    function applyFilterNameTranslations() {
+      if (!searchRoot) return;
+      const map = {
+        Category: t("search.filters.category"),
+        Language: t("search.filters.language"),
+        Source: t("search.filters.source"),
+      };
+
+      searchRoot
+        .querySelectorAll(".pagefind-ui__filter-name, .pagefind-ui__filter-group-label")
+        .forEach((el) => {
+          if (!(el instanceof HTMLElement)) return;
+          const raw = el.textContent ? el.textContent.trim() : "";
+          if (!raw) return;
+          const next = map[raw];
+          if (next) el.textContent = next;
+        });
+    }
+
     const q = new URLSearchParams(window.location.search).get("q");
     let ui = null;
+    let bound = false;
+
+    function getOpenFilters() {
+      try {
+        if (window.matchMedia && window.matchMedia("(max-width: 720px)").matches) return [];
+      } catch (_e) {}
+      return ["Category", "Language"];
+    }
 
     function mount() {
       if (ui && typeof ui.destroy === "function") ui.destroy();
@@ -111,13 +229,55 @@ pagefindBody: false
         resetStyles: false,
         autofocus: true,
         showEmptyFilters: false,
-        openFilters: ["Category", "Language"],
+        openFilters: getOpenFilters(),
         excerptLength: 15,
         translations: getTranslations(getLang()),
       });
+
+      const saved = readSavedFilters();
+      if (saved && typeof ui.triggerFilters === "function") {
+        ui.triggerFilters(saved);
+        setResetVisible(true);
+      } else {
+        setResetVisible(false);
+      }
+
       if (q) ui.triggerSearch(q);
+      applyFilterNameTranslations();
     }
 
+    function bind() {
+      if (bound) return;
+      bound = true;
+
+      if (searchRoot) {
+        searchRoot.addEventListener("change", (event) => {
+          const target = event.target;
+          if (!(target instanceof Element)) return;
+          if (!target.closest(".pagefind-ui__filter-checkbox")) return;
+          const selected = getSelectedFiltersFromDom();
+          writeSavedFilters(selected);
+          setResetVisible(Boolean(Object.keys(selected).length));
+          applyFilterNameTranslations();
+        });
+
+        const observer = new MutationObserver(() => {
+          applyFilterNameTranslations();
+        });
+        observer.observe(searchRoot, { childList: true, subtree: true });
+      }
+
+      if (resetBtn) {
+        resetBtn.addEventListener("click", () => {
+          writeSavedFilters(null);
+          if (ui && typeof ui.triggerFilters === "function") ui.triggerFilters({});
+          setResetVisible(false);
+          applyFilterNameTranslations();
+        });
+      }
+    }
+
+    bind();
     mount();
     window.addEventListener("site:lang", mount);
   });

@@ -15,7 +15,8 @@
     "import:opml": "node scripts/import-opml.mjs",
     "pagefind": "pagefind --site dist",
     "audit:dist": "node scripts/audit-dist.mjs",
-    "build:site": "npm run build && npm run pagefind && npm run audit:dist"
+    "build:site": "npm run build && npm run pagefind && npm run audit:dist",
+    "restore:archive": "node scripts/restore-archive.mjs"
   },
   "keywords": [],
   "author": "",

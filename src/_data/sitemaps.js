@@ -9,15 +9,24 @@ module.exports = function () {
   const pages = Math.max(1, Math.ceil(totalArticles / perFile));
 
   const articleSitemaps = [];
+  const articleSitemapsDetailed = [];
   for (let i = 0; i < pages; i += 1) {
-    articleSitemaps.push(`/sitemaps/articles-${i + 1}.xml`);
+    const pagePath = `/sitemaps/articles-${i + 1}.xml`;
+    articleSitemaps.push(pagePath);
+
+    const sliceStart = i * perFile;
+    const slice = articles.slice(sliceStart, sliceStart + perFile);
+    const firstWithDate = slice.find((entry) => entry && entry.publishedAt);
+    const lastmod = firstWithDate ? firstWithDate.publishedAt : null;
+    articleSitemapsDetailed.push({ path: pagePath, lastmod });
   }
 
   return {
     perFile,
     totalArticles,
     articleSitemaps,
+    articleSitemapsDetailed,
     coreSitemap: "/sitemaps/core.xml",
+    coreLastmod: articles.find((entry) => entry && entry.publishedAt)?.publishedAt || null,
   };
 };
-

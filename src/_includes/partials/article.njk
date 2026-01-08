@@ -14,9 +14,16 @@
     }}
   </script>
   <div hidden>
-    {% if article.category %}<span data-pagefind-filter="Category">{{ article.category }}</span>{% endif %}
-    {% if article.language %}<span data-pagefind-filter="Language">{{ article.language | lower }}</span>{% endif %}
-    {% if article.source and article.source.name %}<span data-pagefind-filter="Source">{{ article.source.name }}</span>{% endif %}
+    {% if article.category %}
+      <span data-pagefind-filter="Category">{{ categoryMap[article.category] or (article.category | titleCase) }}</span>
+    {% endif %}
+    {% if article.language %}
+      {% set langCode = article.language | lower %}
+      <span data-pagefind-filter="Language">{{ site.languageLabels[langCode] or (langCode | upper) }}</span>
+    {% endif %}
+    {% if article.source and article.source.name %}
+      <span data-pagefind-filter="Source">{{ article.source.name }}</span>
+    {% endif %}
   </div>
   <div class="article-header">
     <nav class="breadcrumbs" aria-label="Breadcrumb">
@@ -41,7 +48,7 @@
       {% if article.source and article.source.id %}
         <a class="muted" href="{{ ('/source/' + article.source.id + '/') | url }}">{{ article.source.name }}</a>
       {% elif article.source and article.source.url %}
-        <a class="muted" href="{{ article.source.url }}" target="_blank" rel="noopener noreferrer"
+        <a class="muted" href="{{ article.source.url }}" target="_blank" rel="nofollow noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin"
           >{{ article.source.name }}</a
         >
       {% else %}
@@ -51,7 +58,8 @@
       <a
         href="{{ article.canonicalUrl }}"
         target="_blank"
-        rel="noopener noreferrer"
+        rel="nofollow noopener noreferrer"
+        referrerpolicy="strict-origin-when-cross-origin"
         data-i18n="article.readOriginal"
       >
         Read original
@@ -104,7 +112,8 @@
       class="button"
       href="{{ article.canonicalUrl }}"
       target="_blank"
-      rel="noopener noreferrer"
+      rel="nofollow noopener noreferrer"
+      referrerpolicy="strict-origin-when-cross-origin"
       data-i18n="article.openOriginal"
     >
       Open original →

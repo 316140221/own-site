@@ -209,7 +209,22 @@ a:hover {
   cursor: pointer;
 }
 
+.header-search-clear {
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+}
+
 .header-search-btn:hover {
+  background: var(--button-hover);
+  color: var(--text);
+}
+
+.header-search-clear:hover {
   background: var(--button-hover);
   color: var(--text);
 }

@@ -7,9 +7,16 @@ eleventyExcludeFromCollections: true
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>{{ sitemaps.coreSitemap | url | absoluteUrl(site.url) }}</loc>
-    <lastmod>{{ buildTime | formatDate }}</lastmod>
+    <lastmod>{{ (sitemaps.coreLastmod or buildTime) | formatDate }}</lastmod>
   </sitemap>
-  {% if sitemaps and sitemaps.articleSitemaps and sitemaps.articleSitemaps.length %}
+  {% if sitemaps and sitemaps.articleSitemapsDetailed and sitemaps.articleSitemapsDetailed.length %}
+    {% for entry in sitemaps.articleSitemapsDetailed %}
+      <sitemap>
+        <loc>{{ entry.path | url | absoluteUrl(site.url) }}</loc>
+        <lastmod>{{ (entry.lastmod or buildTime) | formatDate }}</lastmod>
+      </sitemap>
+    {% endfor %}
+  {% elif sitemaps and sitemaps.articleSitemaps and sitemaps.articleSitemaps.length %}
     {% for p in sitemaps.articleSitemaps %}
       <sitemap>
         <loc>{{ p | url | absoluteUrl(site.url) }}</loc>
@@ -18,4 +25,3 @@ eleventyExcludeFromCollections: true
     {% endfor %}
   {% endif %}
 </sitemapindex>
-

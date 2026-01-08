@@ -28,6 +28,7 @@
 - Build site: `npm run build` (outputs to `dist/`)
 - Build + search index: `npm run build:site` (build + Pagefind + public-content audit)
 - Archive old data only: `npm run archive`
+- Restore an articles archive: `npm run restore:archive -- ./archives/<archive>.tgz` (then `npm run indexes`)
 
 ## Site config (JSON)
 
@@ -43,7 +44,6 @@ Edit `site.config.json` to customize site metadata and UI language options:
 
 This repo includes `.github/workflows/update-and-deploy.yml`:
 
-- Triggers on push to `main` and on a schedule (every 8 hours UTC)
 - Triggers on push to `main` and on a schedule (every 2 hours UTC)
 - Fetches RSS and updates `data/` on a separate `data` branch (keeps `main` clean)
 - Builds `dist/` and deploys to GitHub Pages

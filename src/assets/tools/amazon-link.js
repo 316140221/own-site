@@ -148,9 +148,9 @@
       const text = escapeHtml(title || "Link");
       const go = escapeHtml(goUrl);
       const amazon = escapeHtml(amazonUrl);
-      const goTag = `<a href="${go}" target="_blank" rel="noopener noreferrer">${text}</a>`;
+      const goTag = `<a href="${go}" target="_blank" rel="noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin">${text}</a>`;
       if (!amazonUrl) return goTag;
-      const amazonTag = `<a href="${amazon}" target="_blank" rel="nofollow sponsored noopener noreferrer">Amazon</a>`;
+      const amazonTag = `<a href="${amazon}" target="_blank" rel="nofollow sponsored noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin">Amazon</a>`;
       return `${goTag}\n${amazonTag}`;
     }
 
@@ -266,4 +266,3 @@
 
   window.addEventListener("DOMContentLoaded", main);
 })();
-

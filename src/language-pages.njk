@@ -9,6 +9,7 @@ eleventyComputed:
   title: "{{ langPage.label }}{% if langPage.pageNumber > 0 %} · Page {{ langPage.pageNumber + 1 }}{% endif %}"
   description: "Latest {{ langPage.label }} stories and links from our RSS sources.{% if langPage.pageNumber > 0 %} Page {{ langPage.pageNumber + 1 }}.{% endif %}"
   rssPath: "/lang/{{ langPage.code }}/feed.xml"
+  jsonFeedPath: "/lang/{{ langPage.code }}/feed.json"
   metaRobots: "{% if langPage.items and langPage.items.length %}{% else %}noindex,follow{% endif %}"
 ---
 

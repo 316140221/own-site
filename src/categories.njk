@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+title: Categories
+description: Browse stories by category
+rssPath: /feed.xml
+---
+
+<h1 data-i18n="nav.categories">Categories</h1>
+
+<p class="muted">
+  <a href="{{ '/page/1/' | url }}" data-i18n="home.latest">Latest</a>
+  · <a href="{{ '/trending/' | url }}" data-i18n="nav.trending">Trending</a>
+</p>
+
+{% if categoriesOverview and categoriesOverview.length %}
+  <ul class="sources">
+    {% for cat in categoriesOverview %}
+      <li>
+        <a href="{{ ('/category/' + cat.slug + '/') | url }}">{{ cat.label }}</a>
+        <span class="muted">({{ cat.slug }})</span>
+        <span
+          class="muted"
+          data-i18n-template="categories.count"
+          data-i18n-vars='{{ { count: cat.count } | jsonLd | safe }}'
+        >
+          {{ cat.count }} articles
+        </span>
+        <span class="muted">
+          · <a class="muted" href="{{ ('/category/' + cat.slug + '/feed.xml') | url }}">RSS</a>
+          · <a class="muted" href="{{ ('/category/' + cat.slug + '/feed.json') | url }}">JSON</a>
+        </span>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p class="muted" data-i18n="categories.empty">No categories available.</p>
+{% endif %}
+

@@ -52,6 +52,7 @@ eleventyExcludeFromCollections: true
   home_page_url: ('/' | url) | absoluteUrl(site.url),
   feed_url: ('/feed.json' | url) | absoluteUrl(site.url),
   description: site.description,
+  favicon: ('/assets/favicon.svg' | url) | absoluteUrl(site.url),
   icon: ('/assets/favicon.svg' | url) | absoluteUrl(site.url),
   language: site.language,
   items: outItems
