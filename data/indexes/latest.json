@@ -1,5 +1,817 @@
 [
   {
+    "id": "5ec6668309d62a45d966adade4f34c99362769ad",
+    "title": "Hands-on with Claude Cowork: looks well positioned to bring the powerful capabilities of Claude Code to a wider audience, but risks of prompt injections remain (Simon Willison/Simon Willison's Weblog)",
+    "summary": "Simon Willison / Simon Willison's Weblog: Hands-on with Claude Cowork: looks well positioned to bring the powerful capabilities of Claude Code to a wider audience, but risks of prompt injections remain — New from Anthropic today is Claude Cowork, a “research preview” that they describe as “Claude Code for the rest of your work”.",
+    "canonicalUrl": "https://techmeme.com/260112/p35",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-01-12T22:15:01.000Z",
+    "category": "science",
+    "image": "http://www.techmeme.com/260112/i35.jpg",
+    "language": "en"
+  },
+  {
+    "id": "2522905f7e657f2e29b23a48bbe3375aea5e6c15",
+    "title": "Meta plans to lay off hundreds of metaverse employees this week",
+    "summary": "Meta's Reality Labs team is expected to lose around 10 percent of its staff, with layoffs concentrated on the division's metaverse employees, as reported by The New York Times. The layoffs are apparently a side effect of Meta's AI ambitions, which are pulling focus away from its virtual reality division. According to the Times, Meta's chief technology offic…",
+    "canonicalUrl": "https://theverge.com/news/860984/meta-reality-labs-layoffs-metaverse",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-01-12T22:14:58.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25585904/QuestHermano2.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
+    "id": "42b15ee0dfc077d7317f5231889bf6ca5fd1d745",
+    "title": "Last-place Blue Jackets fire Evason, hire Bowness",
+    "summary": "The Columbus Blue Jackets, last place in the Metropolitan Division, fired coach Dean Evason, the team announced on Monday, and immediately hired Rick Bowness, 70, to replace him, president of hockey operations and general manager Don Waddell confirmed.",
+    "canonicalUrl": "https://espn.com/nhl/story/_/id/47592587/columbus-blue-jackets-fire-dean-evason-hire-rick-bowness",
+    "source": {
+      "id": "espn_news",
+      "name": "ESPN - Top Headlines"
+    },
+    "publishedAt": "2026-01-12T22:05:55.000Z",
+    "category": "sports",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "a83b8ca478e40ee004e6ede1bfc5817a65175461",
+    "title": "Falcons interview Harbaugh, who is vetting teams",
+    "summary": "The Falcons announced Monday that they have completed an interview with John Harbaugh for their head coaching job.",
+    "canonicalUrl": "https://espn.com/nfl/story/_/id/47592303/falcons-interview-john-harbaugh-vetting-teams",
+    "source": {
+      "id": "espn_news",
+      "name": "ESPN - Top Headlines"
+    },
+    "publishedAt": "2026-01-12T22:05:55.000Z",
+    "category": "health",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "1195072e3e3bd82dbe2c4016809caec3c718f51e",
+    "title": "NASCAR restores 'Chase' championship format",
+    "summary": "NASCAR will return to a 10-race championship format that closely resembles the first iteration introduced 22 years ago.",
+    "canonicalUrl": "https://espn.com/racing/nascar/story/_/id/47592082/nascar-restores-10-race-chase-championship-format",
+    "source": {
+      "id": "espn_news",
+      "name": "ESPN - Top Headlines"
+    },
+    "publishedAt": "2026-01-12T22:05:54.000Z",
+    "category": "sports",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "4071c7fc62bb5f0d139cb5f7ed2e9986825fcb37",
+    "title": "UE-Mercosur : Début d'une deuxième semaine de mobilisation agricole",
+    "summary": "Des manifestations ont eu lieu en Italie, Pologne ou Irlande, ce lundi contre le traité de libre-échange entre l'Union européenne et le Mercosur. En France, le monde agricole continuait aussi les blocages, notamment au port du Havre, où des dizaines de camions et leur contenu ont été contrôlés, et les produits transportés \"confisqués\" s'ils venaient d'une a…",
+    "canonicalUrl": "https://france24.com/fr/%C3%A9missions/info-%C3%A9co/20260112-ue-mercosur-d%C3%A9but-d-une-deuxi%C3%A8me-semaine-de-mobilisation-agricole",
+    "source": {
+      "id": "france24_fr",
+      "name": "France 24 - À la une"
+    },
+    "publishedAt": "2026-01-12T22:05:23.000Z",
+    "category": "world",
+    "image": "https://s.france24.com/media/display/96dd68a8-f001-11f0-ad2b-005056bf30b7/w:1024/p:16x9/FR-NW-PKG-FR2-AGRICULTEURS-CONTROLES-CAMIONS-ET-BATEAUX-FROM-13H-GUILLEMOT-Garance-transfer.png",
+    "language": "fr"
+  },
+  {
+    "id": "9e94fe40ce2f0b11c9d34227474492c569f1ccea",
+    "title": "Trump slaps 25% tariffs on any countries that do business with Iran",
+    "summary": "President Trump said Monday he's imposing 25% tariffs on all countries that do business with Iran, as the administration pressures the Iranian government amid anti-regime protests.",
+    "canonicalUrl": "https://cbsnews.com/news/trump-tariffs-countries-iran",
+    "source": {
+      "id": "cbs_moneywatch",
+      "name": "CBS News - MoneyWatch"
+    },
+    "publishedAt": "2026-01-12T22:04:53.000Z",
+    "category": "business",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "e8ef9373c3ef3b5f030e5d609fea3ae4b12166b7",
+    "title": "Mickey Rourke Stars in ‘3 Days Rising’ Trailer Alongside Peter Greene’s Final Lead Role (Exclusive)",
+    "summary": "Ice-T also stars in director Craig Cukrowski's feature that reimagines Edgar Allan Poe's 'The Fall of the House of Usher.'",
+    "canonicalUrl": "https://hollywoodreporter.com/movies/movie-news/mickey-rourke-peter-greene-3-days-rising-trailer-1236471687",
+    "source": {
+      "id": "hollywood_reporter",
+      "name": "The Hollywood Reporter"
+    },
+    "publishedAt": "2026-01-12T22:04:13.000Z",
+    "category": "entertainment",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "183ffc348d2e14a2b44e324e9a2c479369addacd",
+    "title": "Bakkt agrees to acquire Distributed Technologies Research, the stablecoin infrastructure company founded by Bakkt CEO Akshay Naheta; BKKT closes up 18.69% (Daniel Kuhn/The Block)",
+    "summary": "Daniel Kuhn / The Block: Bakkt agrees to acquire Distributed Technologies Research, the stablecoin infrastructure company founded by Bakkt CEO Akshay Naheta; BKKT closes up 18.69% — Partner offers — Quick Take — Bakkt is continuing its strategic pivot to provide “B2B2C” turnkey operator services …",
+    "canonicalUrl": "https://techmeme.com/260112/p34",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-01-12T22:00:34.000Z",
+    "category": "science",
+    "image": "http://www.techmeme.com/260112/i34.jpg",
+    "language": "en"
+  },
+  {
+    "id": "1d13526dce12799624b124376b517b1c3af49b2e",
+    "title": "Minnesota, Twin Cities file lawsuit in effort to stop ICE surge in state",
+    "summary": "The state of Minnesota, along with the cities of Minneapolis and St. Paul, are suing Department of Homeland Security Secretary Kristi Noem and other federal officials in an effort to stop the surge of federal law enforcement officials coming into the state.",
+    "canonicalUrl": "https://cbsnews.com/news/future-dhs-federal-agents-minnesota-announcement",
+    "source": {
+      "id": "cbs_us",
+      "name": "CBS News - US"
+    },
+    "publishedAt": "2026-01-12T22:00:34.000Z",
+    "category": "tech",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "eb10f740693d2428d807023d6a7ab19155c02d6b",
+    "title": "All the Surprise Guests at Bad Bunny’s Debí Tirar Más Fotos World Tour",
+    "summary": "From Romeo Santos to Becky G and J Balvin, here's everyone who joined the Puerto Rican superstar during his global trek.",
+    "canonicalUrl": "https://billboard.com/lists/bad-bunny-debi-tirar-mas-fotos-world-tour-surprise-guests",
+    "source": {
+      "id": "billboard",
+      "name": "Billboard"
+    },
+    "publishedAt": "2026-01-12T22:00:00.000Z",
+    "category": "entertainment",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "b8e118694f8acda4355e29dfe255f3f6f9a21fe4",
+    "title": "Experts push back against cancellation of NASA's Mars sample return project",
+    "summary": "Exploration advocates are pushing back against the planned cancellation of NASA's Mars sample return project, saying it could potentially find evidence of Red Planet life.",
+    "canonicalUrl": "https://space.com/astronomy/mars/experts-push-back-against-cancellation-of-nasas-mars-sample-return-project",
+    "source": {
+      "id": "space_com",
+      "name": "Space.com"
+    },
+    "publishedAt": "2026-01-12T22:00:00.000Z",
+    "category": "science",
+    "image": "https://cdn.mos.cms.futurecdn.net/zcjxJavkfhfEQDwoTebMkd-1280-80.jpg",
+    "language": "en"
+  },
+  {
+    "id": "9a3885e589667f6c59658c8b123afad5b8895b46",
+    "title": "G7財務相など会議 中国念頭に重要鉱物の供給網の多角化議論か",
+    "summary": "アメリカで、レアアースなど重要鉱物をテーマにした会議がG7＝主要7か国の財務相などが参加して開かれました。重要鉱物で圧倒的なシェアを占める中国を念頭に、供給網の多角化に向けた議論が行われたとみられます。",
+    "canonicalUrl": "https://www3.nhk.or.jp/news/html/20260113/k10015024781000.html",
+    "source": {
+      "id": "nhk_news_jp",
+      "name": "NHK News - Top Stories (JP)"
+    },
+    "publishedAt": "2026-01-12T21:59:34.000Z",
+    "category": "world",
+    "image": null,
+    "language": "ja"
+  },
+  {
+    "id": "89232f69392f045bfc7f2a63ebc0aeaccfe65650",
+    "title": "Styx’s Tommy Shaw Offers His Take on ‘Renegade’ Becoming a Pittsburgh Steelers Anthem",
+    "summary": "Here's how a classic rock radio staple became a rallying cry for an NFL team.",
+    "canonicalUrl": "https://billboard.com/music/rock/styx-renegade-pittsburgh-steelers-anthem-1236153400",
+    "source": {
+      "id": "billboard",
+      "name": "Billboard"
+    },
+    "publishedAt": "2026-01-12T21:57:50.000Z",
+    "category": "sports",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "5d37385ff42c5d2da77dacaeed355bb7367f7d7e",
+    "title": "Synagogue arson suspect said \"he finally got them\" after starting blaze, FBI says",
+    "summary": "The suspect, Stephen Spencer Pittman, told law enforcement in an interview that Beth Israel Congregation was \"the synagogue of Satan,\" an FBI affidavit said.",
+    "canonicalUrl": "https://cbsnews.com/news/mississippi-synagogue-arsonist-jewish-ties-fbi-complaint",
+    "source": {
+      "id": "cbs_us",
+      "name": "CBS News - US"
+    },
+    "publishedAt": "2026-01-12T21:57:00.000Z",
+    "category": "world",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "858e2a69bb1cbe2627112e86e0d586c70bcbba15",
+    "title": "Iran : Guerre d'images entre pro et anti-régime",
+    "summary": "Dans un Iran secoué par les manifestations, opposants du régime et partisans diffusent des images sorties de leur contexte, visant souvent à amplifier l'étendue de leurs rassemblements respectifs.",
+    "canonicalUrl": "https://france24.com/fr/%C3%A9missions/info-ou-intox/20260112-iran-guerre-d-images-entre-pro-et-anti-r%C3%A9gime",
+    "source": {
+      "id": "france24_fr",
+      "name": "France 24 - À la une"
+    },
+    "publishedAt": "2026-01-12T21:56:37.000Z",
+    "category": "world",
+    "image": "https://s.france24.com/media/display/dc1f9ed2-f000-11f0-9f31-005056bfb2b6/w:1024/p:16x9/FRAN260112-2220-Live-CS2220.jpg",
+    "language": "fr"
+  },
+  {
+    "id": "4c4de686fe622295610790a0012616aaeda24a66",
+    "title": "Tom Morello Calls Out Trump Administration for Using Alleged ‘Nazi Mass Murder Slogan’",
+    "summary": "\"If there are any MAGA left after THIS, you have made an irrevocable choice,\" the rocker wrote.",
+    "canonicalUrl": "https://billboard.com/music/music-news/tom-morello-trump-administration-nazi-1236153491",
+    "source": {
+      "id": "billboard",
+      "name": "Billboard"
+    },
+    "publishedAt": "2026-01-12T21:55:44.000Z",
+    "category": "entertainment",
+    "image": "https://www.billboard.com/wp-content/uploads/2026/01/P115W9K2-e1768055246640.jpg?crop=0px%2C0px%2C1800px%2C1116px&#038;resize=237%2C147",
+    "language": "en"
+  },
+  {
+    "id": "2b5df7a7e91734224dd821eab2e7a53bacd7719a",
+    "title": "Mali : trois sites industriels de Kayes attaqués par les jihadistes",
+    "summary": "Au Mali, trois sites industriels de la région de Kayes ont été attaqués dimanche par des djihadistes du JNIM. Deux de ces usines appartiennent à des hommes d'affaires maliens alors que la troisième est la propriété d'un groupe indien. Ces trois usines avaient déjà été visées le 1er juillet dernier. Notre correspondant régional Serge Daniel nous en dit plus.",
+    "canonicalUrl": "https://france24.com/fr/%C3%A9missions/journal-de-l-afrique/20260112-mali-trois-sites-industriels-de-kayes-attaqu%C3%A9s-par-les-jihadistes",
+    "source": {
+      "id": "france24_fr",
+      "name": "France 24 - À la une"
+    },
+    "publishedAt": "2026-01-12T21:43:06.000Z",
+    "category": "world",
+    "image": "https://s.france24.com/media/display/b7d8b636-effa-11f0-9bca-005056a90284/w:1024/p:16x9/FRAN260112-2141-Live-01.jpg",
+    "language": "fr"
+  },
+  {
+    "id": "fcb569575a856d3623707c60c23dfdca912d51b0",
+    "title": "Iran's exiled crown prince urges Trump to intervene soon so regime \"finally collapses\"",
+    "summary": "In an interview with CBS News' Norah O'Donnell on Monday, Iran's exiled Crown Prince Reza Pahlavi said, \"We need action to be taken.\"",
+    "canonicalUrl": "https://cbsnews.com/news/iran-exiled-crown-prince-reza-pahlavi-regime-change-trump-cbs-news-interview",
+    "source": {
+      "id": "cbs_world",
+      "name": "CBS News - World"
+    },
+    "publishedAt": "2026-01-12T21:43:05.000Z",
+    "category": "world",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "5d4e3091e360d17efdfc0ae88d91cf1b3657f3d1",
+    "title": "Iran protests: Fact-checking claims of AI manipulation, low turnout",
+    "summary": "For around two weeks - and despite an internet blackout - thousands of Iranians have been mobilising in large protests that threaten the future of the ruling regime. But some internet users are casting doubt over the protest images, claiming they’re in fact much smaller than they appear, or using camera trickery or AI manipulation. Vedika Bahl goes through…",
+    "canonicalUrl": "https://france24.com/en/iran-protests-fact-checking-claims-of-ai-manipulation-low-turnout",
+    "source": {
+      "id": "france24_all",
+      "name": "France 24 - Top Stories"
+    },
+    "publishedAt": "2026-01-12T21:40:48.000Z",
+    "category": "tech",
+    "image": "https://s.france24.com/media/display/786cc2ea-effe-11f0-b6c0-005056a97e36/w:1024/p:16x9/ANGL260112-2221-Live-CS2221.jpg",
+    "language": "en"
+  },
+  {
+    "id": "1ec19bf661867e950c8bd492c25eba6971a32c32",
+    "title": "Jelly Roll, Riley Green, Miranda Lambert, Ella Langley & More to Headline 2026 Rock the Country Festival",
+    "summary": "The event will feature a rotating lineup of artists as it visits eight small towns across the country.",
+    "canonicalUrl": "https://billboard.com/music/country/jelly-roll-miranda-lambert-2026-rock-the-country-lineup-1236153377",
+    "source": {
+      "id": "billboard",
+      "name": "Billboard"
+    },
+    "publishedAt": "2026-01-12T21:39:09.000Z",
+    "category": "entertainment",
+    "image": "https://i.imgur.com/2HpFicp.png",
+    "language": "en"
+  },
+  {
+    "id": "82fb3992a63bcc38e488fa4989d41cb978691cb1",
+    "title": "Former Corsican separatist leader Orsoni assassinated at mother's funeral",
+    "summary": "Alain Orsoni, who led the separatist Corsican Movement for Self-Determination before becoming the president of Corsican football club ‍AC Ajaccio, was killed by a long-range shot at his mother's funeral on the French island.",
+    "canonicalUrl": "https://france24.com/en/france/20260112-former-corsican-separatist-leader-orsoni-assassinated-mother-funeral",
+    "source": {
+      "id": "france24_all",
+      "name": "France 24 - Top Stories"
+    },
+    "publishedAt": "2026-01-12T21:39:08.000Z",
+    "category": "sports",
+    "image": "https://s.france24.com/media/display/9bb1b4c6-eff0-11f0-b352-005056a90284/w:1024/p:16x9/21f7240a72da53c195178d2614ac96f20181bf9a.jpg",
+    "language": "en"
+  },
+  {
+    "id": "c2f25b1328d3389e890e858445c274f962255801",
+    "title": "Alepo tras el alto el fuego: escombros, retirada kurda y control del Ejército sirio",
+    "summary": "En el barrio kurdo de Sheikh Maqsoud en Alepo, tras días de intensos combates entre el Ejército sirio y milicias kurdas, el Gobierno sirio afirma haber tomado el control total del área. Los enfrentamientos estallaron luego del fracaso en las negociaciones para integrar a las milicias kurdas al ejército, dejando víctimas civiles, desplazados y un acuerdo de…",
+    "canonicalUrl": "https://france24.com/es/video/20260112-alepo-tras-el-alto-el-fuego-escombros-retirada-kurda-y-control-del-ej%C3%A9rcito-sirio",
+    "source": {
+      "id": "france24_es",
+      "name": "France 24 - Portada"
+    },
+    "publishedAt": "2026-01-12T21:38:48.000Z",
+    "category": "world",
+    "image": "https://s.france24.com/media/display/22a77ca0-eff5-11f0-a42e-005056bfb2b6/w:1024/p:16x9/ES-20260112-121008-121134-CS.jpg",
+    "language": "es"
+  },
+  {
+    "id": "8f6cbf03caa3e80a4de5b0aaaa35769645c686e8",
+    "title": "'It is bittersweet': Crew-11 astronaut hands over control of ISS ahead of 1st-ever medical evacuation",
+    "summary": "The astronauts are scheduled to leave in a matter of days.",
+    "canonicalUrl": "https://space.com/space-exploration/international-space-station/it-is-bittersweet-crew-11-astronaut-hands-over-control-of-iss-ahead-of-1st-ever-medical-evacuation",
+    "source": {
+      "id": "space_com",
+      "name": "Space.com"
+    },
+    "publishedAt": "2026-01-12T21:36:27.000Z",
+    "category": "health",
+    "image": "https://cdn.mos.cms.futurecdn.net/3hSyj5BJdxh5aYd3GG7eVo-1280-80.jpg",
+    "language": "en"
+  },
+  {
+    "id": "3a923a199909000616486925d9f3095076960d2b",
+    "title": "Venezuela: excarcelaciones y cuestionamientos por liberaciones a cuentagotas",
+    "summary": "En Caracas, familiares esperan liberaciones de los considerados presos políticos en El Helicoide, mientras la ONG Foro Penal cuestiona las maniobras del Gobierno. María Corina Machado abordó el tema en el Vaticano, y en el plano diplomático Venezuela liberó a dos italianos antes de anunciar el restablecimiento de embajadores con Roma. En medio de estas tens…",
+    "canonicalUrl": "https://france24.com/es/video/20260112-venezuela-excarcelaciones-y-cuestionamientos-por-liberaciones-a-cuentagotas",
+    "source": {
+      "id": "france24_es",
+      "name": "France 24 - Portada"
+    },
+    "publishedAt": "2026-01-12T21:33:45.000Z",
+    "category": "world",
+    "image": "https://s.france24.com/media/display/e04e0056-eff7-11f0-8427-005056bfb2b6/w:1024/p:16x9/ES-20260112-130154-130333-CS.jpg",
+    "language": "es"
+  },
+  {
+    "id": "f4ffff9d321a345c233e87763bfb8491dc81046b",
+    "title": "FRB議長の刑事告発示唆する文書 歴代議長らが司法省の対応非難",
+    "summary": "アメリカのFRB＝連邦準備制度理事会のパウエル議長が司法省から刑事告発を示唆する文書を受け取ったことを受け、FRBの歴代議長らが共同で声明を公表し、「独立性を損なおうとする前例のない試みだ」と厳しく非難しました。",
+    "canonicalUrl": "https://www3.nhk.or.jp/news/html/20260113/k10015024981000.html",
+    "source": {
+      "id": "nhk_news_jp",
+      "name": "NHK News - Top Stories (JP)"
+    },
+    "publishedAt": "2026-01-12T21:29:37.000Z",
+    "category": "world",
+    "image": null,
+    "language": "ja"
+  },
+  {
+    "id": "aacb89c4b296f26d427a3715057878499111c88c",
+    "title": "Informe desde Estambul: Turquía pide a Estados Unidos que no intervenga en la crisis de Irán",
+    "summary": "Turquía pidió a Estados Unidos que no intervenga ni ataque al Gobierno iraní durante la ola de protestas. Según medios estadounidenses, Donald Trump consideraba un ataque contra Irán, argumentando que serviría para apoyar a los manifestantes. Desde Estambul, nuestro corresponsal, Adrià Rocha, nos amplía.",
+    "canonicalUrl": "https://france24.com/es/video/20260112-informe-desde-estambul-turqu%C3%ADa-pide-a-estados-unidos-que-no-intervenga-en-la-crisis-de-ir%C3%A1n",
+    "source": {
+      "id": "france24_es",
+      "name": "France 24 - Portada"
+    },
+    "publishedAt": "2026-01-12T21:29:11.000Z",
+    "category": "world",
+    "image": "https://s.france24.com/media/display/312a9e98-eff9-11f0-bcda-005056a97e36/w:1024/p:16x9/ES-20260112-130534-130656-CS.jpg",
+    "language": "es"
+  },
+  {
+    "id": "230caed4a7ec13e6ec7b74107a31208ba05810d0",
+    "title": "NASA Invites Media to Cover Artemis Mission from Johnson Space Center",
+    "summary": "Media accreditation is open to attend Artemis II mission activities at NASA’s Johnson Space Center in Houston. Johnson is where flight controllers in mission control will manage the test flight after liftoff of the first crewed Moon mission under the agency’s Artemis campaign. Targeted to launch no earlier Friday, Feb. 6, the Artemis II mission […]",
+    "canonicalUrl": "https://nasa.gov/news-release/nasa-invites-media-to-cover-artemis-mission-from-johnson-space-center",
+    "source": {
+      "id": "nasa_release",
+      "name": "NASA - News Releases"
+    },
+    "publishedAt": "2026-01-12T21:27:56.000Z",
+    "category": "science",
+    "image": "https://www.nasa.gov/wp-content/uploads/2026/01/artemis-ii-briefing.jpg?w=2048",
+    "language": "en"
+  },
+  {
+    "id": "0e63eb93897bccbe9bfa134cd42a65ff381d4f7a",
+    "title": "Writer Chimamanda Ngozi Adichie accuses Lagos hospital of negligence after son’s death",
+    "summary": "In tonight's edition, iconic Nigerian author Chimamanda Ngozi Adichie accuses the Lagos Euracare hospital of negligence over the death of her infant son. Also, Uganda opposition leader Bobi Wine says that he will call for protests if there are any signs of corruption in Thursday's presidential vote. And kids in Kaduna state struggle with their return to sch…",
+    "canonicalUrl": "https://france24.com/en/writer-chimamanda-ngozi-adichie-accuses-lagos-hospital-of-negligence-after-son-s-death",
+    "source": {
+      "id": "france24_all",
+      "name": "France 24 - Top Stories"
+    },
+    "publishedAt": "2026-01-12T21:27:54.000Z",
+    "category": "health",
+    "image": "https://s.france24.com/media/display/ea749da6-effc-11f0-b417-005056bfb2b6/w:1024/p:16x9/WB011690-O-01-20260112-01.jpg",
+    "language": "en"
+  },
+  {
+    "id": "d979abcc1ae6114409912a7d3dd04b55e17c089a",
+    "title": "Best of CES 2026: Bluetooth Speakers, Headphones & Retro Turntables to Upgrade Your Home Audio",
+    "summary": "Check out Billboard's favorite products from this year's Consumer Electronics Show in Las Vegas.",
+    "canonicalUrl": "https://billboard.com/culture/product-recommendations/best-ces-2026-products-where-to-buy-online-1236146885",
+    "source": {
+      "id": "billboard",
+      "name": "Billboard"
+    },
+    "publishedAt": "2026-01-12T21:26:23.000Z",
+    "category": "entertainment",
+    "image": "https://www.billboard.com/wp-content/uploads/2026/01/Cleer-Audio-ARC-4-Series-CES-2026-BB-Embed.jpg?w=942&amp;h=623&amp;crop=1",
+    "language": "en"
+  },
+  {
+    "id": "71a71014457d3aef0cb12767e0bff1645b98de89",
+    "title": "Nuevo ataque de Israel sobre la Franja de Gaza deja al menos siete muertos",
+    "summary": "Nueva agresión de Israel sobre la Franja de Gaza: pese al cese al fuego, drones atacaron en Khan Younis dejando al menos siete muertos y varios heridos, según informó el hospital Nasser. Un alto oficial de la policía de Hamás fue asesinado en un acto atribuido a una milicia palestina respaldada por Israel. Mientras tanto, desde Irak se prepara el envío de a…",
+    "canonicalUrl": "https://france24.com/es/video/20260112-nuevo-ataque-de-israel-sobre-la-franja-de-gaza-deja-al-menos-siete-muertos",
+    "source": {
+      "id": "france24_es",
+      "name": "France 24 - Portada"
+    },
+    "publishedAt": "2026-01-12T21:26:08.000Z",
+    "category": "health",
+    "image": "https://s.france24.com/media/display/4ff8d3d8-effb-11f0-a85e-005056bfb2b6/w:1024/p:16x9/ES-20260112-130723-130928-CS.jpg",
+    "language": "es"
+  },
+  {
+    "id": "6fc594db844aa835d8c459e5330300631a479224",
+    "title": "Justice Department of the United States now 'a political arm of the Trump administration'",
+    "summary": "Axios is reporting that US ‍Treasury ​Secretary ⁠Scott Bessent warned President Donald Trump ​on ‍Sunday ​that the ​federal probe into Federal Reserve Chair Jerome Powell has \"made a ‍mess\" of things ​and could harm financial ‌markets. For insight and analysis, François Picard welcomes Frederick T. Davis, Lecturer in Law at Columbia University and former US…",
+    "canonicalUrl": "https://france24.com/en/video/20260112-justice-department-of-the-united-states-now-a-political-arm-of-the-trump-administration",
+    "source": {
+      "id": "france24_all",
+      "name": "France 24 - Top Stories"
+    },
+    "publishedAt": "2026-01-12T21:25:15.000Z",
+    "category": "world",
+    "image": "https://s.france24.com/media/display/e91ee086-eff9-11f0-a2b6-005056a97e36/w:1024/p:16x9/EN-20260112-182034-182705-CS.jpg",
+    "language": "en"
+  },
+  {
+    "id": "a624a1a3e08acc8aed04b1cbe9bccedffa45a7df",
+    "title": "Deputy to Lindsey Halligan fired over James Comey case",
+    "summary": "Lindsey Halligan's deputy in the U.S. attorney's office in the Eastern District of Virginia, Robert McBride, was fired after refusing to lead the prosecution of James Comey, a source said.",
+    "canonicalUrl": "https://cbsnews.com/news/refusal-prosecute-comey-firing-robert-mcbride",
+    "source": {
+      "id": "cbs_us",
+      "name": "CBS News - US"
+    },
+    "publishedAt": "2026-01-12T21:24:26.000Z",
+    "category": "world",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "2defc8a75089af9bb65beb2fe95a3e7b33977575",
+    "title": "Starlink: internet satelital que hace frente a la censura en Irán",
+    "summary": "Starlink, la red satelital de Elon Musk, ofrece internet en lugares sin fibra óptica ni señal telefónica. Desde aldeas amazónicas hasta zonas de conflicto en Ucrania o protestas en Irán, permite comunicación rápida y difícil de interceptar. Con una antena y un router, los usuarios acceden a la red. El Gobierno iraní ha intentado bloquear o rastrear su uso p…",
+    "canonicalUrl": "https://france24.com/es/video/20260112-starlink-internet-satelital-que-hace-frente-a-la-censura-en-ir%C3%A1n",
+    "source": {
+      "id": "france24_es",
+      "name": "France 24 - Portada"
+    },
+    "publishedAt": "2026-01-12T21:15:47.000Z",
+    "category": "world",
+    "image": "https://s.france24.com/media/display/fabff98e-eff3-11f0-8b57-005056a97e36/w:1024/p:16x9/ES-20260112-120533-120726-CS-01.jpg",
+    "language": "es"
+  },
+  {
+    "id": "8584bfe4923b41f67ae39ae616d6832dbe81f7df",
+    "title": "Amazon’s Lav Mics Have Content Creators Blown Away By the ‘Crystal Clear’ Sound & They’re Currently Up to 41% Off",
+    "summary": "Taken advantage of deals and enjoy wireless content creation with just the click of a button.",
+    "canonicalUrl": "https://billboard.com/culture/product-recommendations/best-amazon-lavalier-mic-deal-buy-online-1235729257",
+    "source": {
+      "id": "billboard",
+      "name": "Billboard"
+    },
+    "publishedAt": "2026-01-12T21:08:04.000Z",
+    "category": "entertainment",
+    "image": "https://www.billboard.com/wp-content/uploads/2024/07/billboard-dji-mini-mic.jpg?w=942&amp;h=623&amp;crop=1",
+    "language": "en"
+  },
+  {
+    "id": "285fa6a0fc4c987f6a9a1ceccec0ffe371b62df9",
+    "title": "As birth rates tumble, some progressives say the Left needs to offer solutions",
+    "summary": "Many countries around the world including the US face aging and shrinking populations. Conservative groups have taken the lead talking about the issue. Some liberal thinkers say it's time to talk about the global population shift and offer progressive solutions",
+    "canonicalUrl": "https://npr.org/2026/01/12/nx-s1-5637424/as-birth-rates-tumble-some-progressives-say-the-left-needs-to-offer-solutions",
+    "source": {
+      "id": "npr_news",
+      "name": "NPR - News"
+    },
+    "publishedAt": "2026-01-12T21:05:24.000Z",
+    "category": "world",
+    "image": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5637424",
+    "language": "en"
+  },
+  {
+    "id": "e5c6f1fc22372b5d547b46d2f8c70357e2db301b",
+    "title": "OpenAI acquires Torch, a one-year-old AI healthcare app that aggregates and analyzes medical records; source: OpenAI is paying $100M in equity (Laura Mandaro/The Information)",
+    "summary": "Laura Mandaro / The Information: OpenAI acquires Torch, a one-year-old AI healthcare app that aggregates and analyzes medical records; source: OpenAI is paying $100M in equity — OpenAI has agreed to buy Torch, a one-year-old AI healthcare app, for about $100 million in equity, according to a person with direct knowledge of the acquisition.",
+    "canonicalUrl": "https://techmeme.com/260112/p33",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-01-12T21:05:00.000Z",
+    "category": "health",
+    "image": "http://www.techmeme.com/260112/i33.jpg",
+    "language": "en"
+  },
+  {
+    "id": "98642a829b7fbb1de75603da38a2e2df2516a114",
+    "title": "Trump administration tells states to end 'orphan tax' on foster kids",
+    "summary": "There's a growing move to end what some call \"the orphan tax\" and stop states from taking benefit checks from children and youth in foster care.",
+    "canonicalUrl": "https://npr.org/2026/01/08/nx-s1-5608066/foster-care-social-security-orphans-hhs",
+    "source": {
+      "id": "npr_news",
+      "name": "NPR - News"
+    },
+    "publishedAt": "2026-01-12T21:02:02.000Z",
+    "category": "world",
+    "image": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4000x2667+0+0/resize/4000x2667!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F5d%2Ff5%2F72f9d6424a7b9dd589506bc2c35a%2Fgettyimages-2225585758.jpg",
+    "language": "en"
+  },
+  {
+    "id": "5f8da4634c5f9f3836506d123477d0f522c81b72",
+    "title": "Flu shot recommendation for kids dropped just as the illness rages",
+    "summary": "The Centers for Disease Control and Prevention dropped its advice that kids get an annual flu shot at a time when flu cases and hospitalizations are surging.",
+    "canonicalUrl": "https://npr.org/sections/shots-health-news/2026/01/12/nx-s1-5668378/flu-vaccine-children-cdc",
+    "source": {
+      "id": "npr_news",
+      "name": "NPR - News"
+    },
+    "publishedAt": "2026-01-12T21:01:37.000Z",
+    "category": "health",
+    "image": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/6000x4000+0+0/resize/6000x4000!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fde%2Fff%2F11df4deb41c082bef1a1bfcc8ea6%2Fgettyimages-2235638584.jpg",
+    "language": "en"
+  },
+  {
+    "id": "ff42e7a3ba2c90e67cbd32d8e00cdaaf85c18213",
+    "title": "Elon Musk says Apple and Google's Gemini deal \"seems like an unreasonable concentration of power for Google given that [they] also have Android and Chrome\" (Joe Rossignol/MacRumors)",
+    "summary": "Joe Rossignol / MacRumors: Elon Musk says Apple and Google's Gemini deal “seems like an unreasonable concentration of power for Google given that [they] also have Android and Chrome” — Elon Musk today expressed concern about Apple and Google partnering on a more personalized version of Siri powered by Google's generative AI platform Gemini.",
+    "canonicalUrl": "https://techmeme.com/260112/p32",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-01-12T21:00:45.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/260112/i32.jpg",
+    "language": "en"
+  },
+  {
+    "id": "982bbaf47b86f513f8f0984972787c911616ef13",
+    "title": "Hot 97 Names The Kid Mero as New Morning Show Host: Here’s When He Starts",
+    "summary": "Mero replaces Ebro in the Morning.",
+    "canonicalUrl": "https://billboard.com/music/rb-hip-hop/hot-97-the-kid-mero-morning-show-1236153407",
+    "source": {
+      "id": "billboard",
+      "name": "Billboard"
+    },
+    "publishedAt": "2026-01-12T21:00:18.000Z",
+    "category": "entertainment",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "aa1aadb5d4d040d9c12bd9a4994a311aacc0ae97",
+    "title": "Will budget cuts force NASA to withdraw from Europe's next Venus mission?",
+    "summary": "\"We are in constant contact with NASA.\"",
+    "canonicalUrl": "https://space.com/astronomy/venus/will-budget-cuts-force-nasa-to-withdraw-from-europes-next-venus-mission",
+    "source": {
+      "id": "space_com",
+      "name": "Space.com"
+    },
+    "publishedAt": "2026-01-12T21:00:00.000Z",
+    "category": "science",
+    "image": "https://cdn.mos.cms.futurecdn.net/DmTv3myF7fxCtLX3iKcPyB-1280-80.jpg",
+    "language": "en"
+  },
+  {
+    "id": "e6a2ef199c94d2672ceeec6c105e66d612d7e704",
+    "title": "Charlie Puth Announces Whatever’s Clever! World Tour With Help from ‘Overcompensating’ Star Benito Skinner: See the Dates",
+    "summary": "The pop star is hitting the road just a few months after his Super Bowl performance. Get all the details.",
+    "canonicalUrl": "https://billboard.com/music/pop/charlie-puth-tour-dates-2026-1236153459",
+    "source": {
+      "id": "billboard",
+      "name": "Billboard"
+    },
+    "publishedAt": "2026-01-12T20:57:39.000Z",
+    "category": "entertainment",
+    "image": "https://www.billboard.com/wp-content/uploads/2025/12/charlie-puth-grammy-hof-2025-billboard-1800.jpg?w=237&#038;h=147&#038;crop=1",
+    "language": "en"
+  },
+  {
+    "id": "4666a55964cb0d890686d2dc239e68b31b1c364a",
+    "title": "‘Landman’ Star Paulina Chávez on Filming Sexual Assault Scene: “I Allowed Myself to Be Terrified”",
+    "summary": "The actor in Paramount+'s mega-hit oil drama, who was on the receiving end of a violent attack headed into the season two finale, unpacks the harrowing scene and consequences ahead with The Hollywood Reporter.",
+    "canonicalUrl": "https://hollywoodreporter.com/tv/tv-features/landman-ariana-sexual-assault-paulina-chavez-interview-1236471544",
+    "source": {
+      "id": "hollywood_reporter",
+      "name": "The Hollywood Reporter"
+    },
+    "publishedAt": "2026-01-12T20:53:11.000Z",
+    "category": "entertainment",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "e2580198b26eabc9c4a0b885ab107c914413a9ed",
+    "title": "Trump calls for a 10% cap on credit card interest rates",
+    "summary": "With credit card interest rates near modern highs, President Trump says he wants to cap the rates for one year.",
+    "canonicalUrl": "https://npr.org/2026/01/12/nx-s1-5675151/trump-credit-card-interest-rate-cap",
+    "source": {
+      "id": "npr_news",
+      "name": "NPR - News"
+    },
+    "publishedAt": "2026-01-12T20:51:42.000Z",
+    "category": "business",
+    "image": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/3994x2663+0+0/resize/3994x2663!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F9c%2F21%2F073def9649579b893d4d110b040f%2Fap23150450674257.jpg",
+    "language": "en"
+  },
+  {
+    "id": "e7f46e1ada5ab57ac3df7c7460cfc322ba0c31df",
+    "title": "Mark Warner - Fact-checking Sen. Mark Warner that Trump shortened ICE agent training to 47 days",
+    "summary": "“They are not getting the traditional five months training. … The training for the ICE agents now is 47 days.”",
+    "canonicalUrl": "https://politifact.com/factchecks/2026/jan/12/mark-warner/ICE-training-requirements-Trump-Minneapolis",
+    "source": {
+      "id": "politifact_all",
+      "name": "PolitiFact - All"
+    },
+    "publishedAt": "2026-01-12T20:49:34.000Z",
+    "category": "world",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "d648886bd1ed42cf952671bb589634de3ab9d537",
+    "title": "Supreme Court to step into debate over transgender athlete bans",
+    "summary": "The Supreme Court will consider whether laws in Idaho and West Virginia banning transgender athletes from competing on girls' and women's sports teams violate the Constitution and Title IX.",
+    "canonicalUrl": "https://cbsnews.com/news/supreme-court-transgender-athlete-bans-idaho-west-virginia",
+    "source": {
+      "id": "cbs_us",
+      "name": "CBS News - US"
+    },
+    "publishedAt": "2026-01-12T20:48:23.000Z",
+    "category": "sports",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "f50ab5c364a9344a3a526ab713a00345ab85352e",
+    "title": "Cuba : le prochain sur la liste de Trump ?",
+    "summary": "Donald Trump a exhorté Cuba dimanche à \"accepter un accord\" avec les États-Unis, avertissant que l’afflux de pétrole vénézuélien et d’argent vers La Havane allait désormais s’interrompre. Pascal Drouhaud, président de l'association France Amérique Latine \"LatFran\" est l'invité de Florent Rodo. Ses explications.",
+    "canonicalUrl": "https://france24.com/fr/%C3%A9missions/questions-directes/20260112-cuba-le-prochain-sur-la-liste-de-trump",
+    "source": {
+      "id": "france24_fr",
+      "name": "France 24 - À la une"
+    },
+    "publishedAt": "2026-01-12T20:47:43.000Z",
+    "category": "world",
+    "image": "https://s.france24.com/media/display/aa80aa82-eff7-11f0-9e71-005056bfb2b6/w:1024/p:16x9/capture-152693169169655d7807c2d2-48294273.jpg",
+    "language": "fr"
+  },
+  {
+    "id": "805833491cc782568155fa61bcf36565e256d903",
+    "title": "Alonso wasn't perfect, but sacking him ignores Madrid's real problems",
+    "summary": "Xabi Alonso's time in charge of Real Madrid is over, but his dismissal will hardly solve the numerous problems the club is combatting.",
+    "canonicalUrl": "https://espn.com/soccer/story/_/id/47591517/xabi-alonso-wasnt-perfect-sacking-ignores-real-madrid-florentino-perez-real-problems",
+    "source": {
+      "id": "espn_news",
+      "name": "ESPN - Top Headlines"
+    },
+    "publishedAt": "2026-01-12T20:46:05.000Z",
+    "category": "sports",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "d1e90c6db0eda4dbf16d02c895f520981c583cc5",
+    "title": "Greenland rejects US takeover 'under any circumstance', government says",
+    "summary": "Greenland's government on Monday said it could not accept a US takeover of the Arctic island under \"any circumstance\", after US President Donald Trump said that the United States would take the territory \"one way or the other\". FRANCE 24's Monte Francis reports.",
+    "canonicalUrl": "https://france24.com/en/greenland-rejects-us-takeover-under-any-circumstance-government-says",
+    "source": {
+      "id": "france24_all",
+      "name": "France 24 - Top Stories"
+    },
+    "publishedAt": "2026-01-12T20:45:47.000Z",
+    "category": "world",
+    "image": "https://s.france24.com/media/display/006702e4-eff7-11f0-961e-005056a90284/w:1024/p:16x9/EN-20260112-211242-211429-CS.jpg",
+    "language": "en"
+  },
+  {
+    "id": "ec50276b7dc1ce66f37869d3c33fefd991774a10",
+    "title": "Investigation of Fed chief Jerome Powell: What Trump has said about him since April 2025",
+    "summary": "Criminal probe latest in Trump clash with Fed chief Powell",
+    "canonicalUrl": "https://politifact.com/article/2026/jan/12/powell-trump-investigation-fed-renovation",
+    "source": {
+      "id": "politifact_all",
+      "name": "PolitiFact - All"
+    },
+    "publishedAt": "2026-01-12T20:45:20.000Z",
+    "category": "business",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "19abddd2e5354c817f37d53a27257936d7ac201a",
+    "title": "Sources: Meta plans to lay off ~10% of its 15,000-person Reality Labs division, disproportionately affecting those working on VR headsets and Horizon Worlds (New York Times)",
+    "summary": "New York Times: Sources: Meta plans to lay off ~10% of its 15,000-person Reality Labs division, disproportionately affecting those working on VR headsets and Horizon Worlds — The layoffs are set to be announced this week and would affect Meta's work on the metaverse, as the company spends heavily on building artificial intelligence.",
+    "canonicalUrl": "https://techmeme.com/260112/p31",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-01-12T20:42:14.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/260112/i31.jpg",
+    "language": "en"
+  },
+  {
+    "id": "38febe89571d00b7b0e4c218beb7ccfe4315f161",
+    "title": "New arrest made in notorious gold heist at Toronto airport",
+    "summary": "A new arrest has been made in connection to the notorious 2023 gold heist in which millions of dollars' worth of gold bars​ were stolen at Toronto Pearson Airport.",
+    "canonicalUrl": "https://cbsnews.com/news/toronto-airport-gold-heist-new-arrest",
+    "source": {
+      "id": "cbs_world",
+      "name": "CBS News - World"
+    },
+    "publishedAt": "2026-01-12T20:40:42.000Z",
+    "category": "world",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "5743d5a1968f584c22275a01540c84a11e0a25e2",
+    "title": "イラン抗議デモで570人以上死亡か 外相“デモは鎮圧された”",
+    "summary": "中東のイランで物価の高騰などに抗議する反政府デモの参加者と当局側が衝突し、人権団体はこれまでに570人以上が死亡したとしています。政府は軍事的な措置を検討するとしているアメリカのトランプ大統領を非難する一方、アメリカ側とやりとりをしていることを明らかにしていて今後の双方の出方が注目されます。",
+    "canonicalUrl": "https://www3.nhk.or.jp/news/html/20260113/k10015024821000.html",
+    "source": {
+      "id": "nhk_news_jp",
+      "name": "NHK News - Top Stories (JP)"
+    },
+    "publishedAt": "2026-01-12T20:30:43.000Z",
+    "category": "world",
+    "image": null,
+    "language": "ja"
+  },
+  {
+    "id": "f36a080c7f63dc315d9355ddc93feecda146ddf8",
+    "title": "When and Where to Watch Houston Texans vs. Pittsburgh Steelers NFL Wild Card Game Online Without Cable for Free",
+    "summary": "With a number of free ways to watch, here's how to livestream the AFC game online.",
+    "canonicalUrl": "https://hollywoodreporter.com/tv/tv-news/watch-stream-texans-vs-steelers-2026-nfl-wild-card-game-playoffs-online-free-1236471570",
+    "source": {
+      "id": "hollywood_reporter",
+      "name": "The Hollywood Reporter"
+    },
+    "publishedAt": "2026-01-12T20:30:00.000Z",
+    "category": "sports",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "57bca8d7e2a88b940bd9d69f091dda04dc3f6604",
+    "title": "Steve Aoki Sued Over ‘Undisclosed Endorsements’ of Trading Cards and NFTs on Instagram",
+    "summary": "The DJ is facing a class-action lawsuit over his partnership with the gaming company MetaZoo.",
+    "canonicalUrl": "https://billboard.com/pro/steve-aoki-lawsuit-promoting-nfts-instagram",
+    "source": {
+      "id": "billboard",
+      "name": "Billboard"
+    },
+    "publishedAt": "2026-01-12T20:26:12.000Z",
+    "category": "business",
+    "image": "https://www.billboard.com/wp-content/uploads/2022/04/Justin-Bieber-april-2022-billboard-pro-1260.jpg?w=237&#038;h=147&#038;crop=1",
+    "language": "en"
+  },
+  {
+    "id": "450aa5bbd8a1d425caa41e8b466d5d15b9994674",
+    "title": "'Absence of credible alternatives' has allowed Iranian regime to survive, analyst says",
+    "summary": "Speaking with FRANCE 24's Mark Owen, Trita Parsi, Executive Vice President of the Quincy Institute, says that 'we're seeing a dramatic radicalisation of the protest movement which is ultimately a reaction to the brutality of the regime', adding that the 'absence of credible alternatives' is one of the reasons that the Islamic Republic has been able to survi…",
+    "canonicalUrl": "https://france24.com/en/absence-of-credible-alternatives-has-allowed-iranian-regime-to-survive-analyst-says",
+    "source": {
+      "id": "france24_all",
+      "name": "France 24 - Top Stories"
+    },
+    "publishedAt": "2026-01-12T20:24:19.000Z",
+    "category": "world",
+    "image": "https://s.france24.com/media/display/4c3f9c60-eff4-11f0-9b76-005056bf30b7/w:1024/p:16x9/EN-20260112-210550-211207-CS.jpg",
+    "language": "en"
+  },
+  {
+    "id": "7f9cb81e1ceb8b977e031a98f0761cf822de3b4e",
+    "title": "Cardi B Taunts L.A. Chargers While Celebrating New England Patriots’ Playoff Win: ‘Take Them to Tulum’",
+    "summary": "Fans will have to wait and see if she returns to Gillette Stadium to cheer on boyfriend Stefon Diggs in the next round.",
+    "canonicalUrl": "https://billboard.com/music/rb-hip-hop/cardi-b-taunts-chargers-celebrates-patriots-playoff-win-1236153324",
+    "source": {
+      "id": "billboard",
+      "name": "Billboard"
+    },
+    "publishedAt": "2026-01-12T20:21:35.000Z",
+    "category": "sports",
+    "image": "https://www.billboard.com/wp-content/uploads/2025/08/Cardi-B-Stefon-Diggs-knicks-2025-billboard-1800.jpg?w=237&#038;h=147&#038;crop=1",
+    "language": "en"
+  },
+  {
     "id": "719c4e9328048005dc7db9bd76d9f908f118f7eb",
     "title": "Black Midi Guitarist Matt Kwasniewski-Kelvin Dead at 26 Following ‘Long Battle With His Mental Health’",
     "summary": "The musician's family shared the news in a statement via his record label.",
@@ -112,6 +924,20 @@
     "language": "es"
   },
   {
+    "id": "32f89f017e2a39694182e0a41a80657aca4120cf",
+    "title": "Malaysia and Indonesia become the first countries to block Musk’s Grok over sexualized AI images",
+    "summary": "Malaysia and Indonesia have become the first countries to block Grok, the artificial intelligence chatbot developed by Elon Musk's company xAI, amid concerns that it is being misused to generate sexually explicit and nonconsensual images. Britain ​will bring ⁠into effect a law criminalising the creation ​of ‍non-consensual intimate images ​this week, techno…",
+    "canonicalUrl": "https://france24.com/en/malaysia-and-indonesia-become-the-first-countries-to-block-musk-s-grok-over-sexualized-ai-images",
+    "source": {
+      "id": "france24_all",
+      "name": "France 24 - Top Stories"
+    },
+    "publishedAt": "2026-01-12T20:04:59.000Z",
+    "category": "tech",
+    "image": "https://s.france24.com/media/display/eb674c64-eff1-11f0-9330-005056a90284/w:1024/p:16x9/capture-833844252696553d4092667-91773306.jpg",
+    "language": "en"
+  },
+  {
     "id": "5f3109cee5a062978054ad5d885fa3814bfa2f3b",
     "title": "Baseus’ retractable travel adapter is on sale for more than 50 percent off today",
     "summary": "If you’re planning on traveling at all this year, the Baseus EnerCore CG11 Universal Travel Adapter is worth a look. The adapter can power up to six devices at once, and now through the end of today, January 12th, it’s on sale for just $34.19 (about $36 off) at Amazon, matching the all-time low price we last saw at the end of November. Baseus EnerCore CG11…",
@@ -179,6 +1005,20 @@
     "publishedAt": "2026-01-12T20:01:00.000Z",
     "category": "business",
     "image": null,
+    "language": "en"
+  },
+  {
+    "id": "a2050df4e91bb081add43da37723824327b7c66a",
+    "title": "Switching water sources improved hygiene of Pompeii’s public baths",
+    "summary": "Scientists analyzed carbonate deposits from baths, aqueduct to learn more about city's changing water supply.",
+    "canonicalUrl": "https://arstechnica.com/science/2026/01/switching-water-sources-improved-hygiene-of-pompeiis-public-baths",
+    "source": {
+      "id": "arstechnica",
+      "name": "Ars Technica"
+    },
+    "publishedAt": "2026-01-12T20:00:54.000Z",
+    "category": "science",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/01/bath1-1152x648.jpg",
     "language": "en"
   },
   {
@@ -252,6 +1092,34 @@
     "language": "es"
   },
   {
+    "id": "a49b4c7cdcc04fd141ba5c07442183e568eafe0e",
+    "title": "Supreme Court takes case that could strip FCC of authority to issue fines",
+    "summary": "AT&T and Verizon claim right to a jury trial was violated by FCC fines.",
+    "canonicalUrl": "https://arstechnica.com/tech-policy/2026/01/supreme-court-takes-case-that-could-strip-fcc-of-authority-to-issue-fines",
+    "source": {
+      "id": "arstechnica",
+      "name": "Ars Technica"
+    },
+    "publishedAt": "2026-01-12T19:56:01.000Z",
+    "category": "tech",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/09/getty-supreme-court-1152x648.jpg",
+    "language": "en"
+  },
+  {
+    "id": "a8917af0d85095c90e7d3b0fe8c16f9ac6270bf5",
+    "title": "Le nationaliste corse Alain Orsoni abattu aux obsèques de sa mère",
+    "summary": "​L'ancien dirigeant nationaliste ⁠Alain Orsoni a été abattu, lundi, lors des obsèques ​de sa ‍mère dans le village ​de Vero, en Corse-du-Sud. Figure du nationalisme corse, il était âgé de 71 ans. Le nouveau Parquet national anti-criminalité organisée (Pnaco) s'est saisi de l'affaire.",
+    "canonicalUrl": "https://france24.com/fr/france/20260112-alain-orsoni-figure-du-nationalisme-abattu-aux-obs%C3%A8ques-de-sa-m%C3%A8re-en-corse",
+    "source": {
+      "id": "france24_fr",
+      "name": "France 24 - À la une"
+    },
+    "publishedAt": "2026-01-12T19:55:14.000Z",
+    "category": "world",
+    "image": "https://s.france24.com/media/display/9bb1b4c6-eff0-11f0-b352-005056a90284/w:1024/p:16x9/21f7240a72da53c195178d2614ac96f20181bf9a.jpg",
+    "language": "fr"
+  },
+  {
     "id": "652db0d88b642f7c0aff6da282643560287b81df",
     "title": "Jafar Panahi Talks Iran Protests, Possible Return to Prison: “I’ll Come Out With a New Script”",
     "summary": "At two THR-hosted panels at the Palm Springs International Film Festival, international Oscar contenders discussed repression in Iran, war in Gaza and the personal risks behind their most urgent films.",
@@ -280,6 +1148,20 @@
     "language": "en"
   },
   {
+    "id": "ed3745c03dc24770da58a937a5ddf9d14b33e855",
+    "title": "Iranians being kept in the dark about crackdown, observer says",
+    "summary": "Speaking with FRANCE 24's Mark Owen, Kevan Gafaïti, lecturer at Sciences Po Paris, who has just left Iran, says that many Iranians are being kept in the dark about the demonstrations and the brutal crackdown by the authorities due to the Internet blackout, which is preventing the population from organising.",
+    "canonicalUrl": "https://france24.com/en/iranians-being-kept-in-the-dark-about-crackdown-observer-says",
+    "source": {
+      "id": "france24_all",
+      "name": "France 24 - Top Stories"
+    },
+    "publishedAt": "2026-01-12T19:49:49.000Z",
+    "category": "health",
+    "image": "https://s.france24.com/media/display/4dc4cf22-eff1-11f0-be4e-005056bf30b7/w:1024/p:16x9/capture-478819749696552cb8f7970-61876481.jpg",
+    "language": "en"
+  },
+  {
     "id": "7f82131060f42c06e09817d1e5d73959dd67e464",
     "title": "El Real Madrid destituye a Xabi Alonso como entrenador; Álvaro Arbeloa será el nuevo técnico",
     "summary": "El Real Madrid ha decidido prescindir de Xabi Alonso tras caer en la final de la Supercopa de España ante el Barcelona y en comunicado informa de que \"de mutuo acuerdo\" con el técnico \"ha decidido poner fin a su etapa como entrenador del primer equipo\", del que se hace cargo Álvaro Arbeloa, hasta ahora entrenador del filial, el Real Madrid-Castilla.",
@@ -292,6 +1174,20 @@
     "category": "world",
     "image": "https://s.france24.com/media/display/c91552ae-efed-11f0-9101-005056a90284/w:1024/p:16x9/2026-01-12T172910Z-805565933-RC2AYIAO2G73-RTRMADP-3-SOCCER-SPAIN-BAR-RMA-PREVIEW.jpg",
     "language": "es"
+  },
+  {
+    "id": "3b101dcee446c85ac2ce6846c771861c808726d6",
+    "title": "Manifestations en Iran : rare témoignage alors qu'internet est coupé sur place",
+    "summary": "Kevan Gafaïti, enseignant à Sciences Po et président de l'IRIG, était en Iran il y a encore quelques heures. Il témoigne de la situation sur place alors que la population est toujours coupée du reste du monde.",
+    "canonicalUrl": "https://france24.com/fr/vid%C3%A9o/20260112-manifestations-en-iran-rare-t%C3%A9moignage-alors-qu-internet-est-coup%C3%A9-sur-place",
+    "source": {
+      "id": "france24_fr",
+      "name": "France 24 - À la une"
+    },
+    "publishedAt": "2026-01-12T19:37:20.000Z",
+    "category": "world",
+    "image": "https://s.france24.com/media/display/13684204-efed-11f0-ad36-005056bf30b7/w:1024/p:16x9/FR-20260112-200343-200900-CS.jpg",
+    "language": "fr"
   },
   {
     "id": "d2b24d393be5f1f977f11cf8525a6e8bab2147bb",
@@ -3626,6 +4522,34 @@
     "language": "en"
   },
   {
+    "id": "261484197af6df7b00698bb6bfbb8a0057a57037",
+    "title": "“超越GDP考量”倡议推动建立更清晰的福祉与可持续发展衡量标准",
+    "summary": "本周，全球顶尖财经专家齐聚联合国日内瓦办事处，呼吁对经济增长的衡量方式进行根本性变革。这一呼声源于一个普遍关切：国内生产总值几乎无法完全反映那些关系人类生存与福祉的关键可持续发展目标的进展情况。",
+    "canonicalUrl": "https://news.un.org/feed/view/zh/story/2026/01/1141451",
+    "source": {
+      "id": "un_news_zh",
+      "name": "UN News - 中文"
+    },
+    "publishedAt": "2026-01-12T12:00:00.000Z",
+    "category": "business",
+    "image": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/02-12-25-Unsplash-cell-phone.jpg/image560x340cropped.jpg",
+    "language": "zh"
+  },
+  {
+    "id": "41999fa8990602a8f15412617d810a7563283a21",
+    "title": "Venezuela: UN independent investigators call for immediate release of all political prisoners",
+    "summary": "More than 100 political prisoners have been released in Venezuela, the Government announced on Monday, just over a week after the seizure and rendition of President Nicolás Maduro in Caracas by the United States.",
+    "canonicalUrl": "https://news.un.org/feed/view/en/story/2026/01/1166745",
+    "source": {
+      "id": "un_news_all",
+      "name": "UN News - All"
+    },
+    "publishedAt": "2026-01-12T12:00:00.000Z",
+    "category": "world",
+    "image": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/05-01-2026-Caracas-Venezuela-03.jpg/image560x340cropped.jpg",
+    "language": "en"
+  },
+  {
     "id": "4a2d2b679e697a36a092e23af63f09341713d1f9",
     "title": "世界粮食计划署呼吁各国领导人终结人为饥荒",
     "summary": "世界粮食计划署执行主任麦凯恩周一指出，根据该机构发布的《2026年全球展望》报告，全球约有3.18亿人正面临危机级别的饥饿或更为严重的状况。该机构的预警系统显示，暴力冲突、极端天气和严峻的经济衰退正在推动全球粮食不安全状况持续加剧，数十万人已陷入饥荒般境地。",
@@ -3638,6 +4562,48 @@
     "category": "business",
     "image": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/07-01-2026-WFP-Gaza-04.jpg/image560x340cropped.jpg",
     "language": "zh"
+  },
+  {
+    "id": "50df9afa4c228ab25cd1e9cc350b477de76ea57b",
+    "title": "国际移民组织与韩国电信信用局合作  推动移民数字金融服务包容",
+    "summary": "国际移民组织与韩国电信信用局签署谅解备忘录，旨在改善移民在韩国获得正规银行和金融服务的机会，特别是那些信用记录有限或存在缺失的移民。",
+    "canonicalUrl": "https://news.un.org/feed/view/zh/story/2026/01/1141449",
+    "source": {
+      "id": "un_news_zh",
+      "name": "UN News - 中文"
+    },
+    "publishedAt": "2026-01-12T12:00:00.000Z",
+    "category": "world",
+    "image": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/10-08-2022_Unsplash_cryptocurrency.jpg/image560x340cropped.jpg",
+    "language": "zh"
+  },
+  {
+    "id": "85fcfb67e34db89b81e4b3632504efca5fc580a6",
+    "title": "初步结果显示绝育昆虫技术有望有效应对奥地利入侵蚊种",
+    "summary": "国际原子能机构与奥地利格拉茨市政府周一公布了针对入侵蚊种白纹伊蚊（亚洲虎蚊）的初步研究结果，显示利用释放绝育雄蚊可显著降低城市蚊群密度。该研究旨在评估未来采用绝育昆虫技术——通过辐射绝育雄性昆虫的环保害虫防治方法——遏制该国第二大城市格拉茨市入侵蚊种数量增长的可行性。",
+    "canonicalUrl": "https://news.un.org/feed/view/zh/story/2026/01/1141450",
+    "source": {
+      "id": "un_news_zh",
+      "name": "UN News - 中文"
+    },
+    "publishedAt": "2026-01-12T12:00:00.000Z",
+    "category": "science",
+    "image": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/assets/2014/01/18401/image560x340cropped.jpg",
+    "language": "zh"
+  },
+  {
+    "id": "8ccae268df01193d356c3d2a180daa902d3b5151",
+    "title": "World News in Brief: Ending famine, refugee solidarity in Kenya, Ukraine civilian casualties update",
+    "summary": "The head of the UN’s emergency food agency has urged world leaders on Monday to end “man-made famines” and conflicts that “drive hunger and desperation”.",
+    "canonicalUrl": "https://news.un.org/feed/view/en/story/2026/01/1166744",
+    "source": {
+      "id": "un_news_all",
+      "name": "UN News - All"
+    },
+    "publishedAt": "2026-01-12T12:00:00.000Z",
+    "category": "world",
+    "image": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/22-05-2025-WFP-Kenya-01.jpg/image560x340cropped.jpg",
+    "language": "en"
   },
   {
     "id": "a2d2bd9c7538dd00ac03008139b9cd26d57df4a0",
@@ -3654,6 +4620,48 @@
     "language": "zh"
   },
   {
+    "id": "b4cb42b26c338ba6f658f15f2d12d503966a3445",
+    "title": "Security Council LIVE: Attacks against Ukrainian civilians unacceptable, unjustifiable and must stop, says UN",
+    "summary": "The UN Security Council is meeting in emergency session in New York over Russia’s ongoing deadly missile and drone strikes targeting Ukrainian civilians and energy infrastructure, as frigid winter conditions grip the war-torn country. Millions have been deprived of electricity, heating and water. The UN Secretary-General has called the stepped up attacks an…",
+    "canonicalUrl": "https://news.un.org/feed/view/en/story/2026/01/1166743",
+    "source": {
+      "id": "un_news_all",
+      "name": "UN News - All"
+    },
+    "publishedAt": "2026-01-12T12:00:00.000Z",
+    "category": "tech",
+    "image": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/19-11-2025-UNICEF-Ukraine-02.jpg/image560x340cropped.jpg",
+    "language": "en"
+  },
+  {
+    "id": "b57a8155f178d626b47ecd87b675c4397c0fda2f",
+    "title": "UN World Court begins landmark hearings on Rohingya genocide case against Myanmar",
+    "summary": "Public hearings opened on Monday at the International Court of Justice (ICJ) in a landmark case brought by the Gambia against Myanmar, alleging violations of the Genocide Convention over the military’s treatment of the Rohingya minority.",
+    "canonicalUrl": "https://news.un.org/feed/view/en/story/2026/01/1166746",
+    "source": {
+      "id": "un_news_all",
+      "name": "UN News - All"
+    },
+    "publishedAt": "2026-01-12T12:00:00.000Z",
+    "category": "world",
+    "image": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/30-12-2022_UNICEF_Rohingya.jpg/image560x340cropped.jpg",
+    "language": "en"
+  },
+  {
+    "id": "c1a53001eb492b4c8b596a30f8bc79af0c2f16fe",
+    "title": "出访肯尼亚：联合国难民高专呼吁加强团结并为难民寻求解决方案",
+    "summary": "联合国难民事务高级专员萨利赫在其就任难民高专后的首次正式出访期间，在肯尼亚首都内罗毕呼吁国际社会加强支持，为难民重建生活提供所需解决方案。",
+    "canonicalUrl": "https://news.un.org/feed/view/zh/story/2026/01/1141447",
+    "source": {
+      "id": "un_news_zh",
+      "name": "UN News - 中文"
+    },
+    "publishedAt": "2026-01-12T12:00:00.000Z",
+    "category": "world",
+    "image": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/19-06-2025_WFP_UN%20News_Refugees_Kakuma_3.jpg/image560x340cropped.jpg",
+    "language": "zh"
+  },
+  {
     "id": "c8ae0f3d3261a720dfef78851a827ec51f0cbb2c",
     "title": "‘Beyond GDP’ economists push for clearer metrics on wellbeing, sustainability",
     "summary": "Top finance experts are meeting at UN Geneva this week to push for a radical shake up in the way economic growth is gauged, in response to concerns that GDP measurements provide little insight about progress on key sustainability targets that are vital to our survival.",
@@ -3666,6 +4674,20 @@
     "category": "business",
     "image": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/02-12-25-Unsplash-cell-phone.jpg/image560x340cropped.jpg",
     "language": "en"
+  },
+  {
+    "id": "fbddc376370bf3f43ce9ce23f8764ba27e0dbd8e",
+    "title": "儿童权利委员会第100届会议开幕  联合国呼吁紧急保护儿童权利",
+    "summary": "联合国人权理事会和条约机制司负责人西塞-古罗周一在日内瓦开幕的儿童权利委员会第100届会议上代表联合国秘书长致辞，呼吁各国政府、捐助方及合作伙伴紧急重申保护儿童权利的承诺，并采取行动恢复基本服务。",
+    "canonicalUrl": "https://news.un.org/feed/view/zh/story/2026/01/1141448",
+    "source": {
+      "id": "un_news_zh",
+      "name": "UN News - 中文"
+    },
+    "publishedAt": "2026-01-12T12:00:00.000Z",
+    "category": "world",
+    "image": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/08-12-2025-UNICEF-Syria.JPG/image560x340cropped.jpg",
+    "language": "zh"
   },
   {
     "id": "4c1e9f980edb41bc954ed5a2f75fa169f5229079",
@@ -4141,6 +5163,20 @@
     "publishedAt": "2026-01-12T10:50:21.000Z",
     "category": "entertainment",
     "image": "https://s.france24.com/media/display/b4be9836-ef63-11f0-ac0b-005056bf30b7/w:1024/p:16x9/AP26012085378409.jpg",
+    "language": "en"
+  },
+  {
+    "id": "a8abcf69cdceb87e685c4651f61feb50ee9a322b",
+    "title": "Sudan: 1000 days of war deepen the world’s worst health and humanitarian crisis",
+    "summary": "Today, the conflict in Sudan reaches its 1000th day, with over 20 million people requiring health assistance and 21 million desperately needing food. Nearly three years of continuous violence, severe access constraints, and reduced funding have turned Sudan into the worst humanitarian crisis globally. An estimated 33.7 million people will need humanitarian…",
+    "canonicalUrl": "https://who.int/news/item/09-01-2026-sudan-1000-days-of-war-deepen-the-world-s-worst-health-and-humanitarian-crisis",
+    "source": {
+      "id": "who_news",
+      "name": "World Health Organization - News (EN)"
+    },
+    "publishedAt": "2026-01-12T10:44:06.000Z",
+    "category": "health",
+    "image": null,
     "language": "en"
   },
   {
@@ -5960,1042 +6996,6 @@
     },
     "publishedAt": "2026-01-12T01:37:04.000Z",
     "category": "business",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "42cb704230882c1484fa61e99c60d0a2b5c7e549",
-    "title": "Trump’s Justice Department subpoenas Fed Chair Powell over building renovation",
-    "summary": "Federal Reserve Chair Jerome Powell said on Sunday the Department of Justice had subpoenaed the central bank and threatened criminal charges over his testimony on Fed building renovations, marking an unprecedented escalation in President Donald Trump’s dispute with the independent Federal Reserve.",
-    "canonicalUrl": "https://france24.com/en/americas/20260112-federal-reserve-powellj-subpoenaed-central-bank-criminal",
-    "source": {
-      "id": "france24_all",
-      "name": "France 24 - Top Stories"
-    },
-    "publishedAt": "2026-01-12T01:34:56.000Z",
-    "category": "business",
-    "image": "https://s.france24.com/media/display/634f5dd0-d610-11f0-bb0e-005056a97e36/w:1024/p:16x9/69117ba4596397f8d76fec1e3941ce63962d168d.jpg",
-    "language": "en"
-  },
-  {
-    "id": "63c81a0e05b20161786c64f0bb3dfaee98e70ebb",
-    "title": "Trump’s Justice Department subpoenas Fed Chair Powell over building renovation",
-    "summary": "Federal Reserve Chair Jerome Powell said on Sunday the Department of Justice had subpoenaed the central bank and threatened criminal charges over his testimony on Fed building renovations, marking an unprecedented escalation in President Donald Trump’s dispute with the independent Federal Reserve.",
-    "canonicalUrl": "https://france24.com/en/economy/20260112-trump-s-justice-department-subpoenas-fed-chair-powell-over-building-renovation",
-    "source": {
-      "id": "france24_all",
-      "name": "France 24 - Top Stories"
-    },
-    "publishedAt": "2026-01-12T01:34:56.000Z",
-    "category": "business",
-    "image": "https://s.france24.com/media/display/634f5dd0-d610-11f0-bb0e-005056a97e36/w:1024/p:16x9/69117ba4596397f8d76fec1e3941ce63962d168d.jpg",
-    "language": "en"
-  },
-  {
-    "id": "5915c2c26d79caaf59f715ced532c0485220be54",
-    "title": "LaFleur to discuss future with Packers prez soon",
-    "summary": "Packers coach Matt LaFleur said Sunday that he expects to meet with team president Ed Policy about his future in Green Bay either late Sunday night or Monday.",
-    "canonicalUrl": "https://espn.com/nfl/story/_/id/47584701/matt-lafleur-discuss-future-packers-ed-policy-soon",
-    "source": {
-      "id": "espn_news",
-      "name": "ESPN - Top Headlines"
-    },
-    "publishedAt": "2026-01-12T01:21:30.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "6e4e5119e83924d3c1dcf1b8c6e72156b90b5100",
-    "title": "U.S. bobsledder Horn OK after scary solo ride",
-    "summary": "U.S. bobsledder Kris Horn survived a frightening ride down the track in St. Moritz, Switzerland, on Sunday, after his three teammates failed to make it into the four-man sled at the start of a World Cup race.",
-    "canonicalUrl": "https://espn.com/olympics/bobsled/story/_/id/47584226/us-bobsledder-kris-horn-survives-solo-ride-st-moritz-teammates-fail-get-sled",
-    "source": {
-      "id": "espn_news",
-      "name": "ESPN - Top Headlines"
-    },
-    "publishedAt": "2026-01-12T01:21:30.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "8aa49bf3c2424526cfdb7b3b2d355b105558ff28",
-    "title": "49ers oust Eagles, march on behind Purdy, CMC",
-    "summary": "Brock Purdy threw a go-ahead 6-yard scoring pass to Christian McCaffrey late in the fourth quarter, San Francisco used a trick play on a TD toss from wide receiver Jauan Jennings, and the 49ers eliminated the Eagles with a 23-19 wild-card victory Sunday.",
-    "canonicalUrl": "https://espn.com/nfl/story/_/id/47585326/49ers-defending-champion-eagles-nfc-wild-card-game",
-    "source": {
-      "id": "espn_news",
-      "name": "ESPN - Top Headlines"
-    },
-    "publishedAt": "2026-01-12T01:21:30.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "b235d99c40eddeaeeb91c242e6fd5c63824120d7",
-    "title": "Kittle tears Achilles in win as 49ers lose star TE",
-    "summary": "49ers tight end George Kittle suffered a torn Achilles during San Francisco's 23-19 wild-card playoff victory over the Philadelphia Eagles on Sunday.",
-    "canonicalUrl": "https://espn.com/nfl/story/_/id/47584134/49ers-george-kittle-suffers-achilles-injury-ruled-out",
-    "source": {
-      "id": "espn_news",
-      "name": "ESPN - Top Headlines"
-    },
-    "publishedAt": "2026-01-12T01:21:30.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "b7be6a4a921e83c58ae4936b0dff37c57d97b0dd",
-    "title": "LSU women's hoops hands No. 2 Texas first loss",
-    "summary": "No. 12 LSU pulled away late to hand No. 2 Texas its first loss this season, 70-65 on Sunday. It's the Tigers' first win over an AP top-2 team since 2008.",
-    "canonicalUrl": "https://espn.com/womens-college-basketball/story/_/id/47583605/no-12-lsu-women-hoops-hands-no-2-texas-first-loss",
-    "source": {
-      "id": "espn_news",
-      "name": "ESPN - Top Headlines"
-    },
-    "publishedAt": "2026-01-12T01:21:30.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "f85eea7740b10f0bae50eb9606f706d3a5c59be0",
-    "title": "Disappointed Jags see loss as 'growing moment'",
-    "summary": "The Jaguars believe some good -- and some motivation -- will come out of Sunday's bitter 27-24 loss to the Bills in the AFC playoffs.",
-    "canonicalUrl": "https://espn.com/nfl/story/_/id/47584700/jaguars-vow-come-back-stronger-nfl-playoff-exit",
-    "source": {
-      "id": "espn_news",
-      "name": "ESPN - Top Headlines"
-    },
-    "publishedAt": "2026-01-12T01:21:30.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "caa81e273f1605084a754cd8a6333da121beaf97",
-    "title": "'Hungry for more': 49ers' petty posts at Eagles tops NFL wild-card trolls",
-    "summary": "The NFL wild-card round had its fair share of petty posts after big wins, led by the San Francisco 49ers.",
-    "canonicalUrl": "https://espn.com/nfl/story/_/id/47585316/nfl-wild-card-round-2025-trolls",
-    "source": {
-      "id": "espn_news",
-      "name": "ESPN - Top Headlines"
-    },
-    "publishedAt": "2026-01-12T01:20:50.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "151eecd3514596d2418893532960c4d7334d2e77",
-    "title": "Paz y los sindicatos acuerdan un nuevo decreto sobre combustibles y el fin de los bloqueos en Bolivia",
-    "summary": "Tras semanas de protestas, el Gobierno de Bolivia, liderado por Rodrigo Paz, y la dirigencia de la Central Obrera Boliviana (COB) acordaron este 11 de enero la derogación del decreto que elimina la subvención a los combustibles en el país andino. Como alternativa, convinieron crear una nueva norma que replica esa disposición, pero anula otras que generaron…",
-    "canonicalUrl": "https://france24.com/es/am%C3%A9rica-latina/20260112-paz-y-los-sindicatos-acuerdan-un-nuevo-decreto-sobre-combustibles-y-el-fin-de-los-bloqueos-en-bolivia",
-    "source": {
-      "id": "france24_es",
-      "name": "France 24 - Portada"
-    },
-    "publishedAt": "2026-01-12T01:16:21.000Z",
-    "category": "world",
-    "image": "https://s.france24.com/media/display/fa311d70-ef50-11f0-b3cd-005056a97e36/w:1024/p:16x9/AP26005787596010.jpg",
-    "language": "es"
-  },
-  {
-    "id": "65229c51da2cb538e5ecb7bbe11d4b3b7f1aabd7",
-    "title": "2026 Golden Globes: Best Photos From The Red Carpet",
-    "summary": "Check out pics from the 83rd annual Golden Globes' red carpet.",
-    "canonicalUrl": "https://billboard.com/photos/2026-golden-globes-red-carpet-photos-1236152841",
-    "source": {
-      "id": "billboard",
-      "name": "Billboard"
-    },
-    "publishedAt": "2026-01-12T01:09:12.000Z",
-    "category": "entertainment",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "c6bd26b79a46d0b2f5fb4a7742e6e76495b8b871",
-    "title": "イスラエル大統領 ガザ地区復興で日本の貢献に期待",
-    "summary": "イスラエルのヘルツォグ大統領がNHKのインタビューに応じ、パレスチナのガザ地区の復興に向けた日本の貢献に期待を示した上で、復興のためにはガザ地区からイスラム組織ハマスを排除する必要があるという考えを強調しました。",
-    "canonicalUrl": "https://www3.nhk.or.jp/news/html/20260112/k10015024431000.html",
-    "source": {
-      "id": "nhk_news_jp",
-      "name": "NHK News - Top Stories (JP)"
-    },
-    "publishedAt": "2026-01-12T01:08:15.000Z",
-    "category": "world",
-    "image": null,
-    "language": "ja"
-  },
-  {
-    "id": "b599545798523babbf59262086878b0b1b96e3d8",
-    "title": "Niners defeat defending champs for NFC wild-card win",
-    "summary": "The victory sends the 49ers to Seattle for the NFC divisional round next weekend.",
-    "canonicalUrl": "https://espn.com/nfl/story/_/id/47582755/san-francisco-49ers-philadelphia-eagles-nfc-wild-card-nfl-playoffs",
-    "source": {
-      "id": "espn_news",
-      "name": "ESPN - Top Headlines"
-    },
-    "publishedAt": "2026-01-12T01:07:47.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "e1b5cc225d0e19eceb9ac35c0dae7178fdc3dbc4",
-    "title": "【地震情報】北海道で震度3 津波の心配なし（9:50）",
-    "summary": "12日午前9時50分ごろ、北海道で震度3の揺れを観測する地震がありました。この地震による津波の心配はありません。震度3の揺れを観測したのは、北海道の猿払村、中頓別町、幌延町で、震度2や1の揺れを北海道の各地で観測しました。気象庁の観測によりますと、震源地は北海道宗谷地方南部で震源の深さはごく浅く、地震の規模を示すマグニチュードは5.0と推定されています。",
-    "canonicalUrl": "https://www3.nhk.or.jp/news/html/20260112/k10015024451000.html",
-    "source": {
-      "id": "nhk_news_jp",
-      "name": "NHK News - Top Stories (JP)"
-    },
-    "publishedAt": "2026-01-12T01:06:54.000Z",
-    "category": "world",
-    "image": null,
-    "language": "ja"
-  },
-  {
-    "id": "b96a2c3804046ba738081f60a152ea1743126566",
-    "title": "HUNTR/X: Audrey Nuna, Ejae & Rei Ami On Possible Oscar Nominations & “Golden” Continued Chart Success | Golden Globes 2026",
-    "summary": "HUNTR/X, Audrey Nuna, Ejae & Rei Ami and Mark Sonnenblick caught up with Billboard’s Tetris Kelly on the red carpet of the 2026 Golden Globes.",
-    "canonicalUrl": "https://billboard.com/video/huntr-x-audrey-nuna-ejae-amp-rei-ami-on-possible-oscar-nominations-amp-golden-continued-chart-success",
-    "source": {
-      "id": "billboard",
-      "name": "Billboard"
-    },
-    "publishedAt": "2026-01-12T01:04:24.000Z",
-    "category": "entertainment",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "cb2b2f4c3d57893fa0ce92fc1c117d16e4b3223c",
-    "title": "Remembering the Grateful Dead's Bob Weir",
-    "summary": "Andres Gutierrez looks back at the life and career of Grateful Dead co-founder Bob Weir, who has died at 78.",
-    "canonicalUrl": "https://cbsnews.com/video/remembering-the-grateful-deads-bob-weir",
-    "source": {
-      "id": "cbs_us",
-      "name": "CBS News - US"
-    },
-    "publishedAt": "2026-01-12T01:03:00.000Z",
-    "category": "health",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "95cb0ff0fbc39b3a623a5b630c6a1e0e75d0dcb5",
-    "title": "Susan Schuh: Supporting the Humans in Human Spaceflight",
-    "summary": "Susan Schuh has dedicated her career to helping humans adapt to life beyond Earth. As the Flight Crew Integration Operational Habitability (OpsHab) team lead in NASA’s Human Health and Performance Directorate at Johnson Space Center in Houston, Schuh leads efforts to understand what it is really like to live and work in space. She turns […]",
-    "canonicalUrl": "https://nasa.gov/centers-and-facilities/johnson/susan-schuh-supporting-the-humans-in-human-spaceflight",
-    "source": {
-      "id": "nasa_release",
-      "name": "NASA - News Releases"
-    },
-    "publishedAt": "2026-01-12T01:00:00.000Z",
-    "category": "health",
-    "image": "https://www.nasa.gov/wp-content/uploads/2025/11/jsc2022e066780.jpg?w=1638",
-    "language": "en"
-  },
-  {
-    "id": "38f92aa9df421887101911087e396970acaf362b",
-    "title": "Reporter remembers saving animals a year after L.A. wildfires",
-    "summary": "One year after the devastating L.A. wildfires, CBS Los Angeles' Jasmine Viel remembers when she and her photographer rushed in to help a woman desperate to save her pet chickens and ducks as flames closed in on her home.",
-    "canonicalUrl": "https://cbsnews.com/video/reporter-remembers-saving-animals-a-year-after-la-wildfires",
-    "source": {
-      "id": "cbs_us",
-      "name": "CBS News - US"
-    },
-    "publishedAt": "2026-01-12T00:55:00.000Z",
-    "category": "world",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "5a014854daaaabf4a4ba2a08adf091e6330a0cfb",
-    "title": "U.S. officials to meet with Danish officials Wednesday about Greenland, sources say",
-    "summary": "Trump administration officials are set to meet with Danish officials about Greenland on Wednesday, diplomatic sources tell CBS News.",
-    "canonicalUrl": "https://cbsnews.com/news/trump-greenland-meeting-danish-officials",
-    "source": {
-      "id": "cbs_world",
-      "name": "CBS News - World"
-    },
-    "publishedAt": "2026-01-12T00:50:45.000Z",
-    "category": "world",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "32bf061df08f61e259b64ae96bcb7ac8a966a609",
-    "title": "Suspect in custody after Mississippi's oldest synagogue targeted in arson attack",
-    "summary": "A suspect is in custody after the oldest synagogue in Mississippi, and the only synagogue in the city of Jackson, was set on fire in a suspected arson attack. Shanelle Kaul has more.",
-    "canonicalUrl": "https://cbsnews.com/video/suspect-in-custody-after-mississippis-oldest-synagogue-targeted-in-arson-attack",
-    "source": {
-      "id": "cbs_us",
-      "name": "CBS News - US"
-    },
-    "publishedAt": "2026-01-12T00:50:00.000Z",
-    "category": "world",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "1f7977441046661b8b80dd6e94ede7e5c25eccc8",
-    "title": "Here Are the 2026 Golden Globes Winners: Full List (Updating Live)",
-    "summary": "Follow along with Billboard all night for the full list of winners -- including who takes home best original song & best original score.",
-    "canonicalUrl": "https://billboard.com/lists/2026-golden-globes-winners-list",
-    "source": {
-      "id": "billboard",
-      "name": "Billboard"
-    },
-    "publishedAt": "2026-01-12T00:48:17.000Z",
-    "category": "entertainment",
-    "image": "https://www.billboard.com/wp-content/uploads/2026/01/teyana-taylor-2026-golden-globes-red-carpet-billboard-1800.jpg?w=237&#038;h=147&#038;crop=1",
-    "language": "en"
-  },
-  {
-    "id": "1fc320d0e5fdea7d686db866e47ea182177d4828",
-    "title": "Le Groenland se trouve dans un moment \"décisif\", assure la Première ministre danoise",
-    "summary": "Mette Frederiksen, la Première ministre danoise, a estimé dimanche se trouver à un \"moment décisif\" à propos du Groenland, territoire autonome du pays scandinave dont le président américain Donald Trump souhaite prendre le contrôle.",
-    "canonicalUrl": "https://france24.com/fr/am%C3%A9riques/20260112-groenland-moment-decisif-danemark-premiere-ministre-danoise-mette-frederiksen-etats-unis-otan",
-    "source": {
-      "id": "france24_fr",
-      "name": "France 24 - À la une"
-    },
-    "publishedAt": "2026-01-12T00:45:21.000Z",
-    "category": "world",
-    "image": "https://s.france24.com/media/display/86abd730-e9bc-11f0-b038-005056a97e36/w:1024/p:16x9/AP25353098715118.jpg",
-    "language": "fr"
-  },
-  {
-    "id": "66ddc5b57755803d0bfc72087a775fe9afde0f42",
-    "title": "Noem says more federal agents coming to Minnesota, protests continue days after fatal ICE shooting",
-    "summary": "Homeland Security Secretary Kristi Noem says hundreds more federal agents are being sent to Minnesota as protests continue there and across the country, demanding justice after an ICE agent shot and killed Renee Good. Nicole Sganga has more.",
-    "canonicalUrl": "https://cbsnews.com/video/noem-says-more-federal-agents-coming-to-minnesota-protests-continue-days-after-fatal-ice-shooting",
-    "source": {
-      "id": "cbs_us",
-      "name": "CBS News - US"
-    },
-    "publishedAt": "2026-01-12T00:44:00.000Z",
-    "category": "tech",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "0ae53b072222148793a0e300d81c73a461a67859",
-    "title": "La diáspora iraní se moviliza en Europa para apoyar las protestas en Teherán",
-    "summary": "La diáspora iraní se movilizó en ciudades europeas como Londres, Berlín y París para apoyar las protestas en Irán. Manifestantes piden la salida de los clérigos chiitas y el regreso de Reza Pahlavi, mientras otros defendieron una transición democrática sin monarquía.",
-    "canonicalUrl": "https://france24.com/es/video/20260112-la-di%C3%A1spora-iran%C3%AD-se-moviliza-en-europa-en-apoyo-a-las-protestas-en-teher%C3%A1n",
-    "source": {
-      "id": "france24_es",
-      "name": "France 24 - Portada"
-    },
-    "publishedAt": "2026-01-12T00:43:53.000Z",
-    "category": "world",
-    "image": "https://s.france24.com/media/display/13a1db76-ef4e-11f0-8e35-005056bfb2b6/w:1024/p:16x9/ES-20260111-191213-191344-CS.jpg",
-    "language": "es"
-  },
-  {
-    "id": "df5c75f09099c8b2e0af38b60516ca8484f892dc",
-    "title": "名古屋 県営住宅で火事 2人が意識ない状態で病院に搬送",
-    "summary": "12日朝、名古屋市の県営住宅で火事があり、2人が意識がない状態で病院に搬送されました。",
-    "canonicalUrl": "https://www3.nhk.or.jp/news/html/20260112/k10015024441000.html",
-    "source": {
-      "id": "nhk_news_jp",
-      "name": "NHK News - Top Stories (JP)"
-    },
-    "publishedAt": "2026-01-12T00:43:04.000Z",
-    "category": "world",
-    "image": null,
-    "language": "ja"
-  },
-  {
-    "id": "7d273ba1aed84fcd626284621a00da43490df667",
-    "title": "Trump briefed on new military options for Iran strikes amid protests, sources say",
-    "summary": "President Trump has been briefed on new military options for a strike against Iran amid widespread protests and a government crackdown on communications for Iranians, a senior U.S. official tells CBS News. Willie James Inman has more.",
-    "canonicalUrl": "https://cbsnews.com/video/trump-briefed-on-new-military-options-for-iran-strikes-amid-protests-sources-say",
-    "source": {
-      "id": "cbs_world",
-      "name": "CBS News - World"
-    },
-    "publishedAt": "2026-01-12T00:40:00.000Z",
-    "category": "world",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "966589d3aa4493cfdf09410077e45e72236c485a",
-    "title": "¿Son los incendios en la Patagonia argentina provocados intencionalmente?",
-    "summary": "El incendio avanza sobre más de 3.500 hectáreas de bosque nativo y plantaciones de pino, que intensifican el fuego por su comportamiento extremo. Aunque la lluvia lo ha calmado momentáneamente, se espera que vuelva a crecer y consolidarse. Solo entre 300 y 400 personas, incluyendo bomberos voluntarios, luchan contra las llamas con recursos insuficientes. He…",
-    "canonicalUrl": "https://france24.com/es/video/20260112-son-los-incendios-en-la-patagonia-argentina-provocados-intencionalmente",
-    "source": {
-      "id": "france24_es",
-      "name": "France 24 - Portada"
-    },
-    "publishedAt": "2026-01-12T00:39:42.000Z",
-    "category": "world",
-    "image": "https://s.france24.com/media/display/549204c2-ef4d-11f0-a3e3-005056a90284/w:1024/p:16x9/ES-20260111-190824-191131-CS.jpg",
-    "language": "es"
-  },
-  {
-    "id": "10dfc6f1929236719edc9d304add2ccaad3f404f",
-    "title": "Protests in Iran intensifying despite threat of death for dissidents",
-    "summary": "Demonstrations in Iran are now entering their third week and the death toll is surging with hundreds killed, according to a human rights group. Leigh Kiniry reports.",
-    "canonicalUrl": "https://cbsnews.com/video/protests-in-iran-intensifying-despite-threat-of-death-for-dissidents",
-    "source": {
-      "id": "cbs_world",
-      "name": "CBS News - World"
-    },
-    "publishedAt": "2026-01-12T00:37:00.000Z",
-    "category": "world",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "6b2e7e20b08eab77fba9fb052cc15dfb512f521b",
-    "title": "As ‘Landman’ Ends on Violent Cliffhanger, Jacob Lofland Says End of Season “Blew Me Off My Feet”",
-    "summary": "The actor who plays the son to Billy Bob Thornton's starring oil fixer peels back the layers of his character on the Taylor Sheridan and Christian Wallace hit Paramount+ series.",
-    "canonicalUrl": "https://hollywoodreporter.com/tv/tv-features/landman-violent-cliffhanger-jacob-lofland-interview-season-2-1236469905",
-    "source": {
-      "id": "hollywood_reporter",
-      "name": "The Hollywood Reporter"
-    },
-    "publishedAt": "2026-01-12T00:35:16.000Z",
-    "category": "entertainment",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "166888f6b7aa7f537bfabf01725f60691221ee31",
-    "title": "Everything to know about the U.S. Olympic figure skating team",
-    "summary": "The U.S. Olympic figure skating team was named Sunday -- and could dominate at the Milan Cortina Olympics in less than a month.",
-    "canonicalUrl": "https://espn.com/olympics/story/_/id/47583945/us-figure-skating-milan-cortina-olympics-amber-glenn-ilia-malinin-alysa-liu",
-    "source": {
-      "id": "espn_news",
-      "name": "ESPN - Top Headlines"
-    },
-    "publishedAt": "2026-01-12T00:27:16.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "968fdce38cd10e9fd9034009b7dcb939e3cdb17e",
-    "title": "Legisladores de EE. UU. y líderes europeos buscan frenar la amenaza de Trump sobre Groenlandia",
-    "summary": "Legisladores del Partido Demócrata buscarán limitar una eventual avanzada militar de Donald Trump en la isla, una iniciativa en la que podrían contar con el voto de algunos republicanos. El territorio, que pertenece a Dinamarca, ha sido objeto de reiteradas amenazas del republicano, que está abierto a \"hacer algo\", ya sea “por las buenas o por las malas\". L…",
-    "canonicalUrl": "https://france24.com/es/europa/20260112-legisladores-de-ee-uu-y-l%C3%ADderes-europeos-buscan-frenar-la-amenaza-de-trump-sobre-groenlandia",
-    "source": {
-      "id": "france24_es",
-      "name": "France 24 - Portada"
-    },
-    "publishedAt": "2026-01-12T00:21:41.000Z",
-    "category": "world",
-    "image": "https://s.france24.com/media/display/2a29a746-867d-11f0-bdcb-005056a90284/w:1024/p:16x9/000-72KA2NX.jpg",
-    "language": "es"
-  },
-  {
-    "id": "ddadb5983a6ce97d23fb2b3a0562d63a88751521",
-    "title": "College football buzz: What we're hearing about playoff expansion",
-    "summary": "Multiple playoff scenarios are on the table ahead of critical meetings this week.",
-    "canonicalUrl": "https://espn.com/college-football/story/_/id/47584209/college-football-playoff-expansion-hearing",
-    "source": {
-      "id": "espn_news",
-      "name": "ESPN - Top Headlines"
-    },
-    "publishedAt": "2026-01-12T00:21:03.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "12a9618f3a90734da233fda1ecca75e9c869b56b",
-    "title": "‘Sinners’ Star Wunmi Mosaku Reveals Pregnancy at 2026 Golden Globes",
-    "summary": "The actress, wearing a yellow gown designed by Matthew Reisman, walked the red carpet ahead of the awards ceremony hosted by Nikki Glaser.",
-    "canonicalUrl": "https://hollywoodreporter.com/lifestyle/lifestyle-news/sinners-wunmi-mosaku-pregnant-2026-golden-globes-1236469927",
-    "source": {
-      "id": "hollywood_reporter",
-      "name": "The Hollywood Reporter"
-    },
-    "publishedAt": "2026-01-12T00:08:58.000Z",
-    "category": "entertainment",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "36a6cb3491134910cd987c852fe056d20797b5c1",
-    "title": "A profile of SpaceX president Gwynne Shotwell, who has worked at the company since 2002, and is known as a customer emissary and Musk translator (Micah Maidenberg/Wall Street Journal)",
-    "summary": "Micah Maidenberg / Wall Street Journal: A profile of SpaceX president Gwynne Shotwell, who has worked at the company since 2002, and is known as a customer emissary and Musk translator — Shotwell has an expansive role at the rocket and satellite company, helping to foster its rise. With an IPO looming, the toughest stretch may still lie ahead.",
-    "canonicalUrl": "https://techmeme.com/260111/p21",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-01-12T00:00:44.000Z",
-    "category": "health",
-    "image": "http://www.techmeme.com/260111/i21.jpg",
-    "language": "en"
-  },
-  {
-    "id": "cf9465bdec094dc23d9595157183fc1232cc6756",
-    "title": "Denmark warns of ‘decisive moment’ as Trump renews threat of force over Greenland",
-    "summary": "Denmark’s Prime Minister Mette Frederiksen said on Sunday her country faced a “decisive moment” in its diplomatic dispute with the United States over Greenland, after Donald Trump again suggested using force to seize the Arctic territory. Speaking ahead of meetings in Washington on raw materials, Frederiksen said “there is a conflict over Greenland.”",
-    "canonicalUrl": "https://france24.com/en/europe/20260111-denmark-trump-greenland",
-    "source": {
-      "id": "france24_all",
-      "name": "France 24 - Top Stories"
-    },
-    "publishedAt": "2026-01-11T23:32:25.000Z",
-    "category": "world",
-    "image": "https://s.france24.com/media/display/cbe470fc-e9b5-11f0-86d5-005056a90284/w:1024/p:16x9/AP25297625966686.jpg",
-    "language": "en"
-  },
-  {
-    "id": "5adf722691689cfafcd8a2938429a68384b7a4f3",
-    "title": "Doblete de Raphinha corona al Barcelona en final de la Supercopa ante Real Madrid",
-    "summary": "El delantero brasileño convirtió dos de los tres tantos con los que el equipo blaugrana revalidó su título en Yeda, ante un cuadro blanco que llevó peligro en el segundo tiempo, pero no logró concretar esas amenazas en las redes. Real Madrid quedó en superioridad numérica en los últimos minutos del partido, tras la expulsión de Frenkie De Jong por una falta…",
-    "canonicalUrl": "https://france24.com/es/deportes/20260111-doblete-de-raphinha-corona-al-barcelona-en-final-de-la-supercopa-ante-real-madrid",
-    "source": {
-      "id": "france24_es",
-      "name": "France 24 - Portada"
-    },
-    "publishedAt": "2026-01-11T23:30:11.000Z",
-    "category": "world",
-    "image": "https://s.france24.com/media/display/811a9630-ef43-11f0-94dc-005056a90284/w:1024/p:16x9/AP26011800964651.jpg",
-    "language": "es"
-  },
-  {
-    "id": "ba5b9266e59e938cdb01c8531bd87a8030a7b7fe",
-    "title": "You need to listen to Billy Woods’ horrorcore masterpiece for the A24 crowd",
-    "summary": "Billy Woods has one of the highest batting averages in the game. Between his solo records like Hiding Places and Maps, and his collaborative albums with Elucid as Armand Hammer, the man has multiple stone-cold classics under his belt. And, while no one would ever claim that Woods' albums were light-hearted fare (these are not party records), Golliwog repres…",
-    "canonicalUrl": "https://theverge.com/column/860372/billy-woods-horrorcore-masterpiece-golliwog-a24",
-    "source": {
-      "id": "theverge",
-      "name": "The Verge"
-    },
-    "publishedAt": "2026-01-11T23:29:58.000Z",
-    "category": "tech",
-    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/01/billy-woods-golliwog.png?quality=90&#038;strip=all&#038;crop=0,0,100,100",
-    "language": "en"
-  },
-  {
-    "id": "a4f969349605f1e5786b8271bdb94e375f9b3932",
-    "title": "Fans Choose Bruno Mars’ ‘I Just Might’ as This Week’s Favorite New Music",
-    "summary": "His new single brought in more than 71% of the vote.",
-    "canonicalUrl": "https://billboard.com/music/music-news/bruno-mars-i-just-might-best-new-music-poll-results-1236152823",
-    "source": {
-      "id": "billboard",
-      "name": "Billboard"
-    },
-    "publishedAt": "2026-01-11T23:27:31.000Z",
-    "category": "entertainment",
-    "image": "https://www.billboard.com/wp-content/uploads/2026/01/P1162O3Z-e1767809509723.jpg?w=237&#038;h=147&#038;crop=1",
-    "language": "en"
-  },
-  {
-    "id": "b85b5824debdb7e5f2e7ef4571fe4568723bc2ba",
-    "title": "Informe desde Caracas: confirman muerte de otro preso político en Venezuela; ya suman 18",
-    "summary": "Un policía venezolano de 52 años, detenido en diciembre de 2025 acusado de conspiración y traición a la patria, murió bajo custodia del Estado tras sufrir una descompensación súbita y un paro cardíaco. Con este fallecimiento ya son 18 los presos políticos que han muerto en custodia en Venezuela, según denunció el Comité de Familiares por la Libertad de los…",
-    "canonicalUrl": "https://france24.com/es/video/20260111-informe-desde-caracas-confirman-muerte-de-otro-preso-pol%C3%ADtico-en-venezuela-ya-suman-18",
-    "source": {
-      "id": "france24_es",
-      "name": "France 24 - Portada"
-    },
-    "publishedAt": "2026-01-11T23:27:05.000Z",
-    "category": "world",
-    "image": "https://s.france24.com/media/display/f539068c-ef43-11f0-815e-005056bf30b7/w:1024/p:16x9/ES-20260111-180401-180538-CS.jpg",
-    "language": "es"
-  },
-  {
-    "id": "582f82816854f9885eec2b38740d7a71fe504796",
-    "title": "Watch the 2026 Golden Globes Red Carpet Livestream",
-    "summary": "The 83rd annual ceremony, with returning host Nikki Glaser, is being held at the Beverly Hilton Hotel on Sunday.",
-    "canonicalUrl": "https://hollywoodreporter.com/movies/movie-news/watch-golden-globes-2026-red-carpet-livestream-1236468053",
-    "source": {
-      "id": "hollywood_reporter",
-      "name": "The Hollywood Reporter"
-    },
-    "publishedAt": "2026-01-11T23:25:09.000Z",
-    "category": "entertainment",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "8da02e2835311433ffae9a5fae5d95618d3a86bf",
-    "title": "Trump amenaza dejar a Cuba \"sin petróleo\" y propone a Marco Rubio como presidente de la isla",
-    "summary": "De Venezuela a Groenlandia y ahora Cuba. El presidente de EE. UU., Donald Trump, aumenta la presión sobre la isla caribeña, amenazando con un acuerdo “antes de que sea demasiado tarde”. Tras la captura de Nicolás Maduro, no han llegado cargamentos de petróleo desde Venezuela, principal proveedor de Cuba. Trump incluso sugirió que Marco Rubio podría converti…",
-    "canonicalUrl": "https://france24.com/es/video/20260111-trump-presiona-a-cuba-y-propone-a-marco-rubio-como-presidente-en-plena-crisis-por-el-petr%C3%B3leo",
-    "source": {
-      "id": "france24_es",
-      "name": "France 24 - Portada"
-    },
-    "publishedAt": "2026-01-11T23:23:38.000Z",
-    "category": "world",
-    "image": "https://s.france24.com/media/display/282bbdd8-ef43-11f0-a2af-005056bf30b7/w:1024/p:16x9/ES-20260111-180140-180337-CS.jpg",
-    "language": "es"
-  },
-  {
-    "id": "4a736afbf0948fd34ed74b3f68fc3b163999d4de",
-    "title": "Raphinha shines as Barça get thrilling win over Madrid in Supercopa final",
-    "summary": "Barcelona avenged October's El Clásico loss to Real Madrid.",
-    "canonicalUrl": "https://espn.com/soccer/story/_/id/47583706/raphinha-shines-lead-barcelona-thrilling-win-real-madrid-spanish-supercopa",
-    "source": {
-      "id": "espn_news",
-      "name": "ESPN - Top Headlines"
-    },
-    "publishedAt": "2026-01-11T23:23:33.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "c621247c3d9ddde973bf8c7f64d6fd9cff7c404e",
-    "title": "SEVENTEEN’s Joshua Says ‘K-Pop Demon Hunters’ Is Opening Up New Doors For K-Pop | Golden Globes 2026",
-    "summary": "SEVENTEEN’s Joshua caught up with Billboard’s Tetris Kelly on the red carpet of the 2026 Golden Globes.",
-    "canonicalUrl": "https://billboard.com/video/seventeens-joshua-says-k-pop-demon-hunters-is-opening-up-new-doors-for-k-pop",
-    "source": {
-      "id": "billboard",
-      "name": "Billboard"
-    },
-    "publishedAt": "2026-01-11T23:22:09.000Z",
-    "category": "entertainment",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "41139cf9f32907b2f411fc344df5335bd225e7e9",
-    "title": "Golden Globes: Selena Gomez, Ariana Grande, Jennifer Lopez and More Red-Carpet Arrivals",
-    "summary": "All the red-carpet images from the high-wattage kickoff event of this year’s awards season.",
-    "canonicalUrl": "https://hollywoodreporter.com/gallery/golden-globes-2026-red-carpet-photos-looks-arrivals-1236469829",
-    "source": {
-      "id": "hollywood_reporter",
-      "name": "The Hollywood Reporter"
-    },
-    "publishedAt": "2026-01-11T23:08:37.000Z",
-    "category": "entertainment",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "d31c2f03b5c2c151d62e7d3c670afae986795b0a",
-    "title": "NFL on Sling: Here’s How to Watch the Patriots vs. Chargers Wild Card Game Online",
-    "summary": "The Sunday night playoff game kicks off at 8:15 p.m. EST.",
-    "canonicalUrl": "https://billboard.com/culture/product-recommendations/how-to-watch-patriots-chargers-nfl-wild-card-game-online-1236152820",
-    "source": {
-      "id": "billboard",
-      "name": "Billboard"
-    },
-    "publishedAt": "2026-01-11T22:54:44.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "0e47a852ec39b70be90feee53fafc3e6ca2fc029",
-    "title": "David Letterman Slams Disney and CBS News Over Jimmy Kimmel Suspension and Bari Weiss Hiring",
-    "summary": "The comments came when the former king of late night TV appeared on the show hosted by his former executive producer.",
-    "canonicalUrl": "https://hollywoodreporter.com/tv/tv-news/david-letterman-disney-cbs-jimmy-kimmel-bari-weiss-1236469807",
-    "source": {
-      "id": "hollywood_reporter",
-      "name": "The Hollywood Reporter"
-    },
-    "publishedAt": "2026-01-11T22:43:59.000Z",
-    "category": "entertainment",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "2130f029fb987d0111dc18cc4a9e06317d6c689b",
-    "title": "National Portrait Gallery removes impeachment references next to Trump photo",
-    "summary": "A new portrait of President Trump is on display at the National Portrait Gallery's \"America's Presidents\" exhibition. Text accompanying the portrait removes references to Trump's impeachments.",
-    "canonicalUrl": "https://npr.org/2026/01/11/nx-s1-5673948/trump-portrait-gallery-impeachment",
-    "source": {
-      "id": "npr_news",
-      "name": "NPR - News"
-    },
-    "publishedAt": "2026-01-11T22:33:36.000Z",
-    "category": "world",
-    "image": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/6817x4545+0+0/resize/6817x4545!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F0b%2Fb5%2F92dae2a74bd5a4090d7ef45fcf8c%2Fap26011746269085.jpg",
-    "language": "en"
-  },
-  {
-    "id": "7f76685ec1b173eb33373d1a281eb8c4c241838b",
-    "title": "Elections législatives et communales au Bénin : les résultats attendus le 15 janvier",
-    "summary": "Les Béninois étaient aux urnes ce dimanche 11 janvier 2026 pour élire leurs représentants aux parlements et leurs conseillers municipaux. C'est la première fois que le Bénin expérimente un scrutin couplé, des législatives et des communales",
-    "canonicalUrl": "https://france24.com/fr/%C3%A9missions/journal-de-l-afrique/20260111-elections-l%C3%A9gislatives-et-communales-au-b%C3%A9nin-les-r%C3%A9sultats-attendus-le-15-janvier",
-    "source": {
-      "id": "france24_fr",
-      "name": "France 24 - À la une"
-    },
-    "publishedAt": "2026-01-11T22:28:59.000Z",
-    "category": "world",
-    "image": "https://s.france24.com/media/display/caaeb61e-ef39-11f0-bdfa-005056bfb2b6/w:1024/p:16x9/DN191733-A-01-20260105-01.jpg",
-    "language": "fr"
-  },
-  {
-    "id": "aa6e992cda85dc9086ffb5ef490449e149d53777",
-    "title": "Anthropic announces Claude for Healthcare to offer HIPAA-ready tools for providers, insurers, and consumers, and expands its life sciences offerings (Eugene Kim/Business Insider)",
-    "summary": "Eugene Kim / Business Insider: Anthropic announces Claude for Healthcare to offer HIPAA-ready tools for providers, insurers, and consumers, and expands its life sciences offerings — - Anthropic launched Claude for Healthcare to expand AI use in regulated medical industries. — Claude for Healthcare offers HIPAA-ready tools …",
-    "canonicalUrl": "https://techmeme.com/260111/p20",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-01-11T22:20:02.000Z",
-    "category": "health",
-    "image": "http://www.techmeme.com/260111/i20.jpg",
-    "language": "en"
-  },
-  {
-    "id": "6a5ba34e6a0101a759e62168207a4e0cb32bbe7e",
-    "title": "Trump amenaza con dejar sin \"petróleo ni dinero\" a Cuba y sugiere a Rubio para presidir la isla",
-    "summary": "El presidente de Estados Unidos, Donald Trump, afirmó el 11 de enero que Cuba ya no recibirá \"petróleo ni dinero\" de Venezuela y sugirió a La Habana llegar a un acuerdo con Washington \"antes de que sea demasiado tarde\". El aumento de la presión sobre el histórico rival, que incluyó la sugerencia de que Marco Rubio sea presidente de la isla, provocó comentar…",
-    "canonicalUrl": "https://france24.com/es/am%C3%A9rica-latina/20260111-trump-amenaza-con-dejar-sin-petr%C3%B3leo-ni-dinero-a-cuba-y-sugiere-a-rubio-para-presidir-la-isla",
-    "source": {
-      "id": "france24_es",
-      "name": "France 24 - Portada"
-    },
-    "publishedAt": "2026-01-11T22:19:06.000Z",
-    "category": "world",
-    "image": "https://s.france24.com/media/display/dbf7ec3a-ef2d-11f0-8203-005056a90284/w:1024/p:16x9/f3178d7661792053f35588508b5248b75701b916.jpg",
-    "language": "es"
-  },
-  {
-    "id": "5794b5d029260603eba112af413634b4589ab864",
-    "title": "U.S. Figure Skating finalizes Olympic squad of 16",
-    "summary": "World champions Ilia Malinin and the ice dance duo of Madison Chock and Evan Bates will anchor one of the strongest U.S. Figure Skating teams in history when they head to Italy for the Milan Cortina Olympics in less than a month.",
-    "canonicalUrl": "https://espn.com/olympics/story/_/id/47583354/hopes-high-ilia-malinin-us-olympic-skating-team",
-    "source": {
-      "id": "espn_news",
-      "name": "ESPN - Top Headlines"
-    },
-    "publishedAt": "2026-01-11T22:14:51.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "711ea71f898e47e72a33a35f3ae935eee671b51a",
-    "title": "Allen, Bills battle past Jaguars, score road win",
-    "summary": "Josh Allen took a pounding, doled out punishment and delivered Buffalo its first road playoff victory in more than three decades, 27-24 over Jacksonville in the AFC's wild-card opener Sunday.",
-    "canonicalUrl": "https://espn.com/nfl/story/_/id/47582950/bills-use-late-td-beat-jags-afc-wild-card-playoff-game",
-    "source": {
-      "id": "espn_news",
-      "name": "ESPN - Top Headlines"
-    },
-    "publishedAt": "2026-01-11T22:14:51.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "b340385404f40e52df3140aae4be010a390e4078",
-    "title": "X-rays on Stafford's finger come back negative",
-    "summary": "X-rays on the finger of Los Angeles Rams quarterback Matthew Stafford came back negative Sunday.",
-    "canonicalUrl": "https://espn.com/nfl/story/_/id/47583316/x-rays-finger-rams-matthew-stafford-come-back-negative",
-    "source": {
-      "id": "espn_news",
-      "name": "ESPN - Top Headlines"
-    },
-    "publishedAt": "2026-01-11T22:14:51.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "d8eff6da3bbff0d744e4f7da0e83f37dd8704c65",
-    "title": "Dowdle: Drop in carries to affect free agency call",
-    "summary": "Panthers running back Rico Dowdle said Sunday that his decreased carries late in the season will impact his decision on whether to return to the reigning NFC South champions.",
-    "canonicalUrl": "https://espn.com/nfl/story/_/id/47582054/panthers-dowdle-drop-carries-affect-free-agency-call",
-    "source": {
-      "id": "espn_news",
-      "name": "ESPN - Top Headlines"
-    },
-    "publishedAt": "2026-01-11T22:14:51.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "a56fd91fee6cc6b03f28261e7ab4595097a08128",
-    "title": "Iran protests enter third week under internet blackout",
-    "summary": "As Iran's protests enter a third week, the country's president blames foreign powers for the unrest, and warns it will retaliate if the US intervenes militarily.",
-    "canonicalUrl": "https://npr.org/2026/01/11/nx-s1-5673939/iran-protests-enter-third-week-under-internet-blackout",
-    "source": {
-      "id": "npr_news",
-      "name": "NPR - News"
-    },
-    "publishedAt": "2026-01-11T22:00:26.000Z",
-    "category": "world",
-    "image": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5673939",
-    "language": "en"
-  },
-  {
-    "id": "1a51030f10a01191b5531bc4295f86b4854ba36b",
-    "title": "茂木外相 パレスチナ首相と会談 “改革の着実な実施を”",
-    "summary": "茂木外務大臣はパレスチナ暫定自治政府のムスタファ首相と会談し、「二国家解決」を支持してパレスチナの国づくりを支援していくとする日本の立場を説明した上で、暫定自治政府が進めている改革の着実な実施を促しました。",
-    "canonicalUrl": "https://www3.nhk.or.jp/news/html/20260112/k10015024411000.html",
-    "source": {
-      "id": "nhk_news_jp",
-      "name": "NHK News - Top Stories (JP)"
-    },
-    "publishedAt": "2026-01-11T21:57:16.000Z",
-    "category": "world",
-    "image": null,
-    "language": "ja"
-  },
-  {
-    "id": "454c683008540d27b921b4a691dcf9071360c93a",
-    "title": "ATG, which is developing the AI-powered wealth strategist app Autonomous, emerges from stealth and raises a $15M pre-seed led by Y Combinator CEO Garry Tan (Geoff Weiss/Business Insider)",
-    "summary": "Geoff Weiss / Business Insider: ATG, which is developing the AI-powered wealth strategist app Autonomous, emerges from stealth and raises a $15M pre-seed led by Y Combinator CEO Garry Tan — - ATG cofounders Dillon Erb and Daniel Kobran raised $15 million to build an AI wealth strategist. — Y Combinator CEO Garry Tan led ATG's latest round.",
-    "canonicalUrl": "https://techmeme.com/260111/p19",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-01-11T21:55:00.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/260111/i19.jpg",
-    "language": "en"
-  },
-  {
-    "id": "0a310a6c88c72bdc6c54029a76be049dbf8a279a",
-    "title": "Justice Department has scrapped its \"Peacemakers\" office",
-    "summary": "In the civil rights era, the agency formed its Community Relations Service, a group of dozens of federal specialists who were informally referred to as \"America's peacemaker.\"",
-    "canonicalUrl": "https://cbsnews.com/news/justice-department-peacemakers-office-scrapped",
-    "source": {
-      "id": "cbs_politics",
-      "name": "CBS News - Politics"
-    },
-    "publishedAt": "2026-01-11T21:52:43.000Z",
-    "category": "health",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "63010261f83eaf123ce150807299a2e1a440b4fe",
-    "title": "Omar says it is \"not acceptable\" to make early judgments on Minneapolis shooting",
-    "summary": "\"If they're saying we shouldn't believe our eyes, then let the investigation take place before you characterize this mother of three as a domestic terrorist,\" Rep. Ilhan Omar said on \"Face the Nation with Margaret Brennan.\"",
-    "canonicalUrl": "https://cbsnews.com/news/ilhan-omar-minneapolis-ice-shooting-trump-vance-renee-nicole-good",
-    "source": {
-      "id": "cbs_us",
-      "name": "CBS News - US"
-    },
-    "publishedAt": "2026-01-11T21:52:21.000Z",
-    "category": "world",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "1786f68ed45aff53d0d97fa2d90520e0cfaf533e",
-    "title": "Barca edge Real Madrid in Spanish Super Cup final",
-    "summary": "Despite Kylian Mbappé's return, FC Barcelona retained their Spanish Super Cup title on Sunday in Saudi Arabia after a thrilling final against Real Madrid (3-2).",
-    "canonicalUrl": "https://france24.com/en/sport/20260111-barca-edge-real-madrid-in-spanish-super-cup-final",
-    "source": {
-      "id": "france24_all",
-      "name": "France 24 - Top Stories"
-    },
-    "publishedAt": "2026-01-11T21:51:42.000Z",
-    "category": "sports",
-    "image": "https://s.france24.com/media/display/b29aa446-ef36-11f0-9388-005056bf30b7/w:1024/p:16x9/000-92CU9DF.jpg",
-    "language": "en"
-  },
-  {
-    "id": "bae63e903cf273637744f9ab8c3d0831224cd849",
-    "title": "Le Barça bat le Real Madrid et conserve la Supercoupe d'Espagne",
-    "summary": "Après un match totalement fou, le FC Barcelone a finalement réussi à conserver son titre en finale de la Supercoupe d’Espagne contre le Real Madrid (3-2), dimanche, en Arabie saoudite.",
-    "canonicalUrl": "https://france24.com/fr/sports/20260111-le-bar%C3%A7a-bat-le-real-et-conserve-la-supercoupe-d-espagne",
-    "source": {
-      "id": "france24_fr",
-      "name": "France 24 - À la une"
-    },
-    "publishedAt": "2026-01-11T21:48:03.000Z",
-    "category": "sports",
-    "image": "https://s.france24.com/media/display/b29aa446-ef36-11f0-9388-005056bf30b7/w:1024/p:16x9/000-92CU9DF.jpg",
-    "language": "fr"
-  },
-  {
-    "id": "2297b3fc88397ad5f5039bac50de6c25abd482c3",
-    "title": "Josh Allen, Bills outlast Jaguars to advance to AFC divisional round",
-    "summary": "The Bills won 27-24 after intercepting a Trevor Lawrence pass in the last minute of the game.",
-    "canonicalUrl": "https://espn.com/nfl/story/_/id/47581889/nfl-jacksonville-jaguars-buffalo-bills-josh-allen-trevor-lawrence-wild-card-playoffs",
-    "source": {
-      "id": "espn_news",
-      "name": "ESPN - Top Headlines"
-    },
-    "publishedAt": "2026-01-11T21:41:13.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "ef149b6975bd1184fb037b95550e19a2f5c9a1e5",
-    "title": "G7サミット日程変更 “米トランプ大統領に配慮” 複数メディア",
-    "summary": "ことし6月中旬にフランスで開かれるG7サミット＝主要7か国首脳会議について、ヨーロッパの複数のメディアは、アメリカのトランプ大統領の誕生日にホワイトハウスで予定されている総合格闘技のイベントに配慮して、日程が変更されたと伝えました。",
-    "canonicalUrl": "https://www3.nhk.or.jp/news/html/20260112/k10015024331000.html",
-    "source": {
-      "id": "nhk_news_jp",
-      "name": "NHK News - Top Stories (JP)"
-    },
-    "publishedAt": "2026-01-11T21:36:08.000Z",
-    "category": "world",
-    "image": null,
-    "language": "ja"
-  },
-  {
-    "id": "bcc40262eef3a9fca9b6cf48da861a8a5478c499",
-    "title": "¿Se ha debilitado el Gobierno de Irán en medio de las protestas masivas?",
-    "summary": "Las protestas en Irán se han intensificado. Lo que comenzó con huelgas en los bazares de Teherán por la crisis económica, hoy se transforma en manifestaciones masivas contra el hambre y la falta de poder adquisitivo. Ahora estas protestas sociales apuntan directamente al Gobierno, exigiendo un cambio político en medio de sanciones y un Estado debilitado por…",
-    "canonicalUrl": "https://france24.com/es/video/20260111-se-ha-debilitado-el-gobierno-de-ir%C3%A1n-en-medio-de-las-protestas-masivas",
-    "source": {
-      "id": "france24_es",
-      "name": "France 24 - Portada"
-    },
-    "publishedAt": "2026-01-11T21:33:15.000Z",
-    "category": "world",
-    "image": "https://s.france24.com/media/display/a59a2a70-ef34-11f0-b06b-005056bfb2b6/w:1024/p:16x9/ES-20260111-160215-160842-CS.jpg",
-    "language": "es"
-  },
-  {
-    "id": "0f12d386f493aebf25ee9154b51019a753eaa500",
-    "title": "Andrea Bocelli to Perform at 2026 Olympics Opening Ceremony, Joining Mariah Carey as a Headliner",
-    "summary": "The opening ceremony takes place at San Siro soccer stadium in Milan, Italy, on Feb. 6.",
-    "canonicalUrl": "https://billboard.com/music/music-news/andrea-bocelli-2026-olympics-opening-ceremony-performer-1236152805",
-    "source": {
-      "id": "billboard",
-      "name": "Billboard"
-    },
-    "publishedAt": "2026-01-11T21:32:21.000Z",
-    "category": "sports",
-    "image": "https://www.billboard.com/wp-content/uploads/2025/12/01-mariah-carey-christmastime-las-vegas-2025-billboard-1800.jpg?w=237&#038;h=147&#038;crop=1",
-    "language": "en"
-  },
-  {
-    "id": "f187ad9f2dbb302372493343605921292ecb3bb6",
-    "title": "With no manager, Manchester United continue to sink to new lows",
-    "summary": "In a season full of lows, Manchester United's early FA Cup exit only deepens their misery, denying them any chance of silverware this season.",
-    "canonicalUrl": "https://espn.com/soccer/story/_/id/47582503/with-no-manager-manchester-united-continue-sink-new-low",
-    "source": {
-      "id": "espn_news",
-      "name": "ESPN - Top Headlines"
-    },
-    "publishedAt": "2026-01-11T21:29:44.000Z",
-    "category": "sports",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "c9c6139e0790889d71276b29f49a9418b6055602",
-    "title": "Focus Ouganda : élections sous tension, Museveni vers un 7e mandat malgré la répression ?",
-    "summary": "À quelques jours du scrutin du 15 janvier, l’Ouganda retient son souffle. Le président Yoweri Museveni, 81 ans, brigue un septième mandat. Mais la campagne est marquée par une répression brutale, dénoncée par Amnesty International. Arrestations massives, intimidations de l’opposition et montée en puissance du fils du président, Muhoozi Kainerugaba, interrog…",
-    "canonicalUrl": "https://france24.com/fr/vid%C3%A9o/20260111-focus-ouganda-%C3%A9lections-sous-tension-museveni-vers-un-7e-mandat-malgr%C3%A9-la-r%C3%A9pression",
-    "source": {
-      "id": "france24_fr",
-      "name": "France 24 - À la une"
-    },
-    "publishedAt": "2026-01-11T21:29:14.000Z",
-    "category": "world",
-    "image": "https://s.france24.com/media/display/1df34c24-ef33-11f0-8661-005056bf30b7/w:1024/p:16x9/FR-20260111-214813-215656-CS.jpg",
-    "language": "fr"
-  },
-  {
-    "id": "59f5c80c89ace11ecab2c8ee2b2ba6be6e4ad2f8",
-    "title": "Dave Matthews Blasts Trump Administration and ICE After Minnesota Shooting: ‘These Are Dark Times’",
-    "summary": "The singer-songwriter’s lengthy video comes after the fatal shooting of Renee Good on Jan. 7.",
-    "canonicalUrl": "https://billboard.com/music/music-news/dave-matthews-minnesota-shooting-ice-trump-administration-1236152786",
-    "source": {
-      "id": "billboard",
-      "name": "Billboard"
-    },
-    "publishedAt": "2026-01-11T21:10:21.000Z",
-    "category": "entertainment",
-    "image": "https://www.billboard.com/wp-content/uploads/2026/01/duran-duran-simon-le-bon-john-taylor-2025-billboard-1800.jpg?w=237&#038;h=147&#038;crop=1",
-    "language": "en"
-  },
-  {
-    "id": "645a6a6689c9f8c653faa9bb3bfba3e0da55def6",
-    "title": "2 men killed, 2 others rescued after avalanche in Washington state",
-    "summary": "Kittitas County Sheriff said four men were on two snowmobiles in an area near Longs Pass trail on Friday afternoon when they were caught in the mass of snow.",
-    "canonicalUrl": "https://cbsnews.com/news/fatal-avalanche-longs-pass-trail-washington-state",
-    "source": {
-      "id": "cbs_us",
-      "name": "CBS News - US"
-    },
-    "publishedAt": "2026-01-11T21:08:04.000Z",
-    "category": "world",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "ab8a4ea0db1cf237893537ed915ad5314bbeb40e",
-    "title": "The New First Lady of New York Sets Off a Fashion Firestorm",
-    "summary": "Democratic Socialist Mayor Zohran Mamdani's wife, Rama Duwaji, along with her new stylist, Gabriella Karefa-Johnson, courted controversy with a Balenciaga coat and a pair of $630 Shelley boots.",
-    "canonicalUrl": "https://hollywoodreporter.com/lifestyle/style/zohran-mamdani-rama-duwaji-inauguration-look-controversy-1236469040",
-    "source": {
-      "id": "hollywood_reporter",
-      "name": "The Hollywood Reporter"
-    },
-    "publishedAt": "2026-01-11T20:56:58.000Z",
-    "category": "entertainment",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "6866a35664528199ba2a703ec2c531797318611c",
-    "title": "イラン 抗議デモ続く “500人以上死亡”報道も",
-    "summary": "中東イランでは物価の高騰などに抗議するデモが11日も続き、ロイター通信は人権団体の情報としてこれまでに500人以上が死亡したと報じました。ペゼシュキアン大統領はアメリカとイスラエルがデモを激化させていると非難し、緊張した状況が続いています。",
-    "canonicalUrl": "https://www3.nhk.or.jp/news/html/20260112/k10015024391000.html",
-    "source": {
-      "id": "nhk_news_jp",
-      "name": "NHK News - Top Stories (JP)"
-    },
-    "publishedAt": "2026-01-11T20:55:04.000Z",
-    "category": "world",
-    "image": null,
-    "language": "ja"
-  },
-  {
-    "id": "aed7a8030c32b31ce8d111704ffeb0ea3283b2d0",
-    "title": "トランプ氏 キューバに圧力「手遅れになる前に取り引きを」",
-    "summary": "アメリカのトランプ大統領はカリブ海の社会主義国のキューバに対し、「手遅れになる前に取り引きすることを勧告する」などとして圧力を強めています。これに対し、キューバのディアスカネル大統領は「キューバは自由で独立した主権国家だ」などと反発しています。",
-    "canonicalUrl": "https://www3.nhk.or.jp/news/html/20260112/k10015024381000.html",
-    "source": {
-      "id": "nhk_news_jp",
-      "name": "NHK News - Top Stories (JP)"
-    },
-    "publishedAt": "2026-01-11T20:51:18.000Z",
-    "category": "world",
-    "image": null,
-    "language": "ja"
-  },
-  {
-    "id": "866726785d58aa88c7b2abd31a1817941815bbe4",
-    "title": "The Most Dressed Awards — Critics Choice Edition",
-    "summary": "A scorecard of last Sunday's other winners — the designers and stylists who dominated the red carpet at the first major awards show of 2026. Take a bow, Louis Vuitton!",
-    "canonicalUrl": "https://hollywoodreporter.com/lifestyle/style/critics-choice-awards-2026-red-carpet-louis-vuitton-wins-1236469781",
-    "source": {
-      "id": "hollywood_reporter",
-      "name": "The Hollywood Reporter"
-    },
-    "publishedAt": "2026-01-11T20:46:53.000Z",
-    "category": "health",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "3f6f989eae4e5aa0113c153b4dcf7ff2de41334e",
-    "title": "NFL Wild Card: How to Watch the Eagles vs. 49ers Game Online for Free",
-    "summary": "The NFC Wild Card matchup kicks off at 4:30 p.m. ET.",
-    "canonicalUrl": "https://billboard.com/culture/product-recommendations/how-to-watch-eagles-49ers-nfl-wild-card-game-online-1236152785",
-    "source": {
-      "id": "billboard",
-      "name": "Billboard"
-    },
-    "publishedAt": "2026-01-11T20:39:15.000Z",
-    "category": "sports",
     "image": null,
     "language": "en"
   }
