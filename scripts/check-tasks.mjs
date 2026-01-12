@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { toPosixPath } from "./lib/path.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const todoPath = path.join(__dirname, "..", "开发TODO.md");
@@ -13,7 +14,7 @@ function normalize(text) {
 
 function collectTodoStatus(filePath) {
   if (!existsSync(filePath)) {
-    throw new Error(`缺少文件：${filePath}`);
+    throw new Error(`缺少文件：${toPosixPath(filePath)}`);
   }
 
   const content = readFileSync(filePath, "utf8");
@@ -62,7 +63,7 @@ function stripTodorPrefix(text) {
 
 function collectTodorStatus(filePath) {
   if (!existsSync(filePath)) {
-    throw new Error(`缺少文件：${filePath}`);
+    throw new Error(`缺少文件：${toPosixPath(filePath)}`);
   }
 
   const content = readFileSync(filePath, "utf8");

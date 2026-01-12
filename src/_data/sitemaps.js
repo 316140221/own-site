@@ -1,4 +1,5 @@
 const articlesData = require("./articles.js");
+const { intFromEnv } = require("./lib/env.js");
 
 const ARTICLES_PER_SITEMAP = 5000;
 
@@ -6,7 +7,10 @@ module.exports = function () {
   const articlesList = articlesData();
   const articles = Array.isArray(articlesList) ? articlesList : [];
   const totalArticles = articles.length;
-  const perFile = ARTICLES_PER_SITEMAP;
+  const perFile = intFromEnv("SITEMAP_ARTICLES_PER_FILE", ARTICLES_PER_SITEMAP, {
+    min: 1,
+    max: 50000,
+  });
   const pages = Math.max(1, Math.ceil(totalArticles / perFile));
 
   const articleSitemaps = [];
@@ -25,6 +29,7 @@ module.exports = function () {
   return {
     perFile,
     totalArticles,
+    pages,
     articleSitemaps,
     articleSitemapsDetailed,
     coreSitemap: "/sitemaps/core.xml",

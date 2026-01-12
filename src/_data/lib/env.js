@@ -1,4 +1,4 @@
-export function intFromEnv(envKey, fallback, options = {}) {
+function intFromEnv(envKey, fallback, options = {}) {
   const raw = process.env[envKey];
   const parsed = Number.parseInt(String(raw ?? ""), 10);
   const base = Number.isFinite(parsed) ? parsed : fallback;
@@ -11,14 +11,14 @@ export function intFromEnv(envKey, fallback, options = {}) {
   return base;
 }
 
-export function stringFromEnv(envKey, fallback = "") {
+function stringFromEnv(envKey, fallback = "") {
   const raw = process.env[envKey];
   const value = String(raw ?? "").trim();
   if (value) return value;
   return String(fallback ?? "").trim();
 }
 
-export function firstStringFromEnv(envKeys, fallback = "") {
+function firstStringFromEnv(envKeys, fallback = "") {
   const keys = Array.isArray(envKeys) ? envKeys : [];
   for (const key of keys) {
     const value = stringFromEnv(key, "");
@@ -27,12 +27,12 @@ export function firstStringFromEnv(envKeys, fallback = "") {
   return String(fallback ?? "").trim();
 }
 
-export function boolFromEnv(envKey, fallback = false) {
-  const raw = String(process.env[envKey] ?? "")
-    .trim()
-    .toLowerCase();
+function boolFromEnv(envKey, fallback = false) {
+  const raw = stringFromEnv(envKey, "").toLowerCase();
   if (!raw) return fallback;
   if (["1", "true", "yes", "y", "on"].includes(raw)) return true;
   if (["0", "false", "no", "n", "off"].includes(raw)) return false;
   return fallback;
 }
+
+module.exports = { boolFromEnv, firstStringFromEnv, intFromEnv, stringFromEnv };

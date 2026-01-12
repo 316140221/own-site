@@ -1,3 +1,5 @@
+const { firstStringFromEnv, stringFromEnv } = require("./lib/env.js");
+
 function normalizeProvider(input) {
   const value = String(input ?? "")
     .trim()
@@ -14,17 +16,17 @@ function normalizeProvider(input) {
 }
 
 module.exports = function () {
-  const providerInput = process.env.ANALYTICS_PROVIDER;
+  const providerInput = stringFromEnv("ANALYTICS_PROVIDER", "");
 
-  const cloudflareToken = String(
-    process.env.CLOUDFLARE_WEB_ANALYTICS_TOKEN ??
-      process.env.CF_WEB_ANALYTICS_TOKEN ??
-      ""
-  ).trim();
+  const cloudflareToken = firstStringFromEnv(
+    ["CLOUDFLARE_WEB_ANALYTICS_TOKEN", "CF_WEB_ANALYTICS_TOKEN"],
+    ""
+  );
 
-  const gaMeasurementId = String(
-    process.env.GA_MEASUREMENT_ID ?? process.env.GOOGLE_ANALYTICS_ID ?? ""
-  ).trim();
+  const gaMeasurementId = firstStringFromEnv(
+    ["GA_MEASUREMENT_ID", "GOOGLE_ANALYTICS_ID"],
+    ""
+  );
 
   let provider = normalizeProvider(providerInput);
   if (!provider) {

@@ -1,8 +1,13 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
+const { intFromEnv } = require("./lib/env.js");
+
 const cssPath = path.resolve(process.cwd(), "src/assets/style.css");
-const DEFAULT_MAX_BYTES = Number(process.env.CRITICAL_CSS_MAX_BYTES || 14000);
+const DEFAULT_MAX_BYTES = intFromEnv("CRITICAL_CSS_MAX_BYTES", 14000, {
+  min: 0,
+  max: 100000,
+});
 
 function stripComments(css) {
   return css.replace(/\/\*[\s\S]*?\*\//g, " ");

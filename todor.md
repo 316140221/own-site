@@ -2,38 +2,131 @@
 
 > 规则：新增前先跑 `npm run check:tasks`；清单最多 30 条（脚本会阻断重复/未完成/超上限）。满 30 条时把最旧完成项移到文末「归档」（归档项不要用 `- [x]`，避免被计数）。
 
-- [x] todor 01：`assetManifest` 增加 build/assets 文件校验，缺失则回退 raw assets（dev 更稳）
-- [x] todor 02：`assetManifest` 输出 `ready` 标志（避免半残 manifest 混用）
-- [x] todor 03：`.eleventy.js` hashed 判定改为“manifest entries + 文件存在”双校验
-- [x] todor 04：`.eleventy.js` hashed 模式仅 copy `build/assets` + `favicon.svg`（dist 不重复）
-- [x] todor 05：`.eleventy.js` raw 模式 fallback copy `src/assets` 全量（开发/异常不炸）
-- [x] todor 06：`prepare-assets` 缺失必需源文件直接失败（别拖到 audit 才爆）
-- [x] todor 07：`post-build-cache` 支持 `PATH_PREFIX` 生成 `_headers`（子路径部署）
-- [x] todor 08：`post-build-cache` 对 `/assets/*` 与 `/pagefind/*` 规则统一加前缀
-- [x] todor 09：新增 `scripts/lib/env.mjs`：提供 `intFromEnv/boolFromEnv`
-- [x] todor 10：`loop.mjs` 使用 env helper 解析 `LOOP_*`（默认/边界一致）
-- [x] todor 11：`pagefind-incremental` 使用 env helper 解析 `PAGEFIND_HASH_CONCURRENCY`
-- [x] todor 12：新增 `src/_data/lib/pageSize.js`：分页尺寸集中管理（支持 `PAGE_SIZE` env）
-- [x] todor 13：`latestPages` 改用 `pageSize.js`（去硬编码）
-- [x] todor 14：`categoryPages` 改用 `pageSize.js`（去硬编码）
-- [x] todor 15：`languagePages` 改用 `pageSize.js`（去硬编码）
-- [x] todor 16：`sourcePages` 改用 `pageSize.js`（去硬编码）
-- [x] todor 17：新增 `src/_data/lib/normalizeLanguageCode.js`（语言码统一）
-- [x] todor 18：`languages.js` 改用 `normalizeLanguageCode`（去重复）
-- [x] todor 19：`site.js` 改用 `normalizeLanguageCode`（去重复）
-- [x] todor 20：`sourceFeedSources.js` 改用 `normalizeLanguageCode`（去重复）
-- [x] todor 21：`sourceHealth.js` 避免 `sourcesData()` 双调用（少 IO）
-- [x] todor 22：`sourceTags.js` 避免 `sourcesData()` 双调用（少 IO）
-- [x] todor 23：`sitemaps.js` 避免 `articlesData()` 双调用（少 IO）
-- [x] todor 24：`sourceHealth.js` 抽 `DAY_MS` 与 `parseIsoToMs`（去重复）
-- [x] todor 25：`sourceHealth.js` `isStale/daysSinceArticle` 复用一次解析（少 Date.parse）
-- [x] todor 26：验收：`audit:dist` hashed 资源落盘校验通过（防 404 资源）
-- [x] todor 27：验收：`npm run build:site` 通过（含 audit:dist + audit:lighthouse）
-- [x] todor 28：验收：`npm run audit:nav` 通过
-- [x] todor 29：验收：`dist/assets` 仅保留 hashed + favicon（无重复 raw）
-- [x] todor 30：清单维护：上一轮 30 条移入「归档」且不计数
+- [x] todor 01：`shared/assets.cjs` 冻结 `ASSET_KEYS/DEFAULT_ASSET_PATHS`（防误改）
+- [x] todor 02：`scripts/prepare-assets.mjs` 复用 `shared/assets.cjs` 的 `ASSET_KEYS`（单一来源）
+- [x] todor 03：`src/_data/assetManifest.js` 复用 `shared/assets.cjs` keys/defaults（单一来源）
+- [x] todor 04：`.eleventy.js` 复用 `shared/assets.cjs` 的 `ASSET_KEYS`（passthrough 依赖）
+- [x] todor 05：`.eleventy.js` 改用 `readJsonOrDefault` 读取 `build/asset-manifest.json`（去重复 safeReadJson）
+- [x] todor 06：`.eleventy.js` hashed asset 校验过滤外链 + strip query/hash（更稳）
+- [x] todor 07：`src/_data/assetManifest.js` `normalizeAssetPath` strip query/hash（存在性判断更准）
+- [x] todor 08：`scripts/lib/path.mjs` 新增 `stripQueryAndHash`（统一 util）
+- [x] todor 09：`scripts/audit-dist.mjs` 复用 `stripQueryAndHash`（删重复函数）
+- [x] todor 10：`scripts/audit-dist.mjs` public 扫描扩展 `.webmanifest`（覆盖更全）
+- [x] todor 11：`scripts/audit-dist.mjs` `_headers` 前缀自动识别并给 `PATH_PREFIX` 提示（少走弯路）
+- [x] todor 12：`scripts/audit-dist.mjs` manifest hashed rules 统一归一到 `/assets/`（避免 double prefix）
+- [x] todor 13：`scripts/post-build-cache.mjs` 读取 manifest entries 先 strip query/hash（更鲁棒）
+- [x] todor 14：`scripts/post-build-cache.mjs` manifest entries 统一 slice 到 `/assets/` 根（规则一致）
+- [x] todor 15：`scripts/audit-lighthouse.mjs` 复用 `normalizePathPrefix/stripQueryAndHash`（删重复 util）
+- [x] todor 16：`scripts/audit-lighthouse.mjs` 统计 `modulepreload/preload(as=script)` 的 JS 预算（更准）
+- [x] todor 17：`scripts/audit-lighthouse.mjs` 追踪缺失本地资源（避免 size=0 静默）
+- [x] todor 18：`scripts/audit-lighthouse.mjs` 缺失本地资源时推断 `PATH_PREFIX` 并输出提示
+- [x] todor 19：`scripts/audit-lighthouse.mjs` 缺失本地资源直接 fail（避免预算假绿）
+- [x] todor 20：README Commands 补充：`audit:dist`/`audit:lighthouse` 也需匹配 `PATH_PREFIX`
+- [x] todor 21：README env 补充：`ASSET_IMMUTABLE_TTL`/`SITEMAP_ARTICLES_PER_FILE`/预算变量说明
+- [x] todor 22：验证：`node -e "require('./.eleventy.js')"` 无语法错误
+- [x] todor 23：验证：`npm run prepare:assets` 通过（manifest 生成正常）
+- [x] todor 24：验证：`PATH_PREFIX=/x/ npm run audit:dist` 通过
+- [x] todor 25：验证：`PATH_PREFIX=/x/ npm run audit:lighthouse` 通过
+- [x] todor 26：验证：`npm run audit:nav` 通过
+- [x] todor 27：验证：`npm run check:tasks` 通过
+- [x] todor 28：负测：无 `PATH_PREFIX` 时 `npm run audit:dist` 会提示 prefix mismatch
+- [x] todor 29：负测：无 `PATH_PREFIX` 时 `npm run audit:lighthouse` 会 fail 并提示正确 prefix
+- [x] todor 30：维护：上一轮 30 条移入归档且不计数（归档不用 `- [x]`）
 
 ## 归档（不计入 30 项）
+
+- (done) todor 01：`scripts/lib/env.mjs` 新增 `stringFromEnv/firstStringFromEnv`（统一字符串 env 解析）
+- (done) todor 02：`scripts/update.mjs` `ARCHIVE_DIR/GITHUB_STEP_SUMMARY` 改用 env helper（trim 一致）
+- (done) todor 03：`scripts/archive.mjs` `ARCHIVE_DIR` 改用 env helper（trim 一致）
+- (done) todor 04：`scripts/lib/pipeline.mjs` `ARCHIVE_LAYOUT` 改用 `stringFromEnv`（去手写 trim）
+- (done) todor 05：`scripts/lib/amazon.mjs` marketplace/host/region/associateTag env 解析收敛（减少重复）
+- (done) todor 06：`src/_data/lib/env.js` 新增 `stringFromEnv/firstStringFromEnv`（CJS 版）
+- (done) todor 07：`src/_data/lib/env.js` `boolFromEnv` 复用 `stringFromEnv`（统一 trim）
+- (done) todor 08：`src/_data/site.js` `SITE_URL` 归一为 origin（防误带 path）
+- (done) todor 09：`src/_data/site.js` `environment` 统一 lower-case（robots 判断更稳）
+- (done) todor 10：`src/_data/site.js` defaultLanguage/labels 归一（去双重 normalize）
+- (done) todor 11：`src/_data/analytics.js` provider/token env 读取改用 env helper（多 key）
+- (done) todor 12：`src/_data/amazon.js` marketplaceDomain/associateTag env 读取改用 `firstStringFromEnv`
+- (done) todor 13：`src/_data/amazon.js` featuredLimit env 改用 `intFromEnv`（去 process.env 直读）
+- (done) todor 14：`src/_data/sourceHealth.js` staleDays=0 时禁用 isStale（避免假 stale）
+- (done) todor 15：`src/_data/assetManifest.js` asset path 过滤 `//` 外链 + 补齐 leading `/`
+- (done) todor 16：`src/_data/assetManifest.js` immutableTtlSeconds 支持 0（不再被 >0 吃掉）
+- (done) todor 17：`src/robots.njk` 仅用 `site.environment` 做 robots 策略（去混用）
+- (done) todor 18：`scripts/audit-dist.mjs` public 内容扫描扩展包含 `.json/.opml`
+- (done) todor 19：`scripts/audit-dist.mjs` walk 顺序排序稳定（输出稳定）
+- (done) todor 20：`scripts/audit-dist.mjs` manifest 资源路径 strip query/hash + posix 归一
+- (done) todor 21：`scripts/audit-dist.mjs` immutable TTL 支持 0（不再被 `||` 吞掉）
+- (done) todor 22：`scripts/audit-lighthouse.mjs` 外链 scheme 识别更全（// data mailto tel javascript blob about）
+- (done) todor 23：`scripts/audit-lighthouse.mjs` 本地资源 size/transfer 加缓存（避免多次读盘）
+- (done) todor 24：`scripts/audit-lighthouse.mjs` `<script src>`/`<img>` attribute 精准匹配（避免误命中 data-*）
+- (done) todor 25：`scripts/audit-nav-accessibility.mjs` 校验 skip-link href 指向 `#main-content`
+- (done) todor 26：`scripts/audit-nav-accessibility.mjs` 校验 `<main id=\"main-content\">` 必须存在
+- (done) todor 27：`scripts/post-build-cache.mjs` hashed assets 规则仅保留 `/assets/` 且补齐前导 `/` + TTL 支持 0
+- (done) todor 28：`.gitignore` 去重并收敛为 root-anchored 规则（少噪音）
+- (done) todor 29：`scripts/check-tasks.mjs` 缺失文件报错路径输出统一 POSIX
+- (done) todor 30：验收：`npm run audit:nav` + `PATH_PREFIX=/x/ npm run audit:dist` + `PATH_PREFIX=/x/ npm run audit:lighthouse` + `npm run check:tasks` 全绿
+
+- (done) todor 01：`post-build-cache` 复用 `normalizePathPrefix` + hashed assets 去重排序（稳定 `_headers`）
+- (done) todor 02：`audit-lighthouse` 本地资源映射支持 `PATH_PREFIX`（stripPathPrefix）
+- (done) todor 03：`audit-lighthouse` script src 去 query/hash + Set 去重（JS 预算准确）
+- (done) todor 04：`audit-lighthouse` 预算 env 解析改用 `intFromEnv`（统一兜底）
+- (done) todor 05：`audit-dist` 体积预算 env 解析改用 `intFromEnv`（NaN 不再静默跳过）
+- (done) todor 06：`prepare-assets` `ASSET_IMMUTABLE_TTL` 改用 `intFromEnv` + manifest 末尾换行
+- (done) todor 07：`fetch.mjs` `MAX_ITEMS_PER_FEED` 改用 `intFromEnv`（边界一致）
+- (done) todor 08：`cleanup.mjs` `RETENTION_DAYS` 改用 `intFromEnv`（边界一致）
+- (done) todor 09：`archive.mjs` `RETENTION_DAYS/ARCHIVE_DIR` 解析收敛（trim + clamp）
+- (done) todor 10：`build-indexes.mjs` `LATEST_LIMIT/PER_CATEGORY_LIMIT` 改用 `intFromEnv`
+- (done) todor 11：`update.mjs` env 解析改用 `intFromEnv/boolFromEnv`（含 stale/history）
+- (done) todor 12：`update.mjs` stale sources 支持 `STALE_SOURCE_DAYS=0` 禁用（避免全 stale）
+- (done) todor 13：`update.mjs` staleSources 排序稳定（daysSince desc + id asc）
+- (done) todor 14：`pagefind-incremental` rel path 生成改用 `toPosixPath`（去 split/join）
+- (done) todor 15：`pagefind-incremental` entries/changed/removed 排序稳定（manifest diff 更干净）
+- (done) todor 16：`pipeline.mjs` 引入 env helper（intFromEnv/boolFromEnv）
+- (done) todor 17：`pipeline.mjs` RSS_CONTENT_* env 解析用 helper（兜底/边界）
+- (done) todor 18：`pipeline.mjs` FETCH_* env 解析用 helper（兜底/边界）
+- (done) todor 19：`pipeline.mjs` FAILURE_BACKOFF_* env 解析用 helper（兜底/边界）
+- (done) todor 20：`pipeline.mjs` INDEX_* env 解析用 helper（read concurrency clamp + bool）
+- (done) todor 21：`pipeline.mjs` STORIES_* / TOP_* env 解析用 helper（兜底/边界）
+- (done) todor 22：新增 `src/_data/lib/env.js`（CJS env helper）
+- (done) todor 23：`pageSize.js` 改用 `src/_data/lib/env.js`（PAGE_SIZE clamp）
+- (done) todor 24：`stories.js` 改用 `src/_data/lib/env.js`（windowHours clamp）
+- (done) todor 25：`top.js` 改用 `src/_data/lib/env.js`（windowHours clamp）
+- (done) todor 26：`criticalCss.js` `CRITICAL_CSS_MAX_BYTES` 解析兜底 + clamp（避免 NaN）
+- (done) todor 27：`assetManifest.js` resolved entries 一次性计算（少 statSync/少重复）
+- (done) todor 28：`.eleventy.js` `PATH_PREFIX` normalize 一处定义（withPathPrefix + config 共用）
+- (done) todor 29：README 补充：`PATH_PREFIX` 下审计脚本如何映射 `dist/` 本地文件
+- (done) todor 30：验收：`PATH_PREFIX=/x/ npm run build:site` + `npm run audit:nav` + `npm run check:tasks` 通过
+
+- (done) todor 01：`assetManifest` 增加 build/assets 文件校验，缺失则回退 raw assets（dev 更稳）
+- (done) todor 02：`assetManifest` 输出 `ready` 标志（避免半残 manifest 混用）
+- (done) todor 03：`.eleventy.js` hashed 判定改为“manifest entries + 文件存在”双校验
+- (done) todor 04：`.eleventy.js` hashed 模式仅 copy `build/assets` + `favicon.svg`（dist 不重复）
+- (done) todor 05：`.eleventy.js` raw 模式 fallback copy `src/assets` 全量（开发/异常不炸）
+- (done) todor 06：`prepare-assets` 缺失必需源文件直接失败（别拖到 audit 才爆）
+- (done) todor 07：`post-build-cache` 支持 `PATH_PREFIX` 生成 `_headers`（子路径部署）
+- (done) todor 08：`post-build-cache` 对 `/assets/*` 与 `/pagefind/*` 规则统一加前缀
+- (done) todor 09：新增 `scripts/lib/env.mjs`：提供 `intFromEnv/boolFromEnv`
+- (done) todor 10：`loop.mjs` 使用 env helper 解析 `LOOP_*`（默认/边界一致）
+- (done) todor 11：`pagefind-incremental` 使用 env helper 解析 `PAGEFIND_HASH_CONCURRENCY`
+- (done) todor 12：新增 `src/_data/lib/pageSize.js`：分页尺寸集中管理（支持 `PAGE_SIZE` env）
+- (done) todor 13：`latestPages` 改用 `pageSize.js`（去硬编码）
+- (done) todor 14：`categoryPages` 改用 `pageSize.js`（去硬编码）
+- (done) todor 15：`languagePages` 改用 `pageSize.js`（去硬编码）
+- (done) todor 16：`sourcePages` 改用 `pageSize.js`（去硬编码）
+- (done) todor 17：新增 `src/_data/lib/normalizeLanguageCode.js`（语言码统一）
+- (done) todor 18：`languages.js` 改用 `normalizeLanguageCode`（去重复）
+- (done) todor 19：`site.js` 改用 `normalizeLanguageCode`（去重复）
+- (done) todor 20：`sourceFeedSources.js` 改用 `normalizeLanguageCode`（去重复）
+- (done) todor 21：`sourceHealth.js` 避免 `sourcesData()` 双调用（少 IO）
+- (done) todor 22：`sourceTags.js` 避免 `sourcesData()` 双调用（少 IO）
+- (done) todor 23：`sitemaps.js` 避免 `articlesData()` 双调用（少 IO）
+- (done) todor 24：`sourceHealth.js` 抽 `DAY_MS` 与 `parseIsoToMs`（去重复）
+- (done) todor 25：`sourceHealth.js` `isStale/daysSinceArticle` 复用一次解析（少 Date.parse）
+- (done) todor 26：验收：`audit:dist` hashed 资源落盘校验通过（防 404 资源）
+- (done) todor 27：验收：`npm run build:site` 通过（含 audit:dist + audit:lighthouse + Trending 上限）
+- (done) todor 28：验收：`npm run audit:nav` 通过（skip-link/tab order）
+- (done) todor 29：验收：`dist/assets` 仅保留 hashed + favicon（无重复 raw）
+- (done) todor 30：清单维护：上一轮 30 条移入「归档」且不计数
 
 - (done) todor 01：新增 `scripts/lib/path.mjs`：统一提供 `toPosixPath()`
 - (done) todor 02：`scripts/audit-dist.mjs` 改用共享 `toPosixPath()`（删除重复实现）
@@ -95,7 +188,6 @@
 - (done) todor 27：验收：`npm run audit:nav` 通过
 - (done) todor 28：验收：`audit:dist` max HTML < budget（当前约 139.6KB）
 - (done) todor 29：验收：pagefind 增量索引通过且缓存刷新正常
-- (done) todor 30：清单维护：上一轮 30 条移入「归档」且不计数
 
 - (done) todor 01：修复 audit:dist 预算按“单文件最大值”检查（避免多页站点总量误杀）
 - (done) todor 02：audit:dist 报错摘要补齐 size/cache 计数（定位更快）
@@ -125,8 +217,6 @@
 - (done) todor 26：pagefind 增量哈希加 `mapLimit` 限流（避免句柄打爆）
 - (done) todor 27：新增 `npm run loop:update:5h`（5 小时 burn-in：`--duration-ms 18000000`）
 - (done) todor 28：README 补充 `loop:update:5h` 用法与 `build:site` 审计语义（audit:dist max + lighthouse gzip）
-- (done) todor 29：验收：`npm run audit:nav` 通过
-- (done) todor 30：验收：`npm run build:site` 通过
 
 - (done) todor 01：Pagefind 索引压缩与切片，剔除非核心字段
 - (done) todor 02：首页首屏 LCP 优化（hero 图预加载 + 关键 CSS 优先）

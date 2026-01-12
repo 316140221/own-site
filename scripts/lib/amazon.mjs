@@ -1,6 +1,7 @@
 import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { firstStringFromEnv, stringFromEnv } from "./env.mjs";
 
 const ROOT = process.cwd();
 const CONFIG_PATH = path.join(ROOT, "amazon.config.json");
@@ -237,30 +238,28 @@ export async function updateAmazonData() {
     (item) => item.asin
   );
 
-  const marketplaceDomain = String(
-    process.env.AMAZON_PAAPI_MARKETPLACE ||
-      process.env.AMAZON_MARKETPLACE_DOMAIN ||
-      config?.marketplace?.domain ||
-      "www.amazon.com"
-  ).trim();
-  const host = String(
-    process.env.AMAZON_PAAPI_HOST || config?.marketplace?.host || "webservices.amazon.com"
-  ).trim();
-  const region = String(
-    process.env.AMAZON_PAAPI_REGION || config?.marketplace?.region || "us-east-1"
-  ).trim();
+  const marketplaceDomain = firstStringFromEnv(
+    ["AMAZON_PAAPI_MARKETPLACE", "AMAZON_MARKETPLACE_DOMAIN"],
+    config?.marketplace?.domain || "www.amazon.com"
+  );
+  const host = stringFromEnv(
+    "AMAZON_PAAPI_HOST",
+    config?.marketplace?.host || "webservices.amazon.com"
+  );
+  const region = stringFromEnv(
+    "AMAZON_PAAPI_REGION",
+    config?.marketplace?.region || "us-east-1"
+  );
   const marketplace = marketplaceDomain;
 
-  const associateTag = String(
-    process.env.AMAZON_ASSOCIATE_TAG ||
-      process.env.AMAZON_PAAPI_PARTNER_TAG ||
-      config?.associateTag ||
-      ""
-  ).trim();
+  const associateTag = firstStringFromEnv(
+    ["AMAZON_ASSOCIATE_TAG", "AMAZON_PAAPI_PARTNER_TAG"],
+    config?.associateTag || ""
+  );
 
-  const accessKey = String(process.env.AMAZON_PAAPI_ACCESS_KEY || "").trim();
-  const secretKey = String(process.env.AMAZON_PAAPI_SECRET_KEY || "").trim();
-  const partnerTag = String(process.env.AMAZON_PAAPI_PARTNER_TAG || associateTag || "").trim();
+  const accessKey = stringFromEnv("AMAZON_PAAPI_ACCESS_KEY", "");
+  const secretKey = stringFromEnv("AMAZON_PAAPI_SECRET_KEY", "");
+  const partnerTag = stringFromEnv("AMAZON_PAAPI_PARTNER_TAG", associateTag);
 
   const baseOutput = {
     updatedAt: nowIso(),

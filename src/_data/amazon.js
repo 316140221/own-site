@@ -1,5 +1,6 @@
 const path = require("node:path");
 
+const { firstStringFromEnv, intFromEnv } = require("./lib/env.js");
 const readJsonOrDefault = require("./lib/readJsonOrDefault.js");
 
 function normalizeAsin(value) {
@@ -60,15 +61,19 @@ module.exports = function () {
 
   const enabled = config?.enabled === true;
   const marketplaceDomain = String(
-    process.env.AMAZON_PAAPI_MARKETPLACE ||
-      process.env.AMAZON_MARKETPLACE_DOMAIN ||
+    firstStringFromEnv(
+      ["AMAZON_PAAPI_MARKETPLACE", "AMAZON_MARKETPLACE_DOMAIN"],
+      ""
+    ) ||
       config?.marketplace?.domain ||
       data?.marketplace?.domain ||
       "www.amazon.com"
   ).trim();
   const associateTag = String(
-    process.env.AMAZON_ASSOCIATE_TAG ||
-      process.env.AMAZON_PAAPI_PARTNER_TAG ||
+    firstStringFromEnv(
+      ["AMAZON_ASSOCIATE_TAG", "AMAZON_PAAPI_PARTNER_TAG"],
+      ""
+    ) ||
       config?.associateTag ||
       data?.associateTag ||
       ""
@@ -76,8 +81,7 @@ module.exports = function () {
 
   const featuredLimit =
     clampNumber(config?.featuredLimit, 1, 24) ??
-    clampNumber(process.env.AMAZON_FEATURED_LIMIT, 1, 24) ??
-    4;
+    intFromEnv("AMAZON_FEATURED_LIMIT", 4, { min: 1, max: 24 });
 
   const configGroups = Array.isArray(config?.groups) ? config.groups : [];
   const groupLabelById = new Map(

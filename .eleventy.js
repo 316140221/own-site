@@ -1,14 +1,16 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { DateTime } = require("luxon");
+const { ASSET_KEYS } = require("./shared/assets.cjs");
+const readJsonOrDefault = require("./src/_data/lib/readJsonOrDefault.js");
 
-function safeReadJson(filePath) {
-  try {
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
-  } catch (_error) {
-    return null;
-  }
+function normalizePathPrefix(rawPrefix) {
+  const raw = String(rawPrefix || "/").trim();
+  if (!raw || raw === "/") return "/";
+  return `/${raw.replace(/^\/+|\/+$/g, "")}/`;
 }
+
+const PATH_PREFIX = normalizePathPrefix(process.env.PATH_PREFIX || "/");
 
 function absoluteUrl(url, baseUrl) {
   if (!baseUrl) return url;
@@ -75,14 +77,13 @@ function truncateText(value, maxLen = 160) {
 }
 
 function withPathPrefix(urlPath) {
-  const rawPrefix = process.env.PATH_PREFIX || "/";
-  const prefix = String(rawPrefix || "/");
-  const normalizedPrefix = prefix === "/" ? "/" : `/${prefix.replace(/^\/+|\/+$/g, "")}/`;
-
-  const path = String(urlPath || "/");
-  if (!path.startsWith("/")) return normalizedPrefix === "/" ? `/${path}` : `${normalizedPrefix}${path}`;
-  if (normalizedPrefix === "/") return path;
-  return `${normalizedPrefix}${path.replace(/^\/+/, "")}`;
+  const normalizedPrefix = PATH_PREFIX;
+  const value = String(urlPath || "/");
+  if (!value.startsWith("/")) {
+    return normalizedPrefix === "/" ? `/${value}` : `${normalizedPrefix}${value}`;
+  }
+  if (normalizedPrefix === "/") return value;
+  return `${normalizedPrefix}${value.replace(/^\/+/, "")}`;
 }
 
 function toItemListElements(items, siteUrl, limit = 10) {
@@ -130,18 +131,25 @@ function cleanTags(tags, limit = 20) {
 module.exports = function (eleventyConfig) {
   eleventyConfig.setNunjucksEnvironmentOptions({ autoescape: true });
 
-  const assetManifest = safeReadJson(path.resolve(process.cwd(), "build/asset-manifest.json"));
+  const assetManifest = readJsonOrDefault(
+    path.resolve(process.cwd(), "build/asset-manifest.json"),
+    null
+  );
   const buildAssetDir = path.resolve(process.cwd(), "build/assets");
   const entries =
     assetManifest && assetManifest.entries && typeof assetManifest.entries === "object"
       ? assetManifest.entries
       : null;
-  const requiredKeys = ["app.js", "style.css", "shop.js", "sources.js"];
+  const requiredKeys = ASSET_KEYS;
 
   function buildAssetExists(assetPath) {
     const value = String(assetPath || "").trim();
     if (!value) return false;
-    const basename = path.basename(value);
+    if (/^https?:\/\//i.test(value)) return false;
+    if (value.startsWith("//")) return false;
+    const cleaned = value.split(/[?#]/, 1)[0];
+    if (!cleaned) return false;
+    const basename = path.basename(cleaned);
     if (!basename) return false;
     const fullPath = path.join(buildAssetDir, basename);
     try {
@@ -208,7 +216,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("readJson", (relativePath) => {
     if (!relativePath) return null;
     const filePath = path.resolve(process.cwd(), String(relativePath));
-    return safeReadJson(filePath);
+    return readJsonOrDefault(filePath, null);
   });
 
   return {
@@ -221,6 +229,6 @@ module.exports = function (eleventyConfig) {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     templateFormats: ["njk", "md", "11ty.js"],
-    pathPrefix: process.env.PATH_PREFIX || "/",
+    pathPrefix: PATH_PREFIX,
   };
 };

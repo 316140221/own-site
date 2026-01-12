@@ -4,14 +4,10 @@ const path = require("node:path");
 const manifestPath = path.resolve(process.cwd(), "build/asset-manifest.json");
 const buildAssetDir = path.resolve(process.cwd(), "build/assets");
 
-const DEFAULTS = {
-  "app.js": "/assets/app.js",
-  "style.css": "/assets/style.css",
-  "shop.js": "/assets/shop.js",
-  "sources.js": "/assets/sources.js",
-};
+const { ASSET_KEYS, DEFAULT_ASSET_PATHS } = require("../../shared/assets.cjs");
 
-const REQUIRED_KEYS = ["app.js", "style.css", "shop.js", "sources.js"];
+const DEFAULTS = DEFAULT_ASSET_PATHS;
+const REQUIRED_KEYS = ASSET_KEYS;
 
 function readManifest() {
   try {
@@ -28,7 +24,10 @@ function normalizeAssetPath(value) {
   const trimmed = String(value || "").trim();
   if (!trimmed) return "";
   if (/^https?:\/\//i.test(trimmed)) return "";
-  return trimmed;
+  if (trimmed.startsWith("//")) return "";
+  const cleaned = trimmed.split(/[?#]/, 1)[0];
+  if (!cleaned) return "";
+  return cleaned.startsWith("/") ? cleaned : `/${cleaned.replace(/^\/+/, "")}`;
 }
 
 function buildAssetExists(assetPath) {
@@ -44,30 +43,36 @@ function buildAssetExists(assetPath) {
   }
 }
 
-function resolveEntry(manifest, key) {
-  if (!manifest || !manifest.entries) return "";
-  const value = normalizeAssetPath(manifest.entries[key]);
-  if (!value) return "";
-  if (!buildAssetExists(value)) return "";
-  return value;
-}
+function resolveEntries(manifest) {
+  if (!manifest || !manifest.entries || typeof manifest.entries !== "object") return {};
 
-function manifestReady(manifest) {
-  if (!manifest || !manifest.entries || typeof manifest.entries !== "object") return false;
-  return REQUIRED_KEYS.every((key) => resolveEntry(manifest, key));
+  const resolved = {};
+  for (const key of REQUIRED_KEYS) {
+    const value = normalizeAssetPath(manifest.entries[key]);
+    if (!value) continue;
+    if (!buildAssetExists(value)) continue;
+    resolved[key] = value;
+  }
+  return resolved;
 }
 
 module.exports = function () {
   const manifest = readManifest();
-  const ready = manifestReady(manifest);
+  const resolved = resolveEntries(manifest);
+  const ready = REQUIRED_KEYS.every((key) => resolved[key]);
+
+  const immutableTtlSecondsRaw = manifest && Number(manifest.immutableTtlSeconds);
+  const immutableTtlSeconds =
+    Number.isFinite(immutableTtlSecondsRaw) && immutableTtlSecondsRaw >= 0
+      ? immutableTtlSecondsRaw
+      : 31536000;
   return {
     ready,
-    app: (ready && resolveEntry(manifest, "app.js")) || DEFAULTS["app.js"],
-    style: (ready && resolveEntry(manifest, "style.css")) || DEFAULTS["style.css"],
-    shop: (ready && resolveEntry(manifest, "shop.js")) || DEFAULTS["shop.js"],
-    sources: (ready && resolveEntry(manifest, "sources.js")) || DEFAULTS["sources.js"],
+    app: (ready && resolved["app.js"]) || DEFAULTS["app.js"],
+    style: (ready && resolved["style.css"]) || DEFAULTS["style.css"],
+    shop: (ready && resolved["shop.js"]) || DEFAULTS["shop.js"],
+    sources: (ready && resolved["sources.js"]) || DEFAULTS["sources.js"],
     generatedAt: manifest && manifest.generatedAt ? manifest.generatedAt : "",
-    immutableTtlSeconds:
-      (manifest && Number(manifest.immutableTtlSeconds)) || 31536000,
+    immutableTtlSeconds,
   };
 };

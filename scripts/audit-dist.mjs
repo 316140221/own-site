@@ -1,20 +1,22 @@
 import fs from "node:fs";
 import path from "node:path";
-import { toPosixPath } from "./lib/path.mjs";
+import sharedAssets from "../shared/assets.cjs";
+import { normalizePathPrefix, stripQueryAndHash, toPosixPath } from "./lib/path.mjs";
+import { intFromEnv } from "./lib/env.mjs";
 
 const distArg = process.argv[2] || "dist";
 const distDir = path.resolve(process.cwd(), distArg);
 
-const SCAN_EXTENSIONS = new Set([".html", ".xml", ".txt"]);
+const SCAN_EXTENSIONS = new Set([".html", ".xml", ".txt", ".json", ".opml", ".webmanifest"]);
 const SIZE_EXTENSIONS = new Set([".js", ".css", ".html"]);
 const IGNORE_DIRS = new Set(["pagefind"]);
 const MANIFEST_PATH = path.resolve(process.cwd(), "build/asset-manifest.json");
 const HEADERS_PATH = path.resolve(process.cwd(), distArg, "_headers");
 
 const SIZE_BUDGET = {
-  js: Number(process.env.BUDGET_JS_BYTES || 420 * 1024),
-  css: Number(process.env.BUDGET_CSS_BYTES || 260 * 1024),
-  html: Number(process.env.BUDGET_HTML_BYTES || 160 * 1024),
+  js: intFromEnv("BUDGET_JS_BYTES", 420 * 1024, { min: 0 }),
+  css: intFromEnv("BUDGET_CSS_BYTES", 260 * 1024, { min: 0 }),
+  html: intFromEnv("BUDGET_HTML_BYTES", 160 * 1024, { min: 0 }),
 };
 
 const BANNED_PATTERNS = [
@@ -25,8 +27,17 @@ const BANNED_PATTERNS = [
   { label: "No stories yet. Run", regex: /No stories yet\. Run\b/i },
 ];
 
+const plainAssets = Array.from(
+  new Set(
+    Object.values(sharedAssets?.DEFAULT_ASSET_PATHS || {})
+      .map((value) => String(value || "").trim())
+      .filter(Boolean)
+  )
+).sort((a, b) => a.localeCompare(b));
+
 function* walk(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
+  entries.sort((a, b) => a.name.localeCompare(b.name));
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
@@ -65,7 +76,7 @@ function readManifest() {
 }
 
 function manifestAssetToDistRelPath(assetPath) {
-  const raw = String(assetPath || "").trim();
+  const raw = toPosixPath(stripQueryAndHash(assetPath));
   if (!raw) return "";
   const normalized = raw.startsWith("/") ? raw : `/${raw}`;
   const idx = normalized.indexOf("/assets/");
@@ -132,7 +143,6 @@ for (const filePath of walk(distDir)) {
   }
 
   if (ext === ".html") {
-    const plainAssets = ["/assets/app.js", "/assets/style.css", "/assets/shop.js", "/assets/sources.js"];
     for (const assetPath of plainAssets) {
       const idx = content.indexOf(assetPath);
       if (idx !== -1) {
@@ -190,7 +200,51 @@ if (plainAssetHits.length) {
 
 if (fs.existsSync(HEADERS_PATH)) {
   const headersContent = fs.readFileSync(HEADERS_PATH, "utf8");
-  const immutableTtl = (manifest && Number(manifest.immutableTtlSeconds)) || 31536000;
+  const immutableTtlRaw = manifest && Number(manifest.immutableTtlSeconds);
+  const immutableTtl =
+    Number.isFinite(immutableTtlRaw) && immutableTtlRaw >= 0 ? immutableTtlRaw : 31536000;
+
+  const prefix = normalizePathPrefix();
+  const prefixTrimmed = prefix === "/" ? "" : prefix.replace(/\/$/, "");
+  const firstRuleLine = headersContent
+    .split(/\r?\n/g)
+    .map((line) => line.trimEnd())
+    .find((line) => line && !/^\s/.test(line));
+  const detectedPrefix =
+    firstRuleLine && firstRuleLine.endsWith("/*")
+      ? normalizePathPrefix(firstRuleLine.replace(/\/\*$/, "/"))
+      : null;
+  const headersPaths = new Set(
+    headersContent
+      .split(/\r?\n/g)
+      .map((line) => line.trimEnd())
+      .filter((line) => line && !/^\s/.test(line))
+  );
+  const withPrefix = (pattern) => {
+    const value = String(pattern || "").trim();
+    if (!value) return value;
+    if (prefixTrimmed && value.startsWith("/")) return `${prefixTrimmed}${value}`;
+    return value;
+  };
+
+  const rootRule = withPrefix("/*");
+  const pagefindRule = withPrefix("/pagefind/*");
+  if (!headersPaths.has(rootRule)) {
+    cacheIssues.push(`_headers missing root rule "${rootRule}"`);
+  }
+  if (!headersPaths.has(pagefindRule)) {
+    cacheIssues.push(`_headers missing pagefind rule "${pagefindRule}"`);
+  }
+  if (
+    detectedPrefix &&
+    detectedPrefix !== prefix &&
+    (!headersPaths.has(rootRule) || !headersPaths.has(pagefindRule))
+  ) {
+    cacheIssues.push(
+      `hint: dist/_headers looks generated with PATH_PREFIX=${detectedPrefix} (current ${prefix}); run with matching PATH_PREFIX to avoid false failures`
+    );
+  }
+
   if (!/Cache-Control:\s*public,max-age=\d+,immutable/i.test(headersContent)) {
     cacheIssues.push("_headers missing immutable cache-control rule for assets");
   }
@@ -199,6 +253,38 @@ if (fs.existsSync(HEADERS_PATH)) {
   }
   if (headersContent.includes("/assets/") && !headersContent.includes(String(immutableTtl))) {
     cacheIssues.push(`_headers does not mention configured immutable TTL ${immutableTtl}`);
+  }
+
+  const manifestEntries =
+    manifest && manifest.entries && typeof manifest.entries === "object"
+      ? manifest.entries
+      : {};
+  const hashedAssets = Array.from(
+    new Set(
+      Object.values(manifestEntries)
+        .map((value) => toPosixPath(stripQueryAndHash(value)))
+        .map((value) => String(value || "").trim())
+        .map((value) => (value.startsWith("/") ? value : `/${value.replace(/^\/+/, "")}`))
+        .map((value) => {
+          const idx = value.indexOf("/assets/");
+          return idx !== -1 ? value.slice(idx) : value;
+        })
+        .filter((value) => value.startsWith("/assets/"))
+        .filter(Boolean)
+    )
+  );
+  if (hashedAssets.length) {
+    for (const assetPath of hashedAssets) {
+      const rule = withPrefix(assetPath.startsWith("/") ? assetPath : `/${assetPath.replace(/^\/+/, "")}`);
+      if (!headersPaths.has(rule)) {
+        cacheIssues.push(`_headers missing hashed asset rule "${rule}"`);
+      }
+    }
+  } else {
+    const wildcardAssetsRule = withPrefix("/assets/*");
+    if (!headersPaths.has(wildcardAssetsRule)) {
+      cacheIssues.push(`_headers missing wildcard assets rule "${wildcardAssetsRule}"`);
+    }
   }
 } else {
   cacheIssues.push("missing dist/_headers for CDN TTL configuration");

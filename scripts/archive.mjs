@@ -1,7 +1,8 @@
 import { cleanupOldArticles } from "./lib/pipeline.mjs";
+import { intFromEnv, stringFromEnv } from "./lib/env.mjs";
 
-const retentionDays = Number.parseInt(process.env.RETENTION_DAYS || "90", 10);
-const archiveDir = process.env.ARCHIVE_DIR || "archives";
+const retentionDays = intFromEnv("RETENTION_DAYS", 90, { min: 1, max: 3650 });
+const archiveDir = stringFromEnv("ARCHIVE_DIR", "archives");
 
 const stats = await cleanupOldArticles({
   retentionDays,

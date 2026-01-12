@@ -78,6 +78,15 @@ const skipIndex = focusables.findIndex((item) => item.classes.includes("skip-lin
 if (skipIndex !== 0) {
   errors.push(`skip link should be the first tab stop before <main> (found at index ${skipIndex})`);
 }
+const skipLink = skipIndex >= 0 ? focusables[skipIndex] : null;
+if (skipLink && skipLink.href !== "#main-content") {
+  errors.push(`skip link href should be "#main-content" (found "${skipLink.href || ""}")`);
+}
+
+const mainAnchorOk = /<main[^>]*\sid=["']main-content["']/i.test(html);
+if (!mainAnchorOk) {
+  errors.push('missing <main id="main-content"> anchor for skip link');
+}
 
 const brandIndex = focusables.findIndex((item) => item.classes.includes("brand"));
 if (brandIndex === -1) {

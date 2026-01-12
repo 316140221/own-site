@@ -4,7 +4,7 @@ layout: null
 eleventyExcludeFromCollections: true
 ---
 User-agent: *
-{% set env = site.environment or process.env.DEPLOY_ENV or process.env.CONTEXT or process.env.NODE_ENV or "production" %}
+{% set env = site.environment or "production" %}
 {% if env != "production" %}
 Disallow: /
 {% else %}

@@ -68,12 +68,13 @@ async function collectHtmlHashes(baseDir) {
       if (!isHtml) continue;
       entries.push({
         fullPath,
-        rel: path.relative(baseDir, fullPath).split(path.sep).join("/"),
+        rel: toPosixPath(path.relative(baseDir, fullPath)),
       });
     }
   }
 
   await walk(baseDir);
+  entries.sort((a, b) => a.rel.localeCompare(b.rel));
 
   const hashes = {};
   await mapLimit(entries, HASH_CONCURRENCY, async (entry) => {
@@ -219,6 +220,9 @@ async function main() {
   for (const rel of Object.keys(prevFiles)) {
     if (!currentHashes[rel]) removed.push(rel);
   }
+
+  changed.sort((a, b) => a.localeCompare(b));
+  removed.sort((a, b) => a.localeCompare(b));
 
   if (await reuseIndexIfUnchanged(currentHashes, changed, removed)) return;
 

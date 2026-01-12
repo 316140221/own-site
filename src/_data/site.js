@@ -1,5 +1,6 @@
 const path = require("node:path");
 
+const { firstStringFromEnv, stringFromEnv } = require("./lib/env.js");
 const readJsonOrDefault = require("./lib/readJsonOrDefault.js");
 const normalizeLanguageCode = require("./lib/normalizeLanguageCode.js");
 
@@ -16,15 +17,46 @@ const languages = Array.from(
   )
 );
 
-const defaultLanguage = languages.includes(normalizeLanguageCode(config.defaultLanguage))
-  ? normalizeLanguageCode(config.defaultLanguage)
-  : languages[0];
+const defaultLanguageCandidate = normalizeLanguageCode(config.defaultLanguage);
+const defaultLanguage =
+  defaultLanguageCandidate && languages.includes(defaultLanguageCandidate)
+    ? defaultLanguageCandidate
+    : languages[0];
+
+const languageLabelsFromConfig = {};
+for (const [key, value] of Object.entries(config.languageLabels || {})) {
+  const id = normalizeLanguageCode(key);
+  if (!id) continue;
+  const label = String(value ?? "").trim() || id;
+  languageLabelsFromConfig[id] = label;
+}
 
 const languageLabels = {
   en: "EN",
   zh: "中文",
-  ...(config.languageLabels || {}),
+  ...languageLabelsFromConfig,
 };
+
+function normalizeSiteUrl(raw) {
+  const input = String(raw ?? "").trim();
+  if (!input) return "";
+  try {
+    return new URL(input).origin;
+  } catch (_error) {
+    return input.replace(/\/+$/g, "");
+  }
+}
+
+const siteUrl = normalizeSiteUrl(stringFromEnv("SITE_URL", "http://localhost:8080"));
+const contactEmail = stringFromEnv(
+  "CONTACT_EMAIL",
+  String(config.contactEmail || "").trim()
+);
+const googleSiteVerification = stringFromEnv("GOOGLE_SITE_VERIFICATION", "");
+const environment = firstStringFromEnv(
+  ["DEPLOY_ENV", "CONTEXT", "ELEVENTY_ENV", "NODE_ENV"],
+  "production"
+).toLowerCase();
 
 module.exports = {
   name: config.name || "Cloud Utility Desk",
@@ -36,13 +68,8 @@ module.exports = {
   languages,
   languagesCsv: languages.join(","),
   languageLabels,
-  url: process.env.SITE_URL || "http://localhost:8080",
-  contactEmail: String(process.env.CONTACT_EMAIL || config.contactEmail || "").trim(),
-  googleSiteVerification: String(process.env.GOOGLE_SITE_VERIFICATION || "").trim(),
-  environment:
-    process.env.DEPLOY_ENV ||
-    process.env.CONTEXT ||
-    process.env.ELEVENTY_ENV ||
-    process.env.NODE_ENV ||
-    "production",
+  url: siteUrl,
+  contactEmail,
+  googleSiteVerification,
+  environment,
 };

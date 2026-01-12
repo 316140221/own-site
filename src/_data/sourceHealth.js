@@ -22,9 +22,11 @@ module.exports = function () {
       : []
   );
   const hasRecency = recencyMap.size > 0;
-  const staleDays = Number.parseInt(stats?.staleSources?.days || "7", 10) || 7;
+  const staleDaysRaw = Number.parseInt(String(stats?.staleSources?.days ?? "7"), 10);
+  const staleDays =
+    Number.isFinite(staleDaysRaw) && staleDaysRaw >= 0 ? staleDaysRaw : 7;
   const now = Date.now();
-  const staleCutoff = now - staleDays * DAY_MS;
+  const staleCutoff = staleDays > 0 ? now - staleDays * DAY_MS : null;
 
   const merged = sources.map((s) => {
     const id = s.id;
@@ -62,9 +64,13 @@ module.exports = function () {
     const lastArticleAt = recencyMap.get(id) || null;
     const lastArticleMs = hasRecency ? parseIsoToMs(lastArticleAt) : null;
     const isStale =
-      hasRecency && (lastArticleMs == null ? true : lastArticleMs < staleCutoff);
+      hasRecency &&
+      staleCutoff != null &&
+      (lastArticleMs == null ? true : lastArticleMs < staleCutoff);
     const daysSinceArticle =
-      hasRecency && lastArticleMs != null ? Math.floor((now - lastArticleMs) / DAY_MS) : null;
+      hasRecency && lastArticleMs != null
+        ? Math.floor((now - lastArticleMs) / DAY_MS)
+        : null;
 
     return {
       id,

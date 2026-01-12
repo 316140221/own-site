@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { buildIndexes, cleanupOldArticles, fetchAllSources } from "./lib/pipeline.mjs";
 import { updateAmazonData } from "./lib/amazon.mjs";
+import { boolFromEnv, intFromEnv, stringFromEnv } from "./lib/env.mjs";
 
 function formatMarkdownSummary(summary) {
   const finishedAt = summary?.finishedAt || "";
@@ -79,12 +80,10 @@ function formatMarkdownSummary(summary) {
   return lines.join("\n");
 }
 
-const retentionDays = Number.parseInt(process.env.RETENTION_DAYS || "90", 10);
-const maxItemsPerFeed = Number.parseInt(process.env.MAX_ITEMS_PER_FEED || "80", 10);
-const archiveOld =
-  String(process.env.ARCHIVE_OLD || "").toLowerCase() === "1" ||
-  String(process.env.ARCHIVE_OLD || "").toLowerCase() === "true";
-const archiveDir = process.env.ARCHIVE_DIR || "archives";
+const retentionDays = intFromEnv("RETENTION_DAYS", 90, { min: 1, max: 3650 });
+const maxItemsPerFeed = intFromEnv("MAX_ITEMS_PER_FEED", 80, { min: 1, max: 500 });
+const archiveOld = boolFromEnv("ARCHIVE_OLD", false);
+const archiveDir = stringFromEnv("ARCHIVE_DIR", "archives");
 
 const fetchStats = await fetchAllSources({ maxItemsPerFeed });
 const totalRetries = Object.values(fetchStats.sources || {}).reduce(
@@ -122,31 +121,41 @@ try {
   sourceNameMap = new Map();
 }
 
-const staleDays = Number.parseInt(process.env.STALE_SOURCE_DAYS || "7", 10);
-const staleCutoff = Date.now() - staleDays * 24 * 60 * 60 * 1000;
+const staleDays = intFromEnv("STALE_SOURCE_DAYS", 7, { min: 0, max: 3650 });
+const staleCutoff =
+  staleDays > 0 ? Date.now() - staleDays * 24 * 60 * 60 * 1000 : null;
 const recencyMap = new Map(
   Array.isArray(indexStats?.sourceRecency)
     ? indexStats.sourceRecency.map((item) => [item.id, Date.parse(String(item.lastPublishedAt || ""))])
     : []
 );
 const staleItems = [];
-for (const sourceId of Object.keys(fetchStats.sources || {})) {
-  const ms = recencyMap.get(sourceId);
-  const lastPublishedAt =
-    Number.isFinite(ms) && ms > 0 ? new Date(ms).toISOString() : null;
-  const isStale = !Number.isFinite(ms) || ms < staleCutoff;
-  if (isStale) {
-    staleItems.push({
-      id: sourceId,
-      name: sourceNameMap.get(sourceId) || null,
-      lastPublishedAt,
-      daysSinceLastArticle:
-        Number.isFinite(ms) && ms > 0
-          ? Math.floor((Date.now() - ms) / (24 * 60 * 60 * 1000))
-          : null,
-    });
+if (staleCutoff != null) {
+  for (const sourceId of Object.keys(fetchStats.sources || {})) {
+    const ms = recencyMap.get(sourceId);
+    const lastPublishedAt =
+      Number.isFinite(ms) && ms > 0 ? new Date(ms).toISOString() : null;
+    const isStale = !Number.isFinite(ms) || ms < staleCutoff;
+    if (isStale) {
+      staleItems.push({
+        id: sourceId,
+        name: sourceNameMap.get(sourceId) || null,
+        lastPublishedAt,
+        daysSinceLastArticle:
+          Number.isFinite(ms) && ms > 0
+            ? Math.floor((Date.now() - ms) / (24 * 60 * 60 * 1000))
+            : null,
+      });
+    }
   }
 }
+
+staleItems.sort((a, b) => {
+  const aDays = Number.isFinite(a?.daysSinceLastArticle) ? a.daysSinceLastArticle : -1;
+  const bDays = Number.isFinite(b?.daysSinceLastArticle) ? b.daysSinceLastArticle : -1;
+  if (aDays !== bDays) return bDays - aDays;
+  return String(a?.id || "").localeCompare(String(b?.id || ""));
+});
 
 const staleSources = {
   days: staleDays,
@@ -182,7 +191,7 @@ await fs.writeFile(
   "utf8"
 );
 
-const historyDays = Number.parseInt(process.env.RUN_HISTORY_DAYS || "30", 10);
+const historyDays = intFromEnv("RUN_HISTORY_DAYS", 30, { min: 0, max: 3650 });
 if (Number.isFinite(historyDays) && historyDays > 0) {
   const runsDir = path.resolve(process.cwd(), "data/indexes/runs");
   await fs.mkdir(runsDir, { recursive: true });
@@ -213,7 +222,7 @@ if (Number.isFinite(historyDays) && historyDays > 0) {
   );
 }
 
-const stepSummaryPath = process.env.GITHUB_STEP_SUMMARY;
+const stepSummaryPath = stringFromEnv("GITHUB_STEP_SUMMARY", "");
 if (stepSummaryPath) {
   await fs.appendFile(stepSummaryPath, formatMarkdownSummary(summary), "utf8");
 }

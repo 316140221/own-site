@@ -1,17 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
-import { toPosixPath } from "./lib/path.mjs";
+import { normalizePathPrefix, stripQueryAndHash, toPosixPath } from "./lib/path.mjs";
 
 const rootDir = process.cwd();
 const distDir = path.resolve(rootDir, process.argv[2] || "dist");
 const headersPath = path.join(distDir, "_headers");
 const manifestPath = path.resolve(rootDir, "build/asset-manifest.json");
-
-function normalizePathPrefix() {
-  const raw = String(process.env.PATH_PREFIX || "/").trim();
-  if (!raw || raw === "/") return "/";
-  return `/${raw.replace(/^\/+|\/+$/g, "")}/`;
-}
 
 function readManifest() {
   try {
@@ -29,7 +23,9 @@ function ensureDist() {
 }
 
 function buildHeaderLines(manifest) {
-  const immutableTtl = (manifest && Number(manifest.immutableTtlSeconds)) || 31536000;
+  const immutableTtlRaw = manifest && Number(manifest.immutableTtlSeconds);
+  const immutableTtl =
+    Number.isFinite(immutableTtlRaw) && immutableTtlRaw >= 0 ? immutableTtlRaw : 31536000;
   const entries = (manifest && manifest.entries) || {};
   const prefix = normalizePathPrefix();
   const prefixTrimmed = prefix === "/" ? "" : prefix.replace(/\/$/, "");
@@ -48,9 +44,19 @@ function buildHeaderLines(manifest) {
     ""
   );
 
-  const hashedAssets = Object.values(entries)
-    .map((value) => String(value || "").trim())
-    .filter(Boolean);
+  const hashedAssets = Array.from(
+    new Set(
+      Object.values(entries)
+        .map((value) => String(stripQueryAndHash(value) || "").trim())
+        .map((value) => (value.startsWith("/") ? value : `/${value}`))
+        .map((value) => {
+          const idx = value.indexOf("/assets/");
+          return idx !== -1 ? value.slice(idx) : value;
+        })
+        .filter((value) => value.startsWith("/assets/"))
+        .filter(Boolean)
+    )
+  ).sort((a, b) => a.localeCompare(b));
 
   if (hashedAssets.length) {
     for (const assetPath of hashedAssets) {

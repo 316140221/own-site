@@ -3,6 +3,7 @@ import { spawn } from "node:child_process";
 import fs from "node:fs/promises";
 import path from "node:path";
 import Parser from "rss-parser";
+import { boolFromEnv, intFromEnv, stringFromEnv } from "./env.mjs";
 
 const parser = new Parser({
   customFields: {
@@ -695,15 +696,13 @@ export async function fetchAllSources({
   maxItemsPerFeed = 80,
   timeoutMs = 15000,
 } = {}) {
-  const contentMaxChars = Number.parseInt(process.env.RSS_CONTENT_MAX_CHARS || "8000", 10);
-  const contentMinChars = Number.parseInt(process.env.RSS_CONTENT_MIN_CHARS || "200", 10);
-  const minIntervalMinutes = Number.parseInt(process.env.FETCH_MIN_INTERVAL_MINUTES || "0", 10);
-  const fetchRetries = Number.parseInt(process.env.FETCH_RETRIES || "2", 10);
-  const fetchRetryDelayMs = Number.parseInt(process.env.FETCH_RETRY_DELAY_MS || "500", 10);
-  const fetchRetryMaxDelayMs = Number.parseInt(process.env.FETCH_RETRY_MAX_DELAY_MS || "8000", 10);
-  const stripBoilerplate =
-    String(process.env.RSS_CONTENT_STRIP_BOILERPLATE || "1").toLowerCase() === "1" ||
-    String(process.env.RSS_CONTENT_STRIP_BOILERPLATE || "").toLowerCase() === "true";
+  const contentMaxChars = intFromEnv("RSS_CONTENT_MAX_CHARS", 8000, { min: 0 });
+  const contentMinChars = intFromEnv("RSS_CONTENT_MIN_CHARS", 200, { min: 0 });
+  const minIntervalMinutes = intFromEnv("FETCH_MIN_INTERVAL_MINUTES", 0, { min: 0 });
+  const fetchRetries = intFromEnv("FETCH_RETRIES", 2, { min: 0, max: 10 });
+  const fetchRetryDelayMs = intFromEnv("FETCH_RETRY_DELAY_MS", 500, { min: 0 });
+  const fetchRetryMaxDelayMs = intFromEnv("FETCH_RETRY_MAX_DELAY_MS", 8000, { min: 0 });
+  const stripBoilerplate = boolFromEnv("RSS_CONTENT_STRIP_BOILERPLATE", true);
 
   const sources = await readJsonOrDefault(SOURCES_PATH, []);
   const state = await readJsonOrDefault(STATE_PATH, {});
@@ -725,18 +724,9 @@ export async function fetchAllSources({
       : []
   );
 
-  const failureBackoffThreshold = Number.parseInt(
-    process.env.FAILURE_BACKOFF_THRESHOLD || "3",
-    10
-  );
-  const failureBackoffBaseHours = Number.parseInt(
-    process.env.FAILURE_BACKOFF_BASE_HOURS || "24",
-    10
-  );
-  const failureBackoffMaxHours = Number.parseInt(
-    process.env.FAILURE_BACKOFF_MAX_HOURS || "168",
-    10
-  );
+  const failureBackoffThreshold = intFromEnv("FAILURE_BACKOFF_THRESHOLD", 3, { min: 0 });
+  const failureBackoffBaseHours = intFromEnv("FAILURE_BACKOFF_BASE_HOURS", 24, { min: 0 });
+  const failureBackoffMaxHours = intFromEnv("FAILURE_BACKOFF_MAX_HOURS", 168, { min: 0 });
 
   const run = {
     startedAt: nowIso(),
@@ -760,8 +750,8 @@ export async function fetchAllSources({
   const enabledSources = sources.filter((s) => s && s.enabled !== false);
   run.totals.sources = enabledSources.length;
 
-  const fetchConcurrency = Number.parseInt(process.env.FETCH_CONCURRENCY || "4", 10);
-  const hostConcurrency = Number.parseInt(process.env.FETCH_HOST_CONCURRENCY || "2", 10);
+  const fetchConcurrency = intFromEnv("FETCH_CONCURRENCY", 4, { min: 0 });
+  const hostConcurrency = intFromEnv("FETCH_HOST_CONCURRENCY", 2, { min: 0 });
   const sourceConcurrency =
     Number.isFinite(fetchConcurrency) && fetchConcurrency > 0
       ? Math.max(1, Math.min(32, fetchConcurrency))
@@ -1206,9 +1196,7 @@ export async function cleanupOldArticles({
       ROOT,
       String(archiveDir || "archives")
     );
-    const archiveLayout = String(process.env.ARCHIVE_LAYOUT || "")
-      .trim()
-      .toLowerCase();
+    const archiveLayout = stringFromEnv("ARCHIVE_LAYOUT", "").toLowerCase();
     const resolvedArchiveDir =
       (archiveLayout === "monthly" || archiveLayout === "month") && oldest
         ? path.join(resolvedArchiveDirBase, String(oldest).slice(0, 7))
@@ -1278,13 +1266,8 @@ export async function buildIndexes({
     ? await listFilesRecursive(ARTICLES_DIR)
     : [];
 
-  const readConcurrency = Number.parseInt(
-    process.env.INDEX_READ_CONCURRENCY || "32",
-    10
-  );
-  const dedupeUrlAliases =
-    String(process.env.INDEX_DEDUPE_URL_ALIASES || "1").toLowerCase() === "1" ||
-    String(process.env.INDEX_DEDUPE_URL_ALIASES || "").toLowerCase() === "true";
+  const readConcurrency = intFromEnv("INDEX_READ_CONCURRENCY", 32, { min: 1, max: 256 });
+  const dedupeUrlAliases = boolFromEnv("INDEX_DEDUPE_URL_ALIASES", true);
 
   const entries = (await mapLimit(allFiles, readConcurrency, async (filePath) => {
     const article = await readJsonOrDefault(filePath, null);
@@ -1441,12 +1424,12 @@ export async function buildIndexes({
     language: normalizeLanguageCode(a.language || "en"),
   }));
 
-  const storiesWindowHours = Number.parseInt(process.env.STORIES_WINDOW_HOURS || "48", 10);
-  const storiesMaxArticles = Number.parseInt(process.env.STORIES_MAX_ARTICLES || "800", 10);
-  const storiesMinSources = Number.parseInt(process.env.STORIES_MIN_SOURCES || "2", 10);
-  const storiesLimit = Number.parseInt(process.env.STORIES_LIMIT || "200", 10);
-  const topWindowHours = Number.parseInt(process.env.TOP_WINDOW_HOURS || "48", 10);
-  const topLimit = Number.parseInt(process.env.TOP_LIMIT || "200", 10);
+  const storiesWindowHours = intFromEnv("STORIES_WINDOW_HOURS", 48, { min: 0 });
+  const storiesMaxArticles = intFromEnv("STORIES_MAX_ARTICLES", 800, { min: 0 });
+  const storiesMinSources = intFromEnv("STORIES_MIN_SOURCES", 2, { min: 0 });
+  const storiesLimit = intFromEnv("STORIES_LIMIT", 200, { min: 0 });
+  const topWindowHours = intFromEnv("TOP_WINDOW_HOURS", 48, { min: 0 });
+  const topLimit = intFromEnv("TOP_LIMIT", 200, { min: 0 });
 
   const cutoffStoriesMs =
     Number.isFinite(storiesWindowHours) && storiesWindowHours > 0

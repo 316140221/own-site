@@ -28,6 +28,7 @@
 - Import sources from OPML: `npm run import:opml -- ./sources.opml --dry-run` (then remove `--dry-run`)
 - Build site: `npm run build` (outputs to `dist/`)
 - Build + search index: `npm run build:site` (build + Pagefind + public-content audit)
+- Project Pages: run `build:site` (and `audit:dist` / `audit:lighthouse`) with `PATH_PREFIX` set (e.g. `/<repo>/`); audits strip the prefix when resolving URLs back to `dist/` files
 - Archive old data only: `npm run archive`
 - Task guard (no new tasks when active TODO 未清空/存在重复): `npm run check:tasks`
 - Nav keyboard audit: `npm run audit:nav` (checks skip link + nav focus order; default `dist/index.html`)
@@ -97,8 +98,14 @@ For local development, you can use a `.env` file (already gitignored). For GitHu
 - `STORIES_LIMIT` (default `200`, max story clusters)
 - `TOP_WINDOW_HOURS` (default `48`, ranking window for `/trending/`)
 - `TOP_LIMIT` (default `200`, max items)
-- `SITE_URL` (site origin for canonical/feeds/sitemap, e.g. `https://shouyun.top`; do not include `/<repo>/`)
+- `SITE_URL` (site origin for canonical/feeds/sitemap, e.g. `https://shouyun.top`; do not include `/<repo>/`, any path will be normalized away)
 - `PATH_PREFIX` (for GitHub Pages project sites, e.g. `/<repo>/` or `/`)
+- `ASSET_IMMUTABLE_TTL` (default `31536000`, seconds; set `0` to disable immutable caching for hashed assets)
+- `SITEMAP_ARTICLES_PER_FILE` (default `5000`, max articles per sitemap shard)
+- `BUDGET_JS_BYTES` / `BUDGET_CSS_BYTES` / `BUDGET_HTML_BYTES` (bundle size budgets for `npm run audit:dist`, in bytes)
+- `LH_HOME_JS_BUDGET` / `LH_HOME_CSS_BUDGET` / `LH_HOME_LCP_BUDGET` / `LH_HOME_CLS_MISSING` (Lighthouse-style budgets for `dist/index.html`, in bytes)
+- `LH_CATEGORY_JS_BUDGET` / `LH_CATEGORY_CSS_BUDGET` / `LH_CATEGORY_LCP_BUDGET` / `LH_CATEGORY_CLS_MISSING` (budgets for a category page)
+- `LH_ARTICLE_JS_BUDGET` / `LH_ARTICLE_CSS_BUDGET` / `LH_ARTICLE_LCP_BUDGET` / `LH_ARTICLE_CLS_MISSING` (budgets for an article page)
 - `GOOGLE_SITE_VERIFICATION` (optional: Google Search Console verification token)
 - `ANALYTICS_PROVIDER` (optional: `cloudflare` or `ga4`)
 - `CLOUDFLARE_WEB_ANALYTICS_TOKEN` (optional)
