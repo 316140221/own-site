@@ -1,0 +1,29 @@
+{
+  "id": "be27c5be68ac4649597a7cbcb8c1110b86f272d9",
+  "title": "Cloudflare defies Italy’s Piracy Shield, won’t block websites on 1.1.1.1 DNS",
+  "summary": "Italy fines Cloudflare 14M euros for not blocking pirate sites on 1.1.1.1 DNS service.",
+  "canonicalUrl": "https://arstechnica.com/tech-policy/2026/01/cloudflare-may-pull-servers-out-of-italy-over-order-that-it-block-pirate-sites",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-01-09T19:22:37.000Z",
+  "fetchedAt": "2026-01-11T12:29:12.630Z",
+  "category": "tech",
+  "tags": [
+    "Policy",
+    "cloudflare",
+    "italy",
+    "piracy shield"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/01/matthew-prince-1152x648-1767982553.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/01/09/be27c5be68ac4649597a7cbcb8c1110b86f272d9.json",
+  "contentText": "Italy fined Cloudflare 14.2 million euros for refusing to block access to pirate sites on its 1.1.1.1 DNS service, the country's communications regulatory agency, AGCOM, announced yesterday. Cloudflare said it will fight the penalty and threatened to remove all of its servers from Italian cities.\n\nAGCOM issued the fine under Italy's controversial Piracy Shield law, saying that Cloudflare was required to disable DNS resolution of domain names and routing of traffic to IP addresses reported by copyright holders. The law provides for fines up to 2 percent of a company's annual turnover, and the agency said it applied a fine equal to 1 percent.\n\nThe fine relates to a blocking order issued to Cloudflare in February 2025. Cloudflare argued that installing a filter applying to the roughly 200 billion daily requests to its DNS system would significantly increase latency and negatively affect DNS resolution for sites that aren't subject to the dispute over piracy.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}

@@ -1,14 +1,8 @@
-const fs = require("node:fs");
 const path = require("node:path");
 
 const sources = require("./sources.js");
-
-function normalizeLanguageCode(input) {
-  const raw = String(input || "en").trim().toLowerCase();
-  if (!raw) return "en";
-  const base = raw.split("-")[0];
-  return base || "en";
-}
+const readJsonOrDefault = require("./lib/readJsonOrDefault.js");
+const normalizeLanguageCode = require("./lib/normalizeLanguageCode.js");
 
 const LABELS = {
   en: "English",
@@ -19,14 +13,6 @@ const LABELS = {
   es: "Spanish",
   ru: "Russian",
 };
-
-function readJsonOrDefault(filePath, fallback) {
-  try {
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
-  } catch (_error) {
-    return fallback;
-  }
-}
 
 module.exports = function () {
   const list = sources();

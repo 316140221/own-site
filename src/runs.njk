@@ -18,6 +18,20 @@ pagefindBody: false
     Recent {{ runHistory.runs.length }} runs.
   </p>
 
+  {% set staleSources = sourceHealth | selectattr("isStale") | list %}
+  {% if staleSources and staleSources.length %}
+    <div class="callout callout-stale">
+      <strong>Stale sources:</strong>
+      {{ staleSources.length }} (>{{ (stats and stats.staleSources and stats.staleSources.days) or 7 }}d no new articles)
+      <span class="muted small">
+        {% for s in staleSources | slice(0, 5) %}
+          {{ s.name or s.id }}{% if s.daysSinceArticle is not null %} ({{ s.daysSinceArticle }}d){% endif %}{% if not loop.last %}, {% endif %}
+        {% endfor %}
+        {% if staleSources.length > 5 %}…{% endif %}
+      </span>
+    </div>
+  {% endif %}
+
   <div class="table-wrap">
     <table class="table">
       <caption class="sr-only" data-i18n="runs.caption">Run history</caption>

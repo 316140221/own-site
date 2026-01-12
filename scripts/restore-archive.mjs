@@ -1,6 +1,7 @@
 import { spawn } from "node:child_process";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { toPosixPath } from "./lib/path.mjs";
 
 function usage() {
   return [
@@ -44,13 +45,15 @@ const archivePath = path.resolve(process.cwd(), archiveArg);
 try {
   await fs.access(archivePath);
 } catch {
-  console.error(`[restore-archive] Missing archive: ${archivePath}`);
+  console.error(`[restore-archive] Missing archive: ${toPosixPath(archivePath)}`);
   process.exit(2);
 }
 
 const tarArgs = ["-xzf", archivePath, "-C", process.cwd()];
 if (dryRun) {
-  console.log(`[restore-archive] Dry run: tar ${tarArgs.map((a) => JSON.stringify(a)).join(" ")}`);
+  console.log(
+    `[restore-archive] Dry run: tar ${tarArgs.map((a) => JSON.stringify(toPosixPath(a))).join(" ")}`
+  );
   process.exit(0);
 }
 

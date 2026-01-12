@@ -11,6 +11,11 @@
 - 历史保留：90 天
 - 成本：零成本（不使用付费 API / AI 摘要翻译）
 
+## 重复项清理记录
+
+- Loop 154 与 Loop 132 重复，已移除 Loop 154，统一在 Loop 132 跟踪（新增 JSON Feed）
+- Loop 182 与 Loop 132 重复，已合并至 Loop 132（新增 JSON Feed + autodiscovery link 统一跟踪）
+
 ## 迭代 1（Loop 1）：站点骨架 + 本地可预览
 
 **目标**
@@ -137,9 +142,9 @@
 - 在 UI 文案保持英文前提下，引入非英文内容源，并按语言维度聚合展示。
 
 **TODO**
-- [ ] 扩展非英文 RSS 源（例如 `fr/es/de/ja`），并在 `data/sources.json` 标注 `language`
-- [ ] 分类规则增强：对非英文内容做“最小可用”的分类映射（避免全落到 `world`）
-- [ ] 质量控制：为非英文源增加黑名单/去重优化（避免标题模板化带来的重复）
+- [x] 扩展非英文 RSS 源（例如 `fr/es/de/ja`），并在 `data/sources.json` 标注 `language`（已在 Loop 11 落地）
+- [x] 分类规则增强：对非英文内容做“最小可用”的分类映射（避免全落到 `world`）（已在 Loop 12/16 完成）
+- [x] 质量控制：为非英文源增加黑名单/去重优化（避免标题模板化带来的重复）（见 Loop 16 去重策略）
 
 **验收标准**
 - `/languages/` 至少出现 2 种语言
@@ -178,7 +183,7 @@
 - [x] Loop 25：新增 “Trending/Top” 聚合页（`/trending/` + `data/indexes/top.json`，按时间窗口与评分排序）
 - [x] Loop 26：增加 OPML 导出与导入（导出 `/sources.opml`；导入 `npm run import:opml <file.opml>`）
 - [x] Loop 27：可配置的分类列表（新增 `data/categories.json` 驱动分类导航与分页）
-- [ ] Loop 28：可访问性完善（键盘导航、对比度、aria 标签与焦点样式）
+- [x] Loop 28：可访问性完善（键盘导航、对比度、aria 标签与焦点样式）
 - [x] Loop 30：构建与部署优化（Actions cache、失败重试、分步产物与排障信息）
 
 ## 迭代 31-60（Loop 31-60）：继续优化方向（Backlog）
@@ -188,33 +193,33 @@
 - [x] Loop 33：列表页 SEO 优化（空页面 noindex、标题/描述更贴合内容）
 - [x] Loop 34：站点级 OpenSearch（浏览器地址栏/站内搜索集成）
 - [x] Loop 35：Search 页多语言（Pagefind UI 文案/提示语本地化）
-- [ ] Loop 38：对比度与可读性（暗色主题、徽章/按钮 hover、长文本排版）
-- [ ] Loop 42：站点性能度量（简单 RUM 指标、构建期统计、在 Runs 页展示）
-- [ ] Loop 43：内容质量评分 v1（摘要长度/来源权重/重复率/失败率综合）
-- [ ] Loop 46：语言体验（语言页描述/排序、语言徽章展示策略优化）
-- [ ] Loop 47：来源页体验（站点/Feed 链接 i18n、空状态更友好）
-- [ ] Loop 50：收藏/本地库体验（导入导出提示更清晰、冲突合并策略）
+- [x] Loop 38：对比度与可读性（暗色主题、徽章/按钮 hover、长文本排版）
+- [x] Loop 42：站点性能度量（简单 RUM 指标、构建期统计、在 Runs 页展示）
+- [x] Loop 43：内容质量评分 v1（摘要长度/来源权重/重复率/失败率综合）
+- [x] Loop 46：语言体验（语言页描述/排序、语言徽章展示策略优化）
+- [x] Loop 47：来源页体验（站点/Feed 链接 i18n、空状态更友好）
+- [x] Loop 50：收藏/本地库体验（导入导出提示更清晰、冲突合并策略）
 - [x] Loop 51：Shop 页 SEO/合规（noindex 策略评估、sponsored/nofollow 统一）
 - [x] Loop 55：Sitemap lastmod 更准确（列表页按最新文章时间、减少无意义刷新）
 - [x] Loop 57：数据归档增强（按月打包、冷存储可选、恢复脚本）
-- [ ] Loop 58：Actions 稳定性（分步重试、失败告警、资源使用/耗时趋势 + Summary 告警阈值）
+- [x] Loop 58：Actions 稳定性（分步重试、失败告警、资源使用/耗时趋势 + Summary 告警阈值）
 
 ## 迭代 61-90（Loop 61-90）：继续优化方向（Backlog）
 
 - [x] Loop 61：UI 语言默认策略优化（无设置时尝试跟随浏览器语言）
 - [x] Loop 62：语言切换无闪烁（head 预置 UI lang，避免首屏文案跳变）
 - [x] Loop 63：Search 过滤器标题本地化（Category/Language/Source 显示名）
-- [ ] Loop 64：Search 结果摘要一致性（excerptLength、命中片段与高亮策略）
+- [x] Loop 64：Search 结果摘要一致性（excerptLength、命中片段与高亮策略）
 - [x] Loop 65：Legal/说明页正文 i18n（最少中英双语：About/Contact/Privacy/Terms/Takedown/Disclosure，避免夹杂开发用语）
-- [ ] Loop 68：Runs 页体验增强（趋势图图例、失败源聚合、耗时分布）
+- [x] Loop 68：Runs 页体验增强（趋势图图例、失败源聚合、耗时分布）
 - [x] Loop 74：Trending 预览增强（合并至 Loop 125）
 - [x] Loop 75：Top 质量与多样性（合并至 Loop 126）
 - [x] Loop 76：列表页分页 SEO（合并至 Loop 106）
 - [x] Loop 77：Sitemap lastmod 精确化（列表页用最新条目时间、避免每天全刷新）
-- [ ] Loop 79：图片策略优化（lazy/decoding、占位比例、失败兜底减少 CLS）
-- [ ] Loop 81：工具页性能优化（工具脚本懒加载、只在工具页挂载）
+- [x] Loop 79：图片策略优化（lazy/decoding、占位比例、失败兜底减少 CLS）
+- [x] Loop 81：工具页性能优化（工具脚本懒加载、只在工具页挂载）
 - [x] Loop 84：Actions 资源告警（合并至 Loop 58）
-- [ ] Loop 87：站点 UI 细节一致性（按钮/徽章/空状态统一，避免“开发者语气”）
+- [x] Loop 87：站点 UI 细节一致性（按钮/徽章/空状态统一，避免“开发者语气”）
 
 ## 迭代 91-120（Loop 91-120）：继续优化方向（Backlog）
 
@@ -225,13 +230,13 @@
 - [x] Loop 96：外链策略统一（external link 自动补齐 rel/noopener/noreferrer/nofollow，统一 referrerpolicy）
 - [x] Loop 101：/languages/ 页面增强（按数量排序 + 提供各语言订阅入口）
 - [x] Loop 102：/sources/ 页面增强（按 tag 聚合、失败原因/暂停原因更直观）
-- [ ] Loop 103：来源 Tag 聚合页（/sources/tags/<tag>/：来源列表 + 订阅入口）
+- [x] Loop 103：来源 Tag 聚合页（/sources/tags/<tag>/：来源列表 + 订阅入口）
 - [x] Loop 105：列表页 UI 增强（合并至 Loop 124）
-- [ ] Loop 106：分页 SEO 细化（首页/分类/语言/来源的 canonical+prev/next 规则一致；/page/1/ 与首页 canonical 一致；参数页 canonical；避免重复收录）
+- [x] Loop 106：分页 SEO 细化（首页/分类/语言/来源的 canonical+prev/next 规则一致；/page/1/ 与首页 canonical 一致；参数页 canonical；避免重复收录）
 - [x] Loop 107：图片兜底策略（合并至 Loop 129）
-- [ ] Loop 110：CSS 体积与维护性（基础/页面/工具样式分层拆分 + 未用样式清理 + 关键样式内联评估）
-- [ ] Loop 112：PWA/离线能力评估（manifest + service worker 可选，避免影响 SEO）
-- [ ] Loop 116：数据一致性校验增强（索引与文章文件一致、死链/缺字段检测）
+- [x] Loop 110：CSS 体积与维护性（基础/页面/工具样式分层拆分 + 未用样式清理 + 关键样式内联评估）
+- [x] Loop 112：PWA/离线能力评估（manifest + service worker 可选，避免影响 SEO）
+- [x] Loop 116：数据一致性校验增强（索引与文章文件一致、死链/缺字段检测）
 - [x] Loop 120：站点一致性审计升级（合并至 Loop 180）
 
 ## 迭代 121-150（Loop 121-150）：继续优化方向（Backlog）
@@ -239,51 +244,50 @@
 - [x] Loop 121：Header 搜索体验（键盘快捷键 / 自动聚焦 / 清空按钮）
 - [x] Loop 122：导航高亮（当前页 aria-current + 语义一致）
 - [x] Loop 123：分页组件优化（首尾页/上一页/下一页按钮文案与 a11y）
-- [ ] Loop 124：列表页信息密度优化（来源/语言徽章展示策略、时间/摘要可配，移动端更易读）
-- [ ] Loop 125：Trending 质量优化（标题去噪、相似度阈值可配置、同源去重、coverage 展示与展开交互）
-- [ ] Loop 126：Top 算法优化（时间衰减、来源多样性/同源限制、多分类覆盖、同标题去重）
-- [ ] Loop 127：文章页结构化数据增强（可选 NewsArticle/BlogPosting、publisher/logo）
-- [ ] Loop 129：OG 分享图生成（构建期生成默认 OG 图与文章标题图；无图兜底；列表缩略图占位）
-- [ ] Loop 130：站点图标完善（apple-touch-icon、favicon 多尺寸、mask-icon）
-- [ ] Loop 131：RSS/Feed 增强（摘要长度可配且截断策略统一、清洗规则一致；补齐 category/source/language）
-- [x] Loop 132：新增 JSON Feed（/feed.json）与文档说明
+- [x] Loop 124：列表页信息密度优化（来源/语言徽章展示策略、时间/摘要可配，移动端更易读）
+- [x] Loop 125：Trending 质量优化（标题去噪、相似度阈值可配置、同源去重、coverage 展示与展开交互）
+- [x] Loop 126：Top 算法优化（时间衰减、来源多样性/同源限制、多分类覆盖、同标题去重）
+- [x] Loop 127：文章页结构化数据增强（可选 NewsArticle/BlogPosting、publisher/logo）
+- [x] Loop 129：OG 分享图生成（构建期生成默认 OG 图与文章标题图；无图兜底；列表缩略图占位）
+- [x] Loop 130：站点图标完善（apple-touch-icon、favicon 多尺寸、mask-icon）
+- [x] Loop 131：RSS/Feed 增强（摘要长度可配且截断策略统一、清洗规则一致；补齐 category/source/language）
+- [x] Loop 132：新增 JSON Feed（/feed.json）与文档说明 + autodiscovery link
 - [x] Loop 133：Sources 页 i18n（Site/RSS/Feed/状态提示本地化）
 - [x] Loop 134：Runs 页 SEO 策略评估（是否 noindex、是否入 sitemap）
 - [x] Loop 135：Search 页 UX（无结果提示更友好、过滤器默认收起/展开策略）
-- [ ] Loop 139：站内推荐优化（相关内容更准：同源/同类/相似标题权重调参）
-- [ ] Loop 140：404 推荐优化（路径关键词/分类/语言/来源/历史热门，给出更相关入口）
-- [ ] Loop 141：站点内链优化（文章页加入分类/语言/来源入口，提高抓取深度）
-- [ ] Loop 142：Sitemap 分片策略评估（core/articles 之外按 source/lang/category 分片可选）
-- [ ] Loop 143：Canonical/重定向审计（/p/redirect、外链 canonical、重复路径检查）
-- [ ] Loop 144：安全头与隐私评估（CSP/Permissions-Policy/Referrer-Policy/COOP/COEP 最小可行集）
-- [ ] Loop 146：性能优化（首屏关键 CSS、按页加载 JS/减少全站监听、工具页脚本懒加载）
-- [ ] Loop 147：CLS 优化（图片占位、字体策略、卡片骨架）
-- [ ] Loop 148：构建期报告（页面数、dist 大小、pagefind 索引大小、变化趋势）
-- [ ] Loop 150：数据健康面板（Sources 失败率/退避/耗时趋势在 Runs 或 Sources 展示）
+- [x] Loop 139：站内推荐优化（相关内容更准：同源/同类/相似标题权重调参）
+- [x] Loop 140：404 推荐优化（路径关键词/分类/语言/来源/历史热门，给出更相关入口）
+- [x] Loop 141：站点内链优化（文章页加入分类/语言/来源入口，提高抓取深度）
+- [x] Loop 142：Sitemap 分片策略评估（core/articles 之外按 source/lang/category 分片可选）
+- [x] Loop 143：Canonical/重定向审计（/p/redirect、外链 canonical、重复路径检查）
+- [x] Loop 144：安全头与隐私评估（CSP/Permissions-Policy/Referrer-Policy/COOP/COEP 最小可行集）
+- [x] Loop 146：性能优化（首屏关键 CSS、按页加载 JS/减少全站监听、工具页脚本懒加载）
+- [x] Loop 147：CLS 优化（图片占位、字体策略、卡片骨架）
+- [x] Loop 148：构建期报告（页面数、dist 大小、pagefind 索引大小、变化趋势）
+- [x] Loop 150：数据健康面板（Sources 失败率/退避/耗时趋势在 Runs 或 Sources 展示）
 
 ## 迭代 151-180（Loop 151-180）：继续优化方向（Backlog）
 
 - [x] Loop 151：robots.txt 降噪（禁止爬虫抓取 `/pagefind/`）
 - [x] Loop 152：RSS 增强 v1（Feed item 增加 category + media thumbnail）
 - [x] Loop 153：构建后审计规则更精准（避免误伤正常新闻内容）
-- [x] Loop 154：新增 JSON Feed（/feed.json）+ 文档说明
 - [x] Loop 155：RSS channel 元信息完善（image/icon、generator、ttl 等可选）
 - [x] Loop 156：Source 页链接 i18n（Site/RSS/Feed 文案本地化）
 - [x] Loop 157：Runs 页 i18n 与空状态一致性（避免“开发者语气”）
 - [x] Loop 159：Sitemap core 进一步去噪（可选移除低价值页，如 runs）
 - [x] Loop 160：Pagefind 索引白名单策略（只索引文章页/核心页；排除工具页/空页/法律页，减少体积）
 - [x] Loop 161：OG 默认图（合并至 Loop 129）
-- [ ] Loop 163：文章页 meta 完善（keywords 策略、image fallback、publisher/logo）
+- [x] Loop 163：文章页 meta 完善（keywords 策略、image fallback、publisher/logo）
 - [x] Loop 164：Search 过滤器 label 显示名（slug→label、code→label、source id→name）
 - [x] Loop 165：Search 过滤器状态持久化（记住筛选，提供一键清空）
 - [x] Loop 168：导航当前页高亮（aria-current + 样式一致）
-- [ ] Loop 180：CI/Actions 健康检查（sitemap/robots/敏感文案/SEO 标签缺失/空状态文案 扫描 + Summary 输出）
+- [x] Loop 180：CI/Actions 健康检查（sitemap/robots/敏感文案/SEO 标签缺失/空状态文案 扫描 + Summary 输出）
 
 ## 迭代 181-210（Loop 181-210）：继续优化方向（Backlog）
 
 - [x] Loop 181：RSS item 元信息增强（dc:creator/dc:language，便于订阅器识别）
-- [x] Loop 182：新增 JSON Feed（/feed.json）+ autodiscovery link
-- [ ] Loop 186：列表页结构化数据（CollectionPage/ItemList 的一致性策略）
+- [x] Loop 182：合并至 Loop 132（/feed.json + autodiscovery link 统一由 Loop 132 跟踪）
+- [x] Loop 186：列表页结构化数据（CollectionPage/ItemList 的一致性策略）
 - [x] Loop 188：分类/语言/来源页 canonical/prev/next 审计（合并至 Loop 106）
 - [x] Loop 192：Trending lastmod 更精确（用最新 story/top 时间而非 buildTime）
 
@@ -295,7 +299,7 @@
 - [x] Loop 215：Feed autodiscovery 按页指向（分类/语言/来源页自动指向对应 feed）
 - [x] Loop 217：JSON Feed 元信息完善（authors、favicon、expired、hubs 可选）
 - [x] Loop 220：站点入口页 /categories/（分类总览 + 最新/热度入口 + 订阅入口）
-- [ ] Loop 225：列表页排序选项（最新/质量/覆盖度，URL 参数可分享）
+- [x] Loop 225：列表页排序选项（最新/质量/覆盖度，URL 参数可分享）
 
 ## 迭代 241-270（Loop 241-270）：继续优化方向（Backlog）
 
@@ -311,11 +315,12 @@
 
 ## 迭代 301-330（Loop 301-330）：继续优化方向（Backlog）
 
-- [ ] Loop 303：Feeds 输出去重（同 canonical URL 在 feed 内只保留一条）
-- [ ] Loop 304：Feeds 输出过滤（可选只输出高质量/Top，降低订阅噪音）
+- [x] Loop 303：Feeds 输出去重（同 canonical URL 在 feed 内只保留一条）
+- [x] Loop 304：Feeds 输出过滤（可选只输出高质量/Top，降低订阅噪音）
 - [x] Loop 305：JSON Feed 元信息增强（favicon/authors/hubs/expired 可选）
-- [ ] Loop 306：JSON Feed 分页/分片（避免单文件过大，支持 page 参数）
-- [ ] Loop 307：分类/语言/来源 JSON Feed 更丰富（tags/authors/url 策略统一）
-- [ ] Loop 308：Feed autodiscovery 精细化（分页页也指向同一个 feed）
+- [x] Loop 306：JSON Feed 分页/分片（避免单文件过大，支持 page 参数）
+- [x] Loop 307：分类/语言/来源 JSON Feed 更丰富（tags/authors/url 策略统一）
+- [x] Loop 308：Feed autodiscovery 精细化（分页页也指向同一个 feed）
 - [x] Loop 309：RSS channel 元信息增强（image/icon/generator/ttl/copyright）
 - [x] Loop 322：列表页结构化数据一致性（合并至 Loop 186）
+

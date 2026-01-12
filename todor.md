@@ -1,0 +1,161 @@
+# todor 优化任务清单（30 项）
+
+> 规则：新增前先跑 `npm run check:tasks`；清单最多 30 条（脚本会阻断重复/未完成/超上限）。满 30 条时把最旧完成项移到文末「归档」（归档项不要用 `- [x]`，避免被计数）。
+
+- [x] todor 01：`assetManifest` 增加 build/assets 文件校验，缺失则回退 raw assets（dev 更稳）
+- [x] todor 02：`assetManifest` 输出 `ready` 标志（避免半残 manifest 混用）
+- [x] todor 03：`.eleventy.js` hashed 判定改为“manifest entries + 文件存在”双校验
+- [x] todor 04：`.eleventy.js` hashed 模式仅 copy `build/assets` + `favicon.svg`（dist 不重复）
+- [x] todor 05：`.eleventy.js` raw 模式 fallback copy `src/assets` 全量（开发/异常不炸）
+- [x] todor 06：`prepare-assets` 缺失必需源文件直接失败（别拖到 audit 才爆）
+- [x] todor 07：`post-build-cache` 支持 `PATH_PREFIX` 生成 `_headers`（子路径部署）
+- [x] todor 08：`post-build-cache` 对 `/assets/*` 与 `/pagefind/*` 规则统一加前缀
+- [x] todor 09：新增 `scripts/lib/env.mjs`：提供 `intFromEnv/boolFromEnv`
+- [x] todor 10：`loop.mjs` 使用 env helper 解析 `LOOP_*`（默认/边界一致）
+- [x] todor 11：`pagefind-incremental` 使用 env helper 解析 `PAGEFIND_HASH_CONCURRENCY`
+- [x] todor 12：新增 `src/_data/lib/pageSize.js`：分页尺寸集中管理（支持 `PAGE_SIZE` env）
+- [x] todor 13：`latestPages` 改用 `pageSize.js`（去硬编码）
+- [x] todor 14：`categoryPages` 改用 `pageSize.js`（去硬编码）
+- [x] todor 15：`languagePages` 改用 `pageSize.js`（去硬编码）
+- [x] todor 16：`sourcePages` 改用 `pageSize.js`（去硬编码）
+- [x] todor 17：新增 `src/_data/lib/normalizeLanguageCode.js`（语言码统一）
+- [x] todor 18：`languages.js` 改用 `normalizeLanguageCode`（去重复）
+- [x] todor 19：`site.js` 改用 `normalizeLanguageCode`（去重复）
+- [x] todor 20：`sourceFeedSources.js` 改用 `normalizeLanguageCode`（去重复）
+- [x] todor 21：`sourceHealth.js` 避免 `sourcesData()` 双调用（少 IO）
+- [x] todor 22：`sourceTags.js` 避免 `sourcesData()` 双调用（少 IO）
+- [x] todor 23：`sitemaps.js` 避免 `articlesData()` 双调用（少 IO）
+- [x] todor 24：`sourceHealth.js` 抽 `DAY_MS` 与 `parseIsoToMs`（去重复）
+- [x] todor 25：`sourceHealth.js` `isStale/daysSinceArticle` 复用一次解析（少 Date.parse）
+- [x] todor 26：验收：`audit:dist` hashed 资源落盘校验通过（防 404 资源）
+- [x] todor 27：验收：`npm run build:site` 通过（含 audit:dist + audit:lighthouse）
+- [x] todor 28：验收：`npm run audit:nav` 通过
+- [x] todor 29：验收：`dist/assets` 仅保留 hashed + favicon（无重复 raw）
+- [x] todor 30：清单维护：上一轮 30 条移入「归档」且不计数
+
+## 归档（不计入 30 项）
+
+- (done) todor 01：新增 `scripts/lib/path.mjs`：统一提供 `toPosixPath()`
+- (done) todor 02：`scripts/audit-dist.mjs` 改用共享 `toPosixPath()`（删除重复实现）
+- (done) todor 03：`scripts/audit-lighthouse.mjs` 改用共享 `toPosixPath()`（删除重复实现）
+- (done) todor 04：`scripts/audit-nav-accessibility.mjs` 改用共享 `toPosixPath()`（删除重复实现）
+- (done) todor 05：`scripts/post-build-cache.mjs` 改用共享 `toPosixPath()`（删除重复实现）
+- (done) todor 06：`scripts/prepare-assets.mjs` 改用共享 `toPosixPath()`（删除重复实现）
+- (done) todor 07：`scripts/pagefind-incremental.mjs` 改用共享 `toPosixPath()`（删除重复实现）
+- (done) todor 08：`scripts/restore-archive.mjs` 改用共享 `toPosixPath()`（报错/干跑日志更清晰）
+- (done) todor 09：`audit-dist` 增加“manifest hashed 资源必须存在于 dist”校验（防止页面引用 404 资源）
+- (done) todor 10：`.eleventy.js` passthroughCopy 按 manifest 条件化（build 不再重复 copy 未哈希 assets）
+- (done) todor 11：新增 `src/_data/lib/readJsonOrDefault.js`（集中处理 JSON 读取兜底）
+- (done) todor 12：`src/_data/amazon.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 13：`src/_data/articles.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 14：`src/_data/categories.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 15：`src/_data/categoriesOverview.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 16：`src/_data/categoryPages.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 17：`src/_data/languagePages.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 18：`src/_data/languages.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 19：`src/_data/latestPages.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 20：`src/_data/news.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 21：`src/_data/redirects.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 22：`src/_data/runHistory.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 23：`src/_data/site.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 24：`src/_data/sourcePages.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 25：`src/_data/sources.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 26：`src/_data/state.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 27：`src/_data/stats.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 28：`src/_data/stories.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 29：`src/_data/top.js` 使用 `readJsonOrDefault`（去重）
+- (done) todor 30：验收：`npm run build:site` / `npm run audit:nav` / `npm run check:tasks` 全绿
+
+- (done) todor 01：修复 `build:site` 被 `trending/index.html` HTML 预算超限阻断
+- (done) todor 02：Trending 页新增渲染上限常量（story/top/items/sources）避免体积爆炸
+- (done) todor 03：Trending 页 Top 列表限制为 50 条（给 stories 留预算余量）
+- (done) todor 04：Trending 页 story-items 列表限制为 12 条（避免 details 展开塞满）
+- (done) todor 05：Trending 页 story-sources badge 限制为 10 个
+- (done) todor 06：Trending 页 story-item 合并为单链接（减少重复 href/HTML 字节）
+- (done) todor 07：Trending 页截断提示改为 `... +N`（不引入新 i18n key）
+- (done) todor 08：`resolveSitePath` 补齐 `/page/` 根路由适配（子路径部署不跑偏）
+- (done) todor 09：`resolveSitePath` 补齐 `/source/` 根路由适配（子路径部署不跑偏）
+- (done) todor 10：`audit-dist` 统一输出路径为 POSIX `/`（Windows 不再吐 `\\`）
+- (done) todor 11：`audit-dist` OK 输出补充 `maxFiles(js/css/html)`（定位最大文件更快）
+- (done) todor 12：`audit-lighthouse` 报错路径输出统一 POSIX `/`
+- (done) todor 13：`audit-nav-accessibility` 报错路径输出统一 POSIX `/`
+- (done) todor 14：`post-build-cache` 日志路径输出统一 POSIX `/`
+- (done) todor 15：`prepare-assets` 日志路径输出统一 POSIX `/`
+- (done) todor 16：pagefind 哈希并发默认改为 `min(16, cpu)`（机器差异不瞎冲）
+- (done) todor 17：pagefind 哈希并发 env 非法值兜底（不让 NaN 把脚本干炸）
+- (done) todor 18：pagefind 输出 `Hash concurrency=<N>`（跑慢/跑炸好排查）
+- (done) todor 19：pagefind 日志里的缓存目录路径统一 POSIX `/`
+- (done) todor 20：pagefind `dist` 缺失错误路径输出统一 POSIX `/`
+- (done) todor 21：`latestPages` 分页 `PAGE_SIZE` 从 50 收敛到 40（HTML 留预算余量）
+- (done) todor 22：`categoryPages` 分页 `PAGE_SIZE` 从 50 收敛到 40（HTML 留预算余量）
+- (done) todor 23：`languagePages` 分页 `PAGE_SIZE` 从 50 收敛到 40（HTML 留预算余量）
+- (done) todor 24：`sourcePages` 分页 `PAGE_SIZE` 从 50 收敛到 40（HTML 留预算余量）
+- (done) todor 25：验收：`npm run check:tasks` 通过
+- (done) todor 26：验收：`npm run build:site` 通过
+- (done) todor 27：验收：`npm run audit:nav` 通过
+- (done) todor 28：验收：`audit:dist` max HTML < budget（当前约 139.6KB）
+- (done) todor 29：验收：pagefind 增量索引通过且缓存刷新正常
+- (done) todor 30：清单维护：上一轮 30 条移入「归档」且不计数
+
+- (done) todor 01：修复 audit:dist 预算按“单文件最大值”检查（避免多页站点总量误杀）
+- (done) todor 02：audit:dist 报错摘要补齐 size/cache 计数（定位更快）
+- (done) todor 03：audit:dist size breach 输出最大文件路径（maxFile）
+- (done) todor 04：audit:lighthouse JS 预算改用 gzip 传输体积（更贴近真实加载）
+- (done) todor 05：audit:lighthouse gzip 计算覆盖 js/css/html/xml/txt
+- (done) todor 06：列表卡片移除冗余 data-article-*（title/category/publishedAt/source/path）减小 HTML
+- (done) todor 07：列表卡片发布时间改用 `<time datetime>` 提供机器可读值
+- (done) todor 08：列表卡片 source 节点增加 `data-article-source` 标记
+- (done) todor 09：列表卡片 meta 分隔符清理（少渲染少字节）
+- (done) todor 10：收藏按钮从 DOM 解析文章 meta（不再依赖 data-article-title 等）
+- (done) todor 11：修复列表页 HTML 预算超限（`page/2/index.html`）
+- (done) todor 12：`resolveSitePath` 补齐 `/lang/` 路由前缀适配
+- (done) todor 13：`resolveSitePath` 补齐 `/languages/` 路由前缀适配
+- (done) todor 14：`resolveSitePath` 补齐 `/categories/` 路由前缀适配
+- (done) todor 15：`resolveSitePath` 补齐 `/sources/` 路由前缀适配
+- (done) todor 16：`resolveSitePath` 补齐 `/runs/` 路由前缀适配
+- (done) todor 17：`resolveSitePath` 补齐 `/trending/` 路由前缀适配
+- (done) todor 18：`resolveSitePath` 补齐 `/robots.txt` 路由前缀适配
+- (done) todor 19：`resolveSitePath` 补齐 `/opensearch.xml` 路由前缀适配
+- (done) todor 20：`resolveSitePath` 补齐 `/feed.json` 路由前缀适配
+- (done) todor 21：`loop.mjs` 新增 `--duration-ms` / `LOOP_DURATION_MS`（支持按时间跑循环）
+- (done) todor 22：`loop.mjs` 输出追加 `durationMs` / `stopReason`（方便回放）
+- (done) todor 23：`loop.mjs` `stopReason` 细化（duration_ms_reached/first_failure/times_reached）
+- (done) todor 24：`loop.mjs` stdout/stderr 截断尾巴统一用 `...`（避免编码鬼畜）
+- (done) todor 25：pagefind 增量哈希计算加入并发（`PAGEFIND_HASH_CONCURRENCY`，默认 16）
+- (done) todor 26：pagefind 增量哈希加 `mapLimit` 限流（避免句柄打爆）
+- (done) todor 27：新增 `npm run loop:update:5h`（5 小时 burn-in：`--duration-ms 18000000`）
+- (done) todor 28：README 补充 `loop:update:5h` 用法与 `build:site` 审计语义（audit:dist max + lighthouse gzip）
+- (done) todor 29：验收：`npm run audit:nav` 通过
+- (done) todor 30：验收：`npm run build:site` 通过
+
+- (done) todor 01：Pagefind 索引压缩与切片，剔除非核心字段
+- (done) todor 02：首页首屏 LCP 优化（hero 图预加载 + 关键 CSS 优先）
+- (done) todor 03：列表卡片 skeleton 占位，避免首屏布局抖动
+- (done) todor 04：图片加载策略统一（lazy/decoding 协同，失败兜底与比例占位）
+- (done) todor 05：字体策略收敛（本地回退 + font-display + 预加载关键字体）
+- (done) todor 06：RSS 拉取并发/退避参数化，按源健康度调度
+- (done) todor 07：采集失败指标上报到 Runs，附带近三次错误摘要
+- (done) todor 08：来源健康分评分卡（成功率/延迟/最近失败原因）
+- (done) todor 09：文章去重规则强化（canonical/链接 hash + 标题近似度）
+- (done) todor 10：摘要长度与截断策略统一，保证单词边界与多语言安全
+- (done) todor 11：构建产物快照（dist 体积/页数/索引大小）写入 summary
+- (done) todor 12：CI 缓存预热（node_modules + pagefind 索引缓存探测）
+- (done) todor 13：工具页脚本按需拆分，非工具页不加载
+- (done) todor 14：Search 过滤状态持久化兜底（localStorage + querystring 双通）
+- (done) todor 15：多语言 meta 校验（hreflang/og:locale/页面 lang 一致）
+- (done) todor 16：OG/Twitter 卡片兜底图生成（无图时生成标题卡）
+- (done) todor 17：Sitemap 预分片策略（按条目数/文件大小阈值切分）
+- (done) todor 18：环境分级 robots.txt（预览/生产差异策略）
+- (done) todor 19：文章 JSON schema 校验器，失败时阻断构建
+- (done) todor 20：sources.json 校验脚本（重复 feedUrl、缺失字段快速报错）
+- (done) todor 21：fetch 阶段错误分类与重试（DNS/超时/格式化失败分级）
+- (done) todor 22：构建失败告警汇总到 Actions Summary（含 top 3 失败原因）
+- (done) todor 23：核心页面可访问性巡检（aria 标签/对比度/键盘可达性）
+- (done) todor 24：暗色主题 token 梳理（颜色/阴影/边框统一定义）
+- (done) todor 25：Search 空结果兜底文案与推荐入口
+- (done) todor 26：性能预算门槛（JS/CSS/HTML 体积预算 + CI 拦截）
+- (done) todor 27：归档恢复脚本烟测，每周跑一次验证可用
+- (done) todor 28：静态资源缓存策略梳理（hash 命名 + immutable + CDN TTL 巡检）
+- (done) todor 29：Critical CSS 自动裁剪与回退评估（内联比重阈值 + 失败回退外链）
+- (done) todor 30：交互埋点可靠性提升（批量 flush + visibilitychange 兜底重试）
+- (done) todor 31：Hover prefetch 尊重 Save-Data（`navigator.connection.saveData` 为 true 时禁用）

@@ -4,7 +4,12 @@ layout: null
 eleventyExcludeFromCollections: true
 ---
 User-agent: *
+{% set env = site.environment or process.env.DEPLOY_ENV or process.env.CONTEXT or process.env.NODE_ENV or "production" %}
+{% if env != "production" %}
+Disallow: /
+{% else %}
 Allow: /
+{% endif %}
 Disallow: {{ '/pagefind/' | url }}
 {% if site.url %}
 Sitemap: {{ '/sitemap.xml' | url | absoluteUrl(site.url) }}

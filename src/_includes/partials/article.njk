@@ -68,7 +68,7 @@
   </div>
 
   {% if article.image %}
-    <div class="article-image">
+    <div class="article-image" data-article-image>
       <img
         src="{{ article.image }}"
         alt="{{ article.title | decodeEntities }}"
@@ -76,6 +76,7 @@
         height="675"
         loading="lazy"
         decoding="async"
+        data-article-hero
       />
     </div>
   {% endif %}

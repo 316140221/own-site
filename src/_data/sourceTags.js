@@ -11,7 +11,8 @@ function normalizeTagId(value) {
 }
 
 module.exports = function () {
-  const sources = Array.isArray(sourcesData()) ? sourcesData() : [];
+  const sourcesList = sourcesData();
+  const sources = Array.isArray(sourcesList) ? sourcesList : [];
   const map = new Map();
 
   for (const source of sources) {

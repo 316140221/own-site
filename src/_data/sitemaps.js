@@ -3,7 +3,8 @@ const articlesData = require("./articles.js");
 const ARTICLES_PER_SITEMAP = 5000;
 
 module.exports = function () {
-  const articles = Array.isArray(articlesData()) ? articlesData() : [];
+  const articlesList = articlesData();
+  const articles = Array.isArray(articlesList) ? articlesList : [];
   const totalArticles = articles.length;
   const perFile = ARTICLES_PER_SITEMAP;
   const pages = Math.max(1, Math.ceil(totalArticles / perFile));

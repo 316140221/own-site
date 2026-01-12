@@ -1,13 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-function readJsonOrDefault(filePath, fallback) {
-  try {
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
-  } catch (_error) {
-    return fallback;
-  }
-}
+const readJsonOrDefault = require("./lib/readJsonOrDefault.js");
 
 function normalizeNumber(value, fallback = 0) {
   const n = Number(value);
@@ -68,5 +62,53 @@ module.exports = function () {
     run.failedPct = maxFailed ? Math.max(0, Math.min(1, run.failed / maxFailed)) : 0;
   }
 
-  return { runs: limited, maxAdded, maxFailed };
+  const dailyMap = new Map();
+  for (const run of limited) {
+    const dateStr = String(run.finishedAt || "").slice(0, 10);
+    if (!dateStr) continue;
+    const existing = dailyMap.get(dateStr) || {
+      date: dateStr,
+      added: 0,
+      failed: 0,
+      ok: 0,
+      paused: 0,
+      runs: 0,
+    };
+    existing.added += run.added || 0;
+    existing.failed += run.failed || 0;
+    existing.ok += run.ok || 0;
+    existing.paused += run.paused || 0;
+    existing.runs += 1;
+    dailyMap.set(dateStr, existing);
+  }
+
+  const daily = Array.from(dailyMap.values()).sort((a, b) => a.date.localeCompare(b.date));
+  const last14 = daily.slice(-14);
+  const dailyMaxTotal = last14.reduce((max, day) => Math.max(max, day.added + day.failed), 0);
+  const avgWindow = last14.slice(-7);
+  const averageAdded =
+    avgWindow.length > 0
+      ? Math.round(
+          avgWindow.reduce((sum, day) => sum + day.added, 0) / avgWindow.length
+        )
+      : 0;
+  const averageFailed =
+    avgWindow.length > 0
+      ? Math.round(
+          avgWindow.reduce((sum, day) => sum + day.failed, 0) / avgWindow.length
+        )
+      : 0;
+
+  return {
+    runs: limited,
+    maxAdded,
+    maxFailed,
+    daily: last14,
+    dailyMaxTotal,
+    averages: {
+      windowDays: avgWindow.length,
+      added: averageAdded,
+      failed: averageFailed,
+    },
+  };
 };

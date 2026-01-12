@@ -23,12 +23,23 @@
 - Install: `npm ci`
 - Local preview: `npm run dev`
 - Update data: `npm run update` (fetch RSS → cleanup old data → build indexes)
-- Loop update (default 30 runs): `npm run loop:update` (tune via `LOOP_TIMES`, `LOOP_DELAY_MS`, `LOOP_CONTINUE_ON_FAIL`)
+- Loop update (default 30 runs): `npm run loop:update` (tune via `LOOP_TIMES`, `LOOP_DELAY_MS`, `LOOP_CONTINUE_ON_FAIL`, `LOOP_DURATION_MS`)
+- Loop update for 5 hours: `npm run loop:update:5h` (duration-limited burn-in)
 - Import sources from OPML: `npm run import:opml -- ./sources.opml --dry-run` (then remove `--dry-run`)
 - Build site: `npm run build` (outputs to `dist/`)
 - Build + search index: `npm run build:site` (build + Pagefind + public-content audit)
 - Archive old data only: `npm run archive`
+- Task guard (no new tasks when active TODO 未清空/存在重复): `npm run check:tasks`
+- Nav keyboard audit: `npm run audit:nav` (checks skip link + nav focus order; default `dist/index.html`)
 - Restore an articles archive: `npm run restore:archive -- ./archives/<archive>.tgz` (then `npm run indexes`)
+
+## 任务流程约束
+
+- 新增/追加任务前先执行 `npm run check:tasks`，非 Backlog 区域存在 `[ ]` 或重复条目、`todor.md` 有重复/未完成或超出 30 项时直接阻断
+- `todor.md` 清空时必须补充新的优化任务，`npm run check:tasks` 会在列表为空时阻断并提示先思考新增优化项
+- 优化类任务集中在 `todor.md`（30 项），完成顺序自上而下；未清空活跃 TODO 或 `todor.md` 待办未解决时不要再追加
+- 去重决策记录写在 `开发TODO.md` 的「重复项清理记录」章节，新增任务前先核对
+- `npm run build:site` 会跑 `audit:dist`（最大单文件预算 + CDN 缓存规则）和 `audit:lighthouse`（按 gzip 传输体积做 JS 预算）
 
 ## Site config (JSON)
 

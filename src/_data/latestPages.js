@@ -1,15 +1,8 @@
-const fs = require("node:fs");
 const path = require("node:path");
 
-const PAGE_SIZE = 50;
+const PAGE_SIZE = require("./lib/pageSize.js");
 
-function readJsonOrDefault(filePath, fallback) {
-  try {
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
-  } catch (_error) {
-    return fallback;
-  }
-}
+const readJsonOrDefault = require("./lib/readJsonOrDefault.js");
 
 module.exports = function () {
   const latestPath = path.resolve(process.cwd(), "data/indexes/latest.json");

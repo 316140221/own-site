@@ -17,9 +17,14 @@ eleventyComputed:
   Stories are clustered by similar titles from the last {{ stories.windowHours }} hours.
 </p>
 
+{% set storyLimit = 40 %}
+{% set storyItemsLimit = 12 %}
+{% set storySourcesLimit = 10 %}
+{% set topLimit = 50 %}
+
 {% if stories and stories.items and stories.items.length %}
   <ol class="story-list">
-    {% for story in stories.items %}
+    {% for story in stories.items | slice(0, storyLimit) %}
       <li class="story">
         <div class="story-head">
           {% set primaryId = "" %}
@@ -45,7 +50,7 @@ eleventyComputed:
           </div>
           {% if story.sources and story.sources.length %}
             <div class="story-sources">
-              {% for s in story.sources %}
+              {% for s in story.sources | slice(0, storySourcesLimit) %}
                 <span class="badge">{{ s }}</span>
               {% endfor %}
             </div>
@@ -61,13 +66,17 @@ eleventyComputed:
               See {{ story.items.length }} articles
             </summary>
             <ul class="story-items">
-              {% for item in story.items %}
+              {% for item in story.items | slice(0, storyItemsLimit) %}
                 <li class="story-item">
-                  <a href="{{ ('/p/' + item.id + '/') | url }}">{{ item.source.name }}:</a>
-                  <a href="{{ ('/p/' + item.id + '/') | url }}">{{ item.title | decodeEntities }}</a>
+                  <a href="{{ ('/p/' + item.id + '/') | url }}"
+                    >{{ item.source.name }}: {{ item.title | decodeEntities }}</a
+                  >
                   <span class="muted small">· {{ item.publishedAt | formatDateTime }}</span>
                 </li>
               {% endfor %}
+              {% if story.items.length > storyItemsLimit %}
+                <li class="story-item muted small">... +{{ story.items.length - storyItemsLimit }}</li>
+              {% endif %}
             </ul>
           </details>
         {% endif %}
@@ -87,5 +96,5 @@ eleventyComputed:
   Highest-quality items from the last {{ top.windowHours }} hours.
 </p>
 
-{% set items = top.items %}
+{% set items = top.items | slice(0, topLimit) %}
 {% include "partials/news-list.njk" %}

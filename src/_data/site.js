@@ -1,20 +1,7 @@
-const fs = require("node:fs");
 const path = require("node:path");
 
-function readJsonOrDefault(filePath, fallback) {
-  try {
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
-  } catch (_error) {
-    return fallback;
-  }
-}
-
-function normalizeLanguageCode(input) {
-  const raw = String(input || "").trim().toLowerCase();
-  if (!raw) return "en";
-  const base = raw.split("-")[0];
-  return base || "en";
-}
+const readJsonOrDefault = require("./lib/readJsonOrDefault.js");
+const normalizeLanguageCode = require("./lib/normalizeLanguageCode.js");
 
 const configPath = path.resolve(process.cwd(), "site.config.json");
 const config = readJsonOrDefault(configPath, {});
@@ -52,4 +39,10 @@ module.exports = {
   url: process.env.SITE_URL || "http://localhost:8080",
   contactEmail: String(process.env.CONTACT_EMAIL || config.contactEmail || "").trim(),
   googleSiteVerification: String(process.env.GOOGLE_SITE_VERIFICATION || "").trim(),
+  environment:
+    process.env.DEPLOY_ENV ||
+    process.env.CONTEXT ||
+    process.env.ELEVENTY_ENV ||
+    process.env.NODE_ENV ||
+    "production",
 };

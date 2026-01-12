@@ -130,7 +130,40 @@ function cleanTags(tags, limit = 20) {
 module.exports = function (eleventyConfig) {
   eleventyConfig.setNunjucksEnvironmentOptions({ autoescape: true });
 
-  eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  const assetManifest = safeReadJson(path.resolve(process.cwd(), "build/asset-manifest.json"));
+  const buildAssetDir = path.resolve(process.cwd(), "build/assets");
+  const entries =
+    assetManifest && assetManifest.entries && typeof assetManifest.entries === "object"
+      ? assetManifest.entries
+      : null;
+  const requiredKeys = ["app.js", "style.css", "shop.js", "sources.js"];
+
+  function buildAssetExists(assetPath) {
+    const value = String(assetPath || "").trim();
+    if (!value) return false;
+    const basename = path.basename(value);
+    if (!basename) return false;
+    const fullPath = path.join(buildAssetDir, basename);
+    try {
+      return fs.statSync(fullPath).isFile();
+    } catch (_error) {
+      return false;
+    }
+  }
+
+  const useHashedAssets =
+    !!entries &&
+    requiredKeys.every((key) => {
+      const value = entries[key];
+      return typeof value === "string" && value.trim() && buildAssetExists(value);
+    });
+
+  if (useHashedAssets) {
+    eleventyConfig.addPassthroughCopy({ "build/assets": "assets" });
+    eleventyConfig.addPassthroughCopy({ "src/assets/favicon.svg": "assets/favicon.svg" });
+  } else {
+    eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  }
   if (fs.existsSync("CNAME")) eleventyConfig.addPassthroughCopy("CNAME");
   if (fs.existsSync(".nojekyll")) eleventyConfig.addPassthroughCopy(".nojekyll");
 

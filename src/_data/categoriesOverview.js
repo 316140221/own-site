@@ -1,15 +1,7 @@
-const fs = require("node:fs");
 const path = require("node:path");
 
 const categories = require("./categories.js");
-
-function readJsonOrDefault(filePath, fallback) {
-  try {
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
-  } catch (_error) {
-    return fallback;
-  }
-}
+const readJsonOrDefault = require("./lib/readJsonOrDefault.js");
 
 module.exports = function () {
   const list = Array.isArray(categories) ? categories : [];

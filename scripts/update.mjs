@@ -42,12 +42,27 @@ function formatMarkdownSummary(summary) {
   }
 
   const sources = summary?.sources || {};
+  const stale = summary?.staleSources || null;
   const failures = Object.entries(sources)
     .filter(([, s]) => s && s.ok === false && !s.paused)
     .map(([id, s]) => `- \`${id}\`: ${s.status || "n/a"} ${s.error || ""}`.trim());
   const paused = Object.entries(sources)
     .filter(([, s]) => s && s.paused)
     .map(([id, s]) => `- \`${id}\`: ${s.error || "Paused"}`.trim());
+
+  const staleItems = Array.isArray(stale?.items) ? stale.items : [];
+  if (staleItems.length) {
+    lines.push("");
+    lines.push(
+      `### Stale sources (>${stale?.days || 7}d no new articles)`
+    );
+    lines.push(
+      ...staleItems.map(
+        (item) =>
+          `- \`${item.id}\`${item.name ? ` (${item.name})` : ""}: last article ${item.lastPublishedAt || "unknown"}`
+      )
+    );
+  }
 
   if (paused.length) {
     lines.push("");
@@ -92,6 +107,53 @@ try {
   };
 }
 
+let sourceNameMap = new Map();
+try {
+  const sourcesJson = await fs.readFile(path.resolve(process.cwd(), "data/sources.json"), "utf8");
+  const sources = JSON.parse(sourcesJson);
+  if (Array.isArray(sources)) {
+    sourceNameMap = new Map(
+      sources
+        .filter((s) => s && s.id)
+        .map((s) => [String(s.id), String(s.name || "")])
+    );
+  }
+} catch (_error) {
+  sourceNameMap = new Map();
+}
+
+const staleDays = Number.parseInt(process.env.STALE_SOURCE_DAYS || "7", 10);
+const staleCutoff = Date.now() - staleDays * 24 * 60 * 60 * 1000;
+const recencyMap = new Map(
+  Array.isArray(indexStats?.sourceRecency)
+    ? indexStats.sourceRecency.map((item) => [item.id, Date.parse(String(item.lastPublishedAt || ""))])
+    : []
+);
+const staleItems = [];
+for (const sourceId of Object.keys(fetchStats.sources || {})) {
+  const ms = recencyMap.get(sourceId);
+  const lastPublishedAt =
+    Number.isFinite(ms) && ms > 0 ? new Date(ms).toISOString() : null;
+  const isStale = !Number.isFinite(ms) || ms < staleCutoff;
+  if (isStale) {
+    staleItems.push({
+      id: sourceId,
+      name: sourceNameMap.get(sourceId) || null,
+      lastPublishedAt,
+      daysSinceLastArticle:
+        Number.isFinite(ms) && ms > 0
+          ? Math.floor((Date.now() - ms) / (24 * 60 * 60 * 1000))
+          : null,
+    });
+  }
+}
+
+const staleSources = {
+  days: staleDays,
+  total: staleItems.length,
+  items: staleItems,
+};
+
 const summary = {
   startedAt: fetchStats.startedAt,
   finishedAt: fetchStats.finishedAt,
@@ -110,6 +172,7 @@ const summary = {
   indexes: indexStats,
   amazon: amazonStats,
   sources: fetchStats.sources,
+  staleSources,
 };
 
 await fs.mkdir(path.resolve(process.cwd(), "data/indexes"), { recursive: true });

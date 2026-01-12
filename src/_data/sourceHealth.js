@@ -2,13 +2,29 @@ const sourcesData = require("./sources.js");
 const stateData = require("./state.js");
 const statsData = require("./stats.js");
 
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+function parseIsoToMs(value) {
+  const ms = Date.parse(String(value || ""));
+  return Number.isFinite(ms) ? ms : null;
+}
+
 module.exports = function () {
-  const sources = Array.isArray(sourcesData()) ? sourcesData() : [];
+  const sourcesList = sourcesData();
+  const sources = Array.isArray(sourcesList) ? sourcesList : [];
   const state = stateData() || {};
   const stats = statsData() || null;
 
   const statSources = stats?.sources || {};
+  const recencyMap = new Map(
+    Array.isArray(stats?.indexes?.sourceRecency)
+      ? stats.indexes.sourceRecency.map((item) => [item.id, item.lastPublishedAt || null])
+      : []
+  );
+  const hasRecency = recencyMap.size > 0;
+  const staleDays = Number.parseInt(stats?.staleSources?.days || "7", 10) || 7;
   const now = Date.now();
+  const staleCutoff = now - staleDays * DAY_MS;
 
   const merged = sources.map((s) => {
     const id = s.id;
@@ -43,6 +59,13 @@ module.exports = function () {
       tags.push(text);
     }
 
+    const lastArticleAt = recencyMap.get(id) || null;
+    const lastArticleMs = hasRecency ? parseIsoToMs(lastArticleAt) : null;
+    const isStale =
+      hasRecency && (lastArticleMs == null ? true : lastArticleMs < staleCutoff);
+    const daysSinceArticle =
+      hasRecency && lastArticleMs != null ? Math.floor((now - lastArticleMs) / DAY_MS) : null;
+
     return {
       id,
       name: s.name,
@@ -55,6 +78,7 @@ module.exports = function () {
       tags,
       lastFetchAt: st.lastFetchAt || null,
       lastSuccessAt: st.lastSuccessAt || null,
+      lastArticleAt,
       lastFailureAt: st.lastFailureAt || null,
       consecutiveFailures: st.consecutiveFailures || 0,
       pausedUntil,
@@ -74,12 +98,15 @@ module.exports = function () {
       isPaused,
       isFailing,
       statusCode,
+      isStale,
+      daysSinceArticle,
     };
   });
 
   merged.sort((a, b) => {
     if (a.isFailing !== b.isFailing) return a.isFailing ? -1 : 1;
     if (a.isPaused !== b.isPaused) return a.isPaused ? -1 : 1;
+    if (a.isStale !== b.isStale) return a.isStale ? -1 : 1;
     const aName = String(a.name || "");
     const bName = String(b.name || "");
     return aName.localeCompare(bName);

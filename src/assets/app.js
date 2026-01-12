@@ -4269,6 +4269,17 @@ const FAVORITES_SHOP_KEY = "site_favorite_shop";
 const SHOP_FAVORITES_EVENT = "site:shop-favorites";
 const TOOL_STATE_PREFIX = "site_tool_state:";
 const MAX_TOOL_STATE_CHARS = 200000;
+const SEARCH_AB_STATE_KEY = "site_search_ab_state";
+const SEARCH_AB_VARIANT_KEY = "site_search_ab_variant";
+const SEARCH_AB_PENDING_KEY = "site_search_ab_pending_click";
+const SEARCH_AB_VARIANTS = ["ctr-first", "dwell-mix"];
+const SEARCH_AB_MAX_EVENTS = 120;
+const IMAGE_HEALTH_KEY = "site_image_health_state";
+const IMAGE_HEALTH_MAX_EVENTS = 40;
+const INTERACTION_QUEUE_KEY = "site_interaction_queue";
+const INTERACTION_PENDING_KEY = "site_interaction_pending";
+const INTERACTION_MAX_EVENTS = 80;
+const INTERACTION_BATCH_SIZE = 20;
 
 function storageGet(key) {
   try {
@@ -4309,6 +4320,124 @@ function storageSetJson(key, value) {
     storageSet(key, JSON.stringify(value));
   } catch (_error) {
     // ignore
+  }
+}
+
+function sessionGet(key) {
+  try {
+    return sessionStorage.getItem(key);
+  } catch (_error) {
+    return null;
+  }
+}
+
+function sessionSet(key, value) {
+  try {
+    sessionStorage.setItem(key, value);
+  } catch (_error) {
+    // ignore
+  }
+}
+
+function sessionRemove(key) {
+  try {
+    sessionStorage.removeItem(key);
+  } catch (_error) {
+    // ignore
+  }
+}
+
+function sessionGetJson(key, fallback) {
+  const raw = sessionGet(key);
+  if (!raw) return fallback;
+  try {
+    return JSON.parse(raw);
+  } catch (_error) {
+    return fallback;
+  }
+}
+
+function sessionSetJson(key, value) {
+  try {
+    sessionSet(key, JSON.stringify(value));
+  } catch (_error) {
+    // ignore
+  }
+}
+
+const interactionState = {
+  queue: [],
+  flushTimer: null,
+};
+
+function hydrateInteractionQueue() {
+  const sessionQueue = sessionGetJson(INTERACTION_QUEUE_KEY, []);
+  const pending = storageGetJson(INTERACTION_PENDING_KEY, []);
+  const pendingEvents = Array.isArray(pending)
+    ? pending.flatMap((batch) => (batch && Array.isArray(batch.events) ? batch.events : []))
+    : [];
+  const merged = [...pendingEvents, ...(Array.isArray(sessionQueue) ? sessionQueue : [])]
+    .filter(Boolean)
+    .slice(0, INTERACTION_MAX_EVENTS);
+  sessionSetJson(INTERACTION_QUEUE_KEY, merged);
+  return merged;
+}
+
+interactionState.queue = hydrateInteractionQueue();
+
+function persistInteractionQueue(queue) {
+  sessionSetJson(INTERACTION_QUEUE_KEY, queue);
+}
+
+function enqueueInteractionEvent(kind, detail) {
+  const normalizedKind = String(kind || "unknown").trim() || "unknown";
+  const payload =
+    detail && typeof detail === "object" && !Array.isArray(detail) ? detail : {};
+  const record = {
+    kind: normalizedKind,
+    ts: Date.now(),
+    detail: payload,
+  };
+  interactionState.queue = [record, ...interactionState.queue].slice(0, INTERACTION_MAX_EVENTS);
+  persistInteractionQueue(interactionState.queue);
+  scheduleInteractionFlush("queued");
+  return record;
+}
+
+function flushInteractionQueue(reason) {
+  if (!interactionState.queue.length) return;
+  const batch = interactionState.queue.splice(0, INTERACTION_BATCH_SIZE);
+  persistInteractionQueue(interactionState.queue);
+  try {
+    const pending = storageGetJson(INTERACTION_PENDING_KEY, []);
+    const nextPending = Array.isArray(pending) ? pending : [];
+    nextPending.unshift({
+      reason: String(reason || "flush"),
+      ts: Date.now(),
+      events: batch,
+    });
+    storageSetJson(INTERACTION_PENDING_KEY, nextPending.slice(0, 20));
+  } catch (_error) {
+    interactionState.queue = [...batch, ...interactionState.queue].slice(
+      0,
+      INTERACTION_MAX_EVENTS
+    );
+    persistInteractionQueue(interactionState.queue);
+  }
+}
+
+function scheduleInteractionFlush(reason) {
+  if (interactionState.flushTimer) {
+    window.clearTimeout(interactionState.flushTimer);
+  }
+  interactionState.flushTimer = window.setTimeout(() => {
+    flushInteractionQueue(reason);
+  }, 1500);
+}
+
+function retryInteractionFlush() {
+  if (interactionState.queue.length) {
+    scheduleInteractionFlush("retry");
   }
 }
 
@@ -5133,8 +5262,16 @@ function resolveSitePath(pathname) {
     "/tools/",
     "/go/",
     "/shop/",
+    "/page/",
     "/category/",
+    "/lang/",
     "/language/",
+    "/languages/",
+    "/source/",
+    "/sources/",
+    "/runs/",
+    "/trending/",
+    "/categories/",
     "/search/",
     "/library/",
     "/about/",
@@ -5144,7 +5281,10 @@ function resolveSitePath(pathname) {
     "/affiliate-disclosure/",
     "/takedown/",
     "/assets/",
+    "/robots.txt",
+    "/opensearch.xml",
     "/feed.xml",
+    "/feed.json",
     "/sitemap.xml",
   ];
 
@@ -5315,6 +5455,321 @@ function getArticleMetaFromPage() {
   }
 }
 
+const SEARCH_AB_WEIGHTS = {
+  "ctr-first": { ctr: 0.7, dwell: 0.3 },
+  "dwell-mix": { ctr: 0.5, dwell: 0.5 },
+};
+
+function normalizeSearchAbVariant(value) {
+  const raw = String(value || "").trim().toLowerCase();
+  if (SEARCH_AB_VARIANTS.includes(raw)) return raw;
+  return "";
+}
+
+function getSearchAbVariant() {
+  const stored = normalizeSearchAbVariant(storageGet(SEARCH_AB_VARIANT_KEY));
+  if (stored) return stored;
+  const variant = Math.random() < 0.5 ? SEARCH_AB_VARIANTS[0] : SEARCH_AB_VARIANTS[1];
+  storageSet(SEARCH_AB_VARIANT_KEY, variant);
+  return variant;
+}
+
+function readSearchAbState() {
+  const state = storageGetJson(SEARCH_AB_STATE_KEY, { events: [], summary: null });
+  return state && typeof state === "object" ? state : { events: [], summary: null };
+}
+
+function summarizeSearchAbEvents(events) {
+  const summary = { variants: {} };
+  const list = Array.isArray(events) ? events : [];
+
+  for (const entry of list) {
+    const variant = normalizeSearchAbVariant(entry.variant) || getSearchAbVariant();
+    const bucket = summary.variants[variant] || {
+      impressions: 0,
+      clicks: 0,
+      dwellMs: 0,
+      dwellSamples: 0,
+    };
+
+    if (entry.type === "impression") {
+      bucket.impressions += Number(entry.count) || 0;
+    } else if (entry.type === "click") {
+      bucket.clicks += 1;
+    } else if (entry.type === "dwell") {
+      const ms = Math.max(0, Math.min(Number(entry.dwellMs) || 0, 300000));
+      bucket.dwellMs += ms;
+      bucket.dwellSamples += 1;
+    }
+
+    summary.variants[variant] = bucket;
+  }
+
+  Object.entries(summary.variants).forEach(([variant, bucket]) => {
+    const ctr = bucket.impressions > 0 ? bucket.clicks / bucket.impressions : 0;
+    const avgDwell = bucket.dwellSamples > 0 ? bucket.dwellMs / bucket.dwellSamples : 0;
+    const dwellScore = Math.min(avgDwell / 45000, 1);
+    const weights = SEARCH_AB_WEIGHTS[variant] || { ctr: 0.6, dwell: 0.4 };
+    const score = weights.ctr * ctr + weights.dwell * dwellScore;
+    summary.variants[variant] = {
+      ...bucket,
+      ctr,
+      avgDwell,
+      score,
+      weights,
+    };
+  });
+
+  return summary;
+}
+
+function writeSearchAbState(next) {
+  const state = next && typeof next === "object" ? next : { events: [], summary: null };
+  storageSetJson(SEARCH_AB_STATE_KEY, state);
+  return state;
+}
+
+function recordSearchAbEvent(event) {
+  if (!event || typeof event !== "object") return null;
+  const variant = normalizeSearchAbVariant(event.variant) || getSearchAbVariant();
+  const entry = { ...event, variant, ts: Date.now() };
+  const state = readSearchAbState();
+  const events = Array.isArray(state.events) ? state.events : [];
+  const nextEvents = [entry, ...events].slice(0, SEARCH_AB_MAX_EVENTS);
+  const summary = summarizeSearchAbEvents(nextEvents);
+  writeSearchAbState({ events: nextEvents, summary });
+  enqueueInteractionEvent("search_ab", {
+    type: entry.type,
+    variant: entry.variant,
+    href: entry.href || entry.articlePath,
+    rank: entry.rank,
+    query: entry.query,
+    dwellMs: entry.dwellMs,
+  });
+  return entry;
+}
+
+function normalizeSearchResultList(results) {
+  if (!Array.isArray(results)) return [];
+  return results
+    .map((item) => {
+      if (!item) return null;
+      const href = String(item.href || "").trim();
+      if (!href) return null;
+      const path = resolveSitePath(href);
+      const rank = Number(item.rank);
+      const title = String(item.title || "").trim();
+      return { href, path, rank: Number.isFinite(rank) ? rank : undefined, title };
+    })
+    .filter(Boolean);
+}
+
+function recordSearchImpression(payload) {
+  if (!payload || typeof payload !== "object") return;
+  const results = normalizeSearchResultList(payload.results);
+  if (!results.length) return;
+  const count = results.length;
+  recordSearchAbEvent({
+    type: "impression",
+    query: String(payload.query || "").trim(),
+    count,
+    sample: results.slice(0, 3),
+  });
+}
+
+function setPendingSearchClick(payload) {
+  if (!payload || typeof payload !== "object") return;
+  const href = String(payload.href || "").trim();
+  if (!href) return;
+  try {
+    const url = new URL(href, window.location.origin);
+    if (url.origin !== window.location.origin) return;
+  } catch (_error) {
+    return;
+  }
+  const entry = {
+    href: resolveSitePath(href),
+    rank: Number.isFinite(Number(payload.rank)) ? Number(payload.rank) : undefined,
+    query: String(payload.query || "").trim(),
+    title: String(payload.title || "").trim(),
+    variant: getSearchAbVariant(),
+    ts: Date.now(),
+  };
+  sessionSet(SEARCH_AB_PENDING_KEY, JSON.stringify(entry));
+}
+
+function consumePendingSearchClick() {
+  const raw = sessionGet(SEARCH_AB_PENDING_KEY);
+  sessionRemove(SEARCH_AB_PENDING_KEY);
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== "object") return null;
+    return parsed;
+  } catch (_error) {
+    return null;
+  }
+}
+
+function recordSearchClick(payload) {
+  if (!payload || typeof payload !== "object") return;
+  const href = String(payload.href || "").trim();
+  if (!href) return;
+  const rank = Number(payload.rank);
+  const entry = recordSearchAbEvent({
+    type: "click",
+    query: String(payload.query || "").trim(),
+    href: resolveSitePath(href),
+    rank: Number.isFinite(rank) ? rank : undefined,
+    title: String(payload.title || "").trim(),
+  });
+  if (entry) {
+    setPendingSearchClick({
+      href: entry.href,
+      rank: entry.rank,
+      query: entry.query,
+      title: entry.title,
+    });
+  }
+}
+
+function recordSearchDwell(payload) {
+  if (!payload || typeof payload !== "object") return;
+  const dwellMs = Math.max(0, Number(payload.dwellMs) || 0);
+  recordSearchAbEvent({
+    type: "dwell",
+    href: resolveSitePath(String(payload.href || payload.articlePath || "") || window.location.pathname),
+    rank: Number.isFinite(Number(payload.rank)) ? Number(payload.rank) : undefined,
+    query: String(payload.query || "").trim(),
+    dwellMs,
+    articleId: String(payload.articleId || "").trim() || undefined,
+    reason: String(payload.reason || "").trim() || undefined,
+  });
+}
+
+function setupSearchAbArticleDwell() {
+  const pending = consumePendingSearchClick();
+  if (!pending) return;
+
+  const meta = getArticleMetaFromPage();
+  const start = Date.now();
+  let flushed = false;
+
+  const base = {
+    href: pending.href,
+    rank: pending.rank,
+    query: pending.query,
+    title: pending.title,
+    articleId: meta?.id,
+    articlePath: meta?.path || resolveSitePath(window.location.pathname),
+  };
+
+  function flush(reason) {
+    if (flushed) return;
+    flushed = true;
+    const dwellMs = Math.max(0, Date.now() - start);
+    recordSearchDwell({ ...base, dwellMs, reason });
+  }
+
+  window.addEventListener("pagehide", () => flush("pagehide"), { once: true });
+  window.addEventListener(
+    "visibilitychange",
+    () => {
+      if (document.visibilityState === "hidden") flush("hidden");
+    },
+    { once: true }
+  );
+}
+
+function exposeSearchAbApi() {
+  const api = {
+    getVariant: getSearchAbVariant,
+    recordImpression: recordSearchImpression,
+    recordClick: recordSearchClick,
+    recordDwell: recordSearchDwell,
+    setPendingClick: setPendingSearchClick,
+    finalizePendingDwell: setupSearchAbArticleDwell,
+    report() {
+      return readSearchAbState().summary || null;
+    },
+  };
+  window.SearchAb = api;
+  return api;
+}
+
+const FALLBACK_IMG =
+  "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='675' viewBox='0 0 1200 675'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='%23122'/><stop offset='100%' stop-color='%23024'/></linearGradient></defs><rect width='1200' height='675' fill='url(%23g)'/><text x='50%' y='50%' fill='%23dbeafe' font-size='42' font-family='Arial, sans-serif' text-anchor='middle' dy='14'>image fallback</text></svg>";
+
+function recordArticleImageEvent(kind, meta, extra) {
+  const log = storageGetJson(IMAGE_HEALTH_KEY, { events: [], summary: {} });
+  const events = Array.isArray(log.events) ? log.events : [];
+  const entry = {
+    type: kind,
+    ts: Date.now(),
+    articleId: meta?.id,
+    path: meta?.path || resolveSitePath(window.location.pathname),
+    extra,
+  };
+  const next = [entry, ...events].slice(0, IMAGE_HEALTH_MAX_EVENTS);
+  const summary = next.reduce(
+    (acc, item) => {
+      const key = item.type || "unknown";
+      acc[key] = (acc[key] || 0) + 1;
+      return acc;
+    },
+    {}
+  );
+  storageSetJson(IMAGE_HEALTH_KEY, { events: next, summary });
+  enqueueInteractionEvent("image_health", {
+    type: kind,
+    articleId: meta?.id,
+    path: meta?.path || resolveSitePath(window.location.pathname),
+  });
+  return { entry, summary };
+}
+
+function setupArticleImageMonitor() {
+  const img = document.querySelector(".article-image img");
+  if (!(img instanceof HTMLImageElement)) return;
+  const meta = getArticleMetaFromPage();
+  const timeoutMs = 8000;
+  let done = false;
+
+  function fallback(reason) {
+    img.setAttribute("data-image-fallback", reason);
+    img.loading = "eager";
+    img.decoding = "async";
+    img.src = FALLBACK_IMG;
+  }
+
+  function finish(kind, extra) {
+    if (done) return;
+    done = true;
+    recordArticleImageEvent(kind, meta, extra);
+    img.removeEventListener("load", onLoad);
+    img.removeEventListener("error", onError);
+  }
+
+  const timer = window.setTimeout(() => {
+    fallback("timeout");
+    finish("timeout", { src: img.currentSrc || img.src });
+  }, timeoutMs);
+
+  function onLoad() {
+    window.clearTimeout(timer);
+    finish("success", { src: img.currentSrc || img.src });
+  }
+
+  function onError() {
+    window.clearTimeout(timer);
+    fallback("error");
+    finish("error", { src: img.currentSrc || img.src });
+  }
+
+  img.addEventListener("load", onLoad);
+  img.addEventListener("error", onError);
+}
+
 function updateFavoriteButton(btn, isFavorite) {
   if (!(btn instanceof HTMLButtonElement)) return;
   const on = Boolean(isFavorite);
@@ -5347,14 +5802,44 @@ function setupArticleLibrary() {
 function getArticleMetaFromCard(button) {
   const wrap = button instanceof Element ? button.closest("[data-article-id]") : null;
   if (!wrap) return null;
-  return normalizeArticleMeta({
-    id: wrap.getAttribute("data-article-id"),
-    title: wrap.getAttribute("data-article-title"),
-    category: wrap.getAttribute("data-article-category"),
-    publishedAt: wrap.getAttribute("data-article-published-at"),
-    sourceName: wrap.getAttribute("data-article-source-name"),
-    path: wrap.getAttribute("data-article-path"),
-  });
+
+  const id = String(wrap.getAttribute("data-article-id") || "").trim();
+
+  const titleLink = wrap.querySelector(".news-title a");
+  const title =
+    titleLink instanceof HTMLElement ? String(titleLink.textContent || "").trim() : "";
+  const path =
+    titleLink instanceof HTMLAnchorElement
+      ? String(titleLink.getAttribute("href") || "").trim()
+      : id
+        ? `/p/${id}/`
+        : "";
+
+  let category = "";
+  const categoryLink = wrap.querySelector('a.badge[href*="/category/"]');
+  if (categoryLink instanceof HTMLAnchorElement) {
+    const href = String(categoryLink.getAttribute("href") || "");
+    const match = href.match(/\/category\/([^/]+)\//);
+    if (match && match[1]) {
+      try {
+        category = decodeURIComponent(match[1]);
+      } catch {
+        category = match[1];
+      }
+    } else {
+      category = String(categoryLink.textContent || "").trim();
+    }
+  }
+
+  const time = wrap.querySelector("time[datetime]");
+  const publishedAt =
+    time instanceof HTMLElement ? String(time.getAttribute("datetime") || "").trim() : "";
+
+  const source = wrap.querySelector("[data-article-source]");
+  const sourceName =
+    source instanceof HTMLElement ? String(source.textContent || "").trim() : "";
+
+  return normalizeArticleMeta({ id, title, path, category, publishedAt, sourceName });
 }
 
 function setupArticleCardFavorites() {
@@ -6500,6 +6985,64 @@ function setupToTopButton() {
   window.addEventListener("scroll", onScroll, { passive: true });
 }
 
+function setupHoverPrefetch() {
+  const preferPointer = window.matchMedia && window.matchMedia("(pointer:fine)").matches;
+  const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const saveData = Boolean(conn && conn.saveData);
+  const goodNet =
+    !conn ||
+    !conn.effectiveType ||
+    ["4g", "5g"].includes(String(conn.effectiveType).toLowerCase());
+  if (!preferPointer || !goodNet || saveData) return;
+
+  const prefetched = new Set();
+  function prefetch(href) {
+    if (!href || prefetched.has(href)) return;
+    const link = document.createElement("link");
+    link.rel = "prefetch";
+    link.href = href;
+    link.as = "document";
+    prefetched.add(href);
+    document.head.appendChild(link);
+  }
+
+  document.addEventListener(
+    "mouseover",
+    (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const anchor = target.closest("a");
+      if (!(anchor instanceof HTMLAnchorElement)) return;
+      const href = anchor.getAttribute("href") || "";
+      if (!href || href.startsWith("#")) return;
+      if (/^(mailto:|tel:|https?:\/\/)/i.test(href)) {
+        const url = new URL(href, window.location.origin);
+        if (url.origin !== window.location.origin) return;
+        prefetch(url.pathname + url.search);
+        return;
+      }
+      prefetch(href);
+    },
+    { passive: true }
+  );
+}
+
+window.addEventListener(
+  "visibilitychange",
+  () => {
+    if (document.visibilityState === "hidden") {
+      flushInteractionQueue("visibilitychange");
+    } else {
+      retryInteractionFlush();
+    }
+  },
+  { passive: true }
+);
+window.addEventListener("pagehide", () => flushInteractionQueue("pagehide"), { once: true });
+
+exposeSearchAbApi();
+retryInteractionFlush();
+
 document.addEventListener("DOMContentLoaded", () => {
   setupNav();
   setupThemeSwitch();
@@ -6513,6 +7056,8 @@ document.addEventListener("DOMContentLoaded", () => {
   setupToolsIndexFilter();
   setupActiveLinks();
   setupCopyShareButtons();
+  setupSearchAbArticleDwell();
+  setupArticleImageMonitor();
   setupArticleLibrary();
   setupArticleCardFavorites();
   setupArticleReadMarkers();
@@ -6522,6 +7067,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupShopSavedCtas();
   setupLibraryPage();
   setupToTopButton();
+  setupHoverPrefetch();
 });
 
 applyTheme(getTheme());

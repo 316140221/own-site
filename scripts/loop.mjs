@@ -1,4 +1,5 @@
 import { spawn } from "node:child_process";
+import { boolFromEnv, intFromEnv } from "./lib/env.mjs";
 
 function nowIso() {
   return new Date().toISOString();
@@ -12,14 +13,10 @@ function sleep(ms) {
 function parseArgs(argv) {
   const args = [...argv];
 
-  let times = Number.parseInt(process.env.LOOP_TIMES || "30", 10);
-  let delayMs = Number.parseInt(process.env.LOOP_DELAY_MS || "0", 10);
-  let continueOnFail =
-    String(process.env.LOOP_CONTINUE_ON_FAIL || "").toLowerCase() === "1" ||
-    String(process.env.LOOP_CONTINUE_ON_FAIL || "").toLowerCase() === "true";
-
-  if (!Number.isFinite(times) || times <= 0) times = 30;
-  if (!Number.isFinite(delayMs) || delayMs < 0) delayMs = 0;
+  let times = intFromEnv("LOOP_TIMES", 30, { min: 1 });
+  let delayMs = intFromEnv("LOOP_DELAY_MS", 0, { min: 0 });
+  let durationMs = intFromEnv("LOOP_DURATION_MS", 0, { min: 0 });
+  let continueOnFail = boolFromEnv("LOOP_CONTINUE_ON_FAIL", false);
 
   if (args.includes("--help") || args.includes("-h")) {
     return { help: true };
@@ -52,6 +49,13 @@ function parseArgs(argv) {
       if (Number.isFinite(parsed) && parsed >= 0) delayMs = parsed;
       continue;
     }
+    if (arg === "--duration-ms") {
+      const value = optionArgs[i + 1];
+      i += 1;
+      const parsed = Number.parseInt(String(value || ""), 10);
+      if (Number.isFinite(parsed) && parsed >= 0) durationMs = parsed;
+      continue;
+    }
     if (arg === "--continue-on-fail") {
       continueOnFail = true;
       continue;
@@ -59,13 +63,13 @@ function parseArgs(argv) {
     throw new Error(`Unknown option: ${arg}`);
   }
 
-  return { help: false, times, delayMs, continueOnFail, command };
+  return { help: false, times, delayMs, durationMs, continueOnFail, command };
 }
 
 function limitString(input, maxLen = 8000) {
   const text = String(input || "");
   if (text.length <= maxLen) return text;
-  return text.slice(0, Math.max(0, maxLen - 1)) + "…";
+  return text.slice(0, Math.max(0, maxLen - 3)) + "...";
 }
 
 async function runCommand(command) {
@@ -127,10 +131,12 @@ function usage() {
     "Options:",
     "  --times, -n <N>        Run N times (default: 30 or $LOOP_TIMES)",
     "  --delay-ms <ms>        Wait between runs (default: 0 or $LOOP_DELAY_MS)",
+    "  --duration-ms <ms>     Stop after time budget ($LOOP_DURATION_MS)",
     "  --continue-on-fail     Do not stop on failures ($LOOP_CONTINUE_ON_FAIL=1)",
     "",
     "Example:",
     "  node scripts/loop.mjs --times 30 -- node scripts/update.mjs",
+    "  node scripts/loop.mjs --duration-ms 18000000 -- node scripts/update.mjs",
     "",
   ].join("\n");
 }
@@ -153,9 +159,19 @@ if (parsed.help) {
 const startedAt = nowIso();
 const results = [];
 let aborted = false;
+let stopReason = null;
+const stopAtMs = parsed.durationMs ? Date.now() + parsed.durationMs : null;
 
 for (let i = 0; i < parsed.times; i += 1) {
+  if (stopAtMs && Date.now() >= stopAtMs) {
+    stopReason = "duration_ms_reached";
+    break;
+  }
   if (i > 0 && parsed.delayMs) await sleep(parsed.delayMs);
+  if (stopAtMs && Date.now() >= stopAtMs) {
+    stopReason = "duration_ms_reached";
+    break;
+  }
 
   console.error(`[loop] ${i + 1}/${parsed.times} ${parsed.command.join(" ")}`);
   const result = await runCommand(parsed.command);
@@ -163,9 +179,12 @@ for (let i = 0; i < parsed.times; i += 1) {
 
   if (!result.ok && !parsed.continueOnFail) {
     aborted = true;
+    stopReason = "first_failure";
     break;
   }
 }
+
+if (!stopReason) stopReason = aborted ? "first_failure" : "times_reached";
 
 const finishedAt = nowIso();
 const totals = {
@@ -183,9 +202,11 @@ console.log(
       aborted,
       times: parsed.times,
       delayMs: parsed.delayMs,
+      durationMs: parsed.durationMs,
       continueOnFail: parsed.continueOnFail,
       command: parsed.command,
       totals,
+      stopReason,
       results,
     },
     null,

@@ -1,5 +1,6 @@
-const fs = require("node:fs");
 const path = require("node:path");
+
+const readJsonOrDefault = require("./lib/readJsonOrDefault.js");
 
 const DEFAULT_CATEGORIES = [
   { slug: "world", label: "World" },
@@ -10,14 +11,6 @@ const DEFAULT_CATEGORIES = [
   { slug: "sports", label: "Sports" },
   { slug: "entertainment", label: "Entertainment" },
 ];
-
-function readJsonOrDefault(filePath, fallback) {
-  try {
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
-  } catch (_error) {
-    return fallback;
-  }
-}
 
 function normalizeCategories(input) {
   if (!Array.isArray(input)) return [];

@@ -1,11 +1,6 @@
 <li
   class="news-item"
   data-article-id="{{ item.id }}"
-  data-article-title="{{ item.title | decodeEntities }}"
-  data-article-category="{{ item.category }}"
-  data-article-published-at="{{ item.publishedAt }}"
-  data-article-source-name="{{ item.source.name }}"
-  data-article-path="{{ ('/p/' + item.id + '/') | url }}"
 >
   {% if item.image %}
     <a class="news-thumb" href="{{ ('/p/' + item.id + '/') | url }}" tabindex="-1" aria-hidden="true">
@@ -34,14 +29,12 @@
       {% if item.score %}
         <span class="badge badge-score" title="Quality score">{{ item.score }}</span>
       {% endif %}
-      <span class="muted">{{ item.publishedAt | formatDateTime }}</span>
-      <span class="muted">·</span>
+      <time class="muted" datetime="{{ item.publishedAt }}">{{ item.publishedAt | formatDateTime }}</time>
       {% if item.source and item.source.id %}
-        <a class="muted" href="{{ ('/source/' + item.source.id + '/') | url }}">{{ item.source.name }}</a>
+        <a class="muted" href="{{ ('/source/' + item.source.id + '/') | url }}" data-article-source>{{ item.source.name }}</a>
       {% else %}
-        <span class="muted">{{ item.source.name }}</span>
+        <span class="muted" data-article-source>{{ item.source.name }}</span>
       {% endif %}
-      <span class="muted">·</span>
       <a
         class="muted"
         href="{{ item.canonicalUrl }}"

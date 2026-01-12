@@ -59,6 +59,35 @@ pagefindBody: false
   </ul>
 {% endif %}
 
+{% if runHistory and runHistory.daily and runHistory.daily.length %}
+  <h2>Run trends</h2>
+  <div class="trend-card">
+    <div class="trend-chart" role="img" aria-label="Recent run history: added vs failed">
+      {% set maxTotal = runHistory.dailyMaxTotal or 1 %}
+      {% for day in runHistory.daily %}
+        {% set addedPct = 0 %}
+        {% set failedPct = 0 %}
+        {% if maxTotal %}
+          {% set addedPct = (day.added / maxTotal * 100) %}
+          {% set failedPct = (day.failed / maxTotal * 100) %}
+        {% endif %}
+        <div
+          class="trend-bar"
+          title="{{ day.date }}: {{ day.added }} added / {{ day.failed }} failed"
+          aria-label="{{ day.date }}: {{ day.added }} added / {{ day.failed }} failed"
+        >
+          <span class="trend-bar-added" style="height: {{ addedPct }}%"></span>
+          <span class="trend-bar-failed" style="height: {{ failedPct }}%"></span>
+          <span class="trend-bar-label">{{ day.date }}</span>
+        </div>
+      {% endfor %}
+    </div>
+    <p class="muted small">
+      7d avg: {{ runHistory.averages.added }} added / {{ runHistory.averages.failed }} failed
+    </p>
+  </div>
+{% endif %}
+
 <h2 data-i18n="sources.title">Sources</h2>
 {% if sources and sources.length %}
   <ul class="sources">

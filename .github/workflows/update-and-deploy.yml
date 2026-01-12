@@ -99,6 +99,9 @@ jobs:
       - name: Install
         run: npm ci
 
+      - name: Enforce task hygiene (fail on unfinished/duplicate TODO)
+        run: npm run check:tasks
+
       - name: Update data (fetch → cleanup → indexes)
         run: |
           set -euo pipefail

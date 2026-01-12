@@ -1,11 +1,5 @@
 const sources = require("./sources.js");
-
-function normalizeLanguageCode(input) {
-  const raw = String(input || "en").trim().toLowerCase();
-  if (!raw) return "en";
-  const base = raw.split("-")[0];
-  return base || "en";
-}
+const normalizeLanguageCode = require("./lib/normalizeLanguageCode.js");
 
 module.exports = function () {
   const list = sources();

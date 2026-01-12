@@ -1,17 +1,9 @@
-const fs = require("node:fs");
 const path = require("node:path");
 
 const languages = require("./languages.js");
+const readJsonOrDefault = require("./lib/readJsonOrDefault.js");
 
-const PAGE_SIZE = 50;
-
-function readJsonOrDefault(filePath, fallback) {
-  try {
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
-  } catch (_error) {
-    return fallback;
-  }
-}
+const PAGE_SIZE = require("./lib/pageSize.js");
 
 module.exports = function () {
   const list = languages();

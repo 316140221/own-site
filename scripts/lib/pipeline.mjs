@@ -1391,8 +1391,17 @@ export async function buildIndexes({
   await writeJson(path.join(INDEXES_DIR, "redirects.json"), redirects);
 
   const uniqueArticles = selectedEntries.map((e) => e.article);
+  const sourceLatest = new Map();
   for (const article of uniqueArticles) {
     article.category = classifyCategory(article, categoryRules);
+    const sourceId = String(article?.source?.id || "").trim();
+    if (sourceId) {
+      const publishedMs = safeMs(article.publishedAt);
+      if (Number.isFinite(publishedMs) && publishedMs > 0) {
+        const prev = sourceLatest.get(sourceId) || 0;
+        if (publishedMs > prev) sourceLatest.set(sourceId, publishedMs);
+      }
+    }
   }
   uniqueArticles.sort((a, b) =>
     String(b.publishedAt).localeCompare(String(a.publishedAt))
@@ -1649,6 +1658,11 @@ export async function buildIndexes({
     await writeJson(path.join(BY_SOURCE_DIR, `${sourceId}.json`), list);
   }
 
+  const sourceRecency = Array.from(sourceLatest.entries()).map(([sourceId, ms]) => ({
+    id: sourceId,
+    lastPublishedAt: new Date(ms).toISOString(),
+  }));
+
   return {
     totalArticles: uniqueArticles.length,
     duplicateIds,
@@ -1656,5 +1670,6 @@ export async function buildIndexes({
     deletedDuplicates: duplicatePaths.length + urlDuplicatePaths.length,
     storyClusters: cappedStories.length,
     topItems: cappedTop.length,
+    sourceRecency,
   };
 }

@@ -1,11 +1,21 @@
 import fs from "node:fs";
 import path from "node:path";
+import { toPosixPath } from "./lib/path.mjs";
 
 const distArg = process.argv[2] || "dist";
 const distDir = path.resolve(process.cwd(), distArg);
 
 const SCAN_EXTENSIONS = new Set([".html", ".xml", ".txt"]);
+const SIZE_EXTENSIONS = new Set([".js", ".css", ".html"]);
 const IGNORE_DIRS = new Set(["pagefind"]);
+const MANIFEST_PATH = path.resolve(process.cwd(), "build/asset-manifest.json");
+const HEADERS_PATH = path.resolve(process.cwd(), distArg, "_headers");
+
+const SIZE_BUDGET = {
+  js: Number(process.env.BUDGET_JS_BYTES || 420 * 1024),
+  css: Number(process.env.BUDGET_CSS_BYTES || 260 * 1024),
+  html: Number(process.env.BUDGET_HTML_BYTES || 160 * 1024),
+};
 
 const BANNED_PATTERNS = [
   { label: "npm run build:site", regex: /\bnpm run build:site\b/i },
@@ -43,20 +53,70 @@ function lineNumberForIndex(text, index) {
   return text.slice(0, index).split(/\r?\n/g).length;
 }
 
+function readManifest() {
+  try {
+    const raw = fs.readFileSync(MANIFEST_PATH, "utf8");
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== "object") return null;
+    return parsed;
+  } catch (_error) {
+    return null;
+  }
+}
+
+function manifestAssetToDistRelPath(assetPath) {
+  const raw = String(assetPath || "").trim();
+  if (!raw) return "";
+  const normalized = raw.startsWith("/") ? raw : `/${raw}`;
+  const idx = normalized.indexOf("/assets/");
+  const assetRoot = idx !== -1 ? normalized.slice(idx) : normalized;
+  return assetRoot.replace(/^\/+/, "");
+}
+
 if (!fs.existsSync(distDir)) {
-  console.error(`[audit-dist] Missing directory: ${distDir}`);
+  console.error(`[audit-dist] Missing directory: ${toPosixPath(distDir)}`);
   process.exit(2);
 }
 
 let scannedFiles = 0;
 const violations = [];
+const sizeStats = {
+  js: { total: 0, max: 0, maxFile: null },
+  css: { total: 0, max: 0, maxFile: null },
+  html: { total: 0, max: 0, maxFile: null },
+};
+const plainAssetHits = [];
 
 for (const filePath of walk(distDir)) {
   const ext = path.extname(filePath).toLowerCase();
+  if (SIZE_EXTENSIONS.has(ext)) {
+    const stat = fs.statSync(filePath);
+    const relPath = toPosixPath(path.relative(distDir, filePath));
+    if (ext === ".js") {
+      sizeStats.js.total += stat.size;
+      if (stat.size > sizeStats.js.max) {
+        sizeStats.js.max = stat.size;
+        sizeStats.js.maxFile = relPath;
+      }
+    } else if (ext === ".css") {
+      sizeStats.css.total += stat.size;
+      if (stat.size > sizeStats.css.max) {
+        sizeStats.css.max = stat.size;
+        sizeStats.css.maxFile = relPath;
+      }
+    } else if (ext === ".html") {
+      sizeStats.html.total += stat.size;
+      if (stat.size > sizeStats.html.max) {
+        sizeStats.html.max = stat.size;
+        sizeStats.html.maxFile = relPath;
+      }
+    }
+  }
+
   if (!SCAN_EXTENSIONS.has(ext)) continue;
 
   scannedFiles += 1;
-  const relPath = path.relative(distDir, filePath);
+  const relPath = toPosixPath(path.relative(distDir, filePath));
   const content = fs.readFileSync(filePath, "utf8");
 
   for (const banned of BANNED_PATTERNS) {
@@ -70,16 +130,104 @@ for (const filePath of walk(distDir)) {
       snippet: formatSnippet(content, index),
     });
   }
+
+  if (ext === ".html") {
+    const plainAssets = ["/assets/app.js", "/assets/style.css", "/assets/shop.js", "/assets/sources.js"];
+    for (const assetPath of plainAssets) {
+      const idx = content.indexOf(assetPath);
+      if (idx !== -1) {
+        plainAssetHits.push({
+          file: relPath,
+          line: lineNumberForIndex(content, idx),
+          asset: assetPath,
+        });
+      }
+    }
+  }
 }
 
-if (violations.length) {
+const sizeBreaches = [];
+for (const [key, stats] of Object.entries(sizeStats)) {
+  const limit = SIZE_BUDGET[key];
+  if (limit && stats.max > limit) {
+    sizeBreaches.push({
+      type: key,
+      size: stats.max,
+      limit,
+      file: stats.maxFile,
+      total: stats.total,
+    });
+  }
+}
+
+const cacheIssues = [];
+const manifest = readManifest();
+
+if (!manifest || !manifest.entries || !Object.keys(manifest.entries).length) {
+  cacheIssues.push("asset manifest missing or empty (build/asset-manifest.json)");
+}
+
+if (manifest && manifest.entries && Object.keys(manifest.entries).length) {
+  for (const [key, value] of Object.entries(manifest.entries)) {
+    const rel = manifestAssetToDistRelPath(value);
+    if (!rel) continue;
+    const fullPath = path.join(distDir, rel);
+    if (!fs.existsSync(fullPath)) {
+      cacheIssues.push(
+        `hashed asset missing on disk for ${key}: ${String(value || "").trim()} (expected ${toPosixPath(fullPath)})`
+      );
+    }
+  }
+}
+
+if (plainAssetHits.length) {
+  cacheIssues.push(
+    ...plainAssetHits.map(
+      (hit) => `${hit.file}:${hit.line} references non-hashed asset ${hit.asset}`
+    )
+  );
+}
+
+if (fs.existsSync(HEADERS_PATH)) {
+  const headersContent = fs.readFileSync(HEADERS_PATH, "utf8");
+  const immutableTtl = (manifest && Number(manifest.immutableTtlSeconds)) || 31536000;
+  if (!/Cache-Control:\s*public,max-age=\d+,immutable/i.test(headersContent)) {
+    cacheIssues.push("_headers missing immutable cache-control rule for assets");
+  }
+  if (!headersContent.includes("Cache-Control: public,max-age=300")) {
+    cacheIssues.push("_headers missing short-lived cache-control rule for HTML");
+  }
+  if (headersContent.includes("/assets/") && !headersContent.includes(String(immutableTtl))) {
+    cacheIssues.push(`_headers does not mention configured immutable TTL ${immutableTtl}`);
+  }
+} else {
+  cacheIssues.push("missing dist/_headers for CDN TTL configuration");
+}
+
+if (violations.length || sizeBreaches.length || cacheIssues.length) {
   console.error(
-    `[audit-dist] Found ${violations.length} public-content issue(s) in ${scannedFiles} file(s):`
+    `[audit-dist] Found ${violations.length} public-content issue(s), ${sizeBreaches.length} size breach(es), ${cacheIssues.length} cache issue(s) in ${scannedFiles} file(s):`
   );
   for (const v of violations) {
     console.error(`- ${v.file}:${v.line} contains "${v.label}": ${v.snippet}`);
   }
+
+  if (sizeBreaches.length) {
+    console.error("[audit-dist] Bundle size budget exceeded:");
+    for (const breach of sizeBreaches) {
+      const kb = (breach.size / 1024).toFixed(1);
+      const limitKb = (breach.limit / 1024).toFixed(1);
+      const extra = breach.file ? ` (${breach.file})` : "";
+      console.error(`- ${breach.type} max ${kb}KB > budget ${limitKb}KB${extra}`);
+    }
+  }
+  if (cacheIssues.length) {
+    console.error("[audit-dist] Cache/cdn checks failed:");
+    cacheIssues.forEach((issue) => console.error(`- ${issue}`));
+  }
   process.exit(1);
 }
 
-console.log(`[audit-dist] OK: scanned ${scannedFiles} file(s).`);
+console.log(
+  `[audit-dist] OK: scanned ${scannedFiles} file(s). size totals(js/css/html KB)=${(sizeStats.js.total / 1024).toFixed(1)}/${(sizeStats.css.total / 1024).toFixed(1)}/${(sizeStats.html.total / 1024).toFixed(1)} max(js/css/html KB)=${(sizeStats.js.max / 1024).toFixed(1)}/${(sizeStats.css.max / 1024).toFixed(1)}/${(sizeStats.html.max / 1024).toFixed(1)} maxFiles(js/css/html)=${sizeStats.js.maxFile || "-"} / ${sizeStats.css.maxFile || "-"} / ${sizeStats.html.maxFile || "-"}`
+);

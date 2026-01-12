@@ -28,6 +28,16 @@ pagefindBody: false
 </p>
 
 <div id="search"></div>
+<div class="search-empty" data-search-empty hidden>
+  <p data-i18n="search.zero_results_fallback">
+    No matching results. Try trending stories or browse the latest feed.
+  </p>
+  <ul class="search-empty-links">
+    <li><a href="{{ '/trending/' | url }}" data-i18n="search.fallback.trending">Trending</a></li>
+    <li><a href="{{ '/page/1/' | url }}" data-i18n="search.fallback.latest">Latest</a></li>
+    <li><a href="{{ '/categories/' | url }}" data-i18n="search.fallback.categories">Categories</a></li>
+  </ul>
+</div>
 
 <script>
   window.addEventListener("DOMContentLoaded", () => {
@@ -94,6 +104,10 @@ pagefindBody: false
         zero_results: "No results for [SEARCH_TERM]. Try different keywords or reset filters.",
         one_result: "1 result for [SEARCH_TERM]",
         many_results: "[COUNT] results for [SEARCH_TERM]",
+        zero_results_fallback: "No results found. Try trending or the latest feed.",
+        fallback_trending: "Trending",
+        fallback_latest: "Latest",
+        fallback_categories: "Categories",
       },
       zh: {
         placeholder: "搜索…",
@@ -104,6 +118,10 @@ pagefindBody: false
         zero_results: "未找到“[SEARCH_TERM]”的结果。可尝试更换关键词或重置筛选。",
         one_result: "“[SEARCH_TERM]” 共有 1 条结果",
         many_results: "“[SEARCH_TERM]” 共有 [COUNT] 条结果",
+        zero_results_fallback: "没有匹配结果，试试热门或最新内容。",
+        fallback_trending: "热门",
+        fallback_latest: "最新",
+        fallback_categories: "分类",
       },
     };
 
@@ -122,6 +140,8 @@ pagefindBody: false
     const FILTERS_STORAGE_KEY = "search_filters_v1";
     const resetBtn = document.querySelector("[data-search-reset-filters]");
     const searchRoot = document.getElementById("search");
+    const emptyState = document.querySelector("[data-search-empty]");
+    const searchAb = window.SearchAb || null;
 
     function storageGet(key) {
       try {
@@ -167,6 +187,80 @@ pagefindBody: false
       storageSet(FILTERS_STORAGE_KEY, JSON.stringify(filters));
     }
 
+    function readFiltersFromUrl() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const raw = params.get("filters");
+        if (!raw) return null;
+        const parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return null;
+        return parsed;
+      } catch (_e) {
+        return null;
+      }
+    }
+
+    function writeFiltersToUrl(filters) {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        if (!filters || typeof filters !== "object" || !Object.keys(filters).length) {
+          params.delete("filters");
+        } else {
+          params.set("filters", JSON.stringify(filters));
+        }
+        const next = `${window.location.pathname}${
+          params.toString() ? `?${params.toString()}` : ""
+        }${window.location.hash || ""}`;
+        window.history.replaceState({}, "", next);
+      } catch (_e) {}
+    }
+
+    function persistFilters(filters) {
+      writeSavedFilters(filters);
+      writeFiltersToUrl(filters);
+    }
+
+    function getSearchInput() {
+      if (!searchRoot) return null;
+      const input = searchRoot.querySelector("input.pagefind-ui__search-input");
+      return input instanceof HTMLInputElement ? input : null;
+    }
+
+    function getSearchQuery() {
+      const input = getSearchInput();
+      return input && input.value ? input.value.trim() : "";
+    }
+
+    function collectResultSnapshot() {
+      if (!searchRoot) return [];
+      const results = [];
+      searchRoot.querySelectorAll(".pagefind-ui__result").forEach((resultEl, idx) => {
+        if (!(resultEl instanceof HTMLElement)) return;
+        const link = resultEl.querySelector("a[href]");
+        if (!(link instanceof HTMLAnchorElement)) return;
+        const href = link.getAttribute("href") || "";
+        if (!href) return;
+        const rank = idx + 1;
+        resultEl.setAttribute("data-search-rank", String(rank));
+        results.push({
+          href,
+          rank,
+          title: link.textContent ? link.textContent.trim() : "",
+        });
+      });
+      return results;
+    }
+
+    function refreshSearchTelemetry() {
+      if (!searchAb) return;
+      const results = collectResultSnapshot();
+      if (!results.length) return;
+      searchAb.recordImpression({
+        query: getSearchQuery(),
+        results,
+      });
+    }
+
     function setResetVisible(visible) {
       if (!resetBtn) return;
       resetBtn.hidden = !visible;
@@ -189,6 +283,37 @@ pagefindBody: false
         });
 
       return out;
+    }
+
+    function updateEmptyState() {
+      if (!emptyState) return;
+      const hasResults =
+        searchRoot &&
+        searchRoot.querySelector(".pagefind-ui__results") &&
+        searchRoot.querySelector(".pagefind-ui__result");
+      const messageEl = searchRoot ? searchRoot.querySelector(".pagefind-ui__message") : null;
+      const searchInput =
+        searchRoot && searchRoot.querySelector("input.pagefind-ui__search-input");
+      const hasQuery = searchInput && searchInput.value && searchInput.value.trim().length;
+      emptyState.hidden = Boolean(!hasQuery || hasResults || !messageEl);
+    }
+
+    function applyEmptyStateTranslations() {
+      if (!emptyState) return;
+      const dict = getTranslations(getLang());
+      const text = emptyState.querySelector('[data-i18n="search.zero_results_fallback"]');
+      if (text && dict.zero_results_fallback) text.textContent = dict.zero_results_fallback;
+
+      const map = {
+        "search.fallback.trending": dict.fallback_trending,
+        "search.fallback.latest": dict.fallback_latest,
+        "search.fallback.categories": dict.fallback_categories,
+      };
+
+      Object.entries(map).forEach(([key, value]) => {
+        const el = emptyState.querySelector(`[data-i18n="${key}"]`);
+        if (el && value) el.textContent = value;
+      });
     }
 
     function applyFilterNameTranslations() {
@@ -234,9 +359,12 @@ pagefindBody: false
         translations: getTranslations(getLang()),
       });
 
+      const urlFilters = readFiltersFromUrl();
       const saved = readSavedFilters();
-      if (saved && typeof ui.triggerFilters === "function") {
-        ui.triggerFilters(saved);
+      const initialFilters = urlFilters || saved;
+      if (initialFilters && typeof ui.triggerFilters === "function") {
+        ui.triggerFilters(initialFilters);
+        persistFilters(initialFilters);
         setResetVisible(true);
       } else {
         setResetVisible(false);
@@ -244,6 +372,9 @@ pagefindBody: false
 
       if (q) ui.triggerSearch(q);
       applyFilterNameTranslations();
+      applyEmptyStateTranslations();
+      updateEmptyState();
+      refreshSearchTelemetry();
     }
 
     function bind() {
@@ -256,23 +387,47 @@ pagefindBody: false
           if (!(target instanceof Element)) return;
           if (!target.closest(".pagefind-ui__filter-checkbox")) return;
           const selected = getSelectedFiltersFromDom();
-          writeSavedFilters(selected);
+          persistFilters(selected);
           setResetVisible(Boolean(Object.keys(selected).length));
           applyFilterNameTranslations();
+          updateEmptyState();
         });
 
         const observer = new MutationObserver(() => {
           applyFilterNameTranslations();
+          updateEmptyState();
+          refreshSearchTelemetry();
         });
         observer.observe(searchRoot, { childList: true, subtree: true });
+
+        searchRoot.addEventListener("input", updateEmptyState);
+        searchRoot.addEventListener("click", (event) => {
+          if (!searchAb) return;
+          const target = event.target;
+          if (!(target instanceof Element)) return;
+          const anchor = target.closest(".pagefind-ui__result a");
+          if (!(anchor instanceof HTMLAnchorElement)) return;
+          const href = anchor.getAttribute("href") || "";
+          if (!href) return;
+          const wrap = anchor.closest(".pagefind-ui__result");
+          const rankAttr = wrap ? wrap.getAttribute("data-search-rank") : null;
+          const rank = rankAttr ? Number(rankAttr) : undefined;
+          searchAb.recordClick({
+            href,
+            rank: Number.isFinite(rank) ? rank : undefined,
+            query: getSearchQuery(),
+            title: anchor.textContent ? anchor.textContent.trim() : "",
+          });
+        });
       }
 
       if (resetBtn) {
         resetBtn.addEventListener("click", () => {
-          writeSavedFilters(null);
+          persistFilters(null);
           if (ui && typeof ui.triggerFilters === "function") ui.triggerFilters({});
           setResetVisible(false);
           applyFilterNameTranslations();
+          updateEmptyState();
         });
       }
     }
