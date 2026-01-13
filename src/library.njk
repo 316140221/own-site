@@ -37,6 +37,14 @@ pagefindBody: false
     <button class="button button-secondary" type="button" data-library-export data-i18n="library.export">
       Export
     </button>
+    <button
+      class="button button-secondary"
+      type="button"
+      data-library-export-all
+      data-i18n="library.exportAll"
+    >
+      Export all
+    </button>
     <input
       class="sr-only"
       type="file"
@@ -45,6 +53,14 @@ pagefindBody: false
     />
     <button class="button button-secondary" type="button" data-library-import data-i18n="library.import">
       Import
+    </button>
+    <button
+      class="button button-secondary"
+      type="button"
+      data-library-clear-all
+      data-i18n="library.clearAll"
+    >
+      Clear all
     </button>
   </div>
 
@@ -87,6 +103,24 @@ pagefindBody: false
   <ul class="library-list" data-library-list="recent"></ul>
   <p class="muted" data-library-empty="recent" hidden data-i18n="library.emptyRecent">
     No recently viewed items yet.
+  </p>
+</section>
+
+<section class="library-section" data-library-section="read">
+  <div class="library-header">
+    <h2 class="library-heading" data-i18n="library.read">Read history</h2>
+    <button
+      class="button button-secondary"
+      type="button"
+      data-library-clear="read"
+      data-i18n="library.clear"
+    >
+      Clear
+    </button>
+  </div>
+  <ul class="library-list" data-library-list="read"></ul>
+  <p class="muted" data-library-empty="read" hidden data-i18n="library.emptyRead">
+    No read items yet.
   </p>
 </section>
 
@@ -133,6 +167,29 @@ pagefindBody: false
     data-i18n="library.emptyToolsRecent"
   >
     No recently used tools yet.
+  </p>
+</section>
+
+<section class="library-section" data-library-section="sources-favorites" id="sources-favorites">
+  <div class="library-header">
+    <h2 class="library-heading" data-i18n="library.sourcesFavorites">Starred sources</h2>
+    <button
+      class="button button-secondary"
+      type="button"
+      data-library-clear="sources-favorites"
+      data-i18n="library.clear"
+    >
+      Clear
+    </button>
+  </div>
+  <ul class="library-list" data-library-list="sources-favorites"></ul>
+  <p
+    class="muted"
+    data-library-empty="sources-favorites"
+    hidden
+    data-i18n="library.emptySourcesFavorites"
+  >
+    No starred sources yet.
   </p>
 </section>
 

@@ -12,6 +12,36 @@ rssPath: /feed.xml
   · <a href="{{ '/trending/' | url }}" data-i18n="nav.trending">Trending</a>
 </p>
 
+<section class="list-controls" data-list-filter="categories">
+  <div class="list-controls-filter" role="search" aria-label="Category filter">
+    <label class="sr-only" for="categories-filter-q" data-i18n="categories.filterLabel">
+      Filter categories
+    </label>
+    <input
+      id="categories-filter-q"
+      class="tools-filter-input"
+      type="search"
+      autocomplete="off"
+      spellcheck="false"
+      data-list-filter-input
+      data-i18n-placeholder="categories.filterPlaceholder"
+      placeholder="Filter categories…"
+    />
+    <button
+      class="button button-secondary tools-filter-clear"
+      type="button"
+      data-list-filter-clear
+      data-i18n="tools.filter.clear"
+    >
+      Clear
+    </button>
+  </div>
+  <p class="muted small tools-filter-status" data-list-filter-status hidden></p>
+  <p class="muted tools-filter-empty" data-list-filter-empty hidden data-i18n="categories.filterEmpty">
+    No categories match this filter.
+  </p>
+</section>
+
 {% if categoriesOverview and categoriesOverview.length %}
   <ul class="sources">
     {% for cat in categoriesOverview %}

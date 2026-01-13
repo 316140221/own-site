@@ -141,5 +141,8 @@ eleventyComputed:
 
 <h2 data-i18n="home.latest">Latest</h2>
 {% set items = listPage.items %}
+{% if items and items.length %}
+  {% include "partials/news-controls.njk" %}
+{% endif %}
 {% include "partials/news-list.njk" %}
 {% include "partials/pagination.njk" %}

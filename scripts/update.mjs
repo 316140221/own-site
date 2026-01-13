@@ -3,6 +3,7 @@ import path from "node:path";
 import { buildIndexes, cleanupOldArticles, fetchAllSources } from "./lib/pipeline.mjs";
 import { updateAmazonData } from "./lib/amazon.mjs";
 import { boolFromEnv, intFromEnv, stringFromEnv } from "./lib/env.mjs";
+import { readJsonOrDefault, writeJson } from "./lib/json.mjs";
 
 function formatMarkdownSummary(summary) {
   const finishedAt = summary?.finishedAt || "";
@@ -107,18 +108,11 @@ try {
 }
 
 let sourceNameMap = new Map();
-try {
-  const sourcesJson = await fs.readFile(path.resolve(process.cwd(), "data/sources.json"), "utf8");
-  const sources = JSON.parse(sourcesJson);
-  if (Array.isArray(sources)) {
-    sourceNameMap = new Map(
-      sources
-        .filter((s) => s && s.id)
-        .map((s) => [String(s.id), String(s.name || "")])
-    );
-  }
-} catch (_error) {
-  sourceNameMap = new Map();
+const sources = await readJsonOrDefault(path.resolve(process.cwd(), "data/sources.json"), null);
+if (Array.isArray(sources)) {
+  sourceNameMap = new Map(
+    sources.filter((s) => s && s.id).map((s) => [String(s.id), String(s.name || "")])
+  );
 }
 
 const staleDays = intFromEnv("STALE_SOURCE_DAYS", 7, { min: 0, max: 3650 });
@@ -184,26 +178,16 @@ const summary = {
   staleSources,
 };
 
-await fs.mkdir(path.resolve(process.cwd(), "data/indexes"), { recursive: true });
-await fs.writeFile(
-  path.resolve(process.cwd(), "data/indexes/stats.json"),
-  JSON.stringify(summary, null, 2) + "\n",
-  "utf8"
-);
+await writeJson(path.resolve(process.cwd(), "data/indexes/stats.json"), summary);
 
 const historyDays = intFromEnv("RUN_HISTORY_DAYS", 30, { min: 0, max: 3650 });
 if (Number.isFinite(historyDays) && historyDays > 0) {
   const runsDir = path.resolve(process.cwd(), "data/indexes/runs");
-  await fs.mkdir(runsDir, { recursive: true });
   const runId = String(summary.finishedAt || new Date().toISOString()).replace(
     /[:.]/g,
     "-"
   );
-  await fs.writeFile(
-    path.join(runsDir, `${runId}.json`),
-    JSON.stringify(summary, null, 2) + "\n",
-    "utf8"
-  );
+  await writeJson(path.join(runsDir, `${runId}.json`), summary);
 
   const cutoffMs = Date.now() - historyDays * 24 * 60 * 60 * 1000;
   const entries = await fs.readdir(runsDir);

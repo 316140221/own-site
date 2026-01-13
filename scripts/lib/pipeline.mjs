@@ -4,6 +4,10 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import Parser from "rss-parser";
 import { boolFromEnv, intFromEnv, stringFromEnv } from "./env.mjs";
+import { readJsonOrDefault, writeJson } from "./json.mjs";
+import sharedEntities from "../../shared/entities.cjs";
+
+const { decodeHtmlEntities } = sharedEntities;
 
 const parser = new Parser({
   customFields: {
@@ -48,37 +52,15 @@ async function fileExists(filePath) {
   }
 }
 
-async function readJsonOrDefault(filePath, fallback) {
-  try {
-    return JSON.parse(await fs.readFile(filePath, "utf8"));
-  } catch {
-    return fallback;
-  }
-}
-
-async function writeJson(filePath, data) {
-  await fs.mkdir(path.dirname(filePath), { recursive: true });
-  await fs.writeFile(filePath, JSON.stringify(data, null, 2) + "\n", "utf8");
-}
-
-function decodeHtmlEntities(input) {
-  return input
-    .replaceAll("&amp;", "&")
-    .replaceAll("&lt;", "<")
-    .replaceAll("&gt;", ">")
-    .replaceAll("&quot;", "\"")
-    .replaceAll("&#39;", "'");
-}
-
 function stripHtml(input) {
-  return input
+  return String(input ?? "")
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, " ");
 }
 
 function stripHtmlPreserveNewlines(input) {
-  return input
+  return String(input ?? "")
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<br\s*\/?>/gi, "\n")
@@ -88,7 +70,7 @@ function stripHtmlPreserveNewlines(input) {
 }
 
 function normalizeWhitespace(input) {
-  return input.replace(/\s+/g, " ").trim();
+  return String(input ?? "").replace(/\s+/g, " ").trim();
 }
 
 function normalizeWhitespacePreserveNewlines(input) {
@@ -106,8 +88,9 @@ function normalizeWhitespacePreserveNewlines(input) {
 }
 
 function truncate(input, maxLen) {
-  if (input.length <= maxLen) return input;
-  return input.slice(0, maxLen - 1).trimEnd() + "…";
+  const text = String(input ?? "");
+  if (text.length <= maxLen) return text;
+  return text.slice(0, maxLen - 1).trimEnd() + "…";
 }
 
 function stripBoilerplateFromContent(text) {
@@ -306,36 +289,7 @@ export function normalizeUrl(url) {
 function normalizeUrlForDedupeKey(url) {
   const normalized = normalizeUrl(String(url || "")).trim();
   if (!normalized) return "";
-
-  try {
-    const parsed = new URL(normalized);
-    parsed.hash = "";
-    parsed.hostname = parsed.hostname.toLowerCase();
-
-    const toDelete = [];
-    for (const [key] of parsed.searchParams) {
-      const lower = key.toLowerCase();
-      if (
-        TRACKING_QUERY_PARAMS.has(lower)
-      ) {
-        toDelete.push(key);
-      }
-    }
-    for (const key of toDelete) parsed.searchParams.delete(key);
-
-    const entries = Array.from(parsed.searchParams.entries());
-    entries.sort(([a], [b]) => a.localeCompare(b));
-    parsed.search = "";
-    for (const [k, v] of entries) parsed.searchParams.append(k, v);
-
-    if (parsed.pathname !== "/" && parsed.pathname.endsWith("/")) {
-      parsed.pathname = parsed.pathname.slice(0, -1);
-    }
-
-    return parsed.toString();
-  } catch {
-    return normalized;
-  }
+  return normalized;
 }
 
 function scoreArticleQuality(article) {
@@ -515,18 +469,20 @@ function cleanContentText(
 }
 
 async function fetchResponseWithTimeout(url, { headers }, timeoutMs) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  const timeout = Number(timeoutMs);
+  const hasTimeout = Number.isFinite(timeout) && timeout > 0;
+  const controller = hasTimeout ? new AbortController() : null;
+  const timer = hasTimeout ? setTimeout(() => controller.abort(), timeout) : null;
 
   try {
     const response = await fetch(url, {
       headers,
       redirect: "follow",
-      signal: controller.signal,
+      signal: controller?.signal,
     });
     return response;
   } finally {
-    clearTimeout(timer);
+    if (timer) clearTimeout(timer);
   }
 }
 
@@ -694,23 +650,25 @@ function safeHostname(url) {
 
 export async function fetchAllSources({
   maxItemsPerFeed = 80,
-  timeoutMs = 15000,
+  timeoutMs,
 } = {}) {
   const contentMaxChars = intFromEnv("RSS_CONTENT_MAX_CHARS", 8000, { min: 0 });
   const contentMinChars = intFromEnv("RSS_CONTENT_MIN_CHARS", 200, { min: 0 });
   const minIntervalMinutes = intFromEnv("FETCH_MIN_INTERVAL_MINUTES", 0, { min: 0 });
+  const resolvedTimeoutMs = intFromEnv("FETCH_TIMEOUT_MS", timeoutMs ?? 15000, { min: 0, max: 120000 });
   const fetchRetries = intFromEnv("FETCH_RETRIES", 2, { min: 0, max: 10 });
   const fetchRetryDelayMs = intFromEnv("FETCH_RETRY_DELAY_MS", 500, { min: 0 });
   const fetchRetryMaxDelayMs = intFromEnv("FETCH_RETRY_MAX_DELAY_MS", 8000, { min: 0 });
   const stripBoilerplate = boolFromEnv("RSS_CONTENT_STRIP_BOILERPLATE", true);
 
-  const sources = await readJsonOrDefault(SOURCES_PATH, []);
-  const state = await readJsonOrDefault(STATE_PATH, {});
-  const blocklist = await readJsonOrDefault(BLOCKLIST_PATH, {
-    domains: [],
-    titleContains: [],
-  });
-  const existingArticleIndex = await readJsonOrDefault(ARTICLES_INDEX_PATH, []);
+  const fetchUserAgent = stringFromEnv("FETCH_USER_AGENT", "news-atlas-bot/0.1");
+
+  const [sources, state, blocklist, existingArticleIndex] = await Promise.all([
+    readJsonOrDefault(SOURCES_PATH, []),
+    readJsonOrDefault(STATE_PATH, {}),
+    readJsonOrDefault(BLOCKLIST_PATH, { domains: [], titleContains: [] }),
+    readJsonOrDefault(ARTICLES_INDEX_PATH, []),
+  ]);
   const existingIndexById = new Map(
     Array.isArray(existingArticleIndex)
       ? existingArticleIndex
@@ -744,8 +702,10 @@ export async function fetchAllSources({
     sources: {},
   };
 
-  await fs.mkdir(ARTICLES_DIR, { recursive: true });
-  await fs.mkdir(INDEXES_DIR, { recursive: true });
+  await Promise.all([
+    fs.mkdir(ARTICLES_DIR, { recursive: true }),
+    fs.mkdir(INDEXES_DIR, { recursive: true }),
+  ]);
 
   const enabledSources = sources.filter((s) => s && s.enabled !== false);
   run.totals.sources = enabledSources.length;
@@ -769,7 +729,7 @@ export async function fetchAllSources({
 
     const sourceState = state[sourceId] || {};
     const headers = {
-      "user-agent": "news-atlas-bot/0.1",
+      "user-agent": fetchUserAgent,
       accept: "application/rss+xml, application/xml;q=0.9, text/xml;q=0.8, */*;q=0.1",
     };
 
@@ -835,7 +795,7 @@ export async function fetchAllSources({
         const { response, retriesUsed } = await fetchResponseWithRetry(
           source.feedUrl,
           { headers },
-          timeoutMs,
+          resolvedTimeoutMs,
           {
             retries: fetchRetries,
             baseDelayMs: fetchRetryDelayMs,

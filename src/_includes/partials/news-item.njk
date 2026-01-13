@@ -1,6 +1,10 @@
 <li
   class="news-item"
   data-article-id="{{ item.id }}"
+  data-article-published="{{ item.publishedAt }}"
+  data-article-score="{{ item.score or 0 }}"
+  {% if item.source and item.source.id %}data-article-source-id="{{ item.source.id }}"{% endif %}
+  {% if item.image %}data-article-has-image="1"{% endif %}
 >
   {% if item.image %}
     <a class="news-thumb" href="{{ ('/p/' + item.id + '/') | url }}" tabindex="-1" aria-hidden="true">
@@ -53,6 +57,21 @@
         data-i18n="article.save"
       >
         Save
+      </button>
+      <button
+        class="tag-pill"
+        type="button"
+        data-article-read-card-toggle
+        aria-pressed="false"
+        data-i18n="article.markRead"
+      >
+        Mark read
+      </button>
+      <button class="tag-pill" type="button" data-copy-article-card data-i18n="article.copy">
+        Copy link
+      </button>
+      <button class="tag-pill" type="button" data-share-article-card data-i18n="article.share">
+        Share
       </button>
     </div>
     {% if item.summary %}

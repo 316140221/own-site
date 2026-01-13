@@ -5,6 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import { toPosixPath } from "./lib/path.mjs";
 import { intFromEnv } from "./lib/env.mjs";
+import { readJsonOrDefault, writeJson } from "./lib/json.mjs";
 
 const ROOT = process.cwd();
 const DIST_DIR = path.join(ROOT, "dist");
@@ -53,7 +54,21 @@ async function mapLimit(items, limit, worker) {
   await Promise.all(runners);
 }
 
-async function collectHtmlHashes(baseDir) {
+function normalizeFileMeta(value) {
+  if (typeof value === "string") {
+    return { hash: value, size: null, mtimeMs: null };
+  }
+  if (!value || typeof value !== "object") return null;
+
+  const hash = typeof value.hash === "string" ? value.hash : "";
+  if (!hash) return null;
+
+  const size = Number.isFinite(Number(value.size)) ? Number(value.size) : null;
+  const mtimeMs = Number.isFinite(Number(value.mtimeMs)) ? Number(value.mtimeMs) : null;
+  return { hash, size, mtimeMs };
+}
+
+async function collectHtmlHashes(baseDir, prevFiles = {}) {
   const entries = [];
   async function walk(current) {
     const dirEntries = await fs.readdir(current, { withFileTypes: true });
@@ -78,27 +93,38 @@ async function collectHtmlHashes(baseDir) {
 
   const hashes = {};
   await mapLimit(entries, HASH_CONCURRENCY, async (entry) => {
-    hashes[entry.rel] = await hashFile(entry.fullPath);
+    const stat = await fs.stat(entry.fullPath);
+    const size = stat.size;
+    const mtimeMs = stat.mtimeMs;
+    const prev = normalizeFileMeta(prevFiles[entry.rel]);
+    if (prev && prev.hash && prev.size === size && prev.mtimeMs === mtimeMs) {
+      hashes[entry.rel] = prev;
+      return;
+    }
+
+    const hash = await hashFile(entry.fullPath);
+    hashes[entry.rel] = { hash, size, mtimeMs };
   });
   return hashes;
 }
 
 async function readManifest() {
-  try {
-    const raw = await fs.readFile(MANIFEST_PATH, "utf8");
-    const parsed = JSON.parse(raw);
-    if (parsed && typeof parsed === "object" && parsed.files) {
-      return parsed;
-    }
-    return { files: {} };
-  } catch {
-    return { files: {} };
+  const parsed = await readJsonOrDefault(MANIFEST_PATH, { files: {} });
+  const rawFiles =
+    parsed && typeof parsed === "object" && parsed.files && typeof parsed.files === "object"
+      ? parsed.files
+      : {};
+  const files = {};
+  for (const [rel, value] of Object.entries(rawFiles)) {
+    const meta = normalizeFileMeta(value);
+    if (!meta) continue;
+    files[rel] = meta;
   }
+  return { ...(parsed && typeof parsed === "object" ? parsed : {}), files };
 }
 
 async function writeManifest(payload) {
-  await ensureDir(CACHE_DIR);
-  await fs.writeFile(MANIFEST_PATH, JSON.stringify(payload, null, 2) + "\n", "utf8");
+  await writeJson(MANIFEST_PATH, payload);
 }
 
 async function copyDir(src, dest) {
@@ -165,6 +191,7 @@ async function reuseIndexIfUnchanged(hashes, changed, removed) {
   }
 
   await writeManifest({
+    version: 2,
     files: hashes,
     indexedAt: new Date().toISOString(),
     changed,
@@ -190,6 +217,7 @@ async function saveCache(hashes, changed, removed) {
   }
 
   await writeManifest({
+    version: 2,
     files: hashes,
     indexedAt: new Date().toISOString(),
     changed,
@@ -210,12 +238,13 @@ async function main() {
 
   const prevManifest = await readManifest();
   const prevFiles = prevManifest.files || {};
-  const currentHashes = await collectHtmlHashes(DIST_DIR);
+  const currentHashes = await collectHtmlHashes(DIST_DIR, prevFiles);
   const changed = [];
   const removed = [];
 
-  for (const [rel, hash] of Object.entries(currentHashes)) {
-    if (prevFiles[rel] !== hash) changed.push(rel);
+  for (const [rel, meta] of Object.entries(currentHashes)) {
+    const prevHash = prevFiles[rel]?.hash || "";
+    if (prevHash !== meta.hash) changed.push(rel);
   }
   for (const rel of Object.keys(prevFiles)) {
     if (!currentHashes[rel]) removed.push(rel);

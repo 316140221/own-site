@@ -31,19 +31,62 @@ pageScript: /assets/sources.js
     data-source-filter
     aria-describedby="source-filter-status"
   />
-  {% if sourceTags and sourceTags.length %}
-    <div class="source-tag-filters" aria-labelledby="source-tags-label">
-      <span class="sr-only" id="source-tags-label" data-i18n="sources.tagsLabel">Source tags</span>
-      <a class="tag-pill" href="{{ '/sources/' | url }}" data-i18n="common.all">All</a>
-      {% for tag in sourceTags %}
-        <a class="tag-pill" href="{{ ('/sources/?tag=' + tag.param) | url }}">{{ tag.label }}</a>
-      {% endfor %}
-    </div>
-  {% endif %}
-  <p
-    class="muted small source-filter-status"
-    id="source-filter-status"
-    data-source-filter-status
+  {% if sourceTags and sourceTags.length %}
+    <div class="source-tag-filters" aria-labelledby="source-tags-label">
+      <span class="sr-only" id="source-tags-label" data-i18n="sources.tagsLabel">Source tags</span>
+      <a class="tag-pill" href="{{ '/sources/' | url }}" data-i18n="common.all">All</a>
+      {% for tag in sourceTags %}
+        <a class="tag-pill" href="{{ ('/sources/?tag=' + tag.param) | url }}">{{ tag.label }}</a>
+      {% endfor %}
+    </div>
+  {% endif %}
+  <div class="source-tag-filters" aria-labelledby="source-status-label" data-source-status-filters>
+    <span class="sr-only" id="source-status-label" data-i18n="sources.statusLabel">Status</span>
+    <button class="tag-pill" type="button" data-source-status="" data-i18n="sources.status.all">
+      All
+    </button>
+    <button class="tag-pill" type="button" data-source-status="ok" data-i18n="sources.status.ok">OK</button>
+    <button
+      class="tag-pill"
+      type="button"
+      data-source-status="failed"
+      data-i18n="sources.status.failed"
+    >
+      Failed
+    </button>
+    <button
+      class="tag-pill"
+      type="button"
+      data-source-status="paused"
+      data-i18n="sources.status.paused"
+    >
+      Paused
+    </button>
+    <button class="tag-pill" type="button" data-source-status="stale" data-i18n="sources.status.stale">
+      Stale
+    </button>
+    <button
+      class="tag-pill"
+      type="button"
+      data-source-status="disabled"
+      data-i18n="sources.status.disabled"
+    >
+      Disabled
+    </button>
+    <button
+      class="tag-pill"
+      type="button"
+      data-source-starred-only
+      aria-pressed="false"
+      data-i18n="sources.starredOnly"
+    >
+      Starred only
+    </button>
+  </div>
+  <p
+    class="muted small source-filter-status"
+    id="source-filter-status"
+    data-source-filter-status
     role="status"
     aria-live="polite"
   ></p>
@@ -66,20 +109,40 @@ pageScript: /assets/sources.js
         <th scope="col" data-i18n="sources.table.failStreak">Fail streak</th>
       </tr>
     </thead>
-    <tbody>
-      {% for s in sourceHealth %}
-        <tr
-          class="{% if s.isFailing %}row-bad{% elseif s.isPaused %}row-paused{% elseif s.isStale %}row-stale{% endif %}"
-          data-source-id="{{ s.id }}"
-          data-source-name="{{ s.name }}"
-          data-source-category="{{ s.category }}"
-          data-source-language="{{ s.language }}"
-          data-source-country="{{ s.country or '' }}"
-          data-source-tags="{{ (s.tags or []) | join(',') }}"
-        >
+    <tbody>
+      {% for s in sourceHealth %}
+        {% set filterStatus = 'ok' %}
+        {% if not s.enabled %}
+          {% set filterStatus = 'disabled' %}
+        {% elseif s.isPaused %}
+          {% set filterStatus = 'paused' %}
+        {% elseif s.isFailing %}
+          {% set filterStatus = 'failed' %}
+        {% elseif s.isStale %}
+          {% set filterStatus = 'stale' %}
+        {% endif %}
+        <tr
+          class="{% if s.isFailing %}row-bad{% elseif s.isPaused %}row-paused{% elseif s.isStale %}row-stale{% endif %}"
+          data-source-id="{{ s.id }}"
+          data-source-name="{{ s.name }}"
+          data-source-category="{{ s.category }}"
+          data-source-language="{{ s.language }}"
+          data-source-country="{{ s.country or '' }}"
+          data-source-tags="{{ (s.tags or []) | join(',') }}"
+          data-source-status="{{ filterStatus }}"
+        >
           <td>
             <div>
-              <strong><a href="{{ ('/source/' + s.id + '/') | url }}">{{ s.name }}</a></strong>
+              <strong><a href="{{ ('/source/' + s.id + '/') | url }}">{{ s.name }}</a></strong>
+              <button
+                class="tag-pill source-star"
+                type="button"
+                data-favorite-source
+                aria-pressed="false"
+                data-i18n="sources.star"
+              >
+                Star
+              </button>
               {% if s.isStale %}
                 <span class="badge badge-stale">stale</span>
               {% endif %}
@@ -91,7 +154,15 @@ pageScript: /assets/sources.js
               {% endif %}
               <a class="muted" href="{{ s.feedUrl }}" target="_blank" rel="nofollow noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin" data-i18n="sources.link.rss">RSS</a>
               ·
-              <span class="muted">{{ s.id }}</span>
+              <span class="muted">{{ s.id }}</span>
+              <button
+                class="tag-pill source-copy-id"
+                type="button"
+                data-source-copy-id="{{ s.id }}"
+                data-i18n="sources.copyId"
+              >
+                Copy ID
+              </button>
               {% if not s.enabled %}· <span class="badge" data-i18n="sources.disabled">disabled</span>{% endif %}
               {% if s.tags and s.tags.length %}
                 ·

@@ -15,6 +15,9 @@ eleventyComputed:
 
 <h1>{{ langPage.label }}</h1>
 {% set items = langPage.items %}
+{% if items and items.length %}
+  {% include "partials/news-controls.njk" %}
+{% endif %}
 {% include "partials/news-list.njk" %}
 {% if langPage.totalPages > 1 %}
   {% include "partials/language-pager.njk" %}

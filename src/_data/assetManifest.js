@@ -5,27 +5,17 @@ const manifestPath = path.resolve(process.cwd(), "build/asset-manifest.json");
 const buildAssetDir = path.resolve(process.cwd(), "build/assets");
 
 const { ASSET_KEYS, DEFAULT_ASSET_PATHS } = require("../../shared/assets.cjs");
+const { isExternalAssetUrl, stripQueryAndHash } = require("../../shared/path.cjs");
+const readJsonOrDefault = require("./lib/readJsonOrDefault.js");
 
 const DEFAULTS = DEFAULT_ASSET_PATHS;
 const REQUIRED_KEYS = ASSET_KEYS;
 
-function readManifest() {
-  try {
-    const raw = fs.readFileSync(manifestPath, "utf8");
-    const parsed = JSON.parse(raw);
-    if (!parsed || typeof parsed !== "object") return null;
-    return parsed;
-  } catch (_error) {
-    return null;
-  }
-}
-
 function normalizeAssetPath(value) {
   const trimmed = String(value || "").trim();
   if (!trimmed) return "";
-  if (/^https?:\/\//i.test(trimmed)) return "";
-  if (trimmed.startsWith("//")) return "";
-  const cleaned = trimmed.split(/[?#]/, 1)[0];
+  if (isExternalAssetUrl(trimmed)) return "";
+  const cleaned = stripQueryAndHash(trimmed);
   if (!cleaned) return "";
   return cleaned.startsWith("/") ? cleaned : `/${cleaned.replace(/^\/+/, "")}`;
 }
@@ -57,7 +47,7 @@ function resolveEntries(manifest) {
 }
 
 module.exports = function () {
-  const manifest = readManifest();
+  const manifest = readJsonOrDefault(manifestPath, null);
   const resolved = resolveEntries(manifest);
   const ready = REQUIRED_KEYS.every((key) => resolved[key]);
 

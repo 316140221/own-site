@@ -1,0 +1,24 @@
+---
+permalink: "manifest.webmanifest"
+eleventyExcludeFromCollections: true
+---
+{%
+  set manifest = {
+    name: site.name,
+    short_name: site.brand or site.name,
+    description: site.description,
+    start_url: "/" | url,
+    scope: "/" | url,
+    display: "standalone",
+    background_color: "#0b1020",
+    theme_color: "#0284c7",
+    icons: [
+      {
+        src: "/assets/favicon.svg" | url,
+        sizes: "any",
+        type: "image/svg+xml"
+      }
+    ]
+  }
+%}
+{{ manifest | jsonLd | safe }}

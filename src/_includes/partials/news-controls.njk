@@ -1,0 +1,127 @@
+<section class="news-controls" data-news-controls aria-label="News filters">
+  <div class="news-controls-filter" role="search" aria-label="News search">
+    <label class="sr-only" for="news-filter-q" data-i18n="news.filter.searchLabel">
+      Filter news
+    </label>
+    <input
+      id="news-filter-q"
+      class="tools-filter-input"
+      type="search"
+      autocomplete="off"
+      spellcheck="false"
+      data-news-filter-input
+      data-i18n-placeholder="news.filter.searchPlaceholder"
+      placeholder="Filter news…"
+    />
+  </div>
+
+  <div class="news-controls-left">
+    <button
+      class="tag-pill"
+      type="button"
+      data-news-saved-only
+      aria-pressed="false"
+      data-i18n="news.filter.savedOnly"
+    >
+      Saved only
+    </button>
+    <button
+      class="tag-pill"
+      type="button"
+      data-news-unread-only
+      aria-pressed="false"
+      data-i18n="news.filter.unreadOnly"
+    >
+      Unread only
+    </button>
+    <button
+      class="tag-pill"
+      type="button"
+      data-news-images-only
+      aria-pressed="false"
+      data-i18n="news.filter.imagesOnly"
+    >
+      Images only
+    </button>
+    <button
+      class="tag-pill"
+      type="button"
+      data-news-starred-sources-only
+      aria-pressed="false"
+      data-i18n="news.filter.starredSourcesOnly"
+    >
+      Starred sources
+    </button>
+
+    <label class="tool-option">
+      <span data-i18n="news.filter.score.label">Score:</span>
+      <select class="library-select" data-news-score>
+        <option value="" data-i18n="news.filter.score.any">Any</option>
+        <option value="70" data-i18n="news.filter.score.70">≥70</option>
+        <option value="80" data-i18n="news.filter.score.80">≥80</option>
+        <option value="90" data-i18n="news.filter.score.90">≥90</option>
+      </select>
+    </label>
+
+    <label class="tool-option">
+      <span data-i18n="news.filter.sort.label">Sort:</span>
+      <select class="library-select" data-news-sort>
+        <option value="new" data-i18n="news.filter.sort.new">Newest</option>
+        <option value="old" data-i18n="news.filter.sort.old">Oldest</option>
+        <option value="score" data-i18n="news.filter.sort.score">Score</option>
+      </select>
+    </label>
+
+    <button
+      class="tag-pill"
+      type="button"
+      data-news-view-compact
+      aria-pressed="false"
+      data-i18n="news.view.compact"
+    >
+      Compact
+    </button>
+    <button
+      class="tag-pill"
+      type="button"
+      data-news-view-hide-summaries
+      aria-pressed="false"
+      data-i18n="news.view.hideSummaries"
+    >
+      Hide summaries
+    </button>
+  </div>
+
+  <div class="news-controls-right">
+    <button
+      class="button button-secondary"
+      type="button"
+      data-news-mark-visible-read
+      data-i18n="news.filter.markVisibleRead"
+    >
+      Mark visible read
+    </button>
+    <button
+      class="button button-secondary"
+      type="button"
+      data-news-undo
+      hidden
+      data-i18n="news.filter.undo"
+    >
+      Undo
+    </button>
+    <button
+      class="button button-secondary"
+      type="button"
+      data-news-clear-filters
+      data-i18n="news.filter.clear"
+    >
+      Clear
+    </button>
+  </div>
+
+  <p class="muted small news-filter-status" data-news-filter-status hidden></p>
+  <p class="muted news-filter-empty" data-news-filter-empty hidden data-i18n="news.filter.empty">
+    No items match this filter.
+  </p>
+</section>

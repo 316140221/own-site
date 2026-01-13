@@ -16,10 +16,11 @@ function readFileSafe(filePath) {
 
 function parseAttrs(raw) {
   const attrs = {};
-  const attrRe = /(\w[\w-]*)\s*=\s*["']([^"']*)["']/gi;
+  const attrRe = /(\w[\w-]*)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/gi;
   let match;
   while ((match = attrRe.exec(raw))) {
-    attrs[match[1].toLowerCase()] = match[2];
+    const value = match[2] ?? match[3] ?? match[4] ?? "";
+    attrs[match[1].toLowerCase()] = value;
   }
   attrs.classList = (attrs.class || "")
     .split(/\s+/g)
@@ -31,17 +32,25 @@ function parseAttrs(raw) {
 function collectFocusables(html) {
   if (!html) return [];
   const items = [];
-  const re = /<(a|button|input)[^>]*>/gi;
+  const re = /<(a|button|input|select|textarea|summary)[^>]*>/gi;
   let match;
   while ((match = re.exec(html))) {
     const tag = match[1].toLowerCase();
     const raw = match[0];
     const attrs = parseAttrs(raw);
+    const hidden = /\bhidden\b/i.test(raw) || attrs.hidden !== undefined || attrs["aria-hidden"] === "true";
     const disabled =
       /\bdisabled\b/i.test(raw) || attrs.disabled !== undefined || attrs["aria-disabled"] === "true";
     const tabIndex = attrs.tabindex !== undefined ? Number(attrs.tabindex) : null;
     const href = attrs.href || "";
     const focusBlocked = tabIndex === -1;
+    const type = String(attrs.type || "").trim().toLowerCase();
+
+    let focusable = true;
+    if (hidden) focusable = false;
+    if (tag === "a") focusable = focusable && (Boolean(href) || attrs.tabindex !== undefined);
+    if (tag === "input") focusable = focusable && type !== "hidden";
+    if (disabled) focusable = false;
     items.push({
       tag,
       raw,
@@ -50,6 +59,7 @@ function collectFocusables(html) {
       tabIndex: Number.isFinite(tabIndex) ? tabIndex : 0,
       disabled,
       focusBlocked,
+      focusable,
     });
   }
   return items;
@@ -69,16 +79,17 @@ const focusRuleOk = /:focus-visible\s*{[^}]*outline[^}]*}/i.test(css);
 if (!focusRuleOk) errors.push("style.css lacks a :focus-visible outline rule");
 
 const beforeMain = html.split(/<main[\s>]/i)[0] || html;
-const focusables = collectFocusables(beforeMain).filter((item) => !item.disabled);
-if (!focusables.length) {
+const focusables = collectFocusables(beforeMain);
+const tabStops = focusables.filter((item) => item.focusable && !item.focusBlocked);
+if (!tabStops.length) {
   errors.push("no focusable elements found before <main> (expected skip link and nav controls)");
 }
 
-const skipIndex = focusables.findIndex((item) => item.classes.includes("skip-link"));
+const skipIndex = tabStops.findIndex((item) => item.classes.includes("skip-link"));
 if (skipIndex !== 0) {
   errors.push(`skip link should be the first tab stop before <main> (found at index ${skipIndex})`);
 }
-const skipLink = skipIndex >= 0 ? focusables[skipIndex] : null;
+const skipLink = skipIndex >= 0 ? tabStops[skipIndex] : null;
 if (skipLink && skipLink.href !== "#main-content") {
   errors.push(`skip link href should be "#main-content" (found "${skipLink.href || ""}")`);
 }
@@ -88,12 +99,12 @@ if (!mainAnchorOk) {
   errors.push('missing <main id="main-content"> anchor for skip link');
 }
 
-const brandIndex = focusables.findIndex((item) => item.classes.includes("brand"));
+const brandIndex = tabStops.findIndex((item) => item.classes.includes("brand"));
 if (brandIndex === -1) {
   errors.push("brand link is not focusable");
 }
 
-const toggleIndex = focusables.findIndex((item) => item.classes.includes("menu-toggle"));
+const toggleIndex = tabStops.findIndex((item) => item.classes.includes("menu-toggle"));
 if (toggleIndex === -1) {
   errors.push("menu toggle is not focusable");
 } else if (brandIndex !== -1 && toggleIndex < brandIndex) {
@@ -102,7 +113,7 @@ if (toggleIndex === -1) {
 
 const navMatch = html.match(/<nav[^>]*id=["']site-nav["'][^>]*>([\s\S]*?)<\/nav>/i);
 const navHtml = navMatch ? navMatch[1] : "";
-const navLinks = collectFocusables(navHtml).filter((item) => item.tag === "a" && !item.focusBlocked);
+const navLinks = collectFocusables(navHtml).filter((item) => item.tag === "a" && item.focusable && !item.focusBlocked);
 if (!navHtml) errors.push('nav#site-nav not found');
 if (navLinks.length < 4) errors.push(`nav links too few (found ${navLinks.length}, expected >= 4)`);
 
@@ -111,7 +122,7 @@ if (blocked.length) {
   warnings.push(`${blocked.length} item(s) have tabindex=-1 before <main>`);
 }
 
-const missingHref = navLinks.filter((item) => !item.href);
+const missingHref = collectFocusables(navHtml).filter((item) => item.tag === "a" && !item.href);
 if (missingHref.length) warnings.push(`${missingHref.length} nav link(s) missing href`);
 
 if (errors.length) {
@@ -129,6 +140,6 @@ if (warnings.length) {
   warnings.forEach((msg) => console.log(`- ${msg}`));
 } else {
   console.log(
-    `[nav-a11y] OK: focusable_before_main=${focusables.length} nav_links=${navLinks.length} focus-visible=${focusRuleOk ? "yes" : "no"}`
+    `[nav-a11y] OK: focusable_before_main=${tabStops.length} nav_links=${navLinks.length} focus-visible=${focusRuleOk ? "yes" : "no"}`
   );
 }

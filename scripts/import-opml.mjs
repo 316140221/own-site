@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { readJsonOrDefault, writeJson } from "./lib/json.mjs";
 
 function usage() {
   console.error(
@@ -170,7 +171,7 @@ if (!outlines.length) {
 }
 
 const sourcesPath = path.resolve(process.cwd(), "data/sources.json");
-const existing = JSON.parse(await fs.readFile(sourcesPath, "utf8"));
+const existing = await readJsonOrDefault(sourcesPath, []);
 const sources = Array.isArray(existing) ? existing : [];
 
 const usedIds = new Set(
@@ -209,6 +210,8 @@ for (const outline of outlines) {
   existingFeeds.add(feedUrl);
 }
 
+added.sort((a, b) => String(a?.id || "").localeCompare(String(b?.id || "")));
+
 if (!added.length) {
   console.log("No new sources to add.");
   process.exit(0);
@@ -226,6 +229,6 @@ if (args.dryRun) {
   process.exit(0);
 }
 
-await fs.writeFile(sourcesPath, JSON.stringify(merged, null, 2) + "\n", "utf8");
+await writeJson(sourcesPath, merged);
 console.log(`Added ${added.length} sources into data/sources.json`);
 

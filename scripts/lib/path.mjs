@@ -1,23 +1,20 @@
-import path from "node:path";
+import sharedPath from "../../shared/path.cjs";
 
 export function toPosixPath(inputPath) {
-  if (!inputPath) return "";
-  const text = String(inputPath);
-  if (!text) return "";
-  if (path.sep === "\\") return text.replace(/\\/g, "/");
-  return text;
+  return sharedPath.toPosixPath(inputPath);
 }
 
 export function stripQueryAndHash(value) {
-  const raw = String(value || "").trim();
-  if (!raw) return "";
-  return raw.split(/[?#]/, 1)[0];
+  return sharedPath.stripQueryAndHash(value);
+}
+
+export function isExternalAssetUrl(url) {
+  return sharedPath.isExternalAssetUrl(url);
 }
 
 export function normalizePathPrefix(rawPrefix = process.env.PATH_PREFIX) {
-  const raw = String(rawPrefix || "/").trim();
-  if (!raw || raw === "/") return "/";
-  return `/${raw.replace(/^\/+|\/+$/g, "")}/`;
+  const value = rawPrefix === undefined ? process.env.PATH_PREFIX : rawPrefix;
+  return sharedPath.normalizePathPrefix(value);
 }
 
 export function stripPathPrefix(urlPath, rawPrefix = process.env.PATH_PREFIX) {

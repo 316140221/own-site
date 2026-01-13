@@ -115,6 +115,21 @@ function containsCjk(value) {
   return /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/.test(String(value || ""));
 }
 
+function estimateReadingMinutes(value) {
+  const input = String(value || "").trim();
+  if (!input) return 0;
+
+  if (containsCjk(input)) {
+    const chars = input.replace(/\s+/g, "").length;
+    const minutes = Math.ceil(chars / 400);
+    return Math.max(1, Math.min(minutes, 60));
+  }
+
+  const tokens = input.match(/[a-z0-9]+(?:'[a-z0-9]+)?/gi) || [];
+  const minutes = Math.ceil(tokens.length / 200);
+  return Math.max(1, Math.min(minutes, 60));
+}
+
 function normalizeSentenceForCompare(value) {
   const input = String(value || "").toLowerCase();
   return input
@@ -273,6 +288,12 @@ module.exports = {
         summary: article.summary,
         contentText: article.contentText,
       });
+    },
+    readingMinutes: (data) => {
+      const article = data.article;
+      if (!article) return 0;
+      const text = String(article.contentText || article.summary || "").trim();
+      return estimateReadingMinutes(text);
     },
     relatedArticles: (data) => {
       const current = data.entry;

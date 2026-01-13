@@ -9,10 +9,26 @@ description: "Frontend-only utilities: encoding, formatting, hashing, generators
 
 {% if tools and tools.groups %}
   <section class="tools-index-controls">
+    <section class="tools-recents" data-tools-recents hidden>
+      <div class="tools-recents-header">
+        <h2 class="tools-recents-title" data-i18n="tools.recents">Recently used</h2>
+        <button
+          class="button button-secondary"
+          type="button"
+          data-tools-recents-clear
+          data-i18n="library.clear"
+        >
+          Clear
+        </button>
+      </div>
+      <div class="tools-recents-list" data-tools-recents-list></div>
+    </section>
+
     <div class="tools-index-jumps">
       {% for group in tools.groups %}
         <a class="tag-pill" href="{{ ('/tools/#' + group.id) | url }}">
           <span data-i18n="tools.group.{{ group.id }}">{{ group.label }}</span>
+          <span class="tag-pill-count" data-tools-group-count="{{ group.id }}" aria-hidden="true" hidden></span>
         </a>
       {% endfor %}
     </div>
@@ -36,6 +52,18 @@ description: "Frontend-only utilities: encoding, formatting, hashing, generators
         data-i18n="tools.filter.clear"
       >
         Clear
+      </button>
+      <button
+        class="button button-secondary"
+        type="button"
+        data-tools-favorites-only
+        aria-pressed="false"
+        data-i18n="tools.filter.favoritesOnly"
+      >
+        Favorites only
+      </button>
+      <button class="button button-secondary" type="button" data-tools-random data-i18n="tools.random">
+        Random tool
       </button>
     </div>
 

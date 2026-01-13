@@ -37,6 +37,8 @@ const I18N = {
     "library.toolsRecent": "Recently used tools",
     "library.emptyToolsFavorites": "No saved tools yet.",
     "library.emptyToolsRecent": "No recently used tools yet.",
+    "library.sourcesFavorites": "Starred sources",
+    "library.emptySourcesFavorites": "No starred sources yet.",
     "library.shopFavorites": "Saved products",
     "library.emptyShopFavorites": "No saved products yet.",
     "library.search.label": "Filter",
@@ -45,15 +47,21 @@ const I18N = {
     "library.sort.recent": "Recent",
     "library.sort.titleAsc": "Title A→Z",
     "library.sort.titleDesc": "Title Z→A",
-    "library.export": "Export",
+    "library.export": "Export favorites",
+    "library.exportAll": "Export all",
     "library.import": "Import",
+    "library.clearAll": "Clear all",
+    "library.read": "Read history",
+    "library.emptyRead": "No read items yet.",
+    "library.confirmClearAll": "This clears your local library data. Continue?",
     "library.backupNote":
-      "Import/export only affects your local saved items (JSON). Nothing is uploaded.",
+      "Import/export only affects your local data (JSON). Nothing is uploaded.",
     "library.status.filtered": "Showing {count} items for “{q}”",
     "library.status.noResults": "No items match “{q}”.",
     "library.status.exported": "Exported.",
+    "library.status.clearedAll": "Cleared.",
     "library.importSuccess":
-      "Imported: {articles} articles, {tools} tools, {shop} products.",
+      "Imported: {articles} articles, {tools} tools, {sources} sources, {shop} products.",
     "library.importFailed": "Import failed. Please check the JSON file.",
 
     "search.label": "Search",
@@ -182,10 +190,40 @@ const I18N = {
     "home.randomToolsNote": "Random picks refreshed regularly.",
     "home.noTools": "No tools yet.",
     "news.empty": "No updates yet.",
+    "news.filter.searchLabel": "Filter news",
+    "news.filter.searchPlaceholder": "Filter news…",
+    "news.filter.searchTag": "Search: “{q}”",
+    "news.filter.savedOnly": "Saved only",
+    "news.filter.unreadOnly": "Unread only",
+    "news.filter.imagesOnly": "Images only",
+    "news.filter.starredSourcesOnly": "Starred sources",
+    "news.filter.score.label": "Score:",
+    "news.filter.score.any": "Any",
+    "news.filter.score.70": "≥70",
+    "news.filter.score.80": "≥80",
+    "news.filter.score.90": "≥90",
+    "news.filter.scoreTag": "Score ≥ {score}",
+    "news.filter.sort.label": "Sort:",
+    "news.filter.sort.new": "Newest",
+    "news.filter.sort.old": "Oldest",
+    "news.filter.sort.score": "Score",
+    "news.view.compact": "Compact",
+    "news.view.hideSummaries": "Hide summaries",
+    "news.filter.markVisibleRead": "Mark visible read",
+    "news.filter.undo": "Undo",
+    "news.filter.clear": "Clear",
+    "news.filter.empty": "No items match this filter.",
+    "news.filter.status": "Showing {shown} / {total}",
+    "news.filter.statusWith": "{label} · Showing {shown} / {total}",
+    "news.filter.statusSaved": "Saved only · Showing {shown} / {total}",
+    "news.filter.statusUnread": "Unread only · Showing {shown} / {total}",
+    "news.filter.statusSavedUnread": "Saved + Unread · Showing {shown} / {total}",
 
     "trending.subtitle": "Stories are clustered by similar titles from the last {hours} hours.",
     "trending.coverage": "Coverage {coverage}",
     "trending.seeArticles": "See {count} articles",
+    "trending.expandAll": "Expand all",
+    "trending.collapseAll": "Collapse all",
     "trending.empty": "No stories yet. Check back later.",
     "trending.topTitle": "Top",
     "trending.topSubtitle": "Highest-quality items from the last {hours} hours.",
@@ -206,9 +244,21 @@ const I18N = {
     "runs.addedLabel": "Added: {count}",
     "runs.stories": "· {count} stories",
     "runs.empty": "No run history yet. Check back later.",
+    "runs.filter.issuesOnly": "Issues only",
+    "runs.filter.order.label": "Order:",
+    "runs.filter.order.desc": "Newest",
+    "runs.filter.order.asc": "Oldest",
+    "runs.filter.clear": "Reset",
+    "runs.filter.status": "Showing {shown} / {total}",
+    "runs.filter.statusIssues": "Issues only · Showing {shown} / {total}",
 
     "article.copy": "Copy link",
+    "article.copyOriginal": "Copy original",
+    "article.copyTitle": "Copy title",
     "article.share": "Share",
+    "article.markRead": "Mark read",
+    "article.markUnread": "Mark unread",
+    "article.readingTime": "{minutes} min read",
     "article.related": "Recommended",
     "article.openOriginal": "Open original →",
     "article.readOriginal": "Read original",
@@ -235,18 +285,42 @@ const I18N = {
     "languages.title": "Languages",
     "languages.count": "{count} articles",
     "languages.empty": "No languages detected.",
+    "languages.filterLabel": "Filter languages",
+    "languages.filterPlaceholder": "Filter languages…",
+    "languages.filterStatus": "Showing {shown} / {total} · Search: “{q}”",
+    "languages.filterEmpty": "No languages match this filter.",
 
     "categories.count": "{count} articles",
     "categories.empty": "No categories available.",
+    "categories.filterLabel": "Filter categories",
+    "categories.filterPlaceholder": "Filter categories…",
+    "categories.filterStatus": "Showing {shown} / {total} · Search: “{q}”",
+    "categories.filterEmpty": "No categories match this filter.",
 
     "sources.title": "Sources",
     "sources.filterLabel": "Filter sources",
     "sources.filterPlaceholder": "Filter sources…",
     "sources.tagsLabel": "Source tags",
+    "sources.statusLabel": "Status",
+    "sources.status.all": "All",
+    "sources.status.ok": "OK",
+    "sources.status.failed": "Failed",
+    "sources.status.paused": "Paused",
+    "sources.status.stale": "Stale",
+    "sources.status.disabled": "Disabled",
+    "sources.star": "Star",
+    "sources.unstar": "Unstar",
+    "sources.starredOnly": "Starred only",
+    "sources.copyId": "Copy ID",
     "sources.filterStatus": "Showing {shown} / {total}",
     "sources.filterStatusTag": "Showing {shown} / {total} · Tag: {tag}",
     "sources.filterStatusQuery": "Showing {shown} / {total} · Search: “{q}”",
     "sources.filterStatusBoth": "Showing {shown} / {total} · Tag: {tag} · Search: “{q}”",
+    "sources.filterStatusStatus": "Showing {shown} / {total} · Status: {status}",
+    "sources.filterStatusStatusTag": "Showing {shown} / {total} · Status: {status} · Tag: {tag}",
+    "sources.filterStatusStatusQuery": "Showing {shown} / {total} · Status: {status} · Search: “{q}”",
+    "sources.filterStatusStatusTagQuery":
+      "Showing {shown} / {total} · Status: {status} · Tag: {tag} · Search: “{q}”",
     "sources.summary": "Last run: {time} · OK {ok} / Failed {failed} / Paused {paused} · Articles {articles}",
     "sources.link.site": "Site",
     "sources.link.rss": "RSS",
@@ -287,6 +361,7 @@ const I18N = {
     "shop.noResults": "No items match this filter.",
     "shop.cta": "View on Amazon",
     "shop.savedOnly": "Saved only",
+    "shop.random": "Random item",
     "shop.savedStatus": "Saved only · {count} items",
     "shop.savedFilterStatus": "Saved only: {tag} · {count} items",
     "shop.savedFilterStatusBoth": "Saved only: {tag} · “{q}” · {count} items",
@@ -304,8 +379,13 @@ const I18N = {
     "tools.filter.label": "Filter tools",
     "tools.filter.placeholder": "Filter tools…",
     "tools.filter.clear": "Clear",
+    "tools.filter.favoritesOnly": "Favorites only",
     "tools.filter.status": "Showing {count} tools for “{q}”",
+    "tools.filter.statusFav": "Favorites · {count} tools",
+    "tools.filter.statusFavQuery": "Favorites · “{q}” · {count} tools",
     "tools.filter.empty": "No tools match this filter.",
+    "tools.recents": "Recently used",
+    "tools.random": "Random tool",
     "tools.quick.options": "Options",
     "tools.related": "Related tools",
 
@@ -2187,6 +2267,8 @@ const I18N = {
     "library.toolsRecent": "最近使用的工具",
     "library.emptyToolsFavorites": "暂无收藏工具。",
     "library.emptyToolsRecent": "暂无最近使用的工具。",
+    "library.sourcesFavorites": "星标来源",
+    "library.emptySourcesFavorites": "暂无星标来源。",
     "library.shopFavorites": "收藏的商品",
     "library.emptyShopFavorites": "暂无收藏商品。",
     "library.search.label": "筛选",
@@ -2195,13 +2277,19 @@ const I18N = {
     "library.sort.recent": "最近",
     "library.sort.titleAsc": "标题 A→Z",
     "library.sort.titleDesc": "标题 Z→A",
-    "library.export": "导出",
+    "library.export": "导出收藏",
+    "library.exportAll": "导出全部",
     "library.import": "导入",
-    "library.backupNote": "导入/导出仅影响本地收藏（JSON），不会上传。",
+    "library.clearAll": "清空全部",
+    "library.read": "已读记录",
+    "library.emptyRead": "暂无已读记录。",
+    "library.confirmClearAll": "将清空你浏览器本地的收藏/最近/已读等数据，确定继续吗？",
+    "library.backupNote": "导入/导出只影响你浏览器本地的数据（JSON），不会上传。",
     "library.status.filtered": "“{q}” 共匹配 {count} 条",
     "library.status.noResults": "没有匹配 “{q}” 的内容。",
     "library.status.exported": "已导出。",
-    "library.importSuccess": "导入完成：{articles} 篇文章、{tools} 个工具、{shop} 个商品。",
+    "library.status.clearedAll": "已清空。",
+    "library.importSuccess": "导入完成：{articles} 篇文章、{tools} 个工具、{sources} 个来源、{shop} 个商品。",
     "library.importFailed": "导入失败，请检查 JSON 文件。",
 
     "search.label": "搜索",
@@ -2320,10 +2408,40 @@ const I18N = {
     "home.randomToolsNote": "随机推荐会定期更新。",
     "home.noTools": "暂无工具。",
     "news.empty": "暂无内容。",
+    "news.filter.searchLabel": "筛选新闻",
+    "news.filter.searchPlaceholder": "筛选新闻…",
+    "news.filter.searchTag": "搜索：“{q}”",
+    "news.filter.savedOnly": "仅收藏",
+    "news.filter.unreadOnly": "仅未读",
+    "news.filter.imagesOnly": "仅带图",
+    "news.filter.starredSourcesOnly": "星标来源",
+    "news.filter.score.label": "分数：",
+    "news.filter.score.any": "不限",
+    "news.filter.score.70": "≥70",
+    "news.filter.score.80": "≥80",
+    "news.filter.score.90": "≥90",
+    "news.filter.scoreTag": "分数 ≥ {score}",
+    "news.filter.sort.label": "排序：",
+    "news.filter.sort.new": "最新",
+    "news.filter.sort.old": "最早",
+    "news.filter.sort.score": "分数",
+    "news.view.compact": "紧凑",
+    "news.view.hideSummaries": "隐藏摘要",
+    "news.filter.markVisibleRead": "标记可见为已读",
+    "news.filter.undo": "撤销",
+    "news.filter.clear": "清除",
+    "news.filter.empty": "没有匹配的内容。",
+    "news.filter.status": "显示 {shown} / {total}",
+    "news.filter.statusWith": "{label} · 显示 {shown} / {total}",
+    "news.filter.statusSaved": "仅收藏 · 显示 {shown} / {total}",
+    "news.filter.statusUnread": "仅未读 · 显示 {shown} / {total}",
+    "news.filter.statusSavedUnread": "仅收藏 + 未读 · 显示 {shown} / {total}",
 
     "trending.subtitle": "热点故事按标题相似度聚类，统计最近 {hours} 小时。",
     "trending.coverage": "覆盖 {coverage} 篇",
     "trending.seeArticles": "查看 {count} 篇",
+    "trending.expandAll": "展开全部",
+    "trending.collapseAll": "收起全部",
     "trending.empty": "暂无热点内容，稍后再来。",
     "trending.topTitle": "精选",
     "trending.topSubtitle": "最近 {hours} 小时的高质量内容。",
@@ -2344,9 +2462,21 @@ const I18N = {
     "runs.addedLabel": "新增：{count}",
     "runs.stories": "· {count} 个故事",
     "runs.empty": "暂无运行记录，稍后再来。",
+    "runs.filter.issuesOnly": "仅异常",
+    "runs.filter.order.label": "排序：",
+    "runs.filter.order.desc": "最新优先",
+    "runs.filter.order.asc": "最早优先",
+    "runs.filter.clear": "重置",
+    "runs.filter.status": "显示 {shown} / {total}",
+    "runs.filter.statusIssues": "仅异常 · 显示 {shown} / {total}",
 
     "article.copy": "复制链接",
+    "article.copyOriginal": "复制原文",
+    "article.copyTitle": "复制标题",
     "article.share": "分享",
+    "article.markRead": "标为已读",
+    "article.markUnread": "标为未读",
+    "article.readingTime": "约 {minutes} 分钟阅读",
     "article.related": "同类推荐",
     "article.openOriginal": "打开原文 →",
     "article.readOriginal": "查看原文",
@@ -2373,18 +2503,42 @@ const I18N = {
     "languages.title": "语言",
     "languages.count": "{count} 篇",
     "languages.empty": "暂无语言。",
+    "languages.filterLabel": "筛选语言",
+    "languages.filterPlaceholder": "筛选语言…",
+    "languages.filterStatus": "显示 {shown} / {total} · 搜索：“{q}”",
+    "languages.filterEmpty": "没有匹配的语言。",
 
     "categories.count": "{count} 篇",
     "categories.empty": "暂无分类。",
+    "categories.filterLabel": "筛选分类",
+    "categories.filterPlaceholder": "筛选分类…",
+    "categories.filterStatus": "显示 {shown} / {total} · 搜索：“{q}”",
+    "categories.filterEmpty": "没有匹配的分类。",
 
     "sources.title": "来源",
     "sources.filterLabel": "筛选来源",
     "sources.filterPlaceholder": "筛选来源…",
     "sources.tagsLabel": "来源标签",
+    "sources.statusLabel": "状态",
+    "sources.status.all": "全部",
+    "sources.status.ok": "正常",
+    "sources.status.failed": "失败",
+    "sources.status.paused": "暂停",
+    "sources.status.stale": "过期",
+    "sources.status.disabled": "禁用",
+    "sources.star": "星标",
+    "sources.unstar": "取消星标",
+    "sources.starredOnly": "仅星标",
+    "sources.copyId": "复制ID",
     "sources.filterStatus": "显示 {shown} / {total}",
     "sources.filterStatusTag": "显示 {shown} / {total} · 标签：{tag}",
     "sources.filterStatusQuery": "显示 {shown} / {total} · 搜索：“{q}”",
     "sources.filterStatusBoth": "显示 {shown} / {total} · 标签：{tag} · 搜索：“{q}”",
+    "sources.filterStatusStatus": "显示 {shown} / {total} · 状态：{status}",
+    "sources.filterStatusStatusTag": "显示 {shown} / {total} · 状态：{status} · 标签：{tag}",
+    "sources.filterStatusStatusQuery": "显示 {shown} / {total} · 状态：{status} · 搜索：“{q}”",
+    "sources.filterStatusStatusTagQuery":
+      "显示 {shown} / {total} · 状态：{status} · 标签：{tag} · 搜索：“{q}”",
     "sources.summary": "上次运行：{time} · 成功 {ok} / 失败 {failed} / 暂停 {paused} · 文章 {articles}",
     "sources.link.site": "网站",
     "sources.link.rss": "RSS",
@@ -2425,6 +2579,7 @@ const I18N = {
     "shop.noResults": "没有匹配的商品。",
     "shop.cta": "去亚马逊查看",
     "shop.savedOnly": "仅收藏",
+    "shop.random": "随机商品",
     "shop.savedStatus": "仅收藏 · {count} 个商品",
     "shop.savedFilterStatus": "仅收藏：{tag} · {count} 个商品",
     "shop.savedFilterStatusBoth": "仅收藏：{tag} · {q} · {count} 个商品",
@@ -2442,8 +2597,13 @@ const I18N = {
     "tools.filter.label": "筛选工具",
     "tools.filter.placeholder": "筛选工具…",
     "tools.filter.clear": "清除",
+    "tools.filter.favoritesOnly": "仅收藏",
     "tools.filter.status": "“{q}” 共 {count} 个工具",
+    "tools.filter.statusFav": "仅收藏 · {count} 个工具",
+    "tools.filter.statusFavQuery": "仅收藏 · “{q}” · {count} 个工具",
     "tools.filter.empty": "没有匹配的工具。",
+    "tools.recents": "最近使用",
+    "tools.random": "随机工具",
     "tools.quick.options": "选项",
     "tools.related": "同类工具推荐",
 
@@ -4260,15 +4420,25 @@ const LANG_STORAGE_KEY = "site_lang";
 const FAVORITES_ARTICLES_KEY = "site_favorite_articles";
 const RECENT_ARTICLES_KEY = "site_recent_articles";
 const READ_ARTICLES_KEY = "site_read_articles";
+const READ_ARTICLES_META_KEY = "site_read_articles_meta";
 const MAX_RECENT_ARTICLES = 60;
 const MAX_READ_ARTICLES = 800;
+const MAX_READ_ARTICLES_META = 240;
 const FAVORITES_TOOLS_KEY = "site_favorite_tools";
 const RECENT_TOOLS_KEY = "site_recent_tools";
 const MAX_RECENT_TOOLS = 60;
 const FAVORITES_SHOP_KEY = "site_favorite_shop";
+const FAVORITES_SOURCES_KEY = "site_favorite_sources";
 const SHOP_FAVORITES_EVENT = "site:shop-favorites";
+const ARTICLE_FAVORITES_EVENT = "site:article-favorites";
+const ARTICLE_READ_EVENT = "site:article-read";
+const TOOL_FAVORITES_EVENT = "site:tool-favorites";
+const SOURCE_FAVORITES_EVENT = "site:source-favorites";
 const TOOL_STATE_PREFIX = "site_tool_state:";
 const MAX_TOOL_STATE_CHARS = 200000;
+const NEWS_FILTERS_KEY = "site_news_filters_v1";
+const NEWS_VIEW_KEY = "site_news_view_v1";
+const NEWS_UNDO_MARK_READ_KEY = "site_news_mark_read_undo";
 const SEARCH_AB_STATE_KEY = "site_search_ab_state";
 const SEARCH_AB_VARIANT_KEY = "site_search_ab_variant";
 const SEARCH_AB_PENDING_KEY = "site_search_ab_pending_click";
@@ -4961,6 +5131,22 @@ function toolStateKey(slug) {
   return `${TOOL_STATE_PREFIX}${normalized}`;
 }
 
+function clearAllToolStates() {
+  const keys = [];
+  try {
+    for (let i = 0; i < localStorage.length; i += 1) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith(TOOL_STATE_PREFIX)) keys.push(key);
+    }
+  } catch (_error) {
+    return;
+  }
+
+  for (const key of keys) {
+    storageRemove(key);
+  }
+}
+
 function isPersistableToolControl(el) {
   if (
     !(
@@ -5148,21 +5334,53 @@ function setupToolsIndexFilter() {
   if (!(input instanceof HTMLInputElement)) return;
 
   const clear = document.querySelector("[data-tools-filter-clear]");
+  const favoritesOnlyBtn = document.querySelector("[data-tools-favorites-only]");
+  const randomBtn = document.querySelector("[data-tools-random]");
   const status = document.querySelector("[data-tools-filter-status]");
   const empty = document.querySelector("[data-tools-filter-empty]");
   const cards = Array.from(document.querySelectorAll("[data-tools-card]"));
   const groups = Array.from(document.querySelectorAll("[data-tools-group]"));
+  const groupCountEls = Array.from(document.querySelectorAll("[data-tools-group-count]"));
+
+  function parseBoolParam(value) {
+    const raw = String(value || "").trim().toLowerCase();
+    return raw === "1" || raw === "true" || raw === "yes";
+  }
+
+  function getFavoritesOnlyFromUrl() {
+    return parseBoolParam(new URLSearchParams(window.location.search).get("fav"));
+  }
+
+  function setFavoritesOnlyInUrl(on) {
+    const url = new URL(window.location.href);
+    if (on) url.searchParams.set("fav", "1");
+    else url.searchParams.delete("fav");
+    window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+  }
+
+  let favoritesOnly = getFavoritesOnlyFromUrl();
+  if (favoritesOnlyBtn instanceof HTMLButtonElement) {
+    favoritesOnlyBtn.setAttribute("aria-pressed", favoritesOnly ? "true" : "false");
+  }
 
   function applyFilter(raw) {
     const q = normalizeText(raw);
+    const favorites = favoritesOnly ? new Set(readFavoriteTools().map((item) => item.slug)) : null;
     let visibleCount = 0;
+    const groupCounts = new Map();
 
     for (const el of cards) {
       if (!(el instanceof HTMLElement)) continue;
+      const slug = String(el.getAttribute("data-tool-slug") || "").trim();
+      const groupId = String(el.getAttribute("data-tool-group") || "").trim();
       const text = normalizeText(el.textContent);
-      const show = !q || text.includes(q);
+      const show =
+        (!q || text.includes(q)) && (!favoritesOnly || (favorites && favorites.has(slug)));
       el.hidden = !show;
-      if (show) visibleCount += 1;
+      if (show) {
+        visibleCount += 1;
+        if (groupId) groupCounts.set(groupId, (groupCounts.get(groupId) || 0) + 1);
+      }
     }
 
     for (const group of groups) {
@@ -5171,17 +5389,42 @@ function setupToolsIndexFilter() {
       group.hidden = !anyVisible;
     }
 
+    const showCounts = Boolean(q) || favoritesOnly;
+    for (const el of groupCountEls) {
+      if (!(el instanceof HTMLElement)) continue;
+      const groupId = String(el.getAttribute("data-tools-group-count") || "").trim();
+      const count = groupId ? groupCounts.get(groupId) || 0 : 0;
+      if (!showCounts || count <= 0) {
+        el.hidden = true;
+        el.textContent = "";
+      } else {
+        el.hidden = false;
+        el.textContent = `(${count})`;
+      }
+    }
+
     if (empty) empty.hidden = visibleCount > 0;
 
+    if (randomBtn instanceof HTMLButtonElement) {
+      randomBtn.disabled = visibleCount <= 0;
+    }
+
     if (status) {
-      if (!q) {
+      if (!q && !favoritesOnly) {
         status.hidden = true;
         status.textContent = "";
       } else {
         status.hidden = false;
-        status.textContent = window.SiteI18n
-          ? window.SiteI18n.t("tools.filter.status", { q: raw, count: visibleCount })
-          : `Showing ${visibleCount}`;
+        if (window.SiteI18n) {
+          const key = favoritesOnly
+            ? q
+              ? "tools.filter.statusFavQuery"
+              : "tools.filter.statusFav"
+            : "tools.filter.status";
+          status.textContent = window.SiteI18n.t(key, { q: raw, count: visibleCount });
+        } else {
+          status.textContent = `Showing ${visibleCount}`;
+        }
       }
     }
   }
@@ -5209,17 +5452,324 @@ function setupToolsIndexFilter() {
     });
   }
 
+  if (favoritesOnlyBtn instanceof HTMLButtonElement) {
+    favoritesOnlyBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      favoritesOnly = !favoritesOnly;
+      favoritesOnlyBtn.setAttribute("aria-pressed", favoritesOnly ? "true" : "false");
+      setFavoritesOnlyInUrl(favoritesOnly);
+      applyFilter(getToolsFilterValue());
+    });
+  }
+
+  if (randomBtn instanceof HTMLButtonElement) {
+    randomBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      const visible = cards.filter((el) => el instanceof HTMLElement && !el.hidden);
+      if (!visible.length) return;
+      const chosen = visible[Math.floor(Math.random() * visible.length)];
+      const target =
+        chosen instanceof HTMLElement ? String(chosen.getAttribute("data-tool-path") || "").trim() : "";
+      if (target) window.location.href = target;
+      else {
+        const anchor = chosen ? chosen.querySelector("a[href]") : null;
+        if (anchor instanceof HTMLAnchorElement && anchor.href) window.location.href = anchor.href;
+      }
+    });
+  }
+
   window.addEventListener("popstate", () => {
-    const q = new URLSearchParams(window.location.search).get("q") || "";
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get("q") || "";
+    favoritesOnly = getFavoritesOnlyFromUrl();
+    if (favoritesOnlyBtn instanceof HTMLButtonElement) {
+      favoritesOnlyBtn.setAttribute("aria-pressed", favoritesOnly ? "true" : "false");
+    }
     setToolsFilterValue(q);
     applyFilter(q);
   });
 
   window.addEventListener("site:lang", () => {
     const value = getToolsFilterValue();
-    if (!normalizeText(value)) return;
+    if (!normalizeText(value) && !favoritesOnly) return;
     applyFilter(value);
   });
+
+  window.addEventListener(TOOL_FAVORITES_EVENT, () => {
+    applyFilter(getToolsFilterValue());
+  });
+}
+
+function setupToolsRecents() {
+  const wrapper = document.querySelector("[data-tools-recents]");
+  const list = document.querySelector("[data-tools-recents-list]");
+  if (!(wrapper instanceof HTMLElement) || !(list instanceof HTMLElement)) return;
+
+  const clearBtn = wrapper.querySelector("[data-tools-recents-clear]");
+  const maxItems = 8;
+
+  function render() {
+    const recents = readRecentTools().slice(0, maxItems);
+    wrapper.hidden = recents.length === 0;
+    list.textContent = "";
+    if (!recents.length) return;
+
+    for (const item of recents) {
+      const slug = String(item.slug || "").trim();
+      const href = String(item.path || "").trim();
+      if (!slug || !href) continue;
+
+      const a = document.createElement("a");
+      a.className = "tag-pill";
+      a.href = href;
+
+      const key = `tools.item.${slug}.title`;
+      const translated = t(key, null, getLang());
+      a.textContent = translated && translated !== key ? translated : String(item.title || slug);
+      list.appendChild(a);
+    }
+  }
+
+  render();
+
+  if (clearBtn instanceof HTMLButtonElement) {
+    clearBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      writeRecentTools([]);
+      render();
+    });
+  }
+
+  window.addEventListener("pageshow", render);
+  window.addEventListener("site:lang", render);
+}
+
+function setupListFilters() {
+  const sections = Array.from(document.querySelectorAll("[data-list-filter]")).filter(
+    (el) => el instanceof HTMLElement
+  );
+  if (!sections.length) return;
+
+  for (const section of sections) {
+    const kind = String(section.getAttribute("data-list-filter") || "").trim();
+    if (!kind) continue;
+
+    const input = section.querySelector("[data-list-filter-input]");
+    if (!(input instanceof HTMLInputElement)) continue;
+
+    const clearBtn = section.querySelector("[data-list-filter-clear]");
+    const statusEl = section.querySelector("[data-list-filter-status]");
+    const emptyEl = section.querySelector("[data-list-filter-empty]");
+    const list = document.querySelector("ul.sources");
+    if (!(list instanceof HTMLUListElement)) continue;
+
+    const items = Array.from(list.querySelectorAll("li"));
+    if (!items.length) continue;
+
+    function getQuery() {
+      return new URLSearchParams(window.location.search).get("q") || "";
+    }
+
+    function setQuery(next) {
+      const url = new URL(window.location.href);
+      const raw = String(next || "").trim();
+      if (raw) url.searchParams.set("q", raw);
+      else url.searchParams.delete("q");
+      window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+    }
+
+    function apply() {
+      const rawQuery = input.value || "";
+      const q = normalizeText(rawQuery);
+      let shown = 0;
+      const total = items.length;
+
+      for (const li of items) {
+        if (!(li instanceof HTMLElement)) continue;
+        const text = normalizeText(li.textContent);
+        const show = !q || text.includes(q);
+        li.hidden = !show;
+        if (show) shown += 1;
+      }
+
+      if (statusEl instanceof HTMLElement) {
+        if (!q) {
+          statusEl.hidden = true;
+          statusEl.textContent = "";
+        } else {
+          statusEl.hidden = false;
+          statusEl.textContent = t(
+            `${kind}.filterStatus`,
+            { shown, total, q: rawQuery },
+            getLang()
+          );
+        }
+      }
+
+      if (emptyEl instanceof HTMLElement) {
+        emptyEl.hidden = !q || shown > 0;
+      }
+    }
+
+    const initial = getQuery();
+    if (initial) input.value = initial;
+    apply();
+
+    input.addEventListener("input", () => {
+      setQuery(input.value || "");
+      apply();
+    });
+
+    if (clearBtn instanceof HTMLButtonElement) {
+      clearBtn.addEventListener("click", () => {
+        input.value = "";
+        setQuery("");
+        apply();
+        input.focus({ preventScroll: true });
+      });
+    }
+
+    window.addEventListener("popstate", () => {
+      input.value = getQuery();
+      apply();
+    });
+
+    window.addEventListener("site:lang", apply);
+  }
+}
+
+function setupRunsControls() {
+  const wrapper = document.querySelector("[data-runs-controls]");
+  if (!(wrapper instanceof HTMLElement)) return;
+
+  const issuesBtn = wrapper.querySelector("[data-runs-issues-only]");
+  const orderSelect = wrapper.querySelector("[data-runs-order]");
+  const resetBtn = wrapper.querySelector("[data-runs-reset]");
+  const statusEl = wrapper.querySelector("[data-runs-status]");
+
+  const tbody = document.querySelector("table tbody");
+  if (!(tbody instanceof HTMLElement)) return;
+  const rows = Array.from(tbody.querySelectorAll("tr[data-run-finished]"));
+  if (!rows.length) return;
+
+  function parseBoolParam(value) {
+    const raw = String(value || "").trim().toLowerCase();
+    return raw === "1" || raw === "true" || raw === "yes";
+  }
+
+  function normalizeOrder(value) {
+    const raw = String(value || "").trim().toLowerCase();
+    if (raw === "asc" || raw === "desc") return raw;
+    return "desc";
+  }
+
+  function getStateFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+      issuesOnly: parseBoolParam(params.get("issues")),
+      order: normalizeOrder(params.get("order")),
+    };
+  }
+
+  function setStateToUrl(state) {
+    const next = state && typeof state === "object" ? state : {};
+    const url = new URL(window.location.href);
+
+    if (next.issuesOnly) url.searchParams.set("issues", "1");
+    else url.searchParams.delete("issues");
+
+    const order = normalizeOrder(next.order);
+    if (order && order !== "desc") url.searchParams.set("order", order);
+    else url.searchParams.delete("order");
+
+    window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+  }
+
+  function isIssueRow(row) {
+    const failed = Number(row.getAttribute("data-run-failed")) || 0;
+    const paused = Number(row.getAttribute("data-run-paused")) || 0;
+    return failed > 0 || paused > 0;
+  }
+
+  function sortRows(order) {
+    const dir = normalizeOrder(order);
+    const decorated = rows.map((row, idx) => {
+      const iso = row.getAttribute("data-run-finished") || "";
+      const time = Date.parse(iso);
+      return { row, idx, time: Number.isFinite(time) ? time : 0 };
+    });
+
+    decorated.sort((a, b) => {
+      if (a.time !== b.time) return dir === "asc" ? a.time - b.time : b.time - a.time;
+      return a.idx - b.idx;
+    });
+
+    for (const entry of decorated) tbody.appendChild(entry.row);
+  }
+
+  function apply(state) {
+    const current = state && typeof state === "object" ? state : getStateFromUrl();
+    const issuesOnly = Boolean(current.issuesOnly);
+    const order = normalizeOrder(current.order);
+
+    sortRows(order);
+
+    let shown = 0;
+    const total = rows.length;
+    for (const row of rows) {
+      if (!(row instanceof HTMLElement)) continue;
+      const show = !issuesOnly || isIssueRow(row);
+      row.hidden = !show;
+      if (show) shown += 1;
+    }
+
+    if (issuesBtn instanceof HTMLButtonElement) {
+      issuesBtn.setAttribute("aria-pressed", issuesOnly ? "true" : "false");
+    }
+    if (orderSelect instanceof HTMLSelectElement) {
+      orderSelect.value = order;
+    }
+
+    if (statusEl instanceof HTMLElement) {
+      statusEl.hidden = !issuesOnly;
+      statusEl.textContent = issuesOnly
+        ? t("runs.filter.statusIssues", { shown, total }, getLang())
+        : "";
+    }
+  }
+
+  const initial = getStateFromUrl();
+  apply(initial);
+
+  if (issuesBtn instanceof HTMLButtonElement) {
+    issuesBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      const state = getStateFromUrl();
+      const next = { ...state, issuesOnly: !state.issuesOnly };
+      setStateToUrl(next);
+      apply(next);
+    });
+  }
+
+  if (orderSelect instanceof HTMLSelectElement) {
+    orderSelect.addEventListener("change", () => {
+      const next = { ...getStateFromUrl(), order: normalizeOrder(orderSelect.value) };
+      setStateToUrl(next);
+      apply(next);
+    });
+  }
+
+  if (resetBtn instanceof HTMLButtonElement) {
+    resetBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      const next = { issuesOnly: false, order: "desc" };
+      setStateToUrl(next);
+      apply(next);
+    });
+  }
+
+  window.addEventListener("popstate", () => apply(getStateFromUrl()));
+  window.addEventListener("site:lang", () => apply(getStateFromUrl()));
 }
 
 const SCHEME_RE = /^[a-zA-Z][a-zA-Z0-9+.-]*:/;
@@ -5328,7 +5878,9 @@ function readFavoriteArticles() {
 }
 
 function writeFavoriteArticles(list) {
-  storageSetJson(FAVORITES_ARTICLES_KEY, Array.isArray(list) ? list : []);
+  const items = Array.isArray(list) ? list : [];
+  storageSetJson(FAVORITES_ARTICLES_KEY, items);
+  emitArticleFavoritesChanged(items.length);
 }
 
 function isFavoriteArticle(id, favorites) {
@@ -5400,6 +5952,101 @@ function writeReadArticles(map) {
   storageSetJson(READ_ARTICLES_KEY, value);
 }
 
+function readReadArticlesMeta() {
+  const raw = storageGetJson(READ_ARTICLES_META_KEY, []);
+  if (!Array.isArray(raw)) return [];
+  const seen = new Set();
+  const list = [];
+  for (const item of raw) {
+    const meta = normalizeArticleMeta(item);
+    if (!meta || seen.has(meta.id)) continue;
+    seen.add(meta.id);
+    list.push({ ...meta, readAt: Number(item.readAt) || 0 });
+  }
+  return list;
+}
+
+function writeReadArticlesMeta(list) {
+  storageSetJson(READ_ARTICLES_META_KEY, Array.isArray(list) ? list : []);
+}
+
+function trimReadMapToMax(map, maxItems) {
+  const max = Number.isFinite(maxItems) ? maxItems : MAX_READ_ARTICLES;
+  const ids = Object.keys(map || {});
+  if (ids.length <= max) return [];
+
+  ids.sort((a, b) => (Number(map[a]) || 0) - (Number(map[b]) || 0));
+  const removeCount = ids.length - max;
+  const removed = [];
+  for (let i = 0; i < removeCount; i += 1) {
+    removed.push(ids[i]);
+    delete map[ids[i]];
+  }
+  return removed;
+}
+
+function setupTrendingControls() {
+  const controls = document.querySelector("[data-trending-controls]");
+  if (!(controls instanceof HTMLElement)) return;
+
+  const details = Array.from(document.querySelectorAll("details.story-details")).filter(
+    (el) => el instanceof HTMLDetailsElement
+  );
+  if (!details.length) {
+    controls.hidden = true;
+    return;
+  }
+
+  const expandBtn = controls.querySelector("[data-trending-expand]");
+  const collapseBtn = controls.querySelector("[data-trending-collapse]");
+  controls.hidden = false;
+
+  function setAll(open) {
+    for (const el of details) {
+      el.open = Boolean(open);
+    }
+  }
+
+  if (expandBtn instanceof HTMLButtonElement) {
+    expandBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      setAll(true);
+    });
+  }
+
+  if (collapseBtn instanceof HTMLButtonElement) {
+    collapseBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      setAll(false);
+    });
+  }
+}
+
+function purgeReadArticlesMetaIds(ids) {
+  const list = Array.isArray(ids) ? ids : [];
+  const removed = list.map((id) => String(id || "").trim()).filter(Boolean);
+  if (!removed.length) return;
+  const removedSet = new Set(removed);
+  const next = readReadArticlesMeta().filter((item) => item && !removedSet.has(item.id));
+  writeReadArticlesMeta(next);
+}
+
+function ensureArticleRead(id) {
+  const target = String(id || "").trim();
+  if (!target) return null;
+
+  const map = readReadArticles();
+  if (Object.prototype.hasOwnProperty.call(map, target)) {
+    return { id: target, readAt: Number(map[target]) || 0, removedIds: [], changed: false };
+  }
+
+  map[target] = Date.now();
+  const removedIds = trimReadMapToMax(map, MAX_READ_ARTICLES);
+  writeReadArticles(map);
+
+  return { id: target, readAt: Number(map[target]) || 0, removedIds, changed: true };
+}
+
 function isArticleRead(id, readMap) {
   const target = String(id || "").trim();
   if (!target) return false;
@@ -5407,24 +6054,58 @@ function isArticleRead(id, readMap) {
   return Boolean(map && Object.prototype.hasOwnProperty.call(map, target));
 }
 
-function markArticleRead(id) {
-  const target = String(id || "").trim();
-  if (!target) return;
+function markArticleReadMeta(meta) {
+  const normalized = normalizeArticleMeta(meta);
+  const id = normalized ? normalized.id : String(meta && meta.id ? meta.id : "").trim();
+  if (!id) return false;
 
-  const map = readReadArticles();
-  if (Object.prototype.hasOwnProperty.call(map, target)) return;
+  const result = ensureArticleRead(id);
+  if (!result) return false;
 
-  map[target] = Date.now();
+  if (result.removedIds.length) purgeReadArticlesMetaIds(result.removedIds);
 
-  const ids = Object.keys(map);
-  if (ids.length > MAX_READ_ARTICLES) {
-    ids.sort((a, b) => (Number(map[a]) || 0) - (Number(map[b]) || 0));
-    for (let i = 0; i < ids.length - MAX_READ_ARTICLES; i += 1) {
-      delete map[ids[i]];
-    }
+  if (normalized) {
+    const existing = readReadArticlesMeta();
+    const readAt = result.readAt || Date.now();
+    const next = [
+      { ...normalized, readAt },
+      ...existing.filter((item) => item && item.id !== id),
+    ];
+    writeReadArticlesMeta(next.filter(Boolean).slice(0, MAX_READ_ARTICLES_META));
   }
 
-  writeReadArticles(map);
+  emitArticleReadChanged();
+  return Boolean(result.changed);
+}
+
+function markArticleRead(id) {
+  const result = ensureArticleRead(id);
+  if (!result || !result.changed) return;
+  if (result.removedIds.length) purgeReadArticlesMetaIds(result.removedIds);
+  emitArticleReadChanged();
+}
+
+function unmarkArticleRead(id) {
+  const target = String(id || "").trim();
+  if (!target) return false;
+
+  const map = readReadArticles();
+  let changed = false;
+  if (Object.prototype.hasOwnProperty.call(map, target)) {
+    delete map[target];
+    writeReadArticles(map);
+    changed = true;
+  }
+
+  const meta = readReadArticlesMeta();
+  const nextMeta = meta.filter((item) => item && item.id !== target);
+  if (nextMeta.length !== meta.length) {
+    writeReadArticlesMeta(nextMeta);
+    changed = true;
+  }
+
+  if (changed) emitArticleReadChanged();
+  return changed;
 }
 
 function applyReadMarkers() {
@@ -5442,6 +6123,601 @@ function setupArticleReadMarkers() {
   if (!any) return;
   applyReadMarkers();
   window.addEventListener("pageshow", applyReadMarkers);
+}
+
+function normalizeNewsViewPrefs(input) {
+  const state = input && typeof input === "object" ? input : {};
+  return {
+    compact: Boolean(state.compact),
+    hideSummaries: Boolean(state.hideSummaries),
+  };
+}
+
+function readNewsViewPrefs() {
+  return normalizeNewsViewPrefs(storageGetJson(NEWS_VIEW_KEY, {}));
+}
+
+function writeNewsViewPrefs(next) {
+  const normalized = normalizeNewsViewPrefs(next);
+  if (!normalized.compact && !normalized.hideSummaries) {
+    storageRemove(NEWS_VIEW_KEY);
+  } else {
+    storageSetJson(NEWS_VIEW_KEY, normalized);
+  }
+  return normalized;
+}
+
+function applyNewsViewPrefs(next) {
+  const state = normalizeNewsViewPrefs(next);
+  const root = document.documentElement;
+  if (!(root instanceof HTMLElement)) return;
+
+  if (state.compact) root.setAttribute("data-news-density", "compact");
+  else root.removeAttribute("data-news-density");
+
+  if (state.hideSummaries) root.setAttribute("data-news-summaries", "hidden");
+  else root.removeAttribute("data-news-summaries");
+}
+
+function setupNewsViewPrefs() {
+  const list = document.querySelector("ul.news-list");
+  if (!(list instanceof HTMLElement)) return;
+  applyNewsViewPrefs(readNewsViewPrefs());
+  window.addEventListener("pageshow", () => applyNewsViewPrefs(readNewsViewPrefs()));
+}
+
+function setupNewsControls() {
+  const wrapper = document.querySelector("[data-news-controls]");
+  if (!(wrapper instanceof HTMLElement)) return;
+
+  const qInput = wrapper.querySelector("[data-news-filter-input]");
+  const savedBtn = wrapper.querySelector("[data-news-saved-only]");
+  const unreadBtn = wrapper.querySelector("[data-news-unread-only]");
+  const imagesBtn = wrapper.querySelector("[data-news-images-only]");
+  const starredSourcesBtn = wrapper.querySelector("[data-news-starred-sources-only]");
+  const scoreSelect = wrapper.querySelector("[data-news-score]");
+  const sortSelect = wrapper.querySelector("[data-news-sort]");
+  const compactViewBtn = wrapper.querySelector("[data-news-view-compact]");
+  const hideSummariesBtn = wrapper.querySelector("[data-news-view-hide-summaries]");
+  const markReadBtn = wrapper.querySelector("[data-news-mark-visible-read]");
+  const undoBtn = wrapper.querySelector("[data-news-undo]");
+  const clearBtn = wrapper.querySelector("[data-news-clear-filters]");
+  const statusEl = wrapper.querySelector("[data-news-filter-status]");
+  const emptyEl = wrapper.querySelector("[data-news-filter-empty]");
+
+  const list = document.querySelector("ul.news-list");
+  const items = list instanceof HTMLElement ? Array.from(list.querySelectorAll("li.news-item[data-article-id]")) : [];
+
+  const entries = items
+    .filter((el) => el instanceof HTMLElement)
+    .map((el, idx) => {
+      const id = String(el.getAttribute("data-article-id") || "").trim();
+      if (!id) return null;
+
+      const publishedAt = String(el.getAttribute("data-article-published") || "").trim();
+      const publishedMs = Date.parse(publishedAt);
+
+      const score = Number(el.getAttribute("data-article-score")) || 0;
+      const hasImage = el.hasAttribute("data-article-has-image");
+      const sourceId = normalizeText(el.getAttribute("data-article-source-id") || "");
+
+      const titleLink = el.querySelector(".news-title a");
+      const title =
+        titleLink instanceof HTMLElement ? String(titleLink.textContent || "").trim() : "";
+      const sourceEl = el.querySelector("[data-article-source]");
+      const sourceName =
+        sourceEl instanceof HTMLElement ? String(sourceEl.textContent || "").trim() : "";
+      const summaryEl = el.querySelector(".news-summary");
+      const summary =
+        summaryEl instanceof HTMLElement ? String(summaryEl.textContent || "").trim() : "";
+      const haystack = normalizeText(`${title} ${summary} ${sourceName}`.trim());
+
+      return {
+        el,
+        idx,
+        id,
+        score,
+        sourceId,
+        hasImage,
+        publishedMs: Number.isFinite(publishedMs) ? publishedMs : 0,
+        haystack,
+      };
+    })
+    .filter(Boolean);
+
+  let viewPrefs = readNewsViewPrefs();
+
+  function syncViewPrefs() {
+    applyNewsViewPrefs(viewPrefs);
+    if (compactViewBtn instanceof HTMLButtonElement) {
+      compactViewBtn.setAttribute("aria-pressed", viewPrefs.compact ? "true" : "false");
+    }
+    if (hideSummariesBtn instanceof HTMLButtonElement) {
+      hideSummariesBtn.setAttribute("aria-pressed", viewPrefs.hideSummaries ? "true" : "false");
+    }
+  }
+
+  function setViewPrefs(next) {
+    viewPrefs = writeNewsViewPrefs(next);
+    syncViewPrefs();
+  }
+
+  syncViewPrefs();
+
+  function parseBoolParam(value) {
+    const raw = String(value || "").trim().toLowerCase();
+    return raw === "1" || raw === "true" || raw === "yes";
+  }
+
+  function normalizeSort(value) {
+    const raw = String(value || "").trim().toLowerCase();
+    if (raw === "new" || raw === "old" || raw === "score") return raw;
+    return "new";
+  }
+
+  function normalizeScoreMin(value) {
+    const parsed = Number.parseInt(String(value || ""), 10);
+    if (parsed === 70 || parsed === 80 || parsed === 90) return parsed;
+    return 0;
+  }
+
+  function normalizeState(input) {
+    const state = input && typeof input === "object" ? input : {};
+    return {
+      savedOnly: Boolean(state.savedOnly),
+      unreadOnly: Boolean(state.unreadOnly),
+      imagesOnly: Boolean(state.imagesOnly),
+      starredSourcesOnly: Boolean(state.starredSourcesOnly),
+      q: String(state.q || "").trim(),
+      scoreMin: normalizeScoreMin(state.scoreMin),
+      sort: normalizeSort(state.sort),
+    };
+  }
+
+  function isDefaultState(next) {
+    const normalized = normalizeState(next);
+    return (
+      !normalized.savedOnly &&
+      !normalized.unreadOnly &&
+      !normalized.imagesOnly &&
+      !normalized.starredSourcesOnly &&
+      !normalizeText(normalized.q) &&
+      !normalized.scoreMin &&
+      normalized.sort === "new"
+    );
+  }
+
+  function readStoredState() {
+    return normalizeState(storageGetJson(NEWS_FILTERS_KEY, {}));
+  }
+
+  function writeStoredState(next) {
+    const normalized = normalizeState(next);
+    if (isDefaultState(normalized)) {
+      storageRemove(NEWS_FILTERS_KEY);
+      return;
+    }
+    storageSetJson(NEWS_FILTERS_KEY, normalized);
+  }
+
+  function readUndoIds() {
+    const raw = storageGetJson(NEWS_UNDO_MARK_READ_KEY, []);
+    if (!Array.isArray(raw)) return [];
+    return raw.map((id) => String(id || "").trim()).filter(Boolean);
+  }
+
+  function writeUndoIds(ids) {
+    const list = Array.isArray(ids)
+      ? ids.map((id) => String(id || "").trim()).filter(Boolean)
+      : [];
+    if (!list.length) {
+      storageRemove(NEWS_UNDO_MARK_READ_KEY);
+      return;
+    }
+    storageSetJson(NEWS_UNDO_MARK_READ_KEY, list.slice(0, 200));
+  }
+
+  function updateUndoVisibility() {
+    if (!(undoBtn instanceof HTMLButtonElement)) return;
+    undoBtn.hidden = readUndoIds().length === 0;
+  }
+
+  function readStateFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+      hasAny:
+        params.has("saved") ||
+        params.has("unread") ||
+        params.has("img") ||
+        params.has("star") ||
+        params.has("score") ||
+        params.has("sort") ||
+        params.has("q"),
+      savedOnly: parseBoolParam(params.get("saved")),
+      unreadOnly: parseBoolParam(params.get("unread")),
+      imagesOnly: parseBoolParam(params.get("img")),
+      starredSourcesOnly: parseBoolParam(params.get("star")),
+      scoreMin: normalizeScoreMin(params.get("score")),
+      sort: normalizeSort(params.get("sort")),
+      q: params.get("q") || "",
+    };
+  }
+
+  function writeStateToUrl(next) {
+    const normalized = normalizeState(next);
+    const url = new URL(window.location.href);
+
+    if (normalized.savedOnly) url.searchParams.set("saved", "1");
+    else url.searchParams.delete("saved");
+
+    if (normalized.unreadOnly) url.searchParams.set("unread", "1");
+    else url.searchParams.delete("unread");
+
+    if (normalized.imagesOnly) url.searchParams.set("img", "1");
+    else url.searchParams.delete("img");
+
+    if (normalized.starredSourcesOnly) url.searchParams.set("star", "1");
+    else url.searchParams.delete("star");
+
+    if (normalized.scoreMin) url.searchParams.set("score", String(normalized.scoreMin));
+    else url.searchParams.delete("score");
+
+    if (normalized.sort && normalized.sort !== "new") url.searchParams.set("sort", normalized.sort);
+    else url.searchParams.delete("sort");
+
+    if (normalized.q) url.searchParams.set("q", normalized.q);
+    else url.searchParams.delete("q");
+
+    window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+  }
+
+  let state = (() => {
+    const urlState = readStateFromUrl();
+    return urlState.hasAny ? normalizeState(urlState) : readStoredState();
+  })();
+
+  let applyScheduled = false;
+  function scheduleApply() {
+    if (applyScheduled) return;
+    applyScheduled = true;
+    window.requestAnimationFrame(() => {
+      applyScheduled = false;
+      apply(state);
+    });
+  }
+
+  function matchesQuery(haystack, query) {
+    const q = normalizeText(query);
+    if (!q) return true;
+    const text = normalizeText(haystack);
+    const parts = q.split(/\s+/g).filter(Boolean);
+    for (const part of parts) {
+      if (!text.includes(part)) return false;
+    }
+    return true;
+  }
+
+  function sortEntries(sortKey) {
+    if (!(list instanceof HTMLElement)) return;
+    const dir = normalizeSort(sortKey);
+
+    const decorated = entries.slice().sort((a, b) => {
+      if (dir === "score") {
+        if (a.score !== b.score) return b.score - a.score;
+        if (a.publishedMs !== b.publishedMs) return b.publishedMs - a.publishedMs;
+        return a.idx - b.idx;
+      }
+
+      const factor = dir === "old" ? 1 : -1;
+      if (a.publishedMs !== b.publishedMs) return factor * (a.publishedMs - b.publishedMs);
+      return a.idx - b.idx;
+    });
+
+    for (const entry of decorated) list.appendChild(entry.el);
+  }
+
+  function apply(next) {
+    state = normalizeState(next);
+    const savedOnly = state.savedOnly;
+    const unreadOnly = state.unreadOnly;
+    const imagesOnly = state.imagesOnly;
+    const starredSourcesOnly = state.starredSourcesOnly;
+    const scoreMin = state.scoreMin;
+    const q = String(state.q || "");
+
+    const favorites = new Set(readFavoriteArticles().map((item) => item.id));
+    const favoriteSources = starredSourcesOnly
+      ? new Set(readFavoriteSources().map((item) => normalizeText(item && item.id)))
+      : null;
+    const readMap = readReadArticles();
+    const total = entries.length;
+
+    let shown = 0;
+    let markable = 0;
+
+    sortEntries(state.sort);
+
+    for (const entry of entries) {
+      const item = entry.el;
+      const id = entry.id;
+      const isSaved = id ? favorites.has(id) : false;
+      const isUnread = id ? !isArticleRead(id, readMap) : true;
+      const isStarredSource =
+        !starredSourcesOnly || (entry.sourceId && favoriteSources && favoriteSources.has(entry.sourceId));
+      const matchesImages = !imagesOnly || entry.hasImage;
+      const matchesScore = !scoreMin || entry.score >= scoreMin;
+      const matchesText = matchesQuery(entry.haystack, q);
+
+      const show =
+        (!savedOnly || isSaved) &&
+        (!unreadOnly || isUnread) &&
+        isStarredSource &&
+        matchesImages &&
+        matchesScore &&
+        matchesText;
+      item.hidden = !show;
+      if (show) {
+        shown += 1;
+        if (isUnread) markable += 1;
+      }
+    }
+
+    if (savedBtn instanceof HTMLButtonElement) {
+      savedBtn.setAttribute("aria-pressed", savedOnly ? "true" : "false");
+    }
+    if (unreadBtn instanceof HTMLButtonElement) {
+      unreadBtn.setAttribute("aria-pressed", unreadOnly ? "true" : "false");
+    }
+    if (imagesBtn instanceof HTMLButtonElement) {
+      imagesBtn.setAttribute("aria-pressed", imagesOnly ? "true" : "false");
+    }
+    if (starredSourcesBtn instanceof HTMLButtonElement) {
+      starredSourcesBtn.setAttribute("aria-pressed", starredSourcesOnly ? "true" : "false");
+    }
+    if (scoreSelect instanceof HTMLSelectElement) {
+      scoreSelect.value = scoreMin ? String(scoreMin) : "";
+    }
+    if (sortSelect instanceof HTMLSelectElement) {
+      sortSelect.value = normalizeSort(state.sort);
+    }
+    if (qInput instanceof HTMLInputElement && qInput.value !== q) {
+      qInput.value = q;
+    }
+    if (clearBtn instanceof HTMLButtonElement) {
+      clearBtn.disabled = isDefaultState(state);
+    }
+    if (markReadBtn instanceof HTMLButtonElement) {
+      markReadBtn.disabled = markable <= 0;
+    }
+
+    if (statusEl instanceof HTMLElement) {
+      if (total <= 0) {
+        statusEl.hidden = true;
+        statusEl.textContent = "";
+      } else {
+        statusEl.hidden = false;
+        const labels = [];
+        if (savedOnly) labels.push(t("news.filter.savedOnly", null, getLang()));
+        if (unreadOnly) labels.push(t("news.filter.unreadOnly", null, getLang()));
+        if (imagesOnly) labels.push(t("news.filter.imagesOnly", null, getLang()));
+        if (starredSourcesOnly)
+          labels.push(t("news.filter.starredSourcesOnly", null, getLang()));
+        if (scoreMin) labels.push(t("news.filter.scoreTag", { score: scoreMin }, getLang()));
+        if (normalizeText(q)) labels.push(t("news.filter.searchTag", { q }, getLang()));
+
+        const label = labels.filter(Boolean).join(" · ");
+        statusEl.textContent = label
+          ? t("news.filter.statusWith", { label, shown, total }, getLang())
+          : t("news.filter.status", { shown, total }, getLang());
+      }
+    }
+
+    if (emptyEl instanceof HTMLElement) {
+      emptyEl.hidden = total <= 0 || shown > 0;
+    }
+  }
+
+  function setState(next) {
+    const normalized = normalizeState(next);
+    state = normalized;
+    writeStoredState(normalized);
+    writeStateToUrl(normalized);
+    apply(normalized);
+  }
+
+  if (qInput instanceof HTMLInputElement) qInput.value = state.q || "";
+  apply(state);
+  updateUndoVisibility();
+
+  if (qInput instanceof HTMLInputElement) {
+    qInput.addEventListener("input", () => {
+      setState({ ...state, q: qInput.value || "" });
+    });
+  }
+
+  if (savedBtn instanceof HTMLButtonElement) {
+    savedBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      setState({ ...state, savedOnly: !state.savedOnly });
+    });
+  }
+
+  if (unreadBtn instanceof HTMLButtonElement) {
+    unreadBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      setState({ ...state, unreadOnly: !state.unreadOnly });
+    });
+  }
+
+  if (imagesBtn instanceof HTMLButtonElement) {
+    imagesBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      setState({ ...state, imagesOnly: !state.imagesOnly });
+    });
+  }
+
+  if (starredSourcesBtn instanceof HTMLButtonElement) {
+    starredSourcesBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      setState({ ...state, starredSourcesOnly: !state.starredSourcesOnly });
+    });
+  }
+
+  if (compactViewBtn instanceof HTMLButtonElement) {
+    compactViewBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      setViewPrefs({ ...viewPrefs, compact: !viewPrefs.compact });
+    });
+  }
+
+  if (hideSummariesBtn instanceof HTMLButtonElement) {
+    hideSummariesBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      setViewPrefs({ ...viewPrefs, hideSummaries: !viewPrefs.hideSummaries });
+    });
+  }
+
+  if (scoreSelect instanceof HTMLSelectElement) {
+    scoreSelect.addEventListener("change", () => {
+      setState({ ...state, scoreMin: normalizeScoreMin(scoreSelect.value) });
+    });
+  }
+
+  if (sortSelect instanceof HTMLSelectElement) {
+    sortSelect.addEventListener("change", () => {
+      setState({ ...state, sort: normalizeSort(sortSelect.value) });
+    });
+  }
+
+  if (clearBtn instanceof HTMLButtonElement) {
+    clearBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      setState({
+        savedOnly: false,
+        unreadOnly: false,
+        imagesOnly: false,
+        starredSourcesOnly: false,
+        q: "",
+        scoreMin: 0,
+        sort: "new",
+      });
+    });
+  }
+
+  if (markReadBtn instanceof HTMLButtonElement) {
+    markReadBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      if (!entries.length) return;
+
+      const readMap = readReadArticles();
+      const newlyRead = [];
+
+      for (const entry of entries) {
+        const item = entry.el;
+        if (item.hidden) continue;
+        const id = entry.id;
+        if (!id || isArticleRead(id, readMap)) continue;
+
+        const meta = getArticleMetaFromCard(item);
+        if (meta) markArticleReadMeta(meta);
+        else markArticleRead(id);
+        newlyRead.push(id);
+      }
+
+      if (newlyRead.length) writeUndoIds(newlyRead);
+
+      applyReadMarkers();
+      updateUndoVisibility();
+      apply(state);
+    });
+  }
+
+  if (undoBtn instanceof HTMLButtonElement) {
+    undoBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      const ids = readUndoIds();
+      if (!ids.length) {
+        undoBtn.hidden = true;
+        return;
+      }
+
+      for (const id of ids) {
+        unmarkArticleRead(id);
+      }
+
+      writeUndoIds([]);
+      applyReadMarkers();
+      updateUndoVisibility();
+      apply(state);
+    });
+  }
+
+  window.addEventListener("popstate", () => {
+    const urlState = readStateFromUrl();
+    state = normalizeState(urlState);
+    writeStoredState(state);
+    if (qInput instanceof HTMLInputElement) qInput.value = state.q || "";
+    apply(state);
+  });
+
+  window.addEventListener("pageshow", () => {
+    viewPrefs = readNewsViewPrefs();
+    syncViewPrefs();
+    apply(state);
+  });
+  window.addEventListener("site:lang", () => apply(state));
+  window.addEventListener(ARTICLE_FAVORITES_EVENT, scheduleApply);
+  window.addEventListener(ARTICLE_READ_EVENT, scheduleApply);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.defaultPrevented) return;
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    if (isTypingInField(event.target)) return;
+    const key = String(event.key || "").toLowerCase();
+    if (key === "s") {
+      event.preventDefault();
+      setState({ ...state, savedOnly: !state.savedOnly });
+    } else if (key === "u") {
+      event.preventDefault();
+      setState({ ...state, unreadOnly: !state.unreadOnly });
+    } else if (key === "i") {
+      event.preventDefault();
+      setState({ ...state, imagesOnly: !state.imagesOnly });
+    } else if (key === "p") {
+      event.preventDefault();
+      setState({ ...state, starredSourcesOnly: !state.starredSourcesOnly });
+    } else if (key === "d") {
+      event.preventDefault();
+      setViewPrefs({ ...viewPrefs, compact: !viewPrefs.compact });
+    } else if (key === "m") {
+      event.preventDefault();
+      setViewPrefs({ ...viewPrefs, hideSummaries: !viewPrefs.hideSummaries });
+    } else if (key === "f") {
+      if (qInput instanceof HTMLInputElement) {
+        event.preventDefault();
+        try {
+          qInput.focus({ preventScroll: true });
+        } catch (_error) {
+          qInput.focus();
+        }
+      }
+    } else if (key === "r") {
+      if (markReadBtn instanceof HTMLButtonElement && !markReadBtn.disabled) {
+        event.preventDefault();
+        markReadBtn.click();
+      }
+    } else if (key === "z") {
+      if (undoBtn instanceof HTMLButtonElement && !undoBtn.hidden) {
+        event.preventDefault();
+        undoBtn.click();
+      }
+    } else if (key === "c") {
+      if (clearBtn instanceof HTMLButtonElement && !clearBtn.disabled) {
+        event.preventDefault();
+        clearBtn.click();
+      }
+    }
+  });
 }
 
 function getArticleMetaFromPage() {
@@ -5782,7 +7058,7 @@ function setupArticleLibrary() {
   if (!meta) return;
 
   addRecentArticle(meta);
-  markArticleRead(meta.id);
+  markArticleReadMeta(meta);
 
   const btn = document.querySelector("[data-favorite-article]");
   if (!(btn instanceof HTMLButtonElement)) return;
@@ -5797,6 +7073,57 @@ function setupArticleLibrary() {
   });
 
   window.addEventListener("site:lang", refresh);
+}
+
+function setupArticleReadToggle() {
+  const btn = document.querySelector("[data-article-read-toggle]");
+  if (!(btn instanceof HTMLButtonElement)) return;
+
+  const meta = getArticleMetaFromPage();
+  if (!meta) return;
+
+  const refresh = () => updateReadToggleButton(btn, isArticleRead(meta.id));
+  refresh();
+
+  btn.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (isArticleRead(meta.id)) unmarkArticleRead(meta.id);
+    else markArticleReadMeta(meta);
+    refresh();
+  });
+
+  window.addEventListener("pageshow", refresh);
+  window.addEventListener("site:lang", refresh);
+  window.addEventListener(ARTICLE_READ_EVENT, refresh);
+}
+
+function setupArticleReadingProgress() {
+  const wrapper = document.querySelector("[data-reading-progress]");
+  const bar = document.querySelector("[data-reading-progress-bar]");
+  if (!(wrapper instanceof HTMLElement) || !(bar instanceof HTMLElement)) return;
+
+  wrapper.hidden = false;
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    const doc = document.documentElement;
+    const max = (doc && doc.scrollHeight ? doc.scrollHeight : 0) - window.innerHeight;
+    const progress =
+      max > 0 ? Math.min(Math.max(window.scrollY / max, 0), 1) : 0;
+    bar.style.transform = `scaleX(${progress})`;
+  }
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(update);
+  }
+
+  update();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
+  window.addEventListener("pageshow", update);
 }
 
 function getArticleMetaFromCard(button) {
@@ -5865,6 +7192,92 @@ function setupArticleCardFavorites() {
   }
 }
 
+function updateReadToggleButton(button, isRead) {
+  if (!(button instanceof HTMLButtonElement)) return;
+  const on = Boolean(isRead);
+  button.setAttribute("aria-pressed", on ? "true" : "false");
+  const key = on ? "article.markUnread" : "article.markRead";
+  button.setAttribute("data-i18n", key);
+  button.textContent = t(key, null, getLang());
+}
+
+function setupArticleCardReadToggles() {
+  const buttons = Array.from(document.querySelectorAll("[data-article-read-card-toggle]"));
+  if (!buttons.length) return;
+
+  for (const el of buttons) {
+    if (!(el instanceof HTMLButtonElement)) continue;
+    const meta = getArticleMetaFromCard(el);
+    if (!meta) continue;
+
+    const refresh = () => updateReadToggleButton(el, isArticleRead(meta.id));
+    refresh();
+
+    el.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (isArticleRead(meta.id)) unmarkArticleRead(meta.id);
+      else markArticleReadMeta(meta);
+      applyReadMarkers();
+      refresh();
+    });
+
+    window.addEventListener("pageshow", refresh);
+    window.addEventListener("site:lang", refresh);
+    window.addEventListener(ARTICLE_READ_EVENT, refresh);
+  }
+}
+
+function setupArticleCardCopyButtons() {
+  const buttons = Array.from(document.querySelectorAll("[data-copy-article-card]"));
+  if (!buttons.length) return;
+
+  for (const el of buttons) {
+    if (!(el instanceof HTMLButtonElement)) continue;
+    const meta = getArticleMetaFromCard(el);
+    if (!meta || !meta.path) continue;
+
+    el.addEventListener("click", async (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const url = new URL(meta.path, window.location.origin);
+      const ok = await copyToClipboard(url.toString());
+      flashButtonLabel(el, ok ? "common.copied" : "common.copyFailed");
+    });
+  }
+}
+
+function setupArticleCardShareButtons() {
+  const buttons = Array.from(document.querySelectorAll("[data-share-article-card]"));
+  if (!buttons.length) return;
+  const canShare = typeof navigator.share === "function";
+
+  for (const el of buttons) {
+    if (!(el instanceof HTMLButtonElement)) continue;
+    if (!canShare) {
+      el.hidden = true;
+      continue;
+    }
+
+    const meta = getArticleMetaFromCard(el);
+    if (!meta || !meta.path) {
+      el.hidden = true;
+      continue;
+    }
+
+    el.addEventListener("click", async (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      try {
+        const url = new URL(meta.path, window.location.origin);
+        await navigator.share({ title: meta.title || document.title, url: url.toString() });
+      } catch {
+        // ignore (cancelled / not allowed)
+      }
+    });
+  }
+}
+
 function normalizeToolMeta(input) {
   if (!input || typeof input !== "object") return null;
   const slug = String(input.slug || "").trim();
@@ -5892,7 +7305,9 @@ function readFavoriteTools() {
 }
 
 function writeFavoriteTools(list) {
-  storageSetJson(FAVORITES_TOOLS_KEY, Array.isArray(list) ? list : []);
+  const items = Array.isArray(list) ? list : [];
+  storageSetJson(FAVORITES_TOOLS_KEY, items);
+  emitToolFavoritesChanged(items.length);
 }
 
 function isFavoriteTool(slug, favorites) {
@@ -5913,6 +7328,56 @@ function toggleFavoriteTool(meta) {
     : [{ ...normalized, savedAt: Date.now() }, ...favorites];
 
   writeFavoriteTools(next);
+  return !exists;
+}
+
+function normalizeSourceMeta(input) {
+  if (!input || typeof input !== "object") return null;
+  const id = String(input.id || "").trim();
+  const name = String(input.name || input.title || "").trim();
+  const path = resolveSitePath(String(input.path || "").trim() || (id ? `/source/${id}/` : ""));
+  if (!id || !name || !path) return null;
+  return { id, name, path };
+}
+
+function readFavoriteSources() {
+  const raw = storageGetJson(FAVORITES_SOURCES_KEY, []);
+  if (!Array.isArray(raw)) return [];
+  const seen = new Set();
+  const list = [];
+  for (const item of raw) {
+    const meta = normalizeSourceMeta(item);
+    if (!meta || seen.has(meta.id)) continue;
+    seen.add(meta.id);
+    list.push({ ...meta, savedAt: Number(item.savedAt) || 0 });
+  }
+  return list;
+}
+
+function writeFavoriteSources(list) {
+  const items = Array.isArray(list) ? list : [];
+  storageSetJson(FAVORITES_SOURCES_KEY, items);
+  emitSourceFavoritesChanged(items.length);
+}
+
+function isFavoriteSource(id, favorites) {
+  const target = String(id || "").trim();
+  if (!target) return false;
+  const list = Array.isArray(favorites) ? favorites : readFavoriteSources();
+  return list.some((item) => item && item.id === target);
+}
+
+function toggleFavoriteSource(meta) {
+  const normalized = normalizeSourceMeta(meta);
+  if (!normalized) return false;
+
+  const favorites = readFavoriteSources();
+  const exists = favorites.some((item) => item && item.id === normalized.id);
+  const next = exists
+    ? favorites.filter((item) => item && item.id !== normalized.id)
+    : [{ ...normalized, savedAt: Date.now() }, ...favorites];
+
+  writeFavoriteSources(next);
   return !exists;
 }
 
@@ -5956,6 +7421,59 @@ function getToolMetaFromPage() {
   } catch (_error) {
     return null;
   }
+}
+
+function getSourceMetaFromPage() {
+  const el = document.querySelector("[data-source-meta]");
+  if (!el) return null;
+  try {
+    const parsed = JSON.parse(el.textContent || "");
+    return normalizeSourceMeta(parsed);
+  } catch (_error) {
+    return null;
+  }
+}
+
+function updateSourceFavoriteButton(btn, isFavorite) {
+  if (!(btn instanceof HTMLButtonElement)) return;
+  const on = Boolean(isFavorite);
+  btn.setAttribute("aria-pressed", on ? "true" : "false");
+  const key = on ? "sources.unstar" : "sources.star";
+  btn.setAttribute("data-i18n", key);
+  btn.textContent = t(key, null, getLang());
+}
+
+function setupSourcePageFavorite() {
+  const btn = document.querySelector("[data-favorite-source-page]");
+  if (!(btn instanceof HTMLButtonElement)) return;
+
+  const meta = getSourceMetaFromPage();
+  if (!meta) return;
+
+  const refresh = () => updateSourceFavoriteButton(btn, isFavoriteSource(meta.id));
+  refresh();
+
+  btn.addEventListener("click", (event) => {
+    event.preventDefault();
+    const nextState = toggleFavoriteSource(meta);
+    updateSourceFavoriteButton(btn, nextState);
+  });
+
+  window.addEventListener("pageshow", refresh);
+  window.addEventListener("site:lang", refresh);
+  window.addEventListener(SOURCE_FAVORITES_EVENT, refresh);
+}
+
+function setupCopySourceIdButtons() {
+  document.querySelectorAll("[data-copy-source-id]").forEach((el) => {
+    if (!(el instanceof HTMLButtonElement)) return;
+    el.addEventListener("click", async (event) => {
+      event.preventDefault();
+      const id = el.getAttribute("data-copy-source-id") || "";
+      const ok = await copyToClipboard(id);
+      flashButtonLabel(el, ok ? "common.copied" : "common.copyFailed");
+    });
+  });
 }
 
 function setupToolLibrary() {
@@ -6037,6 +7555,50 @@ function emitShopFavoritesChanged(count) {
     );
   } catch (_error) {
     window.dispatchEvent(new Event(SHOP_FAVORITES_EVENT));
+  }
+}
+
+function emitArticleFavoritesChanged(count) {
+  const normalizedCount = Number.isFinite(count) ? count : readFavoriteArticles().length;
+  try {
+    window.dispatchEvent(
+      new CustomEvent(ARTICLE_FAVORITES_EVENT, { detail: { count: normalizedCount } })
+    );
+  } catch (_error) {
+    window.dispatchEvent(new Event(ARTICLE_FAVORITES_EVENT));
+  }
+}
+
+function emitToolFavoritesChanged(count) {
+  const normalizedCount = Number.isFinite(count) ? count : readFavoriteTools().length;
+  try {
+    window.dispatchEvent(
+      new CustomEvent(TOOL_FAVORITES_EVENT, { detail: { count: normalizedCount } })
+    );
+  } catch (_error) {
+    window.dispatchEvent(new Event(TOOL_FAVORITES_EVENT));
+  }
+}
+
+function emitSourceFavoritesChanged(count) {
+  const normalizedCount = Number.isFinite(count) ? count : readFavoriteSources().length;
+  try {
+    window.dispatchEvent(
+      new CustomEvent(SOURCE_FAVORITES_EVENT, { detail: { count: normalizedCount } })
+    );
+  } catch (_error) {
+    window.dispatchEvent(new Event(SOURCE_FAVORITES_EVENT));
+  }
+}
+
+function emitArticleReadChanged(count) {
+  const normalizedCount = Number.isFinite(count) ? count : Object.keys(readReadArticles()).length;
+  try {
+    window.dispatchEvent(
+      new CustomEvent(ARTICLE_READ_EVENT, { detail: { count: normalizedCount } })
+    );
+  } catch (_error) {
+    window.dispatchEvent(new Event(ARTICLE_READ_EVENT));
   }
 }
 
@@ -6143,6 +7705,34 @@ function setupShopSavedCtas() {
   window.addEventListener("site:lang", update);
 }
 
+function setupLibraryBadge() {
+  const badges = Array.from(document.querySelectorAll("[data-library-badge]")).filter(
+    (el) => el instanceof HTMLElement
+  );
+  if (!badges.length) return;
+
+  function update() {
+    const count =
+      readFavoriteArticles().length +
+      readFavoriteTools().length +
+      readFavoriteShopItems().length +
+      readFavoriteSources().length;
+    const label = count > 99 ? "99+" : String(count);
+    for (const badge of badges) {
+      if (!(badge instanceof HTMLElement)) continue;
+      badge.hidden = count <= 0;
+      badge.textContent = count > 0 ? label : "";
+    }
+  }
+
+  update();
+  window.addEventListener(ARTICLE_FAVORITES_EVENT, update);
+  window.addEventListener(TOOL_FAVORITES_EVENT, update);
+  window.addEventListener(SHOP_FAVORITES_EVENT, update);
+  window.addEventListener(SOURCE_FAVORITES_EVENT, update);
+  window.addEventListener("pageshow", update);
+}
+
 function titleCaseText(value) {
   return String(value || "")
     .trim()
@@ -6158,26 +7748,40 @@ function formatYmd(value) {
   return date.toISOString().slice(0, 10);
 }
 
+function formatYmdFromMs(value) {
+  const ms = Number(value);
+  if (!Number.isFinite(ms)) return "";
+  const date = new Date(ms);
+  if (Number.isNaN(date.getTime())) return "";
+  return date.toISOString().slice(0, 10);
+}
+
 function setupLibraryPage() {
   const articleFavList = document.querySelector('[data-library-list="favorites"]');
   const articleRecentList = document.querySelector('[data-library-list="recent"]');
+  const articleReadList = document.querySelector('[data-library-list="read"]');
   const toolFavList = document.querySelector('[data-library-list="tools-favorites"]');
   const toolRecentList = document.querySelector('[data-library-list="tools-recent"]');
+  const sourceFavList = document.querySelector('[data-library-list="sources-favorites"]');
   const shopFavList = document.querySelector('[data-library-list="shop-favorites"]');
 
   const hasAny =
     articleFavList instanceof HTMLUListElement ||
     articleRecentList instanceof HTMLUListElement ||
+    articleReadList instanceof HTMLUListElement ||
     toolFavList instanceof HTMLUListElement ||
     toolRecentList instanceof HTMLUListElement ||
+    sourceFavList instanceof HTMLUListElement ||
     shopFavList instanceof HTMLUListElement;
   if (!hasAny) return;
 
   const filterInput = document.querySelector("[data-library-filter-input]");
   const sortSelect = document.querySelector("[data-library-sort]");
   const exportBtn = document.querySelector("[data-library-export]");
+  const exportAllBtn = document.querySelector("[data-library-export-all]");
   const importInput = document.querySelector("[data-library-import-input]");
   const importBtn = document.querySelector("[data-library-import]");
+  const clearAllBtn = document.querySelector("[data-library-clear-all]");
   const status = document.querySelector("[data-library-status]");
 
   let statusOverride = null;
@@ -6307,28 +7911,74 @@ function setupLibraryPage() {
     window.setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
 
-  function exportFavorites() {
-    const articles = readFavoriteArticles().map((item) => ({
-      ...item,
-      path: stripSiteBasePath(item.path),
-    }));
-    const tools = readFavoriteTools().map((item) => ({
-      ...item,
-      path: stripSiteBasePath(item.path),
-    }));
-    const shop = readFavoriteShopItems().map((item) => ({
-      ...item,
-      path: stripSiteBasePath(item.path),
-    }));
-
-    const payload = {
-      version: 1,
-      exportedAt: new Date().toISOString(),
-      favorites: { articles, tools, shop },
+  function buildLibraryExport(includeAll) {
+    const favorites = {
+      articles: readFavoriteArticles().map((item) => ({
+        ...item,
+        path: stripSiteBasePath(item.path),
+      })),
+      tools: readFavoriteTools().map((item) => ({
+        ...item,
+        path: stripSiteBasePath(item.path),
+      })),
+      sources: readFavoriteSources().map((item) => ({
+        ...item,
+        path: stripSiteBasePath(item.path),
+      })),
+      shop: readFavoriteShopItems().map((item) => ({
+        ...item,
+        path: stripSiteBasePath(item.path),
+      })),
     };
 
+    const payload = {
+      version: 2,
+      exportedAt: new Date().toISOString(),
+      library: { favorites },
+    };
+
+    if (!includeAll) return payload;
+
+    payload.library.recents = {
+      articles: readRecentArticles().map((item) => ({
+        ...item,
+        path: stripSiteBasePath(item.path),
+      })),
+      tools: readRecentTools().map((item) => ({
+        ...item,
+        path: stripSiteBasePath(item.path),
+      })),
+    };
+
+    payload.library.read = {
+      articles: {
+        ids: readReadArticles(),
+        items: readReadArticlesMeta().map((item) => ({
+          ...item,
+          path: stripSiteBasePath(item.path),
+        })),
+      },
+    };
+
+    payload.library.settings = {
+      lang: storageGet(LANG_STORAGE_KEY) || "",
+      theme: storageGet(THEME_STORAGE_KEY) || "",
+    };
+
+    return payload;
+  }
+
+  function exportFavorites() {
+    const payload = buildLibraryExport(false);
     const date = new Date().toISOString().slice(0, 10);
     downloadJson(payload, `library-favorites-${date}.json`);
+    setStatusOverrideMessage("library.status.exported");
+  }
+
+  function exportAll() {
+    const payload = buildLibraryExport(true);
+    const date = new Date().toISOString().slice(0, 10);
+    downloadJson(payload, `library-all-${date}.json`);
     setStatusOverrideMessage("library.status.exported");
   }
 
@@ -6339,12 +7989,44 @@ function setupLibraryPage() {
     const parsed = JSON.parse(text);
     if (!parsed || typeof parsed !== "object") throw new Error("Invalid JSON");
 
-    const container =
-      parsed.favorites && typeof parsed.favorites === "object" ? parsed.favorites : parsed;
+    const root = parsed;
+    const library =
+      root.library && typeof root.library === "object" && !Array.isArray(root.library)
+        ? root.library
+        : null;
 
-    const incomingArticles = Array.isArray(container.articles) ? container.articles : [];
-    const incomingTools = Array.isArray(container.tools) ? container.tools : [];
-    const incomingShop = Array.isArray(container.shop) ? container.shop : [];
+    const favoritesContainer =
+      library && library.favorites && typeof library.favorites === "object"
+        ? library.favorites
+        : root.favorites && typeof root.favorites === "object"
+          ? root.favorites
+          : root;
+
+    const recentsContainer =
+      library && library.recents && typeof library.recents === "object"
+        ? library.recents
+        : root.recents && typeof root.recents === "object"
+          ? root.recents
+          : null;
+
+    const readContainer =
+      library && library.read && typeof library.read === "object"
+        ? library.read
+        : root.read && typeof root.read === "object"
+          ? root.read
+          : null;
+
+    const settingsContainer =
+      library && library.settings && typeof library.settings === "object"
+        ? library.settings
+        : root.settings && typeof root.settings === "object"
+          ? root.settings
+          : null;
+
+    const incomingArticles = Array.isArray(favoritesContainer.articles) ? favoritesContainer.articles : [];
+    const incomingTools = Array.isArray(favoritesContainer.tools) ? favoritesContainer.tools : [];
+    const incomingSources = Array.isArray(favoritesContainer.sources) ? favoritesContainer.sources : [];
+    const incomingShop = Array.isArray(favoritesContainer.shop) ? favoritesContainer.shop : [];
 
     const mergedArticles = new Map(readFavoriteArticles().map((item) => [item.id, item]));
     for (const raw of incomingArticles) {
@@ -6370,6 +8052,18 @@ function setupLibraryPage() {
       });
     }
 
+    const mergedSources = new Map(readFavoriteSources().map((item) => [item.id, item]));
+    for (const raw of incomingSources) {
+      const meta = normalizeSourceMeta(raw);
+      if (!meta) continue;
+      const savedAt = Number(raw && raw.savedAt) || 0;
+      const existing = mergedSources.get(meta.id);
+      mergedSources.set(meta.id, {
+        ...meta,
+        savedAt: Math.max(existing?.savedAt || 0, savedAt),
+      });
+    }
+
     const mergedShop = new Map(readFavoriteShopItems().map((item) => [item.asin, item]));
     for (const raw of incomingShop) {
       const meta = normalizeShopMeta(raw);
@@ -6384,15 +8078,103 @@ function setupLibraryPage() {
 
     const nextArticles = Array.from(mergedArticles.values()).sort((a, b) => b.savedAt - a.savedAt);
     const nextTools = Array.from(mergedTools.values()).sort((a, b) => b.savedAt - a.savedAt);
+    const nextSources = Array.from(mergedSources.values()).sort((a, b) => b.savedAt - a.savedAt);
     const nextShop = Array.from(mergedShop.values()).sort((a, b) => b.savedAt - a.savedAt);
 
     writeFavoriteArticles(nextArticles);
     writeFavoriteTools(nextTools);
+    writeFavoriteSources(nextSources);
     writeFavoriteShopItems(nextShop);
+
+    if (recentsContainer && typeof recentsContainer === "object") {
+      const incomingRecentArticles = Array.isArray(recentsContainer.articles) ? recentsContainer.articles : [];
+      const mergedRecents = new Map(readRecentArticles().map((item) => [item.id, item]));
+      for (const raw of incomingRecentArticles) {
+        const meta = normalizeArticleMeta(raw);
+        if (!meta) continue;
+        const viewedAt = Number(raw && raw.viewedAt) || 0;
+        const existing = mergedRecents.get(meta.id);
+        mergedRecents.set(meta.id, {
+          ...meta,
+          viewedAt: Math.max(existing?.viewedAt || 0, viewedAt),
+        });
+      }
+      const nextRecents = Array.from(mergedRecents.values()).sort((a, b) => b.viewedAt - a.viewedAt);
+      writeRecentArticles(nextRecents.slice(0, MAX_RECENT_ARTICLES));
+
+      const incomingRecentTools = Array.isArray(recentsContainer.tools) ? recentsContainer.tools : [];
+      const mergedToolRecents = new Map(readRecentTools().map((item) => [item.slug, item]));
+      for (const raw of incomingRecentTools) {
+        const meta = normalizeToolMeta(raw);
+        if (!meta) continue;
+        const viewedAt = Number(raw && raw.viewedAt) || 0;
+        const existing = mergedToolRecents.get(meta.slug);
+        mergedToolRecents.set(meta.slug, {
+          ...meta,
+          viewedAt: Math.max(existing?.viewedAt || 0, viewedAt),
+        });
+      }
+      const nextToolRecents = Array.from(mergedToolRecents.values()).sort(
+        (a, b) => b.viewedAt - a.viewedAt
+      );
+      writeRecentTools(nextToolRecents.slice(0, MAX_RECENT_TOOLS));
+    }
+
+    if (readContainer && typeof readContainer === "object") {
+      const readArticles =
+        readContainer.articles && typeof readContainer.articles === "object" ? readContainer.articles : {};
+      const incomingReadIds =
+        readArticles.ids && typeof readArticles.ids === "object" && !Array.isArray(readArticles.ids)
+          ? readArticles.ids
+          : {};
+      const incomingReadItems = Array.isArray(readArticles.items) ? readArticles.items : [];
+
+      const mergedReadMap = readReadArticles();
+      for (const [key, value] of Object.entries(incomingReadIds)) {
+        const id = String(key || "").trim();
+        if (!id) continue;
+        const ts = Number(value) || 0;
+        const existing = Number(mergedReadMap[id]) || 0;
+        mergedReadMap[id] = Math.max(existing, ts);
+      }
+
+      const mergedReadMeta = new Map(readReadArticlesMeta().map((item) => [item.id, item]));
+      for (const raw of incomingReadItems) {
+        const meta = normalizeArticleMeta(raw);
+        if (!meta) continue;
+        const readAt = Number(raw && raw.readAt) || Number(incomingReadIds[meta.id]) || 0;
+        const existing = mergedReadMeta.get(meta.id);
+        mergedReadMeta.set(meta.id, {
+          ...meta,
+          readAt: Math.max(existing?.readAt || 0, readAt),
+        });
+        const existingMap = Number(mergedReadMap[meta.id]) || 0;
+        mergedReadMap[meta.id] = Math.max(existingMap, readAt);
+      }
+
+      trimReadMapToMax(mergedReadMap, MAX_READ_ARTICLES);
+      writeReadArticles(mergedReadMap);
+
+      const allowed = new Set(Object.keys(mergedReadMap));
+      const nextReadMeta = Array.from(mergedReadMeta.values())
+        .filter((item) => item && allowed.has(item.id))
+        .sort((a, b) => (Number(b.readAt) || 0) - (Number(a.readAt) || 0))
+        .slice(0, MAX_READ_ARTICLES_META);
+      writeReadArticlesMeta(nextReadMeta);
+      emitArticleReadChanged();
+    }
+
+    if (settingsContainer && typeof settingsContainer === "object") {
+      const lang = String(settingsContainer.lang || "").trim();
+      const theme = String(settingsContainer.theme || "").trim();
+      if (lang) setLang(lang);
+      if (theme) setTheme(theme);
+    }
 
     setStatusOverrideMessage("library.importSuccess", {
       articles: nextArticles.length,
       tools: nextTools.length,
+      sources: nextSources.length,
       shop: nextShop.length,
     });
   }
@@ -6403,14 +8185,17 @@ function setupLibraryPage() {
   }
 
   function clearList(type) {
-    if (type === "favorites") storageRemove(FAVORITES_ARTICLES_KEY);
-    if (type === "recent") storageRemove(RECENT_ARTICLES_KEY);
-    if (type === "tools-favorites") storageRemove(FAVORITES_TOOLS_KEY);
-    if (type === "tools-recent") storageRemove(RECENT_TOOLS_KEY);
-    if (type === "shop-favorites") {
-      storageRemove(FAVORITES_SHOP_KEY);
-      emitShopFavoritesChanged(0);
+    if (type === "favorites") writeFavoriteArticles([]);
+    if (type === "recent") writeRecentArticles([]);
+    if (type === "read") {
+      writeReadArticles({});
+      writeReadArticlesMeta([]);
+      emitArticleReadChanged(0);
     }
+    if (type === "tools-favorites") writeFavoriteTools([]);
+    if (type === "tools-recent") writeRecentTools([]);
+    if (type === "sources-favorites") writeFavoriteSources([]);
+    if (type === "shop-favorites") writeFavoriteShopItems([]);
   }
 
   function renderList(
@@ -6604,11 +8389,119 @@ function setupLibraryPage() {
       null
     );
 
+    const articleRead = readReadArticlesMeta();
+    const articleReadView = sortItems(
+      q
+        ? articleRead.filter((item) =>
+            matches([item.title, item.category, item.sourceName, item.id])
+          )
+        : articleRead,
+      (item) => item.title,
+      (item) => item.readAt
+    );
+
+    renderList(
+      articleReadList,
+      articleReadView,
+      normalizeArticleMeta,
+      (meta, item) => {
+        const parts = [];
+        if (meta.category) parts.push(titleCaseText(meta.category));
+        const readDate = formatYmdFromMs(item && item.readAt);
+        if (readDate) parts.push(readDate);
+        const publishedDate = formatYmd(meta.publishedAt);
+        if (publishedDate) parts.push(publishedDate);
+        if (meta.sourceName) parts.push(meta.sourceName);
+        return parts;
+      },
+      [
+        (meta) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "button button-secondary";
+          btn.textContent = t("library.remove", null, getLang());
+          btn.addEventListener("click", () => {
+            unmarkArticleRead(meta.id);
+            render();
+          });
+          return btn;
+        },
+      ],
+      null,
+      null
+    );
+
     const hasFilter = Boolean(q);
     setSectionHidden("favorites", hasFilter && articleFavoritesView.length === 0);
     setSectionHidden("recent", hasFilter && articleRecentsView.length === 0);
+    setSectionHidden("read", hasFilter && articleReadView.length === 0);
     setEmpty("favorites", !hasFilter && articleFavorites.length === 0);
     setEmpty("recent", !hasFilter && articleRecents.length === 0);
+    setEmpty("read", !hasFilter && articleRead.length === 0);
+
+    const sourceFavorites = readFavoriteSources();
+
+    function normalizeSourceMetaForDisplay(input) {
+      const meta = normalizeSourceMeta(input);
+      if (!meta) return null;
+      return { ...meta, title: meta.name };
+    }
+
+    const sourceFavoritesView = sortItems(
+      q
+        ? sourceFavorites.filter((item) => matches([item.name, item.id]))
+        : sourceFavorites,
+      (item) => item.name,
+      (item) => item.savedAt
+    );
+
+    renderList(
+      sourceFavList,
+      sourceFavoritesView,
+      normalizeSourceMetaForDisplay,
+      (meta, item) => {
+        const parts = [];
+        const savedDate = formatYmdFromMs(item && item.savedAt);
+        if (savedDate) parts.push(savedDate);
+        if (meta.id) parts.push(meta.id);
+        return parts;
+      },
+      [
+        (meta) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "button button-secondary";
+          btn.setAttribute("data-i18n", "article.copy");
+          btn.textContent = t("article.copy", null, getLang());
+          btn.addEventListener("click", async () => {
+            try {
+              const url = new URL(meta.path, window.location.origin).toString();
+              const ok = await copyToClipboard(url);
+              flashButtonLabel(btn, ok ? "common.copied" : "common.copyFailed");
+            } catch (_error) {
+              flashButtonLabel(btn, "common.copyFailed");
+            }
+          });
+          return btn;
+        },
+        (meta) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "button button-secondary";
+          btn.textContent = t("library.remove", null, getLang());
+          btn.addEventListener("click", () => {
+            writeFavoriteSources(sourceFavorites.filter((item) => item && item.id !== meta.id));
+            render();
+          });
+          return btn;
+        },
+      ],
+      null,
+      null
+    );
+
+    setSectionHidden("sources-favorites", hasFilter && sourceFavoritesView.length === 0);
+    setEmpty("sources-favorites", !hasFilter && sourceFavorites.length === 0);
 
     const toolFavorites = readFavoriteTools();
     const toolRecents = readRecentTools();
@@ -6808,6 +8701,8 @@ function setupLibraryPage() {
       state.q,
       articleFavoritesView.length +
         articleRecentsView.length +
+        articleReadView.length +
+        sourceFavoritesView.length +
         toolFavoritesView.length +
         toolRecentsView.length +
         shopFavoritesView.length
@@ -6821,8 +8716,10 @@ function setupLibraryPage() {
       if (
         type !== "favorites" &&
         type !== "recent" &&
+        type !== "read" &&
         type !== "tools-favorites" &&
         type !== "tools-recent" &&
+        type !== "sources-favorites" &&
         type !== "shop-favorites"
       )
         return;
@@ -6850,6 +8747,29 @@ function setupLibraryPage() {
   if (exportBtn instanceof HTMLButtonElement) {
     exportBtn.addEventListener("click", () => {
       exportFavorites();
+    });
+  }
+
+  if (exportAllBtn instanceof HTMLButtonElement) {
+    exportAllBtn.addEventListener("click", () => {
+      exportAll();
+    });
+  }
+
+  if (clearAllBtn instanceof HTMLButtonElement) {
+    clearAllBtn.addEventListener("click", () => {
+      const message = t("library.confirmClearAll", null, getLang());
+      if (typeof window.confirm !== "function" || !window.confirm(message)) return;
+      clearList("favorites");
+      clearList("recent");
+      clearList("read");
+      clearList("tools-favorites");
+      clearList("tools-recent");
+      clearList("sources-favorites");
+      clearList("shop-favorites");
+      clearAllToolStates();
+      setStatusOverrideMessage("library.status.clearedAll");
+      render();
     });
   }
 
@@ -6939,6 +8859,26 @@ function setupCopyShareButtons() {
     });
   });
 
+  document.querySelectorAll("[data-copy-original]").forEach((el) => {
+    if (!(el instanceof HTMLButtonElement)) return;
+    el.addEventListener("click", async () => {
+      const link = document.querySelector("[data-article-original-link]");
+      const href = link instanceof HTMLAnchorElement ? link.href : "";
+      const ok = await copyToClipboard(href);
+      flashButtonLabel(el, ok ? "common.copied" : "common.copyFailed");
+    });
+  });
+
+  document.querySelectorAll("[data-copy-title]").forEach((el) => {
+    if (!(el instanceof HTMLButtonElement)) return;
+    el.addEventListener("click", async () => {
+      const titleEl = document.querySelector(".article-title");
+      const title = titleEl instanceof HTMLElement ? String(titleEl.textContent || "").trim() : "";
+      const ok = await copyToClipboard(title || document.title);
+      flashButtonLabel(el, ok ? "common.copied" : "common.copyFailed");
+    });
+  });
+
   const canShare = typeof navigator.share === "function";
   document.querySelectorAll("[data-share-link]").forEach((el) => {
     if (!(el instanceof HTMLButtonElement)) return;
@@ -7006,6 +8946,10 @@ function setupHoverPrefetch() {
     document.head.appendChild(link);
   }
 
+  function stripHash(value) {
+    return String(value || "").split("#", 1)[0];
+  }
+
   document.addEventListener(
     "mouseover",
     (event) => {
@@ -7013,7 +8957,9 @@ function setupHoverPrefetch() {
       if (!(target instanceof Element)) return;
       const anchor = target.closest("a");
       if (!(anchor instanceof HTMLAnchorElement)) return;
-      const href = anchor.getAttribute("href") || "";
+      if (anchor.hasAttribute("download")) return;
+      const hrefRaw = anchor.getAttribute("href") || "";
+      const href = stripHash(hrefRaw);
       if (!href || href.startsWith("#")) return;
       if (/^(mailto:|tel:|https?:\/\/)/i.test(href)) {
         const url = new URL(href, window.location.origin);
@@ -7054,12 +9000,26 @@ document.addEventListener("DOMContentLoaded", () => {
   setupToolQuickJumps();
   setupToolStatePersistence();
   setupToolsIndexFilter();
+  setupToolsRecents();
+  setupListFilters();
+  setupRunsControls();
+  setupTrendingControls();
+  setupNewsViewPrefs();
+  setupNewsControls();
+  setupSourcePageFavorite();
+  setupCopySourceIdButtons();
+  setupLibraryBadge();
   setupActiveLinks();
   setupCopyShareButtons();
   setupSearchAbArticleDwell();
   setupArticleImageMonitor();
   setupArticleLibrary();
+  setupArticleReadToggle();
+  setupArticleReadingProgress();
   setupArticleCardFavorites();
+  setupArticleCardReadToggles();
+  setupArticleCardCopyButtons();
+  setupArticleCardShareButtons();
   setupArticleReadMarkers();
   setupToolLibrary();
   setupToolCardFavorites();

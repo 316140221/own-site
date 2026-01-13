@@ -2,13 +2,13 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { DateTime } = require("luxon");
 const { ASSET_KEYS } = require("./shared/assets.cjs");
+const { decodeHtmlEntities, xmlEscape } = require("./shared/entities.cjs");
+const {
+  isExternalAssetUrl,
+  normalizePathPrefix,
+  stripQueryAndHash,
+} = require("./shared/path.cjs");
 const readJsonOrDefault = require("./src/_data/lib/readJsonOrDefault.js");
-
-function normalizePathPrefix(rawPrefix) {
-  const raw = String(rawPrefix || "/").trim();
-  if (!raw || raw === "/") return "/";
-  return `/${raw.replace(/^\/+|\/+$/g, "")}/`;
-}
 
 const PATH_PREFIX = normalizePathPrefix(process.env.PATH_PREFIX || "/");
 
@@ -21,15 +21,6 @@ function absoluteUrl(url, baseUrl) {
   }
 }
 
-function xmlEscape(value) {
-  return String(value ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/\"/g, "&quot;")
-    .replace(/'/g, "&apos;");
-}
-
 function textToHtml(value) {
   const input = String(value ?? "").trim();
   if (!input) return "";
@@ -38,15 +29,6 @@ function textToHtml(value) {
   return paragraphs
     .map((p) => `<p>${xmlEscape(p).replace(/\n/g, "<br />")}</p>`)
     .join("\n");
-}
-
-function decodeHtmlEntities(input) {
-  return String(input ?? "")
-    .replaceAll("&amp;", "&")
-    .replaceAll("&lt;", "<")
-    .replaceAll("&gt;", ">")
-    .replaceAll("&quot;", "\"")
-    .replaceAll("&#39;", "'");
 }
 
 function titleCase(value) {
@@ -145,9 +127,8 @@ module.exports = function (eleventyConfig) {
   function buildAssetExists(assetPath) {
     const value = String(assetPath || "").trim();
     if (!value) return false;
-    if (/^https?:\/\//i.test(value)) return false;
-    if (value.startsWith("//")) return false;
-    const cleaned = value.split(/[?#]/, 1)[0];
+    if (isExternalAssetUrl(value)) return false;
+    const cleaned = stripQueryAndHash(value);
     if (!cleaned) return false;
     const basename = path.basename(cleaned);
     if (!basename) return false;

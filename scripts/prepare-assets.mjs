@@ -4,6 +4,7 @@ import { createHash } from "node:crypto";
 import sharedAssets from "../shared/assets.cjs";
 import { toPosixPath } from "./lib/path.mjs";
 import { intFromEnv } from "./lib/env.mjs";
+import { writeJsonSync } from "./lib/json.mjs";
 
 const rootDir = process.cwd();
 const assetDir = path.resolve(rootDir, "src/assets");
@@ -11,7 +12,9 @@ const outputDir = path.resolve(rootDir, "build/assets");
 const manifestPath = path.resolve(rootDir, "build/asset-manifest.json");
 const immutableTtlSeconds = intFromEnv("ASSET_IMMUTABLE_TTL", 31536000, { min: 0 });
 
-const ASSETS_TO_HASH = [...(sharedAssets?.ASSET_KEYS || [])];
+const ASSETS_TO_HASH = Array.from(new Set(sharedAssets?.ASSET_KEYS || [])).sort((a, b) =>
+  String(a).localeCompare(String(b))
+);
 
 function ensureDir(dirPath) {
   fs.rmSync(dirPath, { recursive: true, force: true });
@@ -28,7 +31,7 @@ function buildManifest(entries) {
     immutableTtlSeconds,
     entries,
   };
-  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + "\n");
+  writeJsonSync(manifestPath, manifest);
   return manifest;
 }
 

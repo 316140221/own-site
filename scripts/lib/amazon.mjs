@@ -1,7 +1,7 @@
 import crypto from "node:crypto";
-import fs from "node:fs/promises";
 import path from "node:path";
 import { firstStringFromEnv, stringFromEnv } from "./env.mjs";
+import { readJsonOrDefault, writeJson } from "./json.mjs";
 
 const ROOT = process.cwd();
 const CONFIG_PATH = path.join(ROOT, "amazon.config.json");
@@ -36,19 +36,6 @@ function getSignatureKey(secretKey, dateStamp, region, service) {
   const kService = hmacSha256(kRegion, service);
   const kSigning = hmacSha256(kService, "aws4_request");
   return kSigning;
-}
-
-async function readJsonOrNull(filePath) {
-  try {
-    return JSON.parse(await fs.readFile(filePath, "utf8"));
-  } catch {
-    return null;
-  }
-}
-
-async function writeJson(filePath, data) {
-  await fs.mkdir(path.dirname(filePath), { recursive: true });
-  await fs.writeFile(filePath, JSON.stringify(data, null, 2) + "\n", "utf8");
 }
 
 function normalizeAsin(value) {
@@ -224,7 +211,7 @@ async function fetchPaapiGetItems({
 
 export async function updateAmazonData() {
   const startedAt = nowIso();
-  const config = (await readJsonOrNull(CONFIG_PATH)) || {};
+  const config = await readJsonOrDefault(CONFIG_PATH, {});
 
   const enabled = config?.enabled === true;
   const rawItems = Array.isArray(config?.items) ? config.items : [];

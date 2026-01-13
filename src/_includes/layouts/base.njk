@@ -16,6 +16,7 @@
 		    <meta name="viewport" content="width=device-width, initial-scale=1" />
 		    <meta name="referrer" content="strict-origin-when-cross-origin" />
 		    <link rel="icon" href="{{ '/assets/favicon.svg' | url }}" type="image/svg+xml" />
+        <link rel="manifest" href="{{ '/manifest.webmanifest' | url }}" />
 		    <meta name="theme-color" content="#0284c7" />
         <meta name="color-scheme" content="light dark" />
         {% set cspDirectives = [
@@ -611,8 +612,10 @@
           <a
             href="{{ '/library/' | url }}"
             {% if page.url and page.url.indexOf('/library/') == 0 %}aria-current="page"{% endif %}
-            data-i18n="nav.library"
-          >Library</a>
+          >
+            <span data-i18n="nav.library">Library</span>
+            <span class="nav-badge" data-library-badge aria-hidden="true" hidden></span>
+          </a>
           {% if not headerSearchEnabled %}
             <a
               href="{{ '/search/' | url }}"
@@ -682,8 +685,10 @@
             class="footer-link"
             href="{{ '/library/' | url }}"
             {% if page.url and page.url.indexOf('/library/') == 0 %}aria-current="page"{% endif %}
-            data-i18n="nav.library"
-          >Library</a>
+          >
+            <span data-i18n="nav.library">Library</span>
+            <span class="nav-badge" data-library-badge aria-hidden="true" hidden></span>
+          </a>
         </nav>
       </div>
     </footer>

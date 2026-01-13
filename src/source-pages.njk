@@ -15,6 +15,33 @@ eleventyComputed:
 
 <h1>{{ sourcePage.name }}</h1>
 
+<script type="application/json" data-source-meta>
+  {{
+    {
+      id: sourcePage.id,
+      name: sourcePage.name,
+      path: ('/source/' + sourcePage.id + '/') | url
+    }
+      | jsonLd
+      | safe
+  }}
+</script>
+
+<p class="muted">
+  <button
+    class="tag-pill"
+    type="button"
+    data-favorite-source-page
+    aria-pressed="false"
+    data-i18n="sources.star"
+  >
+    Star
+  </button>
+  <button class="tag-pill" type="button" data-copy-source-id="{{ sourcePage.id }}" data-i18n="sources.copyId">
+    Copy ID
+  </button>
+</p>
+
 <p class="muted">
   {% if sourcePage.siteUrl %}
     <a class="muted" href="{{ sourcePage.siteUrl }}" target="_blank" rel="nofollow noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin" data-i18n="sources.link.site">Site</a>
@@ -28,6 +55,9 @@ eleventyComputed:
 </p>
 
 {% set items = sourcePage.items %}
+{% if items and items.length %}
+  {% include "partials/news-controls.njk" %}
+{% endif %}
 {% include "partials/news-list.njk" %}
 {% if sourcePage.totalPages > 1 %}
   {% include "partials/source-pager.njk" %}

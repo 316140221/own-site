@@ -1,3 +1,7 @@
+<div class="reading-progress" data-reading-progress hidden aria-hidden="true">
+  <div class="reading-progress-bar" data-reading-progress-bar></div>
+</div>
+
 <article class="article">
   <script type="application/json" data-article-meta>
     {{
@@ -44,6 +48,16 @@
         <a class="badge" href="{{ ('/lang/' + article.language + '/') | url }}">{{ article.language | upper }}</a>
       {% endif %}
       <span class="muted">{{ article.publishedAt | formatDateTime }}</span>
+      {% if readingMinutes %}
+        <span class="muted">·</span>
+        <span
+          class="muted"
+          data-i18n-template="article.readingTime"
+          data-i18n-vars='{{ { minutes: readingMinutes } | jsonLd | safe }}'
+        >
+          {{ readingMinutes }} min read
+        </span>
+      {% endif %}
       <span class="muted">·</span>
       {% if article.source and article.source.id %}
         <a class="muted" href="{{ ('/source/' + article.source.id + '/') | url }}">{{ article.source.name }}</a>
@@ -116,6 +130,7 @@
       rel="nofollow noopener noreferrer"
       referrerpolicy="strict-origin-when-cross-origin"
       data-i18n="article.openOriginal"
+      data-article-original-link
     >
       Open original →
     </a>
@@ -124,6 +139,20 @@
     </button>
     <button class="button button-secondary" type="button" data-copy-link data-i18n="article.copy">
       Copy link
+    </button>
+    <button class="button button-secondary" type="button" data-copy-original data-i18n="article.copyOriginal">
+      Copy original
+    </button>
+    <button class="button button-secondary" type="button" data-copy-title data-i18n="article.copyTitle">
+      Copy title
+    </button>
+    <button
+      class="button button-secondary"
+      type="button"
+      data-article-read-toggle
+      data-i18n="article.markUnread"
+    >
+      Mark unread
     </button>
     <button
       class="button button-secondary"

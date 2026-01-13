@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import zlib from "node:zlib";
 import {
+  isExternalAssetUrl,
   normalizePathPrefix,
   stripPathPrefix,
   stripQueryAndHash,
@@ -34,18 +35,10 @@ const budgets = {
   article: pageBudgets("ARTICLE", { js: 260 * 1024, css: 90 * 1024, lcpImage: 420 * 1024, missingDims: 0 }),
 };
 
-function isExternalAsset(url) {
-  const raw = String(url || "").trim();
-  if (!raw) return true;
-  if (/^https?:\/\//i.test(raw)) return true;
-  if (raw.startsWith("//")) return true;
-  return /^(data|mailto|tel|javascript|blob|about):/i.test(raw);
-}
-
 function resolveLocalAsset(src) {
   const trimmed = String(src || "").trim();
   if (!trimmed) return null;
-  if (isExternalAsset(trimmed)) return null;
+  if (isExternalAssetUrl(trimmed)) return null;
   const cleaned = stripQueryAndHash(trimmed);
   if (!cleaned) return null;
 
@@ -54,6 +47,7 @@ function resolveLocalAsset(src) {
     : `/${cleaned.replace(/^\.?\/+/, "")}`;
   const stripped = stripPathPrefix(absolute);
   const relative = stripped.startsWith("/") ? stripped.slice(1) : stripped;
+  if (!relative || relative.split("/").some((part) => part === "..")) return null;
   return path.join(distDir, relative);
 }
 

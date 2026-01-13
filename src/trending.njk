@@ -17,6 +17,20 @@ eleventyComputed:
   Stories are clustered by similar titles from the last {{ stories.windowHours }} hours.
 </p>
 
+<p class="home-actions" data-trending-controls hidden>
+  <button class="button button-secondary" type="button" data-trending-expand data-i18n="trending.expandAll">
+    Expand all
+  </button>
+  <button
+    class="button button-secondary"
+    type="button"
+    data-trending-collapse
+    data-i18n="trending.collapseAll"
+  >
+    Collapse all
+  </button>
+</p>
+
 {% set storyLimit = 40 %}
 {% set storyItemsLimit = 12 %}
 {% set storySourcesLimit = 10 %}

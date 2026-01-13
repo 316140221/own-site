@@ -3,6 +3,7 @@ import path from "node:path";
 import sharedAssets from "../shared/assets.cjs";
 import { normalizePathPrefix, stripQueryAndHash, toPosixPath } from "./lib/path.mjs";
 import { intFromEnv } from "./lib/env.mjs";
+import { readJsonOrDefaultSync } from "./lib/json.mjs";
 
 const distArg = process.argv[2] || "dist";
 const distDir = path.resolve(process.cwd(), distArg);
@@ -65,14 +66,9 @@ function lineNumberForIndex(text, index) {
 }
 
 function readManifest() {
-  try {
-    const raw = fs.readFileSync(MANIFEST_PATH, "utf8");
-    const parsed = JSON.parse(raw);
-    if (!parsed || typeof parsed !== "object") return null;
-    return parsed;
-  } catch (_error) {
-    return null;
-  }
+  const parsed = readJsonOrDefaultSync(MANIFEST_PATH, null);
+  if (!parsed || typeof parsed !== "object") return null;
+  return parsed;
 }
 
 function manifestAssetToDistRelPath(assetPath) {
@@ -81,7 +77,10 @@ function manifestAssetToDistRelPath(assetPath) {
   const normalized = raw.startsWith("/") ? raw : `/${raw}`;
   const idx = normalized.indexOf("/assets/");
   const assetRoot = idx !== -1 ? normalized.slice(idx) : normalized;
-  return assetRoot.replace(/^\/+/, "");
+  const rel = assetRoot.replace(/^\/+/, "");
+  if (!rel) return "";
+  if (rel.split("/").some((part) => part === "..")) return "";
+  return rel;
 }
 
 if (!fs.existsSync(distDir)) {
@@ -209,7 +208,7 @@ if (fs.existsSync(HEADERS_PATH)) {
   const firstRuleLine = headersContent
     .split(/\r?\n/g)
     .map((line) => line.trimEnd())
-    .find((line) => line && !/^\s/.test(line));
+    .find((line) => line && !/^\s/.test(line) && !line.startsWith("#"));
   const detectedPrefix =
     firstRuleLine && firstRuleLine.endsWith("/*")
       ? normalizePathPrefix(firstRuleLine.replace(/\/\*$/, "/"))
@@ -218,7 +217,7 @@ if (fs.existsSync(HEADERS_PATH)) {
     headersContent
       .split(/\r?\n/g)
       .map((line) => line.trimEnd())
-      .filter((line) => line && !/^\s/.test(line))
+      .filter((line) => line && !/^\s/.test(line) && !line.startsWith("#"))
   );
   const withPrefix = (pattern) => {
     const value = String(pattern || "").trim();
@@ -245,10 +244,10 @@ if (fs.existsSync(HEADERS_PATH)) {
     );
   }
 
-  if (!/Cache-Control:\s*public,max-age=\d+,immutable/i.test(headersContent)) {
+  if (!/Cache-Control:\s*public\s*,\s*max-age=\d+\s*,\s*immutable\b/i.test(headersContent)) {
     cacheIssues.push("_headers missing immutable cache-control rule for assets");
   }
-  if (!headersContent.includes("Cache-Control: public,max-age=300")) {
+  if (!/Cache-Control:\s*public\s*,\s*max-age=300\b/i.test(headersContent)) {
     cacheIssues.push("_headers missing short-lived cache-control rule for HTML");
   }
   if (headersContent.includes("/assets/") && !headersContent.includes(String(immutableTtl))) {
@@ -272,7 +271,7 @@ if (fs.existsSync(HEADERS_PATH)) {
         .filter((value) => value.startsWith("/assets/"))
         .filter(Boolean)
     )
-  );
+  ).sort((a, b) => a.localeCompare(b));
   if (hashedAssets.length) {
     for (const assetPath of hashedAssets) {
       const rule = withPrefix(assetPath.startsWith("/") ? assetPath : `/${assetPath.replace(/^\/+/, "")}`);

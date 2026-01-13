@@ -22,8 +22,9 @@ function minifyCss(css) {
 }
 
 function safeSlice(css, maxBytes) {
-  if (css.length <= maxBytes) return css;
-  const sliced = css.slice(0, maxBytes);
+  const totalBytes = Buffer.byteLength(css, "utf8");
+  if (totalBytes <= maxBytes) return css;
+  const sliced = Buffer.from(css, "utf8").subarray(0, maxBytes).toString("utf8");
   const lastBrace = sliced.lastIndexOf("}");
   if (lastBrace === -1) return "";
   return sliced.slice(0, lastBrace + 1).trim();
@@ -34,13 +35,15 @@ module.exports = function () {
     const raw = fs.readFileSync(cssPath, "utf8");
     const minified = minifyCss(raw);
     const inline = safeSlice(minified, DEFAULT_MAX_BYTES);
+    const totalBytes = Buffer.byteLength(minified, "utf8");
+    const inlineBytes = Buffer.byteLength(inline, "utf8");
     return {
       inline,
       inlined: Boolean(inline),
-      totalBytes: minified.length,
-      inlineBytes: inline.length,
+      totalBytes,
+      inlineBytes,
       threshold: DEFAULT_MAX_BYTES,
-      truncated: inline.length < minified.length,
+      truncated: inlineBytes < totalBytes,
     };
   } catch (error) {
     return {

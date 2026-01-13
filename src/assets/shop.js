@@ -310,6 +310,7 @@ function setupShopFilters() {
   const groupData = buildGroupData();
   let savedSet = readSavedAsins();
   const savedOnlyBtn = document.querySelector("[data-shop-saved-only]");
+  const randomBtn = document.querySelector("[data-shop-random]");
 
   function refreshSavedState() {
     savedSet = readSavedAsins();
@@ -469,6 +470,32 @@ function setupShopFilters() {
         savedSet,
         groupData
       );
+    });
+  }
+
+  if (randomBtn instanceof HTMLButtonElement) {
+    randomBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const visible = Array.from(document.querySelectorAll("[data-shop-item]")).filter(
+        (el) => el instanceof HTMLElement && !el.hidden
+      );
+      if (!visible.length) return;
+      const pick = visible[Math.floor(Math.random() * visible.length)];
+      pick.classList.add("shop-random-hit");
+      pick.scrollIntoView({
+        behavior: prefersReducedMotion() ? "auto" : "smooth",
+        block: "center",
+      });
+      const focusTarget = pick.querySelector(".shop-cta") || pick.querySelector("a");
+      if (focusTarget instanceof HTMLElement) {
+        try {
+          focusTarget.focus({ preventScroll: true });
+        } catch (_error) {
+          focusTarget.focus();
+        }
+      }
+      window.setTimeout(() => pick.classList.remove("shop-random-hit"), 900);
     });
   }
 

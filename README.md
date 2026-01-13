@@ -32,13 +32,14 @@
 - Archive old data only: `npm run archive`
 - Task guard (no new tasks when active TODO 未清空/存在重复): `npm run check:tasks`
 - Nav keyboard audit: `npm run audit:nav` (checks skip link + nav focus order; default `dist/index.html`)
-- Restore an articles archive: `npm run restore:archive -- ./archives/<archive>.tgz` (then `npm run indexes`)
+- Restore articles archive(s): `npm run restore:archive -- ./archives/<archive>.tgz` (supports globs / multiple; then `npm run indexes`)
 
 ## 任务流程约束
 
 - 新增/追加任务前先执行 `npm run check:tasks`，非 Backlog 区域存在 `[ ]` 或重复条目、`todor.md` 有重复/未完成或超出 30 项时直接阻断
 - `todor.md` 清空时必须补充新的优化任务，`npm run check:tasks` 会在列表为空时阻断并提示先思考新增优化项
 - 优化类任务集中在 `todor.md`（30 项），完成顺序自上而下；未清空活跃 TODO 或 `todor.md` 待办未解决时不要再追加
+- `todor.md` 的「归档」区禁止使用 `- [x]` / `- [ ]`（否则会被脚本计数），统一用 `- (done)`
 - 去重决策记录写在 `开发TODO.md` 的「重复项清理记录」章节，新增任务前先核对
 - `npm run build:site` 会跑 `audit:dist`（最大单文件预算 + CDN 缓存规则）和 `audit:lighthouse`（按 gzip 传输体积做 JS 预算）
 
@@ -87,11 +88,14 @@ For local development, you can use a `.env` file (already gitignored). For GitHu
 - `FETCH_CONCURRENCY` (default `4`, max concurrent RSS fetches)
 - `FETCH_HOST_CONCURRENCY` (default `2`, per-host fetch concurrency)
 - `FETCH_MIN_INTERVAL_MINUTES` (default `0`, skip refetching a source too soon)
+- `FETCH_TIMEOUT_MS` (default `15000`, per-source fetch timeout in ms; set `0` to disable)
 - `FETCH_RETRIES` (default `2`, retry transient failures like 429/5xx)
 - `FETCH_RETRY_DELAY_MS` (default `500`)
 - `FETCH_RETRY_MAX_DELAY_MS` (default `8000`, also caps `Retry-After`)
+- `FETCH_USER_AGENT` (default `news-atlas-bot/0.1`, RSS fetch user-agent)
 - `INDEX_READ_CONCURRENCY` (default `32`, max concurrent article reads during indexing)
 - `INDEX_DEDUPE_URL_ALIASES` (default `1`, dedupe articles by canonical URL variants such as `http/https`, `www`, and extra tracking params)
+- `PAGE_SIZE` (default `40`, items per page for lists/categories/languages/sources)
 - `STORIES_WINDOW_HOURS` (default `48`, clustering window for `/trending/`)
 - `STORIES_MAX_ARTICLES` (default `800`, max articles considered for clustering)
 - `STORIES_MIN_SOURCES` (default `2`, minimum distinct sources per story)
@@ -101,7 +105,9 @@ For local development, you can use a `.env` file (already gitignored). For GitHu
 - `SITE_URL` (site origin for canonical/feeds/sitemap, e.g. `https://shouyun.top`; do not include `/<repo>/`, any path will be normalized away)
 - `PATH_PREFIX` (for GitHub Pages project sites, e.g. `/<repo>/` or `/`)
 - `ASSET_IMMUTABLE_TTL` (default `31536000`, seconds; set `0` to disable immutable caching for hashed assets)
+- `CRITICAL_CSS_MAX_BYTES` (default `14000`, max inline critical CSS bytes; set `0` to disable inlining)
 - `SITEMAP_ARTICLES_PER_FILE` (default `5000`, max articles per sitemap shard)
+- `PAGEFIND_HASH_CONCURRENCY` (default: min(`16`, CPU cores); max concurrent HTML hashing for incremental Pagefind)
 - `BUDGET_JS_BYTES` / `BUDGET_CSS_BYTES` / `BUDGET_HTML_BYTES` (bundle size budgets for `npm run audit:dist`, in bytes)
 - `LH_HOME_JS_BUDGET` / `LH_HOME_CSS_BUDGET` / `LH_HOME_LCP_BUDGET` / `LH_HOME_CLS_MISSING` (Lighthouse-style budgets for `dist/index.html`, in bytes)
 - `LH_CATEGORY_JS_BUDGET` / `LH_CATEGORY_CSS_BUDGET` / `LH_CATEGORY_LCP_BUDGET` / `LH_CATEGORY_CLS_MISSING` (budgets for a category page)

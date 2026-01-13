@@ -15,6 +15,9 @@ eleventyComputed:
 
 <h1>{{ catPage.label }}</h1>
 {% set items = catPage.items %}
+{% if items and items.length %}
+  {% include "partials/news-controls.njk" %}
+{% endif %}
 {% include "partials/news-list.njk" %}
 {% if catPage.totalPages > 1 %}
   {% include "partials/category-pager.njk" %}

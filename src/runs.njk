@@ -32,6 +32,31 @@ pagefindBody: false
     </div>
   {% endif %}
 
+  <section class="list-controls" data-runs-controls>
+    <div class="list-controls-filter" aria-label="Runs controls">
+      <button
+        class="button button-secondary"
+        type="button"
+        data-runs-issues-only
+        aria-pressed="false"
+        data-i18n="runs.filter.issuesOnly"
+      >
+        Issues only
+      </button>
+      <label class="tool-option">
+        <span data-i18n="runs.filter.order.label">Order:</span>
+        <select class="library-select" data-runs-order>
+          <option value="desc" data-i18n="runs.filter.order.desc">Newest</option>
+          <option value="asc" data-i18n="runs.filter.order.asc">Oldest</option>
+        </select>
+      </label>
+      <button class="button button-secondary" type="button" data-runs-reset data-i18n="runs.filter.clear">
+        Reset
+      </button>
+    </div>
+    <p class="muted small tools-filter-status" data-runs-status hidden></p>
+  </section>
+
   <div class="table-wrap">
     <table class="table">
       <caption class="sr-only" data-i18n="runs.caption">Run history</caption>
@@ -47,7 +72,12 @@ pagefindBody: false
       </thead>
       <tbody>
         {% for r in runHistory.runs %}
-          <tr class="{% if r.failed > 0 %}row-bad{% elseif r.paused > 0 %}row-paused{% endif %}">
+          <tr
+            class="{% if r.failed > 0 %}row-bad{% elseif r.paused > 0 %}row-paused{% endif %}"
+            data-run-finished="{{ r.finishedAt }}"
+            data-run-failed="{{ r.failed or 0 }}"
+            data-run-paused="{{ r.paused or 0 }}"
+          >
             <td class="muted small">{{ r.finishedAt | formatDateTime }}</td>
             <td class="muted small">
               <span

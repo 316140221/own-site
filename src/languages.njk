@@ -7,6 +7,36 @@ rssPath: /feed.xml
 
 <h1 data-i18n="languages.title">Languages</h1>
 
+<section class="list-controls" data-list-filter="languages">
+  <div class="list-controls-filter" role="search" aria-label="Language filter">
+    <label class="sr-only" for="languages-filter-q" data-i18n="languages.filterLabel">
+      Filter languages
+    </label>
+    <input
+      id="languages-filter-q"
+      class="tools-filter-input"
+      type="search"
+      autocomplete="off"
+      spellcheck="false"
+      data-list-filter-input
+      data-i18n-placeholder="languages.filterPlaceholder"
+      placeholder="Filter languages…"
+    />
+    <button
+      class="button button-secondary tools-filter-clear"
+      type="button"
+      data-list-filter-clear
+      data-i18n="tools.filter.clear"
+    >
+      Clear
+    </button>
+  </div>
+  <p class="muted small tools-filter-status" data-list-filter-status hidden></p>
+  <p class="muted tools-filter-empty" data-list-filter-empty hidden data-i18n="languages.filterEmpty">
+    No languages match this filter.
+  </p>
+</section>
+
 {% if languages and languages.length %}
   <ul class="sources">
     {% for lang in languages %}

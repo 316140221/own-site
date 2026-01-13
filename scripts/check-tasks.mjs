@@ -28,7 +28,7 @@ function collectTodoStatus(filePath) {
     const line = lines[i];
     const heading = line.match(/^#{1,6}\s+(.*)$/);
     if (heading) {
-      inBacklog = heading[1].includes("Backlog");
+      inBacklog = heading[1].toLowerCase().includes("backlog");
     }
 
     const todo = line.match(/^- \[( |x)\]\s*(.+)$/);
@@ -71,11 +71,19 @@ function collectTodorStatus(filePath) {
 
   const duplicates = new Map();
   const pendingItems = [];
+  const archiveCheckboxItems = [];
+  let inArchive = false;
   let total = 0;
 
   for (let i = 0; i < lines.length; i += 1) {
     const todo = lines[i].match(/^- \[( |x)\]\s*(.+)$/);
+    const heading = lines[i].match(/^#{1,6}\s+(.*)$/);
+    if (heading && heading[1].includes("归档")) inArchive = true;
     if (!todo) continue;
+
+    if (inArchive) {
+      archiveCheckboxItems.push({ line: i + 1, text: todo[2].trim() });
+    }
 
     const status = todo[1] === "x" ? "done" : "todo";
     const text = todo[2].trim();
@@ -103,6 +111,7 @@ function collectTodorStatus(filePath) {
     pending: pendingItems.length,
     pendingItems,
     duplicateList,
+    archiveCheckboxItems,
   };
 }
 
@@ -147,6 +156,22 @@ function main() {
           (item) => `- ${item.text}（行 ${item.lines.join(", ")}）`
         ),
       ].join("\n")
+    );
+  }
+
+  if (todorStatus.archiveCheckboxItems.length > 0) {
+    errors.push(
+      [
+        "todor.md 归档区不应使用 - [x]/- [ ]（否则会被计数），请改为 - (done)：",
+        ...todorStatus.archiveCheckboxItems
+          .slice(0, 8)
+          .map((item) => `- 行 ${item.line}：${item.text}`),
+        todorStatus.archiveCheckboxItems.length > 8
+          ? `... 还有 ${todorStatus.archiveCheckboxItems.length - 8} 项`
+          : null,
+      ]
+        .filter(Boolean)
+        .join("\n")
     );
   }
 
