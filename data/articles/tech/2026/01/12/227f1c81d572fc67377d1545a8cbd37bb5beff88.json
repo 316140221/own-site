@@ -1,0 +1,37 @@
+{
+  "id": "227f1c81d572fc67377d1545a8cbd37bb5beff88",
+  "title": "Google removes some AI health summaries after investigation finds “dangerous” flaws",
+  "summary": "AI Overviews provided false liver test information experts called alarming.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/01/google-removes-some-ai-health-summaries-after-investigation-finds-dangerous-flaws",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-01-12T21:47:32.000Z",
+  "fetchedAt": "2026-01-13T01:21:38.846Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Google",
+    "AI hallucination",
+    "ai overviews",
+    "generative ai",
+    "google",
+    "Health",
+    "machine learning",
+    "misinformation",
+    "search engines",
+    "the guardian"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2024/05/GettyImages-1488311999-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/01/12/227f1c81d572fc67377d1545a8cbd37bb5beff88.json",
+  "contentText": "On Sunday, Google removed some of its AI Overviews health summaries after a Guardian investigation found people were being put at risk by false and misleading information. The removals came after the newspaper found that Google's generative AI feature delivered inaccurate health information at the top of search results, potentially leading seriously ill patients to mistakenly conclude they are in good health.\n\nGoogle disabled specific queries, such as \"what is the normal range for liver blood tests,\" after experts contacted by The Guardian flagged the results as dangerous. The report also highlighted a critical error regarding pancreatic cancer: The AI suggested patients avoid high-fat foods, a recommendation that contradicts standard medical guidance to maintain weight and could jeopardize patient health. Despite these findings, Google only deactivated the summaries for the liver test queries, leaving other potentially harmful answers accessible.\n\nThe investigation revealed that searching for liver test norms generated raw data tables (listing specific enzymes like ALT, AST, and alkaline phosphatase) that lacked essential context. The AI feature also failed to adjust these figures for patient demographics such as age, sex, and ethnicity. Experts warned that because the AI model's definition of \"normal\" often differed from actual medical standards, patients with serious liver conditions might mistakenly believe they are healthy and skip necessary follow-up care.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
