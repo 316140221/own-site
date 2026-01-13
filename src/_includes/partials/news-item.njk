@@ -75,7 +75,7 @@
       </button>
     </div>
     {% if item.summary %}
-      <p class="news-summary">{{ item.summary }}</p>
+      <p class="news-summary">{{ item.summary | truncateText(200) }}</p>
     {% endif %}
   </div>
 </li>
