@@ -86,7 +86,10 @@
       }
 
       const script = document.createElement("script");
-      script.src = "/assets/vendor/qrcodegen.js";
+      script.src =
+        typeof resolveSitePath === "function"
+          ? resolveSitePath("/assets/vendor/qrcodegen.js")
+          : "/assets/vendor/qrcodegen.js";
       script.defer = true;
       script.setAttribute("data-qr-vendor", "qrcodegen");
       script.onload = () => resolve();
@@ -297,4 +300,3 @@
 
   window.addEventListener("DOMContentLoaded", main);
 })();
-

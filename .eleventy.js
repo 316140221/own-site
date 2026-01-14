@@ -150,6 +150,8 @@ module.exports = function (eleventyConfig) {
   if (useHashedAssets) {
     eleventyConfig.addPassthroughCopy({ "build/assets": "assets" });
     eleventyConfig.addPassthroughCopy({ "src/assets/favicon.svg": "assets/favicon.svg" });
+    eleventyConfig.addPassthroughCopy({ "src/assets/tools": "assets/tools" });
+    eleventyConfig.addPassthroughCopy({ "src/assets/vendor": "assets/vendor" });
   } else {
     eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   }

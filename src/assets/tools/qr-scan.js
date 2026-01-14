@@ -128,7 +128,10 @@
       }
 
       const script = document.createElement("script");
-      script.src = "/assets/vendor/jsqr.js";
+      script.src =
+        typeof resolveSitePath === "function"
+          ? resolveSitePath("/assets/vendor/jsqr.js")
+          : "/assets/vendor/jsqr.js";
       script.async = true;
       script.dataset.jsqrVendor = "jsqr";
       script.onload = () => {

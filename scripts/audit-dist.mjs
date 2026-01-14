@@ -13,6 +13,9 @@ const SIZE_EXTENSIONS = new Set([".js", ".css", ".html"]);
 const IGNORE_DIRS = new Set(["pagefind"]);
 const MANIFEST_PATH = path.resolve(process.cwd(), "build/asset-manifest.json");
 const HEADERS_PATH = path.resolve(process.cwd(), distArg, "_headers");
+const SRC_ASSETS_DIR = path.resolve(process.cwd(), "src/assets");
+const SRC_TOOLS_DIR = path.join(SRC_ASSETS_DIR, "tools");
+const SRC_VENDOR_DIR = path.join(SRC_ASSETS_DIR, "vendor");
 
 const SIZE_BUDGET = {
   js: intFromEnv("BUDGET_JS_BYTES", 420 * 1024, { min: 0 }),
@@ -81,6 +84,18 @@ function manifestAssetToDistRelPath(assetPath) {
   if (!rel) return "";
   if (rel.split("/").some((part) => part === "..")) return "";
   return rel;
+}
+
+function listJsFiles(dirPath) {
+  try {
+    const entries = fs.readdirSync(dirPath, { withFileTypes: true });
+    return entries
+      .filter((entry) => entry.isFile() && entry.name.toLowerCase().endsWith(".js"))
+      .map((entry) => entry.name)
+      .sort((a, b) => a.localeCompare(b));
+  } catch {
+    return [];
+  }
 }
 
 if (!fs.existsSync(distDir)) {
@@ -197,6 +212,44 @@ if (plainAssetHits.length) {
   );
 }
 
+const passthroughIssues = [];
+const distToolsDir = path.join(distDir, "assets", "tools");
+const distVendorDir = path.join(distDir, "assets", "vendor");
+
+const toolsSrc = listJsFiles(SRC_TOOLS_DIR);
+if (toolsSrc.length) {
+  if (!fs.existsSync(distToolsDir)) {
+    passthroughIssues.push(
+      `missing dist assets/tools directory (expected ${toPosixPath(distToolsDir)})`
+    );
+  } else {
+    const missing = toolsSrc.filter((name) => !fs.existsSync(path.join(distToolsDir, name)));
+    if (missing.length) {
+      const sample = missing.slice(0, 12).map((name) => `assets/tools/${name}`);
+      passthroughIssues.push(
+        `missing tool asset(s) in dist: ${missing.length} (e.g. ${sample.join(", ")})`
+      );
+    }
+  }
+}
+
+const vendorSrc = listJsFiles(SRC_VENDOR_DIR);
+if (vendorSrc.length) {
+  if (!fs.existsSync(distVendorDir)) {
+    passthroughIssues.push(
+      `missing dist assets/vendor directory (expected ${toPosixPath(distVendorDir)})`
+    );
+  } else {
+    const missing = vendorSrc.filter((name) => !fs.existsSync(path.join(distVendorDir, name)));
+    if (missing.length) {
+      const sample = missing.slice(0, 12).map((name) => `assets/vendor/${name}`);
+      passthroughIssues.push(
+        `missing vendor asset(s) in dist: ${missing.length} (e.g. ${sample.join(", ")})`
+      );
+    }
+  }
+}
+
 if (fs.existsSync(HEADERS_PATH)) {
   const headersContent = fs.readFileSync(HEADERS_PATH, "utf8");
   const immutableTtlRaw = manifest && Number(manifest.immutableTtlSeconds);
@@ -287,6 +340,10 @@ if (fs.existsSync(HEADERS_PATH)) {
   }
 } else {
   cacheIssues.push("missing dist/_headers for CDN TTL configuration");
+}
+
+if (passthroughIssues.length) {
+  cacheIssues.push(...passthroughIssues);
 }
 
 if (violations.length || sizeBreaches.length || cacheIssues.length) {
