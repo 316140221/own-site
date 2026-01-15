@@ -1,0 +1,32 @@
+{
+  "id": "afaf5cee89aaff2db3ffdbdf9194aa44ce6f3e26",
+  "title": "A single click mounted a covert, multistage attack against Copilot",
+  "summary": "Exploit exfiltrating data from chat histories worked even after users closed chat windows.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/01/a-single-click-mounted-a-covert-multistage-attack-against-copilot",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-01-14T22:03:11.000Z",
+  "fetchedAt": "2026-01-15T01:23:39.172Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "copilot",
+    "data exfiltration",
+    "LLMs",
+    "prompt injections"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2025/11/MSFT_Holiday_copilot_Card_1-1152x648-1763493467.jpeg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/01/14/afaf5cee89aaff2db3ffdbdf9194aa44ce6f3e26.json",
+  "contentText": "Microsoft has fixed a vulnerability in its Copilot AI assistant that allowed hackers to pluck a host of sensitive user data with a single click on a URL.\n\nThe hackers in this case were white-hat researchers from security firm Varonis . The net effect of their multistage attack was that they exfiltrated data, including the target’s name, location, and details of specific events from the user’s Copilot chat history. The attack continued to run even when the user closed the Copilot chat, with no further interaction needed once the user clicked the link in the email. The attack and resulting data theft bypassed enterprise endpoint security controls and detection by endpoint protection apps.\n\nIt just works\n\n“Once we deliver this link with this malicious prompt, the user just has to click on the link and the malicious task is immediately executed,” Varonis security researcher Dolev Taler told Ars. “Even if the user just clicks on the link and immediately closes the tab of Copilot chat, the exploit still works.”\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
