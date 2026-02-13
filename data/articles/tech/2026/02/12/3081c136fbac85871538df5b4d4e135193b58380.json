@@ -1,0 +1,39 @@
+{
+  "id": "3081c136fbac85871538df5b4d4e135193b58380",
+  "title": "OpenAI sidesteps Nvidia with unusually fast coding model on plate-sized chips",
+  "summary": "OpenAI's new GPT‑5.3‑Codex‑Spark is 15 times faster at coding than its predecessor.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/02/openai-sidesteps-nvidia-with-unusually-fast-coding-model-on-plate-sized-chips",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-02-12T22:56:02.000Z",
+  "fetchedAt": "2026-02-13T04:26:52.274Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "AI agents",
+    "AI chips",
+    "AI coding",
+    "AI development tools",
+    "AI speed",
+    "Cerebras",
+    "code agents",
+    "machine learning",
+    "NVIDIA",
+    "openai",
+    "sam altman",
+    "tokens"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/02/GettyImages-2225076517_resize-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/02/12/3081c136fbac85871538df5b4d4e135193b58380.json",
+  "contentText": "On Thursday, OpenAI released its first production AI model to run on non-Nvidia hardware, deploying the new GPT-5.3-Codex-Spark coding model on chips from Cerebras. The model delivers code at more than 1,000 tokens (chunks of data) per second, which is reported to be roughly 15 times faster than its predecessor. To compare, Anthropic's Claude Opus 4.6 in its new premium-priced fast mode reaches about 2.5 times its standard speed of 68.2 tokens per second , although it is a larger and more capable model than Spark.\n\n\"Cerebras has been a great engineering partner, and we're excited about adding fast inference as a new platform capability,\" Sachin Katti, head of compute at OpenAI, said in a statement.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}

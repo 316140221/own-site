@@ -1,0 +1,41 @@
+{
+  "id": "a88d153642dc0355c8d08b420f1d8c3033ea2845",
+  "title": "Attackers prompted Gemini over 100,000 times while trying to clone it, Google says",
+  "summary": "Distillation technique lets copycats mimic Gemini at a fraction of the development cost.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/02/attackers-prompted-gemini-over-100000-times-while-trying-to-clone-it-google-says",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-02-12T19:42:08.000Z",
+  "fetchedAt": "2026-02-13T04:26:52.274Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Google",
+    "AI language models",
+    "AI security",
+    "ChatGPT",
+    "chatgtp",
+    "deepseek",
+    "Distillation",
+    "gemini",
+    "google",
+    "Google Gemini",
+    "large language models",
+    "LLMs",
+    "machine learning",
+    "openai"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/12/gemini_header-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/02/12/a88d153642dc0355c8d08b420f1d8c3033ea2845.json",
+  "contentText": "On Thursday, Google announced that \"commercially motivated\" actors have attempted to clone knowledge from its Gemini AI chatbot by simply prompting it. One adversarial session reportedly prompted the model more than 100,000 times across various non-English languages, collecting responses ostensibly to train a cheaper copycat.\n\nGoogle published the findings in what amounts to a quarterly self-assessment of threats to its own products that frames the company as the victim and the hero, which is not unusual in these self-authored assessments. Google calls the illicit activity \"model extraction\" and considers it intellectual property theft, which is a somewhat loaded position, given that Google's LLM was built from materials scraped from the Internet without permission.\n\nGoogle is also no stranger to the copycat practice. In 2023, The Information reported that Google's Bard team had been accused of using ChatGPT outputs from ShareGPT, a public site where users share chatbot conversations, to help train its own chatbot. Senior Google AI researcher Jacob Devlin, who created the influential BERT language model, warned leadership that this violated OpenAI's terms of service, then resigned and joined OpenAI. Google denied the claim but reportedly stopped using the data.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
