@@ -1,0 +1,29 @@
+{
+  "id": "9f21edf08bfd3af0086757a23f0248a27dc33d93",
+  "title": "Clueless cops post seized crypto wallet password. $5M quickly stolen.",
+  "summary": "South Korean police deeply apologized for preventable loss of seized funds.",
+  "canonicalUrl": "https://arstechnica.com/tech-policy/2026/03/oops-south-korean-cops-lost-5m-in-seized-crypto-after-leaking-wallet-password",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-03-02T22:27:52.000Z",
+  "fetchedAt": "2026-03-03T01:54:46.291Z",
+  "category": "tech",
+  "tags": [
+    "Policy",
+    "cold wallet",
+    "crypto wallet",
+    "cryptocurrency"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/GettyImages-1251331351-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/03/02/9f21edf08bfd3af0086757a23f0248a27dc33d93.json",
+  "contentText": "Soon after South Korean police posted a press release boasting about seizing $5.6 million worth of cryptocurrency from 124 wealthy tax evaders, cops realized that they had mistakenly posted images that made it possible for a thief to quickly steal most of the seized assets.\n\nEventually, the press release was removed, but not before it was grabbed by local media outlets and tech publications covering the theft.\n\nBleeping Computer shared a screenshot of the retracted images, which showed a handwritten note next to a Ledger device that's used as a so-called \"cold wallet\" to store crypto out of reach of online threats. Clearly legible in the photo, the note contained a complete mnemonic recovery phrase that anyone can use as a master key to move assets off the cold wallet to a new wallet without any additional PIN or permissions required.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
