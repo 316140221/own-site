@@ -1,0 +1,33 @@
+{
+  "id": "521621db6ea17f6c1b949fde926057b511b70652",
+  "title": "Large genome model: Open source AI trained on trillions of bases",
+  "summary": "System can identify genes, regulatory sequences, splice sites, and more.",
+  "canonicalUrl": "https://arstechnica.com/science/2026/03/large-genome-model-open-source-ai-trained-on-trillions-of-bases",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-03-04T22:14:54.000Z",
+  "fetchedAt": "2026-03-05T01:51:55.902Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Science",
+    "Biology",
+    "DNA",
+    "genes",
+    "Genetics",
+    "Genomics",
+    "training"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/GettyImages-1400276299-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/03/04/521621db6ea17f6c1b949fde926057b511b70652.json",
+  "contentText": "Late in 2025, we covered the development of an AI system called Evo that was trained on massive numbers of bacterial genomes. So many that, when prompted with sequences from a cluster of related genes, it could correctly identify the next one or suggest a completely novel protein.\n\nThat system worked because bacteria tend to cluster related genes together—something that's not true in organisms with complex cells, which tend to have equally complex genome structures. Given that, our coverage noted, \"It’s not clear that this approach will work with more complex genomes.\"\n\nApparently, the team behind Evo viewed that as a challenge, because today it is describing Evo 2, an open source AI that has been trained on genomes from all three domains of life (bacteria, archaea, and eukaryotes). After training on trillions of base pairs of DNA, Evo 2 developed internal representations of key features in even complex genomes like ours, including things like regulatory DNA and splice sites, which can be challenging for humans to spot.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
