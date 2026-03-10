@@ -1,0 +1,29 @@
+{
+  "id": "5197f786aef97be87586c06e9fdd0cd2ef242835",
+  "title": "AI can rewrite open source code—but can it rewrite the license, too?",
+  "summary": "Is it clean \"reverse engineering\" or just an LLM-filtered \"derivative work\"?",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/03/ai-can-rewrite-open-source-code-but-can-it-rewrite-the-license-too",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-03-10T19:36:05.000Z",
+  "fetchedAt": "2026-03-10T22:25:00.765Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "chardet",
+    "Claude Code",
+    "Mark Pilgrim"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/GettyImages-2167753513-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/03/10/5197f786aef97be87586c06e9fdd0cd2ef242835.json",
+  "contentText": "Computer engineers and programmers have long relied on reverse engineering as a way to copy the functionality of a computer program without copying that program's copyright-protected code directly. Now, AI coding tools are raising new issues with how that \"clean room\" rewrite process plays out both legally, ethically, and practically.\n\nThose issues came to the forefront last week with the release of a new version of chardet , a popular open source python library for automatically detecting character encoding. The repository was originally written by coder Mark Pilgrim in 2006 and released under an LGPL license that placed strict limits on how it could be reused and redistributed.\n\nDan Blanchard took over maintenance of the repository in 2012 but waded into some controversy with the release of version 7.0 of chardet last week. Blanchard described that overhaul as \"a ground-up, MIT-licensed rewrite\" of the entire library built with the help of Claude Code to be \"much faster and more accurate\" than what came before.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
