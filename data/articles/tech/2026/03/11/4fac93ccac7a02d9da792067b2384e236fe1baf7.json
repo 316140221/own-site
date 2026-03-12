@@ -1,0 +1,33 @@
+{
+  "id": "4fac93ccac7a02d9da792067b2384e236fe1baf7",
+  "title": "14,000 routers are infected by malware that's highly resistant to takedowns",
+  "summary": "Most of the devices are made by Asus and are located in the US.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/03/14000-routers-are-infected-by-malware-thats-highly-resistant-to-takedowns",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-03-11T21:27:16.000Z",
+  "fetchedAt": "2026-03-12T01:50:25.212Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "Tech",
+    "ASUS",
+    "botnets",
+    "distributed hash tables",
+    "malware",
+    "routers"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2019/04/GettyImages-926536690-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/03/11/4fac93ccac7a02d9da792067b2384e236fe1baf7.json",
+  "contentText": "Researchers say they have uncovered a takedown-resistant botnet of 14,000 routers and other network devices—primarily made by Asus—that have been conscripted into a proxy network that anonymously carries traffic used for cybercrime.\n\nThe malware—dubbed KadNap—takes hold by exploiting vulnerabilities that have gone unpatched by their owners, Chris Formosa, a researcher at security firm Lumen’s Black Lotus Labs, told Ars. The high concentration of Asus routers is likely due to botnet operators acquiring a reliable exploit for vulnerabilities affecting those models. He said it’s unlikely that the attackers are using any zero-days in the operation.\n\nA botnet that stands out among others\n\nThe number of infected routers averages about 14,000 per day, up from 10,000 last August, when Black Lotus discovered the botnet. Compromised devices are overwhelmingly located in the US, with smaller populations in Taiwan, Hong Kong, and Russia. One of the most salient features of KadNap is a sophisticated peer-to-peer design based on Kademlia , a network structure that uses distributed hash tables to conceal the IP addresses of command-and-control servers. The design makes the botnet resistant to detection and takedowns through traditional methods.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
