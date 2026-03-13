@@ -1,0 +1,33 @@
+{
+  "id": "d1498737f1fa0789531419bd05a563948493411d",
+  "title": "Microsoft is working to eliminate PC gaming's \"compiling shaders\" wait times",
+  "summary": "Advanced Shader Delivery uses precompiled shaders for \"console-like load times\" across PC hardware.",
+  "canonicalUrl": "https://arstechnica.com/gaming/2026/03/microsoft-is-working-to-eliminate-pc-gamings-compiling-shaders-wait-times",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-03-13T15:31:38.000Z",
+  "fetchedAt": "2026-03-13T16:36:58.975Z",
+  "category": "tech",
+  "tags": [
+    "Gaming",
+    "API",
+    "DirectX",
+    "game engine",
+    "graphics",
+    "microsoft",
+    "shaders",
+    "Windows"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/GettyImages-2222113062-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/03/13/d1498737f1fa0789531419bd05a563948493411d.json",
+  "contentText": "Modern gamers are used to loading up a new game for the first time and being forced to wait multiple minutes while a \"compiling shaders\" step whirs away,  optimizing advanced 3D effects for their specific hardware. This week at GDC, Microsoft provided some updates about its Advanced Shader Deliver for Windows efforts, which are designed to fix the problem by generating collections of precompiled shaders that can be downloaded ahead of time.\n\nIn a console environment, developers can optimize and precompile their graphics shaders to work well with a set driver and GPU environment. On PC, though, developers tend to leave their shaders as uncompiled code that can then be compiled and cached at runtime based on the specific hardware and drivers on the player's machine.\n\nMicrosoft's Advanced Shader Delivery infrastructure aims to fix this problem by automating the process of precompiling shaders that work across \"a large matrix of drivers and GPUs in the Windows ecosystem,\" as the company puts it. To enable that, developers use Microsoft's Direct3D API to create a State Object Database (SODB) that represents in-game assets at the game engine level. That database of assets is then fed into multiple shader compilers to create a Precompiled Shader Database (PSDB) that supports multiple display adapters from different hardware vendors.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
