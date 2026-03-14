@@ -1,0 +1,30 @@
+{
+  "id": "32aa5517314e4f8f56ad66903edea573fa04a959",
+  "title": "Supply-chain attack using invisible code hits GitHub and other repositories",
+  "summary": "Unicode that's invisible to the human eye was largely abandoned—until attackers took notice.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/03/supply-chain-attack-using-invisible-code-hits-github-and-other-repositories",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-03-13T20:18:08.000Z",
+  "fetchedAt": "2026-03-14T01:48:28.886Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "public use areas",
+    "supply chain attacks",
+    "Unicode"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2024/10/hidden-eye-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/03/13/32aa5517314e4f8f56ad66903edea573fa04a959.json",
+  "contentText": "Researchers say they’ve discovered a supply-chain attack flooding repositories with malicious packages that contain invisible code, a technique that’s flummoxing traditional defenses designed to detect such threats.\n\nThe researchers, from firm Aikido Security, said Friday that they found 151 malicious packages that were uploaded to GitHub from March 3 to March 9. Such supply-chain attacks have been common for nearly a decade . They usually work by uploading malicious packages with code and names that closely resemble those of widely used code libraries, with the objective of tricking developers into mistakenly incorporating the former into their software. In some cases, these malicious packages are downloaded thousands of times.\n\nDefenses see nothing. Decoders see executable code\n\nThe packages Aikido found this month have adopted a newer technique: selective use of code that isn’t visible when loaded into virtually all editors, terminals, and code review interfaces. While most of the code appears in normal, readable form, malicious functions and payloads—the usual telltale signs of malice—are rendered in unicode characters that are invisible to the human eye. The tactic, which Aikido said it first spotted last year, makes manual code reviews and other traditional defenses nearly useless. Other repositories hit in these attacks include NPM and Open VSX.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
