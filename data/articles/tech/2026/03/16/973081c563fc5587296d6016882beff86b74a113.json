@@ -1,0 +1,31 @@
+{
+  "id": "973081c563fc5587296d6016882beff86b74a113",
+  "title": "The science of how fireflies stay in sync",
+  "summary": "Engineers have uncovered the mathematical rules fireflies follow to sync up their flashes.",
+  "canonicalUrl": "https://arstechnica.com/science/2026/03/the-science-of-how-fireflies-stay-in-sync",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-03-16T12:25:31.000Z",
+  "fetchedAt": "2026-03-16T13:04:45.403Z",
+  "category": "tech",
+  "tags": [
+    "Science",
+    "Biology",
+    "biophysics",
+    "collective motion",
+    "quorum sensing",
+    "swarms"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/firefly1-1152x648-1773595049.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/03/16/973081c563fc5587296d6016882beff86b74a113.json",
+  "contentText": "Scientists have discovered that male fireflies in a South Carolina swamp follow local interaction rules to synchronize their flashing mating displays. The research is being presented at a meeting of the American Physical Society in Denver. ( A preprint is also available on the biorxiv.) Such work could one day lead to insights into how the body's cells sync to its internal circadian rhythm, or how neurons fire together in the brain, as well as the design of drone swarms communicating through synchronized flashes.\n\nAs previously reported , research into swarming and flocking was largely relegated to observational biologists for decades. But in the 1980s, a computer graphics specialist named Craig Reynolds developed the so-called “boids” program , an agent-based computational model that has dominated collective behavior studies ever since. In such a model, each individual unit in a swarm is a dot moving in a straight line at a constant speed. By introducing a few simple rules regarding interactions between dots, a flocking pattern will emerge once the dots get dense enough. Another set of rules will produce a swarming pattern, and so forth.\n\nFire ants provide a textbook example of this kind of collective behavior. A few ants spaced well apart behave like individual ants. But pack enough of them closely together, and they behave more like a single unit, exhibiting both solid and liquid properties. You can pour them from a teapot like ants, or they can link together to build towers or floating rafts—a handy survival skill when, say, a hurricane floods Houston. They also excel at regulating their own traffic flow. You almost never see an ant traffic jam.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
