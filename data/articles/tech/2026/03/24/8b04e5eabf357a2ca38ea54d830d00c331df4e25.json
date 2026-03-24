@@ -1,0 +1,30 @@
+{
+  "id": "8b04e5eabf357a2ca38ea54d830d00c331df4e25",
+  "title": "Self-propagating malware poisons open source software and wipes Iran-based machines",
+  "summary": "Development houses: It's time to check your networks for infections.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/03/self-propagating-malware-poisons-open-source-software-and-wipes-iran-based-machines",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-03-24T12:38:09.000Z",
+  "fetchedAt": "2026-03-24T13:05:18.943Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "malware",
+    "teampcp",
+    "worm"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2025/05/malware-threat-1000x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/03/24/8b04e5eabf357a2ca38ea54d830d00c331df4e25.json",
+  "contentText": "A new hacking group has been rampaging the Internet in a persistent campaign that spreads a self-propagating and never-before-seen backdoor—and curiously a data wiper that targets Iranian machines.\n\nThe group, tracked under the name TeamPCP, first gained visibility in December, when researchers from security firm Flare observed it unleashing a worm that targeted cloud-hosted platforms that weren’t properly secured. The objective was to build a distributed proxy and scanning infrastructure and then use it to compromise servers for exfiltrating data, deploying ransomware, conducting extortion, and mining cryptocurrency. The group is notable for its skill in large-scale automation and integration of well-known attack techniques.\n\nRelentless and constantly evolving\n\nMore recently, TeamPCP has waged a relentless campaign that uses continuously evolving malware to bring ever more systems under its control. Late last week, it compromised virtually all versions of the widely used Trivy vulnerability scanner in a supply-chain attack after gaining privileged access to the GitHub account of Aqua Security, the Trivy creator.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
