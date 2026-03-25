@@ -1,0 +1,31 @@
+{
+  "id": "656b2212a9041908d19b461b7d46669888f0ae80",
+  "title": "Google's TurboQuant AI-compression algorithm can reduce LLM memory usage by 6x",
+  "summary": "TurboQuant makes AI models more efficient but doesn't reduce output quality like other methods.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/03/google-says-new-turboquant-compression-can-lower-ai-memory-usage-without-sacrificing-quality",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-03-25T17:59:12.000Z",
+  "fetchedAt": "2026-03-25T18:53:12.509Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Google",
+    "Artificial Intelligence",
+    "generative ai",
+    "google",
+    "large langauge models"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/TurboQuant-1152x648.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/03/25/656b2212a9041908d19b461b7d46669888f0ae80.json",
+  "contentText": "Even if you don't know much about the inner workings of generative AI models, you probably know they need a lot of memory. Hence, it is currently almost impossible to buy a measly stick of RAM without getting fleeced . Google Research recently revealed TurboQuant , a compression algorithm that reduces the memory footprint of large language models (LLMs) while also boosting speed and maintaining accuracy.\n\nTurboQuant is aimed at reducing the size of the key-value cache, which Google likens to a \"digital cheat sheet\" that stores important information so it doesn't have to be recomputed. This cheat sheet is necessary because, as we say all the time, LLMs don't actually know anything; they can do a good impression of knowing things through the use of vectors, which map the semantic meaning of tokenized text. When two vectors are similar, that means they have conceptual similarity.\n\nHigh-dimensional vectors, which can have hundreds or thousands of embeddings, may describe complex information like the pixels in an image or a large data set. They also occupy a lot of memory and inflate the size of the key-value cache, bottlenecking performance. To make models smaller and more efficient, developers employ quantization techniques to run them at lower precision . The drawback is that the outputs get worse—the quality of token estimation goes down. With TurboQuant, Google's early results show an 8x performance increase and 6x reduction in memory usage in some tests without a loss of quality.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
