@@ -1,0 +1,35 @@
+{
+  "id": "9378c423804b1096b11c8bf15c6cf161980b6599",
+  "title": "Entire Claude Code CLI source code leaks thanks to exposed map file",
+  "summary": "512,000 lines of code that competitors and hobbyists will be studying for weeks.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/03/entire-claude-code-cli-source-code-leaks-thanks-to-exposed-map-file",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-03-31T19:09:33.000Z",
+  "fetchedAt": "2026-03-31T22:32:12.098Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Anthropic",
+    "Claude Code",
+    "cli",
+    "GitHub",
+    "map file",
+    "repo",
+    "repository",
+    "source code",
+    "typescript"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/claude-code-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/03/31/9378c423804b1096b11c8bf15c6cf161980b6599.json",
+  "contentText": "The entire source code for Anthropic's Claude Code command line interface application (not the models themselves) has been leaked and disseminated, apparently due to a serious internal error. The leak gives competitors and armchair enthusiasts a detailed blueprint for how Claude Code works—a significant setback for a company that has seen explosive user growth and industry impact over the past several months.\n\nEarly this morning, Anthropic published version 2.1.88 of Claude Code npm package—but it was quickly discovered that package included a source map file, which could be used to access the entirety of Claude Code's source—almost 2,000 TypeScript files and more than 512,000 lines of code.\n\nSecurity researcher Chaofan Shou was the first to publicly point it out on X , with a link to an archive containing the files. The codebase was then put in a public GitHub repository, and it has been forked tens of thousands of times.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
