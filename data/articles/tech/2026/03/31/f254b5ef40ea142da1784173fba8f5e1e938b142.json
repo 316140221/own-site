@@ -1,0 +1,33 @@
+{
+  "id": "f254b5ef40ea142da1784173fba8f5e1e938b142",
+  "title": "Running local models on Macs gets faster with Ollama's MLX support",
+  "summary": "Apple Silicon Macs get a performance boost thanks to better unified memory usage.",
+  "canonicalUrl": "https://arstechnica.com/apple/2026/03/running-local-models-on-macs-gets-faster-with-ollamas-mlx-support",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-03-31T23:00:23.000Z",
+  "fetchedAt": "2026-04-01T02:13:45.195Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Apple",
+    "alibaba",
+    "apple",
+    "Apple silicon",
+    "mlx",
+    "ollama",
+    "Qwen"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/ollama-speed-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/03/31/f254b5ef40ea142da1784173fba8f5e1e938b142.json",
+  "contentText": "Ollama, a runtime system for operating large language models on a local computer, has introduced support for Apple's open source MLX framework for machine learning. Additionally, Ollama says it has improved caching performance and now supports Nvidia's NVFP4 format for model compression, making for much more efficient memory usage in certain models.\n\nCombined, these developments promise significantly improved performance on Macs with Apple Silicon chips (M1 or later)—and the timing couldn't be better, as local models are starting to gain steam in ways they haven't before outside researcher and hobbyist communities.\n\nThe recent runaway success of OpenClaw—which raced its way to over 300,000 stars on GitHub , made headlines with experiments like Moltbook and became an obsession in China in particular —has many people experimenting with running models on their machines.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
