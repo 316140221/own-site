@@ -1,0 +1,29 @@
+{
+  "id": "253a36ed7fd7aa640cbdf44c20644a2dbb4fe666",
+  "title": "Here's what that Claude Code source leak reveals about Anthropic's plans",
+  "summary": "A persistent agent, stealth \"Undercover\" mode, and... a virtual assistant named Buddy?",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/04/heres-what-that-claude-code-source-leak-reveals-about-anthropics-plans",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-04-01T20:04:04.000Z",
+  "fetchedAt": "2026-04-01T22:34:33.396Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Anthropic",
+    "Claude",
+    "Claude Code"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/02/claude-no-ads-1152x648.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/04/01/253a36ed7fd7aa640cbdf44c20644a2dbb4fe666.json",
+  "contentText": "Yesterday's surprise leak of the source code for Anthropic's Claude Code revealed a lot about the vibe-coding scaffolding the company has built around its proprietary Claude model. But observers digging through over 512,000 lines of code across more than 2,000 files have also discovered references to disabled, hidden, or inactive features that provide a peek into the potential roadmap for future features.\n\nChief among these features is Kairos , a persistent daemon that can operate in the background even when the Claude Code terminal window is closed. The system would use periodic \"<tick>\" prompts to regularly review whether new actions are needed and a \"PROACTIVE\" flag for \"surfacing something the user hasn't asked for and needs to see now.\"\n\nKairos makes use of a file-based \"memory system\" designed to allow for persistent operation across user sessions. A prompt hidden behind a disabled \"KAIROS\" flag in the code explains that the system is designed to \"have a complete picture of who the user is, how they'd like to collaborate with you, what behaviors to avoid or repeat, and the context behind the work the user gives you.\"\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
