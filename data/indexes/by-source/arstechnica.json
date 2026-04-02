@@ -1,5 +1,89 @@
 [
   {
+    "id": "52d661fabd8ae3dc1e19006d509fcd827fd4e90b",
+    "title": "SpaceX tries to convince FCC that Amazon put satellites into wrong altitude",
+    "summary": "Amazon denies violation, says SpaceX caused conflict by lowering Starlink satellites.",
+    "canonicalUrl": "https://arstechnica.com/tech-policy/2026/04/spacex-claims-amazon-leo-launches-could-crash-into-starlink-satellites",
+    "source": {
+      "id": "arstechnica",
+      "name": "Ars Technica"
+    },
+    "publishedAt": "2026-04-02T20:32:05.000Z",
+    "category": "science",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/amazon-leo-1152x648-1775161218.jpg",
+    "language": "en"
+  },
+  {
+    "id": "75faea2581f3b94b2fd580bb984fb098c19f3981",
+    "title": "Google Vids gets AI upgrade with Veo and Lyria models, directable AI avatars",
+    "summary": "Google Vids brings together Google's most capable AI creation tools.",
+    "canonicalUrl": "https://arstechnica.com/ai/2026/04/google-vids-gets-ai-upgrade-with-veo-and-lyria-models-directable-ai-avatars",
+    "source": {
+      "id": "arstechnica",
+      "name": "Ars Technica"
+    },
+    "publishedAt": "2026-04-02T19:58:37.000Z",
+    "category": "tech",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/Google-Vids-1152x648.png",
+    "language": "en"
+  },
+  {
+    "id": "94f605e0a103ce2aaec4b6d0f0d67b96058ada41",
+    "title": "Male octopuses guided through mating by female hormones",
+    "summary": "A receptor that's used to find prey is also activated by progesterone.",
+    "canonicalUrl": "https://arstechnica.com/science/2026/04/male-octopuses-guided-through-mating-by-female-hormones",
+    "source": {
+      "id": "arstechnica",
+      "name": "Ars Technica"
+    },
+    "publishedAt": "2026-04-02T19:48:16.000Z",
+    "category": "science",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/GettyImages-1082963892-1152x648.jpg",
+    "language": "en"
+  },
+  {
+    "id": "c15763867fdb875060f03bfd0c28f8ab9aeb5a81",
+    "title": "New fossil deposits show complex animal groups predating the Cambrian",
+    "summary": "Collection of fossils includes Ediacaran, Cambrian species, suggesting a transition.",
+    "canonicalUrl": "https://arstechnica.com/science/2026/04/new-fossil-deposits-show-complex-animal-groups-predating-the-cambrian",
+    "source": {
+      "id": "arstechnica",
+      "name": "Ars Technica"
+    },
+    "publishedAt": "2026-04-02T18:00:58.000Z",
+    "category": "science",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/Newly-discovered-fossil-from-the-Jiangchuan-Biota-Credit-Gaorong-Li-1152x648.png",
+    "language": "en"
+  },
+  {
+    "id": "e843d36799682fc8cd75a7a7a9b3a2ad56afab1e",
+    "title": "New Rowhammer attacks give complete control of machines running Nvidia GPUs",
+    "summary": "Both GDDRHammer and GeForge hammer GPU memory in ways that compromise the CPU.",
+    "canonicalUrl": "https://arstechnica.com/security/2026/04/new-rowhammer-attacks-give-complete-control-of-machines-running-nvidia-gpus",
+    "source": {
+      "id": "arstechnica",
+      "name": "Ars Technica"
+    },
+    "publishedAt": "2026-04-02T17:00:11.000Z",
+    "category": "tech",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/07/exploit-vulnerability-security.jpg",
+    "language": "en"
+  },
+  {
+    "id": "71448dfefc167cb91b8dff5085ddf85d0efc3404",
+    "title": "Renewables dominate 2025's newly installed generating capacity",
+    "summary": "And solar power accounted for about three quarters of the renewables.",
+    "canonicalUrl": "https://arstechnica.com/science/2026/04/globally-86-percent-of-the-new-generating-capacity-was-renewable-in-2025",
+    "source": {
+      "id": "arstechnica",
+      "name": "Ars Technica"
+    },
+    "publishedAt": "2026-04-02T17:00:03.000Z",
+    "category": "science",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/GettyImages-2268609420-1024x648.jpg",
+    "language": "en"
+  },
+  {
     "id": "17653f0bad0fb75ba0aba566d4e30a33a19dabcb",
     "title": "Google announces Gemma 4 open AI models, switches to Apache 2.0 license",
     "summary": "Gemma 4 brings the first major update to Google's open models in a year.",
@@ -6913,90 +6997,6 @@
     "publishedAt": "2026-02-12T19:53:05.000Z",
     "category": "tech",
     "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/02/Vision-Pro-YouTube-1152x648-1770924358.png",
-    "language": "en"
-  },
-  {
-    "id": "a88d153642dc0355c8d08b420f1d8c3033ea2845",
-    "title": "Attackers prompted Gemini over 100,000 times while trying to clone it, Google says",
-    "summary": "Distillation technique lets copycats mimic Gemini at a fraction of the development cost.",
-    "canonicalUrl": "https://arstechnica.com/ai/2026/02/attackers-prompted-gemini-over-100000-times-while-trying-to-clone-it-google-says",
-    "source": {
-      "id": "arstechnica",
-      "name": "Ars Technica"
-    },
-    "publishedAt": "2026-02-12T19:42:08.000Z",
-    "category": "tech",
-    "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/12/gemini_header-1152x648.jpg",
-    "language": "en"
-  },
-  {
-    "id": "a6ddff2d17c54edee6ad400da6a59334e87bee84",
-    "title": "Bringing the \"functionally extinct\" American chestnut back from the dead",
-    "summary": "Wiped out in its native range by invasive pathogens, the trees may make a comeback.",
-    "canonicalUrl": "https://arstechnica.com/science/2026/02/can-modern-genetics-help-us-restore-the-appalachian-forests-of-the-1800s",
-    "source": {
-      "id": "arstechnica",
-      "name": "Ars Technica"
-    },
-    "publishedAt": "2026-02-12T19:00:31.000Z",
-    "category": "science",
-    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/02/GettyImages-494590669-1152x648.jpg",
-    "language": "en"
-  },
-  {
-    "id": "95bfe6ab9d4e02474e2a3f9980cc6dc1e6921ba1",
-    "title": "Unique structure of elephant whiskers give them built-in sensing \"intelligence\"",
-    "summary": "The material properties change gradually from base to tip for better navigation, more precise manipulation.",
-    "canonicalUrl": "https://arstechnica.com/science/2026/02/unique-structure-of-elephant-whiskers-give-them-built-in-sensing-intelligence",
-    "source": {
-      "id": "arstechnica",
-      "name": "Ars Technica"
-    },
-    "publishedAt": "2026-02-12T19:00:15.000Z",
-    "category": "science",
-    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/02/elephant2-1152x648.jpg",
-    "language": "en"
-  },
-  {
-    "id": "c314cb5b352e6a677f3c7483e35c0c80d1040113",
-    "title": "2026 Nissan Leaf review: The best budget EV on sale right now",
-    "summary": "A week with the new Leaf in frigid weather did not cool our feelings for the car.",
-    "canonicalUrl": "https://arstechnica.com/cars/2026/02/2026-nissan-leaf-review-the-best-budget-ev-on-sale-right-now",
-    "source": {
-      "id": "arstechnica",
-      "name": "Ars Technica"
-    },
-    "publishedAt": "2026-02-12T18:49:04.000Z",
-    "category": "tech",
-    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/02/2026-Nissan-Leaf-2-1152x648.jpg",
-    "language": "en"
-  },
-  {
-    "id": "40478ecaeaec5b2b17ac0a5a5d9f86e9cc8f38b8",
-    "title": "RFK Jr. food pyramid site links to Grok, which says you shouldn’t trust RFK Jr.",
-    "summary": "Grok generated a meal plan to fit RFK Jr.'s food pyramid, then explained why it's bad.",
-    "canonicalUrl": "https://arstechnica.com/health/2026/02/rfk-jr-food-pyramid-site-links-to-grok-which-says-you-shouldnt-trust-rfk-jr",
-    "source": {
-      "id": "arstechnica",
-      "name": "Ars Technica"
-    },
-    "publishedAt": "2026-02-12T16:44:10.000Z",
-    "category": "health",
-    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/01/Screen-Shot-2026-01-08-at-2.50.34-PM-1152x648.png",
-    "language": "en"
-  },
-  {
-    "id": "44f59a12232075141e9e964d69e7552a2245a486",
-    "title": "US consumers, business pay 90% of tariff costs, says Federal Reserve",
-    "summary": "The Fed's research contradict Trump's claim foreign companies would bear the burden.",
-    "canonicalUrl": "https://arstechnica.com/tech-policy/2026/02/us-consumers-business-pay-90-of-tariff-costs-says-federal-reserve",
-    "source": {
-      "id": "arstechnica",
-      "name": "Ars Technica"
-    },
-    "publishedAt": "2026-02-12T15:40:47.000Z",
-    "category": "science",
-    "image": "https://cdn.arstechnica.net/wp-content/uploads/2025/03/GettyImages-2200759945-1152x648.jpg",
     "language": "en"
   }
 ]

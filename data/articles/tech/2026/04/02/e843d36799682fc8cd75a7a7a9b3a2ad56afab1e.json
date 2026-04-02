@@ -1,0 +1,28 @@
+{
+  "id": "e843d36799682fc8cd75a7a7a9b3a2ad56afab1e",
+  "title": "New Rowhammer attacks give complete control of machines running Nvidia GPUs",
+  "summary": "Both GDDRHammer and GeForge hammer GPU memory in ways that compromise the CPU.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/04/new-rowhammer-attacks-give-complete-control-of-machines-running-nvidia-gpus",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-04-02T17:00:11.000Z",
+  "fetchedAt": "2026-04-02T22:28:45.749Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Features",
+    "Security"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/07/exploit-vulnerability-security.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/04/02/e843d36799682fc8cd75a7a7a9b3a2ad56afab1e.json",
+  "contentText": "The cost of high-performance GPUs, typically $8,000 or more, means they are frequently shared among dozens of users in cloud environments. Two new attacks demonstrate how a malicious user can gain full root control of a host machine by performing novel Rowhammer attacks on high-performance GPU cards made by Nvidia.\n\nThe attacks exploit memory hardware’s increasing susceptibility to bit flips, in which 0s stored in memory switch to 1s and vice versa. In 2014 , researchers first demonstrated that repeated, rapid access—or “hammering”—of memory hardware known as DRAM creates electrical disturbances that flip bits. A year later , a different research team showed that by targeting specific DRAM rows storing sensitive data, an attacker could exploit the phenomenon to escalate an unprivileged user to root or evade security sandbox protections. Both attacks targeted DDR3 generations of DRAM.\n\nFrom CPU to GPU: Rowhammer's decade-long journey\n\nOver the past decade, dozens of newer Rowhammer attacks have evolved to, among other things:\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
