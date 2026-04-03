@@ -1,0 +1,31 @@
+{
+  "id": "e8247e8a037264826cfe31bd7fcf1c707360784f",
+  "title": "OpenClaw gives users yet another reason to be freaked out about security",
+  "summary": "The viral AI agentic tool let attackers silently gain admin unauthenticated access.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/04/heres-why-its-prudent-for-openclaw-users-to-assume-compromise",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-04-03T20:30:15.000Z",
+  "fetchedAt": "2026-04-03T22:29:52.968Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "agentic AI",
+    "OpenClaw",
+    "privilege escalation"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/02/bluecrayfish-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/04/03/e8247e8a037264826cfe31bd7fcf1c707360784f.json",
+  "contentText": "For more than a month, security practitioners have been warning about the perils of using OpenClaw, the viral AI agentic tool that has taken the development community by storm. A recently fixed vulnerability provides an object lesson for why.\n\nOpenClaw, which was introduced in November and now boasts 347,000 stars on Github, by design takes control of a user’s computer and interacts with other apps and platforms to assist with a host of tasks, including organizing files, doing research, and shopping online. To be useful, it needs access—and lots of it—to as many resources as possible. Telegram, Discord, Slack, local and shared network files, accounts, and logged in sessions are only some of the intended resources. Once the access is given, OpenClaw is designed to act precisely as the user would, with the same broad permissions and capabilities.\n\nSevere impact\n\nEarlier this week, OpenClaw developers released security patches for three high-severity vulnerabilities. The severity rating of one in particular, CVE-2026-33579 , is rated from 8.1 to 9.8 out of a possible 10 depending on the metric used—and for good reason. It allows anyone with pairing privileges (the lowest-level permission) to gain administrative status. With that, the attacker has control of whatever resources the OpenClaw instance does.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
