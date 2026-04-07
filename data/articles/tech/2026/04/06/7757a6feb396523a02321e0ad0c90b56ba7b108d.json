@@ -1,0 +1,31 @@
+{
+  "id": "7757a6feb396523a02321e0ad0c90b56ba7b108d",
+  "title": "From folding boxes to fixing vacuums, GEN-1 robotics model hits 99% reliability",
+  "summary": "New model can respond to disruptions and figure out moves it wasn't trained for.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/04/generalists-new-physical-robotics-ai-brings-production-level-success-rates",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-04-06T22:18:33.000Z",
+  "fetchedAt": "2026-04-07T02:05:38.694Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "generalist",
+    "Model",
+    "Robotics",
+    "robots",
+    "training"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/gen1-1152x648.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/04/06/7757a6feb396523a02321e0ad0c90b56ba7b108d.json",
+  "contentText": "Robotic machine learning company Generalist has announced GEN-1 , a new physical AI system that it says \"crosses into production-level success rates\" on \"a broad range of physical skills\" that used to require the dexterity and muscle memory of human hands. Generalist is also touting the new model's ability to respond to disruptions by improvising new moves and \"connect[ing] ideas from different places in order to solve new problems.\"\n\nGEN-1 builds on Generalist's previous GEN-0 model, which the company touted in November as a proof of concept for the applicability of scaling laws in robotics training, showing how more pre-training data and compute time improve post-training performance. But while large language models have been able to effectively process trillions of words collectively written on the Internet as part of their training, robotic models don't have a similar, readily accessible source of quality data about how humans manipulate objects.\n\nTo help solve this problem, Generalist has relied on \"data hands\" , a set of wearable pincers that capture micro-movements and visual information as humans perform manual tasks. Generalist now claims it has collected over half a million hours and \"petabytes of physical interaction data\" to help train its physical model.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
