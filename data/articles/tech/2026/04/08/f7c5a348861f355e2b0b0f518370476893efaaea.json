@@ -1,0 +1,32 @@
+{
+  "id": "f7c5a348861f355e2b0b0f518370476893efaaea",
+  "title": "Thousands of consumer routers hacked by Russia's military",
+  "summary": "End-of-life routers in homes and small offices hacked in 120 countries.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/04/russias-military-hacks-thousands-of-consumer-routers-to-steal-credentials",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-04-08T11:00:08.000Z",
+  "fetchedAt": "2026-04-08T13:14:47.770Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Policy",
+    "Security",
+    "credentials",
+    "DNS",
+    "hacking",
+    "routers"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2022/04/russia-cyber-hack-1000x648.jpeg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/04/08/f7c5a348861f355e2b0b0f518370476893efaaea.json",
+  "contentText": "The Russian military is once again hacking home and small office routers in widespread operations that send unwitting users to sites that harvest passwords and credential tokens for use in espionage campaigns, researchers said Tuesday.\n\nAn estimated 18,000 to 40,000 consumer routers, mostly those made by MikroTik and TP-Link, located in 120 countries were wrangled into infrastructure belonging to APT28, an advanced threat group that’s part of Russia’s military intelligence agency known as the GRU, researchers from Lumen Technologies' Black Lotus Labs said . The threat group has operated for at least two decades and is behind dozens of high-profile hacks targeting governments worldwide. APT28 is also tracked under names including Pawn Storm, Sofacy Group, Sednit, Tsar Team, Forest Blizzard, and STRONTIUM.\n\nTechnical sophistication, tried-and-true techniques\n\nA small number of routers were used as proxies to connect to a much larger number of other routers belonging to foreign ministries, law enforcement, and government agencies that the APT wanted to spy on. The group then used its control of routers to change DNS lookups for select websites, including, Microsoft said , domains for the company’s 356 service.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
