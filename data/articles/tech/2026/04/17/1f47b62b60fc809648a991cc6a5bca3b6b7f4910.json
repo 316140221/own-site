@@ -1,0 +1,31 @@
+{
+  "id": "1f47b62b60fc809648a991cc6a5bca3b6b7f4910",
+  "title": "Recent advances push Big Tech closer to the Q-Day danger zone",
+  "summary": "Here's which players are winning the race to transition to post-quantum crypto.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/04/while-some-big-tech-players-accelerate-pqc-readiness-others-stay-the-course",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-04-17T11:00:50.000Z",
+  "fetchedAt": "2026-04-17T13:12:54.099Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Features",
+    "Security",
+    "cryptography",
+    "post quantum cryptography",
+    "quantum computing"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2024/03/GettyImages-1070527780-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/04/17/1f47b62b60fc809648a991cc6a5bca3b6b7f4910.json",
+  "contentText": "Sometime around 2010, sophisticated malware known as Flame hijacked the mechanism that Microsoft used to distribute updates to millions of Windows computers around the world. The malware—reportedly jointly developed by the US and Israel—pushed a malicious update throughout an infected network belonging to the Iranian government.\n\nThe lynchpin of the \"collision\" attack was an exploit of MD5, a cryptographic hash function Microsoft was using to authenticate digital certificates. By minting a cryptographically perfect digital signature based on MD5, the attackers forged a certificate that authenticated their malicious update server. Had the attack been used more broadly, it would have had catastrophic consequences worldwide.\n\nGetting uncomfortably close to the danger zone\n\nThe event, which came to light in 2012, now serves as a cautionary tale for cryptography engineers as they contemplate the downfall of two crucial cryptography algorithms used everywhere. Since 2004 , MD5 has been known to be vulnerable to \"collisions,\" a fatal flaw that allows adversaries to generate two distinct inputs that produce identical outputs.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
