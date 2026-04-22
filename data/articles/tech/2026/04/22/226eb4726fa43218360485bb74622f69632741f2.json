@@ -1,0 +1,31 @@
+{
+  "id": "226eb4726fa43218360485bb74622f69632741f2",
+  "title": "Google unveils two new TPUs designed for the \"agentic era\"",
+  "summary": "Google's new generation of Tensor AI chips is actually two chips, one for inference and one for training.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/04/google-unveils-two-new-tpus-designed-for-the-agentic-era",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-04-22T17:10:32.000Z",
+  "fetchedAt": "2026-04-22T19:09:09.669Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Google",
+    "Artificial Intelligence",
+    "generative ai",
+    "google",
+    "TPUs"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/TPU-8t-board-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/04/22/226eb4726fa43218360485bb74622f69632741f2.json",
+  "contentText": "Most of the companies that have fully committed to building AI models are gobbling up every Nvidia AI accelerator they can get, but Google has taken a different approach. Most of its cloud AI infrastructure is based on its line of custom Tensor processing units (TPUs). After announcing the seventh-gen Ironwood TPU in 2025, the company has moved on to the eighth-gen version , but it's not just a faster iteration of the same chip.\n\nThe new TPUs come in two flavors, providing Google and its customers with an AI platform that is faster and more efficient, the company says. Google is pushing the idea that the \"agent era\" is fundamentally different from the AI systems that came before, necessitating a new approach to the hardware. So engineers have devised the TPU8t (for training) and the TPU 8i (for inference).\n\nBefore AI models become something you can use to analyze data or make silly memes, they need to be trained. The TPU 8t was designed specifically for this part of the AI lifecycle to reduce the training time for frontier AI models from months to weeks.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
