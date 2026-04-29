@@ -1,0 +1,32 @@
+{
+  "id": "ee6b10ea46f07d98d5eca9571240d45bcc54035f",
+  "title": "Nvidia fixes the 8GB RAM problem with one of its GPUs—if you can pay for it",
+  "summary": "Framework charges nearly double for the 12GB version of the mobile RTX 5070.",
+  "canonicalUrl": "https://arstechnica.com/gadgets/2026/04/nvidia-fixes-the-8gb-ram-problem-with-one-of-its-gpus-if-you-can-pay-for-it",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-04-29T16:06:28.000Z",
+  "fetchedAt": "2026-04-29T17:25:43.758Z",
+  "category": "tech",
+  "tags": [
+    "Gaming",
+    "Tech",
+    "framework",
+    "framework laptop 16",
+    "geforce 5070",
+    "NVIDIA",
+    "nvidia geforce"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/geforce-rtx-50-series-laptop-hero-af360-p@2x-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/04/29/ee6b10ea46f07d98d5eca9571240d45bcc54035f.json",
+  "contentText": "Whether you're a gamer trying to play recent AAA titles at high resolutions and maxed-out settings or an AI enthusiast trying to run models locally, we've reached the point where a GPU with 8GB of video memory is a pretty limiting bottleneck. But because of ongoing memory shortages and price spikes, it's also a uniquely bad time for GPU makers to attempt to fix this problem— rumors suggested that a RAM-boosting mid-generation \"Super\" refresh for Nvidia's RTX 50-series GPUs was quietly delayed or canceled earlier this year, at least in part because of memory costs.\n\nOne of Nvidia's GPUs is getting a RAM upgrade, according to an announcement the company buried at the bottom of a blog post about a routine Game Ready driver update. The laptop version of the GeForce RTX 5070 is getting a bump from 8GB to 12GB of GDDR7, a 50 percent increase that should reduce some performance bottlenecks and generally future-proof the GPU.\n\nOtherwise, the 12GB version of the mobile RTX 5070 is the same as the 8GB version. The RAM is still connected to the GPU with a 128-bit memory interface, and the GPU still has 4,608 CUDA cores. The mobile 5070 uses the same GB206 silicon die as the desktop RTX 5060 instead of the larger, more powerful GB205 die in the desktop version of the RTX 5070, meaning that despite the RAM increase, the desktop version remains a much more powerful GPU.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
