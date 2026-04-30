@@ -1,0 +1,31 @@
+{
+  "id": "b2ac69e4f0bcb8cb2133760ef59dd3e03af94c6b",
+  "title": "The most severe Linux threat to surface in years catches the world flat-footed",
+  "summary": "CopyFail threatens multi-tenant servers, CI/CD work flows, Kubernetes containers, and more.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/04/as-the-most-severe-linux-threat-in-years-surfaces-the-world-scrambles",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-04-30T20:20:48.000Z",
+  "fetchedAt": "2026-04-30T22:51:52.061Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "exploits",
+    "Linux",
+    "local privilege escalation",
+    "vulnerabilities"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/09/code-vulnerability-security-1000x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/04/30/b2ac69e4f0bcb8cb2133760ef59dd3e03af94c6b.json",
+  "contentText": "Publicly released exploit code for an effectively unpatched vulnerability that gives root access to virtually all releases of Linux is setting off alarm bells as defenders scramble to ward off severe compromises inside data centers and on personal devices.\n\nThe vulnerability and exploit code that exploits it were released Wednesday evening by researchers from security firm Theori, five weeks after privately disclosing it to the Linux kernel security team. The team patched the vulnerability in versions 7.0 , 6.19.12 , 6.18.12 , 6.12.85, 6.6.137, 6.1.170, 5.15.204, and 5.10.254) but few of the Linux distributions had incorporated those fixes at the time the exploit was released.\n\nA single script hacks all distros\n\nThe critical flaw, tracked as CVE-2026-31431 and the name CopyFail, is a local privilege escalation, a vulnerability class that allows unprivileged users to elevate themselves to administrators. CopyFail is particularly severe because it can be exploited with a single piece of exploit code—released in Wednesday’s disclosure—that works across all vulnerable distributions with no modification. With that, an attacker can, among other things, hack multi-tenant systems, break out of containers based on Kubernetes or other frameworks, and create malicious pull requests that pipe the exploit code through CI/CD work flows.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
