@@ -1,0 +1,24 @@
+{
+  "id": "17476a0b028693bcecf80706b5be8dca733db984",
+  "title": "Severe Linux Copy Fail security flaw uncovered using AI scanning help",
+  "summary": "Nearly every Linux distribution released since 2017 is currently vulnerable to a security bug called \"Copy Fail\" that allows any user to give themselves administrator privileges. The exploit, publicly disclosed as CVE-2026-31431 on Wednesday, uses a Python script that works across all of the vulnerable Linux distributions, requiring \"no per-distro offsets,…",
+  "canonicalUrl": "https://theverge.com/tech/922243/linux-cve-2026-3141-copy-fail-exploit",
+  "source": {
+    "id": "theverge",
+    "name": "The Verge",
+    "url": "https://www.theverge.com/",
+    "feedUrl": "https://www.theverge.com/rss/index.xml",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-05-01T16:55:16.000Z",
+  "fetchedAt": "2026-05-01T16:55:51.339Z",
+  "category": "tech",
+  "tags": [],
+  "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/09/STK414_AI_CVIRGINIA_I__0008_6.png?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/05/01/17476a0b028693bcecf80706b5be8dca733db984.json",
+  "contentText": "Nearly every Linux distribution released since 2017 is currently vulnerable to a security bug called \"Copy Fail\" that allows any user to give themselves administrator privileges. The exploit, publicly disclosed as CVE-2026-31431 on Wednesday, uses a Python script that works across all of the vulnerable Linux distributions, requiring \"no per-distro offsets, no version checks, no recompilation,\" according to Theori, the security firm that uncovered it.\n\nArs Technica points out this blog post where DevOps engineer Jorijn Schrijvershof explains that what makes Copy Fail \"unusually nasty\" is the likelihood for it to go unnoticed by monitoring t …\n\nRead the full story at The Verge.",
+  "contentSource": "content"
+}
