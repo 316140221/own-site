@@ -1,0 +1,30 @@
+{
+  "id": "6fbc7045f8fe75df03cdafe020baceaaf9062b4f",
+  "title": "Widely used Daemon Tools disk app backdoored in monthlong supply-chain attack",
+  "summary": "Daemon Tools users: It's time to check your machines for stealthy infections, stat.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/05/widely-used-daemon-tools-disk-app-backdoored-in-monthlong-supply-chain-attack",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-05-05T19:46:15.000Z",
+  "fetchedAt": "2026-05-05T21:00:03.496Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "backdoors",
+    "daemon tools",
+    "supply chain attack"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2022/08/GettyImages-1230467668-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/05/05/6fbc7045f8fe75df03cdafe020baceaaf9062b4f.json",
+  "contentText": "Daemon Tools, a widely used app for mounting disk images, has been backdoored in a monthlong compromise that has pushed malicious updates from the servers of its developer, researchers said Tuesday.\n\nKaspersky, the security firm reporting the supply-chain attack, said it began on April 8 and remained active as of the time its post went live. Installers that are signed by the developer’s official digital certificate and downloaded from its website infect Daemon Tools executables, causing the malware to run at boot time. Kaspersky didn’t explicitly say so, but based on technical details, the infected versions appear to be only those that run on Windows. Versions 12.5.0.2421 through 12.5.0.2434 are affected. Neither Kaspersky nor developer AVB could be contacted immediately for additional details.\n\nHard to defend against\n\nInfected versions contain an initial payload that collects MAC addresses, hostnames, DNS domain names, running processes, installed software, and system locales. The malware sends them to an attacker-controlled server. Thousands of machines in more than 100 countries were targeted. Out of the many machines infected, about 12 of them, belonging to retail, scientific, government and manufacturing organizations, have received a follow-on payload—an indication the supply-chain attack targets select groups.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
