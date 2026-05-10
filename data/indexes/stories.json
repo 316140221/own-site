@@ -1,1 +1,40 @@
-[]
+[
+  {
+    "id": "41c4163454a6",
+    "title": "CBS News Radio, a beacon of broadcast journalism, signs off",
+    "publishedAt": "2026-05-10T13:54:45.000Z",
+    "category": "world",
+    "language": "en",
+    "sources": [
+      "cbs_us",
+      "cbs_world"
+    ],
+    "coverage": 2,
+    "items": [
+      {
+        "id": "70c0c8715f5b82af3a2c58899b3d7687c1e36140",
+        "title": "CBS News Radio: A beacon of broadcast journalism signs off",
+        "canonicalUrl": "https://cbsnews.com/news/cbs-news-radio-a-beacon-of-broadcast-journalism-signs-off",
+        "publishedAt": "2026-05-10T13:54:45.000Z",
+        "category": "world",
+        "language": "en",
+        "source": {
+          "id": "cbs_world",
+          "name": "CBS News - World"
+        }
+      },
+      {
+        "id": "e9e4bac8ddc23b808ba7793ac397ec9a65c7d16f",
+        "title": "CBS News Radio, a beacon of broadcast journalism, signs off",
+        "canonicalUrl": "https://cbsnews.com/video/cbs-news-radio-signs-off",
+        "publishedAt": "2026-05-10T13:39:17.000Z",
+        "category": "world",
+        "language": "en",
+        "source": {
+          "id": "cbs_us",
+          "name": "CBS News - US"
+        }
+      }
+    ]
+  }
+]
