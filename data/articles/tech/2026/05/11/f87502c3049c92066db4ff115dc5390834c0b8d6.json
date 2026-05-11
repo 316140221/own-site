@@ -1,0 +1,30 @@
+{
+  "id": "f87502c3049c92066db4ff115dc5390834c0b8d6",
+  "title": "Linux bitten by second severe vulnerability in as many weeks",
+  "summary": "Production-version patches are coming online and should be installed pronto.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/05/linux-bitten-by-second-severe-vulnerability-in-as-many-weeks",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-05-11T22:28:19.000Z",
+  "fetchedAt": "2026-05-11T22:51:45.246Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "exploits",
+    "Linux",
+    "vulnerabilities"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2022/05/caution-tape-1000x648.jpeg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/05/11/f87502c3049c92066db4ff115dc5390834c0b8d6.json",
+  "contentText": "Linux users have been bitten by yet another vulnerability that gives containers and untrusted users the ability to gain root access, marking the second time in as many weeks that a severe threat has caught defenders off guard.\n\nThe threat, known as Dirty Frag, allows low-privilege users, including those using virtual machines, to gain root control of servers. Attacks are particularly suitable in shared environments, where a server is used by multiple parties. Hackers can also gain root as long as they have access to a separate exploit that gives a toehold into a machine. Exploit code was leaked online three days ago and works reliably across virtually all Linux distributions. Microsoft has said it has spotted signs that hackers are experimenting with Dirty Frag in the wild.\n\nImmediate and significant threat\n\nThe leaked exploit is deterministic, meaning it works precisely the same way each time it’s run and across different Linux distributions. It causes no crashes, making it stealthy to run. A vulnerability known as Copy Fail, disclosed last week with no patches available to end users, possesses the same characteristics.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
