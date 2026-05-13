@@ -1,0 +1,33 @@
+{
+  "id": "93a2fe54cda41cbe9ace674892ff884508895c00",
+  "title": "Anthropic blames dystopian sci-fi for training AI models to act “evil”",
+  "summary": "But training on \"synthetic stories\" that model good AI behavior can help.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/05/anthropic-blames-dystopian-sci-fi-for-training-ai-models-to-act-evil",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-05-13T16:31:18.000Z",
+  "fetchedAt": "2026-05-13T17:59:05.153Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Anthropic",
+    "clause",
+    "ethics",
+    "morals",
+    "sci-fi",
+    "stories",
+    "training"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/05/GettyImages-1155287857-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/05/13/93a2fe54cda41cbe9ace674892ff884508895c00.json",
+  "contentText": "Those with an interest in the concept of AI alignment (i.e., getting AIs to stick to human-authored ethical rules) may remember when Anthropic claimed its Opus 4 model resorted to blackmail to stay online in a theoretical testing scenario last year. Now, Anthropic says it thinks this \"misalignment\" was primarily the result of training on \"internet text that portrays AI as evil and interested in self-preservation.\"\n\nIn a recent technical post on Anthropic's Alignment Science blog (and an accompanying social media thread and public-facing blog post ), Anthropic researchers lay out their attempts to correct for the kind of \"unsafe\" AI behavior that \"the model most likely learned... through science fiction stories, many of which depict an AI that is not as aligned as we would like Claude to be.\" In the end, the model maker says the best remedy for overriding those \"evil AI\" stories might be additional training with synthetic stories showing an AI acting ethically.\n\n\"The beginning of a dramatic story...\"\n\nAfter a model's initial training on a large corpus of mostly Internet-derived data, Anthropic follows a post-training process intended to nudge the final model toward being \"helpful, honest, and harmless\" (HHH). In the past, Anthropic said this post-training has leaned on chat-based reinforcement learning with human feedback (RLHF), which it said was \"sufficient\" for models used mostly for chatting with users.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
