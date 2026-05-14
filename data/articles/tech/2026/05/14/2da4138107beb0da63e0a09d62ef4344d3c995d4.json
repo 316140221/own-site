@@ -1,0 +1,31 @@
+{
+  "id": "2da4138107beb0da63e0a09d62ef4344d3c995d4",
+  "title": "Zero-day exploit completely defeats default Windows 11 BitLocker protections",
+  "summary": "It's not entirely clear how the exploit works. Microsoft says it's investigating.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/05/zero-day-exploit-completely-defeats-default-windows-11-bitlocker-protections",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-05-14T18:32:01.000Z",
+  "fetchedAt": "2026-05-14T19:42:10.888Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "BitLocker",
+    "disk encryption",
+    "microsoft",
+    "vulnerabilities"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/07/exploit-vulnerability-security.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/05/14/2da4138107beb0da63e0a09d62ef4344d3c995d4.json",
+  "contentText": "A zero-day exploit circulating online allows people with physical access to a Windows 11 system to bypass default BitLocker protections and gain complete access to an encrypted drive within seconds.\n\nThe exploit, named YellowKey, was published earlier this week by a researcher who goes by the alias Nightmare-Eclipse. It reliably bypasses default Windows 11 deployments of BitLocker, the full-volume encryption protection Microsoft provides to make disk contents off-limits to anyone without the decryption key, which is stored in a secured piece of hardware known as a trusted platform module (TPM). BitLocker is a mandatory protection for many organizations, including those that contract with governments.\n\nWhen one disk volume manipulates another\n\nThe core of the YellowKey exploit is a custom-made FsTx folder. Online documentation of this folder is hard to find. As explained later, the directory associated with the file fstx.dll appears to involve what Microsoft calls the transactional NTFS , which allows developers to have “transactional atomicity\" for file operations in transactions with a single file, multiple files, or ones that span multiple sources.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
