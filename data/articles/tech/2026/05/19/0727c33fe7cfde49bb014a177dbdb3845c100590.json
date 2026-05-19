@@ -1,0 +1,32 @@
+{
+  "id": "0727c33fe7cfde49bb014a177dbdb3845c100590",
+  "title": "Google's SynthID AI watermarking tech is being adopted by OpenAI, Nvidia, and more",
+  "summary": "AI content is getting good, but SynthID might be able to help tell truth from fiction.",
+  "canonicalUrl": "https://arstechnica.com/google/2026/05/googles-synthid-ai-watermarking-tech-is-being-adopted-by-openai-nvidia-and-more",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-05-19T18:37:02.000Z",
+  "fetchedAt": "2026-05-19T21:17:14.868Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Google",
+    "Artificial Intelligence",
+    "gemini",
+    "google",
+    "openai",
+    "SynthID"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/05/SynthID-1-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/05/19/0727c33fe7cfde49bb014a177dbdb3845c100590.json",
+  "contentText": "In a few short years, we've gone from easily identifying AI content that featured superfluous fingers to images and videos that look shockingly realistic . How can we know what's real in the age of AI? Google's answer is SynthID, which it first demonstrated three years ago. The company says SynthID has since been used to label 100 billion images and videos, plus 60,000 years' worth of audio. Those numbers are only going up now that SynthID is expanding beyond Google.\n\nSynthID is not Google's only AI labeling strategy. It's also committed to the C2PA standard, which tags content with metadata describing how it was created. Google began using C2PA more prominently with its Pixel 10 smartphones. Photos taken with the Pixel 10 include metadata describing how they were processed. If a highly zoomed image includes generative elements, it gets an AI tag, too.\n\nGoogle now says this same feature is coming to videos recorded on Pixel 8, 9, and 10 phones in an update in the coming weeks. It's also adding C2PA scanning to Gemini, allowing the chatbot to explain a file's providence based on the content labeling. This same capability will come to Chrome and Search in a few months.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
