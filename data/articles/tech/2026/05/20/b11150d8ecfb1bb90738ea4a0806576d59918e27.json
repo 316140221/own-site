@@ -1,0 +1,30 @@
+{
+  "id": "b11150d8ecfb1bb90738ea4a0806576d59918e27",
+  "title": "Google publishes exploit code threatening millions of Chromium users",
+  "summary": "Google publishes exploit code before patch, reported 29 months earlier, is fixed.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/05/google-publishes-exploit-code-threatening-millions-of-chromium-users",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-05-20T19:10:36.000Z",
+  "fetchedAt": "2026-05-20T21:49:45.357Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "chromium",
+    "exploits",
+    "vulnerabilities"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2025/01/chromium_logo.jpeg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/05/20/b11150d8ecfb1bb90738ea4a0806576d59918e27.json",
+  "contentText": "Google on Wednesday published exploit code for an unfixed vulnerability in its Chromium browser codebase that threatens millions of people using Chrome, Microsoft Edge, and virtually all other Chromium-based browsers.\n\nThe proof-of-concept code exploits the Browser Fetch programming interface, a standard that allows long videos and other large files to be downloaded in the background. An attacker can use the exploit to create a connection for monitoring some aspects of a user’s browser usage and as a proxy for viewing sites and launching denial-of-service attacks. Depending on the browser, the connections either reopen or remain open even after it or the device running it has rebooted.\n\nUnfixed for 29 months (and counting)\n\nThe unfixed vulnerability can be exploited by any website a user visits. In effect, a compromise amounts to a limited backdoor that makes a device part of a limited botnet. The capabilities are limited to the same things a browser can do, such as visit malicious sites, provide anonymous proxy browsing by others, enable proxied DDoS attacks, and monitor user activity. Nonetheless, the exploit could allow an attacker to wrangle thousands, possibly millions, of devices into a network. Once a separate vulnerability becomes available, the attacker could use it to then compromise all those devices.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
