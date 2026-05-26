@@ -1,0 +1,31 @@
+{
+  "id": "c84a41a54d299d8d3e5917ad96f8a4f32e31ca9e",
+  "title": "Millions of AI agents imperiled by critical vulnerability in open source package",
+  "summary": "\"BadHost\" was found in Starlette, a package with 325 million weekly downloads.",
+  "canonicalUrl": "https://arstechnica.com/information-technology/2026/05/millions-of-ai-agents-imperiled-by-critical-vulnerability-in-open-source-package",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-05-26T19:50:33.000Z",
+  "fetchedAt": "2026-05-26T21:41:42.635Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "AI agents",
+    "Starlette",
+    "vulnerability"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/02/gatekeeping-ai-agents-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/05/26/c84a41a54d299d8d3e5917ad96f8a4f32e31ca9e.json",
+  "contentText": "Millions of AI agents and tools around the world have been imperiled by a critical vulnerability that can allow hackers to breach the servers running them and make off with sensitive data and credentials to third-party accounts, a security researcher is warning.\n\nThe vulnerability is present in Starlette, an open source framework that its developer says receives 325 million downloads per week. Thousands of other open source projects are also vulnerable because they require Starlette to work. The framework is an implementation of the ASGI (asynchronous server gateway interface), which allows large numbers of requests to be efficiently processed simultaneously. Starlette is the base of FastAPI and other widely used frameworks for building services in Python apps, as well as many others.\n\nTrivial to exploit, millions of servers exposed\n\nASGI, and by extension Starlette, have access to servers running the MCP (model context protocol), which allows AI agents from major providers to access external sources, including user data bases, email and calendar accounts, and all manner of other resources. To connect with these external systems, MCP servers store credentials for each one, making them especially valuable storehouses for attackers to breach.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
