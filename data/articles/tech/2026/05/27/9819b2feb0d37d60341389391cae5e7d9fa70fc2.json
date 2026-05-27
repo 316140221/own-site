@@ -1,0 +1,30 @@
+{
+  "id": "9819b2feb0d37d60341389391cae5e7d9fa70fc2",
+  "title": "Websites have a new way to spy on visitors: analyzing their SSD activity",
+  "summary": "Telltale SSD activity can be measured in the browser using simple JavaScript.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/05/websites-have-a-new-way-to-spy-on-visitors-analyzing-their-ssd-activity",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-05-27T20:56:03.000Z",
+  "fetchedAt": "2026-05-27T21:52:19.169Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "side channel attacks",
+    "solid state drives",
+    "SSDs"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/05/solid-state-drive-ssd-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/05/27/9819b2feb0d37d60341389391cae5e7d9fa70fc2.json",
+  "contentText": "Now sites have a new way to spy on their visitors: measuring subtle interactions with their solid-state drives. The technique, named FROST (fingerprinting remotely using OPFS-based SSD timing), allows sites to monitor other sites a visitor is viewing and what apps are open on their devices.\n\nA side channel based on contention\n\nThe technique, laid out in a research paper , exploits a side channel , a form of leak resulting from physical manifestations such as electromagnetic emanations, data caches, or the time required to complete a task. By measuring the manifestations, attackers can decrypt encrypted traffic and infer other confidential data.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
