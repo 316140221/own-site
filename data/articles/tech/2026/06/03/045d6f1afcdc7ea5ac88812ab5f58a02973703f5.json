@@ -1,0 +1,33 @@
+{
+  "id": "045d6f1afcdc7ea5ac88812ab5f58a02973703f5",
+  "title": "Dashlane issues opaque advisory warning 20 encrypted vaults were stolen",
+  "summary": "Security advisory leaves out key details. Dashlane maintains complete silence.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/06/dashlane-issues-opaque-advisory-warning-20-encrypted-vaults-were-stolen",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-06-03T19:53:14.000Z",
+  "fetchedAt": "2026-06-03T22:27:27.263Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "2fa",
+    "dashlane",
+    "mfa",
+    "multi factor authentication",
+    "password managers",
+    "two-factor authentication"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/06/dashlane-app-1152x648-1780514208.webp",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/06/03/045d6f1afcdc7ea5ac88812ab5f58a02973703f5.json",
+  "contentText": "There’s a lot that doesn’t add up in a security advisory password manager Dashlane published Monday, warning that attackers managed to obtain 20 encrypted user vaults.\n\n“Starting on Sunday, May 31, 2026, an external party launched a brute force attack against certain Dashlane user accounts,” the company said . “The goal of the attack was to brute-force two-factor authentication (2FA) protections to allow the attacker to register new devices on existing user accounts.”\n\nHello, Dashlane, anybody home?\n\nA Dashlane user who received such a 2FA request provided this screenshot of the notification, which arrived on Sunday.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
