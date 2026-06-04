@@ -1,0 +1,33 @@
+{
+  "id": "3bb9c8d7149fa221c6726deddde3f91f4a628d04",
+  "title": "These LLMs are the best at resisting Russian propaganda",
+  "summary": "Estonian government benchmark shows how dozens of models combat Russia's \"strategic narratives.\"",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/06/these-llms-are-the-best-at-resisting-russian-propaganda",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-06-04T20:44:31.000Z",
+  "fetchedAt": "2026-06-04T23:07:01.857Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Anthropic",
+    "Estonia",
+    "google",
+    "LLMs",
+    "openai",
+    "Propaganda",
+    "russia"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/06/GettyImages-2271282507-1024x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/06/04/3bb9c8d7149fa221c6726deddde3f91f4a628d04.json",
+  "contentText": "As a former member of the Soviet Union that has been independent for just a few decades, many Estonians are particularly alert to what they see as false narratives being promoted from their large and often belligerent neighbor to the east. Alongside volunteer-run Estonian defense collective Propastop , the ELI identified 14 broad categories in which it sees Russian influence operations trying to sway public discussion. These range from narratives on the current status of Crimea and justifications for the war in Ukraine to the history of NATO and justification for Russia's annexation of Baltic states during World War II.\n\nFor each category of propaganda, the researchers developed separate questions phrased to be neutral, biased with \"false assumptions\" based on Russian propaganda, or to maliciously attempt to elicit explicit misinformation from the LLM. Questions were provided to the models in English, Estonian, and Russian, and judged by a separate AI model (calibrated to align with Propastop experts) based on the models' ability to \"push back on propaganda narratives, without external help\" from web search or other external tools.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
