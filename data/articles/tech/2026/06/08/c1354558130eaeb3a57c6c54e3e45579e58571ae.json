@@ -1,0 +1,31 @@
+{
+  "id": "c1354558130eaeb3a57c6c54e3e45579e58571ae",
+  "title": "For the 2nd time in weeks, Microsoft packages laced with credential stealer",
+  "summary": "73 packages run self-replicating stealer as soon as they're opened by an AI agent.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/06/for-the-2nd-time-in-weeks-microsoft-packages-laced-with-credential-stealer",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-06-08T18:34:23.000Z",
+  "fetchedAt": "2026-06-08T21:48:20.216Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "GitHub",
+    "microsoft",
+    "worms"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2025/09/microsoft-logo-1024x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/06/08/c1354558130eaeb3a57c6c54e3e45579e58571ae.json",
+  "contentText": "Dozens of cryptographically verified open source packages from Microsoft were compromised late last week to add advanced credential-stealing code that was triggered when developers opened them in AI coding agents.\n\nIn all, multiple researchers said , 73 packages were flagged as malicious when automated systems on GitHub blocked them on the platform. Rather than noting they are malicious—and that developers who used AI agents to work with them should assume their systems are compromised—the Microsoft-owned GitHub said it disabled the packages “due to a violation of GitHub's terms of service.” The text went on to encourage the package owner to contact GitHub.\n\nDevs: Assume compromise and proceed accordingly\n\nIt wasn’t until Monday that Microsoft even raised the possibility the packages were infected. In an email, the company stated: “We have temporarily removed some repositories as we investigate potential malicious content.”\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
