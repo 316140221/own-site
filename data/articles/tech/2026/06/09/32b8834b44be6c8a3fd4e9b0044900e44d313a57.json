@@ -1,0 +1,32 @@
+{
+  "id": "32b8834b44be6c8a3fd4e9b0044900e44d313a57",
+  "title": "Anthropic says these topics are too dangerous to let its Fable 5 model talk about",
+  "summary": "New frontier model refuses cybersecurity, biology, and chemistry queries.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/06/anthropic-says-these-topics-are-too-dangerous-to-let-its-fable-5-model-talk-about",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-06-09T19:20:25.000Z",
+  "fetchedAt": "2026-06-09T23:16:00.827Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Anthropic",
+    "Fable",
+    "fable 5",
+    "Mythos",
+    "restrictions",
+    "safeguards"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/06/GettyImages-1599973349-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/06/09/32b8834b44be6c8a3fd4e9b0044900e44d313a57.json",
+  "contentText": "Anthropic Tuesday publicly released Claude Fable 5 , its first \"Mythos-class\" model that it says surpasses its previous frontier Opus models in overall capabilities. But the model's launch today comes with safeguards designed to prevent it from answering queries on topics like cybersecurity, biology, and chemistry, where the company has publicly worried about its potential impact to \"uplift\" malicious actors.\n\nAnthropic says Fable 5 operates on the \"same underlying model\" as Mythos 5, which is coming out of its monthslong \"Mythos Preview\" period today, but only for \"a small group of cyberdefenders\" judged trustworthy through the existing Project Glasswing . Unlike Mythos 5, though, the publicly accessible Fable 5 is designed to funnel queries on certain sensitive topics to the earlier Claude Opus 4.8 model and to warn the user when this is happening.\n\nAmong the many claimed benchmark improvements for Fable 5, the one related to cybersecurity was a particularly large jump.\nCredit:\nAnthropic\n\nAnthropic said it has tuned these safeguards to be \"stricter than ideal,\" meaning the system may occasionally refuse \"harmless requests\" in a way that it acknowledges may be frustrating for regular users. But Anthropic says such false positives come up in less than five percent of all sessions in testing, and were worth it to avoid situations where Mythos could give malicious actors assistance in \"causing serious harm that they couldn’t have received from other sources.\"\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
