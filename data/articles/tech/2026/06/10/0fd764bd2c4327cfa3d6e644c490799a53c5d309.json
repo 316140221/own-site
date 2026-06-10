@@ -1,0 +1,30 @@
+{
+  "id": "0fd764bd2c4327cfa3d6e644c490799a53c5d309",
+  "title": "Google's latest DiffusionGemma open AI model comes with a 4x speed boost",
+  "summary": "Diffusion AI is most common in image generation, but it can make text outputs much faster.",
+  "canonicalUrl": "https://arstechnica.com/google/2026/06/googles-latest-diffusiongemma-open-ai-model-comes-with-a-4x-speed-boost",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-06-10T19:29:21.000Z",
+  "fetchedAt": "2026-06-10T20:26:25.028Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Google",
+    "Artificial Intelligence",
+    "generative ai",
+    "google"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/06/HeroVisual.width-2200.format-webp-1152x648.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/06/10/0fd764bd2c4327cfa3d6e644c490799a53c5d309.json",
+  "contentText": "Another day, another AI model from Google. This time, Google DeepMind has released a new member of the Gemma 4 open model family , but it's fundamentally different from the rest of the lineup. DiffusionGemma doesn't generate outputs linearly like most AI models. Instead, it can produce an entire block of text in parallel. Google says this makes it faster and more efficient when running on local hardware like an Nvidia DGX or a humble gaming GPU.\n\nMost AI models are designed to be autoregressive—they generate text left to right one token at a time. DiffusionGemma has more in common with image generation models, which start with static and then denoise it to create the desired content. This model takes a field of placeholder tokens running over the canvas multiple times to generate likely tokens and using those to improve estimation of others. At the end of the process, the model finalizes its token outputs in one large block—the \"denoised\" text canvas.\n\nDiffusionGemma is fairly large in the realm of Google's open models. It's a Mixture of Experts (MoE) model with a total of 26 billion parameters, but only 3.8 billion are activated during inference. That means it should fit in the 18GB ram allotment of a high-end GPU. In testing with an RTX 5090, DiffusionGemma spits out around 700 tokens per second. With a single Nvidia H100 AI accelerator, DiffusionGemma can produce 1,000+ tokens per second. That's about four times the output of the similarly sized autoregressive Gemma models.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
