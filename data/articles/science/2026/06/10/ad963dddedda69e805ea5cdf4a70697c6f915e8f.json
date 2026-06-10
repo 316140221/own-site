@@ -1,0 +1,30 @@
+{
+  "id": "ad963dddedda69e805ea5cdf4a70697c6f915e8f",
+  "title": "NASA’s CloudCube Pioneers Miniaturized Radar to Study Clouds, Precipitation",
+  "summary": "A compact, multifrequency radar built by a team at NASA’s Jet Propulsion Laboratory will make it easier to collect information about dynamic cloud systems. Called CloudCube, this new instrument simultaneously probes the atmosphere with three radar signals, spanning 36 to 240 GHz, for optimized sensitivity to a wide range of water droplet and ice particle si…",
+  "canonicalUrl": "https://science.nasa.gov/science-research/science-enabling-technology/nasas-cloudcube-pioneers-miniaturizedradar-to-study-clouds-precipitation",
+  "source": {
+    "id": "nasa_release",
+    "name": "NASA - News Releases",
+    "url": "https://www.nasa.gov/",
+    "feedUrl": "https://www.nasa.gov/news-release/feed/",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-06-10T12:00:00.000Z",
+  "fetchedAt": "2026-06-10T16:56:52.041Z",
+  "category": "science",
+  "tags": [
+    "Earth Science Division",
+    "Jet Propulsion Laboratory",
+    "Science & Research",
+    "Science-enabling Technology",
+    "Technology Highlights"
+  ],
+  "image": "https://assets.science.nasa.gov/dynamicimage/assets/science/cds/science-enabling-technology/technology-highlights/2026/Monje_Image_1a.jpg?w=1210&#038;h=1617&#038;fit=clip&#038;crop=faces%2Cfocalpoint",
+  "language": "en",
+  "storagePath": "data/articles/science/2026/06/10/ad963dddedda69e805ea5cdf4a70697c6f915e8f.json",
+  "contentText": "A compact, multifrequency radar built by a team at NASA’s Jet Propulsion Laboratory will make it easier to collect information about dynamic cloud systems. Called CloudCube, this new instrument simultaneously probes the atmosphere with three radar signals, spanning 36 to 240 GHz, for optimized sensitivity to a wide range of water droplet and ice particle sizes.\n\nFigure 1: A prototype of CloudCube’s G-band channel was installed at Cape Grim, Tasmania, as a guest instrument for the Department of Energy’s Cloud and Precipitation Experiment at Kennaook (CAPE-K)\n\nCredit: Raquel Rodriguez Monje / JPL\n\nBuilt with funding from NASA’s Earth Science Technology Office Instrument Incubator Program , CloudCube transmits and receives Ka-, W-, and G-band signals, making it the first compact radar system capable of simultaneously probing meteorological targets at wavelengths spanning approximately one to ten millimeters. Researchers will be able to combine information from the three signals to learn more about the initiation and evolution of precipitation, as well as cloud microphysics and radiative properties.\n\n“We’re making a low-power, low-mass instrument to facilitate new cost-efficient missions for atmospheric observations. Building a multi-frequency radar, especially at G-band, is very novel,” said Raquel Rodriguez Monje, a systems engineer at JPL and principal investigator for CloudCube.\n\nEach of CloudCube’s three signals observes a different element of cloud physics. Ka-band radar signals are ideal for collecting precipitation profiles; W-band radar signals are preferred for measuring cloud particles that give rise to precipitation; and G-band radar signals, which have never been collected from a space-based instrument, are ideal for measuring ice and liquid water content inside very light clouds (a paper describing this measurement can be found here ).\n\nProbing the atmosphere simultaneously with three signals allows researchers to collect data on all these cloud features at once, which is valuable for improving weather forecasts and especially climate modeling. CloudCube leverages innovations in millimeter-wave hardware to pack three radar modules–one for each signal–within a single compact system.\n\nFigure 2. A photo of the radar electronics for CloudCube’s compact G-band radar. Producing G-band radar signals requires a large amount of energy, and CloudCube is one of the first instruments to produce those signals effectively from a compact platform.\n\nCredit: Raquel Rodriguez Monje / NASA JPL\n\nOne CloudCube innovation concerns the specialized components required to transmit G-band power from a compact, low-power instrument. The detection of cloud signals requires high transmit power, which CloudCube achieves by combining the outputs of multiple high-efficiency frequency-multiplication devices that allow the instrument to generate hundreds of milliWatts at 240 GHz. Another innovation of CloudCube is that it was designed to use as few radio frequency components as possible to reduce its mass and power consumption, which could lower the cost of future Earth-observing orbital instruments.\n\nFlying an instrument equipped with G-band radar in space will be a new capability and will allow researchers to achieve greater spatial resolution and sensitivity in the study of cloud microphysical processes.\n\n“Basically, we’re weighing clouds using these combinations of frequencies in a way that we couldn’t do before we had the G-band,” said Matt Lebsock, a researcher at JPL and co-investigator for CloudCube.\n\nMost recently, CloudCube successfully operated all three frequency bands from NASA’s Gulfstream III aircraft and collected its first airborne observations of snowfall as part of the North American Upstream Feature-Resolving and Tropopause Uncertainty Reconnaissance Experiment campaign —a NASA-funded campaign designed to improve forecasts of high-impact winter weather. The CloudCube team is currently calibrating and processing the data for public release.\n\nFor additional details, see the entry for this project on NASA TechPort.\n\nProject Lead: Dr. Raquel Rodriguez Monje, NASA’s Jet Propulsion Laboratory\n\nSponsoring Organization : NASA’s Earth Science Technology Office Instrument Incubation Program",
+  "contentSource": "content:encoded"
+}
