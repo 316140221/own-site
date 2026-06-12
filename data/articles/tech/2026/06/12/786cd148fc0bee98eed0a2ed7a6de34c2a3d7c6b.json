@@ -1,0 +1,31 @@
+{
+  "id": "786cd148fc0bee98eed0a2ed7a6de34c2a3d7c6b",
+  "title": "PeopleSoft 0-day affecting hundreds of organizations steals gigabytes of data",
+  "summary": "Vulnerability in the Oracle-owned PeopleSoft software is about as critical as they come.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/06/peoplesoft-0-day-affecting-hundreds-of-organizations-steals-gigabytes-of-data",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-06-12T19:26:47.000Z",
+  "fetchedAt": "2026-06-12T20:05:27.919Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "oracle",
+    "PeopleSoft",
+    "ShinyHunters",
+    "zerodays"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2025/12/GettyImages-1867844462-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/06/12/786cd148fc0bee98eed0a2ed7a6de34c2a3d7c6b.json",
+  "contentText": "One of the world’s most active ransomware groups exploited a critical vulnerability in Oracle’s PeopleSoft software suite and used it to target about 100 customers and extort at least one of them to pay up in exchange for not leaking stolen data, researchers said.\n\nThe group, tracked as ShinyHunters, had been exploiting the PeopleSoft vulnerability for more than two weeks before Oracle flagged it. CVE-2026-35273, as the vulnerability is tracked, carries a severity rating of 9.8 out of 10, making the former zero-day one of the year’s most critical vulnerabilities to be exploited.\n\nGoogle’s Mandiant security team said it’s an SSRF (server-side request forgery), a vulnerability that allows attackers to send requests from a susceptible server to systems used by the targeted organization. Oracle said the SSRF is remotely exploitable, and the company has issued a stopgap mitigation but has yet to fully patch the flaw. Google has confirmed that victims are receiving extortion demands.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
