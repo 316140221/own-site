@@ -1,0 +1,26 @@
+{
+  "id": "3aff4cb5d24d53f83c58632c1014a2b9d797c335",
+  "title": "Anthropic shuts down Fable, Mythos models following Trump admin directive",
+  "summary": "Commerce dept. worries that a Fable 5 \"jailbreak\" could be a national security threat.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/06/anthropic-shuts-down-fable-mythos-models-following-trump-admin-directive",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-06-13T03:00:34.000Z",
+  "fetchedAt": "2026-06-13T07:43:22.057Z",
+  "category": "tech",
+  "tags": [
+    "AI"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/06/fable5-1152x648.webp",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/06/13/3aff4cb5d24d53f83c58632c1014a2b9d797c335.json",
+  "contentText": "Anthropic completely shut off access to its Mythos 5 and Fable 5 models Friday night, just days after they were launched.\n\nThe move comes after Anthropic's receipt of a US Commerce Department directive Friday evening, subjecting the new models to export controls restricting their use anywhere outside the United States. In a message posted Friday night , Anthropic said the only way for it to ensure compliance with that government order in the immediate term \"is that we must abruptly disable Fable 5 and Mythos 5 for all our customers.\" Access to other Anthropic models is not affected.\n\nAn Axios report cited an administration official saying that the administration is concerned by reports of a jailbreak that reportedly gets around broad classifier-based safeguards meant to block Fable 5 prompts regarding cybersecurity, chemistry, and biology. The administration reportedly requested a pause in the release of these models to gain time for the \"national security apparatus\" to be \"hardened\" against this kind of threat. That hardening could be complete \"in the next few weeks,\" Axios' source suggested.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
