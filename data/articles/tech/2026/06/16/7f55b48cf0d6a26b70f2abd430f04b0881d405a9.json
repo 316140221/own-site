@@ -1,0 +1,31 @@
+{
+  "id": "7f55b48cf0d6a26b70f2abd430f04b0881d405a9",
+  "title": "Critical Copilot vulnerability allowed hackers to seal 2FA code from users",
+  "summary": "SearchLeak exploit shows why the industry's approach to LLM security fails over and over.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/06/critical-copilot-vulnerability-allowed-hackers-to-seal-2fa-code-from-users",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-06-16T11:15:46.000Z",
+  "fetchedAt": "2026-06-16T15:00:33.075Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "copilot",
+    "LLMs",
+    "parameter to prompt injection"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/06/GettyImages-2242817595-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/06/16/7f55b48cf0d6a26b70f2abd430f04b0881d405a9.json",
+  "contentText": "Last Tuesday, Microsoft patched a vulnerability it rated as max critical in its M365 Copilot AI platform. On Monday, the researchers who discovered the vulnerability and reported it to Microsoft revealed how their proof-of-concept exploit could retrieve 2FA codes and other sensitive data from emails accessible to Copilot.\n\nMicrosoft and other LLM providers have been unable to prevent their products from complying with malicious requests to reveal data. The root cause: AI bots are unable to distinguish between instructions provided by users and those snuck into third-party content the models are summarizing, drafting responses to, or using to perform other actions on behalf of the user. With no way to secure this crucial boundary, Microsoft and its peers are left to erect complicated and ad hoc guardrails designed to rein in the consequences of this incurable gullibility.\n\nJumping over guardrails\n\nOne guardrail built into Copilot and most other LLMs prevents them from submitting web forms, sending emails, and taking similar actions that can be used to exfiltrate data from the user. To work around this, LLM hackers turned to markup language, which, among other things, allows users to add formatting elements such as headings, lists, and links to text without the need for HTML tags. Another workaround is to wrap sensitive data inside HTML tags such as <img> and <form>. In either case, a web request showing the data hits the attacker’s web server, where the secret information is captured in logs.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
