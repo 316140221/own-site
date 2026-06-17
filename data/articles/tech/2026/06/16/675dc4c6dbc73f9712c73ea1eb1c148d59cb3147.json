@@ -1,0 +1,33 @@
+{
+  "id": "675dc4c6dbc73f9712c73ea1eb1c148d59cb3147",
+  "title": "Anthropic \"pauses\" token-based billing for its Claude Agent SDK",
+  "summary": "Move originally planned for Monday would have heavily increased power users' costs.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/06/anthropic-pauses-token-based-billing-for-its-claude-agent-sdk",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-06-16T21:00:35.000Z",
+  "fetchedAt": "2026-06-17T03:44:21.650Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Anthropic",
+    "billing",
+    "Claude",
+    "costs",
+    "SDK",
+    "subscription",
+    "token-based"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2025/02/claude37_header-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/06/16/675dc4c6dbc73f9712c73ea1eb1c148d59cb3147.json",
+  "contentText": "Last month, Anthropic announced a billing change that would have substantially increased costs for heavy users of its automation-focused Claude Agent SDK , including many third-party apps. On Monday, though, Anthropic abruptly announced it had paused those pricing changes just as they were set to take effect, allowing Agent SDK users to continue drawing from the more generous usage limits in their existing Claude subscriptions.\n\nThat would have been a major change from the current setup, where Agent SDK use is limited only by the standard weekly caps applied to a user's current Claude subscription tier. Those generous limits allow power users to squeeze a lot more usage out of those paid subscriptions than they would get by paying the same price for API fees. One analysis suggests that Claude Opus users start saving money from their subscription after just two to three messages per day, and that their subscription could be worth many multiples of its monthly cost in API usage.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
