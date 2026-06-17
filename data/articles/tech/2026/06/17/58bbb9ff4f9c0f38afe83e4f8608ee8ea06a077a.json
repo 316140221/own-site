@@ -1,0 +1,31 @@
+{
+  "id": "58bbb9ff4f9c0f38afe83e4f8608ee8ea06a077a",
+  "title": "Massive breach spills credentials for thousands of sensitive networks",
+  "summary": "The affected include Oracle, Lenovo, FedEx, a NATO contractor, and Fortinet.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/06/massive-breach-spills-credentials-for-thousands-of-sensitive-networks",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-06-17T19:54:31.000Z",
+  "fetchedAt": "2026-06-17T23:20:38.975Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "breaches",
+    "firewalls",
+    "Fortinet",
+    "passwords"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/07/exploit-vulnerability-security.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/06/17/58bbb9ff4f9c0f38afe83e4f8608ee8ea06a077a.json",
+  "contentText": "Researchers have uncovered a massive breach of Fortinet firewalls that has given Russian-speaking attackers near-unrestricted access to some of the world’s largest and most powerful organizations, including Oracle, Chevron, Lenovo, Federal Express, a NATO defense contractor, and Fortinet itself.\n\nNearly 74,000 Fortinet devices from more than 21,000 IP addresses in 194 countries have been compromised and their plaintext credentials exposed online, Bob Diachenko, a security researcher and head of SecurityDiscovery.com, said online and in an interview. He said he found the data after gaining access to the attackers’ command-and-control server and other infrastructure. The exposed data also included the industry, revenue, and employee count for each compromised organization.\n\nExceptional scale, poor opsec\n\nIndependent researcher Kevin Beaumont reported that “almost all” of the compromised devices remained online as of Wednesday morning. He went on to say that he has confirmed with multiple organizations found in the attackers’ logs that the credentials are real and current. In many cases, once the threat actors compromised the devices, they went on to access affected organizations’ centralized authentication systems, such as Radius servers and Microsoft Active Directory. The number of compromised devices comprises roughly half of all Internet-facing Fortinet firewalls, based on polling from Shodan.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
