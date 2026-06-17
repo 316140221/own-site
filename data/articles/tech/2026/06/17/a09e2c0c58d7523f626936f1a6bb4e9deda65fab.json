@@ -1,0 +1,30 @@
+{
+  "id": "a09e2c0c58d7523f626936f1a6bb4e9deda65fab",
+  "title": "Windows and Linux users: The deadline to update Secure Boot keys is near",
+  "summary": "What you need to know about the expiration of keys securing your machine's boot sequence.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/06/windows-and-linux-users-the-deadline-to-update-secure-boot-keys-is-near",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-06-17T11:15:17.000Z",
+  "fetchedAt": "2026-06-17T13:39:57.931Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "bootkits",
+    "secure boot",
+    "uefi"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/12/computer-power-button-1000x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/06/17/a09e2c0c58d7523f626936f1a6bb4e9deda65fab.json",
+  "contentText": "The clock is ticking for Windows and Linux users to update cryptographic keys that protect their systems against firmware-based UEFI infections, a pernicious form of malware that loads before operating system and anti-malware protections start.\n\nBeginning June 24, three certificates that cryptographically verify that each piece of firmware and software that loads during system boot will expire. The Microsoft-signed certificates are the linchpins of Secure Boot, a Microsoft-designed chain of trust. Secure Boot checks the digital signatures of all code that loads during system startup to ensure it originates from a trusted provider, such as the manufacturer of the motherboard the system runs on.\n\nSecure Boot is designed to thwart bootkits, a form of malware that alters the systems responsible for loading firmware and software during the initial boot sequence. Because bootkits load before the OS and most other code, they can be difficult to detect. Once installed, they typically load malware onto the OS that steals credentials, backdoors the system, or performs other malicious actions. Even when the OS is disinfected, the bootkit can reinfect the system. Bootkits survive OS reinstallations as well.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
