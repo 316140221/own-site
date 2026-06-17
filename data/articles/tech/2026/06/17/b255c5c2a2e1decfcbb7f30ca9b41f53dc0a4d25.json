@@ -1,0 +1,33 @@
+{
+  "id": "b255c5c2a2e1decfcbb7f30ca9b41f53dc0a4d25",
+  "title": "AI coding agents can autonomously direct robot training",
+  "summary": "NVIDIA’s self-improvement program for robots enlists teams of AI coding agents.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/06/ai-coding-agents-can-autonomously-direct-robot-training",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-06-17T19:25:19.000Z",
+  "fetchedAt": "2026-06-17T20:08:46.065Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "AI agents",
+    "Artificial Intelligence",
+    "coding agents",
+    "NVIDIA",
+    "robot training",
+    "Robotics",
+    "robots"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/06/Screenshot-2026-06-17-at-2.40.06-PM-1152x648.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/06/17/b255c5c2a2e1decfcbb7f30ca9b41f53dc0a4d25.json",
+  "contentText": "What happens when you give AI coding agents a lab full of robotic arms, some compute resources, and a “generous token budget” for teaching the robots various tasks? The agents can apparently figure out a training regimen that teaches the robots to successfully cut zip ties and even insert GPUs into thin sockets on motherboards.\n\nThat glimpse into how AI can act in a fully autonomous way to automate robot training was made possible by a new agent harness framework—software that wraps around AI models to enable their use of various tools while also providing capabilities such as memory, context, constraint, and feedback loops. That agentic harness, called ENPIRE , was developed by robotics researchers at the NVIDIA GEAR (Generalist Embodied Agent Research) lab alongside collaborators from Carnegie Mellon University in Pittsburgh and the University of California, Berkeley.\n\n“A part of our NVIDIA GEAR lab now self-improves tirelessly overnight,” wrote Jim Fan, director of AI at NVIDIA, in a LinkedIn post . “We just read the reports in the morning.”\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
