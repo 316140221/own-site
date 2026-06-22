@@ -1,0 +1,30 @@
+{
+  "id": "16126f87b44102d4d844c2f92ef24fe48c3c21a7",
+  "title": "Following user outcry, AMD reinstates memory encryption in consumer CPUs",
+  "summary": "Critics saw the move as an underhanded way to steer them toward more costly chips.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/06/following-user-outcry-amd-reinstates-memory-encryption-in-consumer-cpus",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-06-22T19:16:52.000Z",
+  "fetchedAt": "2026-06-22T22:00:51.381Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "AMD",
+    "Ryzen",
+    "tsme"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2025/07/GettyImages-1952157610-1152x648-1753386930.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/06/22/16126f87b44102d4d844c2f92ef24fe48c3c21a7.json",
+  "contentText": "Consumer AMD CPUs will once again offer encryption protections against physical attacks after facing user backlash for silently removing the feature.\n\nAs Ars reported last week, AMD stripped the protection, known as TSME , from consumer Ryzen processors. Short for Transparent Secure Memory Encryption, TSME encrypts the entire contents stored in memory, making the data useless to adversaries performing cold boot attacks and similar intrusions requiring physical access.\n\nNow you see it, now you don't, soon you'll see it again\n\nAbout a decade ago, AMD added TSME to its high-end CPUs. Over the next few years, AMD added the protection to lower-end processors, including the consumer version of its Ryzen chips, a CPU that costs less than the Pro version. Over the years, users of these lower-end chips have gotten used to the added security, although some security experts (and plenty of novices, too) note that consumer chips are far less likely to be targeted by physical attacks. Recently and without warning or notice, the lower-end line of AMD chips suddenly dropped the protection, and it did so in a way that was impossible to detect on Windows machines and required a fair amount of technical work when using Linux. AMD last week declined to explain or acknowledge the change.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
