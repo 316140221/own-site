@@ -1,0 +1,27 @@
+{
+  "id": "7d091a4d20974b278a781e3c91f2c59dde980ec6",
+  "title": "Searching for alien life: New model could help scientists home in on habitable exoplanets",
+  "summary": "A new exoplanet model screens rocky worlds by their ability to retain atmospheres over geologic timescales, helping narrow the search for potentially habitable planets beyond Earth.",
+  "canonicalUrl": "https://space.com/space-exploration/search-for-life/searching-for-alien-life-new-model-could-help-scientists-home-in-on-habitable-exoplanets",
+  "source": {
+    "id": "space_com",
+    "name": "Space.com",
+    "url": "https://www.space.com/",
+    "feedUrl": "https://www.space.com/feeds.xml",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-06-23T13:00:00.000Z",
+  "fetchedAt": "2026-06-23T14:42:08.678Z",
+  "category": "science",
+  "tags": [
+    "Search for Life",
+    "Space Exploration"
+  ],
+  "image": "https://cdn.mos.cms.futurecdn.net/5x5aUWmKjzPZgMowaVS44V-1280-80.jpg",
+  "language": "en",
+  "storagePath": "data/articles/science/2026/06/23/7d091a4d20974b278a781e3c91f2c59dde980ec6.json",
+  "contentText": "A new planetary habitability model could make the search for aliens more efficient by quickly identifying rocky worlds unlikely to sustain the atmospheres needed for life as we know it.\n\nThe software, called the Smaller Than Earth Habitability Model (STEHM), allows astronomers to screen exoplanets before committing valuable telescope time to detailed observations. Developed by researchers at Stanford University, the model assesses whether a rocky planet can build and retain an atmosphere over billions of years — a prerequisite for life as we know it, according to a statement from the university.\n\nAstronomers searching for life beyond Earth face a daunting challenge: thousands of exoplanets have already been discovered, and billions more are thought to exist throughout the Milky Way — roughly one for every star in the galaxy. As powerful new telescopes come online, researchers increasingly need ways to identify which worlds are worth closer study.\n\n\"The only way that we're going to ever find out if there are signatures of life out there is by observing the atmosphere of these planets,\" Michelle Hill, lead author of the study who developed STEHM, said in the statement.\n\nTraditionally, scientists have focused on whether a planet lies within its star's habitable zone , the region where temperatures may allow liquid water to exist on the surface. But location alone does not guarantee habitability. A planet without a substantial atmosphere may be unable to maintain stable temperatures, shield itself from radiation or support surface water , the researchers said.\n\nSTEHM adds a second layer to this assessment by estimating whether small rocky planets can generate and retain atmospheres over geologic timescales. The model links a planet's size to its ability to hold onto atmospheric gases, helping identify a lower size threshold for potentially habitable worlds.\n\nTo build STEHM, Hill used the ExoPlex planetary simulation code to model six rocky worlds ranging from half Earth's size to Earth-size , testing how planetary structure, volcanic activity, internal heat and stellar radiation affect atmospheric survival. The model was validated using Venus and Mars , correctly reproducing Venus's thick carbon dioxide atmosphere and Mars's long-term atmospheric loss.\n\nThe results suggest that rocky planets at least 80% the size of Earth can retain atmospheres for 10 billion years or more when orbiting within habitable zones around sun-like stars . Smaller planets generally lose their atmospheres more quickly, though worlds around 70% of Earth's size may still be habitable under favorable conditions. Atmospheric longevity also depends strongly on initial carbon content and heat-producing elements that drive volcanic activity , allowing STEHM to serve as a size-based filter for identifying the most promising habitable worlds.\n\n\"Maybe there's life on other planets under the ground, but we are never going to be able to see it because we can't send something to those exoplanets,\" Hill said in the statement. \"The best chance we've got is looking for signs of life by analyzing atmospheres from afar.\"\n\nBy narrowing the field of candidates, STEHM could help astronomers focus on the most promising planets for life while avoiding wasting resources on unlikely targets. The approach may be especially useful as next-generation missions, such as the European Space Agency's PLATO space telescope , expand the catalog of rocky exoplanets around nearby stars. Researchers hope the model will help prioritize which of these planets merit follow-up observations.\n\nSTEHM not only addresses where life beyond Earth could occur, but when it might, by modeling whether exoplanets can actually hold onto atmospheres over geologic timescales — a key prerequisite for life to take hold in the first place.\n\n\"Maybe the answer to why we haven't found any life yet is that we're so early in the grand scheme of what has been created through the lives and deaths of stars ,\" Hill said in the statement. \"Maybe we're one of the first.\"\n\nTheir findings were published June 4 in the Planetary Science Journal.",
+  "contentSource": "content:encoded"
+}
