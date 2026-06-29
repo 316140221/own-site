@@ -1,0 +1,34 @@
+{
+  "id": "ea82cc3a31e5f6912a0815b8ddf197795d6d133a",
+  "title": "Quantum computing startup says it will leapfrog everybody",
+  "summary": "But the system would require a massive leap from any of its existing hardware.",
+  "canonicalUrl": "https://arstechnica.com/science/2026/06/quera-promises-thousands-of-error-corrected-qubits-by-2029",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-06-29T17:59:50.000Z",
+  "fetchedAt": "2026-06-29T21:23:35.354Z",
+  "category": "tech",
+  "tags": [
+    "Science",
+    "Computer science",
+    "Error correction",
+    "neutral atom",
+    "Physics",
+    "quantum computing",
+    "quantum mechanics",
+    "qubits",
+    "QuEra"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/06/Libra-internals44-copy-1152x648.jpeg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/06/29/ea82cc3a31e5f6912a0815b8ddf197795d6d133a.json",
+  "contentText": "A short time back, we covered an announcement by Amazon that it would be hosting a useful quantum computer from its partner QuEra as soon as sometime in 2028. The system promised some eye-popping numbers compared to anything on the market today: over 10,000 individual qubits, each with an error rate low enough that the system could support hundreds of error-corrected logical qubits. But QuEra has to get there from its current hardware, which sits at 260 qubits that are relatively error-prone.\n\nThose details about how it was going to get there were left for last Wednesday, when QuEra announced its roadmap. But the announcement only accentuated the gap: There will be no new hardware releases between now and the useful machine, and QuEra is promising to deliver an even more powerful machine just one year later.\n\n\"The company made a strategic decision not to sell NISQ [noisy intermediate scale quantum] systems anymore,\" QuEra's Yuval Borger told Ars. The two systems it had previously made available have similar capabilities, with about 250 hardware qubits and an appreciable error rate—enough to test some error correction codes, but not sufficient for using logical qubits in applications.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
