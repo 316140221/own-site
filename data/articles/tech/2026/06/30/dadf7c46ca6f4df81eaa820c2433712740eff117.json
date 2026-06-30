@@ -1,0 +1,31 @@
+{
+  "id": "dadf7c46ca6f4df81eaa820c2433712740eff117",
+  "title": "New attack provides one more reason why AI browsers are a bad idea",
+  "summary": "Telling an LLM that 2 + 2 = 5 is enough to make it follow forbidden instructions.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/06/ai-browsers-can-be-lulled-into-a-dream-world-where-guardrails-no-longer-apply",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-06-30T20:03:14.000Z",
+  "fetchedAt": "2026-06-30T21:26:01.344Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "browsers",
+    "jailbreaks",
+    "LLMs"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/06/broken-ai-robot-browser-404-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/06/30/dadf7c46ca6f4df81eaa820c2433712740eff117.json",
+  "contentText": "Makers of AI browsers make lofty promises. With a single prompt, users can ask one to find a restaurant in a particular part of town, reserve a table, invite a colleague to lunch, and email a confirmation. These makers are much more reticent about the risks of blurring the once fine line between browsing sites and asking a large language model a question or instructing it to take potentially sensitive actions.\n\nLLM developers’ answer so far has been to build guardrails that make some requests off-limits. Developing software exploits, stealing credentials, or teaching how to build a pipe bomb are examples. The problem with this approach is that the guardrails are reactive and treat the symptoms rather than solve the root cause. It’s tantamount to the manufacturer of an unsafe vehicle advocating for new road designs rather than fixing the flaws that make it prone to accidents.\n\nLulling LLMs into an alternate reality\n\nNew research puts this predicament on sharp display. It demonstrates how a website can lull AI browsers into a false reality where the rules governing its behavior no longer apply. After that, an attacker has free rein to invoke all kinds of destructive actions, such as extracting code from a private repository or extracting credentials from the built-in password manager.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
