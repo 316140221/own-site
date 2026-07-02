@@ -1,0 +1,30 @@
+{
+  "id": "3fac75f4b228638ef32a33350283b9e19201dbb9",
+  "title": "Newly discovered PamStealer isn't your typical macOS malware",
+  "summary": "The discovery underscores the increased effort being poured into Mac infostealers.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/07/new-pamstealer-macos-malware-uses-clever-tradecraft-to-remain-stealthy",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-02T19:38:57.000Z",
+  "fetchedAt": "2026-07-02T23:02:24.818Z",
+  "category": "tech",
+  "tags": [
+    "Apple",
+    "Biz & IT",
+    "Security",
+    "infostealers",
+    "MacOS Malware"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2022/04/GettyImages-1299483011-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/02/3fac75f4b228638ef32a33350283b9e19201dbb9.json",
+  "contentText": "Researchers have found a never-before-seen piece of macOS malware that combines a series of clever tradecraft to infect Macs with stealthy, custom-developed credential-stealing code.\n\nThe malware is delivered in two stages. The first is distributed in a disk image that masquerades as Maccy , a clipboard manager for Macs. It’s compiled as AppleScript that is notable for the way it delivers the second stage. The malware is named PamStealer because the Rust-written infostealer uses the Pluggable Authentication Modules interface built into macOS to validate the target’s login password before sending it to an attacker-controlled server.\n\nA quieter execution chain\n\nThe use of both disk image and AppleScript is common in malware for Macs. More unusual is the way PamStealer combines them to gain stealth. When the AppleScript is double-clicked, it’s opened in the macOS Script Editor, where the malicious functionality is buried deep within the file.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
