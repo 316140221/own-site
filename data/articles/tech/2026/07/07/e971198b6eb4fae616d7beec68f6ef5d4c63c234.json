@@ -1,0 +1,24 @@
+{
+  "id": "e971198b6eb4fae616d7beec68f6ef5d4c63c234",
+  "title": "Microsoft fixes storage-hogging Windows 11 folder",
+  "summary": "Microsoft is addressing a Windows 11 bug that caused a folder to take up several gigabytes of storage space. As spotted earlier by Windows Latest, Microsoft included the patch in its optional June 2026 update (KB5095093), which \"improves disk space usage for the CapabilityAccessManager.db-wal file.\" The CapabilityAccessManager.db-wal file is installed on Wi…",
+  "canonicalUrl": "https://theverge.com/tech/962084/microsoft-storage-hogging-windows-11-folder",
+  "source": {
+    "id": "theverge",
+    "name": "The Verge",
+    "url": "https://www.theverge.com/",
+    "feedUrl": "https://www.theverge.com/rss/index.xml",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-07T13:52:58.000Z",
+  "fetchedAt": "2026-07-07T14:25:00.402Z",
+  "category": "tech",
+  "tags": [],
+  "image": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/24038601/acastro_STK109_microsoft_02.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/07/e971198b6eb4fae616d7beec68f6ef5d4c63c234.json",
+  "contentText": "Microsoft is addressing a Windows 11 bug that caused a folder to take up several gigabytes of storage space. As spotted earlier by Windows Latest , Microsoft included the patch in its optional June 2026 update (KB5095093) , which \"improves disk space usage for the CapabilityAccessManager.db-wal file.\"\n\nThe CapabilityAccessManager.db-wal file is installed on Windows 11 PCs by default, and is related to app permissions. Several users have had issues with this file over the past few months, with one person saying the file took up 500GB of storage on their device. Others have reported the file growing to similarly large amounts, ranging from 12GB …\n\nRead the full story at The Verge.",
+  "contentSource": "content"
+}
