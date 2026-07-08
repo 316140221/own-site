@@ -1,0 +1,29 @@
+{
+  "id": "9dd9233fe9a6f9d8db9fbf61119849197d49fd8a",
+  "title": "TikTok users don't have as much agency over their FYPs as they think",
+  "summary": "The \"not interested\" feature is your friend, but users must intentionally and constantly curate their FYPs",
+  "canonicalUrl": "https://arstechnica.com/science/2026/07/how-much-control-do-tiktok-users-really-have-over-fyps",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-08T18:00:49.000Z",
+  "fetchedAt": "2026-07-08T19:20:23.337Z",
+  "category": "tech",
+  "tags": [
+    "Science",
+    "Tech",
+    "social media",
+    "social psychology"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/04/getty-tiktok-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/08/9dd9233fe9a6f9d8db9fbf61119849197d49fd8a.json",
+  "contentText": "TikTok's For You Page (FYP) is the default home screen for users of the video-sharing platform. It's a personalized, algorithmically driven content feed, but the approach differs from other social media in that TikTok's algorithm relies heavily on implicit signals—such as how long users watch particular videos—as well as explicit signals such as likes or follows. And generally, that algorithm does remarkably well at predicting which videos will interest particular users.\n\nBut some users have voiced concerns that TikTok's almighty algorithm doesn't seem to incorporate negative feedback very well. Even when they don't watch a suggested video or click the \"not interested\" feature, they keep seeing those videos on their FYP. Northwestern University computer scientists put those suspicions to the test. According to their recent paper , the engagement signals do have an effect, but only temporarily. Then the algorithm gradually relapses unless a user consistently gives the same feedback over and over again.\n\nThe research group specializes in \"algorithm audits,\" co-author Piotr Sapiezynski told Ars, to better understand online platforms: \"how they work, how they fail, when they fail, how they harm individuals and societies.\" In this case, he and his co-authors wanted to take a closer look at user agency after hearing multiple anecdotal reports from TikTok users that their negative feedback—responding to prompts by indicating they aren't interested or want to see less of a certain kind of video—doesn't seem to remove those posts from their FYP. \"On the other hand, it's unclear why the platforms would offer it, if it doesn't work,\" said Sapiezynski.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}

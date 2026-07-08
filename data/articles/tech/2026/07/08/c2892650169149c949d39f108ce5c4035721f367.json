@@ -1,0 +1,32 @@
+{
+  "id": "c2892650169149c949d39f108ce5c4035721f367",
+  "title": "Google updates Android Bench with new LLMs, but Gemini still lags behind",
+  "summary": "Android Bench is evolving, and developers can help guide that process.",
+  "canonicalUrl": "https://arstechnica.com/google/2026/07/google-revamps-android-ai-dev-benchmark-adds-fable-5-and-other-agents",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-08T16:39:48.000Z",
+  "fetchedAt": "2026-07-08T19:20:23.337Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Google",
+    "AI benchmarks",
+    "android",
+    "Artificial Intelligence",
+    "developers",
+    "google"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2025/07/Android-statue-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/08/c2892650169149c949d39f108ce5c4035721f367.json",
+  "contentText": "Code generation is emerging as one of the most popular applications for large language models (LLMs), but not all agents are equally good at all development tasks. Google created a benchmark earlier this year to evaluate how LLMs perform in Android app development, and Android Bench is getting a big update today. The leaderboard now includes a raft of new models, and Google has adopted a new framework that should be easier to use. Developers are invited to run their own tests and submit feedback that could shape the future of Android Bench.\n\nWhile they are popular coding tools, LLMs don't get everything right. Separating the useful outputs from straight-up slop means choosing the right tool. Android Bench aims to demonstrate which AI agents do best on a suite of 100 Android development tasks. After launching Android Bench in March, Google has added metrics like cost and efficiency, as well as open-weight models.\n\nTo keep Android Bench relevant, Google is updating the test with eight new models, including all the latest heavy-hitters: Claude Fable 5, Claude Sonnet 5, Claude Opus 4.8, GLM 5.2, Kimi K2.7 Code, MiniMax M3, Qwen 3.7 Plus, and Qwen 3.7 Max.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
