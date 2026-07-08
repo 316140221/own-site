@@ -1,0 +1,31 @@
+{
+  "id": "85e90d55efed29a87ae3e362ce9b718abb1f477c",
+  "title": "Hackers can use 9 of the most popular AI tools to assemble massive botnets",
+  "summary": "\"HalluSquatting\" weaponizes LLMs' inability to say \"I don't know.\"",
+  "canonicalUrl": "https://arstechnica.com/security/2026/07/hackers-can-use-9-of-the-most-popular-ai-tools-to-assemble-massive-botnets",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-08T07:00:51.000Z",
+  "fetchedAt": "2026-07-08T10:13:25.120Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "hallucinations",
+    "LLMs",
+    "typosquatting"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/rogue-ai-agent-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/08/85e90d55efed29a87ae3e362ce9b718abb1f477c.json",
+  "contentText": "In the brief history of AI security, the prompt injection has quickly become the top threat. Large language models are inherently unable to distinguish between legitimate instructions provided by users and malicious ones sneaked into emails, source code, and other third-party content the models are processing. This makes it trivial to surreptitiously inject malicious commands that the LLM readily follows.\n\nWith no way to enforce this crucial boundary between trusted and untrusted sources, AI engine developers are left to erect elaborate guardrails designed to mitigate the damage rather than solve the root cause.\n\nTo date, most prompt injections have fallen into a class known as push, in which each potential victim is targeted. For example, the adversary injects malicious instructions into an individual email or calendar invitation. Because the injection must then be sent (or pushed) to each specific target, the scale of the attack is limited, hampering mass exploits that hit the Internet at large.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
