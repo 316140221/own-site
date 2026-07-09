@@ -1,0 +1,30 @@
+{
+  "id": "89a8ec153bf747c7a851d7e9c1d080870719bea5",
+  "title": "Patch for Windows Defender 0-day could allow attackers to fill hard disk",
+  "summary": "The feud between NightmareEclipse and Microsoft shows no signs of resolving soon.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/07/patch-for-windows-defender-0-day-could-allow-attackers-to-fill-hard-disk",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-09T20:52:55.000Z",
+  "fetchedAt": "2026-07-09T21:20:46.342Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "microsoft",
+    "Windows Defender",
+    "zero days"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/GettyImages-1237693734-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/09/89a8ec153bf747c7a851d7e9c1d080870719bea5.json",
+  "contentText": "A patch Microsoft released on Wednesday to fix a zero-day vulnerability in its Defender security engine may cause Windows machines to write files large enough to completely consume available disk space, the researcher who discovered the flaw said.\n\nRoguePlanet, tracked as CVE-2026-50656, came to public notice in June when NightmareEclipse, the pseudonymous name used by a researcher, disclosed it along with code for exploiting it. The vulnerability allows remote attackers to gain administrative control of Windows 10 and Windows 11 machines, even when real-time protection has been disabled. Over the past few months, the anonymous researcher has published a handful of other zero-days that have sent Microsoft scrambling to develop patches.\n\nWriting files of unlimited size\n\nMicrosoft said Wednesday that it patched RoguePlanet with an update to the Microsoft Malware Protection Engine, which is used by the Defender antivirus app. The fix will automatically be downloaded and installed without users having to take any action. Wednesday’s update also includes “defense-in-depth updates to help improve security-related features.”\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
