@@ -1,0 +1,32 @@
+{
+  "id": "c84ba32cc51ffa16f1d2357992784633681fddfe",
+  "title": "Quantum error correction can constantly recalibrate a processor",
+  "summary": "Reinforcement learning uses error information to adjust control algorithms.",
+  "canonicalUrl": "https://arstechnica.com/science/2026/07/quantum-error-correction-can-constantly-recalibrate-a-processor",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-10T23:02:30.000Z",
+  "fetchedAt": "2026-07-11T02:22:04.592Z",
+  "category": "tech",
+  "tags": [
+    "Science",
+    "Computer science",
+    "drift",
+    "Error correction",
+    "Physics",
+    "quantum computing",
+    "quantum mechanics"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2019/10/Sycamore-Rainbow-cropped-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/10/c84ba32cc51ffa16f1d2357992784633681fddfe.json",
+  "contentText": "There are some obvious big picture issues that stand between us and useful quantum computing. Issues like whether we can make enough high-quality hardware qubits to connect into the error-corrected logical qubits we need, and how we generate the states needed to perform universal computation on those logical qubits. But there are also many less prominent challenges that will need to be solved before we can perform calculations.\n\nOne of those challenges, which only affects some types of hardware, is calibration. For devices we manufacture, like superconducting qubits, there are always subtle variations among individual qubits. (This is not true when we use something like an atom to hold the qubit, but the lasers that control them can drift.) As a result, this hardware is put through a process called calibration, where we test different frequencies and amplitudes of the microwave pulses that control them to find the combination that produces the lowest error rates, and then save those settings for use in calculations.\n\nHowever, you can't perform the typical calibration process while you're doing calculations, which means drift becomes an issue for long and complicated algorithms. Google, though, has figured out that it's possible to do calibration using the same data that's used for error correction.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
