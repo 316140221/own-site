@@ -1,0 +1,32 @@
+{
+  "id": "1b8cabe38dd0e5e5a0eb717d958872e9656f4864",
+  "title": "Hackers quickly prove that Neo Geo Doom ports are not \"impossible\"",
+  "summary": "Clever coding and graphical compromises get a classic game on more classic hardware.",
+  "canonicalUrl": "https://arstechnica.com/gaming/2026/07/hackers-quickly-prove-that-neo-geo-doom-ports-are-not-impossible",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-13T16:37:14.000Z",
+  "fetchedAt": "2026-07-13T17:52:37.171Z",
+  "category": "tech",
+  "tags": [
+    "Gaming",
+    "coding",
+    "Doom",
+    "hacking",
+    "NEO GEO",
+    "Ports",
+    "retro"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/doomng2-1152x648.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/13/1b8cabe38dd0e5e5a0eb717d958872e9656f4864.json",
+  "contentText": "Last month, we passed along Modern Vintage Gamer's (MVG) confident assertion that Doom is functionally impossible to run on the Neo Geo , owing to the console's sprite-based display hardware and lack of a frame buffer. We all should have known better than to tell a dedicated group of hackers that something is \"impossible,\" though, as two recent projects have made great progress toward functional Doom ports on stock Neo Geo hardware.\n\nBoth of these projects have significant graphical compromises that limit how viable they would have been for a marketable, '90s-era console port, as MVG lays out in a new video . Still, they stand as a testament to the surprising results that clever, determined coders can coax out of legacy hardware.\n\nIt looks like Doom if you squint\n\nTo create the Doom64KB project for the Neo Geo, coder FrenkelS adapted an earlier Doom port they designed to run on 16-bit PC processors like the 8088 and 286. Using that engine, the Neo Geo code then makes a kind of proto-frame-buffer out of the console's fix layer , an area of display memory that's usually used to display menus and HUD information on top of gameplay.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}

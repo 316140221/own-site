@@ -1,0 +1,32 @@
+{
+  "id": "0b9a256573f21194497bcdc7332233faf0cff576",
+  "title": "Now, defenders are embracing the prompt injection, too",
+  "summary": "\"Context bombing\" tricks hacking agents into shutting down before they can do harm.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/07/now-defenders-are-embracing-the-prompt-injection-too",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-13T15:06:34.000Z",
+  "fetchedAt": "2026-07-13T17:52:37.171Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "context bombing\\",
+    "guardrails",
+    "LLMs",
+    "prompt injections"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/ai-agent-robot-guardrail-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/13/0b9a256573f21194497bcdc7332233faf0cff576.json",
+  "contentText": "Prompt injections, the malicious commands attackers embed into content to entice large language models to follow them, have been attackers’ go-to tool for turning AI platforms against their users. A well-phrased command sneaked into an email or calendar invitation is often all it takes to cause the LLM to exfiltrate sensitive data or follow other harmful actions.\n\nNow, defenders are embracing the prompt injection, too.\n\nA strong, sharp effect\n\nResearchers from Tracebit on Monday said they found that placing prompt injections alongside passwords, cryptographic keys, and other secrets stored on Amazon Web Services was often all that was needed to shut down attacks from AI hacking agents. The prompts direct the attacking LLM to perform an action forbidden by its guardrails, the safety barriers AI developers erect to prevent it from taking harmful actions. The LLM responds by shutting down.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
