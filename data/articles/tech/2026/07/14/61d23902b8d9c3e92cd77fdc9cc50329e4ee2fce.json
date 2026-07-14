@@ -1,0 +1,24 @@
+{
+  "id": "61d23902b8d9c3e92cd77fdc9cc50329e4ee2fce",
+  "title": "SpaceXAI&#8217;s Grok programming tool was uploading its users&#8217; entire codebase to cloud storage",
+  "summary": "SpaceXAI's Grok Build AI coding tool was spotted uploading users' entire codebases to Google Cloud before it was reported, and the company turned it off. The Register reports that Cereblab published findings on Monday showing how the Grok Build CLI was packaging and uploading entire code repositories, \"including files it was told not to open and secrets del…",
+  "canonicalUrl": "https://theverge.com/ai-artificial-intelligence/965600/spacexai-grok-build-repository-upload",
+  "source": {
+    "id": "theverge",
+    "name": "The Verge",
+    "url": "https://www.theverge.com/",
+    "feedUrl": "https://www.theverge.com/rss/index.xml",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-14T19:25:00.000Z",
+  "fetchedAt": "2026-07-14T20:57:44.042Z",
+  "category": "tech",
+  "tags": [],
+  "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/05/STK262_GROK_B_B.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/14/61d23902b8d9c3e92cd77fdc9cc50329e4ee2fce.json",
+  "contentText": "SpaceXAI's Grok Build AI coding tool was spotted uploading users' entire codebases to Google Cloud before it was reported, and the company turned it off. The Register reports that Cereblab published findings on Monday showing how the Grok Build CLI was packaging and uploading entire code repositories, \"including files it was told not to open and secrets deleted from history,\" significantly more data retention than similar tools like Claude Code.\n\nThe researchers say that as of Monday, their tests show SpaceXAI's servers returning a \"disable_codebase_upload: true\" flag, and the codebase upload \"no longer fires.\"\n\nElon Musk responded to the i …\n\nRead the full story at The Verge.",
+  "contentSource": "content"
+}
