@@ -1,0 +1,30 @@
+{
+  "id": "48678c69728862dc861b87ea8969d59ed62c694c",
+  "title": "Windows 0-day drops the same day Microsoft releases record number of patches",
+  "summary": "HiveLegacy is a \"powerful primitive\" that's likely capable of other nefarious actions.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/07/windows-0-day-drops-the-same-day-microsoft-releases-record-number-of-patches",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-15T19:59:48.000Z",
+  "fetchedAt": "2026-07-15T20:59:02.564Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "microsoft",
+    "Windows",
+    "zerodays"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2022/10/windows-malware-1024x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/15/48678c69728862dc861b87ea8969d59ed62c694c.json",
+  "contentText": "Right on the heels of Microsoft releasing a record number of security patches, a researcher has published exploit code that can enable low-privilege Windows accounts to make sensitive changes to administrator accounts.\n\nThe exploit, which multiple researchers say works , is sending Microsoft scrambling, yet again, to patch a zero-day released by an anonymous researcher who has complained about the software maker’s handling of their bug reports. To date, the pseudonymous NightmareEclypse has published nine such exploits, including Tuesday’s HiveLegacy . The researcher said the proof-of-concept code included in the report was stripped down to prevent attackers from using it maliciously.\n\nA “pretty powerful primitive”\n\nHiveLegacy is an elevation-of-privilege exploit that targets a vulnerability residing in the Windows User Profile Service. It allows users (and with more work likely processes) with limited system rights to compromise an admin user's account by modifying its classes registry hive , a resource that ensures the correct application opens when certain types of files are clicked on in Windows Explorer.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
