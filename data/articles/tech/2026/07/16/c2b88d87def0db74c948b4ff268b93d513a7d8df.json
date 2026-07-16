@@ -1,0 +1,30 @@
+{
+  "id": "c2b88d87def0db74c948b4ff268b93d513a7d8df",
+  "title": "Now, even Russia's most elite hackers are using Clickfix to infect devices",
+  "summary": "The social-engineering technique has primarily been a tool of financially motivated criminals.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/07/now-even-russias-most-elite-hackers-are-using-clickfix-to-infect-devices",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-16T19:28:33.000Z",
+  "fetchedAt": "2026-07-16T22:55:03.419Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "clickfix",
+    "russia",
+    "sandworm"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2022/04/russia-cyber-hack-1000x648.jpeg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/16/c2b88d87def0db74c948b4ff268b93d513a7d8df.json",
+  "contentText": "One of the Russian government’s most elite hacking groups has adopted an attack, known as Clickfix, to compromise devices belonging to sensitive organizations in Ukraine, the latter country’s CERT center is warning.\n\nClickfix has emerged as an effective attack technique that attackers, primarily financially motivated criminals, began using in the last year or so. Websites under the control of the attackers display a CAPTCHA that requires the visitor to copy a jumble of text and paste it into the terminal. The text contains scripts that, once entered, perform malicious actions, typically by installing malware or exfiltrating sensitive data. Ukraine’s CERT said Wednesday that Sandworm , an advanced hacking unit inside the GRU, Russia’s military intelligence arm, is now using the technique.\n\n\"GhettoVibe,\" \"ScoutCurl,\" and many more\n\nThe Clickfix attacks began in the spring and have continued through the summer. The campaign has resulted in the network compromise of at least one organization when a connected device was found to be infected by FreakyPoll, the name of one of Sandworm’s custom malware packages. Ukrainian authorities discovered 10 compromised websites that displayed a PowerShell command as part of a fake CAPTCHA that said it had to be passed to ensure a real human was behind the visiting device’s keyboard.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}

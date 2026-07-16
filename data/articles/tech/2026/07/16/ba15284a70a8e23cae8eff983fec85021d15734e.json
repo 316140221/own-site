@@ -1,0 +1,33 @@
+{
+  "id": "ba15284a70a8e23cae8eff983fec85021d15734e",
+  "title": "Linus Torvalds to critics of AI coding in Linux: \"Fork it. Or just walk away.\"",
+  "summary": "Creator says he will \"very loudly ignore\" those arguing for a ban on AI tools.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/07/linus-torvalds-to-critics-of-ai-coding-in-linux-fork-it-or-just-walk-away",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-16T19:18:23.000Z",
+  "fetchedAt": "2026-07-16T22:55:03.419Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "coding",
+    "kernal",
+    "Linus Torvalds",
+    "Linux",
+    "LLM",
+    "tools",
+    "Torvalds"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/GettyImages-532502452-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/16/ba15284a70a8e23cae8eff983fec85021d15734e.json",
+  "contentText": "The widespread introduction of AI-powered coding tools has led to some dramatic splits between those integrating those tools into their workflows and anti-AI absolutists who don't want large language model-generated code anywhere near their projects. When it comes to the Linux kernel, though, creator and top-level maintainer Linus Torvalds said he is \"willing to absolutely put my foot down\" in support of using AI tools to improve the long-standing open source project.\n\nWriting in a lengthy post on the Linux kernel mailing list this week, Torvalds said that \"Linux is not one of those anti-AI projects, and if somebody has issues with that, they can do the open-source thing and fork it. Or just walk away.\"\n\nThe statement came amid a lengthy thread arguing about the use of Sashiko , an \"agentic Linux kernel code review system\" that its creators claim can, in tests, independently find 53.6 percent of the bugs that would end up being fixed by human coders in later commits. But the tool can also waste maintainers' time by sending \"false positive\" reports of bugs that don't exist, at a rate Sashiko's maintainers estimate is \"well within [the] 20% range.\"\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
