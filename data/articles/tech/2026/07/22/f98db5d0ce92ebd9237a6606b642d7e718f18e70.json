@@ -1,0 +1,32 @@
+{
+  "id": "f98db5d0ce92ebd9237a6606b642d7e718f18e70",
+  "title": "OpenAI says its AI agent broke out of testing sandbox to hack Hugging Face",
+  "summary": "\"This is day one for cybersecurity in the age of agents,\" Hugging Face CEO says.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/07/how-an-openai-benchmark-test-turned-into-a-real-world-cyberattack",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-22T16:47:49.000Z",
+  "fetchedAt": "2026-07-22T19:10:47.009Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Security",
+    "AI alignment",
+    "cybersecurity",
+    "hack",
+    "Hugging Face",
+    "openai"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/GettyImages-2274109678-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/22/f98db5d0ce92ebd9237a6606b642d7e718f18e70.json",
+  "contentText": "OpenAI says an agent powered by its LLM models escaped its sandboxed testing environment to infiltrate Hugging Face's servers as part of an overzealous attempt to obtain solutions to a benchmark test. The company says it considers the unintended infiltration an \"an unprecedented cyber incident\" and is working with Hugging Face on new protections to prevent a recurrence.\n\nHugging Face disclosed an intrusion last week that it said involved \"unauthorized access to a limited set of internal datasets and to several credentials used by our services.\" The AI data clearinghouse said it used its own LLM-driven analysis to identify \"a swarm of tens of thousands of automated actions\" from an \"autonomous agent framework.\" That agentic swarm exploited a flaw in Hugging Face's data-processing pipeline to gain the ability to run code as a processing worker, eventually escalating to high-level access to the company's cloud and server clusters.\n\nAt the time, Hugging Face said the LLM being used in the attack was \"still not known.\" But OpenAI took responsibility for the intrusion Tuesday evening , saying it came about during an internal test involving the recently released GPT-5.6 Sol and \"an even more capable pre-release model.\" The models were being tested against the ExploitGym benchmark , an independent testing suite based on hundreds of real-world security vulnerabilities.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
