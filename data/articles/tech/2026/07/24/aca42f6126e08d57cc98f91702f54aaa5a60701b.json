@@ -1,0 +1,33 @@
+{
+  "id": "aca42f6126e08d57cc98f91702f54aaa5a60701b",
+  "title": "Team uses AlphaFold AI to redesign gene-editing proteins to make them safer",
+  "summary": "Google's AlphaFold can help ID what parts of a gene editing protein enable mistakes.",
+  "canonicalUrl": "https://arstechnica.com/science/2026/07/team-uses-alphafold-ai-to-redesign-gene-editing-proteins-to-make-them-safer",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-24T17:31:26.000Z",
+  "fetchedAt": "2026-07-24T19:20:00.546Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Science",
+    "AlphaFold",
+    "biochemistry",
+    "Biology",
+    "CRISPR",
+    "gene editing",
+    "gene therapies"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/GettyImages-2239702658-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/24/aca42f6126e08d57cc98f91702f54aaa5a60701b.json",
+  "contentText": "A couple of decades after the discovery of systems that could selectively target DNA, we're starting to see the first therapies based on gene editing. One challenge these developments have faced is safety. While we can make them pretty specific to the gene we want edited, the human genome is very large, and even rare DNA sequences can appear a couple of times by chance.\n\nAs a result, all the original gene-editing systems had known rates of what are called off-target effects, in which they simply edit the wrong sequence. This may be a low-probability event, but edit enough cells—and therapies generally have to edit many—and errors become inevitable.\n\nA lot of effort has gone into finding ways to minimize or eliminate off-target edits. In a recent issue of Nature, researchers described modifying the AI protein-folding software AlphaFold to help identify key areas of gene-editing proteins responsible for off-target effects. Those areas were then modified to reduce the problems.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
