@@ -1,0 +1,28 @@
+{
+  "id": "034e6541857510fedb638f1b2938c0804021e47c",
+  "title": "Mythos attack on 3rd-round PQC algorithm candidate puts it out of commission",
+  "summary": "HAWK withstood years of testing that had yet to uncover a fatal weakness found through Mythos.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/07/mythos-uncovers-crypto-weaknesses-that-went-unknown-for-years",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-29T22:07:06.000Z",
+  "fetchedAt": "2026-07-29T22:57:59.279Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/broken-encryption-lock-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/29/034e6541857510fedb638f1b2938c0804021e47c.json",
+  "contentText": "A quantum-resistant cryptography algorithm that was under consideration to become an official US standard has been taken out of the running after an Anthropic security model helped find a flaw that rendered it broken.\n\nThe algorithm taken out of commission is known as HAWK . It's a digital signature scheme designed to withstand future attacks from quantum computers. HAWK had survived two rounds of testing by NIST (the National Institute of Standards and Technology) for evaluating the security of PQC (post-quantum cryptographic) algorithms through widespread testing. HAWK was in a third round of testing designed to catch precisely the kinds of flaws Mythos helped uncover.\n\nAs a result of results Anthropic announced Monday, the developer of HAWK said Tuesday he was withdrawing it.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
