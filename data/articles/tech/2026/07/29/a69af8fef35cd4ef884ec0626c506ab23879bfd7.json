@@ -1,0 +1,31 @@
+{
+  "id": "a69af8fef35cd4ef884ec0626c506ab23879bfd7",
+  "title": "New AMD Linux patch boosts low-end gaming performance on Steam Deck",
+  "summary": "Improved efficiency in EPP mode leads to ~32% jump in \"1% low\" frame rates.",
+  "canonicalUrl": "https://arstechnica.com/gaming/2026/07/new-amd-linux-patch-boosts-low-end-gaming-performance-on-steam-deck",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-29T15:33:20.000Z",
+  "fetchedAt": "2026-07-29T19:10:08.859Z",
+  "category": "tech",
+  "tags": [
+    "Gaming",
+    "AMD",
+    "kernel",
+    "Linux",
+    "steam deck",
+    "Valve"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2025/01/Civ7-Steam-Deck-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/29/a69af8fef35cd4ef884ec0626c506ab23879bfd7.json",
+  "contentText": "As the Steam Deck slowly marches toward its fifth birthday next February, owners are likely eager for a way to extend its life rather than investing in expensive high-end competition . A new patch for AMD's Linux drivers could substantially reduce low-end frame hitches when the Steam Deck or other AMD-based gaming hardware is running in Energy Performance Preference (EPP) mode.\n\nWriting on the Linux kernel mailing list (thanks, Phoronix ), kernel coder David Vernet lays out the basic problem that games often face in EPP mode. When a busy thread frequently goes to sleep for short periods, the current AMD driver can misinterpret that behavior as a signal to lower its average performance target. When those threads wake up, they start at a lower-than-desired frequency, leading to increased frame latency, stale frames, and longer frame generation times at the low end of the distribution.\n\nShifting the processor to \"performance\" mode fixes this problem but eliminates the energy savings that EPP mode is supposed to provide. And simply boosting the affected thread's minimum performance target permanently actually makes low-end performance worse, thanks to the complexities of CPU/GPU boost management.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}

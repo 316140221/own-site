@@ -1,5 +1,47 @@
 [
   {
+    "id": "0e2a585dba39210a24759c3a5bf1798c82af228c",
+    "title": "Google launches its Lyria 3.5 music generation model in Google Flow Music, highlighting improved musicality, lyrics, vocal quality, and creative control (Google)",
+    "summary": "Google: Google launches its Lyria 3.5 music generation model in Google Flow Music, highlighting improved musicality, lyrics, vocal quality, and creative control — Our newest music generation model, Lyria 3.5, delivers significant advancements across musicality, lyrics, and vocal quality, empowering you to craft richer tracks.",
+    "canonicalUrl": "https://techmeme.com/260729/p33",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-07-29T19:05:01.000Z",
+    "category": "entertainment",
+    "image": "http://www.techmeme.com/260729/i33.jpg",
+    "language": "en"
+  },
+  {
+    "id": "9b961081a7f4cded60ae0b529857044ea98dd660",
+    "title": "Thinking Machines Lab co-founder Lilian Weng is returning to OpenAI after announcing earlier this week she was leaving TML over workload-related health concerns (The Information)",
+    "summary": "The Information: Thinking Machines Lab co-founder Lilian Weng is returning to OpenAI after announcing earlier this week she was leaving TML over workload-related health concerns — Lilian Weng, a researcher who cofounded AI startup Thinking Machines Lab alongside former OpenAI Chief Technology Officer Mira Murati …",
+    "canonicalUrl": "https://techmeme.com/260729/p32",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-07-29T18:35:02.000Z",
+    "category": "health",
+    "image": "http://www.techmeme.com/img/pml.png",
+    "language": "en"
+  },
+  {
+    "id": "3371f99124fdd342b59451ca7f62f7ebb54f4fb0",
+    "title": "OpenAI launches ChatGPT for Academic Researchers, giving 100K scientists, mathematicians, and engineers free access to its frontier models through 2027 (Ina Fried/Axios)",
+    "summary": "Ina Fried / Axios: OpenAI launches ChatGPT for Academic Researchers, giving 100K scientists, mathematicians, and engineers free access to its frontier models through 2027 — OpenAI is launching a new program Wednesday that will provide 100,000 academic researchers with free access to its advanced AI models through 2027 …",
+    "canonicalUrl": "https://techmeme.com/260729/p31",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-07-29T17:30:01.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/260729/i31.jpg",
+    "language": "en"
+  },
+  {
     "id": "1b9a5d82ed87e567c8e9acaaa46b3897d905e894",
     "title": "Anthropic's cryptanalysis results on HAWK and AES show AI can now understand existing cryptanalysis results, turn them into new attacks, and even extend them (Matthew Green/A Few Thoughts ...)",
     "summary": "Matthew Green / A Few Thoughts on Cryptographic Engineering: Anthropic's cryptanalysis results on HAWK and AES show AI can now understand existing cryptanalysis results, turn them into new attacks, and even extend them — Yesterday Anthropic published two new cryptanalysis results, both outputs of Claude Mythos, their (still) unreleased advanced model.",
@@ -6955,48 +6997,6 @@
     "publishedAt": "2026-07-16T19:45:02.000Z",
     "category": "tech",
     "image": "http://www.techmeme.com/260716/i52.jpg",
-    "language": "en"
-  },
-  {
-    "id": "ecc0dd62d0a1e9f8b4cc7f0983ec245fcf64d596",
-    "title": "Google updates its AI video editor Vids with Gemini Omni and a feature that lets users create custom digital avatars using a selfie and voice recording (Sarah Perez/TechCrunch)",
-    "summary": "Sarah Perez / TechCrunch: Google updates its AI video editor Vids with Gemini Omni and a feature that lets users create custom digital avatars using a selfie and voice recording — OpenAI's Sora may have shut down, but Google apparently thinks there's still interest in a tool that lets you star in your own AI videos.",
-    "canonicalUrl": "https://techmeme.com/260716/p51",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-07-16T19:15:00.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/260716/i51.jpg",
-    "language": "en"
-  },
-  {
-    "id": "d136130cd58c8276e9d18c74058923663db2f6ca",
-    "title": "Moonshot AI releases Kimi K3, a 2.8T-parameter AI model that it says rivals Opus 4.8 and GPT 5.5, and plans to release model weights by July 27 (Kimi)",
-    "summary": "Kimi: Moonshot AI releases Kimi K3, a 2.8T-parameter AI model that it says rivals Opus 4.8 and GPT 5.5, and plans to release model weights by July 27 — Today, we are introducing Kimi K3 — our most capable model. Kimi K3 is a 2.8T-parameter model built on our Kimi Delta Attention and Attention Residuals …",
-    "canonicalUrl": "https://techmeme.com/260716/p50",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-07-16T19:00:34.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/img/pml.png",
-    "language": "en"
-  },
-  {
-    "id": "208dcc17cd0a211860c4ed41758a941ec3f19552",
-    "title": "After reports of GPT-5.6 deleting files, OpenAI says the issue most often occurs in full-access mode without sandboxing and it is working to mitigate the risk (Tibo/@thsottiaux)",
-    "summary": "Tibo / @thsottiaux: After reports of GPT-5.6 deleting files, OpenAI says the issue most often occurs in full-access mode without sandboxing and it is working to mitigate the risk — On file deletions. We've investigated a handful of reports where GPT-5.6 unexpectedly deleted files. What we have found is that this most commonly occurs when: - Full access mode…",
-    "canonicalUrl": "https://techmeme.com/260716/p49",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-07-16T18:50:02.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/img/pml.png",
     "language": "en"
   }
 ]
