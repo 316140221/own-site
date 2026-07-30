@@ -1,0 +1,33 @@
+{
+  "id": "0adddc85b6975b2421db4586db1d7084639d3b6e",
+  "title": "New MCP specification addresses the main barrier to enterprise adoption",
+  "summary": "Plus, a new deprecation policy ensures features aren't removed suddenly.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/07/with-a-stateless-makeover-new-mcp-spec-targets-enterprise-scale",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-30T14:53:07.000Z",
+  "fetchedAt": "2026-07-30T15:50:08.695Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "AAIF",
+    "Agentic AI Foundation",
+    "agents",
+    "Anthropic",
+    "Linux Foundation",
+    "MCP",
+    "Model Context Protocol"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/MCP-logo-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/30/0adddc85b6975b2421db4586db1d7084639d3b6e.json",
+  "contentText": "This week, the Model Context Protocol (MCP) , an open source standard for how AI systems interact with external tools and data sources, saw its largest update since its introduction. Most notably, MCP's protocol core is now stateless, so requests are no longer dependent on a session tied to an individual server instance. This change has the potential to address long-standing barriers to scalability.\n\nThe blog post announcing the specification, written by lead maintainers David Soria Parra and Den Delimarsky (who both work at Anthropic), says:\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
