@@ -1,0 +1,34 @@
+{
+  "id": "7375cfd849cb68137461632c43c0d2ad81d1fc56",
+  "title": "Quantum computers outperform classical ones, with results you can trust",
+  "summary": "Three approaches to the issue of quantum results that can't be verified classically.",
+  "canonicalUrl": "https://arstechnica.com/science/2026/07/if-a-quantum-computer-outperforms-normal-ones-can-you-tell-if-its-right",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-30T15:59:37.000Z",
+  "fetchedAt": "2026-07-30T17:22:58.686Z",
+  "category": "tech",
+  "tags": [
+    "Science",
+    "algorithms",
+    "Computer science",
+    "error mitigation",
+    "ibm",
+    "ising model",
+    "Physics",
+    "quantum computing",
+    "quantum mechanics"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/image-4-1152x648.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/30/7375cfd849cb68137461632c43c0d2ad81d1fc56.json",
+  "contentText": "There are many algorithms for which it has been mathematically proven that a quantum computer can generate results that would take a classical computer an unreasonable amount of time to generate. Unfortunately, today's quantum computers either can't run those algorithms or can only run simplified versions that classical computers can also handle. This has left the field facing a challenging question: Can we demonstrate the promise of quantum computers on today's noisy, limited hardware?\n\nThat's a more difficult question than it may first appear. If you generate a result that's out of reach of today's regular computers, it may not be possible to verify that you got the right result. And given that today's quantum computers are somewhat error-prone, getting the wrong result is a distinct possibility. Further, in the absence of a mathematical proof of the capabilities of quantum hardware, it's possible that a better classical algorithm could outperform the quantum hardware.\n\nThese issues inspired IBM to launch a quantum advantage tracker. On Thursday, the company announced three new entries that it says clearly show a quantum advantage, each using a different approach to overcoming errors and validating quantum results. \"Trusted computing when you can do classical simulations is irrelevant,\" IBM's Jay Gambetta told Ars. \"Trusted computing when you can't do classical simulations is a big deal.\"\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
