@@ -1,0 +1,31 @@
+{
+  "id": "02300442de20daa1e25dc2802f2837c43fdad9d6",
+  "title": "Chrome may get faster updates with no restart required",
+  "summary": "The last two versions of Chrome have included more patches than the previous 23 combined.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/07/chrome-may-get-faster-updates-with-no-restart-required",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-30T19:26:56.000Z",
+  "fetchedAt": "2026-07-31T16:01:24.309Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Google",
+    "Artificial Intelligence",
+    "browsers",
+    "chrome",
+    "security"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/Chrome-shield-1152x648.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/30/02300442de20daa1e25dc2802f2837c43fdad9d6.json",
+  "contentText": "With Chrome, Google pioneered the rapid release model for browser security. Now, Google says updates may need to change in the face of AI security analysis. According to the company, the number of bug fixes in Chrome releases has skyrocketed in recent months because AI is detecting so many flaws . We could be looking at more frequent updates soon, but Google is also working on ways to get those updates rolled out without bothering you as much.\n\nGoogle has released two major Chrome milestone builds recently—Chrome 149 in early June and Chrome 150 just a few weeks later. These two updates had a total of 1,072 bug fixes, which is more than the previous 23 releases combined. Such is the impact of giant cybersecurity AI models that can probe software for vulnerabilities at light speed. Some of these vulnerabilities were serious, too, with one bug hiding in the Chrome codebase for 13 years. If it had been exploited, an attacker could have bypassed the Chrome sandbox to make the browser access local files.\n\nNumber of security bugs fixed in recent Chrome Stable release milestones.\nCredit:\nGoogle\n\nWith the vastly higher rate of vulnerability identification, Google is worried bad actors will also be able to identify software flaws faster. Its goal is to ensure your Chrome install is always up to date or as close to it as possible. The first step toward that is the two-week update cycle the company announced earlier in 2026, but it's now piloting a system that would update Chrome twice per week . This would get patches out the door faster, ensuring that browsers are ready for the threat of AI-fueled attacks.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}

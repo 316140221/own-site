@@ -1,0 +1,30 @@
+{
+  "id": "075cfb6d747d833f3970c685cde90838523a7fd3",
+  "title": "Max-severity Exchange server flaw under active exploitation by Kremlin hackers",
+  "summary": "Exploits can give persistent server access that survives credential rotation and disk re-imaging.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/07/kremlin-hackers-are-exploiting-exchange-flaw-to-backdoor-unpatched-networks",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-07-30T20:57:22.000Z",
+  "fetchedAt": "2026-07-31T16:01:24.309Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "exploits",
+    "Microsoft Exchange",
+    "zerodays"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/07/exploit-vulnerability-security.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/07/30/075cfb6d747d833f3970c685cde90838523a7fd3.json",
+  "contentText": "Russian state hackers are using a maximum-severity vulnerability in Microsoft Outlook’s Exchange Server to backdoor unpatched machines and steal credentials and other confidential information from them, security researchers said Thursday.\n\nThe attacks are coming from TA488, a tracking name for a group working on behalf of the Kremlin, Proofpoint researchers said Thursday . Proofpoint and the National Security Agency jointly warned last week that the group, also tracked as Laundry Bear and Void Blizzard, had been carrying out similar attacks by exploiting a zero-day vulnerability in an email service from Zimbra. The revelation that TA488 is also exploiting the Exchange Server vulnerability to install advanced malware when a user does nothing other than open an email sent to an Outlook Web Access (OWA) account has elevated the group’s profile and assessments of its abilities.\n\nDoubling down\n\n“TA488 is doubling down on the use of ‘half-click’ exploits—where opening the email is enough to trigger compromise—with significantly improved loading mechanisms, techniques, and malware, signaling an improvement in the group’s tradecraft and capability,” Proofpoint researchers wrote. “This novel infection chain ends with a previously unknown JavaScript browser-based implant we call OWAReaper, purpose-built for persistent access inside OWA.”\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
