@@ -1,0 +1,33 @@
+{
+  "id": "34ec031c5892a09cc5ad2fcecf639c2351b7a187",
+  "title": "D-Wave shows off its new entry in quantum computing race",
+  "summary": "Company noted for building quantum annealers now also making gate-based hardware.",
+  "canonicalUrl": "https://arstechnica.com/science/2026/08/d-wave-on-rails-company-tests-entanglement-on-its-dual-rail-qubits",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-08-05T16:37:07.000Z",
+  "fetchedAt": "2026-08-05T19:25:10.983Z",
+  "category": "tech",
+  "tags": [
+    "Science",
+    "Computer science",
+    "D-Wave",
+    "dual-rail qubits",
+    "Physics",
+    "quantum computing",
+    "quantum mechanics",
+    "qubits"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/v5-834x648.webp",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/08/05/34ec031c5892a09cc5ad2fcecf639c2351b7a187.json",
+  "contentText": "D-Wave is a bit of an oddity in the quantum computing space, having been founded back in the last century. And its initial offering wasn't a quantum computer like those being developed by IBM or Google. Instead, the company built what's now called a quantum annealer, a machine that isn't general-purpose but can solve a large class of optimization problems . While the hardware shares some similarities with the qubits used in gate-based quantum computers, it operates in a fundamentally different way.\n\nBut a few years back, D-Wave started working on gate-based hardware, apparently choosing a somewhat unusual qubit technology called fluxonium . And this year, the company acquired a startup called Quantum Circuits that spun out of Yale University and has been developing what's called a dual-rail qubit (the same technology used by Amazon ), which promises to make most errors very easy to detect, simplifying error correction.\n\nOn Wednesday, the company is publishing a paper in Nature that describes a key step in validating this dual-rail technology, showing that two of the qubits can be entangled without altering their best feature: Most are a single type that is easy to detect.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
