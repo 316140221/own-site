@@ -1,0 +1,36 @@
+{
+  "id": "bc744f4512ecabb6ad84d83a515e44836abd9785",
+  "title": "Anthropic’s AI used fake identities, malware in rogue attack on GitHub project",
+  "summary": "Anthropic and OpenAI models’ unprompted actions forced halt to UK cyber tests.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/08/anthropics-ai-used-fake-identities-malware-in-rogue-attack-on-github-project",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-08-05T20:47:11.000Z",
+  "fetchedAt": "2026-08-05T22:55:43.682Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Security",
+    "AI agents",
+    "Anthropic",
+    "Artificial Intelligence",
+    "cybersecurity",
+    "frontier ai",
+    "GPT-5.6 Sol",
+    "Mythos 5",
+    "openai",
+    "UK AI Security Institute"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/GettyImages-2285051730-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/08/05/bc744f4512ecabb6ad84d83a515e44836abd9785.json",
+  "contentText": "Routine cybersecurity testing of frontier AI models sparked a series of unexpected security incidents—the most serious case arising when Anthropic’s Mythos 5 model attempted to insert malicious code into an open source software application and created fake identities to deceive the human developers maintaining the project.\n\nThe security incidents occurred during a cyber evaluation of seven leading AI models’ capabilities by the AI Security Institute (AISI), a research organization within the UK government, in late July. The researchers discovered 19 instances in which “AI agents took unsanctioned action on the live Internet, including cases that targeted real people and organizations,” according to an AISI blog post published on August 4.\n\nAlmost all the “autonomous, unsanctioned” actions came from Anthropic’s Mythos 5 model, with two such actions coming from OpenAI’s GPT-5.6 Sol. The AI Security Institute’s security team first realized that something was amiss on the morning of July 28, when its commercial security monitoring service flagged data leaving one of the testing systems through the Tor anonymity network.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
