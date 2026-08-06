@@ -1,0 +1,33 @@
+{
+  "id": "4c8ce4dab58e16a886c1dc2edcefcc3279f267b2",
+  "title": "Large genome models used to design new viruses",
+  "summary": "The AI system makes genetically distant versions of a bacteria-killing virus.",
+  "canonicalUrl": "https://arstechnica.com/science/2026/08/large-genome-models-used-to-design-new-viruses",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-08-06T19:04:57.000Z",
+  "fetchedAt": "2026-08-06T23:55:24.289Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Science",
+    "bacteriophage",
+    "Genome",
+    "Genomics",
+    "large genome model",
+    "phage",
+    "virus"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/GettyImages-2152061685-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/08/06/4c8ce4dab58e16a886c1dc2edcefcc3279f267b2.json",
+  "contentText": "A lot of the AI work in biology has been focused on designing proteins. That's partly because proteins do most of the business of life, catalyzing the interesting chemistry and structuring cells. So, figuring out how to make a new protein can mean directly tinkering with biochemistry, providing new and potentially useful functions.\n\nSince the genetic code provides a layer of abstraction between DNA and proteins, it wasn't obvious what a model trained on DNA could do. Yet people went ahead and made a large genome model, and it turned out to be able to output DNA sequences that could encode functional proteins in bacteria and mimic the gene structures found in complex cells. Now, those same models have been used to output the genomes of viruses that infect bacteria.\n\nThis isn't science fiction—all the viruses the models created are closely related to an existing virus. But they do have some distinct features that would be challenging to evolve. And the researchers who did the work, based at Stanford University, suggest we may want to start thinking now about preparing for the potential that someone could develop a related AI that can design a virus that targets vertebrates.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
