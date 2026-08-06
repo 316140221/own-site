@@ -1,0 +1,31 @@
+{
+  "id": "c500700857ada90178e2f9a6a2c0a701b7c6bbe8",
+  "title": "Thousands of servers can be backdoored by exploiting buggy motherboard controllers",
+  "summary": "Baseboard management controllers from the world's biggest manufacturers are a security mess.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/08/thousands-of-servers-can-be-backdoored-by-exploiting-buggy-motherboard-controllers",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-08-05T22:35:20.000Z",
+  "fetchedAt": "2026-08-06T02:12:45.888Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "baseboard management controller",
+    "bmcs",
+    "exploits",
+    "vulnerabilities"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/data-center-server-room-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/08/05/c500700857ada90178e2f9a6a2c0a701b7c6bbe8.json",
+  "contentText": "Thousands of Internet-connected servers sold by the world’s biggest manufacturers can be remotely backdoored by exploiting critical vulnerabilities—some more than a decade old—that lurk deep inside system motherboards, according to research presented Wednesday.\n\nBaseboard management controllers are miniature computers that are embedded into the motherboards of virtually every enterprise server. The microcontrollers, typically abbreviated as BMCs, run with their own operating system firmware, network stack, and IP address. Administrators rely on them to monitor the physical status of large fleets of servers and to perform a variety of tasks, including rebooting machines, installing updates, and even reinstalling operating systems. BMCs provide what’s known as “lights out” and “out-of-band” management because they work even when servers they’re attached to are turned off or are unresponsive.\n\nA “pervasive, under-monitored, under-patched parallel attack surface”\n\nResearchers have warned since at least 2013 that BMCs present a golden opportunity for hackers looking for ways to gain deep and persistent access to datacenters. The chief culprit was IPMI , the protocol that allows BMCs to operate independently of servers and to perform administrative tasks. Vulnerabilities in this firmware made it possible for attackers to remotely execute malicious code on the controllers and, from there, infect the servers they manage.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
