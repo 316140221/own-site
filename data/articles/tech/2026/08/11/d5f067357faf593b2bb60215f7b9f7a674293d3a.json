@@ -1,0 +1,33 @@
+{
+  "id": "d5f067357faf593b2bb60215f7b9f7a674293d3a",
+  "title": "Chrome adopts what may be the best protection yet against account takeovers",
+  "summary": "Device-bound session credentials thwart an increasingly common form of account takeover.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/08/chrome-adopts-what-may-be-the-best-protection-yet-against-account-takeovers",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-08-11T20:59:52.000Z",
+  "fetchedAt": "2026-08-11T22:37:53.405Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Google",
+    "Security",
+    "account takeovers",
+    "dbscs",
+    "device bound session credentials",
+    "session cookie",
+    "session cookie theft"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/phishing-account-takeover-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/08/11/d5f067357faf593b2bb60215f7b9f7a674293d3a.json",
+  "contentText": "Google’s Chrome browser has added a new feature that could go a long way in preventing a form of account takeover that’s grown increasingly common as users adopt two-factor authentication, passkeys, and similar protections.\n\nThe new Chrome protection is known as device-bound session credentials (DBSCs). The measure stores a unique encryption key in a silicon-resident fortress that’s built into the device running the browser. On Windows machines, this fortress is called a TPM, short for Trusted Platform Module. On macOS and iOS, it’s known as a secure enclave. Other platforms have differing names. Recently released versions of Chrome for Windows and macOS generate a key that’s stored in this fortress.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
