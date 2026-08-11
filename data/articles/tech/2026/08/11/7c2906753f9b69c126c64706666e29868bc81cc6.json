@@ -1,0 +1,31 @@
+{
+  "id": "7c2906753f9b69c126c64706666e29868bc81cc6",
+  "title": "New surveillance tech links your phone to your license plate",
+  "summary": "Phone and Bluetooth signals could turn roadside cameras into far richer tracking tools.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/08/new-surveillance-tech-links-your-phone-to-your-license-plate",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-08-11T13:15:24.000Z",
+  "fetchedAt": "2026-08-11T15:01:12.611Z",
+  "category": "tech",
+  "tags": [
+    "Security",
+    "Flock!",
+    "license plate readers",
+    "privacy",
+    "surveillance",
+    "syndication"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/05/flock-camera-1152x648-1779223467.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/08/11/7c2906753f9b69c126c64706666e29868bc81cc6.json",
+  "contentText": "Imagine that you share a ride to work with the same colleague most mornings. As it passes by a license plate reader, the camera records the car, which can be linked through vehicle records to its registered owner. Beside it, another sensor detects signals broadcast by devices traveling nearby, such as your phone and your colleague’s smartwatch.\n\nAfter enough trips, software may treat some of those devices as a recurring electronic signature associated with the vehicle. Weeks later, one of the same device signals appears alongside a different car connected to an investigation. The signal itself may not contain its owner’s name, but its previous association with a known vehicle gives investigators another clue they can use to work out who was carrying the device.\n\nSignalTrace , a system marketed by the security company Leonardo , is designed to work alongside automatic license plate readers. The company says it can recognize groups of consumer devices that regularly move together, then associate them with license plate records and time-stamped locations. The pattern can then be searched even when a police investigator does not know the plate number.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}

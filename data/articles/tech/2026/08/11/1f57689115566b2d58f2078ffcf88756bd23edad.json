@@ -1,0 +1,31 @@
+{
+  "id": "1f57689115566b2d58f2078ffcf88756bd23edad",
+  "title": "New Pass-ta-key attack reveals all the things we didn't know about passkeys",
+  "summary": "Why passkey apps treat Windows differently than other operating systems.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/08/heres-why-the-new-pass-ta-key-attack-is-mostly-a-nothingburger",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-08-11T11:30:08.000Z",
+  "fetchedAt": "2026-08-11T15:01:12.611Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "authentication",
+    "Google password manager",
+    "passkeys",
+    "Windows"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/05/passkey-target-illustration-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/08/11/1f57689115566b2d58f2078ffcf88756bd23edad.json",
+  "contentText": "Last week a researcher outlined what he said was a “novel attack surface” in passkeys, the new authentication paradigm that offers a more secure alternative over password-based methods. In fact, the attacks demonstrated in the post are neither novel nor unique to passkeys. This distinction is important because the research has generated confusion among end users and security professionals as they assess whether this new mechanism is truly safe to use.\n\nThe attack is called Pass-ta-key—a blending of the word passkey with the phrase “pass the key” and a nod to a plate of pasta. Arie Olshtein, a researcher at security firm Palo Alto Networks, described in a post last week how Pass-ta-key could obtain all passkeys stored in the Google Password Manager app (GPM) for Windows when it’s running on a machine infected with malware.\n\nThis came as a surprise to many people because they believed passkeys are stored exclusively in the trusted platform manager (TPM), the locked-down enclave in a hardened silicon chip that’s reserved for storing cryptographic keys and other highly sensitive information on Windows machines. If passkeys are stored in the TPM, then how was Pass-ta-key able to extract the entire set of passkeys stored by the app, they wanted to know.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
