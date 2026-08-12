@@ -1,0 +1,31 @@
+{
+  "id": "916c4f909f54300081b940bba3ba5afbf189002d",
+  "title": "Terabytes of credentials leaked in massive supply-chain attack",
+  "summary": "The data was scraped and exfiltrated from 2,500 users of a compromised AI package.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/08/terabytes-of-credentials-leaked-in-massive-supply-chain-attack",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-08-12T21:43:21.000Z",
+  "fetchedAt": "2026-08-12T22:37:29.279Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "litellm",
+    "supply chain attacks",
+    "teampcp"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2021/07/data-breach.jpeg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/08/12/916c4f909f54300081b940bba3ba5afbf189002d.json",
+  "contentText": "Terabytes worth of credentials, many belonging to the world’s biggest and most sensitive organizations, have been exposed in a supply-chain attack on LiteLLM, an open source tool that streamlines AI-driven software development. Microsoft, Amazon, Cisco, Samsung, and Salesforce are only a handful of the entities whose access secrets were exposed.\n\nThe revelation was posted on Tuesday and Wednesday by security firms CloudSEK and Hudson Rock. CloudSEK said it found cloud keys, repository tokens, SSH keys, Kubernetes secrets, package publishing credentials, environment variables, and AI provider keys that could allow attackers to gain access to more than 2,500 organizations.\n\n40 minutes is all it takes\n\nThe credentials were extracted during a 40-minute window in March while the victims used compromised versions of LiteLLM downloaded from the package’s official location in the Python Package Index repository. Hudson Rock said it made the discovery after analyzing a 195TB file that it obtained. Neither firm identified the source of the information.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
