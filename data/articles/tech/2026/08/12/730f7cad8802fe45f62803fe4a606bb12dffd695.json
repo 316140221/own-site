@@ -1,0 +1,29 @@
+{
+  "id": "730f7cad8802fe45f62803fe4a606bb12dffd695",
+  "title": "Researchers found a way to hijack devices through Zoom screen sharing",
+  "summary": "A public AI tool found the dangerous Zoom flaw in under 20 prompts.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/08/researchers-found-a-way-to-hijack-devices-through-zoom-screen-sharing",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-08-12T13:37:12.000Z",
+  "fetchedAt": "2026-08-12T14:53:42.616Z",
+  "category": "tech",
+  "tags": [
+    "Security",
+    "AI hacking",
+    "syndication",
+    "zoom"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2022/08/GettyImages-1233188488-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/08/12/730f7cad8802fe45f62803fe4a606bb12dffd695.json",
+  "contentText": "As AI models gain advanced capabilities to find vulnerabilities in software, develop ways to exploit them , and even carry out autonomous hacking sprees , researchers offered a sobering new example on Tuesday, disclosing vulnerabilities in the video conferencing platform Zoom that could have been exploited to take over targets’ devices. Anyone on a call that involved screen sharing, whether participants or the host, would have been vulnerable to a silent attack that could be carried out with no indication and no interaction from the victim.\n\nResearchers from the digital defense firm A Security say the bug was discovered in early June using publicly available AI models, and that it took fewer than 20 prompts to uncover the vulnerabilities and create a working attack. Zoom issued a security advisory on Tuesday, including details about fixes the company has already begun rolling out to address the flaws, which affected devices running all operating systems that Zoom supports—Windows, macOS, Linux, iOS, and Android.\n\n“What is interesting for us and what we believe is dangerous is the democratization of these capabilities—the barrier to entry is dropping rapidly,” A Security cofounder Omer Gull told WIRED ahead of the disclosure. “Before it would have taken a team of five people maybe six months with a lot of refining and iteration to find this. Now people can reach the same results with under 20 prompts. And Zoom is an important type of target because people assume trust when using it. They don’t see it as a threat.”\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
