@@ -1,0 +1,31 @@
+{
+  "id": "343894e169aca5248ee4e7f6dc6d815311c27444",
+  "title": "The web’s newest weapon against AI scrapers is a font",
+  "summary": "“ShieldFont” aims to poison AI training data without making pages unreadable for people.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/08/new-font-turns-ordinary-webpages-into-nonsense-for-ai-scrapers",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-08-12T22:02:25.000Z",
+  "fetchedAt": "2026-08-13T01:42:01.160Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "AI scrapers",
+    "Font",
+    "LLMs",
+    "models",
+    "scrapers"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/GettyImages-2261896328-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/08/12/343894e169aca5248ee4e7f6dc6d815311c27444.json",
+  "contentText": "AI companies' penchant for scraping through large swathes of the public web in search of valuable training data has already led to lawsuits and technical fixes aimed at stopping the practice. Now, a pair of designers are hoping to stymie these scrapers with a new font designed to offer people a perfectly readable webpage while serving scrapers a subtly edited, nonsensical version in the underlying HTML.\n\nShieldFont, as designers Isaque Seneda and Gabriel Abrucio write in a recent white paper , was made to offer web publishers \"a practical opt-out from unauthorized AI training and [to] disrupt what is collected when that choice is ignored.\"\n\nWhen is a horse a potato?\n\nThe font is based around ligatures , a long-standing feature of many fonts that is usually used to replace certain letter pairs with a more readable version when they're smushed up next to each other. With ShieldFont, though, those ligatures are instead used to replace entire words with others in an attempt to destroy the text's value to scrapers. This substitution only happens when the font engine draws the page on screen, meaning scrapers that simply download plaintext source code get an altered version that end users never see.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
