@@ -1,0 +1,28 @@
+{
+  "id": "d993ffffea5f57bfa3dc3c2075d4fdfd0dbdfa48",
+  "title": "Volunteer Develops Machine-Learning Tool to Identify Rare Clouds",
+  "summary": "Certain kinds of clouds are misbehaving – appearing more often and lower in the sky than they used to. To help identify the factors influencing these changes, scientists have asked people around the world with cameras to submit fresh images of these clouds as a part of the NASA-supported Space Cloud Watch project.",
+  "canonicalUrl": "https://science.nasa.gov/get-involved/citizen-science/volunteer-develops-machine-learning-tool-to-identify-rare-clouds",
+  "source": {
+    "id": "nasa_release",
+    "name": "NASA - News Releases",
+    "url": "https://www.nasa.gov/",
+    "feedUrl": "https://www.nasa.gov/news-release/feed/",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-08-14T17:35:46.000Z",
+  "fetchedAt": "2026-08-14T20:27:39.386Z",
+  "category": "science",
+  "tags": [
+    "Citizen Science",
+    "Earth Science",
+    "Earth Science Division"
+  ],
+  "image": "https://assets.science.nasa.gov/dynamicimage/assets/science/cds/citizen-science/highlights/2026/Noctilucent_Cloud_Detector_CitSci.jpg?w=1230&#038;h=2048&#038;fit=clip&#038;crop=faces%2Cfocalpoint",
+  "language": "en",
+  "storagePath": "data/articles/science/2026/08/14/d993ffffea5f57bfa3dc3c2075d4fdfd0dbdfa48.json",
+  "contentText": "Explore This Section\n\n- Science\n\n- Citizen Science\n\n- Volunteer Develops…\n\n- Overview\n\n- Resources\n\n- Opportunities\n\n- Highlights\n\n- About Science Activation\n\nCertain kinds of clouds are misbehaving – appearing more often and lower in the sky than they used to. To help identify the factors influencing these changes (e.g. shifts in Earth’s long-term weather patterns), scientists have asked people around the world with cameras to submit fresh images of these clouds as a part of the NASA-supported Space Cloud Watch project. Now, one volunteer has developed a new tool to help other Space Cloud Watch volunteers work more efficiently.\n\nThe misbehaving clouds are “noctilucent”  or “night-shining” clouds (NLCs). These clouds scatter light from the Sun long after sunset and long before sunrise, giving them a silvery glow. But despite this glow, it can be hard to differentiate NLCs from lower-altitude look-alikes. That confusion has meant extra work for project leaders.\n\nVolunteer Namai Chandra shared, “I noticed that NLC images were being manually verified by the project leaders. It felt like a task well-suited for a human-in-the-loop machine learning pipeline, one that could handle the repetitive screening automatically, while keeping human judgment central for the images that matter most.” In other words, Namai found a way to help observers verify when they are indeed seeing NLCs and when they’re not.\n\nNamai reached out to the Space Cloud Watch scientists Drs. Chihoko Cullens and Brentha Thurairajah, who were delighted with his idea. Namai soon developed a machine learning pipeline, training it on a variety of cloud images, including both the NLCs and the lower altitude look-alikes that are often submitted to Space Cloud Watch. The pipeline combines image pre-screening, cloud classification, and confidence-based review routing. After several rounds of development, testing, and refinement, he released his NLC identification tool to the project. This tool is now being used by cloud contributors who are unsure whether they have observed NLCs, as well as project scientists that want to flag images for review.\n\nGrab a camera and join the Space Cloud Watch project today! If you’ve hesitated to contribute to Space Cloud Watch because you were not certain if what you were seeing was a noctilucent cloud, you now have a way to check before you share – thanks to Namai.\n\nNamai Chandra, Space Cloud Watch volunteer and creator of the Noctilucent Cloud Detector tool.\n\nPhoto by Surabhi Chandra.\n\nSpace Cloud Watch\n\nPhotograph clouds just after sunset or before dawn to investigate our changing atmosphere.\n\nFacebook logo\n\n@nasascience_\n\nInstagram logo\n\nLinkedin logo",
+  "contentSource": "content:encoded"
+}
