@@ -1,0 +1,32 @@
+{
+  "id": "578f2121e456e16fc6ae643317b3cfe5fe7c8d56",
+  "title": "Microsoft Copilot reveals secret input that allowed it to be hacked",
+  "summary": "Secret parameter allowed hackers to steal passwords when a target clicked on a link.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/08/microsoft-copilot-reveals-secret-input-that-allowed-it-to-be-hacked",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-08-18T13:00:04.000Z",
+  "fetchedAt": "2026-08-18T14:30:12.398Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "copilot",
+    "exploits",
+    "guardrails",
+    "microsoft"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/06/GettyImages-2242817595-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/08/18/578f2121e456e16fc6ae643317b3cfe5fe7c8d56.json",
+  "contentText": "It’s not every day that attackers can force a frontier AI model to cough up user passwords and other sensitive data without user confirmation. That’s exactly what researchers recently did to Microsoft 365 Copilot Enterprise. Even more unusual is the source they tapped to discover the critical vulnerability that made their exploit possible. Rather than employing reverse engineering or other traditional vulnerability-hunting methods, they asked Copilot. The LLM assistant readily complied.\n\nResearchers at security firm Varonis knew they wanted to create an exploit that would exfiltrate user data when a user did nothing more than click on a link. Like most AI assistants today, Copilot steadfastly refused and made clear that sensitive prompts like that require explicit user consent in the form of a gesture, such as pressing a return key or other key. In response, the researchers peppered Copilot with questions about the guardrails that required user confirmation before the assistant can execute powerful commands.\n\nLoose lips sink ships\n\nThe dialog was like a game of 20 questions. Each answer provided a new clue that divulged information about the complex safety mechanism. Why was auto-execution impossible, they asked. What URL structures and deep links were involved? What happens when a page is loaded with input already in the prompt field? Each answer provided a deeper view into the guardrail and its limits. Eventually, Copilot provided a stunning Microsoft trade secret—an undocumented prompt parameter that completely bypassed the requirement for user consent.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
