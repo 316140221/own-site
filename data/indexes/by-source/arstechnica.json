@@ -1,5 +1,19 @@
 [
   {
+    "id": "2bfd09fe03ca10a3e6775b69671653adce1606c4",
+    "title": "Grok exfiltrates user data when malicious instructions are encrypted",
+    "summary": "Cryptographic Context Injection is only the latest way to break an LLM safety guardrail.",
+    "canonicalUrl": "https://arstechnica.com/security/2026/08/grok-exfiltrates-user-data-when-malicious-instructions-are-encrypted",
+    "source": {
+      "id": "arstechnica",
+      "name": "Ars Technica"
+    },
+    "publishedAt": "2026-08-20T13:00:35.000Z",
+    "category": "tech",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/06/xai-grok-1152x648.jpg",
+    "language": "en"
+  },
+  {
     "id": "c742e5607792327bcc1ba1a6a3baab57f9a21877",
     "title": "NASA calls off mission to rescue Swift gamma-ray observatory",
     "summary": "Without a rescue, NASA's Swift Observatory is expected to reenter the atmosphere later this year.",
@@ -6983,20 +6997,6 @@
     "publishedAt": "2026-06-30T20:20:29.000Z",
     "category": "tech",
     "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/06/GettyImages-1208692911-1152x648.jpg",
-    "language": "en"
-  },
-  {
-    "id": "dadf7c46ca6f4df81eaa820c2433712740eff117",
-    "title": "New attack provides one more reason why AI browsers are a bad idea",
-    "summary": "Telling an LLM that 2 + 2 = 5 is enough to make it follow forbidden instructions.",
-    "canonicalUrl": "https://arstechnica.com/security/2026/06/ai-browsers-can-be-lulled-into-a-dream-world-where-guardrails-no-longer-apply",
-    "source": {
-      "id": "arstechnica",
-      "name": "Ars Technica"
-    },
-    "publishedAt": "2026-06-30T20:03:14.000Z",
-    "category": "tech",
-    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/06/broken-ai-robot-browser-404-1152x648.jpg",
     "language": "en"
   }
 ]
