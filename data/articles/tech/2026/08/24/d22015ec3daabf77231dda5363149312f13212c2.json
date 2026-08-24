@@ -1,0 +1,32 @@
+{
+  "id": "d22015ec3daabf77231dda5363149312f13212c2",
+  "title": "Inaudible sounds used to fingerprint browsers catch AliExpress red-handed",
+  "summary": "Is the technique outdated? Yes. Is it still creepy? Also yes.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/08/aliexpress-caught-fingerprinting-visitors-after-sending-inaudible-sounds-to-browsers",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-08-24T19:19:21.000Z",
+  "fetchedAt": "2026-08-24T20:26:22.094Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "AliExpress",
+    "browser fingerprinting",
+    "chromium",
+    "firefox",
+    "Safari"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2022/03/browser-fingerprint-1000x648.jpeg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/08/24/d22015ec3daabf77231dda5363149312f13212c2.json",
+  "contentText": "Chinese retailer AliExpress has been caught fingerprinting visitors after one of the metrics—an outdated technique that measures inaudible sounds it sends to browsers—impeded a researcher's ability to use his bluetooth headphones.\n\nResearcher Matthew Callaghan said he stumbled on the stealthy tracking by mistake. After loading the AliExpress homepage, audio from his phone stopped playing over his multipoint headphones, which accept connections from more than one device at a time. He set the headphones to play sounds from his phone except when his PC was producing audio. Each time he loaded AliExpress, the phone audio stopped. Each time he closed the tab the site was loaded into, the phone was once again audible.\n\nUsers can't hear it, but browsers can\n\nWhile investigating the odd behavior, Callaghan said he found two highly obfuscated scripts. Together, they rendered a graph that analyzed the WebAudio readings of each visiting browser. This graph acted as an oscillator that measured Sawtooth waves , which are common in output from digital audio.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
