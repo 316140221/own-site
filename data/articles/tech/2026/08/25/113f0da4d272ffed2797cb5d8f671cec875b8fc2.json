@@ -1,0 +1,33 @@
+{
+  "id": "113f0da4d272ffed2797cb5d8f671cec875b8fc2",
+  "title": "New bootloader lets you take the \"Meta\" out of the original Meta Quest",
+  "summary": "Privilege escalation attack grants \"full control\" and freedom from Meta's servers/apps.",
+  "canonicalUrl": "https://arstechnica.com/gaming/2026/08/new-bootloader-lets-you-take-the-meta-out-of-the-original-meta-quest",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-08-25T16:04:37.000Z",
+  "fetchedAt": "2026-08-25T16:34:31.038Z",
+  "category": "tech",
+  "tags": [
+    "Gaming",
+    "hack",
+    "headset",
+    "meta",
+    "oculus",
+    "quest",
+    "virtual reality",
+    "VR"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/quest1-1152x648.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/08/25/113f0da4d272ffed2797cb5d8f671cec875b8fc2.json",
+  "contentText": "Remember the original Quest headset that Meta (then Oculus) trumpeted back in 2019 ? Meta seems to hope you don't, since the company officially stopped supporting the wireless VR headset in 2023 to focus on the more popular Quests 2 and 3 . Luckily, tinkerers haven't similarly abandoned the hardware and recently released a new root-access exploit and bootloader that gives \"developers and enthusiasts full control over Quest 1 hardware.\"\n\nThe QuestStack project integrates previously known vulnerabilities in the Quest's Android fastboot process into a privilege escalation chain that leads easily to full root access on the device. The bootloading process is now streamlined enough that it can be completed without any downloads through a web interface after connecting the headset to a PC.\n\nWith this exploit, the original Quest hardware can now be officially divorced from any reliance on Meta's servers or services to be useful. That means enterprising Quest owners should be able to sideload apps without needing to register for a Meta Developer account and activating Developer Mode through Meta's mobile app . It also means users should be able to go through the initial setup and login steps for a fresh Quest headset even if and when Meta decides to shut down the servers that currently support this process.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
