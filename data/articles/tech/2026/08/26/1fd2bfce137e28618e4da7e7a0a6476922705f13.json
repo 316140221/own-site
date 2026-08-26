@@ -1,0 +1,31 @@
+{
+  "id": "1fd2bfce137e28618e4da7e7a0a6476922705f13",
+  "title": "IBM's new Granite 4.2 models ride the wave of interest in local LLMs",
+  "summary": "The focus is on agentic capability and predictable enterprise deployment.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/08/ibms-new-granite-4-2-models-ride-the-wave-of-interest-in-local-llms",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-08-26T11:10:49.000Z",
+  "fetchedAt": "2026-08-26T12:43:40.213Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Granite",
+    "ibm",
+    "large language models",
+    "LLMs",
+    "open weights"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/ollama-granite-1152x648-1787698912.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/08/26/1fd2bfce137e28618e4da7e7a0a6476922705f13.json",
+  "contentText": "IBM has rolled out the newest models in its family of open-weight large language models designed to be downloaded and self-hosted. The newly launched Granite 4.2 comes in 3B, 8B, and 30B parameter variants.\n\nLike previous versions, IBM is taking a decoder-only approach here. These new releases offer a 128,000-token context window natively. The 8B and 30B variants (not the 3B one) also go through an agentic reinforcement learning block; they were trained for expanded capabilities like using the terminal, searching the web, or using external tools. The 3B model supports tools too, but without the same level of specialized training.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
