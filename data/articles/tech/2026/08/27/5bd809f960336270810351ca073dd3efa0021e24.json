@@ -1,0 +1,32 @@
+{
+  "id": "5bd809f960336270810351ca073dd3efa0021e24",
+  "title": "How OpenAI let a mob of LLM agents game a test and ransack Hugging Face",
+  "summary": "Without authorization, 1,200 OpenAI agents conspired among themselves to game a test.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/08/how-openai-let-a-mob-of-llm-agents-game-a-test-and-ransack-hugging-face",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-08-27T12:58:59.000Z",
+  "fetchedAt": "2026-08-27T18:48:23.168Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "AI agents",
+    "Hugging Face",
+    "LLMs",
+    "openai"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/GettyImages-1004669768-1152x648-1784927041.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/08/27/5bd809f960336270810351ca073dd3efa0021e24.json",
+  "contentText": "The OpenAI agents involved in last month’s incursion into Hugging Face were trained so heavily on winning a competition that they pursued a relentless campaign to cheat, a new report documented. In the process, and without authorization, they created an improvised message board to hatch a plan that ultimately landed them squarely inside the latter company’s network.\n\nOver the course of May and June, OpenAI gave the agents what the company described as “impossible tasks” to complete on the benchmarking framework ExploitGym. The internal test was designed to test how the agents would respond. To get a full understanding of the agent capabilities, company engineers disabled safety guardrails that normally are in place to prevent the sort of hacks that eventually hit Hugging Face and one other undisclosed organization. The stymied agents’ training made them so focused on winning that they performed tasks they were never explicitly instructed to follow.\n\nCheaters gonna cheat\n\nThe first step was creating a message board that allowed the agents to pass notes to each other. OpenAI hadn’t provided any such platform, so the agents repurposed a platform called Artifactory, which OpenAI was using in internal testing of several unreleased hacking agents. OpenAI was using Artifactory as one of the measures to prevent the agents from egressing its isolated sandboxes and accessing the Internet, while at the same time simulating a real-world hacking environment.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
