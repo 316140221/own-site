@@ -1,0 +1,31 @@
+{
+  "id": "ac5ababfb0d0ba23b64755f9a084259e59040e59",
+  "title": "A 12TB Steam “teraleak” spills more than a decade of lost PC gaming history",
+  "summary": "Cut content from Portal 2, hints of Half Life 2: Episode 3, and so much more.",
+  "canonicalUrl": "https://arstechnica.com/gaming/2026/08/a-12tb-steam-teraleak-spills-more-than-a-decade-of-lost-pc-gaming-history",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-08-30T21:40:56.000Z",
+  "fetchedAt": "2026-08-31T03:23:27.671Z",
+  "category": "tech",
+  "tags": [
+    "Gaming",
+    "leak",
+    "Left 4 Dead 2",
+    "Portal 2",
+    "Steam",
+    "Valve"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/teraweapon-1152x648-1788124932.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/08/30/ac5ababfb0d0ba23b64755f9a084259e59040e59.json",
+  "contentText": "Here at Ars, we're intimately familiar with data leaks surrounding Valve's games , hardware , and the workings of Steam itself . But nothing could have prepared us for this weekend's \"terarelease\" encompassing more than 12TB of content related to seemingly every title available on Steam between 2003 to 2013.\n\nWhat's being sold as an \"as-complete-as-possible ... content server dump\" of Steam's defunct \"Steam2\" server architecture from that time period is now circulating around via a BitTorrent tracker that Valve seems unlikely to ever completely purge from the Internet. The massive collection includes thousands of \"depots\" representing what seems to be every version of every game uploaded to those old Steam2 servers. That includes public release builds, of course, but in many cases also covers previously unseen pre-release, prototype, and playtest versions of popular titles published by Valve and third-party Steam publishers.\n\nSteam2: Electric Boogaloo\n\nThe reason this weekend's leaked content cuts off abruptly in 2013 is because that's when Valve updated its content distribution system from \"Steam2\" to the current SteamPipe system . In moving from a proprietary file distribution format to standard HTTP file trees, the new system removed various update approval bottlenecks on Valve's end and streamlined update and patch downloads so they only reflected file differentials.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
