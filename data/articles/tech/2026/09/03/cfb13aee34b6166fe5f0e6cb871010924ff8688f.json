@@ -1,0 +1,32 @@
+{
+  "id": "cfb13aee34b6166fe5f0e6cb871010924ff8688f",
+  "title": "US senator calls on the NSA to give guidance for use of VPNs",
+  "summary": "Open source, commercial, single-hop, multi-hop, mixnet? The array of options is dizzying.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/09/us-senator-calls-on-the-nsa-to-give-guidance-for-use-of-vpns",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-03T19:52:06.000Z",
+  "fetchedAt": "2026-09-03T22:17:57.149Z",
+  "category": "tech",
+  "tags": [
+    "Apple",
+    "Biz & IT",
+    "Security",
+    "multi-hop",
+    "single-hop",
+    "virtual private networks",
+    "vpns"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2024/05/vpn-tunnel-1000x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/03/cfb13aee34b6166fe5f0e6cb871010924ff8688f.json",
+  "contentText": "A prominent US senator is asking the National Security Agency to provide guidance to the general public on best practices for using virtual private networks to secure their communications from spying by foreign adversaries.\n\nVPNs funnel all of a user’s Internet traffic through an encrypted connection to a remote server. The design provides strong assurances that no one between the user and the server can read the encrypted contents. VPNs also allow users to hide their IP addresses from the destination servers they communicate with. While US agencies have previously recommended use of VPNs, none have given recommendations on which ones provide adequate protection.\n\nIt's all in the nuances\n\nThere are a host of limitations that can undo many of the protections users may think their VPN provides them. For instance, the encrypted tunnel often terminates once a single server decrypts the traffic and sends it on to its final destination. That means the decrypted traffic or the sending and destination IP addresses may be available for snooping by rogue employees or attackers who hack the server. VPNs also don’t encrypt certain types of metadata, such as time stamps, allowing nation-states to build profiles that can be useful in intelligence gathering.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
