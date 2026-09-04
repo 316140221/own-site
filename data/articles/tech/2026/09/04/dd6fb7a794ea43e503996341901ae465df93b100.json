@@ -1,0 +1,31 @@
+{
+  "id": "dd6fb7a794ea43e503996341901ae465df93b100",
+  "title": "Once popular for attacking AI, ASCII smuggling is embraced by spammers",
+  "summary": "A once-overlooked block of unicode that's invisible to humans is gaining ever wider use.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/09/once-popular-for-attacking-ai-ascii-smuggling-is-embraced-by-spammers",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-04T17:18:12.000Z",
+  "fetchedAt": "2026-09-04T20:14:20.347Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "ascii smuggling",
+    "prompt injections",
+    "spam filter evasion"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/no-eyes-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/04/dd6fb7a794ea43e503996341901ae465df93b100.json",
+  "contentText": "A clever technique used to hide malicious prompts in attacks on AI agents has been adopted by spammers to evade filters on email platforms that are designed to flag unwanted messages used in mass campaigns.\n\nThe technique is broadly known as ASCII smuggling. It gained attention two years ago as a means of making a class of AI attack known as prompt injections more stealthy. Malicious instructions embedded in emails or other untrusted content to be processed by an LLM aren’t written in ordinary text. Instead, they’re rendered by a special range of Unicode tags. For example, the tag point U+E0041 mirrors “A,” and U+E0061 mirrors “a.”\n\nNo longer just for obscuring prompt injections\n\nThe block of 128 tags mimics a portion of the American Standard Code for Information Interchange almost perfectly, with one major difference: the characters they encode are readable by computers but, by design, are almost completely invisible to humans. By expressing the malicious prompts in these tags, LLMs detect the instructions, but people reading the email never see them. There’s much more about ASCII smuggling here .\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
