@@ -1,0 +1,30 @@
+{
+  "id": "12bd95b765d11091b150850c3b1b5b829f665315",
+  "title": "Update to Google’s AI weather model improves forecast accuracy",
+  "summary": "Like traditional weather models, it benefits from an expanded set of inputs.",
+  "canonicalUrl": "https://arstechnica.com/science/2026/09/googles-ai-weather-model-now-uses-more-raw-satellite-data",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-08T18:00:56.000Z",
+  "fetchedAt": "2026-09-08T22:21:02.973Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Google",
+    "Science",
+    "machine learning",
+    "weather models"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/GettyImages-85757697-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/08/12bd95b765d11091b150850c3b1b5b829f665315.json",
+  "contentText": "Google is one of the major players in AI (meaning machine learning) weather forecast model space. The models it and others generate have their strengths and weaknesses , but the main advantage is that they can have forecast performance similar to traditional models while requiring far less computing horsepower to run. That means they can be run more frequently.\n\nGoogle recently released version 3 of its WeatherNext model, with the biggest change being that it now ingests some satellite weather data, shortening the lag time between current weather conditions and generating a new forecast. The update is detailed in a white paper .\n\nReanalysis\n\nMany weather models make use of what’s called a “reanalysis,” which is a sort of model of its own. Reanalyses take in all kinds of weather data and combine them into a single, consistent global snapshot of the atmosphere. That requires that they provide estimates for conditions over locations without real-world measurements, because weather forecast models need to work with a global picture.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
