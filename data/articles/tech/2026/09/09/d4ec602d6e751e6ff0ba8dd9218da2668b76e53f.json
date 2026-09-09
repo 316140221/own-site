@@ -1,0 +1,35 @@
+{
+  "id": "d4ec602d6e751e6ff0ba8dd9218da2668b76e53f",
+  "title": "Google's AI genome system evaluates every possible one-base change",
+  "summary": "Most one-base changes to the human genome do nothing, but a few are significant.",
+  "canonicalUrl": "https://arstechnica.com/science/2026/09/googles-ai-genome-system-evaluates-every-possible-one-base-change",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-09T16:34:18.000Z",
+  "fetchedAt": "2026-09-09T22:14:51.099Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Google",
+    "Science",
+    "AlphaGenome",
+    "Biology",
+    "gene regulation",
+    "Genomics",
+    "google",
+    "non-coding DNA",
+    "splicing"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/GettyImages-2201567552-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/09/d4ec602d6e751e6ff0ba8dd9218da2668b76e53f.json",
+  "contentText": "On Tuesday, Google announced AlphaGenome Atlas , a resource that attempts to predict the consequences of every possible single-base variant in the human genome. The human genome is about 3 billion bases long, so trying the other three DNA bases that don't appear in our reference genome means sending a total of 9 billion bases through AlphaGenome software.\n\nAlphaGenome is designed to identify potential functions of non-coding DNA, which does not encode proteins but makes up the vast majority of the human genome. Some of this non-coding DNA is essential for controlling the activity of the protein-coding portion—it tells the cell where and when to make messenger RNAs, how to process them into mature protein-coding forms, and so on. But much of it appears to be little more than the remains of viruses and other molecular parasites.\n\nBeing able to identify the functional portion is very useful, as is having all the analysis done by a single software package. But until biologists start to use it heavily (assuming they do), it won't be clear what AlphaGenome offers beyond what we could have gotten out of its training data.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
