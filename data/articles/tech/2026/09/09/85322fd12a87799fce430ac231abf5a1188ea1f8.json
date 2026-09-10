@@ -1,0 +1,31 @@
+{
+  "id": "85322fd12a87799fce430ac231abf5a1188ea1f8",
+  "title": "4 groups caught using the same Chrome and Windows exploit kit",
+  "summary": "A patch gap and the hastened pace of AI-based vulnerability discovery are likely contributors.",
+  "canonicalUrl": "https://arstechnica.com/information-technology/2026/09/4-groups-caught-using-the-same-chrome-and-windows-exploit-kit",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-09T20:55:02.000Z",
+  "fetchedAt": "2026-09-10T02:56:35.884Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "chrome",
+    "chromium",
+    "exploits",
+    "Windows"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/09/code-vulnerability-security-1000x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/09/85322fd12a87799fce430ac231abf5a1188ea1f8.json",
+  "contentText": "A nearly identical exploit kit that targets critical vulnerabilities in both Chromium-based browsers and older versions of Windows is being actively used by at least four hacking groups, some of which have ties to the Chinese government.\n\nResearchers from security firm Proofpoint said Wednesday that BlueMoon, the name they gave to the kit, chains three vulnerabilities together so the attackers using it can install malware of their choice. BlueMoon exploits two Chromium vulnerabilities and one in the kernel of Windows 10 (Oct 2018 Update), Windows Server 2019, Windows 10 2004, Windows Server 2022, and the initial release of Windows 11. All three vulnerabilities have received patches in the past 24 hours.\n\nDeployed rapidly, widely shared\n\nThe attacks lacked the stealth found in many campaigns. More often, hackers want to exploit newly discovered vulnerabilities sparingly to lengthen their longevity. Proofpoint hypothesized that one reason for the widely used and visible exploit chain was to take advantage of a “patch gap” in the Chromium supply chain, which spans the time a patch is available from developers and the time that patch is incorporated into browsers such as Chrome and Edge. Another likely contributor was the use of AI, which can often spot vulnerabilities faster than discovery performed solely by humans.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
