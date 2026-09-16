@@ -1,0 +1,37 @@
+{
+  "id": "1fcf60fdf5f4ffc1ecc259547aef600a8393812a",
+  "title": "Iran strikes on Amazon data centers caused permanent loss of customer data",
+  "summary": "War damage to data centers exceeded what AWS services are designed to withstand.",
+  "canonicalUrl": "https://arstechnica.com/gadgets/2026/09/iran-strikes-on-amazon-data-centers-caused-permanent-loss-of-customer-data",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-16T16:40:11.000Z",
+  "fetchedAt": "2026-09-16T19:21:58.071Z",
+  "category": "tech",
+  "tags": [
+    "Tech",
+    "ai data centers",
+    "Amazon",
+    "Amazon AWS",
+    "Amazon Web Services",
+    "AWS",
+    "aws outage",
+    "cloud services",
+    "data centers",
+    "Iran",
+    "military drones",
+    "USA-Iran War"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/AWS-data-center-in-Abu-Dhabi-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/16/1fcf60fdf5f4ffc1ecc259547aef600a8393812a.json",
+  "contentText": "Half a year after Iranian drone strikes knocked out multiple Amazon data centers, the US tech company has acknowledged the permanent loss of some customer data that was hosted in Bahrain and the United Arab Emirates.\n\nAmazon Web Services was “unable to restore access to the resources and data” hosted in some of the war-damaged data centers, according to an AWS dashboard update posted on September 15. The development was first reported by Reuters and suggests that the Iranian strikes inflicted catastrophic damage on the data centers.\n\nCustomer data was irretrievably lost in one of three AWS availability zones in the United Arab Emirates region, specifically the mec1-az2 availability zone. Each availability zone is serviced by one or more Amazon data centers.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
