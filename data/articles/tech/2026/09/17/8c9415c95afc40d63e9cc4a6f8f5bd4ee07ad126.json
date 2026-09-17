@@ -1,0 +1,24 @@
+{
+  "id": "8c9415c95afc40d63e9cc4a6f8f5bd4ee07ad126",
+  "title": "Claude Code relaunches Projects to manage multiple AI agents in the cloud",
+  "summary": "The revamped projects feature in Claude Code allows users to run multiple agents under the same roof, with a shared memory, goals, and library of files and artifacts. Similar to Grok Bot and other tools that manage groups of AI agents, each project has \"threads\" running different tasks in parallel, with a \"coordinator\" directing everything: Under the hood,…",
+  "canonicalUrl": "https://theverge.com/ai-artificial-intelligence/997134/anthropic-claude-code-projects",
+  "source": {
+    "id": "theverge",
+    "name": "The Verge",
+    "url": "https://www.theverge.com/",
+    "feedUrl": "https://www.theverge.com/rss/index.xml",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-17T18:58:05.000Z",
+  "fetchedAt": "2026-09-17T19:31:47.712Z",
+  "category": "tech",
+  "tags": [],
+  "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/05/STKB364_CLAUDE_2_C_96d15c.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/17/8c9415c95afc40d63e9cc4a6f8f5bd4ee07ad126.json",
+  "contentText": "The revamped projects feature in Claude Code allows users to run multiple agents under the same roof, with a shared memory, goals, and library of files and artifacts. Similar to Grok Bot and other tools that manage groups of AI agents, each project has \"threads\" running different tasks in parallel, with a \"coordinator\" directing everything:\n\nUnder the hood, each thread is a Claude Code cloud session working on its own branch and copy of the repo. The coordinator keeps work organized, but if any threads work on the same code, the overlap is resolved as a merge conflict just like any other PR. Each thread can further split its delegated work …\n\nRead the full story at The Verge.",
+  "contentSource": "content"
+}
