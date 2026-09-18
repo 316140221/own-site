@@ -1,0 +1,31 @@
+{
+  "id": "d59b52369c55c86a2f41bb5b56b167be982fe9b7",
+  "title": "Hackers reveal how Flock cameras really track cars and people",
+  "summary": "One hacked camera captured 1.6 million images and could detect people as well as cars.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/09/hackers-reveal-how-flock-cameras-really-track-cars-and-people",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-17T09:43:46.000Z",
+  "fetchedAt": "2026-09-18T08:43:43.057Z",
+  "category": "tech",
+  "tags": [
+    "Security",
+    "automated license plate readers",
+    "Flock!",
+    "hacking",
+    "surveillance",
+    "syndication"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/05/flock-camera-1152x648-1779223467.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/17/d59b52369c55c86a2f41bb5b56b167be982fe9b7.json",
+  "contentText": "Hackers ripped down a Flock camera above a roadway, made a near-complete copy of the data stored inside it, and shared the files with 404 Media and WIRED, revealing in new detail how exactly Flock Safety’s cameras track the movements of both vehicles and people . The hackers say they are also publishing details on how they managed to obtain the software, in the hopes that other people may copy them.\n\nThe breach provides an unprecedented look inside a system that Flock has described as protected by on-device encryption . The hackers were able to copy the camera’s storage and recover an encryption key stored on the device, which unlocked videos of thousands of vehicle detections. The hackers shared the material with 404 Media and the transparency nonprofit Distributed Denial of Secrets , which shared the data with WIRED. 404 Media and WIRED then analyzed those files as part of a joint investigation.\n\nWhile much of the automatic license plate reader’s most sensitive storage remained encrypted and inaccessible, the joint analysis of the recovered data shows that software running on the device explicitly detects people as well as vehicles, license plates, and bicycles. The camera can produce dozens of images of a single passing vehicle and, according to several weeks of recovered logs, generated more than a million images. Its computer-vision software also sometimes isolated bumper stickers and other graphics, including, in one case, an American flag patch on a motorcyclist’s saddlebag.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
