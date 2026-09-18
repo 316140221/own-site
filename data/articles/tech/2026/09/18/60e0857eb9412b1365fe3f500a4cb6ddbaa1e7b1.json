@@ -1,0 +1,24 @@
+{
+  "id": "60e0857eb9412b1365fe3f500a4cb6ddbaa1e7b1",
+  "title": "Security researchers used Claude to help them hack into OpenAI",
+  "summary": "A team of three independent security researchers at Hacktron says it took less than 72 hours for them to hack into OpenAI employee accounts using Anthropic's Claude Opus 4.8 and 5, The Wall Street Journal reports. They were able to access OpenAI's GitHub repository, called \"Monorepo,\" which reportedly contains \"OpenAI's algorithmic secrets,\" according to Th…",
+  "canonicalUrl": "https://theverge.com/ai-artificial-intelligence/997444/openai-hack-claude-heif-heist",
+  "source": {
+    "id": "theverge",
+    "name": "The Verge",
+    "url": "https://www.theverge.com/",
+    "feedUrl": "https://www.theverge.com/rss/index.xml",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-18T15:30:16.000Z",
+  "fetchedAt": "2026-09-18T18:51:20.942Z",
+  "category": "tech",
+  "tags": [],
+  "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/STKS533_AI_AGENTS_HACKING_D.png?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/18/60e0857eb9412b1365fe3f500a4cb6ddbaa1e7b1.json",
+  "contentText": "A team of three independent security researchers at Hacktron says it took less than 72 hours for them to hack into OpenAI employee accounts using Anthropic's Claude Opus 4.8 and 5, The Wall Street Journal reports. They were able to access OpenAI's GitHub repository, called \"Monorepo,\" which reportedly contains \"OpenAI's algorithmic secrets,\" according to The Wall Street Journal 's sources.\n\nThey stopped short of accessing internal code in Monorepo themselves, but sent a pull request from an employee's Codex account to prove they gained access. They were able to get in through Discourse, the third-party service that hosts OpenAI's community f …\n\nRead the full story at The Verge.",
+  "contentSource": "content"
+}
