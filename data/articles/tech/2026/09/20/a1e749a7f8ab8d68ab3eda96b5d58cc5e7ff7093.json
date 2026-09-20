@@ -1,0 +1,33 @@
+{
+  "id": "a1e749a7f8ab8d68ab3eda96b5d58cc5e7ff7093",
+  "title": "An undercover Google analyst infiltrated a notorious supply-chain hacking gang",
+  "summary": "Google’s threat intelligence group said it had a mole inside TeamPCP's inner circle.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/09/an-undercover-google-analyst-infiltrated-a-notorious-supply-chain-hacking-gang",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-20T11:07:00.000Z",
+  "fetchedAt": "2026-09-20T13:55:53.260Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Google",
+    "Security",
+    "Mole",
+    "supply chain attack",
+    "supply chain hacking",
+    "syndication",
+    "teampcp"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/GettyImages-2216350484-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/20/a1e749a7f8ab8d68ab3eda96b5d58cc5e7ff7093.json",
+  "contentText": "Before two of its alleged members were arrested and charged in Australia last month, the hacker group known as TeamPCP carried out a hacking spree unlike any other in history. It tainted hundreds of open-source programs with its malware, stole developer accounts to perpetuate that software supply-chain hacking, and even released a Dune -themed self-spreading worm to automate the process, ultimately breaching more than a thousand companies.\n\nNow Google’s threat intelligence group has revealed that during a key moment of TeamPCP’s rampage, the company’s own undercover researcher had infiltrated the group—allowing Google to monitor the hacking spree from the inside, warn breach targets, and even help disrupt the group’s attempts to exploit those victims.\n\nIn a talk at security firm SentinelOne's LABScon research conference today, Google Threat Intelligence Group researcher Austin Larsen will present details on the company’s investigation—and infiltration—of TeamPCP amidst the group’s unprecedented, chaotic supply-chain hacking campaign. According to Larsen, Google eventually followed a trail of operational security mistakes allegedly made by one of the two Australians now accused of being leading members of the hacker group and passed on key identifying details to law enforcement. The company also received intelligence from ShinyHunters, another infamous cybercriminal group that TeamPCP partnered with, but which later turned on the supply-chain hackers. And perhaps most surprisingly, Larsen says that Google’s security subsidiary Mandiant had an undercover analyst—not himself—within the group’s inner circle from almost the beginning of TeamPCP’s time in the spotlight.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
