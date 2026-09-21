@@ -1,0 +1,31 @@
+{
+  "id": "69455969e5fdb2ac8d93f31813ab85196a9fe621",
+  "title": "Google confirms Gemini models hacked three companies in May 2026",
+  "summary": "A third-party cybersecurity firm accidentally gave experimental Gemini models access to the Internet.",
+  "canonicalUrl": "https://arstechnica.com/google/2026/09/google-confirms-gemini-models-hacked-three-companies-in-may-2026",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-21T16:57:26.000Z",
+  "fetchedAt": "2026-09-21T21:41:07.779Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Google",
+    "Artificial Intelligence",
+    "cybersecurity",
+    "gemini",
+    "google"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/gemini-general-5-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/21/69455969e5fdb2ac8d93f31813ab85196a9fe621.json",
+  "contentText": "It has become increasingly common for AI firms to announce that their latest and most capable models engaged in unauthorized real-world hacking. Google, which has been slow to release frontier Gemini models in recent months, has been absent from the \"rogue AI\" conversation until now. Following a Wall Street Journal report, Google has confirmed that Gemini models hacked three companies during a May 2026 test, but the nature of the intrusion isn't as troubling (or impressive) as previous AI hacks.\n\nThe hack took place during a test conducted by cybersecurity firm Irregular. A collection of Gemini models were taking part in a \"capture the flag\" exercise intended to test the AI's cybersecurity capabilities in a closed environment. The AI was instructed to retrieve information from a fake company (which shared a name with a real company) within this environment. Irregular was not supposed to allow the model to operate outside its servers, but due to a misconfiguration, Gemini was able to access the Internet.\n\nWhen Gemini started snooping around the web, it targeted real infrastructure instead of the fakes. For one of the three hacks, Gemini simply guessed passwords until it accessed a company's online services. In the other two instances, Gemini searched public software repositories until it found login credentials for companies that had been accidentally included.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
