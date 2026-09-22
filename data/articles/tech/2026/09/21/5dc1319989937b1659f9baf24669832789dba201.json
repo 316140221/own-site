@@ -1,0 +1,33 @@
+{
+  "id": "5dc1319989937b1659f9baf24669832789dba201",
+  "title": "Muse, Meta's extraordinarily privileged AI assistant, has a serious 0-day",
+  "summary": "A simple ClickFix attack is only one way to completely hijack the new agent.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/09/muse-metas-extraordinarily-privileged-ai-assistant-has-a-serious-0-day",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-21T22:24:38.000Z",
+  "fetchedAt": "2026-09-22T00:34:43.600Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "AI assistants",
+    "meta",
+    "privacy",
+    "security",
+    "zero days"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/ai-agent-hacking-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/21/5dc1319989937b1659f9baf24669832789dba201.json",
+  "contentText": "Meta introduced Muse a few weeks ago. The assistant “books appointments, fills out forms and handles customer service,” “proactively takes tasks off your plate,” and can “make purchases, generate images, create documents, and connect with your favorite apps and services.” The macOS app (curiously, there’s no Windows version) also works with a user’s WhatsApp, email, calendar, and social media accounts. When a task requires a tool that doesn’t exist, Muse creates one on the fly.\n\nMeta doth hype Muse security too much\n\nOf course, for Muse to do any of these things, users must first give it access to their accounts. This includes authenticating the assistant to each service and, because the app runs on macOS, giving it permissions to a broad range of operating system-restricted device resources like writing files to disk, accessing the mic and camera, and monitoring location and calendars. Apple has spent years developing these defenses to prevent installed apps or commands entered into the terminal from accessing these resources, clearly because the company considers them a security threat. Muse completely undoes these default measures.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
