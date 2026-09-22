@@ -1,0 +1,31 @@
+{
+  "id": "df5d53f03b14fbcf809b26949096404edbaf6e4c",
+  "title": "Microsoft disrupts AI-assisted platform that compromised 12,000 accounts",
+  "summary": "EvilTokens provided an end-to-end platform that makes mass compromises faster and easier.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/09/microsoft-disrupts-ai-assisted-platform-that-compromised-12000",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-22T19:45:47.000Z",
+  "fetchedAt": "2026-09-22T23:58:46.410Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "AI ATTACK",
+    "chatbots",
+    "spam"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/ai-automation-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/22/df5d53f03b14fbcf809b26949096404edbaf6e4c.json",
+  "contentText": "Microsoft said Tuesday that it led an industry-wide disruption of a subscription-based scam platform that used an AI chatbot to compromise 12,000 Microsoft accounts over a few-month span.\n\nNamed EvilTokens, the platform was introduced over a Telegram channel in February and charged an initial $1,500 fee and a recurring $500 charge each month after that. EvilTokens provided a single service for streamlining most steps required to compromise email accounts in large numbers. From there, the platform helped customers analyze inboxes, select targets that would provide the biggest potential payouts, and draft follow-up emails that provided realistic ruses for tricking company employees into transferring funds to attacker-controlled accounts.\n\nMinutes, not days\n\n“While EvilTokens helped cybercriminals access email accounts, at the center of the service was an AI-style chatbot that could analyze a victim’s inbox and help criminals identify trusted relationships, payment authorizations, and sensitive responsibilities, as well as other circumstances where fraud was most likely to succeed,” Microsoft said . “The platform could even recommend fraud strategies, including drafting messages that impersonated trusted contacts to help criminals trick victims into taking action.”\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
