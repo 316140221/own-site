@@ -1,0 +1,24 @@
+{
+  "id": "9fdb97c629dc0471bae56445fe9e2c204564fd06",
+  "title": "Meta patches Muse exploit that let attackers control the AI agent",
+  "summary": "The zero-day exploit required local access to the user’s device, but gave potential attackers access to Muse accounts. | Image: The Verge Meta has issued a patch for its Muse macOS app following the discovery of a zero-day vulnerability that could allow someone to take control of the AI agent. The bug found by security researcher Patrick Wardle utilized an…",
+  "canonicalUrl": "https://theverge.com/tech/998679/meta-muse-patch-zero-day-exploit-ai-agent",
+  "source": {
+    "id": "theverge",
+    "name": "The Verge",
+    "url": "https://www.theverge.com/",
+    "feedUrl": "https://www.theverge.com/rss/index.xml",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-22T11:53:58.000Z",
+  "fetchedAt": "2026-09-22T13:03:46.143Z",
+  "category": "tech",
+  "tags": [],
+  "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/STKS533_AI_AGENTS_HACKING_D_54a015.png?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/22/9fdb97c629dc0471bae56445fe9e2c204564fd06.json",
+  "contentText": "The zero-day exploit required local access to the user’s device, but gave potential attackers access to Muse accounts. | Image: The Verge\n\nMeta has issued a patch for its Muse macOS app following the discovery of a zero-day vulnerability that could allow someone to take control of the AI agent. The bug found by security researcher Patrick Wardle utilized an undocumented Muse setting that enabled potential attackers running local code to redirect transcription processing from Meta's servers to their own endpoint, Ars Technica reports, giving the attacker access to the Muse account.\n\nSeveral design decisions reportedly enabled this flaw, including having Muse dictation occur in the cloud instead of on-device, and allowing any app to control all of Muse's undocumented settings. Pr …\n\nRead the full story at The Verge.",
+  "contentSource": "content"
+}
