@@ -1,0 +1,24 @@
+{
+  "id": "4d3bafc74a80caea894d05da72bbad04598aa353",
+  "title": "Muse will apparently let you download its entire filesystem",
+  "summary": "A pair of developers say that with very little prompting, Meta's Muse will share its entire filesystem with you. Peter James and Jonny L. Saunders have said they both independently coaxed Muse into zipping up and sharing the entire contents of its root filesystem, Ubuntu system files, app templates, and internal documentation. Saunders posted on Mastodon th…",
+  "canonicalUrl": "https://theverge.com/ai-artificial-intelligence/1000222/meta-muse-ai-filesystem",
+  "source": {
+    "id": "theverge",
+    "name": "The Verge",
+    "url": "https://www.theverge.com/",
+    "feedUrl": "https://www.theverge.com/rss/index.xml",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-24T17:14:12.000Z",
+  "fetchedAt": "2026-09-24T18:09:06.741Z",
+  "category": "tech",
+  "tags": [],
+  "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/STKB394_MUSE_AI_CVIRGINIA_A.png?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/24/4d3bafc74a80caea894d05da72bbad04598aa353.json",
+  "contentText": "A pair of developers say that with very little prompting, Meta's Muse will share its entire filesystem with you. Peter James and Jonny L. Saunders have said they both independently coaxed Muse into zipping up and sharing the entire contents of its root filesystem, Ubuntu system files, app templates, and internal documentation. Saunders posted on Mastodon that it was \"extremely easy\" to replicate James' results and that Muse had \"Almost no prompt injection resistance.\"\n\nMeta denies that the incident represents a security breach. As noted in its announcement post, Meta's Muse runs in persistent Linux virtual machines for each user. Meta spokes …\n\nRead the full story at The Verge.",
+  "contentSource": "content"
+}
