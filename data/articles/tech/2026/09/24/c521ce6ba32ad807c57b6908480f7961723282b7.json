@@ -1,0 +1,31 @@
+{
+  "id": "c521ce6ba32ad807c57b6908480f7961723282b7",
+  "title": "There's a new way to break RSA that's faster than anything we've seen before",
+  "summary": "Until now, cryptographers thought factoring was the only way to break RSA. Not anymore.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/09/theres-a-new-way-to-break-rsa-thats-faster-than-anything-weve-seen-before",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-24T11:15:44.000Z",
+  "fetchedAt": "2026-09-24T13:08:33.228Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "cryptanalysis",
+    "factoring",
+    "key forgery",
+    "RSA"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/breaking-digital-chain-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/24/c521ce6ba32ad807c57b6908480f7961723282b7.json",
+  "contentText": "The world has known for decades that the RSA cryptosystem ’s days are numbered. Once quantum computing becomes practical (estimates for that range from 3 to 20 or more years), the foundational security it provides will crumble. New research has revealed a novel method that uses classical computing to reduce the current RSA security level to an unacceptably low threshold.\n\nThe finding poses little to no practical threat in the immediate term, except possibly in a few edge cases. Even applying the attack against the deprecated use of 1024-bit keys, the method requires more computation than just about anybody—short of nation-states or companies with massive resources—can achieve. Widely used RSA implementations are also safe.\n\nNonetheless, the research has taken cryptographers by surprise because it introduces signature forgery, a new way to break RSA keys without factoring. Equally important, this novel method reduces the required computing resources by orders of magnitude.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
