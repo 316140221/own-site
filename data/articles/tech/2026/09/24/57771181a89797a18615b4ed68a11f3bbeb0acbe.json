@@ -1,0 +1,31 @@
+{
+  "id": "57771181a89797a18615b4ed68a11f3bbeb0acbe",
+  "title": "Google's first Suncatcher orbital data center test launches October 1",
+  "summary": "Google's experimental orbital data center will have four TPUs and only run for 15 minutes at a time.",
+  "canonicalUrl": "https://arstechnica.com/google/2026/09/googles-first-suncatcher-orbital-data-center-test-launches-october-1",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-24T16:16:34.000Z",
+  "fetchedAt": "2026-09-24T22:59:47.784Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Google",
+    "google",
+    "orbital data centers",
+    "space",
+    "suncatcher"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/suncatcher-1152x648.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/24/57771181a89797a18615b4ed68a11f3bbeb0acbe.json",
+  "contentText": "Google is taking its first step toward making Project Suncatcher a reality. Announced last year, Suncatcher is Google's \"moonshot\" effort to design orbital AI data centers, which AI boosters like Elon Musk and Jeff Bezos have pitched as an alternative to divisive terrestrial data centers . Google's first experimental satellite will launch on October 1 with the aim of validating Google's vision for a constellation of AI satellites .\n\nThe satellite, dubbed MVP, is about the size of a refrigerator. Inside, it has four of Google's custom TPU AI accelerators, which are used to train AI models and run inference to generate tokens for AI workloads. On Earth, a data center will run thousands of these chips, which consume massive amounts of power—one of the reasons putting solar-powered AI hardware in space is so attractive.\n\nGoogle’s latest moonshot to put machine learning in space.\n\nMVP is starting small, with solar panels that supply only about one kilowatt of power, The New York Times reports. That's enough to power a microwave or a hair dryer. Google did not build the satellite from scratch. While the AI hardware inside is Google's, the spacecraft comes from a satellite imagery firm called Planet Labs. The initial plan was to launch two custom satellites in 2027, but Google wanted to accelerate its efforts. So the company opted to integrate its chips into a satellite that Planet Labs had already built for an early test.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
