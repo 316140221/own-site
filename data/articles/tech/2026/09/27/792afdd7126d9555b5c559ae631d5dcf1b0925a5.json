@@ -1,0 +1,24 @@
+{
+  "id": "792afdd7126d9555b5c559ae631d5dcf1b0925a5",
+  "title": "OpenAI agents tried to ‘bruteforce’ a UN website",
+  "summary": "The United Nations logo on a gate outside the UN headquarters in New York. | AFP via Getty Images Security researcher Rowan Howard-Jones says that OpenAI agents scanned the UN Conference on Trade and Development's (UNCTAD) statistics site over 16,000 times between April and June. While the incident doesn't quite rise to the level of the Hugging Face hack, o…",
+  "canonicalUrl": "https://theverge.com/ai-artificial-intelligence/1001178/openai-agents-bruteforce-un-website",
+  "source": {
+    "id": "theverge",
+    "name": "The Verge",
+    "url": "https://www.theverge.com/",
+    "feedUrl": "https://www.theverge.com/rss/index.xml",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-27T17:21:07.000Z",
+  "fetchedAt": "2026-09-27T19:30:58.402Z",
+  "category": "tech",
+  "tags": [],
+  "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/gettyimages-2236154957.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/27/792afdd7126d9555b5c559ae631d5dcf1b0925a5.json",
+  "contentText": "The United Nations logo on a gate outside the UN headquarters in New York. | AFP via Getty Images\n\nSecurity researcher Rowan Howard-Jones says that OpenAI agents scanned the UN Conference on Trade and Development's (UNCTAD) statistics site over 16,000 times between April and June . While the incident doesn't quite rise to the level of the Hugging Face hack , or the recent attacks on US government sites , it's yet another concerning example of AI agents going outside the normal bounds to accomplish a task.\n\nAccording to Howard-Jones, the agents were likely tasked with retrieving publicly available data related to the Productive Capacities Index (PCI) through the UNCTADstat API. However, the agents did not appear to have direct API access and …\n\nRead the full story at The Verge.",
+  "contentSource": "content"
+}
