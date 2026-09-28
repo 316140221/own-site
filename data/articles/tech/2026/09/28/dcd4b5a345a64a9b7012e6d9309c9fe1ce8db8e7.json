@@ -1,0 +1,32 @@
+{
+  "id": "dcd4b5a345a64a9b7012e6d9309c9fe1ce8db8e7",
+  "title": "OpenAI halts frontier-model training amid string of agent misalignment incidents",
+  "summary": "US Government websites among \"dozens of third parties\" OpenAI has recently notified.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/09/openai-halts-frontier-model-training-amid-string-of-agent-misalignment-incidents",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-28T16:43:18.000Z",
+  "fetchedAt": "2026-09-28T19:12:11.812Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "government",
+    "misalignment",
+    "openai",
+    "pause",
+    "risk",
+    "training"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/sleepyrobot-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/28/dcd4b5a345a64a9b7012e6d9309c9fe1ce8db8e7.json",
+  "contentText": "OpenAI says it has paused all internal training of \"our most capable models\" as it continues what CEO Sam Altman is calling \"an extensive and ongoing review related to our agents’ use of internet access during training and evaluation.\"\n\nThe company revealed the pause in a report about a so-called misalignment incident in which an agent attempted to exploit a gap in Internet-access restrictions during a routine research task during training. OpenAI says that improper DNS filtering allowed the agent to attempt to break out of its sandbox and access the wider Internet when asked for biographical details about a blogger.\n\nOpenAI says the agent was only able to access the company's offline web cache and that it has implemented additional multi-layered blocking controls to prevent similar incidents in the future. Despite that, though, the company says it has decided to \"pause all other training, evaluation, and inference with tool-use\" for this frontier model \"until we have both validated that the gap is resolved and performed additional red-teaming of the system.\"\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
