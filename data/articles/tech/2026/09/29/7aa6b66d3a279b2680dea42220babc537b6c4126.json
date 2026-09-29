@@ -1,0 +1,32 @@
+{
+  "id": "7aa6b66d3a279b2680dea42220babc537b6c4126",
+  "title": "Here's what actually happened in OpenAI's Australian gov't server hack",
+  "summary": "Without a \"full set of safeguards,\" agent accessed \"system information and source code.\"",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/09/heres-what-actually-happened-in-openais-australian-govt-server-hack",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-29T18:11:09.000Z",
+  "fetchedAt": "2026-09-29T20:26:20.586Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "agent",
+    "australia",
+    "government",
+    "hacking",
+    "misalignment",
+    "openai"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/GettyImages-1840671728-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/29/7aa6b66d3a279b2680dea42220babc537b6c4126.json",
+  "contentText": "Last week, when Australian Prime Minister Anthony Albanese told the world that an OpenAI agent had accessed \"non-public files\" from his country's Medicare statistics portal during testing, his description of the incident was a little light on details. Today, we're getting new information on just how far OpenAI's overzealous agent went in attempting to satisfy a rather innocuous-sounding informational prompt.\n\nIn a newly published blog post , OpenAI says the June incident started when the company asked \"an experimental, internal-only OpenAI model\" to research government spending statistics in the Australian state of Victoria. When the model ran into trouble finding that data using the publicly published statistics that it was supposed to reference, \"it took actions that we had not authorized it to take\" to find an answer, OpenAI said.\n\nThose unauthorized actions included finding \"a way to gain non-public access to the service\" and using that access to view \"technical system information and source code\" alongside credentials and the aggregate statistics it was actually searching for, OpenAI said.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
