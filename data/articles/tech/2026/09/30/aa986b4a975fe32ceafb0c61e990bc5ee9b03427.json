@@ -1,0 +1,30 @@
+{
+  "id": "aa986b4a975fe32ceafb0c61e990bc5ee9b03427",
+  "title": "Cloudflare plans to issue quantum-safe TLS certificates",
+  "summary": "The move will be part of a major overhaul of the ecosystem for website authentication.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/09/cloudflare-plans-to-issue-quantum-safe-tls-certificates",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-30T11:15:14.000Z",
+  "fetchedAt": "2026-09-30T14:34:53.172Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "cryptography",
+    "post-quantum encryption",
+    "quantum computing"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2025/06/https-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/30/aa986b4a975fe32ceafb0c61e990bc5ee9b03427.json",
+  "contentText": "Cloudflare said Tuesday it plans to issue quantum-proof TLS certificates, making it one of the first authorities to issue such certificates that use a form of cryptography that is widely believed to withstand attacks from quantum computers.\n\nThe Internet infrastructure provider said it will use an open source platform that issues both classic TLS certificates and a post-quantum equivalent known as Merkle Tree Certificates . The hybrid certificates will be free to both paying and non-paying users. To help build the massive system and establish ubiquity across the sprawling TLS ecosystem, Cloudflare will be acquiring an already trusted certificate root from CA GlobalSign. Cloudflare said the move will let millions of websites use post-quantum certificates at the flip of a switch and without incurring any increased performance overhead.\n\nFundamental architectural changes ahead\n\nCloudflare’s plans are part of a major overhaul in the web public key infrastructure (WebPKI) required to make website encryption and authentication safe for the coming post-quantum age. A major challenge is using quantum-proof signatures that can be easily transmitted during web requests and recorded in transparency logs to ensure counterfeit certificates aren't assigned to websites. The makeover will take years to complete, because it requires the work of an untold number of engineers who design operating systems, browsers, certificate authorities, and Internet infrastructure.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
