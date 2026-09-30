@@ -1,0 +1,32 @@
+{
+  "id": "4425dae96bc6ed42b4144e3a12e4bb4a6ace897f",
+  "title": "The PS5 hacking scene just took a big leap forward",
+  "summary": "New exploit works on all but the most recently updated consoles.",
+  "canonicalUrl": "https://arstechnica.com/gaming/2026/09/ps5-jailbreaks-just-got-a-lot-more-useful",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-30T15:12:46.000Z",
+  "fetchedAt": "2026-09-30T20:30:48.236Z",
+  "category": "tech",
+  "tags": [
+    "Gaming",
+    "console hack",
+    "hacking",
+    "jailbreak",
+    "PlayStation",
+    "ps5",
+    "Sony"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/GettyImages-2186493403-1024x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/30/4425dae96bc6ed42b4144e3a12e4bb4a6ace897f.json",
+  "contentText": "For a few years now , the PS5 hacking community has been chipping away at various exploits that let users fully jailbreak their locked-down console. For the most part, though, those exploits have only worked with years-old versions of the PS5's frequently updated firmware , making them less than useful for many everyday users.\n\nThat changed Tuesday with the release of the new Relapse exploit , which works with any PS5 up to firmware version 13.6 (released in July). That means jailbreaking is now possible on any PS5 that was last updated before the mid-September release of firmware version 14.00.00 .\n\nThe so-called Relapse exploit makes use of a long-known WebKit vulnerability in the PS5's hard-to-access web browser , escalating from there to gain write access to the PS5 kernel and install an ELF loader to streamline the running of arbitrary code. The new method is also a lot more efficient than previous PS5 jailbreak exploits, which could hang the system for 50 minutes per attempt .\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
