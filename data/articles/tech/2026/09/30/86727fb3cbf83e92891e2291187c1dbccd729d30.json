@@ -1,0 +1,29 @@
+{
+  "id": "86727fb3cbf83e92891e2291187c1dbccd729d30",
+  "title": "A local network of implants uses your body as the wiring",
+  "summary": "It's possible to send electrical signals right through human tissues.",
+  "canonicalUrl": "https://arstechnica.com/science/2026/09/scientists-built-implants-that-talk-to-each-other-through-body-tissue",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-30T21:06:56.000Z",
+  "fetchedAt": "2026-10-01T01:02:59.245Z",
+  "category": "tech",
+  "tags": [
+    "Science",
+    "bioengineering",
+    "Biology",
+    "implants"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/GettyImages-1531989233-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/30/86727fb3cbf83e92891e2291187c1dbccd729d30.json",
+  "contentText": "Most implants like pacemakers and insulin pumps work in isolation. To help them coordinate with each other, a team of Georgia Tech researchers built a networking system that sends signals through body tissue instead of antennas and radio waves.\n\nRadio problems\n\nImplants that communicate today mostly rely on radio protocols like Bluetooth Low Energy or near-field communication (NFC). Both are a poor fit for in-body data transfer, says Alex Abramson, a Georgia Tech engineer and co-author of the new study.\n\nThe first problem is power. “If you want an implant to remain in an active state such that it can respond within milliseconds, it's very difficult to do that with the Bluetooth system,” Abramson said. According to the paper, Bluetooth components, when they’re activated, can cut an implant's battery life by up to 90 percent.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "94349d4a2730548e358c2fd433168537a96c0f27",
+  "title": "Google announces Gemini 4 Argon AI model, but you can't use it yet",
+  "summary": "So much for Gemini 3.5 Pro.",
+  "canonicalUrl": "https://arstechnica.com/google/2026/09/google-announces-gemini-4-argon-ai-model-but-you-cant-use-it-yet",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-09-30T20:11:08.000Z",
+  "fetchedAt": "2026-10-01T01:02:59.245Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Google",
+    "Artificial Intelligence",
+    "gemini 4",
+    "generative ai",
+    "google"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/gemini-general-1-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/09/30/94349d4a2730548e358c2fd433168537a96c0f27.json",
+  "contentText": "Google promised Gemini 3.5 Pro in June, but it spent the summer trotting out smaller Flash models . Now, Google is ready to take on the frontier again with Gemini 4 Argon . The company claims this new AI offers industry-leading performance in coding, knowledge work, and cybersecurity, but you aren't allowed to use it yet.\n\nWhile most of us will have to wait to test Gemini 4, Google says engineers inside the company are already using the new model extensively. Argon reportedly used \"fleet-wide telemetry data\" to help Google save 300 TiB of memory across its data centers. Meanwhile, Argon agents have been working to migrate C/C++ codebases to Rust across Google, including thousands of lines in the core re2 and libgav1 libraries and more than 800,000 lines in the Fuchsia OS Zircon kernel.\n\nGoogle has also come armed with a raft of benchmarks to back up its claims. On the software engineering DeepSWE v1.1 benchmark, Gemini 4 Argon hits 77.9 percent, which is higher than GPT-6 Astra, Fable 5.1, and Opus 5.5. Google promises similar power across a range of long-horizon tasks, pointing to Argon's industry-leading score in the economic analysis Vals Index test.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
