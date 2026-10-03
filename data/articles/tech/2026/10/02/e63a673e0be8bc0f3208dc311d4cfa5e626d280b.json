@@ -1,0 +1,33 @@
+{
+  "id": "e63a673e0be8bc0f3208dc311d4cfa5e626d280b",
+  "title": "Someone got Doom in an SQL database",
+  "summary": "1,300 lines of SQL querying renders accurate bitmapped views of Hell at 35 fps.",
+  "canonicalUrl": "https://arstechnica.com/gaming/2026/10/can-it-run-doom-sql-database-edition",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-02T21:19:05.000Z",
+  "fetchedAt": "2026-10-03T00:54:52.636Z",
+  "category": "tech",
+  "tags": [
+    "Gaming",
+    "database",
+    "Doom",
+    "first-person shooter",
+    "hack",
+    "id",
+    "port",
+    "SQL"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/doomsql-1152x648-1790974550.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/02/e63a673e0be8bc0f3208dc311d4cfa5e626d280b.json",
+  "contentText": "\"Rendering Doom in a database is obviously a bad idea,\" Lukas Vogel writes in a lengthy blog post explaining how exactly he managed to render Doom using an SQL database.\n\nOK, that's not entirely accurate. The SQLDoom project uses a small Python client to handle input and output, drive the game's timing, and display each frame to the screen. Behind that, a series of CedarDB tables tracks the game geometry and state, while about 1,300 lines of SQL queries spread across 89 common table expressions implement the game logic and generate 35 bitmap framebuffers per second.\n\nIn this, SQLDoom is a major improvement over Vogel's previous DoomQL project , which last year set out to build \"a multiplayer Doom-like shooter entirely in SQL.\" Unfortunately, that effort ended up with raycasting-based, grayscale ASCII graphics that were more akin to the simplistic 90-degree-angled maps of Wolfenstein 3D . The newer SQLDoom, on the other hand, generates full-color 640x480 frames that look like they could have come from the original Doom executable.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
