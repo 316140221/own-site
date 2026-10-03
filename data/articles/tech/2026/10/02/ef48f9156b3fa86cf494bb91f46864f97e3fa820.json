@@ -1,0 +1,32 @@
+{
+  "id": "ef48f9156b3fa86cf494bb91f46864f97e3fa820",
+  "title": "Apple changes full-disk access permissions to curb abuse from AI agents",
+  "summary": "Meta says FDA isn't sufficient to Muse reading messages. Apple begs to differ.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/10/apple-changes-full-disk-access-permissions-to-curb-abuse-from-ai-agents",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-02T23:03:16.000Z",
+  "fetchedAt": "2026-10-03T07:32:56.242Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Apple",
+    "Biz & IT",
+    "Security",
+    "meta",
+    "muse",
+    "privacy"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/02/gatekeeping-ai-agents-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/02/ef48f9156b3fa86cf494bb91f46864f97e3fa820.json",
+  "contentText": "Friday's announcement comes two weeks after tech columnist Jason Aten said that Meta’s new general-purpose AI agent Muse sent him an unsolicited notification referencing a thread between him and a co-worker over Apple Messages. Aten said he never granted Muse permissions to read his messages and had assumed they were off-limits. Social media last week blew up with masses of people who agreed and said the incident showed that AI assistants given access to calendars, emails, messages, shopping accounts, and other resources are akin to a skill saw or other power tool. While potentially useful, they can do real damage if not used carefully.\n\nHe said/she said\n\nMeta CTO David Singleton joined the fray with a rebuttal that appeared solid. For Muse to access Apple Messages, a user must manually give it two privileges. One is full-disk access, a macOS system-level permission. The other is to enable a Messages connector setting in Muse.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
