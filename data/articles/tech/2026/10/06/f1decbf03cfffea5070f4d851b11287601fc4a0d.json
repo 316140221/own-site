@@ -1,0 +1,32 @@
+{
+  "id": "f1decbf03cfffea5070f4d851b11287601fc4a0d",
+  "title": "OpenAI agents tried to hack Wikipedia tools and flooded it with traffic",
+  "summary": "The reports of OpenAI agents harming 3rd party sites keep coming.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/10/openai-agents-tried-to-hack-wikipedia-tools-and-flooded-it-with-traffic",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-06T12:21:53.000Z",
+  "fetchedAt": "2026-10-06T16:29:12.793Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "AI agents",
+    "allignment",
+    "openai",
+    "wikipedia"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/ai-agentic-hacking-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/06/f1decbf03cfffea5070f4d851b11287601fc4a0d.json",
+  "contentText": "The publisher of Wikipedia said Monday that OpenAI agents attempted to hack a note-taking tool it hosts, made unauthorized edits, and sent millions of resource-intensive requests to its infrastructure, in the latest instance of OpenAI systems taking harmful and potentially dangerous actions.\n\nThe objective of some of the OpenAI agents’ actions, the Wikimedia Foundation said , was to use Wikipedia as a proxy for fetching data from third-party sites. In one case, the agents posted “malicious edits” that were intended to repurpose a citation tool as a proxy. In another, the agents made unsuccessful attempts to compromise the Wikipedia Etherpad note-taking tool so it would serve the same purpose.\n\nThe agents also made millions of automated API requests, crawled millions of pages, and made hundreds of thousands of queries to the Wikidata Query Service. The last action may have contributed to a partial shutdown of the query service in May, the publisher said.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
