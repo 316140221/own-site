@@ -1,0 +1,31 @@
+{
+  "id": "badaf2352f42b97af5e5a43a20792cc0cbad3ae2",
+  "title": "Command-line tool quickly removes Apple Intelligence from macOS 27",
+  "summary": "The tool can free up over 12GB of storage.",
+  "canonicalUrl": "https://arstechnica.com/apple/2026/10/command-line-tool-quickly-removes-apple-intelligence-from-macos-27",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-05T19:14:44.000Z",
+  "fetchedAt": "2026-10-06T01:06:40.906Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Apple",
+    "apple",
+    "MacOS",
+    "macos 27",
+    "macos 27 golden gate"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/Screenshot-2026-03-03-at-10.30.27-AM-1152x648.jpeg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/05/badaf2352f42b97af5e5a43a20792cc0cbad3ae2.json",
+  "contentText": "A new tool is allowing Mac users the ability again to easily turn off Apple Intelligence with one click and free up to 12GB of storage.\n\nUnlike with previous versions of macOS, macOS 27 Golden Gate doesn’t have a toggle for turning off Apple Intelligence. That makes disabling AI features that you may not want more difficult. It also means that the AI models necessary for running Apple Intelligence will take up space on your disk , even if you don’t use them or if you go through your settings to individually find and disable AI capabilities.\n\nIn response, a developer known as Om Lahore on GitHub last week created RemoveMacAI, a command-line tool that allows macOS 27 users to “turn off Apple Intelligence on macOS 27\" in a way that is “fully reversible,” per the GitHub page . They said that Apple's Intelligence models take up \"about 12GB,\" but the models can actually take up over 30GB, The Verge noted.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}

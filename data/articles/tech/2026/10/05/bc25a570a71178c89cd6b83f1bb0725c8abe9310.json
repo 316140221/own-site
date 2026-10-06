@@ -1,0 +1,32 @@
+{
+  "id": "bc25a570a71178c89cd6b83f1bb0725c8abe9310",
+  "title": "MCP for agent-to-agent comms may be the riskiest protocol you've never heard of",
+  "summary": "Trust gaps in the new protocol spread malicious prompts from one agent to another.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/10/vulnerability-in-agents-from-google-and-others-exposes-structural-flaw-in-mcp",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-05T22:26:35.000Z",
+  "fetchedAt": "2026-10-06T01:06:40.906Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "agentic AI",
+    "MCP",
+    "Model Context Protocol",
+    "prompt injection"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/ai-agents-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/05/bc25a570a71178c89cd6b83f1bb0725c8abe9310.json",
+  "contentText": "The adoption of AI agents in millions of organizations is creating new opportunities for attackers to make them take malicious actions, such as exfiltrating database contents and sensitive business and personal information.\n\nIn the past five months, Google and four other organizations—with little in common except for their use of AI agents—have acknowledged vulnerabilities that exploit one agent inside a targeted network to spread harmful instructions to other internal agents. The technique is a special form of prompt injection that targets not the LLM but a particular agent, such as one for translation or data analysis. Guardrails inside such agents, if they exist at all, are often lax and will send the instructions to other agents down the chain. Because the latter agent explicitly trusts the first one, it follows the directions.\n\nUnexpected and hard to mitigate\n\nIndependent researcher Syed Anas Mohiuddin tested agents from organizations including Google, JP Morgan Chase, Weviate, Rapid7, the French government's interministerial digital directorate, and the US federal government. His proof-of-concept attacks exploit trust gaps in MCP, short for Model Context Protocol . The standard is one way AI apps and agents communicate with each other inside an internal network. The illustration below shows a simplified MCP in action.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
