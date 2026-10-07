@@ -1,0 +1,31 @@
+{
+  "id": "1c9558d38162697286dc97ce687dc2c774d527e8",
+  "title": "Google rolls out improved SynthID AI content detector, now available globally",
+  "summary": "The new SynthID website can now identify AI content from Google, OpenAI, and more.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/10/google-rolls-out-improved-synthid-ai-content-detector-now-available-globally",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-07T14:00:08.000Z",
+  "fetchedAt": "2026-10-07T19:43:00.516Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Google",
+    "Artificial Intelligence",
+    "gemini",
+    "google",
+    "SynthID"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/synthid-fingerprint-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/07/1c9558d38162697286dc97ce687dc2c774d527e8.json",
+  "contentText": "Every piece of AI content from Google's Gemini models has a hidden SynthID label, which makes it very difficult to pass the content off as authentic . SynthID has also gotten buy-in from other major AI players, but actually checking for those invisible watermarks has been a convoluted process. It's going to be a little easier going forward, though. Google has announced that its SynthID detector now supports watermarks from all its partners, and it's available for anyone to use on a new dedicated website.\n\nSynthID is an invisible signal encoded in the pixels of AI-generated images and videos, and in the waveform of AI audio. Google says Gemini alone has integrated SynthID with over 180 billion images and videos, plus 240,000 years of audio. Until now, the only way for those outside of Google's trusted tester program to check for SynthID was to ask Gemini. This is rather clunky, and the model's output could sometimes be confusing when you just wanted a simple \"yes\" or \"no.\"\n\nNow you can cut Gemini out of the loop. Starting today, you can go to the new SynthID.com website to check a piece of content for an AI watermark. A major limitation of Google's previous detector was that it only checked for Google's version of SynthID. Even though ChatGPT images, for example, have SynthID, they wouldn't be flagged in Google's detector. That's no longer a problem.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
