@@ -1,0 +1,33 @@
+{
+  "id": "a843173a5365ccbb0e1a244fdaff078c2c928fe2",
+  "title": "“Software is over”: Bold AI developer takes aim at Adobe with open source clones",
+  "summary": "Opus-built Creative Cloud alternatives are ambitious, free, and nowhere near finished.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/10/software-is-over-bold-ai-developer-takes-aim-at-adobe-with-open-source-clones",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-07T21:56:42.000Z",
+  "fetchedAt": "2026-10-08T00:00:36.612Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Adobe",
+    "Anthropic",
+    "clause",
+    "open source",
+    "Opus",
+    "Photoshop",
+    "Reverse-engineering"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/greatwave-1152x648.webp",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/07/a843173a5365ccbb0e1a244fdaff078c2c928fe2.json",
+  "contentText": "For a while, those hoping to avoid the difficulty and expense of dealing with Adobe's Creative Suite have been able to use several free and/or open-source alternatives that replicate some or all of those capabilities. Now, one developer is using AI-powered reverse engineering to mimic the look, feel, and functionality of Adobe's well-known software with what he hopes will soon be perfect fidelity.\n\nArtcraft got its start last year as a \"controllable AI for artists\" that allows for precise post-generation editing of AI-crafted images and videos. Over the weekend, though, the brand debuted its pivot to a suite of seven open source apps recreating the user interface and tools found in Adobe's Photoshop, Illustrator, Premiere, Lightroom, After Effects, InDesign, and Acrobat Pro.\n\nIn announcing those new apps on Reddit earlier this week, software developer Brandon Thomas said he used Anthropic's Claude Opus 5.5 to create \"clean-room replacements\" for Adobe's closed source software in Rust (with WebAssembly versions available for use in a browser). And while commenters on Hacker News and elsewhere have taken pains to point out the new software's many current shortcomings, Thomas make the grandiose promise that the current \"super early alpha\" state will soon lead to something just as functional as anything Adobe has ever put out.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
