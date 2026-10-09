@@ -1,0 +1,31 @@
+{
+  "id": "048fcb30e5f3e85ffa9aeefd797ee783872f956a",
+  "title": "AI coding agents generate more code, but not more software",
+  "summary": "Study finds coding efficiency gains get \"absorbed\" by human review \"bottleneck.\"",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/10/ai-coding-agents-generate-more-code-but-not-more-software",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-09T19:43:50.000Z",
+  "fetchedAt": "2026-10-09T22:12:40.434Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "agentic coding",
+    "AI agents",
+    "coding",
+    "pull requests",
+    "review"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/GettyImages-2264559974-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/09/048fcb30e5f3e85ffa9aeefd797ee783872f956a.json",
+  "contentText": "Anyone who has even tangentially associated with computer programming knows that modern AI coding assistants and agents can be incredibly efficient at generating huge amounts of functional code . But coders making use of those tools also know better than to trust the accuracy of that code , meaning substantial effort needs to be spent reviewing any AI-generated output.\n\nA recent study of actual coding practices across hundreds of firms finds that human code review forms a significant \"bottleneck\" for the overall efficiency of AI coding tools, resulting in \"little evidence that firms increase software output or reduce employment\" by using them. Any efficiency increased during the actual coding phase, the study authors find, is \"absorbed by downstream constraints in the production process\"; as \"the code review process significantly increases in length, pull requests are more likely to require revisions, and reviewers leave more comments.\"\n\nCut once, measure twice\n\nTo come to these conclusions, Harvard University researchers Fiona Chen and James Stratton made use of aggregated analytics data from Jellyfish , which measures the granular output of engineering teams. That data encompasses 300 million individual \"work events\" (e.g., commits and pull requests) and issue management software data across more than 700,000 employees at over 700 relevant software development firms from 2021 through March of 2026.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
