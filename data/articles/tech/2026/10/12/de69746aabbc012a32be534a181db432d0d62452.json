@@ -1,0 +1,26 @@
+{
+  "id": "de69746aabbc012a32be534a181db432d0d62452",
+  "title": "Long-lost horror gaming cult classic P.T. gets a much-needed PC port",
+  "summary": "Kojima's discontinued \"playable trailer\" is no longer stuck on a few aging PS4 hard drives.",
+  "canonicalUrl": "https://arstechnica.com/gaming/2026/10/long-lost-horror-gaming-cult-classic-p-t-gets-a-much-needed-pc-port",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-12T16:01:08.000Z",
+  "fetchedAt": "2026-10-12T19:36:26.125Z",
+  "category": "tech",
+  "tags": [
+    "Gaming"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/ptpc-1152x648.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/12/de69746aabbc012a32be534a181db432d0d62452.json",
+  "contentText": "For over a decade now, the only \"official\" way to play Hideo Kojima's cult classic, P.T. —the long-discontinued \"playable trailer\" for Kojima's canceled \"Silent Hills\" project —has been via one of the increasingly rare PlayStation 4s that previously downloaded a copy during its monthslong availability window. Now, though, one coder is helping to preserve the game with a porting tool that builds a playable x86 PC executable from the original PS4 files.\n\nCoder Lorean Xavier said he was inspired to work on the \"P.T. for PC\" project \"because P.T. deserved to keep existing somewhere other than on consoles that still have it installed.\" The open source porting effort rebuilds the P.T. engine in C++ and Vulkan, using the original files from the PS4 game to re-create \"every level, model, texture, sound, script and cutscene,\" according to its GitHub listing. That means players without their own legitimate decrypted copy of the original P.T. will have to track one down in order to generate a playable PC version.\n\nThe reliance on real P.T. files makes this port more authentic than previous hobbyist efforts to re-create the look and feel of P.T. for a PC audience. And while PS4 emulators recently reached a point where they could run P.T. completely , this native port also sports extra features, like upscaling and frame-generation, a camera mode, experimental third-person and VR support, and a \"museum\" section where you can look at and listen to in-game assets (including \"unused content\").\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
