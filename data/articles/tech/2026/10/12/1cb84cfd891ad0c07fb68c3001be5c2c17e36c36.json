@@ -1,0 +1,29 @@
+{
+  "id": "1cb84cfd891ad0c07fb68c3001be5c2c17e36c36",
+  "title": "Anthropic's Claude AI submitted false murder tip to Philadelphia police",
+  "summary": "“I may have information regarding this case,\" Claude AI told Philly police.",
+  "canonicalUrl": "https://arstechnica.com/tech-policy/2026/10/anthropics-claude-ai-submitted-false-murder-tip-to-philadelphia-police",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-12T18:21:36.000Z",
+  "fetchedAt": "2026-10-13T01:48:19.942Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Policy",
+    "Anthropic",
+    "Claude"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/claude-app-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/12/1cb84cfd891ad0c07fb68c3001be5c2c17e36c36.json",
+  "contentText": "An Anthropic AI model submitted a false tip about an unsolved murder to Philadelphia police, the company and police department confirmed on Friday.\n\nA Claude model sent the false tip on July 18 to the Philadelphia Police Department's website for submitting information about unsolved murders, but it was flagged by a spam filter. Anthropic apparently discovered the incident on September 28 and informed the police department about it on October 8.\n\nDuring internal testing, Claude Haiku 4.5 was instructed to complete various forms up to the final submission stage and to stop before submitting those forms. \"Several times Claude mistakenly submitted the form instead, expecting there to be an additional confirmation page,\" Anthropic said in a report describing \"unintended model actions we’ve observed during evaluations and internal use of Claude.\"\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
