@@ -1,0 +1,30 @@
+{
+  "id": "339da82e2ea922e31ba57ecd3cb307799119db97",
+  "title": "Anthropic warns small AI models could self-replicate through IoT devices",
+  "summary": "\"Small weight-based replicators\" could usher in a new generation of computer worms.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/10/anthropic-warns-small-ai-models-could-self-replicate-through-iot-devices",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-14T12:55:06.000Z",
+  "fetchedAt": "2026-10-14T14:57:16.187Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "computer worms",
+    "small models"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/ai-caution-threat-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/14/339da82e2ea922e31ba57ecd3cb307799119db97.json",
+  "contentText": "AI company Anthropic is warning that advances in small AI models could soon usher in a new era of self-replicating malware that’s capable of infecting smart fridges, vacuum cleaners, and a wide range of other Internet-of-things devices and is more resistant to takedown.\n\nBy next year, smaller AI models may be able to autonomously self-replicate on all kinds of IoT devices, the company said. Eventually, the capability could enable computer worms, which propagate without requiring human interaction and are capable of infecting unfamiliar IoT devices. An experiment the company performed recently revealed significant challenges in bringing such an AI malware replicator to fruition, so the finding is necessarily tempered. Still, the results do raise concerns about the possibility of new forms of computer worms.\n\nChallenging to shut down\n\nAnthropic further warned not only about the new potential malware, but also that it could be difficult to stop. In its blog post, it wrote that “a replicator like this would be challenging to shut down, since there’s no centralized point to shut off—though it may be slow (with a doubling time of days). Unlike non-AI malware, it could also figure out unfamiliar devices on its own.”\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
