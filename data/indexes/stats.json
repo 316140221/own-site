@@ -1,25 +1,25 @@
 {
-  "startedAt": "2026-10-15T03:02:38.790Z",
-  "finishedAt": "2026-10-15T03:02:40.544Z",
+  "startedAt": "2026-10-15T08:48:28.930Z",
+  "finishedAt": "2026-10-15T08:48:30.422Z",
   "fetch": {
     "sources": 31,
     "ok": 29,
-    "failed": 1,
-    "paused": 1,
-    "added": 59,
-    "backfilled": 1,
-    "duplicates": 425,
+    "failed": 0,
+    "paused": 2,
+    "added": 134,
+    "backfilled": 0,
+    "duplicates": 615,
     "skipped": 0,
     "retries": 0
   },
   "cleanup": {
-    "removedCount": 535,
+    "removedCount": 85,
     "archived": true,
-    "archivePath": "archives/articles-2026-07-16-to-2026-07-16.tgz",
+    "archivePath": "archives/articles-2025-01-22-to-2026-03-27.tgz",
     "cutoffDate": "2026-07-17"
   },
   "indexes": {
-    "totalArticles": 33308,
+    "totalArticles": 33357,
     "duplicateIds": 0,
     "duplicateUrls": 0,
     "deletedDuplicates": 0,
@@ -40,11 +40,11 @@
       },
       {
         "id": "billboard",
-        "lastPublishedAt": "2026-10-15T03:00:23.000Z"
+        "lastPublishedAt": "2026-10-15T07:53:51.000Z"
       },
       {
         "id": "hollywood_reporter",
-        "lastPublishedAt": "2026-10-15T02:54:25.000Z"
+        "lastPublishedAt": "2026-10-15T08:33:39.000Z"
       },
       {
         "id": "cbs_health",
@@ -52,7 +52,7 @@
       },
       {
         "id": "sciencedaily_health",
-        "lastPublishedAt": "2026-10-14T04:39:11.000Z"
+        "lastPublishedAt": "2026-10-15T04:14:55.000Z"
       },
       {
         "id": "who_news",
@@ -60,15 +60,15 @@
       },
       {
         "id": "sciencedaily_science",
-        "lastPublishedAt": "2026-10-14T12:04:20.000Z"
+        "lastPublishedAt": "2026-10-14T23:34:00.000Z"
       },
       {
         "id": "nasa_release",
-        "lastPublishedAt": "2026-10-14T20:13:29.000Z"
+        "lastPublishedAt": "2026-10-15T04:05:00.000Z"
       },
       {
         "id": "space_com",
-        "lastPublishedAt": "2026-10-14T21:00:00.000Z"
+        "lastPublishedAt": "2026-10-15T04:05:00.000Z"
       },
       {
         "id": "cbs_sports",
@@ -76,11 +76,11 @@
       },
       {
         "id": "techmeme",
-        "lastPublishedAt": "2026-10-15T02:20:02.000Z"
+        "lastPublishedAt": "2026-10-15T06:35:01.000Z"
       },
       {
         "id": "wired",
-        "lastPublishedAt": "2026-10-14T21:00:00.000Z"
+        "lastPublishedAt": "2026-10-15T05:00:00.000Z"
       },
       {
         "id": "arstechnica",
@@ -96,7 +96,7 @@
       },
       {
         "id": "france24_fr",
-        "lastPublishedAt": "2026-10-15T00:12:54.000Z"
+        "lastPublishedAt": "2026-10-15T08:21:57.000Z"
       },
       {
         "id": "cbs_world",
@@ -104,11 +104,11 @@
       },
       {
         "id": "npr_news",
-        "lastPublishedAt": "2026-10-14T19:42:03.000Z"
+        "lastPublishedAt": "2026-10-15T08:22:07.000Z"
       },
       {
         "id": "france24_es",
-        "lastPublishedAt": "2026-10-15T02:20:24.000Z"
+        "lastPublishedAt": "2026-10-15T07:20:39.000Z"
       },
       {
         "id": "politifact_all",
@@ -116,7 +116,7 @@
       },
       {
         "id": "france24_all",
-        "lastPublishedAt": "2026-10-15T01:57:26.000Z"
+        "lastPublishedAt": "2026-10-15T08:02:53.000Z"
       },
       {
         "id": "nhk_news_jp",
@@ -150,7 +150,7 @@
     "reason": "no-items",
     "enabled": true,
     "mode": "empty",
-    "updatedAt": "2026-10-15T03:02:44.518Z",
+    "updatedAt": "2026-10-15T08:48:33.583Z",
     "itemCount": 0,
     "errorCount": 0
   },
@@ -161,11 +161,11 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:38.791Z",
+      "fetchedAt": "2026-10-15T08:48:28.931Z",
       "parsedItems": 30,
-      "added": 4,
+      "added": 0,
       "backfilled": 0,
-      "duplicates": 26,
+      "duplicates": 30,
       "skipped": 0
     },
     "npr_news": {
@@ -174,11 +174,11 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:38.791Z",
+      "fetchedAt": "2026-10-15T08:48:28.931Z",
       "parsedItems": 10,
-      "added": 0,
+      "added": 1,
       "backfilled": 0,
-      "duplicates": 10,
+      "duplicates": 9,
       "skipped": 0
     },
     "cbs_moneywatch": {
@@ -187,24 +187,24 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:38.791Z",
+      "fetchedAt": "2026-10-15T08:48:28.931Z",
       "parsedItems": 30,
-      "added": 1,
+      "added": 0,
       "backfilled": 0,
-      "duplicates": 29,
+      "duplicates": 30,
       "skipped": 0
     },
     "sciencedaily_business": {
       "ok": true,
       "paused": false,
-      "status": 304,
+      "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:38.791Z",
-      "parsedItems": 0,
-      "added": 0,
+      "fetchedAt": "2026-10-15T08:48:28.931Z",
+      "parsedItems": 60,
+      "added": 57,
       "backfilled": 0,
-      "duplicates": 0,
+      "duplicates": 3,
       "skipped": 0
     },
     "arstechnica": {
@@ -213,7 +213,7 @@
       "status": 304,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.021Z",
+      "fetchedAt": "2026-10-15T08:48:29.092Z",
       "parsedItems": 0,
       "added": 0,
       "backfilled": 0,
@@ -226,7 +226,7 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.023Z",
+      "fetchedAt": "2026-10-15T08:48:29.100Z",
       "parsedItems": 10,
       "added": 0,
       "backfilled": 0,
@@ -239,11 +239,11 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.085Z",
+      "fetchedAt": "2026-10-15T08:48:29.105Z",
       "parsedItems": 50,
-      "added": 0,
+      "added": 2,
       "backfilled": 0,
-      "duplicates": 50,
+      "duplicates": 48,
       "skipped": 0
     },
     "techmeme": {
@@ -252,24 +252,24 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.124Z",
+      "fetchedAt": "2026-10-15T08:48:29.182Z",
       "parsedItems": 15,
-      "added": 7,
-      "backfilled": 1,
-      "duplicates": 8,
+      "added": 14,
+      "backfilled": 0,
+      "duplicates": 1,
       "skipped": 0
     },
     "sciencedaily_computers": {
       "ok": true,
       "paused": false,
-      "status": 304,
+      "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.147Z",
-      "parsedItems": 0,
+      "fetchedAt": "2026-10-15T08:48:29.236Z",
+      "parsedItems": 60,
       "added": 0,
       "backfilled": 0,
-      "duplicates": 0,
+      "duplicates": 60,
       "skipped": 0
     },
     "space_com": {
@@ -278,11 +278,11 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.199Z",
+      "fetchedAt": "2026-10-15T08:48:29.253Z",
       "parsedItems": 50,
-      "added": 0,
+      "added": 1,
       "backfilled": 0,
-      "duplicates": 50,
+      "duplicates": 49,
       "skipped": 0
     },
     "nasa_release": {
@@ -291,35 +291,35 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.214Z",
+      "fetchedAt": "2026-10-15T08:48:29.287Z",
       "parsedItems": 10,
-      "added": 0,
+      "added": 2,
       "backfilled": 0,
-      "duplicates": 10,
+      "duplicates": 8,
       "skipped": 0
     },
     "sciencedaily_science": {
       "ok": true,
       "paused": false,
-      "status": 304,
+      "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.349Z",
-      "parsedItems": 0,
-      "added": 0,
+      "fetchedAt": "2026-10-15T08:48:29.308Z",
+      "parsedItems": 60,
+      "added": 2,
       "backfilled": 0,
-      "duplicates": 0,
+      "duplicates": 58,
       "skipped": 0
     },
     "who_news": {
       "ok": true,
       "paused": false,
-      "status": 304,
+      "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.369Z",
-      "parsedItems": 0,
-      "added": 0,
+      "fetchedAt": "2026-10-15T08:48:29.379Z",
+      "parsedItems": 25,
+      "added": 25,
       "backfilled": 0,
       "duplicates": 0,
       "skipped": 0
@@ -330,7 +330,7 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.376Z",
+      "fetchedAt": "2026-10-15T08:48:29.459Z",
       "parsedItems": 30,
       "added": 2,
       "backfilled": 0,
@@ -340,23 +340,23 @@
     "sciencedaily_health": {
       "ok": true,
       "paused": false,
-      "status": 304,
+      "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.411Z",
-      "parsedItems": 0,
-      "added": 0,
+      "fetchedAt": "2026-10-15T08:48:29.468Z",
+      "parsedItems": 60,
+      "added": 3,
       "backfilled": 0,
-      "duplicates": 0,
+      "duplicates": 57,
       "skipped": 0
     },
     "espn_news": {
       "ok": false,
-      "paused": false,
-      "status": 202,
-      "error": "Not an RSS/Atom feed (content-type: text/html; charset=UTF-8). ",
+      "paused": true,
+      "status": null,
+      "error": "Paused until 2026-10-22T03:02:39.466Z",
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.466Z",
+      "fetchedAt": "2026-10-15T08:48:29.483Z",
       "parsedItems": 0,
       "added": 0,
       "backfilled": 0,
@@ -369,7 +369,7 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.532Z",
+      "fetchedAt": "2026-10-15T08:48:29.483Z",
       "parsedItems": 30,
       "added": 1,
       "backfilled": 0,
@@ -382,7 +382,7 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.533Z",
+      "fetchedAt": "2026-10-15T08:48:29.503Z",
       "parsedItems": 0,
       "added": 0,
       "backfilled": 0,
@@ -395,11 +395,11 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.556Z",
+      "fetchedAt": "2026-10-15T08:48:29.528Z",
       "parsedItems": 10,
-      "added": 7,
+      "added": 3,
       "backfilled": 0,
-      "duplicates": 3,
+      "duplicates": 7,
       "skipped": 0
     },
     "billboard": {
@@ -408,11 +408,11 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.626Z",
+      "fetchedAt": "2026-10-15T08:48:29.644Z",
       "parsedItems": 10,
-      "added": 6,
+      "added": 2,
       "backfilled": 0,
-      "duplicates": 4,
+      "duplicates": 8,
       "skipped": 0
     },
     "france24_all": {
@@ -421,11 +421,11 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.640Z",
+      "fetchedAt": "2026-10-15T08:48:29.767Z",
       "parsedItems": 24,
-      "added": 3,
+      "added": 6,
       "backfilled": 0,
-      "duplicates": 21,
+      "duplicates": 18,
       "skipped": 0
     },
     "france24_fr": {
@@ -434,11 +434,11 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.672Z",
+      "fetchedAt": "2026-10-15T08:48:29.772Z",
       "parsedItems": 24,
-      "added": 5,
+      "added": 10,
       "backfilled": 0,
-      "duplicates": 19,
+      "duplicates": 14,
       "skipped": 0
     },
     "france24_es": {
@@ -447,11 +447,11 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.735Z",
+      "fetchedAt": "2026-10-15T08:48:29.871Z",
       "parsedItems": 24,
-      "added": 14,
+      "added": 3,
       "backfilled": 0,
-      "duplicates": 10,
+      "duplicates": 21,
       "skipped": 0
     },
     "un_news_all": {
@@ -460,7 +460,7 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.789Z",
+      "fetchedAt": "2026-10-15T08:48:29.898Z",
       "parsedItems": 30,
       "added": 0,
       "backfilled": 0,
@@ -473,11 +473,11 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.791Z",
+      "fetchedAt": "2026-10-15T08:48:29.929Z",
       "parsedItems": 30,
-      "added": 2,
+      "added": 0,
       "backfilled": 0,
-      "duplicates": 28,
+      "duplicates": 30,
       "skipped": 0
     },
     "cbs_us": {
@@ -486,11 +486,11 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.827Z",
+      "fetchedAt": "2026-10-15T08:48:29.970Z",
       "parsedItems": 30,
-      "added": 7,
+      "added": 0,
       "backfilled": 0,
-      "duplicates": 23,
+      "duplicates": 30,
       "skipped": 0
     },
     "cbs_politics": {
@@ -499,7 +499,7 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.847Z",
+      "fetchedAt": "2026-10-15T08:48:29.996Z",
       "parsedItems": 30,
       "added": 0,
       "backfilled": 0,
@@ -512,7 +512,7 @@
       "status": 304,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.894Z",
+      "fetchedAt": "2026-10-15T08:48:29.998Z",
       "parsedItems": 0,
       "added": 0,
       "backfilled": 0,
@@ -525,7 +525,7 @@
       "status": 200,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.930Z",
+      "fetchedAt": "2026-10-15T08:48:30.019Z",
       "parsedItems": 7,
       "added": 0,
       "backfilled": 0,
@@ -538,7 +538,7 @@
       "status": 304,
       "error": null,
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.931Z",
+      "fetchedAt": "2026-10-15T08:48:30.169Z",
       "parsedItems": 0,
       "added": 0,
       "backfilled": 0,
@@ -551,7 +551,7 @@
       "status": null,
       "error": "Paused until 2026-10-20T01:48:22.743Z",
       "retries": 0,
-      "fetchedAt": "2026-10-15T03:02:39.945Z",
+      "fetchedAt": "2026-10-15T08:48:30.180Z",
       "parsedItems": 0,
       "added": 0,
       "backfilled": 0,
