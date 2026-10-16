@@ -1,0 +1,30 @@
+{
+  "id": "d59b82c0813934bf1c3f0fc1623d43f6803de1ae",
+  "title": "KDE turns 30 with Plasma 6.8, remote upgrades, and an X11 farewell",
+  "summary": "KDE celebrates 30 years with a new Plasma release, a farewell to X11, and a movie.",
+  "canonicalUrl": "https://arstechnica.com/gadgets/2026/10/kde-turns-30-with-plasma-6-8-remote-upgrades-and-an-x11-farewell",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-15T22:21:06.000Z",
+  "fetchedAt": "2026-10-16T02:59:58.928Z",
+  "category": "tech",
+  "tags": [
+    "Tech",
+    "KDE 30th birthday",
+    "KDE Documentary",
+    "KDE Plasma 6.8",
+    "x11"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/KDE_Birthday_30th_Laptop-1070x648.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/15/d59b82c0813934bf1c3f0fc1623d43f6803de1ae.json",
+  "contentText": "Marking the 30th anniversary of software developer KDE on October 14, the company released Plasma 6.8, debuted a movie, and retired Plasma's native X11 session support. The announcement from KDE dubs the new Plasma 6.8 as the \"30th Anniversary Edition\" and describes the update as preparing Plasma for the future. Legacy X11 applications will still function via the XWayland compatibility layer , and KDE applications will also continue supporting X11 under other desktop environments.\n\nAfter 42 years in service, the X11 protocol is losing another major desktop environment. Plasma will fully adopt the Wayland system and put support for starting new X11 sessions in Plasma to bed. Users opting to stay on Plasma 6.7 will keep their existing sessions for now. The move was expected, with GNOME officially dropping X11 sessions by default in 2025 .\n\nThe new Plasma 6.8 brings many improvements, including increased support for adding window decorations (like shadows and rounded corners) to third-party apps, and a more streamlined Union theming system . Other notable additions include Nvidia triple buffering being enabled by default, Kup backup integration (KDE's backup utility—now integrated into Plasma), and kscreenctl , a command-line utility that allows power users to adjust display configurations.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
