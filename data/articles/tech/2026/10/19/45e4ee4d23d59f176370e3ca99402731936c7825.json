@@ -1,0 +1,31 @@
+{
+  "id": "45e4ee4d23d59f176370e3ca99402731936c7825",
+  "title": "ReactOS reaches major milestone with NTFS install support",
+  "summary": "ReactOS gains NTFS install support with new driver.",
+  "canonicalUrl": "https://arstechnica.com/information-technology/2026/10/reactos-reaches-major-milestone-with-ntfs-install-support",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-19T18:30:56.000Z",
+  "fetchedAt": "2026-10-19T21:58:25.174Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Tech",
+    "NTFS",
+    "open source",
+    "ReactOS",
+    "Windows alternatives"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/ReactOS_NTFS_Drive_Properties.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/19/45e4ee4d23d59f176370e3ca99402731936c7825.json",
+  "contentText": "Open source Windows alternative ReactOS has reached a major milestone: The operating system can now be installed directly onto an NT Files System drive partition. As reported by Phoronix , the move to NTFS clears a long-standing hurdle for the project and brings it one step closer to finally reaching beta.\n\nPrior to this latest announcement, ReactOS required users to keep a FAT32 partition for installations. A proprietary Microsoft-developed filesystem, NTFS can trace its roots back through the Windows NT family lineage starting in 1993 with Windows NT 3.1. The variant introduced with Windows XP in 2001 remains the standard used by most Windows systems today. With ReactOS's stated goal of reaching binary compatibility with Windows Server 2003, being confined to FAT32 partitions was a practical barrier to clear on the way to reproducing the Windows environment.\n\nHowever, users looking to hop off the Windows train shouldn't be grabbing their bags just yet. ReactOS wrote that the new driver still \"lacks caching (which causes inferior performance), journaling and security support.\" So while the new driver is here, even the most intrepid of OS tinkerers should tread carefully. The ReactOS team warned in its announcement on X that there are still \"potentially undiscovered bugs.\"\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
