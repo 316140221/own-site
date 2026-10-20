@@ -1,0 +1,33 @@
+{
+  "id": "6300bdf6f44d244c4a2f2ef519dae0b7400bc490",
+  "title": "Quantum error correction goes well beyond breakeven",
+  "summary": "A demo of error-corrected qubits shows big reductions in errors as they grow.",
+  "canonicalUrl": "https://arstechnica.com/science/2026/10/quantum-error-correction-goes-well-beyond-breakeven",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-20T18:08:57.000Z",
+  "fetchedAt": "2026-10-20T22:55:00.695Z",
+  "category": "tech",
+  "tags": [
+    "Science",
+    "Computer science",
+    "Error correction",
+    "Physics",
+    "quantinuum",
+    "quantum computing",
+    "quantum mechanics",
+    "qubits"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2025/11/helios-chip_top-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/20/6300bdf6f44d244c4a2f2ef519dae0b7400bc490.json",
+  "contentText": "Running complicated algorithms on quantum computing hardware is going to require the use of logical qubits, where collections of hardware qubits are linked together in ways that allow errors to be detected and corrected. In general, the more hardware qubits you dedicate to each logical qubit, the better the chances are of identifying errors. But, given that the hardware qubits are prone to errors, adding more of them also increases the probability that errors will occur. If the hardware error rate is too high, then growing the logical qubit will only make matters worse.\n\nFortunately, several companies have demonstrated hardware where the error rate is not too high. Several demonstrations show logical qubits are beyond the breakeven point, where adding more qubits improves performance. The problem is that the improvement isn't very dramatic. To lower error rates to levels we'll need to run complex algorithms, we'd have to add a completely impractical number of qubits to each logical qubit.\n\nOn Monday, Quantinuum announced that its current generation of hardware is capable of scaling well beyond the breakeven point. Each step up in the size of logical qubits improved some measures of their performance by a factor of over 10.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}

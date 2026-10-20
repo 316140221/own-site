@@ -1,0 +1,31 @@
+{
+  "id": "b8de06d2e00462462c080f55d9443ea2ce3f3710",
+  "title": "OpenBSD 8.0 arrives with security record still intact",
+  "summary": "OpenBSD 8.0 lands with Intel Arc support, ARM64 hibernation, and 64-vCPU guests",
+  "canonicalUrl": "https://arstechnica.com/gadgets/2026/10/openbsd-8-0-lands-with-intel-arc-graphics-support",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-20T19:57:18.000Z",
+  "fetchedAt": "2026-10-20T22:55:00.695Z",
+  "category": "tech",
+  "tags": [
+    "Tech",
+    "AMD64",
+    "Clang 22",
+    "Intel Arc",
+    "OpenBSD 8.0",
+    "Theo de Raadt"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/OpenBSD80Fish-e1792523267196.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/20/b8de06d2e00462462c080f55d9443ea2ce3f3710.json",
+  "contentText": "OpenBSD 8.0 is here, marking the project's 61st release and continuing its schedule of semiannual releases dating back to 1996. What started more than 30 years ago as a fork of NetBSD has grown into one of the most security-conscious operating systems in active development. In a post to the project's announcements mailing list, OpenBSD founder Theo de Raadt highlights a host of improvements included with the latest version and writes that the project remains \"proud of OpenBSD's record of more than thirty years with only two remote holes in the default install.\"\n\n- Added support for Intel Arc A-Series (DG2/Alchemist) graphics cards.\n\n- 512GB kernel virtual address space on AMD64, up from 4GB, allowing VRAM mapping above 4GB.\n\n- Added hibernation support for ARM64 systems.\n\n- A new RPKI -to-router daemon: rtrd(8) .\n\n- RISC-V improvements including kernel support for the 'V' vector extension and support for Advanced Interrupt Architecture.\n\n- Wireless network driver additions and improvements, including 802.11n and 40 MHz channels for the qwx(4) wireless driver .\n\n- Added support for up to 64 virtual CPUs per guest virtual machine.\n\n- Security and internal improvements for LibreSSL 4.4.0 and OpenSSH 10.6 .\n\n- Improvements to the vmm/vmd virtualization stack .\n\nThe new OpenBSD also retires support for Loongson architecture after the port stopped working with the Clang 22 compiler. If you're interested in reading over all the changes that come with the new OpenBSD 8.0, you can take a look at the release announcement .\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
