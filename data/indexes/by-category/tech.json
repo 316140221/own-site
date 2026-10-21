@@ -1,5 +1,439 @@
 [
   {
+    "id": "6d49df311e18d4d465e2dc4fecb95d9135f7627d",
+    "title": "OpenAI says the PHP flaws, found using GPT-5.6 Sol, \"are among several significant vulnerabilities\" it found and expects \"similar findings to increase sharply\" (OpenAI)",
+    "summary": "OpenAI: OpenAI says the PHP flaws, found using GPT-5.6 Sol, “are among several significant vulnerabilities” it found and expects “similar findings to increase sharply” — - Validate and fix the upstream vulnerability. … - Give affected organizations time to act.",
+    "canonicalUrl": "https://techmeme.com/261021/p34",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T14:31:56.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i34.jpg",
+    "language": "en"
+  },
+  {
+    "id": "a6df2d373ca1bdd96b4de049f3752ed0a4233c10",
+    "title": "‘This Is Not a Drill’: Critical PHP Vulnerabilities Are Setting the Internet on Fire",
+    "summary": "The PHP Foundation has revealed two serious vulnerabilities that could impact millions of websites. Security experts warn that failure to quickly patch the flaws could have dire consequences.",
+    "canonicalUrl": "https://wired.com/story/this-is-not-a-drill-2-php-vulnerabilities-are-setting-the-internet-on-fire",
+    "source": {
+      "id": "wired",
+      "name": "WIRED"
+    },
+    "publishedAt": "2026-10-21T14:26:19.000Z",
+    "category": "tech",
+    "image": "https://media.wired.com/photos/6ad8c3e67fa1a6118ccee121/master/pass/102126-PHP.jpg",
+    "language": "en"
+  },
+  {
+    "id": "46ee2056ee2d68761954375503bff1c173351035",
+    "title": "Apple says it only has &#8216;limited&#8217; iPhone Duo units for in-store sales",
+    "summary": "Apple says it will have \"limited\" iPhone Duo models for sale in stores, according to a report from Reuters. The iPhone Duo launches on Friday, October 23rd, but online preorders quickly sold out, with some delivery estimates extending into next year. \"On Friday morning, our teams look forward ​to welcoming customers at Apple Stores to experience iPhone Duo…",
+    "canonicalUrl": "https://theverge.com/tech/1015372/apple-says-it-only-has-limited-iphone-duo-units-for-in-store-sales",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-10-21T14:22:59.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/268762_iPhone_Duo_AKrales_1499.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
+    "id": "92af1bc2fae428021fbc4dc24a32bf4d42cdfd8a",
+    "title": "Cloudflare says it deployed default WAF mitigations for all free and paid tier customers to combat two PHP flaws, roughly nine hours ahead of public disclosure (Cloudflare)",
+    "summary": "Cloudflare: Cloudflare says it deployed default WAF mitigations for all free and paid tier customers to combat two PHP flaws, roughly nine hours ahead of public disclosure — Today, Calif.io, Wiz, OpenAI and Quarkslab disclosed two vulnerabilities in PHP, tracked as CVE-2026-109618 and CVE-2026-109619 and known as php2shell.",
+    "canonicalUrl": "https://techmeme.com/261021/p32",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T14:20:03.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i32.jpg",
+    "language": "en"
+  },
+  {
+    "id": "2409ef8bfd196e2a14c7be105632cd5062815eb4",
+    "title": "Claude flagged 493 security issues across 25 open-source projects, covering 5M+ lines of C, C++, Java, PHP, and Python code; one went unnoticed for 21 years (Chris Rohlf/Anthropic)",
+    "summary": "Chris Rohlf / Anthropic: Claude flagged 493 security issues across 25 open-source projects, covering 5M+ lines of C, C++, Java, PHP, and Python code; one went unnoticed for 21 years — Over the past year, we've published lots of data that shows that frontier AI models are more than capable of discovering and exploiting security vulnerabilities.",
+    "canonicalUrl": "https://techmeme.com/261021/p31",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T14:15:01.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i31.jpg",
+    "language": "en"
+  },
+  {
+    "id": "2b00dfcd971ec32683f8e7aefa5d58e6b49855ce",
+    "title": "PHP discloses a critical memory-management vulnerability, dubbed \"PHP2Shell\", that affects up to 70% of websites, discovered using GPT-5.6 Sol in August (Robert McMillan/Wall Street Journal)",
+    "summary": "Robert McMillan / Wall Street Journal: PHP discloses a critical memory-management vulnerability, dubbed “PHP2Shell”, that affects up to 70% of websites, discovered using GPT-5.6 Sol in August — AI tools helped find one of the most severe online bugs ever. Cyber experts are racing to patch it before hackers use AI to exploit it.",
+    "canonicalUrl": "https://techmeme.com/261021/p30",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T14:06:37.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i30.jpg",
+    "language": "en"
+  },
+  {
+    "id": "d33797de6c74c5865f718e182d7c00860101dcc1",
+    "title": "PHP releases security fixes for two critical unauthenticated RCE vulnerabilities, urging all PHP users to update; all web-serving deployments are affected (PHP)",
+    "summary": "PHP: PHP releases security fixes for two critical unauthenticated RCE vulnerabilities, urging all PHP users to update; all web-serving deployments are affected — PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 fix two critical vulnerabilities that can allow unauthenticated remote code execution.",
+    "canonicalUrl": "https://techmeme.com/261021/p29",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T14:03:32.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/img/pml.png",
+    "language": "en"
+  },
+  {
+    "id": "4d4e231edf522e2b87597c720ed154cbb026c559",
+    "title": "AI Guardrails Aren’t Stopping Criminal Hackers",
+    "summary": "Hackers around the world are all-in on using agentic AI to wage attacks—and manipulating tools like Anthropic’s Claude to help them carry out their crimes.",
+    "canonicalUrl": "https://wired.com/story/ai-guardrails-arent-stopping-criminal-hackers",
+    "source": {
+      "id": "wired",
+      "name": "WIRED"
+    },
+    "publishedAt": "2026-10-21T14:00:00.000Z",
+    "category": "tech",
+    "image": "https://media.wired.com/photos/6ad7cd65322aff8e01d3ff70/master/pass/Security_Claude%20Code's%20Guardrails%20Aren't%20Stopping%20Real-Life%20Attacks_v2.jpg",
+    "language": "en"
+  },
+  {
+    "id": "56c19642a0a2b3dcdb2757045ea389e0af5739fe",
+    "title": "Blink brings 4K to its low-cost security camera lineup",
+    "summary": "From left to right, here are the Outdoor 2K XR Plus and Mini Pant-Tilt 2K Plus (top), and the Spotlight Cam 2K Plus, Mini 4K Plus, and Frontier XR Plus (bottom). | Image: Amazon / Blink Amazon is launching a new lineup of Blink security cameras, including its first 4K, pan-tilt models, and battery-powered spotlight models. These new additions provide better…",
+    "canonicalUrl": "https://theverge.com/tech/1015238/amazon-blink-4k-trail-security-camera-launch",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-10-21T14:00:00.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/Blink-security-camera-lineup.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
+    "id": "f0018f5b54af46d3548437a7e6e842ac64045100",
+    "title": "OpenAI says an AI agent lied about disabling its safety monitoring system",
+    "summary": "OpenAI disclosed a pair of safety incidents that involved AI agents weakening their safety monitoring systems during internal coding tasks. In one incident, OpenAI says its GPT-6 Astra agent disabled its safety monitor when copying reference code - and then lied about it. \"The reference didn't configure a monitor, and Astra decided that was reason to remove…",
+    "canonicalUrl": "https://theverge.com/ai-artificial-intelligence/1015316/openai-ai-agent-disabling-monitoring-systems",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-10-21T13:57:43.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/08/STK155_OPEN_AI_4_CVirginia_C.png?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
+    "id": "fc926599fa45e8bb760dd0172340cc2b4a44b7d4",
+    "title": "Our Favorite Darn Tough Merino Wool Socks Are on Sale at REI",
+    "summary": "Get ready for winter: Darn Tough socks are on sale at REI.",
+    "canonicalUrl": "https://wired.com/story/darn-tough-sock-sale-october-2026",
+    "source": {
+      "id": "wired",
+      "name": "WIRED"
+    },
+    "publishedAt": "2026-10-21T13:52:22.000Z",
+    "category": "tech",
+    "image": "https://media.wired.com/photos/6ad7f0304809649ec79b42ad/master/pass/Our%20Favorite%20Merino%20Wool%20Socks%20Are%20On%20Sale%20102026%20top%20art%20SOURCE%20REI.jpg",
+    "language": "en"
+  },
+  {
+    "id": "37f0b7797217c741db6c044d85832334bf60fb9f",
+    "title": "Now Serato DJ works on your iPhone",
+    "summary": "Serato DJ for iOS is finally bringing the company's pro-level DJ suite to the iPhone and iPad. Until now, the company had only dipped its toes into mobile software, with apps like Pyro that basically just added some autofades between songs in a playlist. This is the first time most of the features of its flagship DJ app are available on a mobile device, eve…",
+    "canonicalUrl": "https://theverge.com/tech/1015319/serato-dj-for-ios",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-10-21T13:51:31.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/DJ-for-iOS-iPhone-Handheld-1920x1080-1.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
+    "id": "396c339cdc986d2889de12bc1785d0d78b635eba",
+    "title": "ServiceNow and Nvidia launch Arc, a personal, long-running enterprise AI agent for productivity tasks across email and Teams, for RTX Spark and Nvidia OpenShell (Radhika Rajkumar/ZDNET)",
+    "summary": "Radhika Rajkumar / ZDNET: ServiceNow and Nvidia launch Arc, a personal, long-running enterprise AI agent for productivity tasks across email and Teams, for RTX Spark and Nvidia OpenShell — The two companies are trying to solve the AI agent security conundrum with multiple layers of real-time security checks.",
+    "canonicalUrl": "https://techmeme.com/261021/p28",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T13:50:49.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i28.jpg",
+    "language": "en"
+  },
+  {
+    "id": "40599490e3b25c001b062c98f15d7fffb38f204d",
+    "title": "80 Israelis and Americans, including NY Democrat Brad Lander, detained in West Bank",
+    "summary": "U.S. Democratic congressional nominee Brad Lander was detained along with about 80 American and Israeli rabbis and activists by Israeli security forces as they helped Palestinian olive harvesters.",
+    "canonicalUrl": "https://npr.org/2026/10/21/nx-s1-6010460/brad-lander-detained-west-bank-israel-palestinians",
+    "source": {
+      "id": "npr_news",
+      "name": "NPR - News"
+    },
+    "publishedAt": "2026-10-21T13:28:04.000Z",
+    "category": "tech",
+    "image": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/836x627+0+0/resize/836x627!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F3d%2F13%2F662de40b41cda580069a58be1bbf%2Fimg-2213.jpg",
+    "language": "en"
+  },
+  {
+    "id": "f53397c7efe8cf0503671667e009761a6e6476aa",
+    "title": "OpenAI expands ChatGPT ads to 26 additional countries, taking the total to 83 countries, and says the platform's advertiser base is 100K+, up from 20K in August (Alix Coutures/The Information)",
+    "summary": "Alix Coutures / The Information: OpenAI expands ChatGPT ads to 26 additional countries, taking the total to 83 countries, and says the platform's advertiser base is 100K+, up from 20K in August — OpenAI is expanding ChatGPT ads to 26 more countries as it tries to turn advertising into a bigger source of revenue to help cover its AI costs.",
+    "canonicalUrl": "https://techmeme.com/261021/p26",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T13:15:01.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/img/pml.png",
+    "language": "en"
+  },
+  {
+    "id": "7e23ed9247a79c0071c29f21ef402349d7e65f59",
+    "title": "Nvidia’s latest GPU driver brings a new way to speed up PC games",
+    "summary": "Nvidia is rolling out a new GPU driver today (621.01) that enables Microsoft's new Advanced Shader Delivery technology to speed up game launches. The technology also removes mid-game \"just-in-time\" shader compilation, reducing stuttering and CPU spikes. Microsoft's Advanced Shader Delivery works by offloading shader compilation for different hardware combin…",
+    "canonicalUrl": "https://theverge.com/news/1015299/nvidia-driver-microsoft-advanced-shader-delivery-support",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-10-21T13:09:26.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25728971/STK083_NVIDIA_2_D.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
+    "id": "af28c8d01a3a194b24958dcc0e59698c93aa3354",
+    "title": "Apple says it plans to add Reachability to the iPhone Duo later in 2026, helping users with small hands more easily access the left or right edges of the screen (Julian Chokkattu/Wired)",
+    "summary": "Julian Chokkattu / Wired: Apple says it plans to add Reachability to the iPhone Duo later in 2026, helping users with small hands more easily access the left or right edges of the screen — Apple made an astonishingly good first foldable. Now iOS and third-party apps need time to catch up. — Rating:",
+    "canonicalUrl": "https://techmeme.com/261021/p25",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T12:55:03.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i25.jpg",
+    "language": "en"
+  },
+  {
+    "id": "17c8be3b379585633f77b4b6fe12673bd1479d2f",
+    "title": "Spotify launches its first standalone, native in-car app built on Android Automotive OS, debuting on select Audi models, with a custom UI controlled by Spotify (Andrew J. Hawkins/The Verge)",
+    "summary": "Andrew J. Hawkins / The Verge: Spotify launches its first standalone, native in-car app built on Android Automotive OS, debuting on select Audi models, with a custom UI controlled by Spotify — Say goodbye to those aux cables. Spotify's new in-car app is here, and it's rolling out to Audi vehicles today.",
+    "canonicalUrl": "https://techmeme.com/261021/p24",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T12:40:06.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i24.jpg",
+    "language": "en"
+  },
+  {
+    "id": "9fbf6acb35d69566c1fd58eea6ab195face1a738",
+    "title": "A Design Flaw in Share Links Exposes Users’ Personal Conversations With Meta’s Muse",
+    "summary": "The company is suspending the feature after security researchers discovered how easy it was to access sensitive information shared with the AI assistant.",
+    "canonicalUrl": "https://wired.com/story/a-design-flaw-in-share-links-exposes-users-personal-conversations-with-meta-muse",
+    "source": {
+      "id": "wired",
+      "name": "WIRED"
+    },
+    "publishedAt": "2026-10-21T12:35:00.000Z",
+    "category": "tech",
+    "image": "https://media.wired.com/photos/6ad7df7552635a2423fcfe8e/master/pass/GettyImages-2297134397.jpg",
+    "language": "en"
+  },
+  {
+    "id": "7ed4be49d7962bec22d1d42b6cec88667a4c166c",
+    "title": "Nvidia launches its OpenShell Reference Architecture, a framework to secure, monitor, and govern AI agents, and partners with Canonical, AWS, BBVA, and others (Thomas Claburn/The Register)",
+    "summary": "Thomas Claburn / The Register: Nvidia launches its OpenShell Reference Architecture, a framework to secure, monitor, and govern AI agents, and partners with Canonical, AWS, BBVA, and others — Nvidia has proposed a new way to keep corporate AI agents in line. — Nvidia on Wednesday introduced its OpenShell Reference Architecture.",
+    "canonicalUrl": "https://techmeme.com/261021/p23",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T12:30:02.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i23.jpg",
+    "language": "en"
+  },
+  {
+    "id": "2252c9e12fdafac08a3fe0b2cd0a860a03654019",
+    "title": "GTC Berlin: Jensen Huang pushes Europe on AI adoption, saying \"for Europe to benefit from AI ... you need all the end markets, the end industries to adopt AI\" (Bloomberg)",
+    "summary": "Bloomberg: GTC Berlin: Jensen Huang pushes Europe on AI adoption, saying “for Europe to benefit from AI ... you need all the end markets, the end industries to adopt AI” — Nvidia Corp. Chief Executive Officer Jensen Huang pushed Europe to adopt artificial intelligence more quickly …",
+    "canonicalUrl": "https://techmeme.com/261021/p22",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T12:25:02.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i22.jpg",
+    "language": "en"
+  },
+  {
+    "id": "963b1932a51bf0b71abe28c8756dc438a89b2368",
+    "title": "OpenAI says it will make its AI models available on Google Cloud's model garden and Antigravity coding tool in the coming weeks, after launching on AWS in April (Jordan Novet/CNBC)",
+    "summary": "Jordan Novet / CNBC: OpenAI says it will make its AI models available on Google Cloud's model garden and Antigravity coding tool in the coming weeks, after launching on AWS in April — OpenAI will make its artificial intelligence models available for developers through Google's cloud, following years of competition between the two companies.",
+    "canonicalUrl": "https://techmeme.com/261021/p21",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T12:15:04.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i21.jpg",
+    "language": "en"
+  },
+  {
+    "id": "d793fcd0679bae124335510df7d67d8d222364b0",
+    "title": "I reviewed the iPhone Duo, ask me anything",
+    "summary": "I'm The Verge's senior smartphone reviewer and I've been using the iPhone Duo for the past week. I've unfolded it, flipped it, and folded it more times than I could count as I've been working on the review alongside our editor-in-chief Nilay Patel, and I'm ready to answer your questions about it. The Duo represents the first time the iPhone has gone through…",
+    "canonicalUrl": "https://theverge.com/tech/1014316/iphone-duo-review-ama",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-10-21T12:15:00.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/268762_iPhone_Duo_AKrales_0082.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
+    "id": "6b4bc81ef78cfeb14281eb5fb43053e00da7c11c",
+    "title": "iPhone Duo review: a fun device with a cool matte inner display, but the cover display is too small, it is heavy and bulky, the cameras are OK, and it gets hot (The Verge)",
+    "summary": "The Verge: iPhone Duo review: a fun device with a cool matte inner display, but the cover display is too small, it is heavy and bulky, the cameras are OK, and it gets hot — The iPhone Duo is the riskiest Apple product in years. It's a huge rethink of what an iPhone is and could be …",
+    "canonicalUrl": "https://techmeme.com/261021/p20",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T12:07:00.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i20.jpg",
+    "language": "en"
+  },
+  {
+    "id": "298ca27c3334e6dd2e83bfaddfc83220e74ed2d0",
+    "title": "Spotify is busting free of CarPlay with the launch of its first native car app",
+    "summary": "Spotify announced Wednesday the launch of its next-generation, fully native in-car app, built directly on Google's Android Automotive operating system. The standalone app, which is launching today in select Audi models, runs directly on the vehicle's infotainment hardware - eliminating the need for phone tethering, Bluetooth connections, or aux cables. It's…",
+    "canonicalUrl": "https://theverge.com/entertainment/1014261/spotify-native-car-app-audi-android-automotive-carplay",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-10-21T12:00:00.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/Spotify-x-Audi-Image-2.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
+    "id": "2c6bdd488d4acd6371b78c3eb2d125a1f4ae3aa6",
+    "title": "I can’t get enough of the iPhone Duo’s matte inner display",
+    "summary": "Easy on the eyes. The iPhone Duo has all the messiness of a first-gen product. And while I'm not sure I love all of the decisions Apple made around its design, it got one thing right: the matte finish on the inner screen. I've been using it for the past week to watch movies on a plane, peruse my photo gallery, and catch up on a little reading, and I'm convi…",
+    "canonicalUrl": "https://theverge.com/tech/1014709/iphone-duo-inner-screen-nano-texture-matte",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-10-21T12:00:00.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/268762_iPhone_Duo_AKrales_0055.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
+    "id": "95d8d0b7504edca1fd4e7d9c88773d9b0ccbe63e",
+    "title": "Apple iPhone Duo Review: Is It Worth It?",
+    "summary": "Apple made an astonishingly good first foldable. Now iOS and third-party apps need time to catch up.",
+    "canonicalUrl": "https://wired.com/review/apple-iphone-duo",
+    "source": {
+      "id": "wired",
+      "name": "WIRED"
+    },
+    "publishedAt": "2026-10-21T12:00:00.000Z",
+    "category": "tech",
+    "image": "https://media.wired.com/photos/6ad7940031b157a7a885ace4/master/pass/DSC_9923.jpg",
+    "language": "en"
+  },
+  {
+    "id": "f0e06177f68668bb472f773018fd46f164c33d70",
+    "title": "The iPhone Duo is a messy, expensive, good time",
+    "summary": "The iPhone Duo is the riskiest Apple product in years. It's a huge rethink of what an iPhone is and could be, and it contains the seeds of many fascinating ideas that might be great in the future. But that future is yet to come. The iPhone Duo is also one of Apple's messiest first-generation products in a long time, and right now it will delight gadget nerd…",
+    "canonicalUrl": "https://theverge.com/tech/1015028/iphone-duo-review",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-10-21T12:00:00.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/268762_iPhone_Duo_AKrales_1378.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
+    "id": "4e848886bc9bf1e8749d859effd12ab06be62f69",
+    "title": "Gaming Can’t Afford More Games the Size of ‘Grand Theft Auto VI’",
+    "summary": "Between crushing layoffs, ballooning budgets, and bland end products, video game makers need to stop chasing AAA glory.",
+    "canonicalUrl": "https://wired.com/story/make-big-games-smaller",
+    "source": {
+      "id": "wired",
+      "name": "WIRED"
+    },
+    "publishedAt": "2026-10-21T11:00:00.000Z",
+    "category": "tech",
+    "image": "https://media.wired.com/photos/6ad7a0764809649ec79b3fcd/master/pass/Jason_and_Lucia_02.jpg",
+    "language": "en"
+  },
+  {
+    "id": "ac98071048716b2720071652f29fd73aa4fd0b59",
+    "title": "The Best Hearing Aids I’ve Tested (2026): Jabra, Resound, Apple, and More",
+    "summary": "These WIRED-tested devices will help you hear sounds more clearly. Never miss out on a dinner conversation again.",
+    "canonicalUrl": "https://wired.com/gallery/best-hearing-aids",
+    "source": {
+      "id": "wired",
+      "name": "WIRED"
+    },
+    "publishedAt": "2026-10-21T10:00:00.000Z",
+    "category": "tech",
+    "image": "https://media.wired.com/photos/6ad25afb43cd5e2976ac8b54/master/pass/Best%20Hearing%20Aids%20(Update)%20102026%20top%20art%20SOURCE%20Oticon-ReSound.jpg",
+    "language": "en"
+  },
+  {
+    "id": "814cf2bfdb7ae5137d7170d30c4bb9b61148c742",
+    "title": "Armed federal agents knock on doors looking for noncitizen voters",
+    "summary": "Armed and in uniform, agents from the Department of Homeland Security have been knocking on doors to ask residents about their immigration status whether they're registered to vote.",
+    "canonicalUrl": "https://cbsnews.com/news/federal-agents-seek-noncitizen-voters",
+    "source": {
+      "id": "cbs_politics",
+      "name": "CBS News - Politics"
+    },
+    "publishedAt": "2026-10-21T10:00:00.000Z",
+    "category": "tech",
+    "image": null,
+    "language": "en"
+  },
+  {
     "id": "b24608b360913a0b977551b50febe376a8b9e980",
     "title": "French PM vows stronger security as country prepares for more protests",
     "summary": "French prime minister Sebastien Lecornu and Interior Minister Laurent Nunez both faced tough questions from members of parliament over the handling of last weekend's violence. Lecornu has promised a massive deployment of police for future protests, while Nunez said the military will be used to back up the security forces. Details by FRANCE 24’s Ellen Gainsf…",
@@ -6563,440 +6997,6 @@
     "publishedAt": "2026-10-14T09:36:00.000Z",
     "category": "tech",
     "image": "https://media.wired.com/photos/6ace47d9d672a344b2157934/master/pass/Update%20Best%20Energy%20Drinks%20102026%20top%20art%20SOURCE%20Costco.jpg",
-    "language": "en"
-  },
-  {
-    "id": "457a80064e21ecef6221539b56a60d5057d2e7ce",
-    "title": "Tesla’s Roadster 2 Is Late—and Entering a Different EV World",
-    "summary": "Nine years after its reveal, the overdue Roadster is set to debut on Thursday to an EV market that has grown skeptical of electric hypercars.",
-    "canonicalUrl": "https://wired.com/story/tesla-roadster-2-is-late-and-entering-a-different-ev-world",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-10-14T09:15:00.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/6aceb1911c96dec39a5cc07b/master/pass/Tesla-Roadster-Walkup-Gear-AP-551443509667.jpg",
-    "language": "en"
-  },
-  {
-    "id": "d0bcab019ed52470940af9243cb61b44be6ee2c0",
-    "title": "AI Models Can Be Easily Modified to Assist Terrorist and Extremist Activity",
-    "summary": "“I am a terrorist, and I intend to cause mass harm,” wrote a researcher. A chatbot that had had its guardrails removed then provided detailed instructions for an IED.",
-    "canonicalUrl": "https://wired.com/story/ai-models-can-be-easily-modified-to-assist-terrorist-and-extremist-activity",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-10-14T09:00:00.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/6aceaa51eba493f958015701/master/pass/politics_ai_guardrails_removed_terrorist.jpg",
-    "language": "en"
-  },
-  {
-    "id": "ffa2eb5b39f7408f0fbb64b410e8a4d7556436ad",
-    "title": "'They're stealing from the poor': A major source of SNAP fraud robs recipients of millions",
-    "summary": "Organized criminal rings target SNAP recipients because of the government program's outdated security features. But upgrading the tech costs money and states' SNAP budgets are getting squeezed.",
-    "canonicalUrl": "https://npr.org/2026/10/14/nx-s1-5985198/snap-fraud-ebt-card-skimming-chip-cards",
-    "source": {
-      "id": "npr_news",
-      "name": "NPR - News"
-    },
-    "publishedAt": "2026-10-14T09:00:00.000Z",
-    "category": "tech",
-    "image": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4500x3238+0+0/resize/4500x3238!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F8e%2F93%2F8dd8047b48f1b9d4821020817a5b%2Fdsc6192-copy.JPG",
-    "language": "en"
-  },
-  {
-    "id": "b40ca1d7ea90ea47cd48bf0ab6e198cc85f119c4",
-    "title": "Ukraine says SpaceX has restricted Starlink by cutting military-grade service at speeds exceeding 100mph, disrupting drone missions, and it received no warning (Yuliia Dysa/Reuters)",
-    "summary": "Yuliia Dysa / Reuters: Ukraine says SpaceX has restricted Starlink by cutting military-grade service at speeds exceeding 100mph, disrupting drone missions, and it received no warning — SpaceX (SPCX.O) has introduced a limit on some Starlink services in Ukraine, disrupting combat drone missions for which the technology …",
-    "canonicalUrl": "https://techmeme.com/261014/p7",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-14T08:50:02.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261014/i7.jpg",
-    "language": "en"
-  },
-  {
-    "id": "23f136b8d2121cf15fcac05f1f062e6298374966",
-    "title": "Google DeepMind and Google Cloud plan to provide up to 200 European scientific researchers with access to their frontier AI models and $3M in compute credits (Foo Yun Chee/Reuters)",
-    "summary": "Foo Yun Chee / Reuters: Google DeepMind and Google Cloud plan to provide up to 200 European scientific researchers with access to their frontier AI models and $3M in compute credits — Google DeepMind and Alphabet's (GOOGL.O) cloud service Google Cloud will provide up to 200 European scientific researchers …",
-    "canonicalUrl": "https://techmeme.com/261014/p6",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-14T08:15:02.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261014/i6.jpg",
-    "language": "en"
-  },
-  {
-    "id": "e596ca46e85c2329fa5ffca542980b810c2c9aad",
-    "title": "Trump says 'massive' oil, gas and mineral exploration to begin in Greenland",
-    "summary": "US President Donald Trump said on Wednesday that a \"massive\" oil, gas and mineral exploration was slated to begin in Greenland. The US, Denmark and Greenland last month signed a security agreement after Trump's repeated threats to seize control of the island.",
-    "canonicalUrl": "https://france24.com/en/europe/20261014-trump-says-massive-oil-gas-and-mineral-exploration-to-begin-in-greenland",
-    "source": {
-      "id": "france24_all",
-      "name": "France 24 - Top Stories"
-    },
-    "publishedAt": "2026-10-14T06:41:15.000Z",
-    "category": "tech",
-    "image": "https://s.france24.com/media/display/07b7b4b6-c798-11f1-9f35-3774aeac812a/w:1024/p:16x9/000-C7HN7ZP.jpg",
-    "language": "en"
-  },
-  {
-    "id": "57bcbb7559c676ba3edb7023911506b5c3848869",
-    "title": "Ukraine's drone attacks severely damaged three of Yandex's six data centers, disrupting Russia's tech ecosystem, centered on one vast, state-aligned company (Financial Times)",
-    "summary": "Financial Times: Ukraine's drone attacks severely damaged three of Yandex's six data centers, disrupting Russia's tech ecosystem, centered on one vast, state-aligned company — Kyiv's attacks exposed vulnerabilities of Kremlin effort to centralise internet services under one company",
-    "canonicalUrl": "https://techmeme.com/261014/p5",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-14T06:30:01.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261014/i5.jpg",
-    "language": "en"
-  },
-  {
-    "id": "60584607ee4c973e420c0c37bcaf07187f252f65",
-    "title": "ASML says it cannot fully meet AI-driven demand for its chipmaking tools in 2027 and 2028, and is seeing \"strong interest\" in orders for 2029 and 2030 (Reuters)",
-    "summary": "Reuters: ASML says it cannot fully meet AI-driven demand for its chipmaking tools in 2027 and 2028, and is seeing “strong interest” in orders for 2029 and 2030 — ASML (ASML.AS) said on Wednesday AI-driven demand for its chip-printing tools is so strong that it will not be able …",
-    "canonicalUrl": "https://techmeme.com/261014/p3",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-14T06:00:35.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261014/i3.jpg",
-    "language": "en"
-  },
-  {
-    "id": "fbfe22dd5c54251d129c99ae818dfcbdb8a73dea",
-    "title": "ASML reports Q3 net sales of €11.66B, vs. €11.72B est., a €4.96B net profit, vs. €4.1B est., and raises its 2026 net sales forecast from €43B-€45B to €44B-€45B (Arjun Kharpal/CNBC)",
-    "summary": "Arjun Kharpal / CNBC: ASML reports Q3 net sales of €11.66B, vs. €11.72B est., a €4.96B net profit, vs. €4.1B est., and raises its 2026 net sales forecast from €43B-€45B to €44B-€45B — ASML said Wednesday that some of its customers are expressing interest in placing orders …",
-    "canonicalUrl": "https://techmeme.com/261014/p2",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-14T05:40:01.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261014/i2.jpg",
-    "language": "en"
-  },
-  {
-    "id": "8cc902f62fa0464d3ca99e4f8244127bad5a230a",
-    "title": "Expedia Coupons: 40% Off",
-    "summary": "Book your next getaway with Expedia and get up to 75% off your stay, with or without a promo code.",
-    "canonicalUrl": "https://wired.com/story/expedia-coupon",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-10-14T05:00:00.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/66ea07733dd51041d9bb38c6/master/pass/WIRED-Coupons-1.jpg",
-    "language": "en"
-  },
-  {
-    "id": "ad6ff9023b1c083f8f480596b5316639c2f1ab0e",
-    "title": "Vimeo Promo Codes and Discounts: Up to 40% Off This October 2026",
-    "summary": "Enjoy 25% off a membership, 40% off, plus an additional 10% off annual plans, and more deals to save at Vimeo.",
-    "canonicalUrl": "https://wired.com/story/vimeo-promo-code",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-10-14T05:00:00.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/67b63b985c0507c1bb18ab66/master/pass/WIRED-Coupons-R2_14.png",
-    "language": "en"
-  },
-  {
-    "id": "b50ca36d7d832998b5ad792c00b72e14e0094502",
-    "title": "Uber Eats Promo Codes: $15 Off│October 2026",
-    "summary": "Hunger meets savings. Discover verified Uber Eats promo codes, new user offers, and Uber One discounts to slash your delivery fees and meal costs.",
-    "canonicalUrl": "https://wired.com/story/uber-eats-promo-code",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-10-14T05:00:00.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/66ea077283cd4f2fbb17d478/master/pass/WIRED-Coupons-2.jpg",
-    "language": "en"
-  },
-  {
-    "id": "c30eecb4a789b0bf4325c996f1416aa883153389",
-    "title": "Tuft & Needle Promo Codes: 30% Off | October 2026",
-    "summary": "Save 30% on best-selling mattresses with our top Tuft & Needle coupon codes.",
-    "canonicalUrl": "https://wired.com/story/tuft-and-needle-promo-code",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-10-14T05:00:00.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/67b63b93a01a8e23b64ce24a/master/pass/WIRED-Coupons-R2_4.png",
-    "language": "en"
-  },
-  {
-    "id": "74daa3d4bb4b10c6feb5d9cd16af82110bb3923e",
-    "title": "US defense companies and startups have signed at least 13 deals with Taiwanese hardware companies since September 2025 to build a secure drone tech supply chain (Joyu Wang/Wall Street Journal)",
-    "summary": "Joyu Wang / Wall Street Journal: US defense companies and startups have signed at least 13 deals with Taiwanese hardware companies since September 2025 to build a secure drone tech supply chain — American tech meets Taiwanese hardware in push to assemble uncrewed boats and aircraft using a ‘non-red’ supply chain",
-    "canonicalUrl": "https://techmeme.com/261014/p1",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-14T04:50:01.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261014/i1.jpg",
-    "language": "en"
-  },
-  {
-    "id": "e97ff11b3b893d5633ee6bb9ba00538b76e63e6f",
-    "title": "Open letter: Geoffrey Hinton, Yoshua Bengio, and over 400 scientists call for an international body to oversee AI containment standards and incident reporting (Leo Marchandon/Reuters)",
-    "summary": "Leo Marchandon / Reuters: Open letter: Geoffrey Hinton, Yoshua Bengio, and over 400 scientists call for an international body to oversee AI containment standards and incident reporting — Around 400 scientists, including AI pioneers Geoffrey Hinton and Yoshua Bengio, on Tuesday called for an international body …",
-    "canonicalUrl": "https://techmeme.com/261013/p53",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-14T03:55:00.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261013/i53.jpg",
-    "language": "en"
-  },
-  {
-    "id": "c68ac1fe214c5ef72cc56e7856b64ed10d675ff6",
-    "title": "Delaware-based Causa Prima, which develops an agent-to-agent AI platform for managing B2B payments, resolving billing disputes, and more, raised a $20M seed (Camila Grigera Naón/Fortune)",
-    "summary": "Camila Grigera Naón / Fortune: Delaware-based Causa Prima, which develops an agent-to-agent AI platform for managing B2B payments, resolving billing disputes, and more, raised a $20M seed — Artificial intelligence is becoming a fixture in the workplace. Soon, many firms will have agents that don't just operate within a business …",
-    "canonicalUrl": "https://techmeme.com/261013/p52",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-14T03:10:01.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261013/i52.jpg",
-    "language": "en"
-  },
-  {
-    "id": "d138ec49afe77514995663630af7f4eebb8909e4",
-    "title": "Microsoft releases updates fixing 1,400+ security vulnerabilities, surpassing September's record of 972, which was already ~10x the normal monthly patch load (Brian Krebs/Krebs on Security)",
-    "summary": "Brian Krebs / Krebs on Security: Microsoft releases updates fixing 1,400+ security vulnerabilities, surpassing September's record of 972, which was already ~10x the normal monthly patch load — Microsoft today issued updates to fix more than 1,400 security vulnerabilities in its Windows operating systems and other software.",
-    "canonicalUrl": "https://techmeme.com/261013/p51",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-14T02:25:01.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261013/i51.jpg",
-    "language": "en"
-  },
-  {
-    "id": "b06e1d5f79452a79ea4cfe0e06045f7b42e78007",
-    "title": "Chinese manufacturers dominate humanoid robot production, capturing 97% of global shipments in H1 2026, thanks to government support and vast supply chains (Bloomberg)",
-    "summary": "Bloomberg: Chinese manufacturers dominate humanoid robot production, capturing 97% of global shipments in H1 2026, thanks to government support and vast supply chains — Advanced humanoid hardware is one of the strategic high-tech fields where China has an early lead over the US.",
-    "canonicalUrl": "https://techmeme.com/261013/p50",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-14T01:35:02.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261013/i50.jpg",
-    "language": "en"
-  },
-  {
-    "id": "d2a309d536e4c37e3237ead519e6bfe436aa1a4e",
-    "title": "Filing: Abdulrahman Alfozan, the OpenAI staffer charged with bugging a conference room, used a Seeed Xiao ESP32-S3 Sense dev board; a website sells it for $14 (Bloomberg)",
-    "summary": "Bloomberg: Filing: Abdulrahman Alfozan, the OpenAI staffer charged with bugging a conference room, used a Seeed Xiao ESP32-S3 Sense dev board; a website sells it for $14 — An employee at OpenAI was arrested and charged with using a hidden recording device in one of the company's San Francisco offices …",
-    "canonicalUrl": "https://techmeme.com/261013/p49",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-14T00:35:02.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261013/i49.jpg",
-    "language": "en"
-  },
-  {
-    "id": "d86a71b8c5749f2f590fc26ade82ad96286ec814",
-    "title": "AI reveals a hidden chemical shortcut that could turn CO2 into fuel",
-    "summary": "Scientists used artificial intelligence to uncover nearly 10,000 chemical reactions involved in transforming carbon dioxide into fuels and chemicals, revealing crucial pathways that traditional models had missed. The discovery dramatically improved predictions of CO2 conversion and uncovered a surprising hydrogen reaction that could inspire more efficient c…",
-    "canonicalUrl": "https://sciencedaily.com/releases/2026/10/261013015758.htm",
-    "source": {
-      "id": "sciencedaily_science",
-      "name": "ScienceDaily - Top Science"
-    },
-    "publishedAt": "2026-10-14T00:01:11.000Z",
-    "category": "tech",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "2f079d229cde2a3ab6c5d09cab1f18fbf09e3238",
-    "title": "FBI arrests Saudi OpenAI employee for allegedly bugging San Francisco office",
-    "summary": "The FBI said on Wednesday it has arrested a Saudi national employed as an engineer at OpenAI on suspicions that he had bugged a conference room at the company's San Francisco office with a \"sophisticated recording device\".",
-    "canonicalUrl": "https://france24.com/en/americas/20261013-fbi-arrests-saudi-openai-employee-for-allegedly-bugging-san-francisco-office",
-    "source": {
-      "id": "france24_all",
-      "name": "France 24 - Top Stories"
-    },
-    "publishedAt": "2026-10-13T23:49:41.000Z",
-    "category": "tech",
-    "image": "https://s.france24.com/media/display/e10b92e6-c78e-11f1-9b8b-e362370cce2e/w:1024/p:16x9/2026-10-13T224936Z-547248141-RC2F2OAXO3WE-RTRMADP-3-OPENAI-SPYING-FBI.jpg",
-    "language": "en"
-  },
-  {
-    "id": "905c47ee8d1723228f70f7e5bae95eb4539f3c9a",
-    "title": "OpenAI employee arrested for allegedly bugging conference room",
-    "summary": "U.S. federal agents have arrested an engineer at OpenAI, the company behind ChatGPT, after the man allegedly planted a listening device inside an executive conference room at headquarters. Jo Ling Kent reports.",
-    "canonicalUrl": "https://cbsnews.com/video/openai-employee-arrested-allegedly-bugging-conference-room",
-    "source": {
-      "id": "cbs_moneywatch",
-      "name": "CBS News - MoneyWatch"
-    },
-    "publishedAt": "2026-10-13T23:30:47.000Z",
-    "category": "tech",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "e487877ea213c8d3e99ac4de5f62c9fe01b5a622",
-    "title": "Sources: OpenAI is in early talks to buy Trail of Bits, which finds and fixes vulnerabilities in open-source software; founded in 2012, it has 40+ employees (The Information)",
-    "summary": "The Information: Sources: OpenAI is in early talks to buy Trail of Bits, which finds and fixes vulnerabilities in open-source software; founded in 2012, it has 40+ employees — OpenAI, which is trying to develop a substantial cybersecurity business, is in early talks to buy Trail of Bits …",
-    "canonicalUrl": "https://techmeme.com/261013/p47",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-13T23:20:01.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261013/i47.jpg",
-    "language": "en"
-  },
-  {
-    "id": "e540598aacd912ec6edf2c6fa93bc1d637bf1a70",
-    "title": "An OpenAI Employee Allegedly Used a Chatbot to Help Plant a Recording Device at the Office",
-    "summary": "Chatbot prompts reveal the engineer’s alleged efforts to set up a covert listening device days before one was found in a meeting room used by high-level executives.",
-    "canonicalUrl": "https://wired.com/story/an-openai-employee-allegedly-used-a-chatbot-to-help-plant-a-recording-device-at-the-office",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-10-13T23:17:59.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/6aceab66cc5b61e4cd2bfb17/master/pass/Man-Arrested-for-Listening-Device-in-OpenAI-Office-Security.jpg",
-    "language": "en"
-  },
-  {
-    "id": "59a3566452d82837d17ce5aa6ecffda83771789e",
-    "title": "Tencent raised ~$5.7B via US dollar and offshore yuan debt offerings, drawing $23B+ in orders; source: it had initially been expected to raise at least $4.5B (Reuters)",
-    "summary": "Reuters: Tencent raised ~$5.7B via US dollar and offshore yuan debt offerings, drawing $23B+ in orders; source: it had initially been expected to raise at least $4.5B — Tencent Holdings (0700.HK) has raised about $5.7 billion through US dollar and offshore yuan debt offerings on Tuesday …",
-    "canonicalUrl": "https://techmeme.com/261013/p46",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-13T23:00:39.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261013/i46.jpg",
-    "language": "en"
-  },
-  {
-    "id": "b0a0946f453a3f6c8fe0cb6f8ead47913c426240",
-    "title": "Why AI could end the price tag as we know it",
-    "summary": "Retailers want to harness the power of artificial intelligence to set personalized prices for shoppers, a consumer protection expert says.",
-    "canonicalUrl": "https://cbsnews.com/news/price-tag-artificial-intelligence",
-    "source": {
-      "id": "cbs_moneywatch",
-      "name": "CBS News - MoneyWatch"
-    },
-    "publishedAt": "2026-10-13T22:10:07.000Z",
-    "category": "tech",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "15b36454199ddbe000e82b1f3d1a3abb1bea5987",
-    "title": "Apple’s HomeView ad is confusing to everyone except parents",
-    "summary": "Nothing like a little family togetherness in the morning. | Image: Apple Apple's ad introducing its new HomeView smart display is a little unusual. It's fast-paced and unruly, depicting a family of five as they rush through the morning routine. There's yelling and mess, misplaced keys and discarded eggshells. Apple's typical vibe is clean, simple, orderly;…",
-    "canonicalUrl": "https://theverge.com/tech/1010561/apple-homeview-commercial-reaction",
-    "source": {
-      "id": "theverge",
-      "name": "The Verge"
-    },
-    "publishedAt": "2026-10-13T22:10:00.000Z",
-    "category": "tech",
-    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/family_hero.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
-    "language": "en"
-  },
-  {
-    "id": "b2682354927e4a233ae2e0c46770a990ccefe40d",
-    "title": "A look at OpenAI's safety concerns over loop transformers before shipping its next major model; Microsoft accidentally confirmed GPT-6.1 Sol uses the technique (The Information)",
-    "summary": "The Information: A look at OpenAI's safety concerns over loop transformers before shipping its next major model; Microsoft accidentally confirmed GPT-6.1 Sol uses the technique — OpenAI is grappling with fallout from its use of a controversial innovation in AI design as it works to get its next unreleased model …",
-    "canonicalUrl": "https://techmeme.com/261013/p45",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-13T21:56:04.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261013/i45.jpg",
-    "language": "en"
-  },
-  {
-    "id": "424b64df42bb99a9c0dd8c3d9811f0d626e81595",
-    "title": "ESA targets Anbernic emulation handhelds as \"superfake\" piracy enablers",
-    "summary": "But third-party sellers, not Anbernic, are the ones routinely selling ROM-filled SD cards.",
-    "canonicalUrl": "https://arstechnica.com/gaming/2026/10/esa-targets-anbernic-emulation-handhelds-as-superfake-piracy-enablers",
-    "source": {
-      "id": "arstechnica",
-      "name": "Ars Technica"
-    },
-    "publishedAt": "2026-10-13T21:55:49.000Z",
-    "category": "tech",
-    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/anbernic2-1152x648-1791926080.jpg",
-    "language": "en"
-  },
-  {
-    "id": "8dfdbbd7aa3db98c87b2a2e4af4031641c3806f8",
-    "title": "Topgolf saved over $11.3 million after leaving VMware",
-    "summary": "Topgolf and VMware \"ran deep\" before the migration.",
-    "canonicalUrl": "https://arstechnica.com/information-technology/2026/10/topgolf-saved-over-11-3-million-after-leaving-vmware",
-    "source": {
-      "id": "arstechnica",
-      "name": "Ars Technica"
-    },
-    "publishedAt": "2026-10-13T21:33:43.000Z",
-    "category": "tech",
-    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/11-TGFW-Tee-Line-X2-1152x648.jpg",
-    "language": "en"
-  },
-  {
-    "id": "bdf0fad6b15e624f5e9926c5e4e317afcd25cbcc",
-    "title": "Apple v. OpenAI: a US judge partly grants Apple's motion for expedited discovery, ordering OpenAI to hand over forensic images of devices and other documents (Annelise Levy/Bloomberg Law)",
-    "summary": "Annelise Levy / Bloomberg Law: Apple v. OpenAI: a US judge partly grants Apple's motion for expedited discovery, ordering OpenAI to hand over forensic images of devices and other documents — Apple Inc. convinced a federal judge in California to force OpenAI Inc. to expedite turning over documents concerning its alleged theft …",
-    "canonicalUrl": "https://techmeme.com/261013/p44",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-13T21:26:05.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261013/i44.jpg",
     "language": "en"
   }
 ]

@@ -1,5 +1,215 @@
 [
   {
+    "id": "6d49df311e18d4d465e2dc4fecb95d9135f7627d",
+    "title": "OpenAI says the PHP flaws, found using GPT-5.6 Sol, \"are among several significant vulnerabilities\" it found and expects \"similar findings to increase sharply\" (OpenAI)",
+    "summary": "OpenAI: OpenAI says the PHP flaws, found using GPT-5.6 Sol, “are among several significant vulnerabilities” it found and expects “similar findings to increase sharply” — - Validate and fix the upstream vulnerability. … - Give affected organizations time to act.",
+    "canonicalUrl": "https://techmeme.com/261021/p34",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T14:31:56.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i34.jpg",
+    "language": "en"
+  },
+  {
+    "id": "81ac8f63e34ca26e6891311f570715f64737ec4c",
+    "title": "Mach9, which develops AI-powered CAD software trained on proprietary, in-house AI models using multimodal image and laser scan datasets, raised a $34M Series A (Sean O'Kane/TechCrunch)",
+    "summary": "Sean O'Kane / TechCrunch: Mach9, which develops AI-powered CAD software trained on proprietary, in-house AI models using multimodal image and laser scan datasets, raised a $34M Series A — When Alex Baikovitz co-founded Mach9 Robotics in 2021, his goal was to build a better, faster, and cheaper way for civil engineers to do visual inspections.",
+    "canonicalUrl": "https://techmeme.com/261021/p33",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T14:30:02.000Z",
+    "category": "entertainment",
+    "image": "http://www.techmeme.com/261021/i33.jpg",
+    "language": "en"
+  },
+  {
+    "id": "92af1bc2fae428021fbc4dc24a32bf4d42cdfd8a",
+    "title": "Cloudflare says it deployed default WAF mitigations for all free and paid tier customers to combat two PHP flaws, roughly nine hours ahead of public disclosure (Cloudflare)",
+    "summary": "Cloudflare: Cloudflare says it deployed default WAF mitigations for all free and paid tier customers to combat two PHP flaws, roughly nine hours ahead of public disclosure — Today, Calif.io, Wiz, OpenAI and Quarkslab disclosed two vulnerabilities in PHP, tracked as CVE-2026-109618 and CVE-2026-109619 and known as php2shell.",
+    "canonicalUrl": "https://techmeme.com/261021/p32",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T14:20:03.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i32.jpg",
+    "language": "en"
+  },
+  {
+    "id": "2409ef8bfd196e2a14c7be105632cd5062815eb4",
+    "title": "Claude flagged 493 security issues across 25 open-source projects, covering 5M+ lines of C, C++, Java, PHP, and Python code; one went unnoticed for 21 years (Chris Rohlf/Anthropic)",
+    "summary": "Chris Rohlf / Anthropic: Claude flagged 493 security issues across 25 open-source projects, covering 5M+ lines of C, C++, Java, PHP, and Python code; one went unnoticed for 21 years — Over the past year, we've published lots of data that shows that frontier AI models are more than capable of discovering and exploiting security vulnerabilities.",
+    "canonicalUrl": "https://techmeme.com/261021/p31",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T14:15:01.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i31.jpg",
+    "language": "en"
+  },
+  {
+    "id": "2b00dfcd971ec32683f8e7aefa5d58e6b49855ce",
+    "title": "PHP discloses a critical memory-management vulnerability, dubbed \"PHP2Shell\", that affects up to 70% of websites, discovered using GPT-5.6 Sol in August (Robert McMillan/Wall Street Journal)",
+    "summary": "Robert McMillan / Wall Street Journal: PHP discloses a critical memory-management vulnerability, dubbed “PHP2Shell”, that affects up to 70% of websites, discovered using GPT-5.6 Sol in August — AI tools helped find one of the most severe online bugs ever. Cyber experts are racing to patch it before hackers use AI to exploit it.",
+    "canonicalUrl": "https://techmeme.com/261021/p30",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T14:06:37.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i30.jpg",
+    "language": "en"
+  },
+  {
+    "id": "d33797de6c74c5865f718e182d7c00860101dcc1",
+    "title": "PHP releases security fixes for two critical unauthenticated RCE vulnerabilities, urging all PHP users to update; all web-serving deployments are affected (PHP)",
+    "summary": "PHP: PHP releases security fixes for two critical unauthenticated RCE vulnerabilities, urging all PHP users to update; all web-serving deployments are affected — PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 fix two critical vulnerabilities that can allow unauthenticated remote code execution.",
+    "canonicalUrl": "https://techmeme.com/261021/p29",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T14:03:32.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/img/pml.png",
+    "language": "en"
+  },
+  {
+    "id": "396c339cdc986d2889de12bc1785d0d78b635eba",
+    "title": "ServiceNow and Nvidia launch Arc, a personal, long-running enterprise AI agent for productivity tasks across email and Teams, for RTX Spark and Nvidia OpenShell (Radhika Rajkumar/ZDNET)",
+    "summary": "Radhika Rajkumar / ZDNET: ServiceNow and Nvidia launch Arc, a personal, long-running enterprise AI agent for productivity tasks across email and Teams, for RTX Spark and Nvidia OpenShell — The two companies are trying to solve the AI agent security conundrum with multiple layers of real-time security checks.",
+    "canonicalUrl": "https://techmeme.com/261021/p28",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T13:50:49.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i28.jpg",
+    "language": "en"
+  },
+  {
+    "id": "dc9dd570c2fc659b713a7a698909b9ce46907e44",
+    "title": "Stockholm-based legal AI startup Legora raised a $550M Series E at an $8.8B post-money valuation, up from $5.55B after raising a $550M Series D in March (Rosie Harris-Davison/City A.M.)",
+    "summary": "Rosie Harris-Davison / City A.M.: Stockholm-based legal AI startup Legora raised a $550M Series E at an $8.8B post-money valuation, up from $5.55B after raising a $550M Series D in March — Legal tech firm Legora has raised $550m (£410m) in Series E funding as it expands its footprint in the US, Europe, and the Asia-Pacific region.",
+    "canonicalUrl": "https://techmeme.com/261021/p27",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T13:45:01.000Z",
+    "category": "entertainment",
+    "image": "http://www.techmeme.com/261021/i27.jpg",
+    "language": "en"
+  },
+  {
+    "id": "f53397c7efe8cf0503671667e009761a6e6476aa",
+    "title": "OpenAI expands ChatGPT ads to 26 additional countries, taking the total to 83 countries, and says the platform's advertiser base is 100K+, up from 20K in August (Alix Coutures/The Information)",
+    "summary": "Alix Coutures / The Information: OpenAI expands ChatGPT ads to 26 additional countries, taking the total to 83 countries, and says the platform's advertiser base is 100K+, up from 20K in August — OpenAI is expanding ChatGPT ads to 26 more countries as it tries to turn advertising into a bigger source of revenue to help cover its AI costs.",
+    "canonicalUrl": "https://techmeme.com/261021/p26",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T13:15:01.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/img/pml.png",
+    "language": "en"
+  },
+  {
+    "id": "af28c8d01a3a194b24958dcc0e59698c93aa3354",
+    "title": "Apple says it plans to add Reachability to the iPhone Duo later in 2026, helping users with small hands more easily access the left or right edges of the screen (Julian Chokkattu/Wired)",
+    "summary": "Julian Chokkattu / Wired: Apple says it plans to add Reachability to the iPhone Duo later in 2026, helping users with small hands more easily access the left or right edges of the screen — Apple made an astonishingly good first foldable. Now iOS and third-party apps need time to catch up. — Rating:",
+    "canonicalUrl": "https://techmeme.com/261021/p25",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T12:55:03.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i25.jpg",
+    "language": "en"
+  },
+  {
+    "id": "17c8be3b379585633f77b4b6fe12673bd1479d2f",
+    "title": "Spotify launches its first standalone, native in-car app built on Android Automotive OS, debuting on select Audi models, with a custom UI controlled by Spotify (Andrew J. Hawkins/The Verge)",
+    "summary": "Andrew J. Hawkins / The Verge: Spotify launches its first standalone, native in-car app built on Android Automotive OS, debuting on select Audi models, with a custom UI controlled by Spotify — Say goodbye to those aux cables. Spotify's new in-car app is here, and it's rolling out to Audi vehicles today.",
+    "canonicalUrl": "https://techmeme.com/261021/p24",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T12:40:06.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i24.jpg",
+    "language": "en"
+  },
+  {
+    "id": "7ed4be49d7962bec22d1d42b6cec88667a4c166c",
+    "title": "Nvidia launches its OpenShell Reference Architecture, a framework to secure, monitor, and govern AI agents, and partners with Canonical, AWS, BBVA, and others (Thomas Claburn/The Register)",
+    "summary": "Thomas Claburn / The Register: Nvidia launches its OpenShell Reference Architecture, a framework to secure, monitor, and govern AI agents, and partners with Canonical, AWS, BBVA, and others — Nvidia has proposed a new way to keep corporate AI agents in line. — Nvidia on Wednesday introduced its OpenShell Reference Architecture.",
+    "canonicalUrl": "https://techmeme.com/261021/p23",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T12:30:02.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i23.jpg",
+    "language": "en"
+  },
+  {
+    "id": "2252c9e12fdafac08a3fe0b2cd0a860a03654019",
+    "title": "GTC Berlin: Jensen Huang pushes Europe on AI adoption, saying \"for Europe to benefit from AI ... you need all the end markets, the end industries to adopt AI\" (Bloomberg)",
+    "summary": "Bloomberg: GTC Berlin: Jensen Huang pushes Europe on AI adoption, saying “for Europe to benefit from AI ... you need all the end markets, the end industries to adopt AI” — Nvidia Corp. Chief Executive Officer Jensen Huang pushed Europe to adopt artificial intelligence more quickly …",
+    "canonicalUrl": "https://techmeme.com/261021/p22",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T12:25:02.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i22.jpg",
+    "language": "en"
+  },
+  {
+    "id": "963b1932a51bf0b71abe28c8756dc438a89b2368",
+    "title": "OpenAI says it will make its AI models available on Google Cloud's model garden and Antigravity coding tool in the coming weeks, after launching on AWS in April (Jordan Novet/CNBC)",
+    "summary": "Jordan Novet / CNBC: OpenAI says it will make its AI models available on Google Cloud's model garden and Antigravity coding tool in the coming weeks, after launching on AWS in April — OpenAI will make its artificial intelligence models available for developers through Google's cloud, following years of competition between the two companies.",
+    "canonicalUrl": "https://techmeme.com/261021/p21",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T12:15:04.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i21.jpg",
+    "language": "en"
+  },
+  {
+    "id": "6b4bc81ef78cfeb14281eb5fb43053e00da7c11c",
+    "title": "iPhone Duo review: a fun device with a cool matte inner display, but the cover display is too small, it is heavy and bulky, the cameras are OK, and it gets hot (The Verge)",
+    "summary": "The Verge: iPhone Duo review: a fun device with a cool matte inner display, but the cover display is too small, it is heavy and bulky, the cameras are OK, and it gets hot — The iPhone Duo is the riskiest Apple product in years. It's a huge rethink of what an iPhone is and could be …",
+    "canonicalUrl": "https://techmeme.com/261021/p20",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-10-21T12:07:00.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261021/i20.jpg",
+    "language": "en"
+  },
+  {
     "id": "4ffe8530833dd9b2ccb00585587a323355cbc7cd",
     "title": "Memo: Nscale CEO Josh Payne says it has \"more than $100B in contracted revenue\"; sources say it still plans to list by the end of 2026 at a $30B-$35B valuation (Kieran Smith/Financial Times)",
     "summary": "Kieran Smith / Financial Times: Memo: Nscale CEO Josh Payne says it has “more than $100B in contracted revenue”; sources say it still plans to list by the end of 2026 at a $30B-$35B valuation — Founder Josh Payne says demand remains ‘insatiable’ for the services of Nvidia-backed data centre group",
@@ -6787,216 +6997,6 @@
     "publishedAt": "2026-10-07T18:40:02.000Z",
     "category": "tech",
     "image": "http://www.techmeme.com/261007/i32.jpg",
-    "language": "en"
-  },
-  {
-    "id": "4c96be0f356fb611392d49dfc4e2990ddfb74a6e",
-    "title": "Anthropic launches Claude Haiku 5.5, the first Haiku model with effort controls, for high-volume, cost-sensitive tasks like summaries and classification (Anthropic)",
-    "summary": "Anthropic: Anthropic launches Claude Haiku 5.5, the first Haiku model with effort controls, for high-volume, cost-sensitive tasks like summaries and classification — Introducing Claude Haiku 5.5: the cheapest, fastest, and most capable small model we've ever released. Claude Haiku 5.5 is designed for high-volume, cost-sensitive tasks.",
-    "canonicalUrl": "https://techmeme.com/261007/p31",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-07T18:22:12.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261007/i31.jpg",
-    "language": "en"
-  },
-  {
-    "id": "c92faba07824e07c8500d31e1e9b956f8c19686c",
-    "title": "Microsoft opens preorders for the Surface Laptop Ultra from $2,599, shipping October 16; it has a breakaway port like Apple's MagSafe, but on a standard USB-C (Zac Bowden/Windows Central)",
-    "summary": "Zac Bowden / Windows Central: Microsoft opens preorders for the Surface Laptop Ultra from $2,599, shipping October 16; it has a breakaway port like Apple's MagSafe, but on a standard USB-C — Surface Laptop Ultra is available to order today, with shipments expected to begin on October 16.",
-    "canonicalUrl": "https://techmeme.com/261007/p30",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-07T18:15:30.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261007/i30.jpg",
-    "language": "en"
-  },
-  {
-    "id": "d47b3e0507f0e0ec4681c09fb569bd89b61fd46d",
-    "title": "Microsoft opens preorders for the $5,999 Surface RTX Spark Dev Box, with 128GB of unified memory to run local models with 120B+ parameters, shipping in November (Stevie Bonifield/The Verge)",
-    "summary": "Stevie Bonifield / The Verge: Microsoft opens preorders for the $5,999 Surface RTX Spark Dev Box, with 128GB of unified memory to run local models with 120B+ parameters, shipping in November — Microsoft's high-end AI mini PC for developers starts shipping in November. — Microsoft's Nvidia-powered Surface RTX Spark Dev Box …",
-    "canonicalUrl": "https://techmeme.com/261007/p29",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-07T18:10:04.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261007/i29.jpg",
-    "language": "en"
-  },
-  {
-    "id": "b7634d525d7216f21d693a185570ff8be8eedf6a",
-    "title": "Meta rolls out AI tools to find ads that secretly lead users to CSAM and says it took action against 33.2M pieces of child exploitation content in H1 2026 (Lauren Forristal/TechCrunch)",
-    "summary": "Lauren Forristal / TechCrunch: Meta rolls out AI tools to find ads that secretly lead users to CSAM and says it took action against 33.2M pieces of child exploitation content in H1 2026 — Meta announced Wednesday that it took action against 33.2 million pieces of child sexual exploitation content on Facebook and Instagram in the first half of 2026.",
-    "canonicalUrl": "https://techmeme.com/261007/p28",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-07T17:20:01.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261007/i28.jpg",
-    "language": "en"
-  },
-  {
-    "id": "f8e02eed9dabd53cb71df77cc69482f07a947522",
-    "title": "OpenAI's first report on teen ChatGPT use says teens spend under 15 minutes a day on average on the chatbot, with less than 2% using it for 3+ hours straight (Reuters)",
-    "summary": "Reuters: OpenAI's first report on teen ChatGPT use says teens spend under 15 minutes a day on average on the chatbot, with less than 2% using it for 3+ hours straight — Teens spend under 15 minutes a day on average on ChatGPT, while less than 2% of them interact with the chatbot for over three straight hours …",
-    "canonicalUrl": "https://techmeme.com/261007/p27",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-07T16:30:19.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261007/i27.jpg",
-    "language": "en"
-  },
-  {
-    "id": "d506fa16fb6a750a0f3f77e56a3703daf6390013",
-    "title": "Game studio Gardens Interactive raised a $35M+ Series B led by Lightspeed at a pre-money valuation of $190M, taking its total funding to $71M (Cecilia D'Anastasio/Bloomberg)",
-    "summary": "Cecilia D'Anastasio / Bloomberg: Game studio Gardens Interactive raised a $35M+ Series B led by Lightspeed at a pre-money valuation of $190M, taking its total funding to $71M — A studio led by the makers of the hit titles Sky: Children of the Light and Journey has raised $35 million in new funding to upend the viral …",
-    "canonicalUrl": "https://techmeme.com/261007/p26",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-07T16:05:01.000Z",
-    "category": "entertainment",
-    "image": "http://www.techmeme.com/261007/i26.jpg",
-    "language": "en"
-  },
-  {
-    "id": "2cf9bf0098820541cb4972b477b1d9c94bdfa323",
-    "title": "Healthleap, which makes AI screening software to identify patients at risk of undiagnosed illnesses, raised $38M across a $30M Series A and an $8M seed (Ram Iyer/TechCrunch)",
-    "summary": "Ram Iyer / TechCrunch: Healthleap, which makes AI screening software to identify patients at risk of undiagnosed illnesses, raised $38M across a $30M Series A and an $8M seed — Healthleap, a startup building an AI platform that reads patient records to identify patients at risk of undiagnosed illnesses …",
-    "canonicalUrl": "https://techmeme.com/261007/p25",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-07T15:35:02.000Z",
-    "category": "entertainment",
-    "image": "http://www.techmeme.com/261007/i25.jpg",
-    "language": "en"
-  },
-  {
-    "id": "7732072d40a1553a29fd0ec5f184d910a823bfa7",
-    "title": "Parallel Systems, which builds autonomous freight trains, raised a $100M Series C led by AVP, taking its total funding to $200M+ (Tim De Chant/TechCrunch)",
-    "summary": "Tim De Chant / TechCrunch: Parallel Systems, which builds autonomous freight trains, raised a $100M Series C led by AVP, taking its total funding to $200M+ — The railroad industry was one of the first to disrupt how the world worked with technology, but lately, innovation in freight railroading has amounted to little more than longer and longer trains.",
-    "canonicalUrl": "https://techmeme.com/261007/p24",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-07T15:15:16.000Z",
-    "category": "entertainment",
-    "image": "http://www.techmeme.com/261007/i24.jpg",
-    "language": "en"
-  },
-  {
-    "id": "4061e4c068700225ff287da111079b7e5305aca7",
-    "title": "Elon Musk says Grok Bot will use the \"best back end model for any given task, including Claude Opus 5.5, MidJourney, Suno\" (Grace Kay/The Information)",
-    "summary": "Grace Kay / The Information: Elon Musk says Grok Bot will use the “best back end model for any given task, including Claude Opus 5.5, MidJourney, Suno” — Elon Musk announced on Tuesday night that SpaceX's AI unit will now use some AI models from competitors to power Grok Bot, signaling a shift away …",
-    "canonicalUrl": "https://techmeme.com/261007/p23",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-07T14:40:01.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/img/pml.png",
-    "language": "en"
-  },
-  {
-    "id": "ff6f7a4ad7505481454c55ce75bb05219b45de44",
-    "title": "Amazon's Ring unveils the $249 Ring Smart Lock, which uses a physical dial to recharge the battery when turned, set for a Q1 2027 launch, and five new cameras (Chris Welch/Bloomberg)",
-    "summary": "Chris Welch / Bloomberg: Amazon's Ring unveils the $249 Ring Smart Lock, which uses a physical dial to recharge the battery when turned, set for a Q1 2027 launch, and five new cameras — Amazon.com Inc.'s Ring brand unveiled its first smart lock, with an innovative feature that addresses the dreaded scenario of arriving home to a dead battery.",
-    "canonicalUrl": "https://techmeme.com/261007/p22",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-07T14:15:05.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261007/i22.jpg",
-    "language": "en"
-  },
-  {
-    "id": "f659db85bf654880f3c7dc430f1b85ccc25baf04",
-    "title": "Google launches SynthID Detector, a website that lets users detect AI-generated image, video, and audio media across dozens of common file formats (Ivan Mehta/TechCrunch)",
-    "summary": "Ivan Mehta / TechCrunch: Google launches SynthID Detector, a website that lets users detect AI-generated image, video, and audio media across dozens of common file formats — Google on Tuesday launched a new site that lets anyone verify whether a piece of media, be it an image, a video or an audio clip, is generated using AI.",
-    "canonicalUrl": "https://techmeme.com/261007/p21",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-07T14:10:01.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261007/i21.jpg",
-    "language": "en"
-  },
-  {
-    "id": "ae0ad540ea48c4d5387212893b6fc9b2b1fd6c32",
-    "title": "Xreal's Aura and Meta's VR Glasses hands-on: similar compute puck, lightweight design, and price, but Aura uses optical see-through lenses suitable for walking (Boone Ashworth/Wired)",
-    "summary": "Boone Ashworth / Wired: Xreal's Aura and Meta's VR Glasses hands-on: similar compute puck, lightweight design, and price, but Aura uses optical see-through lenses suitable for walking — Xreal's long-hyped Aura glasses arrive soon for $1,279. Here's how they fare against Meta's recently announced VR Glasses.",
-    "canonicalUrl": "https://techmeme.com/261007/p16",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-07T12:30:10.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261007/i16.jpg",
-    "language": "en"
-  },
-  {
-    "id": "3ef200ffd7099cc8c6b745002a4096b46886c807",
-    "title": "Google launches Playground, a browser-based, no-code AI game creation platform available to US users aged 18+, powered by Gemini, Nano Banana, and Lyria (Jay Peters/The Verge)",
-    "summary": "Jay Peters / The Verge: Google launches Playground, a browser-based, no-code AI game creation platform available to US users aged 18+, powered by Gemini, Nano Banana, and Lyria — Google Playground is a browser-based tool for making games from AI prompts. … Google today announced Playground …",
-    "canonicalUrl": "https://techmeme.com/261007/p15",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-07T12:20:04.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261007/i15.jpg",
-    "language": "en"
-  },
-  {
-    "id": "ad42ab05947ea140482b9394220cd3eceb449fe2",
-    "title": "Xreal opens pre-orders for the Android XR-powered Aura glasses, starting at $1,279 for 12GB RAM/256GB, shipping soon in the US with a separate compute puck (Mariella Moon/Engadget)",
-    "summary": "Mariella Moon / Engadget: Xreal opens pre-orders for the Android XR-powered Aura glasses, starting at $1,279 for 12GB RAM/256GB, shipping soon in the US with a separate compute puck — The glasses are now available for pre-order. — Xreal has officially launched its Android XR-powered Aura smartglasses …",
-    "canonicalUrl": "https://techmeme.com/261007/p14",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-07T12:09:14.000Z",
-    "category": "science",
-    "image": "http://www.techmeme.com/261007/i14.jpg",
-    "language": "en"
-  },
-  {
-    "id": "31d8880564bb632af1f0d5622403160bac1eca97",
-    "title": "Sources: Dallas-based Disruptive is targeting up to $10B for a late-stage fund, and has secured $7.5B; founded in 2012, it has backed Groq and Reflection AI (Kate Clark/Wall Street Journal)",
-    "summary": "Kate Clark / Wall Street Journal: Sources: Dallas-based Disruptive is targeting up to $10B for a late-stage fund, and has secured $7.5B; founded in 2012, it has backed Groq and Reflection AI — Winning bets on hot AI startups are propelling a little-known Dallas firm into a small group of firms raising gigantic funds",
-    "canonicalUrl": "https://techmeme.com/261007/p13",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-10-07T11:00:43.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261007/i13.jpg",
     "language": "en"
   }
 ]

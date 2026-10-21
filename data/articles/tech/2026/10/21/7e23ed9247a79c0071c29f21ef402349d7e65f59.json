@@ -1,0 +1,24 @@
+{
+  "id": "7e23ed9247a79c0071c29f21ef402349d7e65f59",
+  "title": "Nvidia’s latest GPU driver brings a new way to speed up PC games",
+  "summary": "Nvidia is rolling out a new GPU driver today (621.01) that enables Microsoft's new Advanced Shader Delivery technology to speed up game launches. The technology also removes mid-game \"just-in-time\" shader compilation, reducing stuttering and CPU spikes. Microsoft's Advanced Shader Delivery works by offloading shader compilation for different hardware combin…",
+  "canonicalUrl": "https://theverge.com/news/1015299/nvidia-driver-microsoft-advanced-shader-delivery-support",
+  "source": {
+    "id": "theverge",
+    "name": "The Verge",
+    "url": "https://www.theverge.com/",
+    "feedUrl": "https://www.theverge.com/rss/index.xml",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-21T13:09:26.000Z",
+  "fetchedAt": "2026-10-21T14:51:12.522Z",
+  "category": "tech",
+  "tags": [],
+  "image": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25728971/STK083_NVIDIA_2_D.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/21/7e23ed9247a79c0071c29f21ef402349d7e65f59.json",
+  "contentText": "Nvidia is rolling out a new GPU driver today (621.01) that enables Microsoft's new Advanced Shader Delivery technology to speed up game launches. The technology also removes mid-game \"just-in-time\" shader compilation, reducing stuttering and CPU spikes.\n\nMicrosoft's Advanced Shader Delivery works by offloading shader compilation for different hardware combinations to the cloud. \"Using DirectX 12, Windows 11, and the Microsoft Agility SDK, developers capture shaders into a State Object Database (SODB), allowing Microsoft's cloud network to precompile shaders for hundreds of thousands of hardware and driver combinations,\" explains Nvidia's And …\n\nRead the full story at The Verge.",
+  "contentSource": "content"
+}
