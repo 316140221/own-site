@@ -1,0 +1,31 @@
+{
+  "id": "16dbe370a287c540872fd5f9d3e65319ab0fdebe",
+  "title": "This emulator reimagines Nintendo’s Virtual Boy with a full color display",
+  "summary": "Tile-based color palettes go way beyond the four shades of red on original hardware.",
+  "canonicalUrl": "https://arstechnica.com/gaming/2026/10/this-emulator-reimagines-nintendos-virtual-boy-with-a-full-color-display",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-22T15:59:40.000Z",
+  "fetchedAt": "2026-10-22T19:44:01.239Z",
+  "category": "tech",
+  "tags": [
+    "Gaming",
+    "Color",
+    "emulation",
+    "emulator",
+    "Nintendo",
+    "virtual boy"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/mtcolor.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/22/16dbe370a287c540872fd5f9d3e65319ab0fdebe.json",
+  "contentText": "Last year, we reported on Red Viper , a Virtual Boy emulator that added a splash of Super Game Boy-style color to Nintendo's famously failed red-on-black \"portable\" 3D headset from the '90s. Now, a new emulation experiment, VBoy Color , has taken the concept to a higher level, using a tile-based palette system that allows for many more distinct colors in each individual Virtual Boy frame.\n\nRather than simply replacing the Virtual Boy's four shades of red with four different colors, VBoy Color's readme files explain how the emulator's game-specific Color Packs can assign a distinct four-color palette to each 8x8 tile in a Virtual Boy scene. That means the emulator can differentiate between green pipes, grey platforms, and red brick wall in Mario Clash , for instance, even though all those in-game objects share the same overlapping red hues in the original game.\n\nThe Game Boy Color-esque results feel like being transported into an alternate history where Nintendo invested in a full-color display rather than cheaper red LEDs for the Virtual Boy hardware. The increased contrast between differently colored elements is particularly welcome in games like Jack Bros. or Vertical Force , where the original red-on-red display often makes it hard to differentiate the player-character from busy red background elements.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
