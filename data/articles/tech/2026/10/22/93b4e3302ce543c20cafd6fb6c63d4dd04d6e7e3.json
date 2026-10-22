@@ -1,0 +1,31 @@
+{
+  "id": "93b4e3302ce543c20cafd6fb6c63d4dd04d6e7e3",
+  "title": "333 Tor exit nodes hijacked to intercept SSH traffic and retrieve plaintext email",
+  "summary": "For 3 days this month, 333 exit nodes were hacked in hopes of stealing sensitive data.",
+  "canonicalUrl": "https://arstechnica.com/information-technology/2026/10/300-tor-exit-nodes-hijacked-to-intercept-ssh-traffic-and-retrieve-plaintext-email",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-22T11:30:33.000Z",
+  "fetchedAt": "2026-10-22T14:51:59.339Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "exploit",
+    "hacking",
+    "the onion router",
+    "tor"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/GettyImages-1237260150-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/22/93b4e3302ce543c20cafd6fb6c63d4dd04d6e7e3.json",
+  "contentText": "Unknown hackers hijacked more than 300 Tor exit nodes and reconfigured them to favor unencrypted email traffic and redirect SSH connections through servers they controlled, a researcher reported Tuesday.\n\nThe hijacking began in late August, when, according to Tor volunteers , the attacker used a valid password that had been reused to gain access to a Tor management server. The attacker then installed Ebury , a backdoor written for Linux that was discovered 12 years ago.\n\nMysteries remain\n\nThen the attacker connected from the management server to a second Tor server, called Switzerland2, through SSH, using an RSA key that, for unknown reasons, investigators couldn’t find among Switzerland2’s authorized keys. With administrative control of Switzerland2, the attackers installed Ebury there as well. Finally, the attacker reconfigured settings on two exit nodes that Switzerland2 hosted.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
