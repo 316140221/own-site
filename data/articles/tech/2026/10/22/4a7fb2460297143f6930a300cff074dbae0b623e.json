@@ -1,0 +1,32 @@
+{
+  "id": "4a7fb2460297143f6930a300cff074dbae0b623e",
+  "title": "Switch 2 security takes a hit as hackers unlock homebrew access",
+  "summary": "\"Userland\" exploit relies on integer overflow found in \"SmileBasic\" interpreter.",
+  "canonicalUrl": "https://arstechnica.com/gaming/2026/10/switch-2-jailbreak-gives-hackers-new-ways-to-run-homebrew-and-mod-games",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-22T22:25:33.000Z",
+  "fetchedAt": "2026-10-23T03:14:10.509Z",
+  "category": "tech",
+  "tags": [
+    "Gaming",
+    "exploit",
+    "hack",
+    "Nintendo",
+    "smilebasic",
+    "Switch",
+    "switch 2"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/switch2hack-1152x648-1792704912.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/22/4a7fb2460297143f6930a300cff074dbae0b623e.json",
+  "contentText": "A security researcher has demonstrated a software-only partial jailbreak of the Switch 2, gaining \"userland\" access that he says \"lets us run homebrew, reverse engineer and mod Switch 2 games, back up save files off the Switch, and access most of the Switch 2’s peripherals through MMIO.\"\n\nThe hack relies on the original Switch version of SmileBasic 4 , the latest in a long-running series of programming environments and interpreters that run on Nintendo hardware. The so-called \"tethered\" hack also requires access to a macOS or Linux PC on the same network to run a node.js package that helps enable privileged system access.\n\nResearcher Sammy Hajhamid writes that he used OpenAI's Codex to poke at SmileBasic's language interpreter, using a custom harness that could send USB commands to the system and view results via HDMI (as well as power cycling via a Bluetooth light switch flipping device). After \"substantial effort for ~2 weeks,\" that harness discovered a 32-bit integer overflow that occurs when removing items from an array in SmileBasic. That error gives access to an array pointer, which in turn allows read and write access to portions of system memory.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
