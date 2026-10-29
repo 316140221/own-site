@@ -1,0 +1,31 @@
+{
+  "id": "b853919723a582d4f63c19ac0b6c067f6c9b289b",
+  "title": "Windows 11 gets right-click menu improvements as PC revenue slides",
+  "summary": "The latest update also brings a cloud recovery option for PCs that won't boot.",
+  "canonicalUrl": "https://arstechnica.com/gadgets/2026/10/windows-11-gets-right-click-menu-improvements-as-pc-revenue-slides",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-29T20:18:49.000Z",
+  "fetchedAt": "2026-10-29T20:50:08.545Z",
+  "category": "tech",
+  "tags": [
+    "Tech",
+    "Financial Report",
+    "KB5127936",
+    "microsoft",
+    "right-click menu",
+    "windows 11"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/Hero-Bloom-Logo-1000x563_Windows_11_MS.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/29/b853919723a582d4f63c19ac0b6c067f6c9b289b.json",
+  "contentText": "Microsoft is beginning the rollout of a Windows 11 preview update that finally addresses a persistent power user complaint with the operating system: the right-click menu that obliterated years of muscle memory on command locations, and hid others behind an additional click. The timing for the release is notable, as the announcement comes alongside Microsoft's quarterly financial report that saw a continued decline in the business of selling Windows licenses for new PCs.\n\nThe preview update, KB5127936 , is cumulative for Windows 11 versions 26H2 and 25H2. The update will be a gradual rollout before eventually moving on to a normal rollout for all Windows 11 devices once it reaches general availability. The highlight of the new update should calm annoyed users who have spent years with custom scripts and services in an attempt to shape Windows the way they'd prefer it. Users will get a \"customize menu\" button that controls what commands appear when they right-click their mouse. Users can toggle built-in commands such as Send To or Create Shortcut on or off, rearrange what appears on the main menu, and control which third-party extensions show up in either the main or submenus. The gripe with the right-click menu had been that Microsoft hid familiar command locations behind a top row of icons while moving other familiar commands under the \"Show more options\" submenu. Now, Windows users will have the ability to customize the whole thing around their habits.\n\nThe original Windows 11 right-click menu is a mess.\nCredit:\nMicrosoft\n\nThe new preview also highlights a new Windows feature called Cloud Rebuild, a recovery option that can reinstall Windows 11 directly from the cloud, even when an existing Windows 11 fails to boot. Cloud Rebuild will pull the Windows 11 image and needed system drivers directly from Windows Update. Users will not need a custom recovery image or external media to reinstall Windows. There is an important distinction to note however. Microsoft classified Cloud Rebuild as a recovery option, but it behaves more like a fresh Windows install than a repair, as existing applications and files will not be included. Those worried about data security have the option to sanitize entire system drives prior to reinstalling. For a full list of improvements coming to Windows 11, including changes to Xbox mode and settings, you can view the official Microsoft release announcement .\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
