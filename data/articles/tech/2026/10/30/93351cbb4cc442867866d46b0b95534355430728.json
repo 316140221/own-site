@@ -1,0 +1,32 @@
+{
+  "id": "93351cbb4cc442867866d46b0b95534355430728",
+  "title": "Anthropic VS code extension on Cursor backdoored for nearly 12 hours",
+  "summary": "It's still unknown how attackers got access to Anthropic's verified Cursor account.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-10-30T21:09:54.000Z",
+  "fetchedAt": "2026-10-31T01:25:43.423Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "Anthropic",
+    "Claude",
+    "cursor",
+    "supply chain attacks"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2022/05/caution-tape-1000x648.jpeg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/10/30/93351cbb4cc442867866d46b0b95534355430728.json",
+  "contentText": "An official extension for Anthropic’s Claude model was backdoored and threatened as many as 5,000 developers' machines, multiple sources reported Friday. Anthropic so far has yet to warn customers of the incident.\n\nThe compromised package was a VS Code extension available in the marketplace of Cursor, a maker of AI-assisted developer tools, the company said Friday. The malicious version, 2.1.313, subsequently affected “at most 5,000 users,” presumably when they either downloaded it or their systems automatically fetched and installed it. Anthropic pushed version 2.1.314 several hours after the previous version became available on Cursor, according to independent researcher Kevin Beaumont. Both Beaumont and the CTO and co-founder of security firm Phorian said that version 2.1.313 was distributed through Anthropic’s official account on Cursor. So far, neither Cursor nor Anthropic has explained how the attackers gained control of the account.\n\nIn search of cloud credentials\n\n“It was a supply-chain compromise where the attacker gained access to the official distribution channel,” Phorian CTO and co-founder Luke Roberts told Ars. “The malicious version 2.1.313 was posted to the official Anthropic account, effectively superseding 2.1.312. Extensions auto-update in Cursor by default, but users can configure this in settings.” Phorian has more details here .\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
