@@ -1,0 +1,26 @@
+{
+  "id": "ac3deae9808543f9b22070eafc7ce70110d046a0",
+  "title": "TB 26-09 Measured Hammer-Tap Inputs",
+  "summary": "For more information, contact Joel W. Sills, Langley Research Center, joel.w.sills@nasa.gov. Download the PDF version An instrumented hammer test does not require an idealized single half-sine waveform. When the complete force and response are measured accurately, crest ripples and separated contacts remain known inputs. Force shape changes excitation, but…",
+  "canonicalUrl": "https://nasa.gov/centers-and-facilities/nesc/tb-26-09-measured-hammer-tap-inputs",
+  "source": {
+    "id": "nasa_release",
+    "name": "NASA - News Releases",
+    "url": "https://www.nasa.gov/",
+    "feedUrl": "https://www.nasa.gov/news-release/feed/",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-02T20:47:41.000Z",
+  "fetchedAt": "2026-11-02T23:18:48.524Z",
+  "category": "science",
+  "tags": [
+    "NASA Engineering and Safety Center"
+  ],
+  "image": "https://www.nasa.gov/wp-content/uploads/2015/04/tb-26-09-1-illustrative-hammer-force-time-histories.png?w=1366",
+  "language": "en",
+  "storagePath": "data/articles/science/2026/11/02/ac3deae9808543f9b22070eafc7ce70110d046a0.json",
+  "contentText": "For more information, contact Joel W. Sills, Langley Research Center, joel.w.sills@nasa.gov .\n\nDownload the PDF version\n\nAn instrumented hammer test does not require an idealized single half-sine waveform. When the complete force and response are measured accurately, crest ripples and separated contacts remain known inputs. Force shape changes excitation, but does not inherently invalidate the record. Adequacy depends on measurement accuracy, bandwidth, signal-to-noise ratio, and coverage of the test objective.\n\nBackground: What the Hammer Actually Measures\nHammer tests support modal analysis [2–4] and can precede pyroshock testing [6]. Figure 1 compares a half-sine, maintained-contact rippling, and separated contacts. During a zero-force interval, the structure continues to vibrate; re-contact acts on that vibration.\n\nIf an exact model and test article receive the same force and initial conditions, uniqueness gives identical responses for each bounded measured history. An approximate model can show different errors as inputs excite different frequencies, amplitudes, or nonlinear states. See [1] for the exact-model derivation.\n\nAnalysis: A Half-Sine Is Broadband, but Not Flat\nFigure 2 shows that a finite half-sine is broadband but contains spectral zeros at f/fo = 3, 5, 7, …, with fo = 1/(2T) for pulse duration T. Its appearance alone cannot establish adequate excitation.\n\nAnalysis: Spectral Content Is Determined by the Measured Force History\nFigure 3 normalizes each spectrum to its own DC value. Crest rippling adds content and can fill half-sine notches. Timing between separated contacts creates deterministic interference. For adequacy, inspect the unnormalized measured spectrum and response signal-to-noise ratio.\n\nRecommended Practice: Evaluate Test Adequacy Against the Intended Objective\n• Measure the complete applied force with adequate bandwidth, calibration, dynamic range, and time synchronization.\n&nbsp;• Verify that the response measurements have adequate bandwidth and signal-to-noise ratio and are not clipped or saturated.\n&nbsp;• Confirm that the excitation covers the frequency, amplitude, and nonlinear-response ranges required by the intended test objective.\n• Reject or repeat a test only for an identified measurement, excitation, or coverage deficiency.\n\nConclusion\nHalf-sine appearance neither establishes validity nor guarantees adequacy. Judge each hammer test by its purpose and by accurate, complete force and response measurements over the required range.\n\nReferences\n1. A. Majed, J. Sills, E. Henkel, V. Babuska, S. Yunis, D. Hamilton, J. Akers, and T. Kinney, Validity and Predictability of Measured Hammer Tap Inputs: Linear and Nonlinear Structural Systems, September 2026.\n2. D. J. Ewins, Modal Testing: Theory, Practice and Application, 2nd ed., 2000.\n3. ISO 7626-5:2019, Mechanical Vibration and Shock—Experimental Determination of Mechanical Mobility—Part 5\n4. K. G. McConnell and P. S. Varoto, Vibration Testing: Theory and Practice, 2nd ed., 2008.\n5. A. H. Nayfeh and D. T. Mook, Nonlinear Oscillations, 1979. 6. NASA-STD-7003, Pyroshock Test Criteria, 1999",
+  "contentSource": "content:encoded"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "7bff3ad3cf63bad1ba2c91e8c97ff91a81d3a961",
+  "title": "Claude’s new rules against game cloning won’t stop the AI copying boom",
+  "summary": "The tsunami of imitators is way bigger than any one model maker can stem.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/11/claudes-new-rules-against-game-cloning-wont-stop-the-ai-copying-boom",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-02T18:05:31.000Z",
+  "fetchedAt": "2026-11-02T23:18:48.388Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Gaming",
+    "Anthropic",
+    "Claude",
+    "clones",
+    "copying",
+    "decompilation",
+    "prompts"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/GettyImages-1180626096-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/02/7bff3ad3cf63bad1ba2c91e8c97ff91a81d3a961.json",
+  "contentText": "Last week, Anthropic introduced a new system prompt designed to stop its Claude models from re-creating specific, existing video games. While that move could help shield Anthropic from some liability, it's unlikely to slow much of the massive wave of AI-assisted game porting and copying that has emerged in recent months.\n\nA social media user and AI decompilation enthusiast going by the name \"chasm\" was among the first to note the prompt change late last week, saying a new rule seemed to be added to the Claude Code prompt on or around October 27. That rule—included in a json file under the name \"tengu_heron_brook\"—reads as follows:\n\nDo build original games, games in a genre, and games from the user’s own designs and assets. Don’t build a recreation of a specific existing game, even if it is renamed or called original.\n\nXDA later independently verified that the new rule appears in version 2.1.314 of the Claude Code binary, which was released on October 30 . XDA also reported that the \"tengu_heron_brook\" rule had been used for other purposes in earlier versions and that the Claude Opus 5.5 model specifically seemed to have its own distinct and independent instructions restricting game recreations as part of its system prompt bundle.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
