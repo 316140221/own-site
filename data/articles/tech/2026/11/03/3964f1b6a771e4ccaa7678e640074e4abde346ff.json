@@ -1,0 +1,31 @@
+{
+  "id": "3964f1b6a771e4ccaa7678e640074e4abde346ff",
+  "title": "UEFI bootkit infected fully patched Windows machines. Is Microsoft to blame?",
+  "summary": "UEFI bootkit BlackX exploits Microsoft's lack of clarity around Secure Boot protections.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/11/uefi-bootkit-infected-fully-patched-windows-machines-is-microsoft-to-blame",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-03T16:03:13.000Z",
+  "fetchedAt": "2026-11-03T20:25:00.664Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "microsoft",
+    "secure boot",
+    "uefi",
+    "Windows"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2020/10/malware-1000x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/03/3964f1b6a771e4ccaa7678e640074e4abde346ff.json",
+  "contentText": "In 2023, malware tracked as BlackLotus became the first publicly documented in-the-wild UEFI bootkit capable of bypassing Secure Boot on fully updated Windows 11 systems. With the industry-wide chain-of-trust mechanism subverted, the malware was able to run malicious code before Windows was fully loaded and many security defenses were operational.\n\nMicrosoft had already patched the vulnerability that BlackLotus exploited in 2022. In 2023 and 2024, Microsoft issued additional updates. The first added a new certificate that no longer trusted the vulnerable boot managers. The second provided the means to revoke trust in the digital certificate used to sign older vulnerable Windows boot managers. The organizations infected by the new bootkit, which is tracked under the name BlackX, had installed all of these patches. So how did they fall victim?\n\nUEFI bootkit refresher\n\nBefore discussing the incident further, a brief review of BlackLotus and UEFI malware is in order. Short for Unified Extensible Firmware Interface , UEFI is firmware that runs immediately after a computer is turned on. One of its main jobs is to load system configuration settings, identify and initialize hardware components, and prepare the computer to start its OS.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
