@@ -1,0 +1,30 @@
+{
+  "id": "5f3050c22688f3faa88ac9dbfc7da8dd64364613",
+  "title": "Hackers exploited iOS and Android flaws to infect phones",
+  "summary": "Researchers say group may have been Kremlin-sponsored in search of diplomatic targets.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/11/hackers-exploited-ios-and-android-flaws-to-infect-phones",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-04T22:26:49.000Z",
+  "fetchedAt": "2026-11-05T04:57:21.698Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "adversary in the middle",
+    "kremlin",
+    "watering hole attack"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/05/malware-1000x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/04/5f3050c22688f3faa88ac9dbfc7da8dd64364613.json",
+  "contentText": "Hackers possibly linked to the Kremlin exploited previously patched iOS and Android flaws in an attempt to hack visitors of multiple websites, including one celebrating the 250th anniversary of American independence, researchers said Wednesday.\n\nWielding DarkSword\n\nOne of the impersonated sites was america250.org, belonging to a non-partisan group of lawmakers, business executives, and at least one former member of the Trump administration. The attackers registered america250[.]holiday and used it as a reverse proxy to america250.org. The imposter website delivered content from the real one that added malicious JavaScript into it.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
