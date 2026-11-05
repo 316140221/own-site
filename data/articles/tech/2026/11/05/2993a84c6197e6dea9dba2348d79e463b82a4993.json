@@ -1,0 +1,24 @@
+{
+  "id": "2993a84c6197e6dea9dba2348d79e463b82a4993",
+  "title": "Discord is ditching Electron and its new app uses less RAM",
+  "summary": "Discord is finally giving up on Electron, the cross-platform framework that lets developers build desktop apps using web technologies. Electron web apps are notoriously heavy on system resources, and Discord is now moving its desktop app fully to Rust - a modern programming language designed for speed and memory safety. \"We've been early adopters of Rust si…",
+  "canonicalUrl": "https://theverge.com/news/1027379/discord-ditching-electron-web-app",
+  "source": {
+    "id": "theverge",
+    "name": "The Verge",
+    "url": "https://www.theverge.com/",
+    "feedUrl": "https://www.theverge.com/rss/index.xml",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-05T11:39:42.000Z",
+  "fetchedAt": "2026-11-05T13:56:55.565Z",
+  "category": "tech",
+  "tags": [],
+  "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/03/acastro_STK062_01.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/05/2993a84c6197e6dea9dba2348d79e463b82a4993.json",
+  "contentText": "Discord is finally giving up on Electron, the cross-platform framework that lets developers build desktop apps using web technologies. Electron web apps are notoriously heavy on system resources, and Discord is now moving its desktop app fully to Rust - a modern programming language designed for speed and memory safety.\n\n\"We've been early adopters of Rust since 2018 and a lot of our infra, voice tech, and even some of the current client is already Rust, the holy grail was getting the whole client there,\" explains Discord chief technology officer Stanislav Vishnevskiy in a post on X . \"That means Electron goes away, and so does React Native, m …\n\nRead the full story at The Verge.",
+  "contentSource": "content"
+}
