@@ -1,0 +1,29 @@
+{
+  "id": "db26b4769bbeb4f825ccce5d42cd54193857fe55",
+  "title": "Gamers go to ridiculous lengths to \"improve\" GTA VI with Nvidia's DLSS 5",
+  "summary": "Using a capture card and open source software to run PS5 video through a PC GPU.",
+  "canonicalUrl": "https://arstechnica.com/gaming/2026/11/gamers-go-to-ridiculous-lengths-to-improve-gta-vi-with-nvidias-dlss-5",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-05T17:40:27.000Z",
+  "fetchedAt": "2026-11-05T20:56:16.488Z",
+  "category": "tech",
+  "tags": [
+    "Gaming",
+    "Grand Theft Auto 6",
+    "NVIDIA",
+    "nvidia dlss"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/gta6dlss-1152x648.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/05/db26b4769bbeb4f825ccce5d42cd54193857fe55.json",
+  "contentText": "While the upcoming Grand Theft Auto VI won't be available on PC this month, some gamers are making ridiculous preparations to use their PC graphics cards to apply Nvidia's DLSS 5 technology to the console exclusive.\n\nOn an explicitly unmoderated GTAVI subreddit, user RevolutionaryBus8208 lays out a proposed setup, which runs a PlayStation 5 through a 4K capture card to a PC. From there, the video signal is run through Veyra , an open source tool that can apply DLSS 5's AI-powered \"neural rendering\" to video content. The result—which also uses DLSS frame generation to increase the 30 fps source to a 90 fps output—is then piped back to a 4K TV, theoretically adding some of the benefits of a beefy PC graphics card to a console-exclusive game.\n\nTo demonstrate the potential of this setup, RevolutionaryBus8208 used Veyra to upscale the Grand Theft Auto VI Extended Look trailer posted in August. The resulting DLSS-ified version looks a bit better in places, with sharper background elements, subtler shadows, and more believable light scattering on some surfaces. But it also seems a bit washed out compared to the original video's deeper blacks and arguably suffers from an unnaturally smooth \"soap opera effect\" in some scenes.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "b2a9c85dded5b523450451782d6ce19057258bc7",
+  "title": "Software squeezes more data out of Webb Telescope for imaging exoplanets",
+  "summary": "Software optimizes a physical model of the telescope to reduce noise.",
+  "canonicalUrl": "https://arstechnica.com/science/2026/11/getting-software-to-help-block-out-a-star-so-we-can-see-exoplanets",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-05T19:59:22.000Z",
+  "fetchedAt": "2026-11-05T20:56:16.488Z",
+  "category": "tech",
+  "tags": [
+    "Science",
+    "astronomy",
+    "Computer science",
+    "coronagraph",
+    "software",
+    "telescopes",
+    "Webb telescope"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/image-1-1152x648.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/05/b2a9c85dded5b523450451782d6ce19057258bc7.json",
+  "contentText": "With a huge and still-growing catalog of exoplanets, researchers are anxious to take the next steps: trying to infer what conditions are like on them, either by imaging them directly or by capturing the light that has passed through their atmosphere. Both are substantial challenges, given the presence of stars that are far, far brighter than light that has come to us via the planet.\n\nWhile telescopes can be fitted with devices called coronagraphs that block out much of a star's light, there are limits to their effectiveness, caused by noise from subtle variations in the telescope's configuration and pointing between observations. Now, researchers have developed a new software package that optimizes a physical model of the telescope in a way that allows us to better model these differences, producing low-noise imaging of exoplanets.\n\nPoint spreads\n\nCentral to this work is the concept of a point spread function. If you use a telescope to image a single point of light, it will not appear that way in the actual image. Instead, it will be slightly blurry and spread out, due to imperfections in the telescope hardware and the limits of our ability to keep it pointed accurately through the time it takes to image something. The mathematical description of how a telescope distorts a point of light is called its point spread function.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
