@@ -1,0 +1,31 @@
+{
+  "id": "8424b8cbc8e88fa1b7898ce6f2526f182b121e9c",
+  "title": "Meet *sshole, the vulnerability that lets hackers SSH into Linux devices",
+  "summary": "Certain configurations of Alpine are affected. Other distros may be as well.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/11/vulnerability-allows-attackers-to-log-into-some-linux-devices-sans-password",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-05T23:09:36.000Z",
+  "fetchedAt": "2026-11-06T01:59:27.087Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "alpine",
+    "Linux",
+    "SSH",
+    "vulnerabilities"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2017/05/getty-hacking-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/05/8424b8cbc8e88fa1b7898ce6f2526f182b121e9c.json",
+  "contentText": "Devices running some configurations of Alpine Linux, and possibly other distributions, are affected by a decade-old vulnerability that allows attackers to log into devices with no password.\n\nThe vulnerability exists in the interaction between OpenSSH, the code library implementing SSH connections, and musl, a lightweight alternative to the libc library that, unlike most other Linux distributions, is used in Alpine. Further, OpenSSH using musl (pronounced muscle) must not use PAM (pluggable authentication modules), a framework that handles user authentication and account-access checks. Alpine is a lightweight, widely used Linux distribution. Other platforms may be affected if they use the same configurations.\n\nOne connection, works every time, needs no retries\n\nThere are two other conditions necessary for successful exploitation. First, a system must have at least one user account that’s accessible using a password that is hashed using the SHA256 or SHA512 functions. Second, the target system account must be configured to be passwordless, by way of specifying a \"*\" in the password field in /etc/shadow, the Linux file where password hashes are stored. Passwordless accounts are commonly used for accounts that use certificate-based authentication. This setting is common for certain types of accounts.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
