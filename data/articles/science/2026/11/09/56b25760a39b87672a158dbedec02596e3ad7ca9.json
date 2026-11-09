@@ -1,0 +1,27 @@
+{
+  "id": "56b25760a39b87672a158dbedec02596e3ad7ca9",
+  "title": "Yes, it runs 'Doom': Satellite plays iconic game in world's 1st demonstration of orbital voice control",
+  "summary": "The world's first voice command of a satellite saw an experimental European spacecraft play the iconic video game 'Doom' after operators spoke to it from Earth.",
+  "canonicalUrl": "https://space.com/space-exploration/satellites/yes-it-runs-doom-satellite-plays-iconic-game-in-worlds-1st-demonstration-of-orbital-voice-control",
+  "source": {
+    "id": "space_com",
+    "name": "Space.com",
+    "url": "https://www.space.com/",
+    "feedUrl": "https://www.space.com/feeds.xml",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-09T11:00:00.000Z",
+  "fetchedAt": "2026-11-09T15:03:51.860Z",
+  "category": "science",
+  "tags": [
+    "Satellites",
+    "Space Exploration"
+  ],
+  "image": "https://cdn.mos.cms.futurecdn.net/oWcmaWi2LdM5H8pBbzoGpg-1920-80.jpg",
+  "language": "en",
+  "storagePath": "data/articles/science/2026/11/09/56b25760a39b87672a158dbedec02596e3ad7ca9.json",
+  "contentText": "A satellite went knee-deep in the dead, after a voice command from the ground activated the Doom video game in space.\n\nPlaying a first-person shooter from 1993 was obviously not in the design plan for the PRETTY cubesat , which is run by a consortium including the European Space Agency (ESA). But the pioneering voice command opens up new worlds for satellite work, the team says.\n\n\"Someone in distress at sea or in a remote area could transmit 'mayday' or \"help\" on a radio,\" stated Estonia's Tanagra Space, which supplied the software for the feat. The hope is one day, a satellite could use transcription and AI to alert rescue services for assisting folks in remote zones.\n\nThe call to play Doom, thankfully, had no other urgency than curiosity — and teamwork, fueled by pizza. OPS-SAT Space Lab managed the experiment on behalf of ESA. Radio amateurs then made six unsuccessful attempts during passes over Poland and Norway, between April and July. The seventh finally reached success under the Oslo Group of the Norwegian Radio Relay League.\n\n\"We are radio amateurs, with the emphasis on amateurs. Satellite work was not something our club did, and we had no budget for it,\" representative Eskil Hadland, call sign LB6AJ, said in the Tangara statement. \"So we borrowed a line wrongly credited to Pippi Longstocking: 'I have never tried that before, so I should definitely be able to do that.'\"\n\nThe Norwegians spent 59 days and about 7200 NOK or $775 (pizza included) to reach PRETTY, helping make changes to the satellite software to pick up a voice. For example, a raw recording of an attempt on July 3, retransmitted to Earth, showed the spoken words to space were unrecognizable. Further work revealed the satellite's receiver channel was too wide to pick up the voice signal, leading to a fix to narrow the channel.\n\nThe historic voice command on July 27— in part, \"PRETTY play Doom Doom Doom\"— came from a rooftop in Oslo, and was spoken at night by Jon Bergli Heier (LB9BJ). PRETTY picked up the transmission, transcribed the command using on-board voice recognition, and then — just like a typical evening gamer—opened up Doom for a play session.\n\nA member of the LB9BJ team speaks the command that activated Doom on the OPS-SAT PRETTY satellite while on a rooftop in Oslo, Norway during an evening pass of the spacecraft on July 27, 2026. (Image credit: Truls Johansen (LA7IJ), LA4O) This was no multiplayer gaming situation, but the satellite did create a report of its demon-slaying skills — and its ability to interpret the command. For example, PRETTY generated a \"postcard\" including a frame of the gameplay, a transcription, and signal diagnostics. The satellite also transmitted its recording of Hadland's command.\n\nAs anybody who uses voice-recognition software knows, there are challenges in transcriptions: nobody speaks in exactly the same way, and aspects such as accent or background noise can lead to misinterpretations. The satellite also had to contend with Doppler shift, and with an antenna not designed to relay voices to space.\n\nBut the transmission clearly worked, powered by open-source tools including GNU Radio (which handled the signal processing) and Sherpa-ONNX (speech recognition).\n\nThe hope is that future spacecraft could one day adapt this approach to radio frequencies for other ideas outside of spoken words. For example, perhaps deep-space radio signals could be detected via satellite, with an AI on board sending the most relevant data to operators after analyzing the work.\n\nFor now, however, the Norwegian radio operators are basking in the success: \"Our tiny ground station shouted at an ESA spacecraft, and was heard,\" Hadland said.",
+  "contentSource": "content:encoded"
+}
