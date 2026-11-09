@@ -1,0 +1,30 @@
+{
+  "id": "f00e71ef887fe9407308fff611e85b901a7fb7d4",
+  "title": "Vulnerability that lets hackers SSH into Linux devices is under active exploitation",
+  "summary": "\"*sshole\" poses a serious threat to Internet security.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/11/vulnerability-that-lets-hackers-ssh-into-linux-devices-is-under-active-exploitation",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-09T19:41:34.000Z",
+  "fetchedAt": "2026-11-09T23:57:37.936Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "Linux",
+    "openssh",
+    "SSH"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/07/exploit-vulnerability-security.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/09/f00e71ef887fe9407308fff611e85b901a7fb7d4.json",
+  "contentText": "Hackers are actively exploiting a recently discovered critical vulnerability that allows them to log in to privileged accounts on many Linux systems, multiple researchers are reporting.\n\nThe vulnerability, tracked under the name *sshole, arises from the interaction between OpenSSH and a code library known as musl. Linux systems that use both of these packages and meet certain other requirements can be hacked to give unauthenticated access to high-privilege accounts in a matter of seconds. *sshole became publicly known last Thursday and quickly stoked concerns it could lead to widespread compromise of Linux machines. Four days later, the prediction shows signs of becoming real.\n\nAttackers conducting \"mature intrusions\"\n\nSecurity firm Greynoise said Monday that honeypots it maintains in Southeast Asia have come under attack by a group it’s tracking as GT10. The group conducted “mature intrusions\" into the systems, which Greynoise uses to detect attempted or successful attacks in real time. Greynoise subsequently gained access to a GT10 server that revealed potential other victims and some of the tools used in the campaign. A backdoor the group is using in the attacks contains Chinese language comments and appears to be generated with the use of AI.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}

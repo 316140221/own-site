@@ -1,0 +1,32 @@
+{
+  "id": "1f917ef42e116f1b19438f2d2bfc5841ad721bcf",
+  "title": "Claude Code is accidentally exposing secrets all over GitHub",
+  "summary": "\"Do not ask again\" prompt leads to passwords, API keys, and more being shared.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/11/claude-code-settings-files-expose-thousands-of-secrets-on-github",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-09T17:24:26.000Z",
+  "fetchedAt": "2026-11-09T23:57:37.936Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Security",
+    "AI agents",
+    "Anthropic",
+    "Claude Code",
+    "GitHub",
+    "setting"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/claude-github-leaks-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/09/1f917ef42e116f1b19438f2d2bfc5841ad721bcf.json",
+  "contentText": "Claude Code is leaking sensitive information on public GitHub instances thanks to a partial oversight in the way its settings files are handled. That's the finding of AI security researchers at Apiiro, who discovered thousands of secrets , including database passwords, API tokens, and root logins, amid Claude Code settings files embedded in GitHub repositories.\n\nThe leak stems from the way Claude Code handles user approval for automated shell commands. When a user chooses the \"Yes, and don't ask again\" option to approve running a command, that choice gets stored as part of a rule in the local \".claude/settings.local.json\" file on the user's computer. That rule is sometimes coded as a pattern, but the command itself is often written to that settings file as is, including any sensitive information that may be embedded within it.\n\nThis isn't really a significant security issue if the settings file stays on the user's local machine (assuming that machine doesn't become compromised itself, of course). And Anthropic notes in its Claude Code documentation that this particular settings file gets added to the developer's global .gitignore list , which usually prevents it from being shared publicly.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
