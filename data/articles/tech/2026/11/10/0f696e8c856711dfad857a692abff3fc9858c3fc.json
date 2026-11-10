@@ -1,0 +1,32 @@
+{
+  "id": "0f696e8c856711dfad857a692abff3fc9858c3fc",
+  "title": "DeepMind reveals Gemini Robotics 2.5 and open safety benchmark \"ASIMOV-jailbreak\"",
+  "summary": "The new model is up to twice as successful at some tasks.",
+  "canonicalUrl": "https://arstechnica.com/google/2026/11/deepmind-reveals-gemini-robotics-2-5-and-open-safety-benchmark-asimov-jailbreak",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-10T15:00:39.000Z",
+  "fetchedAt": "2026-11-10T16:02:41.681Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Google",
+    "gemini",
+    "gemini robotics",
+    "google",
+    "physical AI",
+    "robots"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/Credit_-Apptronik_-Mercedes-Benz-Apollo-2-using-Gemini-Robotics-2.5-to-autonomously-perform-automotive-kitting-at-a-Mercedes-Benz-factory-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/10/0f696e8c856711dfad857a692abff3fc9858c3fc.json",
+  "contentText": "Google DeepMind has revealed a new generation of the AI-powered Gemini Robotics platform. In the 2.5 release, Google says its robotic AI is getting tantalizingly close to completing real-world tasks as well as humans do. In fact, some Gemini robots were able to get actual work done in Mercedes-Benz factories, and the team is preparing for a day when robots operate alongside humans with an open source safety benchmark.\n\nDeepMind's physical AI platform has several computational layers between user input and robotic action. There's the vision-language model piece, which is Gemini Embodied Reasoning. Essentially, it takes your instructions and uses live video to plan how the robot can accomplish the task. The other main component is the vision-language-action (VLA) that actually generates robot actions, like moving an actuator—that's Gemini Robotics, which has been bumped to version 2.5.\n\nDeepMind says that Gemini Robotics 2.5 is much better at tasks that require a high degree of dexterity. The model was evaluated across more than 200 activities, including serving food with tongs and using a pipette, as you would see in a laboratory. Google also showed that Apptronik’s Apollo 2 humanoid robot with Gemini Robotics 2.5 can now tie a bow with its five-fingered hands, a notable feat, because deformable objects (like ribbon) are notoriously difficult for robots to manipulate.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
