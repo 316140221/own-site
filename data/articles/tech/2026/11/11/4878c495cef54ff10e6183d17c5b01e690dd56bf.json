@@ -1,0 +1,30 @@
+{
+  "id": "4878c495cef54ff10e6183d17c5b01e690dd56bf",
+  "title": "Google DeepMind just mathematically verified key parts of Signal",
+  "summary": "The four-week project hints that AI could make formal verification far more practical.",
+  "canonicalUrl": "https://arstechnica.com/ai/2026/11/signals-encryption-just-passed-an-ai-powered-mathematical-checkup",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-11T14:08:57.000Z",
+  "fetchedAt": "2026-11-11T21:06:06.981Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Security",
+    "deepmind",
+    "encryption",
+    "signal"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/signal_icon-1024x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/11/4878c495cef54ff10e6183d17c5b01e690dd56bf.json",
+  "contentText": "Google DeepMind researchers used agentic AI to mathematically prove, or “formally verify,” a number of the Signal protocol’s key cryptographic guarantees—a landmark development for the widely used cryptography and AI itself.\n\nConducted as a sort of proof-of-concept project in just four weeks, the work is significant in two ways. It serves as further independent validation of the cryptography that protects massive quantities of the world's communications on platforms like the Signal app , Google Messages, and WhatsApp. And it demonstrates Google DeepMind's formal verification capabilities using a new AI framework called AlphaProof Code.\n\nMore broadly, AI-aided formal verification is having a moment, but it is unclear how practical it will be for widespread use and how effective it can be at securing large amounts of code. Proponents of formal verification have long referred to it as a sort of holy grail in software security, because it uses math to check and validate that software is functioning as intended—in other words, that it doesn't have critical vulnerabilities.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}

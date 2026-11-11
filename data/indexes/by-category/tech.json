@@ -1,5 +1,523 @@
 [
   {
+    "id": "1b6d6864f80b4b7b59001886e1d5c80a9383387e",
+    "title": "T-Mobile illegally imposed 50 GB cap on low-income home Internet plan, NY says",
+    "summary": "Law requires 25Mbps home Internet. T-Mobile lowers speed to 600Kbps after 50GB cap.",
+    "canonicalUrl": "https://arstechnica.com/tech-policy/2026/11/t-mobile-illegally-imposed-50-gb-cap-on-low-income-home-internet-plan-ny-says",
+    "source": {
+      "id": "arstechnica",
+      "name": "Ars Technica"
+    },
+    "publishedAt": "2026-11-11T20:32:21.000Z",
+    "category": "tech",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2024/06/t-mobile-5g-1152x648-1794428350.jpg",
+    "language": "en"
+  },
+  {
+    "id": "c741975b7d0be1b6f3dc2cb03e22749f276df008",
+    "title": "AWS releases AWS Emulator, a free tool that simulates 200+ of its services locally, saying AI agents wrote it and its team hasn't written or reviewed any code (Todd Bishop/GeekWire)",
+    "summary": "Todd Bishop / GeekWire: AWS releases AWS Emulator, a free tool that simulates 200+ of its services locally, saying AI agents wrote it and its team hasn't written or reviewed any code — AWS says its engineers didn't write or review a single line of code in its newest developer tool, and the company is touting that as a selling point.",
+    "canonicalUrl": "https://techmeme.com/261111/p41",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-11-11T20:25:00.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261111/i41.jpg",
+    "language": "en"
+  },
+  {
+    "id": "b1bde400e8cf7c5d867a7e826fd1c2a38233879a",
+    "title": "I Saw the Future of Robotics in a Virtual Duck That Chases My Cat",
+    "summary": "An OpenAI model helped me teach the Microduck to waddle and moonlight as a tiny cat butler.",
+    "canonicalUrl": "https://wired.com/story/i-trained-a-microduck-to-be-my-cats-butler",
+    "source": {
+      "id": "wired",
+      "name": "WIRED"
+    },
+    "publishedAt": "2026-11-11T19:55:54.000Z",
+    "category": "tech",
+    "image": "https://media.wired.com/photos/6af37240c46e83fb6f2598a7/master/pass/AI-Lab-I-Trained-Simulated-Microduck-to-Dance-and-Do-Other-Fun-Things-Business.jpg",
+    "language": "en"
+  },
+  {
+    "id": "d2fae8ad997ff96480ca349a846887caed491a6e",
+    "title": "Tesla extends Cybertruck production to clear backlog, Musk says",
+    "summary": "Tesla CEO Elon Musk originally said Tesla would wind down production​ at its Texas factory in mid-2027.",
+    "canonicalUrl": "https://cbsnews.com/news/tesla-extend-cybertruck-production-backlog",
+    "source": {
+      "id": "cbs_moneywatch",
+      "name": "CBS News - MoneyWatch"
+    },
+    "publishedAt": "2026-11-11T19:55:13.000Z",
+    "category": "tech",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "53bc56e14c08d499d351582d68592919ffbbb876",
+    "title": "United bans AI agents from booking flights on behalf of travelers",
+    "summary": "Using an artificial intelligence agent to make flight reservations poses security risks and could violate federal rules, according to United.",
+    "canonicalUrl": "https://cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights",
+    "source": {
+      "id": "cbs_moneywatch",
+      "name": "CBS News - MoneyWatch"
+    },
+    "publishedAt": "2026-11-11T19:37:38.000Z",
+    "category": "tech",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "7e69c7a6891090f13ee78914c5dd4a8cebccfa85",
+    "title": "Google launches Gemini Decisions API, powered by its new Gemini Decision 1 model, to return predefined answers with confidence scores, at $0.10/1M input tokens (Google)",
+    "summary": "Google: Google launches Gemini Decisions API, powered by its new Gemini Decision 1 model, to return predefined answers with confidence scores, at $0.10/1M input tokens — Introducing the Gemini Decisions API, powered by our new Gemini Decision 1 model. Evaluate up to 1,000 yes/no, choice …",
+    "canonicalUrl": "https://techmeme.com/261111/p40",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-11-11T19:05:00.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261111/i40.jpg",
+    "language": "en"
+  },
+  {
+    "id": "1deaf3a08d5167ce63badd48ac66f7cc27d81150",
+    "title": "United Airlines says it will prevent personal AI assistants from booking tickets, citing data privacy risks and possible FAA and DOT rule violations (Alison Sider/Wall Street Journal)",
+    "summary": "Alison Sider / Wall Street Journal: United Airlines says it will prevent personal AI assistants from booking tickets, citing data privacy risks and possible FAA and DOT rule violations — The carrier says automated assistants present data-privacy risks; 'I don't want to create another middleman' — United Airlines doesn't want to deal with your AI agent.",
+    "canonicalUrl": "https://techmeme.com/261111/p39",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-11-11T18:40:01.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261111/i39.jpg",
+    "language": "en"
+  },
+  {
+    "id": "c2f79d0f0a9a002f432ec4bb0ba56b18074001a7",
+    "title": "Taiwan’s chipmaking giant TSMC to invest $1B in Anthropic, OpenAI",
+    "summary": "Latest example of the AI boom’s circular financing comes as AI trade wobbles.",
+    "canonicalUrl": "https://arstechnica.com/ai/2026/11/taiwans-chipmaking-giant-tsmc-to-invest-1b-in-anthropic-openai",
+    "source": {
+      "id": "arstechnica",
+      "name": "Ars Technica"
+    },
+    "publishedAt": "2026-11-11T18:16:40.000Z",
+    "category": "tech",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/TSMC-Fab-18-1152x648.jpg",
+    "language": "en"
+  },
+  {
+    "id": "2b5f52b99a8eefbd7a6ca5a5f0754ecf1e66a166",
+    "title": "Loot boxes, influencers, and addictive features face an EU crackdown",
+    "summary": "Gaming, social media, and e-commerce platforms are facing a fresh wave of sweeping European Union rules that aim to make \"your online experience fairer.\" The newly proposed Digital Fairness Act (DFA) published by the EU Commission on Wednesday is designed to tackle practices that exploit consumers into spending more of their time and money online, including…",
+    "canonicalUrl": "https://theverge.com/policy/1031575/digital-fairness-act-eu-dfa-consumer-protection",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-11-11T18:13:52.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25319789/STK450_EU_E.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
+    "id": "bbb1fb8ef5e681ba9cfad016d2fdd901a5737702",
+    "title": "Trump admin loses fight to spy on random journalists’ LinkedIn DMs",
+    "summary": "Confidential sources “lifeblood” of free press, court rules in LinkedIn fight.",
+    "canonicalUrl": "https://arstechnica.com/tech-policy/2026/11/trump-admin-loses-fight-to-spy-on-random-journalists-linkedin-dms",
+    "source": {
+      "id": "arstechnica",
+      "name": "Ars Technica"
+    },
+    "publishedAt": "2026-11-11T18:05:26.000Z",
+    "category": "tech",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/GettyImages-2292869198-1024x648.jpg",
+    "language": "en"
+  },
+  {
+    "id": "5a9c08f1230562cd3711d6b2140330d6df68b331",
+    "title": "IBM unveils the Quantum Nighthawk r3, its next-gen processor designed to execute 10,000 quantum operations across 520 qubits to tackle more complex computations (Kyt Dotson/SiliconANGLE)",
+    "summary": "Kyt Dotson / SiliconANGLE: IBM unveils the Quantum Nighthawk r3, its next-gen processor designed to execute 10,000 quantum operations across 520 qubits to tackle more complex computations — IBM Corp. today announced the Quantum Nighthawk r3, its next-generation processor designed to tackle larger …",
+    "canonicalUrl": "https://techmeme.com/261111/p37",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-11-11T17:40:01.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261111/i37.jpg",
+    "language": "en"
+  },
+  {
+    "id": "2464a640b3fba60455c4ef51582b65ea305e18e6",
+    "title": "Big Walk used AI to fix a bug. Now the indie gaming world is having a reckoning.",
+    "summary": "Any amount of AI coding is too much for many Independent Games Festival judges.",
+    "canonicalUrl": "https://arstechnica.com/gaming/2026/11/big-walk-used-ai-to-fix-a-bug-now-the-indie-gaming-world-is-having-a-reckoning",
+    "source": {
+      "id": "arstechnica",
+      "name": "Ars Technica"
+    },
+    "publishedAt": "2026-11-11T17:37:32.000Z",
+    "category": "tech",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/bigwalkdebate-1152x648.png",
+    "language": "en"
+  },
+  {
+    "id": "3c00086e5c6ff38d7edccb8dfb9afade9a195f7b",
+    "title": "The 22 Best Early Black Friday Deals: Our Ultimate Picks (2026)",
+    "summary": "The early bird gets the worm. Here are the best Black Friday deals for 2026 you can get right now.",
+    "canonicalUrl": "https://wired.com/story/best-black-friday-deals-11-11-2026",
+    "source": {
+      "id": "wired",
+      "name": "WIRED"
+    },
+    "publishedAt": "2026-11-11T17:08:14.000Z",
+    "category": "tech",
+    "image": "https://media.wired.com/photos/6aee6a4f4bc3f0945f84d9ea/master/pass/early%20black%20friday%20deals.png",
+    "language": "en"
+  },
+  {
+    "id": "49615d45a3067f7b59c1c39995316954407b8bd9",
+    "title": "Microsoft data center brings \"a kind of boom\" amid AI pushback",
+    "summary": "Microsoft outlines the pledges it makes to data center communities as industry tries to sway public opinion on AI.",
+    "canonicalUrl": "https://cbsnews.com/news/microsoft-data-center-quincy-ai-pushback",
+    "source": {
+      "id": "cbs_moneywatch",
+      "name": "CBS News - MoneyWatch"
+    },
+    "publishedAt": "2026-11-11T17:06:37.000Z",
+    "category": "tech",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "3167050ec2d36877a7562ec088a67d018c0f668a",
+    "title": "Apple is shuttering its 28-year-old online community forum",
+    "summary": "Apple has already made the forum read-only.",
+    "canonicalUrl": "https://arstechnica.com/gadgets/2026/11/apple-is-shuttering-its-28-year-old-online-community-forum",
+    "source": {
+      "id": "arstechnica",
+      "name": "Ars Technica"
+    },
+    "publishedAt": "2026-11-11T17:04:26.000Z",
+    "category": "tech",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/GettyImages-1560398364-966x648.jpg",
+    "language": "en"
+  },
+  {
+    "id": "adeabeb13a13eb794cde95faec174fa6449cbad0",
+    "title": "Sources: self-driving simulation software maker Applied Intuition is in talks to raise at least $1.5B led by General Catalyst at a ~$30B pre-money valuation (Bloomberg)",
+    "summary": "Bloomberg: Sources: self-driving simulation software maker Applied Intuition is in talks to raise at least $1.5B led by General Catalyst at a ~$30B pre-money valuation — Applied Intuition Inc., a defense contractor developing technology for autonomous vehicles, is in talks to raise at least $1.5 billion …",
+    "canonicalUrl": "https://techmeme.com/261111/p36",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-11-11T17:00:55.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261111/i36.jpg",
+    "language": "en"
+  },
+  {
+    "id": "c23e1a411b30aa922ce42964ff1f4a6468214878",
+    "title": "Tehran will strike US bases in Europe if used to attack Iran, security chief says",
+    "summary": "Iranian security chief Mohsen Rezaei said Wednesday that Tehran would attack US bases located in Europe if they were used to carry out bombing raids against the Islamic republic. The heavy defeat of US President Donald Trump's Republican Party in the midterm elections earlier this month seems to have pushed Washington to pull back its threats to carry out f…",
+    "canonicalUrl": "https://france24.com/en/france/20261111-tehran-will-strike-us-bases-in-europe-if-used-to-attack-iran-security-chief-says",
+    "source": {
+      "id": "france24_all",
+      "name": "France 24 - Top Stories"
+    },
+    "publishedAt": "2026-11-11T16:45:46.000Z",
+    "category": "tech",
+    "image": "https://s.france24.com/media/display/f8c593d6-ddec-11f1-8f0b-3f371022a770/w:1024/p:16x9/AP26234800648076.jpg",
+    "language": "en"
+  },
+  {
+    "id": "a520bc37b01c3c247e765dce7ef884aa1fb2e883",
+    "title": "Memo: Meta's head of infrastructure and co-head of engineering Santosh Janardhan plans to leave in early 2027 and Dave Brown will become head of infrastructure (Riley Griffin/Bloomberg)",
+    "summary": "Riley Griffin / Bloomberg: Memo: Meta's head of infrastructure and co-head of engineering Santosh Janardhan plans to leave in early 2027 and Dave Brown will become head of infrastructure — Meta Platforms Inc.'s longtime infrastructure chief will leave the company in early 2027, a major leadership change as it continues …",
+    "canonicalUrl": "https://techmeme.com/261111/p35",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-11-11T16:35:05.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261111/i35.jpg",
+    "language": "en"
+  },
+  {
+    "id": "214b3c77538d2106315f8971c2cb9a2fef2085e5",
+    "title": "Imprint, which helps companies offer co-branded credit cards and manage loyalty programs, raised $130M led by Khosla Ventures at a ~$1.9B valuation (Alex Konrad/Upstarts Media)",
+    "summary": "Alex Konrad / Upstarts Media: Imprint, which helps companies offer co-branded credit cards and manage loyalty programs, raised $130M led by Khosla Ventures at a ~$1.9B valuation — Imprint CEO Daragh Murphy's co-branded card startup is now solving loyalty for brands in agentic commerce. — ∙ Paid",
+    "canonicalUrl": "https://techmeme.com/261111/p34",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-11-11T16:30:01.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261111/i34.jpg",
+    "language": "en"
+  },
+  {
+    "id": "6a54b9203b22cbf5ed9dffe2dfefc4e448d14630",
+    "title": "Brazil electoral court fines Meta $1.3 MN, sees no deliberate election bias",
+    "summary": "Jan Onoszko, our correspondent in Rio, has more.",
+    "canonicalUrl": "https://france24.com/en/brazil-electoral-court-fines-meta-1-3-mn-sees-no-deliberate-election-bias",
+    "source": {
+      "id": "france24_all",
+      "name": "France 24 - Top Stories"
+    },
+    "publishedAt": "2026-11-11T16:08:22.000Z",
+    "category": "tech",
+    "image": "https://s.france24.com/media/display/c4a5b334-dde6-11f1-9c6b-695cb59fade5/w:1024/p:16x9/EN-20261111-161101-161439-CS.jpg",
+    "language": "en"
+  },
+  {
+    "id": "b2fe59e2b1c0b02a0f5b68db057f5c7b29fb80eb",
+    "title": "L'électroménager, prochaine cible des cyberattaques ?",
+    "summary": "Après la cyberattaque qui a frappé les réfrigérateurs de supermarchés dans plusieurs pays, les appareils électroménagers équipant les logements pourraient être la prochaine cible, a prévenu mardi Juhan Lepassaar, chef de l'agence européenne de cybersécurité (Enisa), dans un entretien à l'Agence France Presse.",
+    "canonicalUrl": "https://france24.com/fr/vid%C3%A9o/20261111-l-%C3%A9lectrom%C3%A9nager-prochaine-cible-des-cyberattaques",
+    "source": {
+      "id": "france24_fr",
+      "name": "France 24 - À la une"
+    },
+    "publishedAt": "2026-11-11T16:02:42.000Z",
+    "category": "tech",
+    "image": "https://s.france24.com/media/display/ff4ca69a-dde7-11f1-80b9-29048b396e03/w:1024/p:16x9/FR-20261111-161018-161208-CS.jpg",
+    "language": "fr"
+  },
+  {
+    "id": "f0476f4b70e90c24b0f749fd3565038246d63e85",
+    "title": "Google’s Tabletop AI experiment lets you build custom collaboration apps",
+    "summary": "Tabletop isn’t anything to do with D&D or boardgames, but it does make it easier to coordinate with freinds, | Image: Google Google has cooked up a new experimental AI tool called Tabletop that generates customized collaborative hubs to help you coordinate with family, and friends. The Tabletop platform shares some visual similarities with workplace managem…",
+    "canonicalUrl": "https://theverge.com/tech/1031526/google-tabletop-ai-experiment-waitlist-availability",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-11-11T16:00:00.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/Google-Labs-Tabletop.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
+    "id": "911459e7bdce7fe8a355419468e343a225a5ad14",
+    "title": "The best early Black Friday deals you can already shop",
+    "summary": "The countdown to Black Friday is on, and the first discounts are starting to appear. Although the shopping holiday isn’t officially until November 27th, retailers are already dropping early deals on some of our favorite tech. Of course, with prices rising across the board, a good discount doesn’t necessarily mean you’re getting a historically low price. But…",
+    "canonicalUrl": "https://theverge.com/gadgets/1028991/black-friday-best-early-deals-2026",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-11-11T15:53:55.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/268838_BF_CM_EARLY_DEALS_Headers_CVirginia.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
+    "id": "f524ed223c1af26218df298508915ec8dccba49e",
+    "title": "Company under scrutiny for ties to Nvidia and China",
+    "summary": "The unusual global footprint of Megaspeed, a major buyer of Nvidia's powerful AI computer chips, is fueling questions about whether it's a front for the Chinese government.",
+    "canonicalUrl": "https://cbsnews.com/news/megaspeed-nvidia-china-ties",
+    "source": {
+      "id": "cbs_world",
+      "name": "CBS News - World"
+    },
+    "publishedAt": "2026-11-11T15:41:00.000Z",
+    "category": "tech",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "3ab674d00e1b28ce3740ba00b15680d9727dfec6",
+    "title": "China’s Nvidia Honeypot Isn’t Surprising. Jensen Huang Fell for It Anyway",
+    "summary": "China’s use of sexpionage is a well-established intelligence tactic with recent, high-profile examples. So how did the world’s most powerful AI executive fall for it?",
+    "canonicalUrl": "https://wired.com/story/chinas-nvidia-honeypot-isnt-surprising-jensen-huang-fell-for-it-anyway",
+    "source": {
+      "id": "wired",
+      "name": "WIRED"
+    },
+    "publishedAt": "2026-11-11T15:30:00.000Z",
+    "category": "tech",
+    "image": "https://media.wired.com/photos/6af3b2cb420c0dad2c15cd3b/master/pass/Jensen-Honeypot-Big-Story-2.jpg",
+    "language": "en"
+  },
+  {
+    "id": "df0d6afea866d3261ca5c09a8babffdff8c9b9a1",
+    "title": "Sharge’s eye-catching MacBook charger is over 25 percent off",
+    "summary": "Looking for a MacBook and device charger that’s as stylish as it is capable? Both Amazon and Sharge are selling the Pixel 140W GaN charger for $69.88 and $69.90, respectively, a $24 discount on its usual price. If you’re not in need of that much wattage but like the style, Sharge is also selling the 67W version for $19.90 ($30 off) or the 100W version for $…",
+    "canonicalUrl": "https://theverge.com/gadgets/1031301/sharge-140w-gan-charger-lenovo-yoga-mini-desktop-pc-deal-sale",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-11-11T15:30:00.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/sharge-pixel-140-charger-roundup.png?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
+    "id": "9fdb616dd6a7818605cb2a74b23d13cb7cbf8b2c",
+    "title": "Trump wanted little Kei trucks for America, Toyota makes it happen",
+    "summary": "Does this herald the start of a small car revolution, or is it a meaningless distraction?",
+    "canonicalUrl": "https://arstechnica.com/cars/2026/11/toyota-resurrects-scion-with-right-hand-drive-kei-trucks",
+    "source": {
+      "id": "arstechnica",
+      "name": "Ars Technica"
+    },
+    "publishedAt": "2026-11-11T15:25:44.000Z",
+    "category": "tech",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/Scion_Kei_Truck_2027-06-1152x648.jpg",
+    "language": "en"
+  },
+  {
+    "id": "303a72081b72a109b9780fd6ada9291e3be6082d",
+    "title": "Plurai, founded by former Nexar staffers to use synthetic data and digital twins of corporate IT environments to assess AI agents, raised a $13M seed (Tim Fernholz/TechCrunch)",
+    "summary": "Tim Fernholz / TechCrunch: Plurai, founded by former Nexar staffers to use synthetic data and digital twins of corporate IT environments to assess AI agents, raised a $13M seed — AI agents are all the rage, but they're not quite as capable as their purveyors would have you believe.",
+    "canonicalUrl": "https://techmeme.com/261111/p31",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-11-11T15:05:56.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261111/i31.jpg",
+    "language": "en"
+  },
+  {
+    "id": "94e40b40a0b46bd15cb8f9550af8a5d9fedd0c84",
+    "title": "Ocarina of Time is even better if you use a smartphone app",
+    "summary": "Hey there, buddy. I never liked hunting for Golden Skulltulas in The Legend of Zelda: Ocarina of Time. The game has 100 of them tucked all over Hyrule, and even over my many hours with the N64 classic growing up, I can't remember ever actually finding all of them, or even wanting to. Jumping into the Ocarina of Time remake, I expected to ignore the Golden S…",
+    "canonicalUrl": "https://theverge.com/games/1031321/the-legend-of-zelda-ocarina-of-time-notes-app-gold-skulltula",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-11-11T15:00:00.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/20261110-01M74FRERRH793DQ734KTJM2FA-061DB0ED-ACA3-47E5-8CA3-6B3B776C2354.jpeg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
+    "id": "ddb95c61a535c7491a6d57561b41f675834fe311",
+    "title": "Google’s AlphaGenome 2 zooms in on the cellular roots of disease",
+    "summary": "A graphic representing Google’s AlphaGenome Atlas. | Image: Google Researchers at Google DeepMind have unveiled a new AI model designed to unravel how changes in our DNA affect different cells, giving scientists a more detailed view of a notoriously difficult problem that could hold important clues to the causes of disease - and point the way to new treatme…",
+    "canonicalUrl": "https://theverge.com/ai-artificial-intelligence/1031524/google-deepmind-alphagenome-2-genetic-ai-model",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-11-11T15:00:00.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/alphagenome-atlas-cover__background.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
+    "id": "eb425a6007fcce0a8a17e808371988a67796945b",
+    "title": "After the US midterms, Palantir CEO Alex Karp pivots toward Democrats, describing his philosophy as \"progressive\" and praising Trump for saying ICE went too far (Politico)",
+    "summary": "Politico: After the US midterms, Palantir CEO Alex Karp pivots toward Democrats, describing his philosophy as “progressive” and praising Trump for saying ICE went too far — With help from Eli Okun, Ali Bianco and Irie Sentner — Good Wednesday morning — and a special note of gratitude and thanks to all the vets on Veterans Day.",
+    "canonicalUrl": "https://techmeme.com/261111/p29",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-11-11T14:20:57.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261111/i29.jpg",
+    "language": "en"
+  },
+  {
+    "id": "67c2c7b53521ac1445413866f1186c994b8b006c",
+    "title": "Inside a data center built pre-AI boom, and how it's benefited a community",
+    "summary": "Jo Ling Kent goes inside a Microsoft data center built two decades ago in Quincy, Washington, and speaks to the town's mayor to learn how it has benefited the community.",
+    "canonicalUrl": "https://cbsnews.com/video/inside-a-data-center-built-pre-ai-boom-and-how-its-benefitted-a-community",
+    "source": {
+      "id": "cbs_us",
+      "name": "CBS News - US"
+    },
+    "publishedAt": "2026-11-11T14:17:00.000Z",
+    "category": "tech",
+    "image": null,
+    "language": "en"
+  },
+  {
+    "id": "4878c495cef54ff10e6183d17c5b01e690dd56bf",
+    "title": "Google DeepMind just mathematically verified key parts of Signal",
+    "summary": "The four-week project hints that AI could make formal verification far more practical.",
+    "canonicalUrl": "https://arstechnica.com/ai/2026/11/signals-encryption-just-passed-an-ai-powered-mathematical-checkup",
+    "source": {
+      "id": "arstechnica",
+      "name": "Ars Technica"
+    },
+    "publishedAt": "2026-11-11T14:08:57.000Z",
+    "category": "tech",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/signal_icon-1024x648.jpg",
+    "language": "en"
+  },
+  {
+    "id": "960f9906c814a15cf8a062ec03c4900850b5bde8",
+    "title": "A pesar de estar en una lista negra de Estados Unidos, una universidad china compró chips Nvidia",
+    "summary": "En 'Revista de Prensa' analizamos nuevos capitulos del escándalo desatado en 'Nvidia', la tecnológica cuyo dueño Jensen Huang, habría sido objeto de una operación de espionaje de Beijing, según Estados Unidos. Ahora, la agencia 'Reuters' asegura que una universidad china compró chips de inteligencia artificial de forma indirecta a Nvidia a pesar de las rest…",
+    "canonicalUrl": "https://france24.com/es/programas/revista-de-prensa/20261111-a-pesar-de-estar-en-una-lista-negra-de-estados-unidos-una-universidad-china-compr%C3%B3-chips-nvidia",
+    "source": {
+      "id": "france24_es",
+      "name": "France 24 - Portada"
+    },
+    "publishedAt": "2026-11-11T14:08:56.000Z",
+    "category": "tech",
+    "image": "https://s.france24.com/media/display/64fa6746-ddd6-11f1-a2c7-f71d22e7fea9/w:1024/p:16x9/ES-20261111-081440-082201-CS.jpg",
+    "language": "es"
+  },
+  {
+    "id": "c4f2a6a224a4b3674d31cf633e6691820df7c0a9",
+    "title": "An analysis of 42 interviews since 2022: after US chip restrictions, Jensen Huang's public rhetoric became more admiring of China and critical of export rules (J.D. Capelouto/Semafor)",
+    "summary": "J.D. Capelouto / Semafor: An analysis of 42 interviews since 2022: after US chip restrictions, Jensen Huang's public rhetoric became more admiring of China and critical of export rules — Jensen Huang's public rhetoric on China became more admiring, and his stance on export controls more critical …",
+    "canonicalUrl": "https://techmeme.com/261111/p28",
+    "source": {
+      "id": "techmeme",
+      "name": "Techmeme"
+    },
+    "publishedAt": "2026-11-11T14:01:03.000Z",
+    "category": "tech",
+    "image": "http://www.techmeme.com/261111/i28.jpg",
+    "language": "en"
+  },
+  {
+    "id": "627d7e876d1799b35f45a9638a3b9021d4bc4eb7",
+    "title": "Sony’s latest Pulse wireless headset packs planar magnetic drivers at a good price",
+    "summary": "It's tempting to seek out the do-everything wireless gaming headset with noise cancellation, phenomenal sound quality, multiplatform connectivity, swappable batteries - you name it. But if you just want the basics done well, Sony's new $99.99 PlayStation Pulse headset is worth considering. It has very good sound and just enough extras, even if you use more…",
+    "canonicalUrl": "https://theverge.com/games/1031291/sony-playstation-pulse-wireless-gaming-headset-hands-on",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-11-11T14:00:00.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/pulseheadset.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
+    "id": "6e40d6043154dab3ba515abdf7a1b00f3bc314f7",
+    "title": "Adobe’s AI experiments let you walk around in photos and interview your characters",
+    "summary": "Project Screen Test lets you talk with AI-generated characters to shape their personality. | Image: Adobe Some of the most impressive tech that Adobe showcases at its annual Max conference each year is the experimental features it's developing, and the latest of those tools are being announced today: they can transform images into explorable 3D scenes, desi…",
+    "canonicalUrl": "https://theverge.com/tech/1031505/adobe-max-2026-sneaks-experiments-ai",
+    "source": {
+      "id": "theverge",
+      "name": "The Verge"
+    },
+    "publishedAt": "2026-11-11T14:00:00.000Z",
+    "category": "tech",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/Adobe-Project-Screen-Test.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "language": "en"
+  },
+  {
     "id": "015bd613776384cac71e9580bb2295a85e7359e6",
     "title": "Streaming is still trying to be TikTok",
     "summary": "At Skydance's first employee town hall after it acquired Warner Bros. Discovery in October, CEO David Ellison told staff that the company behind Paramount Plus and HBO Max was competing for people's attention with some of the world's biggest tech companies. Months earlier, he'd singled out a way to get viewers to spend more time with Paramount's programming…",
@@ -6479,524 +6997,6 @@
     "publishedAt": "2026-11-04T15:58:45.000Z",
     "category": "tech",
     "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/STKS539_AI_AGENTS_SHOPPING_C.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
-    "language": "en"
-  },
-  {
-    "id": "022ae4af52a3b0596684f0f784ef66dbb1ee92e9",
-    "title": "Circle reports Q3 revenue up 17% YoY to $875M, driven in part by its ARC token presales, net income up 5% to $226M, and says it is cutting 5% of its employees (Yueqi Yang/The Information)",
-    "summary": "Yueqi Yang / The Information: Circle reports Q3 revenue up 17% YoY to $875M, driven in part by its ARC token presales, net income up 5% to $226M, and says it is cutting 5% of its employees — Stablecoin issuer Circle reported third-quarter revenue jumped 17% to $875 million, reflecting mostly a one-time bump from a token sale.",
-    "canonicalUrl": "https://techmeme.com/261104/p37",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-11-04T15:50:02.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/img/pml.png",
-    "language": "en"
-  },
-  {
-    "id": "a4c0d644033a244f84ef23c96d7eba21e6753e2a",
-    "title": "TeraWulf secures a credit backstop agreement with Google to support financing for its data center project with Anthropic in Kentucky, set to come online H2 2027 (Deborah Sophia/Reuters)",
-    "summary": "Deborah Sophia / Reuters: TeraWulf secures a credit backstop agreement with Google to support financing for its data center project with Anthropic in Kentucky, set to come online H2 2027 — Data-center developer TeraWulf (WULF.O) said on Wednesday it has secured a credit backstop agreement with Alphabet's Google …",
-    "canonicalUrl": "https://techmeme.com/261104/p36",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-11-04T15:45:29.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261104/i36.jpg",
-    "language": "en"
-  },
-  {
-    "id": "44634f2d245214050b252946544da6e24b0e3c8d",
-    "title": "What I learned driving the Slate electric truck prototype",
-    "summary": "After 45 minutes behind the wheel, I am more optimistic about the $25,000 EV.",
-    "canonicalUrl": "https://arstechnica.com/cars/2026/11/what-i-learned-driving-the-slate-electric-truck-prototype",
-    "source": {
-      "id": "arstechnica",
-      "name": "Ars Technica"
-    },
-    "publishedAt": "2026-11-04T15:42:18.000Z",
-    "category": "tech",
-    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/slate-in-car-1152x648.jpg",
-    "language": "en"
-  },
-  {
-    "id": "669a1782011326975f622aec4641e2e9bd82fd0c",
-    "title": "Not even $200 million could help Elon Musk buy Texas",
-    "summary": "James Talarico, the Democratic Texas senator-elect, not only managed to flip the state in yesterday's midterms but prevailed in the most expensive Senate election to date. More than $573 million was spent on advertisements between Talarico, his Republican opponent Ken Paxton, and their aligned PACs. And a big chunk of that money came from just one man: Elon…",
-    "canonicalUrl": "https://theverge.com/policy/1026329/elon-musk-paxton-talarico-texas-election-funding",
-    "source": {
-      "id": "theverge",
-      "name": "The Verge"
-    },
-    "publishedAt": "2026-11-04T15:33:59.000Z",
-    "category": "tech",
-    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/06/STKE012_SPACEX_IPO_2026_A.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
-    "language": "en"
-  },
-  {
-    "id": "f71cc4982b00c2b8913fcd9b0bb42a2f90019db3",
-    "title": "Election Deniers Aren’t Contesting Their Massive Losses",
-    "summary": "For months, election deniers claimed without evidence that the vote would be rigged. Now they appear to be accepting crushing defeats.",
-    "canonicalUrl": "https://wired.com/story/election-deniers-not-contesting-their-massive-losses",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-11-04T15:30:18.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/6aea37fa21be717333c5244d/master/pass/110326-midterms-election-deniers.jpg",
-    "language": "en"
-  },
-  {
-    "id": "f51232057080a36ffd4bc39d1395c7eea46016b9",
-    "title": "Bluetooth is getting a big boost to data transfer speeds",
-    "summary": "The Bluetooth Special Interest Group (SIG) that oversees the wireless standard has formally adopted Bluetooth High Data Throughput (HDT) as an optional feature of the Bluetooth Core 7.0. It's an upgrade the Bluetooth SIG has been previewing over the past year that increases Bluetooth LE's maximum supported bit rate from 2 Mbps to 7.5 Mbps. It will allow for…",
-    "canonicalUrl": "https://theverge.com/tech/1026308/bluetooth-le-sig-high-data-throughput-hdt",
-    "source": {
-      "id": "theverge",
-      "name": "The Verge"
-    },
-    "publishedAt": "2026-11-04T15:19:54.000Z",
-    "category": "tech",
-    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/bluetooth1.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
-    "language": "en"
-  },
-  {
-    "id": "244f029f99b32248f7271a2423c7c50824b2f090",
-    "title": "The fight for tech accountability starts now",
-    "summary": "When Donald Trump began his second term as president, Silicon Valley gratefully embraced moral nihilism. Google, Amazon, Microsoft, and more collectively donated millions to Trump's inauguration fund to ensure his favor in a new era of gangster tech regulation. Meta overhauled its content policy to allow calling gay people mentally ill and women property. E…",
-    "canonicalUrl": "https://theverge.com/policy/1026289/midterms-2026-results-ai-data-center-big-tech-accountability",
-    "source": {
-      "id": "theverge",
-      "name": "The Verge"
-    },
-    "publishedAt": "2026-11-04T15:02:25.000Z",
-    "category": "tech",
-    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/STK423_ELECTIONS4.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
-    "language": "en"
-  },
-  {
-    "id": "0a573ad2ac5e1223ed7480a0fde4a23b114f1689",
-    "title": "Sources: Singapore-based, Nigeria-focused payments startup OPay halts its $300M US IPO just hours after pricing it due to inquiries from a Chinese regulator (Bloomberg)",
-    "summary": "Bloomberg: Sources: Singapore-based, Nigeria-focused payments startup OPay halts its $300M US IPO just hours after pricing it due to inquiries from a Chinese regulator — China made eleventh-hour inquiries into OPay Ltd., prompting the Nigeria-focused payments company to halt its $300 million initial public offering …",
-    "canonicalUrl": "https://techmeme.com/261104/p34",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-11-04T14:50:01.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261104/i34.jpg",
-    "language": "en"
-  },
-  {
-    "id": "9796a271e32e9a217b0fbe240bec5208d52c0a4c",
-    "title": "UK AI Minister Kanishka Narayan says AI is set to add £55B to £140B to the economy by 2030, below a £400B estimate from a Google-led report touted by officials (Ben Gartside/Wired)",
-    "summary": "Ben Gartside / Wired: UK AI Minister Kanishka Narayan says AI is set to add £55B to £140B to the economy by 2030, below a £400B estimate from a Google-led report touted by officials — The AI minister now concedes the estimated figure is less than a third of that. Researchers blame the country's slow rate of adoption",
-    "canonicalUrl": "https://techmeme.com/261104/p32",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-11-04T14:20:04.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261104/i32.jpg",
-    "language": "en"
-  },
-  {
-    "id": "558b6b95aecba8610e4963e809542a30e31b0484",
-    "title": "El negocio de la eterna juventud: Singapur y la carrera por no envejecer",
-    "summary": "Clínicas de alta tecnología y laboratorios especializados ofrecen tratamientos y programas para retrasar los efectos del envejecimiento. Con un mercado global en plena expansión, Singapur se perfila como uno de los escenarios donde la longevidad empieza a convertirse en una industria millonaria. ¿Hasta dónde puede llegar la promesa de vivir más y envejecer…",
-    "canonicalUrl": "https://france24.com/es/programas/en-foco/20261104-el-negocio-de-la-eterna-juventud-singapur-y-la-carrera-por-no-envejecer",
-    "source": {
-      "id": "france24_es",
-      "name": "France 24 - Portada"
-    },
-    "publishedAt": "2026-11-04T14:17:27.000Z",
-    "category": "tech",
-    "image": "https://s.france24.com/media/display/025c154e-d859-11f1-ad14-695cb59fade5/w:1024/p:16x9/EnFoco-Longevidad.jpeg",
-    "language": "es"
-  },
-  {
-    "id": "7f3c9b1136a937d7513edb1509e948e9818c2db1",
-    "title": "The French Blood Establishment says external providers' blood cold storage units were hacked to raise temperatures, in a wave of refrigeration cyberattacks (Sawdah Bhaimiya/CNBC)",
-    "summary": "Sawdah Bhaimiya / CNBC: The French Blood Establishment says external providers' blood cold storage units were hacked to raise temperatures, in a wave of refrigeration cyberattacks — Choose CNBC as your preferred source on Google and never miss a moment from the most trusted name in business news.",
-    "canonicalUrl": "https://techmeme.com/261104/p31",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-11-04T14:10:01.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261104/i31.jpg",
-    "language": "en"
-  },
-  {
-    "id": "4ebc5559efc8de7c3e0d95ff80025db0fd7f1462",
-    "title": "Sequoia says it's closing its London office after six years and consolidating operations back to the Bay Area, as it doesn't \"see the need for a local presence\" (Mike Butcher/Pathfounders)",
-    "summary": "Mike Butcher / Pathfounders: Sequoia says it's closing its London office after six years and consolidating operations back to the Bay Area, as it doesn't “see the need for a local presence” — US venture capital giant Sequoia Capital is closing its London office, ending the six-run of a significant European presence …",
-    "canonicalUrl": "https://techmeme.com/261104/p30",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-11-04T14:01:45.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/img/pml.png",
-    "language": "en"
-  },
-  {
-    "id": "ab542773cb8874d550b77ab1b88898380fd9767c",
-    "title": "UK Officials Said AI Would Add £400 Billion to the Economy. That Figure Mainly Came From Google",
-    "summary": "The AI minister now concedes the estimated figure is less than a third of that. Researchers blame the country’s slow rate of adoption.",
-    "canonicalUrl": "https://wired.com/story/uk-officials-said-ai-would-add-400-billion-to-the-economy-that-figure-mainly-came-from-google",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-11-04T13:49:51.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/6ae4f0b834d00005a9a1a2fc/master/pass/2026-10-12T133338Z_906189115_RC2EIMAWOQ1L_RTRMADP_3_AI-BRITAIN-SAFETY.jpg",
-    "language": "en"
-  },
-  {
-    "id": "527b03fce473c5f83ffc92a4e4d88877c83a271c",
-    "title": "‘I’m 100 Percent at War With Trump’: MAGA Revolts After Midterms Wipeout",
-    "summary": "While some of Donald Trump’s closest allies have remained silent, much of MAGA is blaming him for historic losses.",
-    "canonicalUrl": "https://wired.com/story/im-100-percent-at-war-with-trump-maga-revolts-after-midterms-wipeout",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-11-04T13:48:28.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/6ae50a5c21bfda08f54b3e88/master/pass/GettyImages-2266022222.jpg",
-    "language": "en"
-  },
-  {
-    "id": "2b71264ffb8bba4adb199f100d04383ec92278b8",
-    "title": "Qualcomm signs a multiyear SpaceX deal to supply Dragonwing hardware and network software for \"tens of thousands of cell sites\" for a US-wide 5G network in 2027 (Bloomberg)",
-    "summary": "Bloomberg: Qualcomm signs a multiyear SpaceX deal to supply Dragonwing hardware and network software for “tens of thousands of cell sites” for a US-wide 5G network in 2027 — Qualcomm Inc. will supply hardware components for SpaceX's planned nationwide terrestrial wireless network …",
-    "canonicalUrl": "https://techmeme.com/261104/p29",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-11-04T13:47:06.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261104/i29.jpg",
-    "language": "en"
-  },
-  {
-    "id": "1b3bbd82311d297c5b658cddfd454ab4a16a7ec1",
-    "title": "A tiny squeeze dramatically changes the magnetism of exotic materials",
-    "summary": "Scientists have discovered that a simple mechanical squeeze can dramatically alter the magnetic properties and electrical behavior of exotic materials called altermagnets. The surprising breakthrough could open the door to faster, more energy-efficient electronics and new technologies for quantum computing.",
-    "canonicalUrl": "https://sciencedaily.com/releases/2026/11/261101010541.htm",
-    "source": {
-      "id": "sciencedaily_computers",
-      "name": "ScienceDaily - Computers & Math"
-    },
-    "publishedAt": "2026-11-04T12:37:52.000Z",
-    "category": "tech",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "70695e99a9c5476148406e0544a27d7cd9cce9ec",
-    "title": "UN peacekeeping chief warns of ‘security vacuum’ as Blue Helmets leave Lebanon and Western Sahara",
-    "summary": "The UN’s peacekeeping chief warned on Wednesday that the withdrawal of “Blue Helmets” from Lebanon and Western Sahara risks leaving a dangerous security vacuum, while the Security Council remains divided over what, if anything, should replace them.",
-    "canonicalUrl": "https://news.un.org/feed/view/en/story/2026/11/1168741",
-    "source": {
-      "id": "un_news_all",
-      "name": "UN News - All"
-    },
-    "publishedAt": "2026-11-04T12:00:00.000Z",
-    "category": "tech",
-    "image": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/2026/10/01-10-2026-UNIFIL-Lebanon-01.jpg/image560x340cropped.jpg",
-    "language": "en"
-  },
-  {
-    "id": "99494844bc001b00c74a7ededad2893d8591ae7f",
-    "title": "I Tried Amazon’s New Kindles. Buy This Accessory Instead (2026)",
-    "summary": "If you already have a compatible e-reader, the $35 Kindle Click could be all the upgrade you need.",
-    "canonicalUrl": "https://wired.com/story/finally-a-kindle-page-turner",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-11-04T11:36:00.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/6aea06f2bd6c21c6b16c255d/master/pass/Kindle%20Klick%20112026%20top%20art%20SOURCE%20Amazon.jpg",
-    "language": "en"
-  },
-  {
-    "id": "266f720a120ce5543239a65939ad6da064fa3204",
-    "title": "New Jersey’s New Ebike Law Is Causing Chaos",
-    "summary": "Since early 2026, the law has required electric bike owners to get licenses—and in some cases, insurance—to ride. It has left many stranded and confused.",
-    "canonicalUrl": "https://wired.com/story/new-jerseys-new-ebike-law-is-causing-chaos",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-11-04T10:45:00.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/6ae4e94d4bc4fc3930909772/master/pass/Gear_New%20Jersey%E2%80%99s%20New%20Ebike%20Law%20Is%20Causing%20Confusion%20and%20Chaos.jpg",
-    "language": "en"
-  },
-  {
-    "id": "ac708837efc811df168efce649e36bb788d56940",
-    "title": "What’s the Difference Between an Ebike and an E-Moto?",
-    "summary": "Riders and lawmakers often don’t know the difference, and retailers sometimes muddy the waters on purpose. Here’s how to buy the micromobility vehicle you actually want.",
-    "canonicalUrl": "https://wired.com/story/whats-the-difference-between-an-ebike-and-an-e-moto",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-11-04T10:45:00.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/6aea8cee83523dc6a2dbcc8a/master/pass/Gear_What%E2%80%99s%20the%20Difference%20Between%20an%20Ebike%20and%20an%20E-Moto.jpg",
-    "language": "en"
-  },
-  {
-    "id": "3dcee417fb3e0db0d16266e7785804232b43a7a8",
-    "title": "SLAC scientists find conclusive proof of a mysterious third type of magnetism",
-    "summary": "For nearly 90 years, scientists believed magnetism fell into just two categories, but researchers have now confirmed a remarkable third type called altermagnetism. Using specialized X-rays, they uncovered a unique magnetic signature that proves these materials behave differently from conventional magnets. Altermagnets combine stability with the ability to e…",
-    "canonicalUrl": "https://sciencedaily.com/releases/2026/11/261104012256.htm",
-    "source": {
-      "id": "sciencedaily_computers",
-      "name": "ScienceDaily - Computers & Math"
-    },
-    "publishedAt": "2026-11-04T10:43:44.000Z",
-    "category": "tech",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "de84e5a2fe2e9775c46ff60c2f824f4df21cc59f",
-    "title": "Industry experts warn that slow US power grid expansion could stifle its AI boom and give China an edge, as China builds power infrastructure faster (Martha Muir/Financial Times)",
-    "summary": "Martha Muir / Financial Times: Industry experts warn that slow US power grid expansion could stifle its AI boom and give China an edge, as China builds power infrastructure faster — Why America is struggling to power the AI boom. The US is building electricity lines at a quarter the rate of a decade ago It took 13 years …",
-    "canonicalUrl": "https://techmeme.com/261104/p8",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-11-04T07:30:05.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261104/i8.jpg",
-    "language": "en"
-  },
-  {
-    "id": "0094724bcc7302edad9c3b4ab90501379ec2e378",
-    "title": "ITjuzi: Chinese embodied AI companies raised ~$13B across 322 deals in H1 2026, up 5x YoY, as robot makers shift focus from hardware to AI (Reuters)",
-    "summary": "Reuters: ITjuzi: Chinese embodied AI companies raised ~$13B across 322 deals in H1 2026, up 5x YoY, as robot makers shift focus from hardware to AI — After years of building humanoid robots capable of running, dancing and performing backflips, Chinese companies are pouring resources into a different challenge …",
-    "canonicalUrl": "https://techmeme.com/261104/p7",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-11-04T07:20:02.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261104/i7.jpg",
-    "language": "en"
-  },
-  {
-    "id": "d2499a5f1f683b3919edaf8afc4f31ccf79cb7d5",
-    "title": "CISAC Reports Record Global Creator Royalties, Warns of ‘Largest Test’ From AI",
-    "summary": "Digital is now the largest generator of publishing royalties, accounting for 45.6% of the total.",
-    "canonicalUrl": "https://billboard.com/pro/cisac-record-global-creator-royalties-warns-ai-threat",
-    "source": {
-      "id": "billboard",
-      "name": "Billboard"
-    },
-    "publishedAt": "2026-11-04T07:00:00.000Z",
-    "category": "tech",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "93c973c9163f46a5bf20a8eedd284ed5cce2436c",
-    "title": "AI helps Stanford scientists discover a “natural Ozempic” with a surprising advantage",
-    "summary": "Stanford researchers have discovered an AI-identified natural molecule that dramatically suppresses appetite and promotes fat loss in animals, potentially offering an Ozempic-like weight-loss treatment without common digestive side effects or significant muscle loss. Called BRP, the molecule reduced food intake by up to 50% and targets a different brain pat…",
-    "canonicalUrl": "https://sciencedaily.com/releases/2026/11/261104004909.htm",
-    "source": {
-      "id": "sciencedaily_science",
-      "name": "ScienceDaily - Top Science"
-    },
-    "publishedAt": "2026-11-04T06:57:06.000Z",
-    "category": "tech",
-    "image": null,
-    "language": "en"
-  },
-  {
-    "id": "aced40dc9abaf3b486b0ec351a2d528ecdc702f7",
-    "title": "Democratic gubernatorial wins in Texas, Georgia, Ohio and Pennsylvania could expose 50% of proposed US AI data center additions to greater scrutiny and pushback (Bloomberg)",
-    "summary": "Bloomberg: Democratic gubernatorial wins in Texas, Georgia, Ohio and Pennsylvania could expose 50% of proposed US AI data center additions to greater scrutiny and pushback — Data center developers seeking to build dozens of sprawling artificial intelligence campuses across Texas were already dealing …",
-    "canonicalUrl": "https://techmeme.com/261104/p6",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-11-04T06:55:07.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261104/i6.jpg",
-    "language": "en"
-  },
-  {
-    "id": "d7724f6ad0872b4755ef2b2b40a57a96fca95618",
-    "title": "AMD projects ~$17B in Q4 2026 revenue, compared to Intel's $15B to $16B, potentially overtaking Intel as the largest x86 processor vendor for the first time (Simon Sharwood/The Register)",
-    "summary": "Simon Sharwood / The Register: AMD projects ~$17B in Q4 2026 revenue, compared to Intel's $15B to $16B, potentially overtaking Intel as the largest x86 processor vendor for the first time — AMD has predicted it will win more revenue than Intel in its next quarter, potentially marking the first time it becomes …",
-    "canonicalUrl": "https://techmeme.com/261104/p5",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-11-04T06:35:00.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261104/i5.jpg",
-    "language": "en"
-  },
-  {
-    "id": "489a4163d8797782682601a1f9383adc3684fef8",
-    "title": "A Democratic sweep of US Congress pulls down Asian tech stocks, as investors rethink trades built around Trump's policy agenda for AI infrastructure and crypto (Bloomberg)",
-    "summary": "Bloomberg: A Democratic sweep of US Congress pulls down Asian tech stocks, as investors rethink trades built around Trump's policy agenda for AI infrastructure and crypto — Global markets pared a selloff sparked by a Democratic sweep of the US Congress, as investors weighed tougher scrutiny …",
-    "canonicalUrl": "https://techmeme.com/261104/p3",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-11-04T06:15:04.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261104/i3.jpg",
-    "language": "en"
-  },
-  {
-    "id": "c60a8fe57907bf0960e7ec32c81a9b8b7ca93067",
-    "title": "Sources: Oracle has scrapped a ~$7B, five-year deal to lease ~100K advanced AI chips to Tencent after yielding to pressure from the Trump administration (Financial Times)",
-    "summary": "Financial Times: Sources: Oracle has scrapped a ~$7B, five-year deal to lease ~100K advanced AI chips to Tencent after yielding to pressure from the Trump administration — Intervention comes amid growing tension for US AI infrastructure groups doing business with Chinese tech giants.",
-    "canonicalUrl": "https://techmeme.com/261104/p2",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-11-04T06:05:02.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261104/i2.jpg",
-    "language": "en"
-  },
-  {
-    "id": "1718c573cc57c5a0fbd5c6f940e06ee11dd3d97a",
-    "title": "Shark Promo Codes for November 2026",
-    "summary": "Shark makes some seriously powerful vacuums, from handheld vacs to steam mops. Don’t miss $100 off, 10% off, and more limited-time coupons from WIRED.",
-    "canonicalUrl": "https://wired.com/story/shark-promo-code",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-11-04T06:00:00.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/67b63b972c751893c256c1e6/master/pass/WIRED-Coupons-R2_16.png",
-    "language": "en"
-  },
-  {
-    "id": "218c4fdb9709c9d77fbe85241fe3d9c2f1fac5fc",
-    "title": "Alo Discount Code: 20% Off November 2026",
-    "summary": "Refresh your workout wardrobe. Save on buttery-soft leggings, chic streetwear, and activewear essentials with verified Alo Yoga discount codes, free shipping, and loyalty program perks.",
-    "canonicalUrl": "https://wired.com/story/alo-yoga-discount-code",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-11-04T06:00:00.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/67b63b98fb14553f0ebd9ffd/master/pass/WIRED-Coupons-R2_15.png",
-    "language": "en"
-  },
-  {
-    "id": "50cbcf53b42e1855fadc306ac2a510ae068382eb",
-    "title": "SteelSeries Coupon Codes: 15% Off in November 2026",
-    "summary": "Unlock exclusive discounts on SteelSeries' award-winning gaming headsets, keyboards, and accessories.",
-    "canonicalUrl": "https://wired.com/story/steelseries-coupon-code",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-11-04T06:00:00.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/66ea076ea6cbbaa16c12af30/master/pass/WIRED-Coupons-12.jpg",
-    "language": "en"
-  },
-  {
-    "id": "77ecc1cfe2f42d6fdcfba51a3f75cb54e19833d5",
-    "title": "LegalZoom Promo Code: Exclusive 10% Off LLC Formations",
-    "summary": "Save on top services at LegalZoom, like LLC registration, incorporation, estate plans, and more with coupons and deals from WIRED.",
-    "canonicalUrl": "https://wired.com/story/legalzoom-promo-code",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-11-04T06:00:00.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/67b63b9b7d355db73b38e0c2/master/pass/WIRED-Coupons-R2_11.png",
-    "language": "en"
-  },
-  {
-    "id": "d12679a04fc1b7d1b23c603a6ae500636a85fde6",
-    "title": "Hoka Coupon Codes: 30% Off in November 2026",
-    "summary": "Unlock free expedited shipping or 10% off with today’s Hoka discount codes, plus save up to 30% with the best discounts for November 2026.",
-    "canonicalUrl": "https://wired.com/story/hoka-coupon-code",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-11-04T06:00:00.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/66ea076ea8e714f02ce0d63e/master/pass/WIRED-Coupons-15.jpg",
-    "language": "en"
-  },
-  {
-    "id": "d3ec75a55b5cdbe104b078954c26f596b239c1c9",
-    "title": "25% Off Adidas Promo Code | November 2026",
-    "summary": "Save 15% or 30% with Adidas promo codes, plus explore Adidas deals for 40% off trendy sneakers.",
-    "canonicalUrl": "https://wired.com/story/adidas-promo-code",
-    "source": {
-      "id": "wired",
-      "name": "WIRED"
-    },
-    "publishedAt": "2026-11-04T06:00:00.000Z",
-    "category": "tech",
-    "image": "https://media.wired.com/photos/66ea077251891e6d3cb5d5cf/master/pass/WIRED-Coupons-3.jpg",
-    "language": "en"
-  },
-  {
-    "id": "9f015663d1e57ce0c65c92b4ea570f87c9256d13",
-    "title": "Sources: Alibaba, Tencent, ByteDance, and other Chinese AI companies ordered 6M Nvidia RTX Pro 5500 chips worth $70B, but expect only ~1% within four months (Bloomberg)",
-    "summary": "Bloomberg: Sources: Alibaba, Tencent, ByteDance, and other Chinese AI companies ordered 6M Nvidia RTX Pro 5500 chips worth $70B, but expect only ~1% within four months — Chinese AI developers expect to receive just a small fraction of the advanced Nvidia Corp. chips they've ordered over the next several months …",
-    "canonicalUrl": "https://techmeme.com/261104/p1",
-    "source": {
-      "id": "techmeme",
-      "name": "Techmeme"
-    },
-    "publishedAt": "2026-11-04T05:55:00.000Z",
-    "category": "tech",
-    "image": "http://www.techmeme.com/261104/i1.jpg",
-    "language": "en"
-  },
-  {
-    "id": "425e7baf4d6dd739a576919ac69384aba58ddedd",
-    "title": "Before the Dawn in America’s Heartland",
-    "summary": "With hardly a cloud in sight, astronauts had a sweeping view of nighttime lights in the U.S. Midwest.",
-    "canonicalUrl": "https://science.nasa.gov/earth/earth-observatory/before-the-dawn-in-americas-heartland",
-    "source": {
-      "id": "nasa_release",
-      "name": "NASA - News Releases"
-    },
-    "publishedAt": "2026-11-04T05:01:00.000Z",
-    "category": "tech",
-    "image": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/before-the-dawn-in-america%E2%80%99s-heartland/ISS075-E-226709.jpg?w=1440&#038;h=960&#038;fit=clip&#038;crop=faces%2Cfocalpoint",
     "language": "en"
   }
 ]
