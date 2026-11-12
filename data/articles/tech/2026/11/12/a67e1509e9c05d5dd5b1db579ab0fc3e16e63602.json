@@ -1,0 +1,30 @@
+{
+  "id": "a67e1509e9c05d5dd5b1db579ab0fc3e16e63602",
+  "title": "Google rolls out Gemini 4 Hydrogen, finally replacing 3.8 Flash",
+  "summary": "Gemini 4 Hydrogen isn't getting a slow, security-conscious release like Carbon and Argon.",
+  "canonicalUrl": "https://arstechnica.com/google/2026/11/google-rolls-out-gemini-4-hydrogen-finally-replacing-3-8-flash",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-12T19:23:03.000Z",
+  "fetchedAt": "2026-11-12T21:17:57.432Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Google",
+    "Artificial Intelligence",
+    "gemini 4",
+    "google"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/gemini-general-6-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/12/a67e1509e9c05d5dd5b1db579ab0fc3e16e63602.json",
+  "contentText": "Google is continuing its elemental AI naming scheme with the new Gemini 4 Hydrogen . These names are less descriptive than the Pro/Flash monikers of earlier releases, but Hydrogen's purpose is clear: It replaces the faster, more economical Flash models most people in Google's ecosystem use.\n\nWith Google's recent Argon and Carbon releases, the rollout was staged and began with cybersecurity researchers. Even when general availability began, Google restricted access to users paying for its most expensive AI subscription. The limits for Hydrogen are much more relaxed, with access beginning immediately. This model has replaced Gemini 3.8 Flash across the company's products.\n\nGoogle claims that Hydrogen represents a major improvement versus the previous Flash model. It runs in one of four thinking levels (low, medium, high, and the new xhigh), and even in high mode, it's 2.5 times faster than Flash 3.8. Plus, it reduces \"fabricated claims\" by more than 5x, according to Google's analysis. Users will also see gains in code generation, with Hydrogen more than tripling 3.8 Flash's score in Terminal-Bench. In some cases, Hydrogen even trades blows with Argon. It managed a score of 54 in the popular Artificial Analysis Intelligence Index with xhigh mode versus 50 for Argon.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
