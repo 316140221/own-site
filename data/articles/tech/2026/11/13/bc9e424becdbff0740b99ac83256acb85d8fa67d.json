@@ -1,0 +1,32 @@
+{
+  "id": "bc9e424becdbff0740b99ac83256acb85d8fa67d",
+  "title": "Windows 0-day dropped by disgruntled researcher hands hackers System rights",
+  "summary": "\"SignDrop\" exploit lets local users gain all-powerful System rights.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/11/windows-0-day-dropped-by-disgruntled-researcher-hands-hackers-system-rights",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-13T16:26:32.000Z",
+  "fetchedAt": "2026-11-13T19:09:49.847Z",
+  "category": "tech",
+  "tags": [
+    "Biz & IT",
+    "Security",
+    "exploits",
+    "microsoft",
+    "vulnerabilities",
+    "Windows",
+    "zerodays"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/GettyImages-1237693734-1152x648-1783631068.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/13/bc9e424becdbff0740b99ac83256acb85d8fa67d.json",
+  "contentText": "Nightmare Eclipse, the pseudonym of a researcher with an ongoing, very public beef with Microsoft, has dropped yet another Windows zero-day.\n\nOn Tuesday, Nightmare Eclipse disclosed SignDrop, a vulnerability that gives local users full System rights on some versions of Windows. The vulnerability resides in the Common Log File System , which Microsoft describes as a “general-purpose logging service used by software clients running in user-mode or kernel-mode.” By forcing a privileged process such as Windows Defender to open a crafted CLFS container, an attacker with ordinary user rights can abuse the privileged file creation to elevate privileges to System.\n\nTurning a Windows defense against itself\n\nThe attack exploits the interaction of CLFS, Windows Defender, and Windows file permissions. The exploit uses Windows Defender to open a log file created by a standard user by calling ServerMpUpdateEngineSignature, a legitimate Defender function for processing antivirus signature updates.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
