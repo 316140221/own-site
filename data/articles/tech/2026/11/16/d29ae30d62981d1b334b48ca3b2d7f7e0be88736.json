@@ -1,0 +1,31 @@
+{
+  "id": "d29ae30d62981d1b334b48ca3b2d7f7e0be88736",
+  "title": "Three small failures combined to take down Microsoft 365",
+  "summary": "A hidden bug, shifting traffic, and reduced capacity led to cascading failures.",
+  "canonicalUrl": "https://arstechnica.com/gadgets/2026/11/microsoft-details-how-three-problems-combined-for-a-global-outage",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-16T21:56:39.000Z",
+  "fetchedAt": "2026-11-16T23:58:21.683Z",
+  "category": "tech",
+  "tags": [
+    "Tech",
+    "Cloud Gateway",
+    "Exchange Online",
+    "microsoft",
+    "microsoft 365",
+    "Windows"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2025/10/network-outage.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/16/d29ae30d62981d1b334b48ca3b2d7f7e0be88736.json",
+  "contentText": "A hidden defect in Microsoft's cloud gateway, dormant since July, was to blame for one of the largest outages in the company's history last week. A preliminary Post-Incident Report (PIR) released by the company outlines how the latent bug, changes in traffic, and reduced server capacity combined to knock much of Microsoft 365 and Exchange infrastructure offline at the end of last week. Microsoft's report lists the incident's final status as \"a technical issue not related to cyber or AI/agents.\"\n\nMicrosoft's preliminary report places the outage between November 12 at 16:20 UTC and November 13 at 16:10 UTC, just under 24 hours total, and additional monitoring remained in place for any affected systems through November 14.\n\nThe outage started on November 12 and quickly rippled through businesses and public offices that depend on Microsoft's cloud and email exchange infrastructure. The outage is covered in Microsoft's incident IDs EX1550543 and MO1550821. You need Microsoft 365 admin credentials to see the full report on the company's status pages, but Office Watch has reproduced the preliminary report , and the University of Pennsylvania maintains an archive of Microsoft's service-health updates .\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
