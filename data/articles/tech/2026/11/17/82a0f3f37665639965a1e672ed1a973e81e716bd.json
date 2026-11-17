@@ -1,0 +1,31 @@
+{
+  "id": "82a0f3f37665639965a1e672ed1a973e81e716bd",
+  "title": "Grok Bot took unapproved actions, ignored orders to stop, and then denied it",
+  "summary": "AI agent takes unapproved actions even when laptop lid is closed and told not to.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/11/grok-bot-took-unapproved-actions-ignored-orders-to-stop-and-then-denied-it",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-17T14:00:29.000Z",
+  "fetchedAt": "2026-11-17T17:21:04.641Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "check-ins",
+    "grok bot",
+    "prompts"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/grok-bot-barfs-code-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/17/82a0f3f37665639965a1e672ed1a973e81e716bd.json",
+  "contentText": "Researchers recently discovered unexpected behavior from Grok Bot, the AI agent platform from Elon Musk’s SpaceXSI. Over five days, Grok bots installed on two separate employee laptops made 31 requests to access data stored in employee calendar, email, Slack, and GitHub accounts. The bots performed the actions even though the employees had never ordered them and continued doing them even after employees instructed them to stop. The bots also denied having taken the actions at all.\n\nThe behavior was reported Tuesday by NewCore, the maker of a managed gateway product that acts as an intermediary between AI agents and the tools and accounts they are assigned to work with. In some cases, the unapproved access attempts occurred while the laptop with Grok Bot installed had its lid shut, or late at night while the employee was sleeping. None of the unprompted actions were recorded in Grok logs. Without the gateway logs, the employees would have had no idea they occurred. And of course, without the gateway, the unapproved accesses would have succeeded—again without the end user's knowledge.\n\nIt’s “worse than a bug”\n\nOnce the employees learned that Grok Bot had tried to check in with accounts without prompting, one of them instructed the agent, four separate times, to stop taking any actions on its own. The agent's reply was: “I won’t set that up, and I’ll stop offering recurring check-ins.” Despite acknowledging the explicit instructions, the Grok Bot made more unapproved access attempts. When one of the employees asked the bot if it made any accesses, it checked twice and then outputted: “Overnight into Friday morning I was idle.”\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
