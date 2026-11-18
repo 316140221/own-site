@@ -1,0 +1,31 @@
+{
+  "id": "e76baf1a121aac1ff3d8b1494155f2f2f03e54d1",
+  "title": "Hundreds of websites deliver potent malware cocktail to unsuspecting visitors",
+  "summary": "Malware cocktail delivers cryptocurrency theft payloads and iOS exploits, among other things.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/11/malicious-code-delivered-through-optimizely-hits-visitors-to-hundreds-of-sites",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-17T22:32:16.000Z",
+  "fetchedAt": "2026-11-18T00:28:44.119Z",
+  "category": "tech",
+  "tags": [
+    "Apple",
+    "Biz & IT",
+    "Security",
+    "content delivery networks",
+    "JavaScript",
+    "malware"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/malicious-website-1152x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/17/e76baf1a121aac1ff3d8b1494155f2f2f03e54d1.json",
+  "contentText": "Optimizely infrastructure delivers multipurpose malware\n\nOptimizely serves JavaScript “snippets” that include both company code and code that is provided by each customer. The JavaScript, which can be served directly from Optimizely or from a customer endpoint, runs on every page the customer serves. Somehow, the attackers wrote their own code into a portion of each affected customer’s JavaScript and then delivered it from cdn.optimizely.com. A valid certificate for that domain signed the JavaScript.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
