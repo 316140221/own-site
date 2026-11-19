@@ -1,0 +1,29 @@
+{
+  "id": "cdf026b73ca8cb6485543174a2f3ad1ecfb7102a",
+  "title": "LLMs will provide accurate climate info, except when they won’t",
+  "summary": "Some models fare better, but all fail in similar ways.",
+  "canonicalUrl": "https://arstechnica.com/science/2026/11/llms-will-provide-accurate-climate-info-except-when-they-wont",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-19T18:44:39.000Z",
+  "fetchedAt": "2026-11-19T18:50:37.301Z",
+  "category": "tech",
+  "tags": [
+    "Science",
+    "climate change",
+    "large language models",
+    "misinformation"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/GettyImages-465648135-1024x648.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/19/cdf026b73ca8cb6485543174a2f3ad1ecfb7102a.json",
+  "contentText": "Many studies over the years have examined how people encounter climate science information. Some focused on the top results that Google surfaced (back when Google was still in the business of serving links), while others examined social media content or newspaper and TV news coverage. With large language models (LLMs) now forming a share of the public information diet, it's worth looking at how they handle climate change.\n\nBut there’s no direct way for researchers to look at the information people have seen. It is served ephemerally to individual users, confined to their chat session. A study led by researchers from University College London and the United Nations Educational, Scientific, and Cultural Organization (UNESCO) tried to tackle this question from multiple angles, testing LLMs with different prompts and evaluating their output. They started with benchmarks of simple factual questions (benchmarks that might even be in models’ training data at this point) but also analyzed more complex interactions—including when users think they’re right to push back on an answer.\n\nCO 2 Q&A\n\nLLM research often faces ( no-true-Scotsman-tinged ) criticism for focusing on a particular model rather than some other frontier model that may have been released after the experiment concluded. In this case, the study used 33 models, including multiple versions of the major frontier and open-weight models. The flagship frontier models used were Claude Fable 5, Claude Opus 5, Gemini 3.1 Pro Preview, Gemini 3.6 Flash, and GPT-5.6 Sol. (You can find the full list in the report .)\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
