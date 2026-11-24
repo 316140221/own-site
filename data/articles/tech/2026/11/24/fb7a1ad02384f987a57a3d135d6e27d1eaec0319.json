@@ -1,0 +1,31 @@
+{
+  "id": "fb7a1ad02384f987a57a3d135d6e27d1eaec0319",
+  "title": "Amazon says hackers' AI agents found and exploited 0-day with little human input",
+  "summary": "The Cairn AI framework is proving to be a boon for defenders and attackers.",
+  "canonicalUrl": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-24T12:30:05.000Z",
+  "fetchedAt": "2026-11-24T22:04:34.915Z",
+  "category": "tech",
+  "tags": [
+    "AI",
+    "Biz & IT",
+    "Security",
+    "agents",
+    "hacking",
+    "zerodays"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/cairn-banner.jpg",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/24/fb7a1ad02384f987a57a3d135d6e27d1eaec0319.json",
+  "contentText": "Amazon said AI agents recently found and exploited a zero-day vulnerability with no human oversight beyond a simple instruction to get root access on an East Asian university server.\n\nThe agents were running on Cairn, an open source AI penetration-testing framework. The hackers, who provided prompts in simplified Chinese and configured the model to the Chinese Standard Time zone, gave the agents a list of IP addresses and the goal: “obtain shell access.” In short order, the agents discovered a zero-day in an open source medical imaging AI application running on one of the target servers. The agents then exploited the vulnerability and gained full control of the system.\n\n“These findings show that agentic offensive operations are already happening, and defenders should prepare for the speed and persistence these tools enable,” Amazon said .\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
