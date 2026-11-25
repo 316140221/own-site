@@ -1,0 +1,29 @@
+{
+  "id": "d0d15a6780baf7c79f8bcac50b8ea6b010c9cd41",
+  "title": "Ladybird browser's first downloadable alpha is surprisingly capable",
+  "summary": "An independent browser engine arrives on Linux and macOS, and we've tried it.",
+  "canonicalUrl": "https://arstechnica.com/gadgets/2026/11/ladybirds-new-alpha-shows-theres-life-beyond-chromium",
+  "source": {
+    "id": "arstechnica",
+    "name": "Ars Technica",
+    "url": "https://arstechnica.com/",
+    "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-25T17:33:30.000Z",
+  "fetchedAt": "2026-11-25T18:24:07.880Z",
+  "category": "tech",
+  "tags": [
+    "Tech",
+    "Browser Alpha",
+    "Independent Browser Engine",
+    "Ladybird"
+  ],
+  "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/Ladybird_Browser_Rendering_Ladybird_Page_wide-1152x648-1795619607.png",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/25/d0d15a6780baf7c79f8bcac50b8ea6b010c9cd41.json",
+  "contentText": "After four years of work to build a browser engine from scratch, the Ladybird project released its first downloadable alpha on November 23, offering prebuilt versions for macOS and Linux. Previously, curious users had to compile the browser themselves from its source. Now it's an installable package with automatic updating.\n\nLadybird is most notable for what it isn't: another browser fork. Where Chrome, Edge, Brave, and Opera all run on Google's Blink engine, and Firefox depends on Gecko, Ladybird's rendering engine and its LibJS JavaScript engine were written from scratch. \"The engine is our own, built from the ground up, and not a fork,\" project lead Andreas Kling wrote in Monday's announcement. \"The browser around it is modest, but functional.\"\n\nA fourth engine\n\nNearly the entire modern web currently runs on three browser engines. There's WebKit (Safari), Gecko (Firefox), and the biggest of them all, Blink (Chromium). Those limited options mean that web developers often end up optimizing sites for Chromium specifically, since that's where the majority of traffic is, and as a result, the whole web platform tends to follow suit toward whatever the dominant engine supports.\n\nRead full article\n\nComments",
+  "contentSource": "content:encoded"
+}
