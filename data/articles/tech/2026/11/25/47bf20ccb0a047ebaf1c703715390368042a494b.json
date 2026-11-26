@@ -1,0 +1,24 @@
+{
+  "id": "47bf20ccb0a047ebaf1c703715390368042a494b",
+  "title": "1Password breach leaked customer names and emails, but not passwords",
+  "summary": "1Password says a hacker stole customer names and email addresses after gaining access to its backend systems. The breach didn't expose passwords or other information stored in customer vaults, but could put users at risk of phishing attempts, according to a post disclosing the incident. It's unclear how many users are affected. The password manager began in…",
+  "canonicalUrl": "https://theverge.com/tech/1042409/1password-data-breach-leak",
+  "source": {
+    "id": "theverge",
+    "name": "The Verge",
+    "url": "https://www.theverge.com/",
+    "feedUrl": "https://www.theverge.com/rss/index.xml",
+    "country": "US",
+    "language": "en",
+    "weight": null
+  },
+  "publishedAt": "2026-11-25T19:10:15.000Z",
+  "fetchedAt": "2026-11-26T02:37:48.438Z",
+  "category": "tech",
+  "tags": [],
+  "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/03/STKB339_1PASSWORD.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+  "language": "en",
+  "storagePath": "data/articles/tech/2026/11/25/47bf20ccb0a047ebaf1c703715390368042a494b.json",
+  "contentText": "1Password says a hacker stole customer names and email addresses after gaining access to its backend systems. The breach didn't expose passwords or other information stored in customer vaults, but could put users at risk of phishing attempts, according to a post disclosing the incident . It's unclear how many users are affected.\n\nThe password manager began investigating the incident on November 19th, after an attacker gained access to an employee's corporate GitHub account. Using the compromised account, the hacker accessed 1Password's source code and pushed malicious code to backend services to download customer data. Along with customer nam …\n\nRead the full story at The Verge.",
+  "contentSource": "content"
+}
